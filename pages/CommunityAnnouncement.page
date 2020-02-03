@@ -1,0 +1,67 @@
+<apex:page controller="CommunityAnnouncementCls" sidebar="false" language="{!$CurrentPage.parameters.lang}">
+    
+     <head>
+        <style>
+            .hideClass{
+                display:none !important;
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script>
+            function theFunction(Name,Link){
+                console.log(Name);
+                console.log(Link);
+                if(Link== null|| Link==''){
+                    $(Name).hide();
+                    //setTimeout(function(){ 
+                    //console.log("CameHere");
+                    //$(Name).hide(); }, 5000);
+                }
+            }
+        </script>
+    </head>
+    
+    <div style="width: 941px; margin: 20px auto 0;">
+        <apex:pageBlock >
+            <apex:facet name="header">
+                <apex:panelGrid columns="2">
+                    <div class="pbTitle" style="padding-left:5px;padding-top:5px;">
+                        <img src="{!$Resource.announcementBanner}" class="relatedListIcon" style="width:45px;display:block;margin-left:0;" />
+                        <h3 class="mainTitle" style="margin-top:8px">{!$Label.Announcements}</h3>
+                    </div> 
+                </apex:panelGrid>
+            </apex:facet>
+            <apex:pageBlockTable value="{!lstAnn}" var="instAnn" >
+                <apex:column >
+                    <apex:facet name="header"><b>{!$Label.Announcement}</b></apex:facet>
+                    <apex:variable var="rowNum" value="{!instAnn.Name}"/>
+                    <!--<apex:outputText value="{!instAnn.Data__c}"></apex:outputText>-->
+                    <a data-toggle="modal" data-target="#{!rowNum}" style="cursor:pointer" onclick="theFunction('#{!rowNum}theIframe','{!instAnn.Video_Link__c}');" value="{!instAnn.Data__c}">{!instAnn.Data__c}</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="{!rowNum}" role="dialog">
+                        <div class="modal-dialog">
+                        
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">{!instAnn.Popup_Title__c}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p><apex:outputText escape="false" value="{!instAnn.Data_Description__c}" ></apex:outputText></p><br/>
+                                    <iframe rendered="{!if(instAnn.Video_Link__c != '' && instAnn.Video_Link__c != null,true,false)}" height="315px" id="{!rowNum}theIframe" name="theIframe" src="{!instAnn.Video_Link__c}" width="570px"></iframe>
+                                    <!--<iframe width="570" height="315" src="{!instAnn.Video_Link__c}"></iframe>-->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">{!$Label.Close}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </div>
+</apex:page>

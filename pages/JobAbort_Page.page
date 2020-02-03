@@ -1,0 +1,31 @@
+<apex:page id="mainPage" controller="JobAbortController" lightningStylesheets="false" sidebar="false" title="Abort Job">
+    <apex:form id="formId">
+        <apex:pageBlock id="pageBlock" tabStyle="User" title="System Job Abort">
+            <apex:outputPanel id="pageMessage" layout="none" >                            
+                <apex:pageMessages />
+            </apex:outputPanel>
+            <apex:pageBlockSection title="Scheduled Jobs : ">
+                <apex:inputText label="Enter Job Id" id="jobId" value="{!scheduledJobId}" maxlength="18" />
+                <apex:CommandButton value="Fetch Details" action="{!getJobDetail}" rerender="pageMessage,jobDetail">                   
+                </apex:CommandButton>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="jobDetail" title="Job Details" >
+                <apex:pageBlockTable value="{!cronTriggerList}" var="jobObj" width="100%" rendered="{!showCron}">
+                    <apex:column headerValue="Job Name" value="{!jobObj.CronJobDetail.Name}"/>
+                    <apex:column headerValue="Job Id" value="{!jobObj.Id}" />
+                    <apex:column headerValue="PreviousFire Time" value="{!jobObj.PreviousFireTime}"/>
+                    <apex:column headerValue="NextFire Time" value="{!jobObj.NextFireTime}"/>
+                    <apex:column headerValue="Owner Name" value="{!jobObj.OwnerId}"/>
+                    <apex:column headerValue="State" value="{!jobObj.State}"/>
+                    <apex:column headerValue="End Time" value="{!jobObj.EndTime}"/>
+                </apex:pageBlockTable>
+                <apex:pageBlockTable value="{!asyncApexJobList}" var="jobObj" width="100%" rendered="{!showAsync}">
+                    <apex:column headerValue="Job Name" value="{!jobObj.ApexClass.Name}"/>
+                    <apex:column headerValue="Job Id" value="{!jobObj.Id}" />
+                    <apex:column headerValue="Job Status" value="{!jobObj.Status}"/>
+                </apex:pageBlockTable>
+                <apex:CommandButton value="Abort" action="{!abortJob}" rerender="pageMessage,jobDetail"/>
+            </apex:pageBlockSection>            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

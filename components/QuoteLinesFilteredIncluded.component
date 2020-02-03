@@ -1,0 +1,153 @@
+<apex:component controller="QuoteLinesFilteredController" access="global">
+    <apex:attribute name="quoteId" description="Id of the quote" type="Id" assignTo="{!objId}" />
+    <!-- {!quoteLines} -->
+    <apex:dataTable rendered="{!IF(str_CurrencyIsoCode=='USD',true,false)}" value="{!quoteLineList}" var="quoteLine" styleClass="tableClass" border="1">
+        <apex:column width="25%">
+            <apex:facet name="header">Product Name</apex:facet>
+            <apex:outputText value="{!quoteLine.productName}"/>
+        </apex:column>
+        
+        <apex:column width="8%">
+            <apex:facet name="header">Quantity</apex:facet>
+            <apex:outputText value="{!quoteLine.quantity}"/>
+        </apex:column>
+        
+        <apex:column width="16%" style="text-align:right;">
+            <apex:facet name="header">Regular Price</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.listPrice}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column width="16%" style="text-align:right;">
+            <apex:facet name="header">Overage Rate</apex:facet>
+           <div style="display:{!If(quoteLine.overAgeFee == null,'None','Block')}"> {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.overAgeFee}" />
+            </apex:outputText>
+          </div>
+        <div style="display:{!If(quoteLine.overAgeFee == null,'Block','None')}"> 
+          N/A
+          </div>
+
+        </apex:column>
+        
+        <apex:column width="8%" style="text-align:right;">
+            <apex:facet name="header">Discount</apex:facet>
+            <apex:outputText value="{0, number, #,##0.00}">
+                <apex:param value="{!IF(quoteLine.discountType == '%', quoteLine.discountRate , quoteLine.discountAmount)}"/>
+            </apex:outputText>    
+        </apex:column>
+        
+        <apex:column width="5%" style="text-align:right;">
+            <apex:facet name="header">Type</apex:facet>
+            <apex:outputText value="{!quoteLine.discountType}"/>
+        </apex:column>
+        
+        <apex:column width="8%" style="text-align:right;">
+            <apex:facet name="header">Net Unit Price</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.netPrice }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column width="10%" style="text-align:right;">
+            <apex:facet name="header">Net Total</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.netTotal }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column width="20%">
+            <apex:facet name="header">Notes</apex:facet>
+            <apex:outputText value="{!quoteLine.quoteLineNotes}"/>
+        </apex:column>
+    </apex:dataTable>
+    <!-- {!quoteLines} IF(quoteLine.CurrencyIsoCode=='USD'-->
+    <apex:dataTable rendered="{!IF(str_CurrencyIsoCode=='USD',false,true)}" value="{!quoteLineList}" var="quoteLine" styleClass="tableClass" border="1">
+        <apex:column width="25%">
+            <apex:facet name="header">Product Name</apex:facet>
+            <apex:outputText value="{!quoteLine.productName}"/>
+        </apex:column>
+        
+        <apex:column width="8%">
+            <apex:facet name="header">Quantity</apex:facet>
+            <apex:outputText value="{!quoteLine.quantity}"/>
+        </apex:column>
+        
+        <apex:column width="14%" style="text-align:right;">
+            <apex:facet name="header">Regular Price</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.listPrice}" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column width="14%" style="text-align:right;" >
+            <apex:facet name="header">Regular Price (Cvent Converted)</apex:facet>
+            
+            <apex:outputText value="{0, Number, Currency}">
+                <apex:param value="{!quoteLine.listPrice_Cvent_Converted}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column width="16%" style="text-align:right;">
+            <apex:facet name="header">Overage Rate</apex:facet>
+            <div style="display:{!If(quoteLine.overAgeFee == null,'None','Block')}"> {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.overAgeFee}" />
+            </apex:outputText>
+          </div>
+            <div style="display:{!If(quoteLine.overAgeFee == null,'Block','None')}"> 
+          N/A
+          </div>
+
+        </apex:column>
+        
+        <apex:column width="8%" style="text-align:right;">
+            <apex:facet name="header">Discount</apex:facet>
+            <apex:outputText value="{0, number, #,##0.00}">
+                <apex:param value="{!IF(quoteLine.discountType == '%', quoteLine.discountRate , quoteLine.discountAmount)}"/>
+            </apex:outputText>    
+        </apex:column>
+        
+        <apex:column width="5%" style="text-align:right;">
+            <apex:facet name="header">Type</apex:facet>
+            <apex:outputText value="{!quoteLine.discountType}"/>
+        </apex:column>
+        
+        <apex:column width="10%" style="text-align:right;">
+            <apex:facet name="header">Net Unit Price</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.netPrice }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column width="16%" style="text-align:right;" >
+            <apex:facet name="header">Net Unit Price (Cvent Converted)</apex:facet>
+            
+            <apex:outputText value="{0, Number, Currency}">
+                <apex:param value="{!quoteLine.netPrice_Cvent_Converted}" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column width="10%" style="text-align:right;">
+            <apex:facet name="header">Net Total</apex:facet>
+            {!quoteLine.CurrencyIsoCode}&nbsp;
+            <apex:outputText value="{0, number, ###,###,##0.00}">
+                <apex:param value="{!quoteLine.netTotal }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column title="Net Total (Cvent Converted)" width="16%" style="text-align:right;" >
+            <apex:facet name="header">Net Total (Cvent Converted)</apex:facet>
+            
+            <apex:outputText value="{0, Number, Currency}">
+                <apex:param value="{!quoteLine.netTotal_Cvent_Converted}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column width="20%">
+            <apex:facet name="header">Notes</apex:facet>
+            <apex:outputText value="{!quoteLine.quoteLineNotes}"/>
+        </apex:column>
+    </apex:dataTable>
+</apex:component>

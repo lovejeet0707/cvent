@@ -1,0 +1,550 @@
+<apex:component controller="CommunityHomePageCls" rendered="true">
+  <div id="content" style="background-color:#ffffff;width:941px; margin: 0px auto 0;">
+ <html>
+ <head>
+   <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" />
+    <apex:styleSheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
+    <apex:styleSheet value="{!URLFOR($Resource.Bootstrap,'/bootstrap/bootstrap.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap,'/bootstrap/bootstrap.min.js')}" />
+    <apex:styleSheet value="{!URLFOR($Resource.Bootstrap,'/bootstrap/CoveoFullSearch.css')}"/>
+    <apex:styleSheet value="{!URLFOR($Resource.Bootstrap,'/bootstrap/HTCommunityGlobalCSS.css')}" /> 
+<!--<apex:styleSheet value="https://help.salesforce.com/resource/1414200851000/coveosolutions__CoveoJsSearch/css/CoveoFullSearch.css" /> 
+    <apex:styleSheet value="https://help.salesforce.com/resource/1428110411000/HTCommunityGlobalCSS" /> -->
+    
+    <style>
+            .sidebar{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 250px;
+                
+                -webkit-transition: right 0.2s ease-out;
+                -moz-transition: right 0.2s ease-out;
+                transition: right 0.2s ease-out;
+                
+                cursor: pointer;
+                background-color: cornflowerblue;
+            }
+            input#search {
+                background: none repeat scroll 0 0 white;
+                border: medium none;
+                border-radius: 0;
+                height: 46px;
+                padding-right: 39px;
+                width: 500px!important;
+                border: 1px solid black;
+                padding-left: 12px;
+            }
+            input#gsc-search-button {
+                background: url("{!$Resource.MagnifierFinal}") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+                background-size: 40px 40px;
+                border: 0 none !important;
+                cursor: pointer;
+                height: 47px;
+                margin-left: 500px !important;
+                margin-top: -48px;
+                overflow: hidden;
+                position: absolute;
+                text-indent: -9999px;
+                width: 42px;
+            }
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+            .displayNone { 
+                display:none; 
+            }
+            .displayBlock {
+                display:block;
+            }
+            .ui-autocomplete-loading { 
+                background: white url(/img/loading32.gif) right center no-repeat;
+                background-size:15px 15px; 
+            }
+            .placeHolder {
+                font-style: italic;
+            }
+            
+            h1 {
+                color: #fff;
+                text-align: center;
+                font-weight: 300;
+            }
+            
+            #slider {
+                position: relative;
+                overflow: hidden;
+                margin: 20px auto 0 auto;
+                border-radius: 4px;
+            }
+         
+            
+            #slider ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                height: 200px;
+                list-style: none;
+            }
+            
+            #slider ul li {
+                position: relative;
+                display: block;
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: 941px;
+                height: 221px;
+                background: #ccc;
+                text-align: center;
+                line-height: 300px;
+            }
+            
+            a.control_prev{
+                position: absolute;
+                top: 40%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 33px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.PrevExact}") no-repeat !important;
+            }
+            
+            a.control_next {
+                position: absolute;
+                top: 40%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 33px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.NextExact}") no-repeat !important;
+            }
+            
+            a.control_prev:hover,a.control_next:hover {
+                opacity: 1;
+                -webkit-transition: all 0.2s ease;
+            }
+            
+            a.control_prev {
+                //border-radius: 0 2px 2px 0;
+                
+                background-position: left top;
+                margin-left: 20px;
+            }
+            
+            a.control_next {
+                right: 0;
+                //border-radius: 2px 0 0 2px;
+                
+                background-position: right top;
+                margin-right: 20px;
+            }
+            
+            .slider_option {
+                position: relative;
+                margin: 10px auto;
+                width: 160px;
+                font-size: 18px;
+            }
+            .verticalLine {
+                border-left: 1px solid grey;
+                height: 100%;
+                float: left;
+            }
+            a.btn-new {
+                text-decoration: none !important;
+                color: #FFFFFF;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                font-size: 14px;
+                display: inline-block;
+            }
+            
+            .btn-new {
+                text-decoration: none;
+                background: #199cd6;
+                padding: 12px 35px;
+                border-radius: 4px;
+                float: right;
+            }
+
+            a.user-block {
+                margin: 0 11px 22px 11px;
+                width: 64px;
+                height: 64px;
+            }
+            
+            a.user-block .user-name {
+                position: absolute;
+                //top: 58px;
+                //left: 0;
+                font-size: 76.9%;
+                line-height: 100%;
+                padding: 1px;
+                text-align: center;
+                overflow: hidden;
+                width: 56px;
+                background: url(../img/p_ffffff_08.png) repeat center center;
+                //background:color:grey;
+                color: #000;
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+            }
+            .user-ranking {
+                //color: #000;
+                //position : absolute
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+                //background: url(../img/p_ffffff_08.png) repeat center center;
+                //top: 4px;
+                background-color:grey;
+                left: 1px;
+                padding: 1px 6px 1px 2px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                font-size: 92.3%;
+                line-spacing: 100%;
+                font-weight: bold;
+                border: 1px solid #bbb;
+                -moz-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                -webkit-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+            }
+            
+            
+            
+            .facebook_right{
+                width: 245px;
+                height: 60px;
+                position: fixed;
+                right: -245px;
+                top: 139px;
+                z-index: 99997;
+            }
+            .facebook_right #facebook_icon {
+                float: left;
+                height: 153px;
+                width: 35px;
+                left: -34px;
+                background: url("{!$Resource.AnnouncementOrg}") no-repeat;
+                //cursor: pointer;
+                position: relative;
+                z-index: 99998;
+            }
+            .facebook_right .facebook_box {
+                float: right;
+                top: -151px;
+                height: 149px;
+                position: relative;
+                z-index: 99999;
+                overflow: hidden;
+                border-radius: 2px;
+                background-color: #199cd6;
+                border-radius: 2px;
+                padding: 0 40px 0px 15px;
+            }
+            
+            #searchbox_heading {
+  color: #B5E4F6;
+  font-family: arial;
+  font-size: 26px;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+ #htSearchMainWrapper {
+  display: inline-block;
+  width: 100% !important;
+  float:left; 
+  background-color: #199cd6;
+  margin: 10px 0px 20px 0 !important;  
+  border-radius: 10px;
+  }
+  #htSearchWrapper {
+  padding: 5px 20px 0 20px;
+}
+.CoveoSearchBox {
+  overflow: hidden;
+  height: 38px;
+  border-radius: 4px;
+}
+.CoveoSearchButton {
+  background: #cbcbcb;
+  border: 1px solid #cbcbcb;
+}
+.CoveoQueryBox {
+  width: 100%;
+  height: 100%;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  line-height: 28px;
+  padding: 5px;
+  padding-right: 40px;
+  display: block;
+}
+.coveo-icon {
+  background-image: url('../image/sprites.png');
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#htSearch {
+  min-height: 10px !important;
+  
+}
+#searchBox {
+  border-radius: 5px;
+}
+.ht-btn-ml {
+    margin-bottom: 5px;
+    height: 40px;
+}
+.ht-btn-mr {
+    width: 37px !important;
+    }
+    #billboard_container {
+  width: 956px;
+  clear: right;
+  margin: 20px 10px 20px 15px;
+  padding: 0;
+}
+#billboard_container {
+  width: 956px;
+  clear: right;
+  height:300px;
+  margin: 20px 10px 20px 15px;
+  padding: 0;
+  border-color:blue;
+}
+span.gsc-search-button {
+  background: url("/resource/1428392477000/MagnifierFinal") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+  background-size: 24px 24px;
+  border: 0 none !important;
+  cursor: pointer;
+  height: 30px;
+  margin-left: -10px;
+  margin-top: -6px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  width: 30px;
+  opacity: 0.4;
+  }
+  .CoveoQueryBox{border: 1px solid #fff;
+  border-top-color: #fff;}
+  .CoveoSearchButton {
+  background: #fff;
+  border: 1px solid #fff;
+}
+    
+</style>
+ </head>
+  <body>
+<!--<apex:outputPanel layout="block" style="width:80%;margin:0px auto;" styleClass="panel"> -->
+       
+               <div style="width:100%;margin:0 auto">
+                <div style="position:relative;">
+                   <div class="panel-body" id="htSearchMainWrapper">
+                   <div id="searchbox_heading">{!$Label.Howcanwehelp}</div> 
+                   <apex:form >
+                   <div id="htSearchWrapper">
+                        <div id="htSearch">
+                            <div id="searchBox" class="CoveoSearchInterface Coveostate CoveoComponentState CoveoComponentOptions CoveoQueryController CoveoDebug">
+                                <div class="CoveoSearchBox" data-activate-omnibox="true" id="htSearchInput">
+                                    <a id="gsc-search-button" name="sa" class="CoveoSearchButton" href="javascript:" onclick="closeAndRefresh();">
+                                        <span class="gsc-search-button">Search</span></a>
+                                    <div>
+                                    <input id="searchInput" value="{!searchTerm}" type="text" autocapitalize="off" autocorrect="off" class="CoveoQueryBox" form="coveo-dummy-form" placeholder="{!$Label.Searchusingshortphrase}" maxlength="200"/>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        
+                   </div>
+                      <!---  <apex:actionRegion >
+                            <apex:actionFunction name="insertDataNew" reRender="panelOut" action="{!search}">  
+                                <apex:param name="param1" assignTo="{!searchTerm}" value="" /> 
+                            </apex:actionFunction>
+                        </apex:actionRegion>  -->
+                  </apex:form>
+                 </div>
+               <!--  <div style="float:right">
+                   <div style="float:right;margin-top:45px">
+                    <a class="btn-new" href="apex/ContactSupport">Contact Support</a>
+                </div>
+                 </div> -->
+                </div>
+                
+                            
+                  
+                
+                            
+                
+                </div>
+                 
+           
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    
+                    $(".facebook_right").hover(function(){
+                        $(".facebook_right").stop(true, false).animate({right: "0" }, 800, 'easeOutQuint' );
+                    },
+                    function(){
+                        $(".facebook_right").stop(true, false).animate({right: "-245" }, 800, 'easeInQuint' );
+                    },1000);
+                    
+                    
+                    
+                    var div;
+                    
+                    $('#dynamictable').append('<div style=height:87%;> </div> ');
+                    div = $('#dynamictable').children(); 
+                    var counter =0;
+                    
+                    var userAgent = self.navigator.userAgent;
+                    var str = userAgent.search("Chrome");
+                    console.log(userAgent);
+                    console.log(str);
+                    
+                                       
+                    
+                    ////////////////////////////////////////////////////////////////////////
+                    
+
+                    ////////////////////////////////////////////////////////////////////////
+                    $("input").keypress(function(event) {
+                        if (event.which == 13) {
+                            event.preventDefault();
+                            document.getElementById("gsc-search-button").click();
+                            //$("form").submit();
+                        }
+                    });
+
+
+                    $('#checkbox').change(function(){
+                        setInterval(function () {
+                            moveRight();
+                        }, 1000);
+                    });
+                  
+                    var slideCount = $('#slider ul li').length;
+                    var slideWidth = $('#slider ul li').width();
+                    var slideHeight = $('#slider ul li').height();
+                    var sliderUlWidth = slideCount * slideWidth;
+                    
+                    $('#slider').css({ width: slideWidth, height: slideHeight });
+                    
+                    $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+                    
+                    $('#slider ul li:last-child').prependTo('#slider ul');
+                    
+                    var count=0;
+                    $('#slider')
+                    $("#slider").on('mouseenter',function( e ) {
+                        count = 1;
+                    });
+                    
+                    $("#slider").on('mouseleave',function( e ) {
+                        count = 0;
+                    });
+                    
+                    
+                    function moveLeft() {
+                        $('#slider ul').animate({
+                            left: + slideWidth
+                        }, 400, function () {
+                            $('#slider ul li:last-child').prependTo('#slider ul');
+                            $('#slider ul').css('left', '');
+                        });
+                    };
+                    
+                    function moveRight() {
+                        if( count != 1){
+                            $('#slider ul').animate({
+                            left: - slideWidth
+                            }, 400, function () {
+                                $('#slider ul li:first-child').appendTo('#slider ul');
+                                $('#slider ul').css('left', '');
+                            });
+                        }
+                    };
+                    
+                    function moveRightSec() {
+                        $('#slider ul').animate({
+                        left: - slideWidth
+                        }, 400, function () {
+                            $('#slider ul li:first-child').appendTo('#slider ul');
+                            $('#slider ul').css('left', '');
+                        });
+                    };
+                    
+                    var repeater;
+                    function repeatMoveRight() {
+                        moveRight();
+                        repeater = setTimeout(repeatMoveRight, 5000);
+                    }
+                    setTimeout(repeatMoveRight, 5000);
+                    
+                    $('a.control_prev').click(function () {
+                        moveLeft();
+                    });
+                
+                    $('a.control_next').click(function () {
+                        moveRightSec();
+                    });
+                    
+                    console.log('Test');
+                }); 
+                function closeAndRefresh(){
+                    var value =  $("#searchInput").val();
+                    if(value ==''){
+                        alert('Please Enter Some Text To Search');
+                    }else{
+                        var base_url = window.location.origin;
+                        document.location.href=base_url+'/apex/CommunitysearchResultPage?searchFor='+value;
+                        
+                        //insertDataNew(value);
+                    }
+                }
+            </script> 
+          
+<!--</apex:outputPanel> -->
+  </body>
+ </html>
+ </div>
+</apex:component>

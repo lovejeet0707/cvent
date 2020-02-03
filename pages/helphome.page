@@ -1,0 +1,956 @@
+<apex:page sidebar="false" standardStylesheets="false" controller="HelphomeCls" action="{!pageDirect}">
+    
+    <html lang="en">
+        <apex:form >
+            <apex:outputPanel id="theForm">
+            <apex:actionRegion >
+                <apex:actionFunction name="insertDataNew" reRender="#" action="{!search}">  
+                    <apex:param name="param1" assignTo="{!searchTerm}" value="" /> 
+                    <apex:param name="param2" assignTo="{!productSel}" value="" /> 
+                </apex:actionFunction>
+            </apex:actionRegion>
+      <head>
+      <apex:composition template="CventCommunityHeader"></apex:composition>
+      <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cvent Community | Help &amp; Training</title>
+        <meta name="description" content="Find answers to all your Cvent questions in our searchable knowledge base. Explore documentation, tutorials, videos, troubleshooting articles, and more."/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      </head>
+      <style>
+           .announcement {
+                background: #bce4f4;
+                border: 2px solid #35b4e2;
+                padding: 20px 0 20px 12%;
+            }
+            .announcement span.alert-icon {
+                float: left;
+            }
+            .announcement span.cross-icon-btn {
+                position: absolute;
+                right: 25px;
+                top: 27px;
+                cursor: pointer;
+            }
+            #side-sticky .chat-us a {
+                background : #126fb7 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -53px 0 !important;
+            }        
+            #side-sticky .open-case a{
+                background : #173d66 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat 15px 0 !important;
+            }
+            #side-sticky .call-us a {
+                background : #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -123px 0 !important;
+            }
+            #help-training .widget-area p {margin-top: 10px;}
+            #communitysupport {background: #ededed; margin:0 !important; padding-top:20px;}
+
+        .header .search {
+          border: 1px solid #ccc !important;
+          background: #fff;
+          font-size: 1.25em;
+          color: #444;
+          width: 90% !important;
+          box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+          
+          border-radius: 3px 0px 0px 3px !important;
+        }
+        .header .search::placeholder {
+          color: #aaa;
+        }
+        .header .submit {
+          border-radius: 0px 3px 3px 0px !important;
+          padding: 13px 0 13px 0 !important;
+          font-size: 15px !important;
+          box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+        }
+        .left-top img.logo {
+            padding: 0 !important;
+        }
+        @media (min-width: 768px) and (max-width: 1040px) {
+        .left-top div#navigation ul li a {
+        font-size: 15px !important;
+        padding-left: 0.5em !important;
+        padding-right: 0.5em !important;
+        }
+        }
+        </style> 
+        <script>
+            //Function to hide announcement once User closes that
+            function getRemoteAccount() {
+                Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.HelphomeCls.updateAnnouncement}', 
+                function(result, event){
+                if (event.status) {
+                    //alert('Done*******');
+                    //document.getElementById('acctId').innerHTML = result.Id
+                    //document.getElementById('acctName').innerHTML = result.Name;
+                } else if (event.type === 'exception') {
+                    //alert('exception*******');
+                    //document.getElementById("responseErrors").innerHTML = event.message;
+                } else {
+                    //alert('other exception*******');
+                    //document.getElementById("responseErrors").innerHTML = event.message;
+                }
+                }, 
+                {escape: true}
+                );
+            }
+           jQuery(document).ready(function ($) {
+               var announcCheck = '{!announcementCheck}';
+                //alert('announcCheck********'+announcCheck);
+                if(announcCheck == 'true')
+                {
+                    //alert('Inside ');
+                    $("#announcement-box").hide();
+                }
+                $(".cross-btn-img" ).click(function() {
+                    $("#announcement-box").hide();
+                    getRemoteAccount();
+                });
+                });
+            function closeAndRefresh(){
+                var value =  $("#search").val();
+                //alert();
+                //alert(value);
+                var product = '';
+                /*if($("#Abstract_Managements").attr("class").indexOf("highlight") >=0 )
+                product = 'Abstract_Managements';
+                if($("#Appointment").attr("class").indexOf("highlight") >=0 )
+                product = 'Appointment';
+                if($("#CSN_Planner").attr("class").indexOf("highlight") >=0 )
+                product = 'CSN_Planner';
+                if($("#CSN_Supplier").attr("class").indexOf("highlight") >=0 )
+                product = 'CSN_Supplier';
+                if($("#CrowdCompass").attr("class").indexOf("highlight") >=0 )
+                product = 'CrowdCompass';
+                if($("#Event").attr("class").indexOf("highlight") >=0 )
+                product = 'Event';
+                if($("#Survey").attr("class").indexOf("highlight") >=0 )
+                product = 'Survey';
+                if($("#CrowdTorch_Ticketing").attr("class").indexOf("highlight") >=0 )
+                product = 'CrowdTorch_Ticketing';*/
+                //if($("#Meetings_Management").attr("class").indexOf("highlight") >=0 )
+                //product = 'Meetings_Management';
+                /*if($("#OnArrival").attr("class").indexOf("highlight") >=0 )
+                product = 'OnArrival';*/
+                //if($("#SocialWall").attr("class").indexOf("highlight") >=0 )
+                //product = 'SocialWall';
+                //if($("#eMarketing").attr("class").indexOf("highlight") >=0 )
+                //product = 'eMarketing';
+                
+                if(value ==''){
+                    //alert('Please Enter Some Text To Search');
+                }else{
+                    //var url = 'https://data-cventhelp.cs78.force.com/';//location.href;
+                    if(product == null || product =='' || product=='undefined')
+                    product = '';
+                    var url = '/apex/CommunitysearchResultPage?searchFor='+value+'&productSel='+product;
+                    window.location.href = url ;
+                    return false;
+
+                }
+            }
+        </script>
+      <body id="help" class="inner">
+        <!-- Top Banner & Navigation -->
+        <header>
+
+            <section class="header section--search pad-topbot-twentyfive">
+                <div class="container">
+                    <div class="row col-md-12 reposition">
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-12">
+                        <form id="search-form">
+                            <input type="text" class="search" placeholder="Search the Cvent Community" required="true" id="search" value="{!searchTerm}" />
+                            <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                        </form>
+                        </div>
+                    </div>
+                                            
+                </div>
+            </section>
+        </header>
+        <style>
+                        
+                        .prod-filter.highlight {color: #173d66 !important; background: #ffffff !important;}
+        </style>
+        <main>
+            <section id="communitysupport">
+                <div class="container">    
+                    <div class="row col-md-8 col-md-offset-2" id="announcement-box">
+                        <div class="announcement">
+                            <span class="alert-icon"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/announcement-icon.png')}" alt=""/></span><p><a style="cursor:pointer" href="/apex/CommunityAnnouncement"><strong>Announcement</strong>&nbsp;&nbsp;{!primeString}</a></p><span class="cross-icon-btn"><img class="cross-btn-img" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/cross-button.png')}" /></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <apex:outputPanel rendered="{!!isSiteUser}">
+                <section id="side-sticky-bar">
+                    <div class="side-sticky-bar">
+                        <div class="open-case-bar"><!--/500/e?retURL=%2F500%3Ffcf%3D00B000000097v9y-->
+                            <a href="/apex/FindHelp" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-open-case.png')}" /></a>
+                        </div>
+                        <div class="chat-us-bar">
+                            <script type='text/javascript' src='https://c.la1-c1-ord.salesforceliveagent.com/content/g/js/42.0/deployment.js'></script>
+                            <script type='text/javascript'>
+                            liveagent.init('https://d.la1-c1-ord.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+                            </script>
+                            <img id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChat('573000000008OVF')" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-chat-with-us-enable.png')}"/>
+                            <img id="liveagent_button_offline_573000000008OVF" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-chat-with-us-disabled.png')}"/>
+                            <script type="text/javascript">
+                            if (!window._laq) { window._laq = []; }
+                            window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+                            liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+                            });
+                            </script>
+                        </div>
+                        <!--<div class="call-us-bar">
+                            <a href="{!callUsURL}" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-call-us.png')}" /></a>
+                        </div>-->
+                        <div class="call-us-bar">
+                            <a name="request-a-call" data-target="#myModal" data-toggle="modal" onclick="reload();">
+                                <img src="/resource/1539784401000/CommunityAssets2/assets/images/side-nav-request-a-call.png"/>
+                            </a>
+                        </div> 
+                        <!-- Give FeedBack-->
+                        <div class="call-us-bar">
+                            <a name="give-feedback" onclick="openFeedback();">
+                              <img src="/resource/1539784401000/CommunityAssets2/assets/images/side-nav-give-feedback-v2.png"/>
+                            </a>
+                        </div>               
+                        <!-- Ends Here-->  
+                    </div>
+                </section>
+                
+                      <div>
+    <style>
+    .form-group select[size] {
+        height: 34px !important;
+    }        
+</style>
+ 
+        <!----MODAL BODY STARTS--->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="reload()" id="myReset">&times;</button>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3 class="modal-title text-center">Request a Call</h3>
+                            </div>
+                        </div>
+
+                        {!$Label.Community_Call_Us_Back}&nbsp;<a href="{!callUsURL}" target="_blank">Look up our toll-free numbers.</a>
+
+
+                    </div>
+
+               
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class='form-group'>
+                
+                                    <div class="required"></div>  
+                                    <apex:outputlabel value="Phone Number:"></apex:outputlabel>
+                                    <apex:inputText value="{!phoneNumber}" html-placeholder="Do not enter your country code, we will do that for you…" styleClass="form-control phnNum" maxlength="14" id="phnumber" onkeypress="restrictToMobileNumber(event,this)" />
+                                    <span class="errorMessagePhn" style="color: red;" id="phoneSpan"></span>
+                                </div>
+                                <div class='form-group'>
+                                
+                                    <div class="required"></div><apex:outputlabel value="Country:"></apex:outputlabel> 
+                                    <apex:selectList size="1" value="{!selectedname}" styleClass="form-control countryCode" id="country"> 
+                                    <apex:selectOptions value="{!CountryCode}" />  
+                                    </apex:selectList>
+                                    <span class="errorMessageCountry hide" style="color: red;" id="countrySpan"></span>
+                                </div>
+                                <div class='form-group'>
+
+                                    <div class="required"></div> <apex:outputlabel value="Language:"></apex:outputlabel>
+                                    <apex:selectList size="1" value="{!selectedLanguage}" styleClass="form-control language" id="language" required="true"> 
+                                        <apex:selectOption itemValue="English" itemLabel="English"/>
+                                        <apex:selectOption itemValue="German" itemLabel="German"/>  
+                                    </apex:selectList>   
+                                </div>
+                            </div>                               
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer text-center">
+                        <div class="row">
+                            <div class="col-xs-12 text-left">
+                                <Apex:commandButton onclick="if(checkValidation()){return true;}else{return false;}"  value="Submit" styleClass="form-control, zen-btn zen-highlightBtn btn-success btn btn-primary btn-lg"/>
+                                <apex:actionFunction name="saveForm"  reRender="theForm" action="{!requestCall}"></apex:actionFunction>
+                               
+                            </div>
+                        </div>
+                        
+                   </div>
+                 
+                </div>                
+           </div>
+         </div>  
+                                 
+    </div>
+ 
+<!----MODAL BODY STARTS--->  
+                </apex:outputPanel>
+                <style>
+                #help-training .widget-area ul li a { color: #126fb7; text-decoration: none; }
+                #help-training .widget-area ul li a:hover { color: #126fb7; text-decoration: underline; }
+                </style>
+            <section id="help-training">
+                <div class="container">
+                    <div class="row widget-area">
+                        <div class="col-md-4 col-sm-4" id="whatsnew">
+                            <div class="whatsnew">
+                            
+                                <h3>What&#39;s New?</h3>
+                                <p>Catch up on updates that have been made since you last used Cvent</p>
+                                <ul>
+                                    <apex:repeat value="{!lstWhatsNew}" var="instOfWN">
+                                        <li><a href="{!instOfWN.Link__c}">{!instOfWN.Link_Label__c}</a></li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4" id="starter">
+                            <div class="started">
+                                <h3>Getting Started</h3>
+                                <p>If you&#39;re new to Cvent, start with these articles.</p>
+                                <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000037291">Event Management</a></li>
+                                    <!--<li><a href="#">Venue Sourcing</a></li>-->
+                                    <li><a href="/apex/CommunityArticle?id=000037464">Group Business</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000004313">CrowdCompass</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000037467">Inquisium</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4" id="glossary">
+                            <div class="glossary">
+                                <h3>Glossary</h3>
+                                <p>Not sure what to search? Learn terms used thoughout Cvent and the industry.</p>
+                                <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000017309">Event</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000036466">Hospitality</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000037284">eMarketing</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000036470">Mobile Apps</a></li>
+                                    <li><a href="/apex/CommunityArticle?id=000034274">Surveys</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+         <style>
+         #popular-articles .popular-article ul li { margin: 14px 0; }
+         #popular-articles .popular-article ul li a { color: #777; font-size: 16px; line-height: 1.4em; border-bottom: 1px solid #ddd; }
+#popular-articles .popular-article ul li a:hover { text-decoration: none; border-bottom: 1px solid #ccc; color: #333; }
+.popular-article .help-footer-link { margin-top: 10px; margin-bottom: 10px; }
+.popular-article .help-footer-link{  min-height: 285px !important;}
+         </style>   
+            <section id="popular-articles">
+                <div class="container">
+                    <div class="row popular-article">
+                        <h3>Popular Articles</h3>
+                        <div style="clear:both; margin-top:10px;"></div>
+                        <apex:repeat value="{!productName}" var="cventProdVal">
+                            <div class="col-md-3 col-sm-3  help-footer-link">
+                                <ul>
+                                    <li style="height:48px;"><!-- class="product-logo"-->
+                                        <apex:outputText escape="false" value="{!cventProdVal}" style="font-weight: bold;font-size: 18px; line-height: 1.3em;"/><!-- -->
+                                    </li>
+                                    <apex:repeat value="{!CProdVsArticleMap[cventProdVal]}" var="popularArticleVal">
+                                        <li>
+                                            <a href="{!popularArticleVal.Article_URL__c}"> {!popularArticleVal.Name}</a>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                        </apex:repeat>
+                    </div>
+                </div>
+            </section>
+           
+        </main>
+         
+        </body></apex:outputPanel> 
+        <!-- Community Footer code added here-->
+    <apex:composition template="CventCommunityFooter"></apex:composition>
+        </apex:form>
+    </html>
+    
+<!--
+<div id="content" style="background-color:#ffffff;width: 970px; margin: 0px auto 0;">
+ <html>
+ <head>
+    <style>
+            .sidebar{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 250px;
+                
+                -webkit-transition: right 0.2s ease-out;
+                -moz-transition: right 0.2s ease-out;
+                transition: right 0.2s ease-out;
+                
+                cursor: pointer;
+                background-color: cornflowerblue;
+            }
+            input#search {
+                background: none repeat scroll 0 0 white;
+                border: medium none;
+                border-radius: 0;
+                height: 46px;
+                padding-right: 39px;
+                width: 500px!important;
+                border: 1px solid black;
+                padding-left: 12px;
+            }
+            input#searchInput{color:#a9a9a9 !important}
+            input#gsc-search-button {
+                background: url("{!$Resource.MagnifierFinal}") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+                background-size: 40px 40px;
+                border: 0 none !important;
+                cursor: pointer;
+                height: 47px;
+                margin-left: 500px !important;
+                margin-top: -48px;
+                overflow: hidden;
+                position: absolute;
+                text-indent: -9999px;
+                width: 42px;
+            }
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+            .displayNone { 
+                display:none; 
+            }
+            .displayBlock {
+                display:block;
+            }
+            .ui-autocomplete-loading { 
+                background: white url(/img/loading32.gif) right center no-repeat;
+                background-size:15px 15px; 
+            }
+            .placeHolder {
+                font-style: italic;
+            }
+            
+            h1 {
+                color: #fff;
+                text-align: center;
+                font-weight: 300;
+            }
+            
+            #slider {
+                position: relative;
+                overflow: hidden;
+                margin: 20px auto 0 auto;
+                border-radius: 4px;
+            }
+         
+            
+            #slider ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                height: 200px;
+                list-style: none;
+            }
+            
+            #slider ul li {
+                position: relative;
+                display: block;
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: 941px;
+                height: 221px;
+                background: #ccc;
+                text-align: center;
+                line-height: 300px;
+            }
+            
+            a.control_prev{
+                position: absolute;
+                top: 40%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 33px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.PrevExact}") no-repeat !important;
+            }
+            
+            a.control_next {
+                position: absolute;
+                top: 40%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 33px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.NextExact}") no-repeat !important;
+            }
+            
+            a.control_prev:hover,a.control_next:hover {
+                opacity: 1;
+                -webkit-transition: all 0.2s ease;
+            }
+            
+            a.control_prev {
+                //border-radius: 0 2px 2px 0;
+                
+                background-position: left top;
+                margin-left: 20px;
+            }
+            
+            a.control_next {
+                right: 0;
+                //border-radius: 2px 0 0 2px;
+                
+                background-position: right top;
+                margin-right: 20px;
+            }
+            
+            .slider_option {
+                position: relative;
+                margin: 10px auto;
+                width: 160px;
+                font-size: 18px;
+            }
+            .verticalLine {
+                border-left: 1px solid grey;
+                height: 100%;
+                float: left;
+            }
+            a.btn-new {
+                text-decoration: none !important;
+                color: #FFFFFF;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                font-size: 14px;
+                display: inline-block;
+            }
+            
+            .btn-new {
+                text-decoration: none;
+                background: #199cd6;
+                padding: 12px 35px;
+                border-radius: 4px;
+                float: right;
+            }
+
+            a.user-block {
+                margin: 0 11px 22px 11px;
+                width: 64px;
+                height: 64px;
+            }
+            
+            a.user-block .user-name {
+                position: absolute;
+                //top: 58px;
+                //left: 0;
+                font-size: 76.9%;
+                line-height: 100%;
+                padding: 1px;
+                text-align: center;
+                overflow: hidden;
+                width: 56px;
+                background: url(../img/p_ffffff_08.png) repeat center center;
+                //background:color:grey;
+                color: #000;
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+            }
+            .user-ranking {
+                //color: #000;
+                //position : absolute
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+                //background: url(../img/p_ffffff_08.png) repeat center center;
+                //top: 4px;
+                background-color:grey;
+                left: 1px;
+                padding: 1px 6px 1px 2px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                font-size: 92.3%;
+                line-spacing: 100%;
+                font-weight: bold;
+                border: 1px solid #bbb;
+                -moz-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                -webkit-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+            }
+            
+            
+            
+            .facebook_right{
+                width: 245px;
+                height: 60px;
+                position: fixed;
+                right: -245px;
+                top: 139px;
+                z-index: 99997;
+            }
+            .facebook_right #facebook_icon {
+                float: left;
+                height: 153px;
+                width: 35px;
+                left: -34px;
+                background: url("{!$Resource.AnnouncementOrg}") no-repeat;
+                //cursor: pointer;
+                position: relative;
+                z-index: 99998;
+            }
+            .facebook_right .facebook_box {
+                float: right;
+                top: -151px;
+                height: 149px;
+                position: relative;
+                z-index: 99999;
+                overflow: hidden;
+                border-radius: 2px;
+                background-color: #199cd6;
+                border-radius: 2px;
+                padding: 0 40px 0px 15px;
+            }
+            
+            #searchbox_heading {
+  color: #B5E4F6;
+  font-family: arial;
+  font-size: 26px;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+ #htSearchMainWrapper {
+  display: inline-block;
+  width: 665px;
+  float:left; 
+  background-color: #199cd6;
+  margin: 10px 65px 20px 0;  
+  border-radius: 10px;
+  }
+  #htSearchWrapper {
+  padding: 5px 20px 0 20px;
+}
+.CoveoSearchBox {
+  overflow: hidden;
+  height: 38px;
+  border-radius: 4px;
+}
+.CoveoSearchButton {
+  background: #cbcbcb;
+  border: 1px solid #cbcbcb;
+}
+.CoveoQueryBox {
+  width: 100%;
+  height: 100%;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  line-height: 28px;
+  padding: 5px;
+  padding-right: 40px;
+  display: block;
+}
+.coveo-icon {
+  background-image: url('../image/sprites.png');
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#htSearch {
+  min-height: 10px !important;
+  
+}
+#searchBox {
+  border-radius: 5px;
+}
+.ht-btn-ml {
+    margin-bottom: 5px;
+    height: 40px;
+}
+.ht-btn-mr {
+    width: 37px !important;
+    }
+    #billboard_container {
+  width: 956px;
+  clear: right;
+  margin: 20px 10px 20px 15px;
+  padding: 0;
+}
+#billboard_container {
+  width: 956px;
+  clear: right;
+  height:300px;
+  margin: 20px 10px 20px 15px;
+  padding: 0;
+  border-color:blue;
+}
+span.gsc-search-button {
+  background: url("/resource/1428392477000/MagnifierFinal") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+  background-size: 24px 24px;
+  border: 0 none !important;
+  cursor: pointer;
+  height: 30px;
+  margin-left: -10px;
+  margin-top: -6px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  width: 30px;
+  opacity: 0.4;
+  }
+  .CoveoQueryBox{border: 1px solid #fff;
+  border-top-color: #fff;}
+  .CoveoSearchButton {
+  background: #fff;
+  border: 1px solid #fff;
+}
+#content{width:941px !important}
+table.tftable ul li{padding:5px 0;margin: 0 15px;}
+table.tftable ul li a{line-height:165%}
+ .tftable {font-size:12px;color:#333333;width:100%;border-width: 0px;border-color: #a9a9a9;border-collapse: collapse;}
+.event,.csn,.survey,.ct {font-size:12px;background-color:#ffffff;border-width: 0px;padding: 10px 0 0 45px;border-style: solid;border-color: #a9a9a9;text-align:left;font-size:16px;height:33px}
+ .tftable tr {background-color:#ffffff;}
+ .tftable td {font-size:12px;border-width: 0px;padding: 8px;border-style: solid;border-color: #a9a9a9;;width:200px}
+.col-md-10{width:100% !important} 
+.tftable .event{background:url('/resource/1430996146000/CommunityAssets/CommunityAssets/images/Event.jpg') no-repeat 0px 0;padding-bottom:30px}
+.tftable .csn{background:url('/resource/1430996146000/CommunityAssets/CommunityAssets/images/Supplier.jpg') no-repeat 0px 0;padding-bottom:30px}
+.tftable .survey{background:url('/resource/1430996146000/CommunityAssets/CommunityAssets/images/inquisium-icon.jpg') no-repeat 0px 0;padding-bottom:30px}
+.tftable .ct{background:url('/resource/1430996146000/CommunityAssets/CommunityAssets/images/CC.jpg') no-repeat 0px 0;padding-bottom:30px}
+.panel-title,.panel-heading{font-size:18px !important} 
+.tftable .td-event{background:#fff}
+.tftable .td-csn{background:#fff}
+.tftable .td-survey{background:#fff}
+.tftable .td-ct{background:#fff}
+
+</style>
+ </head>
+  <body>
+
+       
+               <div style="width:100%;margin:0 auto">
+                <div style="position:relative;float:left">
+                   <c:Portal2pointO_searchComponent />
+                </div>
+                
+                            <div class="panel panel-default" style="width:100%;margin:10px auto;clear:both">
+                                <div class="panel-heading">
+                                 <h3 class="panel-title">Popular Articles</h3>
+                               </div>
+                               <div class="panel-body">
+                                 <div class="row">
+                                  
+                                   <div class="col-md-10">
+                                   <div class="x-panel-body x-panel-body-noheader" id="ext-gen6">    
+                                    <table class="tftable" border="0" width="100%">                                   
+                                    <tr>
+                                    <td class="td-event" valign="top">
+                                    <div class="event">Event</div>
+                                   <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000022192" target="_blank">Customer Success Guide</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000001472" target="_blank">Event Training</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002322" target="_blank">Manually Sending Emails</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000003836" target="_blank">Setting Up Your Event Management Account</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002459" target="_blank">Refunding a Transaction</a> </li>
+                                    </ul>
+                                    </td>
+
+                                    <td class="td-csn" valign="top">
+                                    <div class="csn">CSN Supplier</div>
+                                    <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000002166" target="_blank">New Logins for New Staff</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002092" target="_blank">Creating a Proposal</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000001113" target="_blank">Adding Lead Catchers</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002167" target="_blank">Tips for a Tempting Profile</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002178" target="_blank">Rev Up Response Time</a> </li>
+                                    </ul>
+                                    </td>
+
+                                    <td class="td-survey" valign="top">
+                                    <div class="survey">Inquisium</div>
+                                    <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000004343" target="_blank">Setting Up Your Inquisium Account</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002626" target="_blank">Importing Contacts</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000002322" target="_blank">Manually Sending an Email</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000001860" target="_blank">Adding Skip and Branch Logic</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000004545" target="_blank">Building Out Your First Survey</a> </li>
+                                    </ul>
+                                    </td>
+
+                                    <td class="td-ct" valign="top">
+                                    <div class="ct">CrowdCompass</div>
+                                   <ul>
+                                    <li><a href="/apex/CommunityArticle?id=000022975" target="_blank">The App Map</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000004323" target="_blank">Previewing Your Event</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000004328" target="_blank">Creating and Updating Sessions</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000004348" target="_blank">Setting Up Click</a> </li>
+                                    <li><a href="/apex/CommunityArticle?id=000004347" target="_blank">Understanding Metrics</a> </li>
+                                    </ul>
+                                    </td>
+
+                                    </tr>
+                                    </table>
+                                  
+                                    </div>                
+                                   </div>
+                                 </div>
+                               </div>
+                            </div>
+                  
+                
+                            <div style="width:100%;margin:0px auto;clear:both">
+                               
+                                  
+                                   <div class="row" style="margin:0px auto;margin-left:0px;margin-right:0px">
+                                              <div style="width:49%;margin-right:2%;float:left">
+                                              <div class="panel panel-default" style="width:100%">
+                                               <div class="panel-heading">My Cases
+                                               <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style="float:right">+</a>
+                                               </div>
+                                               <div id="collapse2" class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="padding:0px;margin:0px;">
+                                                       <apex:iframe height="300" scrolling="true" src="/apex/MyCases?core.apexpages.devmode.url=1"/>
+                                                    </div>
+                                                    </div>
+                                               </div>
+                                       </div>
+                                   
+                                       <div  style="width:49%;margin-right:0px;float:left;">
+                                              <div class="panel panel-default" style="width:100%">
+                                               <div class="panel-heading">Browse Knowledge
+                                               <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" style="float:right">+</a>
+                                               </div>
+                                               <div id="collapse3" class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="padding:0px;margin:15px;">
+                                                       <apex:iframe height="270" scrolling="true" src="/apex/KnowledgeCategory?core.apexpages.devmode.url=1"/>
+                                                    </div>
+                                                    </div>
+                                               </div>
+                                       </div>
+                                  </div>
+                                
+                             </div>
+                
+                </div>
+                 
+           
+            
+
+  </body>
+ </html>
+ </div>-->
+ <script>      
+    function reload() {
+        
+        $('.phnNum').val('');
+        $('.countryCode').val('');
+        $('.countryCode').val('USA');
+        $('.language').val('English');
+
+        $("#phoneSpan").addClass("hide");
+        $("#countrySpan").addClass("hide");
+    }   
+
+    function restrictToMobileNumber(event,control){   
+        $(control).val($(control).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57) || $(control).val().length>13) {
+            event.preventDefault();
+        }
+    }
+    function checkValidation(){
+        var isError = false;
+        debugger;
+      
+        if (!validatePage()) {
+            isError = true;
+            return false;
+        } else {
+            saveForm();
+           // $("#myModal").removeClass("modal fade");
+        }
+    }
+
+    function validatePage(){
+        var status = false;
+        var errorfound = 'FALSE' ;
+        if($('.phnNum').val() == ''){
+            errorfound = 'TRUE';
+            $("#phoneSpan").removeClass("hide");
+            $('span.errorMessagePhn').text('Please fill phone number.');
+            status = true;
+        }else {
+            $("#phoneSpan").addClass("hide");
+
+        }
+
+        if($('.countryCode').val() == ''){
+            errorfound = 'TRUE';
+            $("#countrySpan").removeClass("hide");
+            $('span.errorMessageCountry').text('Please fill country code.');
+            status = true;
+        } else { 
+            $("#countrySpan").addClass("hide");
+        }
+        return !status;    
+    }
+    function openFeedback(){
+        var url = '/apex/Feedback';
+        window.open(url);
+    }
+</script>
+ <style>
+.required{
+    border-left: 2px solid red;
+    position: absolute;
+    padding-top: 29px;
+    margin-top: 26px;
+} 
+
+.hide{display:none;}             
+</style>
+ </apex:page>

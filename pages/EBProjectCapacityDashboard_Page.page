@@ -1,0 +1,164 @@
+<apex:page standardController="EB_Agent_Profile__c" extensions="EBProjectCustomRelatedList_ContExt" showHeader="false" sidebar="false" title="Leadership Dashboard">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"/>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+            <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>                
+                <script>                
+                function switchMenu(obj,obj1,obj2){
+                var e1 = document.getElementById(obj);
+                console.log(e1);
+                if ( e1.style.display != 'none' ){
+                    e1.style.display = 'none';
+                }
+                else {
+                    e1.style.display = '';
+                }
+                var e2 = document.getElementById(obj1);      
+                console.log(e2);                
+                if ( e2.style.display != 'none' ) {
+                    e2.style.display = 'none';
+                }
+                else {
+                    e2.style.display = '';
+                }
+                var e3 = document.getElementById(obj2);
+                console.log(e3);                
+                if ( e2.style.display != 'none' ){
+                    e3.style.display = 'none';
+                }
+                else {
+                    e3.style.display = '';
+                }
+            }
+            </script>
+    <style> 
+        .hidden { display: none;}
+        
+        .navbar-center{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        margin: auto;
+        height:100%;
+        }        
+    </style>    
+    <apex:form styleClass="form-horizontal" id="formId">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class = "navbar-header">
+                <a class = "navbar-brand">Cvent Internal</a>
+            </div>
+            <div class = "navbar-header" style="float:center;">
+                <a class = "navbar-center navbar-brand">Event Builder Dashboard</a>
+            </div>
+            <div class = "navbar-header" style="float:right;">
+                <a class = "navbar-brand"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  {!loggedUser}</a>
+            </div>
+        </nav>        
+        <apex:pageBlock >
+            <div style="margin-top:3%">                    
+                <apex:outputPanel style="margin-top:2.7%" rendered="{!!showDashboard}">
+                    <div class="alert-body" >
+                        <div class="alert alert-danger" style="height:25%; width:32%;margin-left:30%;margin-right:32%;margin-top:10%;">
+                            <strong>Event Builder Agents records not available. Please contact System Administrator.</strong>
+                        </div>                
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!showDashboard}">
+                    <apex:variable var="mainHeaderPanel" value="{!0}"/>
+                    <apex:repeat value="{!agentProfileToEBProjMap}" var="agentProfile">
+                        <apex:variable var="mainHeaderPanel" value="{!mainHeaderPanel+1}"/>
+                        <table id="mainTable" class="table table-hover">
+                            <apex:outputPanel rendered="{!IF((mainHeaderPanel == 1),true,false)}">
+                                <tr class="alert alert-info">                        
+                                    <th><center><span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></center></th><th><center>Agent Name</center></th><th><center>Agent Status Indicator</center></th><th><center>Agent Shift</center></th>
+                                    <th><center>Agent Skill Group</center></th><th><center>Agent Score</center></th><th><center>Maximum # of Project/ Week</center></th><th><center>Current Assignment</center></th>
+                                    <th><center># of Projects/Agent</center></th><th><center># of Projects</center></th><th><center>Max Workload/ Agent(Hrs.)</center></th><th><center>Current Work Load (hrs.)</center></th><th><center>Quality Scores Overall</center></th><th><center>Current FY Quality Score</center></th><th><center>VSAT (Overall)</center></th><th><center>VSAT (Current FY)</center></th>
+                                    <th><center>Agent Status</center></th>
+                                </tr> 
+                            </apex:outputPanel>  
+                            <apex:outputPanel >
+                                <tr style="visibility: hidden">                        
+                                    <th style="line-height: 0px;">#</th><th style="line-height: 0px;"><center>Agent Name</center></th><th style="line-height: 0px;"><center>Agent Status Indicator</center></th><th style="line-height: 0px;"><center>Agent Shift</center></th><th style="line-height: 0px;"><center>Agent Skill Group</center></th>
+                                    <th style="line-height: 0px;"><center>Agent Score</center></th><th style="line-height: 0px;"><center>Maximum # of Project/ Week</center></th><th style="line-height: 0px;"><center>Current Assignment</center></th>
+                                    <th style="line-height: 0px;"><center># of Projects/Agent</center></th><th style="line-height: 0px;"><center># of Projects</center></th><th style="line-height: 0px;"><center>Max Workload/ Agent(Hrs.)</center></th>
+                                    <th style="line-height: 0px;"><center>Current Work Load (hrs.)</center></th><th style="line-height: 0px;"><center>Quality Scores Overall</center></th><th style="line-height: 0px;"><center>Current FY Quality Score</center></th>
+                                    <th style="line-height: 0px;"><center>VSAT (Overall)</center></th><th style="line-height: 0px;"><center>VSAT (Current FY)</center></th><th style="line-height: 0px;"><center>Agent Status</center></th>
+                                    
+                                </tr> 
+                            </apex:outputPanel>                            
+                            <apex:variable var="rowNumbertable1" value="{!0}"/>
+                            <apex:repeat value="{!agentProfile}" var="agentKey">                        
+                                <tr>
+                                    <td>
+                                        <apex:variable var="rowNumbertable2" value="{!rowNumbertable1+1}"/>
+                                        <button id ="minusBtn{!agentKey.id}" style="display:none;" type="button" class="btn btn-default btn-number" data-type="minus" onclick="switchMenu('{!agentKey.Id}','plusBtn{!agentKey.id}','minusBtn{!agentKey.id}')"  >
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                        <button id ="plusBtn{!agentKey.id}" type="button" class="btn btn-default btn-number" data-type="plus" onclick="switchMenu('{!agentKey.Id}','minusBtn{!agentKey.id}','plusBtn{!agentKey.id}')" >
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </td>
+                                    <td ><center><apex:outputlink target="_blank" value="{!URLFOR($Action.EB_Agent_Profile__c.View,agentKey.Id)}">{!agentKey.Name}</apex:outputlink></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Agent_Status_Indicator__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Agent_Shift__c}" /></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Agent_Skill_Group__c}" /></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Agent_Score__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Max_of_Projects_Per_Week__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Current_Assignment__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.of_Projects_Agent__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.of_Projects__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Max_Workload_Agent_Hrs__c}" /></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Current_Work_Load_hrs__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Quality_Scores_Overall__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Current_FY_Quality_Score__c}" /></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.VSAT_Overall__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.VSAT_Current_FY__c}"/></center></td>
+                                    <td><center><apex:outputField value="{!agentKey.Agent_Status__c}"/></center></td>                                    
+                                </tr>                                
+                                <apex:outputPanel >                       
+                                    <table id="{!agentKey.id}" class="table table-hover" style="margin-left:2.2%;display:none;">
+                                        <tr class="alert alert-info">                        
+                                            <th>#</th><th><center>EB/SB Builders Name</center></th><th><center>Account</center></th><th><center>Opportunity</center></th>
+                                            <th><center>Project</center></th><th><center>Project Type</center></th><th><center>Project Complexity</center></th><th><center>Day(s) To Go</center></th>
+                                            <th><center>Project Received Date</center></th><th><center>Project Launched</center></th><th><center>Project Reviewed</center></th>
+                                            <th><center>Project Stage</center></th><th><center>Project Status</center></th><th><center>Expected Launch Date</center></th>
+                                            <th><center>Project Health</center></th><th><center>Hrs. Needed for Completion</center></th>
+                                        </tr>                    
+                                        <apex:variable var="rowNumbertable2" value="{!0}" />
+                                        <apex:repeat value="{!agentProfileToEBProjMap[agentProfile]}" var="EbProj">                        
+                                            <tr>                                                                                       
+                                                <td>
+                                                    <apex:variable var="rowNumbertable2" value="{!rowNumbertable2+1}"/>
+                                                    <apex:outputText id="rowNumbertable2" value="{!rowNumbertable2}"/>
+                                                </td>
+                                                <td><center><apex:outputlink target="_blank" value="{!URLFOR($Action.EB_SB_Builder__c.View,EbProj.Id)}">{!EbProj.Name}</apex:outputlink></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.AccountCustom__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Opportunity__c}" /></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Type_del__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Complexity__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Day_s_To_Go__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Received_Date__c}" /></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Launched_del__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Reviewed__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Stage__c}" /></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Status_del__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Expected_Launch_Date__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Project_Health__c}"/></center></td>
+                                                <td><center><apex:outputField value="{!EbProj.Hrs_Pending_for_Completion__c}"/></center></td>
+                                            </tr>                                
+                                        </apex:repeat>
+                                    </table>                               
+                                </apex:outputPanel> 
+                            </apex:repeat>  
+                        </table>
+                    </apex:repeat>
+                </apex:outputPanel>          
+            </div>            
+        </apex:pageBlock>    
+    </apex:form>    
+</apex:page>

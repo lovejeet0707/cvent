@@ -1,0 +1,247 @@
+<!-- 
+//////////////////////////////////////
+//      @author Abhishek Pandey     //
+/////////////////////////////////////
+Version :   1.0
+Date : 17th June 2014
+Description : Show Actual Vs Budget report using Google Charting. 
+ -->
+<apex:page controller="ReportBudgetActualCls" showheader="false"> 
+    
+    <style>
+        .buttonClass{
+            left: 86% !important;
+            position: relative !important;         
+        }
+    </style>
+    
+    <apex:form >
+    
+        <!-- Google API inclusion -->
+        
+        <apex:includeScript id="a" value="https://www.google.com/jsapi" />    
+        
+        <apex:sectionHeader title="Google Charts + Javascript Remoting" subtitle="Yearly Budget And Actual Amount Differentiation"/>
+        <div>
+            <a style="position:absolute;top:0%;left:50%" id="report" href="/home/home.jsp">Exit Reporting</a>
+            <a style="position:absolute;top:0%;left:48%"  href="/apex/ReportsLandingPage">Back-</a> 
+         </div>
+        <apex:outputpanel >
+            <apex:actionstatus id="actionStatus">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;">              
+                        <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionstatus>        
+        </apex:outputpanel>
+        
+        <apex:pageBlock title="Filter It with selections below">
+            
+            <apex:pageBlockSection title="Filters" columns="2">                     
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Opportunity.fields.Product__c.Label}" for="idSelectOption" />    
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!productSelection}" size="1" styleClass="Product" id="idSelectOption">
+                            <apex:selectOptions value="{!options}"/>
+                        </apex:selectList>
+                    </apex:outputPanel> 
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Team" for="idSelectOptionTeam" />  
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!teamSelected}" size="1" styleClass="teamSelected" id="idSelectOptionTeam">
+                            <apex:selectOptions value="{!teamOptions}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Month-From" for="idSelectOptionMonthFrom" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!monthFrom}" size="1" styleClass="monthFromSelected" id="idSelectOptionMonthFrom">
+                            <apex:selectOptions value="{!monthOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Month-To" for="idSelectOptionMonthTo" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!monthTo}" size="1" styleClass="monthToSelected" id="idSelectOptionMonthTo">
+                            <apex:selectOptions value="{!monthOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>                
+                
+                <apex:outputPanel styleclass="buttonClass">                                             
+                    <apex:commandButton value="Apply" onclick="setvalues();" reRender="chartBlock"/>
+                </apex:outputPanel>
+                            
+            </apex:pageBlockSection>    
+        
+        </apex:pageBlock>
+        
+        <apex:actionFunction action="{!setFilterValues}" name="setvalues" rerender="chartBlock" oncomplete="initCharts();" status="actionStatus">   
+        </apex:actionFunction>
+        
+        <!-- Google Charts will be drawn in this DIV -->
+        
+        <div id="chartBlock" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+        <script type="text/javascript">
+            // Load the Visualization API and the piechart package.
+            google.load('visualization', '1.0', {'packages':['corechart']});
+           
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.setOnLoadCallback(initCharts);
+            // Listen for the 'select' event, and call my function selectHandler() when
+            // the user selects something on the chart.
+            var visualization; 
+            var data;
+            function initCharts() {         
+                // Following the usual Remoting syntax
+                // [<namespace>.]<controller>.<method>([params...,] <callbackFunction>(result, event) {...}
+                // controller : GoogleChartsController
+                // method : loadOpps
+                var product = $(".Product").val();
+                var from = $(".monthFromSelected").val();
+                var to = $(".monthToSelected").val();
+                var teamSelected = $(".teamSelected").val();                
+                //alert(from);
+                if(teamSelected=='')
+                teamSelected =null;
+                //alert(to);
+                if(product=='')
+                product=null;   
+                
+                if(from==''){
+                    from=null;                  
+                }else{
+                    from = parseInt(from);                  
+                }
+                
+                if(to==''){
+                    to =null;
+                }else{
+                    to = parseInt(to); 
+                }   
+                //alert(from);
+                //alert(to);                                    
+                //For Improperly Filled Month Values Validation 
+                if((from!=null && to==null)||(from==null && to!=null)){
+                    alert('Month values are incorrect');
+                    return false;
+                }
+                
+                //For Incorrect Month Values Validation                             
+                if(from != null && to!= null){
+                    if(from>to){
+                        alert('Month values are incorrect');
+                        return false;
+                    }
+                }   
+                        
+                ReportBudgetActualCls.loadOpps(product,teamSelected,from,to, 
+                    function(result, event){  
+                        // load Column chart
+                        //alert('Test');
+                        visualization = new google.visualization.ColumnChart(document.getElementById('chartBlock'));                     
+                        // Prepare table model for chart with columns
+                        data = new google.visualization.DataTable();
+                        
+                        data.addColumn('string', ' Month');
+                        
+                        data.addColumn('number', 'Actual');                     
+                        data.addColumn({type: 'string', role: 'style'});
+                        data.addColumn({id:'i0',type: 'string', role: 'annotation'});
+                        data.addColumn({type: 'string', role: 'annotationText'});
+                        
+                        data.addColumn({type:'number', role:'interval'});
+                        data.addColumn({type:'number', role:'interval'});
+                        
+                        data.addColumn('number', 'Budget');   
+                        data.addColumn({type: 'string', role: 'style'}); 
+                        data.addColumn({id:'i1',type: 'string', role: 'annotation'});
+                        data.addColumn({type: 'string', role: 'annotationText'});
+                        
+                        data.addColumn({type:'number', role:'interval'});
+                        data.addColumn({type:'number', role:'interval'});                       
+                        // add rows from the remoting results
+                        var p = 0;
+                        for(var i =0; i<result.length;i++){
+                            var r = result[i];       
+                            //alert(r.data1);   
+                            //alert(r.data2);
+                            var d1 = parseInt(r.data1);                         
+                            var d2 = parseInt(r.data2);
+                            var temp1 = 0;
+                            var temp2 = 0;
+                            //alert(d1);
+                            //alert(d2);
+                            if(parseInt(d1)<parseInt(d2)){                              
+                                var d4 = (d1/d2)*100;
+                                d4 = Math.round(d4); 
+                                d4 = 100 -d4;
+                                var d5 = d4.toString();
+                                data.addRow([r.month, r.data1,'color: #3399FF','-'+ d5 +'%',d5+'%',r.data1 ,r.data2,r.data2,'color: #FF7D5C ','',' ',temp1,temp2]);
+                            }else{                              
+                                var d4 = (d2/d1)*100;
+                                d4 = Math.round(d4);
+                                d4 = 100 -d4; 
+                                var d5 = d4.toString();
+                                data.addRow([r.month, r.data1,'color: #3399FF','',' ',temp1,temp2,r.data2,'color: #FF7D5C ','+'+d5+'%',d5+'%',r.data2,r.data1]);
+                            }                                                           
+                            //data.addRow([r.month, r.data1,'color: #3399FF','line',2,r.data2,'color: #FF7D5C ','line',2,r.data1,r.data2]);
+                            //data.addRow([r.month,111111111,'color: #3399FF' ,111111111,'color: #FF7D5C ',r.data1,r.data2]);
+                            p=1;                                                                                                
+                        }
+                        // all done, lets draw the chart with some options to make it look nice.
+                        google.visualization.events.addListener(visualization, 'select', selectHandler);                                    
+                        visualization.draw(data,{bar:{groupWidth:'30'},colors:['#3399FF','#FF7D5C'],annotations:{'i0':  {style: 'line'},'i1': {textStyle: {opacity: 0.3}},'i1':  {style: 'line'},transform :"rotate(-91 83 318)"+"!important"},
+                        legend:{position: 'top', textStyle: {color: '#66FF99', fontSize: 16}},title:"Yearly Budget And Actual Amount Differentiation",titlePosition:"out",titleTextStyle:{ color: '#B82E00',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},
+                        chartArea:{backgroundColor:'#F4F4F8',width:'80%',height: '70%' },width: '100%', height: 610, min: 0,backgroundColor: {stroke:'#8B8B8D', fill:'#C6C6C9',strokeSize: 10,strokeWidth:5},vAxis: {title: 'Opportunity Amount', titleTextStyle: 
+                        {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},gridlines:{color: '#333', count: 11}},hAxis: {title: 'Months', titleTextStyle: {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false}}});                                        
+                    }, {escape:true}
+                );              
+            }                   
+            var message;
+            function selectHandler() {
+                //alert(data);
+                var selectedItem = visualization.getSelection()[0];
+                //alert(selectedItem);
+                //if (selectedItem) {
+                //  var topping = data.getValue(selectedItem.row, 2);
+                //  alert('The user selected ' + topping);
+                //}
+                var selection = visualization.getSelection();
+                for (var i = 0; i < selection.length; i++) {
+                    var item = selection[i];
+                    //alert(item.row);
+                    //alert(item.column);
+                    if (item.row != null && item.column != null) {
+                        //message += '{row:' + item.row + ',column:' + item.column + '}';
+                        message += 'The Selected Value is' + data.getValue(selectedItem.row, item.column);  
+                    } else if (item.row != null) {
+                        //message += '{row:' + item.row + '}';
+                    } else if (item.column != null) {
+                        //message += '{column:' + item.column + '}';
+                    }
+                }
+                if (message == '') {
+                    message = 'nothing';
+                }
+                //alert('You selected ' + message);
+                message = '';
+            }                     
+        </script>
+        
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,155 @@
+<apex:page standardController="CRM_Help__c" showHeader="false" applyHtmlTag="false" docType="html-5.0" extensions="CRMHelpDetailController">
+    <head>
+        <!--Including Angular and Bootstrap-->
+        
+        <style>
+            .actionColumn{
+                display: none;
+            }
+            .pbButton{
+                display: none; !important
+            }
+            
+           body{background:url('https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N000004qZyr') top center no-repeat; background-size:cover; }
+       
+        
+        .main-div{width:80%; margin:0 auto;}
+        .form-group{width:100%; margin:0 auto;}
+        .crm-logo{text-align:left; width:100%; margin:0 auto; padding:50px 0 20px 0;}
+        .header-content{text-align:center; width:100%; padding:2% 0 40px 0;}
+        .header-content h1{color:#fff; font-size:42px; font-weight:600; line-height:1.4;}
+        .header-content p.lead{color:#fff; font-size:22px; font-weight:300; }
+        .content-title{color:#fff; text-align:left; font-size:20px; margin-bottom:20px; width:auto; display: inline-block;}
+        .glyphicon {padding-right:10px;}
+        .table{background:#fff; width:80%; margin:0 auto; box-shadow:0px 21px 42px -8px #bababa; }
+        
+        .table tr:nth-child(odd) {background: #0d6fb4;}
+          .table tr:nth-child(event) {background: #FFF}
+         .table tr td {font-size:15px; padding:15px !important;}
+          
+       .main-div a {color:#fff !important;}
+        
+        </style>
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script> 
+
+<!-- Changed the CDN as angular website was down - 8/30/2017 -->
+        <!--        <script src="https://code.angularjs.org/1.4.8/angular.js"></script> 
+<script src="https://code.angularjs.org/1.4.8/angular-resource.js"></script>  -->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>  <!-- added by Harshit Johar for Client issue fix (1/14/20)-->
+        <!-- <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->                <!-- CDN chages: Commented by Harshit Johar, Github Urls which should not be used (1/14/20) -->
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+            
+            <!-- Optional theme -->
+                
+                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+                    
+                    <!-- Latest compiled and minified JavaScript -->
+                        
+                        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>
+            
+            
+            <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                        
+                        </head>
+                    <!--<apex:form style="margin-top:10%">
+                        <apex:pageBlock>
+                            <apex:pageBlockSection columns="1">
+                                <apex:outputField value="{!CRM_Help__c.Category__c}"/>
+                                    <apex:outputField value="{!CRM_Help__c.Issue__c}"/>
+                                        
+                                        <apex:outputField value="{!CRM_Help__c.Keywords__c}"/>
+                                            <apex:outputField value="{!CRM_Help__c.Process__c}"/>
+                                                <apex:outputField value="{!CRM_Help__c.Resolution__c}"/>
+                                                    </apex:pageBlockSection>
+                                                </apex:pageBlock>
+                                                </apex:form>-->
+                                                <div class="main-div">
+        <div class="crm-logo"><img src="https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N000004qZzu" alt="crm-logo"/></div>
+        <div class="header-content">
+        <h1>Welcome to CRM Knowledge Base</h1>
+        <p class="lead">Get answers to your queries related to Salesforce</p>
+        </div>
+                
+                <apex:form id="frm">
+                <apex:outputPanel rendered="{!IF(caseId!=null,TRUE,FALSE)}">
+                <div class="content-title"><span class="glyphicon glyphicon-envelope" ></span><b>KNOWLEDGE ARTICLE</b></div>
+                    <div class="content-title" style="float:right;" id="attachToCaseId">
+                        <span class="glyphicon glyphicon-envelope"/>
+                            
+                            <!--<b><apex:outputLink>ATTACH TO CASE</apex:outputLink></b>-->
+                            <b><apex:commandLink action="{!attachCase}" value="ATTACH TO CASE" reRender="showSuccessMessages,frm"/></b>
+                            
+
+                            
+                                <apex:outputPanel rendered="{!showSuccessMessage}" id="showSuccessMessages">
+                                    Article Succesfully Attached.
+                                </apex:outputPanel>
+
+                            <!--<apex:outputLink onclick="">ATTACH TO CASE</apex:outputLink></b>-->
+                    </div>      
+                </apex:outputPanel>
+                                            </apex:form>
+        <div style="height:480px;overflow: scroll;">
+        <table class="table">
+                                                    
+                                                    
+                                                    <tbody>                                                   
+                                                        
+                                                            <td style="border: 0px; color:#fff;"><strong>Responsible Team</strong></td>
+                                                            <td style="border: 0px; color:#fff;">{!CRM_Help__c.Responsible_Team__c}
+                                                            </td>
+                                                            <tr>
+                                                              <td style="border: 0px;"><strong>Category</strong></td>
+                                                                <td style="border: 0px;">{!CRM_Help__c.Category__c}</td>                                                        
+                                                                </tr>
+                                                                <tr>
+                                                                <td style="border: 0px; color:#fff;" ><strong>Problem Statement</strong></td>
+                                                                <td style="border: 0px; color:#fff;">{!CRM_Help__c.Problem__c}</td>
+                                                               </tr>
+                                                                <!--tr>
+                                                                    <td style="border: 0px;"><strong>Process</strong></td>
+                                                                    <td style="border: 0px;">{!CRM_Help__c.Process__c}</td>
+                                                                    </tr>-->
+                                                                    <tr>
+                                                                        <td style="border: 0px;"><strong>Resolution</strong></td>
+                                                                        <td style="border: 0px;"><apex:outputtext value="{!CRM_Help__c.Resolution__c}" escape="false"/></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                        <td style="border: 0px; color:#fff;"><strong>Attachment</strong></td>
+                                                                        <td style="border: 0px; color:#fff;">
+                                                                        <apex:repeat value="{!crmAttachment}" var="crmAttach">
+                                                                        <!--<a style="cursor: pointer;" href="https://cvent--developer3.cs20.my.salesforce.com/{!crmAttach.Id}">{!crmAttach.Name}</a>-->
+                                                                        <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;
+
+                                                                             <apex:outputLink value="/servlet/servlet.FileDownload?file={!crmAttach.Id}" target="_blank">{!crmAttach.Name}</apex:outputLink><br/>
+                                                                        <!--<apex:outputtext value="{!crmAttach.Name}" escape="false"/>-->
+                                                                        </apex:repeat>
+                                                                        </td>
+                                                                        </tr>
+                                                                        <!--<tr>
+                                                                        <td style="border: 0px; color:Black;">
+                                                                            <strong>Link To Case</strong>
+                                                                        </td>
+                                                                        </tr>-->
+                                                                        </tbody>
+                                                                        </table>
+        </div>
+        
+        </div>
+        
+
+                                                
+                                                                       
+                                                                        <!--<apex:relatedList list="CombinedAttachments"  subject="{!$CurrentPage.parameters.id}" />-->
+                                                                        </apex:page>

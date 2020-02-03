@@ -1,0 +1,24 @@
+<apex:page standardController="EB_SB_Builder__c" extensions="EBSurveyResponseInlineVF_ConExt" showHeader="false" contentType="application/vnd#{!eBProjectObj.Name} - EB Form.msword" sidebar="false">    
+    <apex:form styleClass="form-horizontal" id="formId">
+        <apex:pageBlock >
+            <div class="panel-body">
+                <apex:variable var="rowNumbertable1" value="{!0}"/>
+                <apex:pageBlockTable styleClass="table table-hover table-bordered" value="{!WrapperSurveyList}" var="surveyRow" rendered="{!showSurveyResponse}">
+                    <apex:column width="2%" style="border: 0.5px solid black;">
+                        <apex:facet name="header" >Q. No</apex:facet>
+                        <apex:variable var="rowNumbertable1" value="{!rowNumbertable1+1}"/>
+                        <center><apex:outputText id="rowNumbertable1" value="{!rowNumbertable1}"/></center>                   
+                    </apex:column>
+                    <apex:column width="44%" style="border: 0.5px solid black;">
+                        <apex:facet name="header">Question</apex:facet>
+                        <center><apex:outputText value="{!surveyRow.surveyQuestion}"/></center>
+                    </apex:column>
+                    <apex:column width="44%" style="border: 0.5px solid black;">
+                        <apex:facet name="header">Answer</apex:facet>
+                        <center><apex:outputText value="{!surveyRow.surveyAnswer}" /></center>
+                    </apex:column>                
+                </apex:pageBlockTable>   
+            </div>  
+        </apex:pageBlock>        
+    </apex:form>  
+</apex:page>

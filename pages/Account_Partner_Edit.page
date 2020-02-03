@@ -1,0 +1,24 @@
+<apex:page controller="Account_Partner_EditController" showHeader="true" standardStylesheets="true" tabStyle="Account" >
+
+	<apex:sectionHeader title="{!PageTitle}" subtitle="{!PageSubTitle}" />
+	<apex:pageMessages />
+	
+<apex:form id="theForm">
+
+	<apex:pageBlock id="details">
+	
+		<apex:pageBlockButtons id="buttons">
+			<apex:commandButton action="{!doSave}" value="Save"  />
+			<apex:commandButton action="{!doCancel}" value="Cancel" immediate="true" />
+		</apex:pageBlockButtons>
+		
+		<apex:pageBlockSection showHeader="false" columns="1" id="block1">
+			<apex:inputfield value="{!AcctPartner.Account__c}"  required="true" />
+			<apex:inputfield value="{!AcctPartner.Partner__c}"  required="true" />
+			<apex:inputfield value="{!AcctPartner.Role_Select__c}"   />
+		</apex:pageBlockSection>
+	
+	</apex:pageBlock>
+
+</apex:form>
+</apex:page>

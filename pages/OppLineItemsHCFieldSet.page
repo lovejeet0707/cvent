@@ -1,0 +1,16 @@
+<apex:page standardController="Opportunity">
+  
+  <apex:form >
+      <apex:pageblock >        
+
+             <apex:pageBlockTable value="{!Opportunity.OpportunityLineItems}" var="opp">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.fieldsets.HC_Fields}" var="fieldValue">
+                     <apex:column value="{!opp[fieldValue]}">
+                     </apex:column>
+                 </apex:repeat>
+             </apex:pageBlockTable>           
+           
+      </apex:pageblock>
+    </apex:form>
+    
+</apex:page>

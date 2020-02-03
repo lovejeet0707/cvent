@@ -1,0 +1,1291 @@
+<apex:page standardController="Proposal__c" extensions="UpdateProposalCls" >
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var productVal;
+        var counter=0;
+        var counterCC = 0;
+        var oldproductval = "{!instOfProp.Product__c}";
+        $(document).ready(function(){
+            counter = 0;
+            //alert(oldproductval);
+            if(oldproductval.indexOf("Crowd Compass") > -1){
+                if(oldproductval.indexOf("Crowd Compass") > 0){
+                    document.getElementById("headerRowVarSec").innerHTML = "Annual Events/Yr";
+                    document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+                }else{
+                    document.getElementById("headerRowVar").innerHTML = "Annual Events/Yr"; 
+                }
+            }else{
+                document.getElementById("headerRowVarSec").innerHTML = "Annual Registrants/Yr";
+                document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+            }
+            if( "{!rowCheck}" !== "1"){
+                $( "#Row1" ).hide();
+                $( "#Row1Sec" ).hide();
+            }else{
+                $( "#tdFirst" ).hide();
+                counter=1;
+            }
+            if( "{!rowCheck1}" !== "1"){
+                $( "#Row2" ).hide();
+                $( "#Row2Sec" ).hide();
+            }else{
+                $( "#tdSec" ).hide();
+                counter=2;
+            }
+            if( "{!rowCheck2}" !== "1"){
+                $( "#Row3" ).hide();
+                $( "#Row3Sec" ).hide();
+            }else{
+                $( "#tdSecThir" ).hide();
+                counter=3;
+            }  
+            
+            if("{!instOfProp.Product__c}" == 'Event & Crowd Compass' ){
+                if( "{!rowCheck4}" !== "1"){
+                    $( "#Row1CC" ).hide();
+                    $( "#Row1SecCC" ).hide();
+                }else{
+                    $( "#tdFirstCC" ).hide();
+                    counterCC=1;
+                } 
+                
+                if( "{!rowCheck5}" !== "1"){
+                    $( "#Row2CC" ).hide();
+                    $( "#Row2SecCC" ).hide();
+                }else{
+                    $( "#tdSecCC" ).hide();
+                    counterCC=2;
+                }
+                
+                if( "{!rowCheck6}" !== "1"){
+                    $( "#Row3CC" ).hide();
+                    $( "#Row3SecCC" ).hide();
+                }else{
+                    $( "#tdSecThirCC" ).hide();
+                    counterCC=3;
+                }
+                productVal = "{!instOfProp.Product__c}";
+            }else{
+                //For CC
+                $( "#Row1CC" ).hide();
+                $( "#Row1SecCC" ).hide();
+                
+                //$( "#tdFirstCC" ).hide();
+                
+                $( "#Row2CC" ).hide();
+                $( "#Row2SecCC" ).hide();
+                
+                //$( "#tdSecCC" ).hide();
+                
+                $( "#Row3CC" ).hide();
+                $( "#Row3SecCC" ).hide();
+                
+                //$( "#tdSecThirCC" ).hide();
+                productVal = "{!instOfProp.Product__c}";
+                $( "#sectionIdCC" ).hide();
+                $( "#sectionIdSec" ).hide();
+                $( "#sectionIdCCSec" ).hide();
+                //For CC
+            }
+        });
+        
+        function showTrCC(){
+            if(counterCC!=3){
+                counterCC++;
+                if(counterCC==1){
+                    $( "#Row1CC" ).show();
+                    $( "#Row1SecCC" ).show();
+                    $( "#tdFirstCC" ).hide();
+                    $( "#tdSecCC" ).show()();
+                }else if(counterCC==2){
+                    $( "#Row2CC" ).show();
+                    $( "#Row2SecCC" ).show();
+                    $( "#tdSecCC" ).hide();
+                    $( "#tdSecThirCC" ).show();
+                }else if(counterCC==3){
+                    $( "#Row3CC" ).show();
+                    $( "#Row3SecCC" ).show();
+                    $( "#tdSecThirCC" ).hide();
+                }
+            }
+        }
+        
+        function removeTrCC(){
+            if(counterCC==1){
+                $( "#Row1CC" ).hide();
+                $( "#Row1SecCC" ).hide();
+                $( "#tdFirstCC" ).show();
+                
+                $( "#aR1SecCC" ).val('') ;
+                $( "#secYearSecCC" ).val('') ;
+                $( "#thirYearSecCC" ).val('') ;
+                $( "#foryearSecCC" ).val('') ;
+                
+                $( "#aR1SecSecCC" ).val('') ;
+                $( "#secYearSecSecCC" ).val('') ;
+                $( "#thirYearSecSecCC" ).val('') ;
+                $( "#foryearSecSecCC" ).val('') ;                
+            }else if(counterCC==2){
+                $( "#Row2CC" ).hide();
+                $( "#Row2SecCC" ).hide();
+                $( "#tdSecCC" ).show();
+                
+                $( "#aR1ThirCC" ).val('') ;
+                $( "#secYearThirCC" ).val('') ;
+                $( "#thirYearThirCC" ).val('') ;
+                $( "#foryearThirCC" ).val('') ;
+                
+                $( "#aR1ThirSecCC" ).val('') ;
+                $( "#secYearThirSecCC" ).val('') ;
+                $( "#thirYearThirSecCC" ).val('') ;
+                $( "#foryearThirSecCC" ).val('') ;
+            }else if(counterCC==3){
+                $( "#Row3CC" ).hide();
+                $( "#Row3SecCC" ).hide();
+                $( "#tdSecThirCC" ).show();
+                
+                $( "#aR1ForSecCC" ).val('') ;
+                $( "#secYearForSecCC" ).val('') ;
+                $( "#thirYearForSecCC" ).val('') ;
+                $( "#foryearForSecCC" ).val('') ;
+                
+                $( "#aR1ForCC" ).val('');
+                $( "#secYearForCC" ).val('');
+                $( "#thirYearForCC" ).val('');
+                $( "#foryearForCC" ).val('');
+            }
+            counterCC--;
+        }
+        
+        function showTr(){
+            if(counter!=3){
+                counter++;
+                if(counter==1){
+                    $( "#Row1" ).show();
+                    $( "#Row1Sec" ).show();
+                    $( "#tdFirst" ).hide();
+                }else if(counter==2){
+                    $( "#Row2" ).show();
+                    $( "#Row2Sec" ).show();
+                    $( "#tdSec" ).hide();
+                }else if(counter==3){
+                    $( "#Row3" ).show();
+                    $( "#Row3Sec" ).show();
+                    $( "#tdSecThir" ).hide();
+                }
+            }
+        }
+        
+        function removeTr(){
+            if(counter==1){
+                $( "#Row1" ).hide();
+                $( "#Row1Sec" ).hide();
+                $( "#tdFirst" ).show();
+                
+                $( "#aR1Sec" ).val('') ;
+                $( "#secYearSec " ).val('') ;
+                $( "#thirYearSec" ).val('') ;
+                $( "#foryearSec" ).val('') ;
+                
+                $( "#aR1SecSec" ).val('') ;
+                $( "#secYearSecSec" ).val('') ;
+                $( "#thirYearSecSec" ).val('') ;
+                $( "#foryearSecSec" ).val('') ;                
+            }else if(counter==2){
+                $( "#Row2" ).hide();
+                $( "#Row2Sec" ).hide();
+                $( "#tdSec" ).show();
+                
+                $( "#aR1Thir" ).val('') ;
+                $( "#secYearThir" ).val('') ;
+                $( "#thirYearThir" ).val('') ;
+                $( "#foryearThir" ).val('') ;
+                
+                $( "#aR1ThirSec" ).val('') ;
+                $( "#secYearThirSec" ).val('') ;
+                $( "#thirYearThirSec" ).val('') ;
+                $( "#foryearThirSec" ).val('') ;
+            }else if(counter==3){
+                $( "#Row3" ).hide();
+                $( "#Row3Sec" ).hide();
+                $( "#tdSecThir" ).show();
+                
+                $( "#aR1ForSec" ).val('') ;
+                $( "#secYearForSec" ).val('') ;
+                $( "#thirYearForSec" ).val('') ;
+                $( "#foryearForSec" ).val('') ;
+                
+                $( "#aR1For" ).val('');
+                $( "#secYearFor" ).val('');
+                $( "#thirYearFor" ).val('');
+                $( "#foryearFor" ).val('');
+            }
+            counter--;
+        }
+        
+        
+        function getProduct(tt){
+            productVal = tt;
+            if(productVal.indexOf("Crowd Compass") > -1){
+                if(productVal.indexOf("Crowd Compass") > 0){
+                    document.getElementById("headerRowVarSec").innerHTML = "Annual Events/Yr";
+                    document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+                }else{
+                    document.getElementById("headerRowVar").innerHTML = "Annual Events/Yr"; 
+                }
+            }else{
+                document.getElementById("headerRowVarSec").innerHTML = "Annual Registrants/Yr";
+                document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+            }
+            if(productVal == 'Event & Crowd Compass' ){
+                $( "#sectionIdCC" ).show();
+                $( "#sectionIdSec" ).show();
+                $( "#sectionIdCCSec" ).show();
+                $( "#tdFirstCC" ).show();
+                counterCC = 0;
+            }else{
+                
+                $( "#aR1OneCC" ).val('') ;
+                $( "#secYearOneCC" ).val('') ;
+                $( "#thirYearOneCC" ).val('') ;
+                $( "#foryearOneCC" ).val('') ;
+                $( "#aR1OneSecCC" ).val('') ;
+                $( "#secYearOneSecCC" ).val('') ;
+                $( "#thirYearOneSecCC" ).val('') ;
+                $( "#foryearOneSecCC" ).val('') ;
+                
+                $( "#Row1CC" ).hide();
+                $( "#Row1SecCC" ).hide();
+                //$( "#tdFirstCC" ).show();
+                
+                $( "#aR1SecCC" ).val('') ;
+                $( "#secYearSecCC" ).val('') ;
+                $( "#thirYearSecCC" ).val('') ;
+                $( "#foryearSecCC" ).val('') ;
+                
+                $( "#aR1SecSecCC" ).val('') ;
+                $( "#secYearSecSecCC" ).val('') ;
+                $( "#thirYearSecSecCC" ).val('') ;
+                $( "#foryearSecSecCC" ).val('') ; 
+                
+                $( "#Row2CC" ).hide();
+                $( "#Row2SecCC" ).hide();
+                //$( "#tdSecCC" ).show();
+                
+                $( "#aR1ThirCC" ).val('') ;
+                $( "#secYearThirCC" ).val('') ;
+                $( "#thirYearThirCC" ).val('') ;
+                $( "#foryearThirCC" ).val('') ;
+                
+                $( "#aR1ThirSecCC" ).val('') ;
+                $( "#secYearThirSecCC" ).val('') ;
+                $( "#thirYearThirSecCC" ).val('') ;
+                $( "#foryearThirSecCC" ).val('') ;
+                
+                $( "#Row3CC" ).hide();
+                $( "#Row3SecCC" ).hide();
+                //$( "#tdSecThirCC" ).show();
+                
+                $( "#aR1ForSecCC" ).val('') ;
+                $( "#secYearForSecCC" ).val('') ;
+                $( "#thirYearForSecCC" ).val('') ;
+                $( "#foryearForSecCC" ).val('') ;
+                
+                $( "#aR1ForCC" ).val('');
+                $( "#secYearForCC" ).val('');
+                $( "#thirYearForCC" ).val('');
+                $( "#foryearForCC" ).val('');
+                
+                $( "#sectionIdCC" ).hide();
+                $( "#sectionIdSec" ).hide();
+                $( "#sectionIdCCSec" ).hide();
+                counterCC = 0;
+                var aR1OneCC = $("#aR1OneCC").val();
+                if(aR1OneCC ==''){
+                    aR1OneCC = 0; 
+                    aR1OneCC = parseFloat(aR1OneCC);                 
+                }else{
+                    aR1OneCC = parseFloat(aR1OneCC);                  
+                }
+                
+                var secYearOneCC = $("#secYearOneCC").val();
+                if(secYearOneCC ==''){
+                    secYearOneCC = 0; 
+                    secYearOneCC = parseFloat(secYearOneCC);                 
+                }else{
+                    secYearOneCC = parseFloat(secYearOneCC);                  
+                }
+                
+                var thirYearOneCC = $("#thirYearOneCC").val();
+                if(thirYearOneCC ==''){
+                    thirYearOneCC = 0; 
+                    thirYearOneCC = parseFloat(thirYearOneCC);                 
+                }else{
+                    thirYearOneCC = parseFloat(thirYearOneCC);                  
+                }
+                
+                var foryearOneCC = $("#foryearOneCC").val();
+                if(foryearOneCC ==''){
+                    foryearOneCC = 0;  
+                    foryearOneCC = parseFloat(foryearOneCC);                
+                }else{
+                    foryearOneCC = parseFloat(foryearOneCC);                  
+                }
+                
+                var aR1OneSecCC = $("#aR1OneSecCC").val();
+                if(aR1OneSecCC ==''){
+                    aR1OneSecCC = 0;
+                    aR1OneSecCC = parseFloat(aR1OneSecCC);                  
+                }else{
+                    aR1OneSecCC = parseFloat(aR1OneSecCC);                  
+                }
+                var secYearOneSecCC = $("#secYearOneSecCC").val();
+                if(secYearOneSecCC ==''){
+                    secYearOneSecCC = 0;
+                    secYearOneSecCC = parseFloat(secYearOneSecCC);                  
+                }else{
+                    secYearOneSecCC = parseFloat(secYearOneSecCC);                  
+                }
+                
+                var thirYearOneSecCC = $("#thirYearOneSecCC").val();
+                if(thirYearOneSecCC ==''){
+                    thirYearOneSecCC = 0;  
+                    thirYearOneSecCC = parseFloat(thirYearOneSecCC);                
+                }else{
+                    thirYearOneSecCC = parseFloat(thirYearOneSecCC);                  
+                }
+                
+                var foryearOneSecCC = $("#foryearOneSecCC").val();
+                if(foryearOneSecCC ==''){
+                    foryearOneSecCC = 0;  
+                    foryearOneSecCC = parseFloat(foryearOneSecCC);                
+                }else{
+                    foryearOneSecCC = parseFloat(foryearOneSecCC);                  
+                }
+                
+                var aR1SecCC = $("#aR1SecCC").val();
+                if(aR1SecCC ==''){
+                    aR1SecCC = 0; 
+                    aR1SecCC = parseFloat(aR1SecCC);                 
+                }else{
+                    aR1SecCC = parseFloat(aR1SecCC);                  
+                }
+                
+                var secYearSecCC = $("#secYearSecCC").val();
+                if(secYearSecCC ==''){
+                    secYearSecCC = 0; 
+                    secYearSecCC = parseFloat(secYearSecCC);                 
+                }else{
+                    secYearSecCC = parseFloat(secYearSecCC);                  
+                }
+                
+                var thirYearSecCC = $("#thirYearSecCC").val();
+                if(thirYearSecCC ==''){
+                    thirYearSecCC = 0;  
+                    thirYearSecCC = parseFloat(thirYearSecCC);                
+                }else{
+                    thirYearSecCC = parseFloat(thirYearSecCC);                  
+                }
+                
+                var foryearSecCC = $("#foryearSecCC").val();
+                if(foryearSecCC ==''){
+                    foryearSecCC = 0;    
+                    foryearSecCC = parseFloat(foryearSecCC);              
+                }else{
+                    foryearSecCC = parseFloat(foryearSecCC);                  
+                }
+                
+                var aR1SecSecCC = $("#aR1SecSecCC").val();
+                if(aR1SecSecCC ==''){
+                    aR1SecSecCC = 0;    
+                    aR1SecSecCC = parseFloat(aR1SecSecCC);              
+                }else{
+                    aR1SecSecCC = parseFloat(aR1SecSecCC);                  
+                }
+                
+                var secYearSecSecCC = $("#secYearSecSecCC").val();
+                if(secYearSecSecCC ==''){
+                    secYearSecSecCC = 0;  
+                    secYearSecSecCC = parseFloat(secYearSecSecCC);                
+                }else{
+                    secYearSecSecCC = parseFloat(secYearSecSecCC);                  
+                }
+                
+                var thirYearSecSecCC = $("#thirYearSecSecCC").val();
+                if(thirYearSecSecCC ==''){
+                    thirYearSecSecCC = 0;   
+                    thirYearSecSecCC = parseFloat(thirYearSecSecCC);               
+                }else{
+                    thirYearSecSecCC = parseFloat(thirYearSecSecCC);                  
+                }
+                
+                var foryearSecSecCC = $("#foryearSecSecCC").val();
+                if(foryearSecSecCC ==''){
+                    foryearSecSecCC = 0;   
+                    foryearSecSecCC = parseFloat(foryearSecSecCC);               
+                }else{
+                    foryearSecSecCC = parseFloat(foryearSecSecCC);                  
+                }
+                
+                var aR1ThirCC = $("#aR1ThirCC").val();
+                if(aR1ThirCC ==''){
+                    aR1ThirCC = 0;   
+                    aR1ThirCC = parseFloat(aR1ThirCC);               
+                }else{
+                    aR1ThirCC = parseFloat(aR1ThirCC);                  
+                }
+                
+                var secYearThirCC = $("#secYearThirCC").val();
+                if(secYearThirCC ==''){
+                    secYearThirCC = 0;       
+                    secYearThirCC = parseFloat(secYearThirCC);           
+                }else{
+                    secYearThirCC = parseFloat(secYearThirCC);                  
+                }
+                
+                var thirYearThirCC = $("#thirYearThirCC").val();
+                if(thirYearThirCC ==''){
+                    thirYearThirCC = 0;  
+                    thirYearThirCC = parseFloat(thirYearThirCC);                
+                }else{
+                    thirYearThirCC = parseFloat(thirYearThirCC);                  
+                }
+                
+                var foryearThirCC = $("#foryearThirCC").val();
+                if(foryearThirCC ==''){
+                    foryearThirCC = 0;    
+                    foryearThirCC = parseFloat(foryearThirCC);              
+                }else{
+                    foryearThirCC = parseFloat(foryearThirCC);                  
+                }
+                
+                var aR1ThirSecCC = $("#aR1ThirSecCC").val();
+                if(aR1ThirSecCC ==''){
+                    aR1ThirSecCC = 0;      
+                    aR1ThirSecCC = parseFloat(aR1ThirSecCC);            
+                }else{
+                    aR1ThirSecCC = parseFloat(aR1ThirSecCC);                  
+                }
+                
+                var secYearThirSecCC = $("#secYearThirSecCC").val();
+                if(secYearThirSecCC ==''){
+                    secYearThirSecCC = 0;  
+                    secYearThirSecCC = parseFloat(secYearThirSecCC);                
+                }else{
+                    secYearThirSecCC = parseFloat(secYearThirSecCC);                  
+                }
+                
+                var thirYearThirSecCC = $("#thirYearThirSecCC").val();
+                if(thirYearThirSecCC ==''){
+                    thirYearThirSecCC = 0;
+                    thirYearThirSecCC = parseFloat(thirYearThirSecCC);                   
+                }else{
+                    thirYearThirSecCC = parseFloat(thirYearThirSecCC);                  
+                }
+                
+                var foryearThirSecCC = $("#foryearThirSecCC").val();
+                if(foryearThirSecCC ==''){
+                    foryearThirSecCC = 0; 
+                    foryearThirSecCC = parseFloat(foryearThirSecCC);                 
+                }else{
+                    foryearThirSecCC = parseFloat(foryearThirSecCC);                  
+                }
+                
+                var aR1ForCC = $("#aR1ForCC").val();
+                if(aR1ForCC ==''){
+                    aR1ForCC = 0;      
+                    aR1ForCC = parseFloat(aR1ForCC);            
+                }else{
+                    aR1ForCC = parseFloat(aR1ForCC);                  
+                }
+                
+                var secYearForCC = $("#secYearForCC").val();
+                if(secYearForCC ==''){
+                    secYearForCC = 0;  
+                    secYearForCC = parseFloat(secYearForCC);                 
+                }else{
+                    secYearForCC = parseFloat(secYearForCC);                  
+                }
+                
+                var thirYearForCC = $("#thirYearForCC").val();
+                if(thirYearForCC ==''){
+                    thirYearForCC = 0;   
+                    thirYearForCC = parseFloat(thirYearForCC);               
+                }else{
+                    thirYearForCC = parseFloat(thirYearForCC);                  
+                }
+                
+                var foryearForCC = $("#foryearForCC").val();
+                if(foryearForCC ==''){
+                    foryearForCC = 0;
+                    foryearForCC = parseFloat(foryearForCC);                  
+                }else{
+                    foryearForCC = parseFloat(foryearForCC);                  
+                }
+                
+                var aR1ForSecCC = $("#aR1ForSecCC").val();
+                if(aR1ForSecCC ==''){
+                    aR1ForSecCC = 0;
+                    aR1ForSecCC = parseFloat(aR1ForSecCC);                  
+                }else{
+                    aR1ForSecCC = parseFloat(aR1ForSecCC);                  
+                }
+                
+                var secYearForSecCC = $("#secYearForSecCC").val();
+                if(secYearForSecCC ==''){
+                    secYearForSecCC = 0;       
+                    secYearForSecCC = parseFloat(secYearForSecCC);           
+                }else{
+                    secYearForSecCC = parseFloat(secYearForSecCC);                  
+                }
+                
+                var thirYearForSecCC = $("#thirYearForSecCC").val();
+                if(thirYearForSecCC ==''){
+                    thirYearForSecCC = 0;
+                    thirYearForSecCC = parseFloat(thirYearForSecCC);                  
+                }else{
+                    thirYearForSecCC = parseFloat(thirYearForSecCC);                  
+                }
+                
+                var foryearForSecCC = $("#foryearForSecCC").val();
+                if(foryearForSecCC ==''){
+                    foryearForSecCC = 0;
+                    foryearForSecCC = parseFloat(foryearForSecCC);                  
+                }else{
+                    foryearForSecCC = parseFloat(foryearForSecCC);                  
+                }
+            }
+        }
+        
+        function ccSection(){
+            
+        }
+        function save(){
+            counter = parseInt(counter);
+            
+            var aR1One = $("#aR1One").val();
+            if(aR1One ==''){
+                aR1One = 0; 
+                aR1One = parseFloat(aR1One);                 
+            }else{
+                aR1One = parseFloat(aR1One);                  
+            }
+            
+            var secYearOne = $("#secYearOne").val();
+            if(secYearOne ==''){
+                secYearOne = 0; 
+                secYearOne = parseFloat(secYearOne);                 
+            }else{
+                secYearOne = parseFloat(secYearOne);                  
+            }
+            
+            var thirYearOne = $("#thirYearOne").val();
+            if(thirYearOne ==''){
+                thirYearOne = 0; 
+                thirYearOne = parseFloat(thirYearOne);                 
+            }else{
+                thirYearOne = parseFloat(thirYearOne);                  
+            }
+            
+            var foryearOne = $("#foryearOne").val();
+            if(foryearOne ==''){
+                foryearOne = 0;  
+                foryearOne = parseFloat(foryearOne);                
+            }else{
+                foryearOne = parseFloat(foryearOne);                  
+            }
+            
+            var aR1OneSec = $("#aR1OneSec").val();
+            if(aR1OneSec ==''){
+                aR1OneSec = 0;
+                aR1OneSec = parseFloat(aR1OneSec);                  
+            }else{
+                aR1OneSec = parseFloat(aR1OneSec);                  
+            }
+            var secYearOneSec = $("#secYearOneSec").val();
+            if(secYearOneSec ==''){
+                secYearOneSec = 0;
+                secYearOneSec = parseFloat(secYearOneSec);                  
+            }else{
+                secYearOneSec = parseFloat(secYearOneSec);                  
+            }
+            
+            var thirYearOneSec = $("#thirYearOneSec").val();
+            if(thirYearOneSec ==''){
+                thirYearOneSec = 0;  
+                thirYearOneSec = parseFloat(thirYearOneSec);                
+            }else{
+                thirYearOneSec = parseFloat(thirYearOneSec);                  
+            }
+            
+            var foryearOneSec = $("#foryearOneSec").val();
+            if(foryearOneSec ==''){
+                foryearOneSec = 0;  
+                foryearOneSec = parseFloat(foryearOneSec);                
+            }else{
+                foryearOneSec = parseFloat(foryearOneSec);                  
+            }
+            
+            var aR1Sec = $("#aR1Sec").val();
+            if(aR1Sec ==''){
+                aR1Sec = 0; 
+                aR1Sec = parseFloat(aR1Sec);                 
+            }else{
+                aR1Sec = parseFloat(aR1Sec);                  
+            }
+            
+            var secYearSec = $("#secYearSec").val();
+            if(secYearSec ==''){
+                secYearSec = 0; 
+                secYearSec = parseFloat(secYearSec);                 
+            }else{
+                secYearSec = parseFloat(secYearSec);                  
+            }
+            
+            var thirYearSec = $("#thirYearSec").val();
+            if(thirYearSec ==''){
+                thirYearSec = 0;  
+                thirYearSec = parseFloat(thirYearSec);                
+            }else{
+                thirYearSec = parseFloat(thirYearSec);                  
+            }
+            
+            var foryearSec = $("#foryearSec").val();
+            if(foryearSec ==''){
+                foryearSec = 0;    
+                foryearSec = parseFloat(foryearSec);              
+            }else{
+                foryearSec = parseFloat(foryearSec);                  
+            }
+            
+            var aR1SecSec = $("#aR1SecSec").val();
+            if(aR1SecSec ==''){
+                aR1SecSec = 0;    
+                aR1SecSec = parseFloat(aR1SecSec);              
+            }else{
+                aR1SecSec = parseFloat(aR1SecSec);                  
+            }
+            
+            var secYearSecSec = $("#secYearSecSec").val();
+            if(secYearSecSec ==''){
+                secYearSecSec = 0;  
+                secYearSecSec = parseFloat(secYearSecSec);                
+            }else{
+                secYearSecSec = parseFloat(secYearSecSec);                  
+            }
+            
+            var thirYearSecSec = $("#thirYearSecSec").val();
+            if(thirYearSecSec ==''){
+                thirYearSecSec = 0;   
+                thirYearSecSec = parseFloat(thirYearSecSec);               
+            }else{
+                thirYearSecSec = parseFloat(thirYearSecSec);                  
+            }
+            
+            var foryearSecSec = $("#foryearSecSec").val();
+            if(foryearSecSec ==''){
+                foryearSecSec = 0;   
+                foryearSecSec = parseFloat(foryearSecSec);               
+            }else{
+                foryearSecSec = parseFloat(foryearSecSec);                  
+            }
+            
+            var aR1Thir = $("#aR1Thir").val();
+            if(aR1Thir ==''){
+                aR1Thir = 0;   
+                aR1Thir = parseFloat(aR1Thir);               
+            }else{
+                aR1Thir = parseFloat(aR1Thir);                  
+            }
+            
+            var secYearThir = $("#secYearThir").val();
+            if(secYearThir ==''){
+                secYearThir = 0;       
+                secYearThir = parseFloat(secYearThir);           
+            }else{
+                secYearThir = parseFloat(secYearThir);                  
+            }
+            
+            var thirYearThir = $("#thirYearThir").val();
+            if(thirYearThir ==''){
+                thirYearThir = 0;  
+                thirYearThir = parseFloat(thirYearThir);                
+            }else{
+                thirYearThir = parseFloat(thirYearThir);                  
+            }
+            
+            var foryearThir = $("#foryearThir").val();
+            if(foryearThir ==''){
+                foryearThir = 0;    
+                foryearThir = parseFloat(foryearThir);              
+            }else{
+                foryearThir = parseFloat(foryearThir);                  
+            }
+            
+            var aR1ThirSec = $("#aR1ThirSec").val();
+            if(aR1ThirSec ==''){
+                aR1ThirSec = 0;      
+                aR1ThirSec = parseFloat(aR1ThirSec);            
+            }else{
+                aR1ThirSec = parseFloat(aR1ThirSec);                  
+            }
+            
+            var secYearThirSec = $("#secYearThirSec").val();
+            if(secYearThirSec ==''){
+                secYearThirSec = 0;  
+                secYearThirSec = parseFloat(secYearThirSec);                
+            }else{
+                secYearThirSec = parseFloat(secYearThirSec);                  
+            }
+            
+            var thirYearThirSec = $("#thirYearThirSec").val();
+            if(thirYearThirSec ==''){
+                thirYearThirSec = 0;
+                thirYearThirSec = parseFloat(thirYearThirSec);                   
+            }else{
+                thirYearThirSec = parseFloat(thirYearThirSec);                  
+            }
+            
+            var foryearThirSec = $("#foryearThirSec").val();
+            if(foryearThirSec ==''){
+                foryearThirSec = 0; 
+                foryearThirSec = parseFloat(foryearThirSec);                 
+            }else{
+                foryearThirSec = parseFloat(foryearThirSec);                  
+            }
+            
+            var aR1For = $("#aR1For").val();
+            if(aR1For ==''){
+                aR1For = 0;      
+                aR1For = parseFloat(aR1For);            
+            }else{
+                aR1For = parseFloat(aR1For);                  
+            }
+            
+            var secYearFor = $("#secYearFor").val();
+            if(secYearFor ==''){
+                secYearFor = 0;  
+                secYearFor = parseFloat(secYearFor);                 
+            }else{
+                secYearFor = parseFloat(secYearFor);                  
+            }
+            
+            var thirYearFor = $("#thirYearFor").val();
+            if(thirYearFor ==''){
+                thirYearFor = 0;   
+                thirYearFor = parseFloat(thirYearFor);               
+            }else{
+                thirYearFor = parseFloat(thirYearFor);                  
+            }
+            
+            var foryearFor = $("#foryearFor").val();
+            if(foryearFor ==''){
+                foryearFor = 0;
+                foryearFor = parseFloat(foryearFor);                  
+            }else{
+                foryearFor = parseFloat(foryearFor);                  
+            }
+            
+            var aR1ForSec = $("#aR1ForSec").val();
+            if(aR1ForSec ==''){
+                aR1ForSec = 0;
+                aR1ForSec = parseFloat(aR1ForSec);                  
+            }else{
+                aR1ForSec = parseFloat(aR1ForSec);                  
+            }
+            
+            var secYearForSec = $("#secYearForSec").val();
+            if(secYearForSec ==''){
+                secYearForSec = 0;       
+                secYearForSec = parseFloat(secYearForSec);           
+            }else{
+                secYearForSec = parseFloat(secYearForSec);                  
+            }
+            
+            var thirYearForSec = $("#thirYearForSec").val();
+            if(thirYearForSec ==''){
+                thirYearForSec = 0;
+                thirYearForSec = parseFloat(thirYearForSec);                  
+            }else{
+                thirYearForSec = parseFloat(thirYearForSec);                  
+            }
+            
+            var foryearForSec = $("#foryearForSec").val();
+            if(foryearForSec ==''){
+                foryearForSec = 0;
+                foryearForSec = parseFloat(foryearForSec);                  
+            }else{
+                foryearForSec = parseFloat(foryearForSec);                  
+            }
+            
+            //if(productVal == 'Event & Crowd Compass'){
+            
+            var aR1OneCC = $("#aR1OneCC").val();
+            if(aR1OneCC ==''){
+                aR1OneCC = 0; 
+                aR1OneCC = parseFloat(aR1OneCC);                 
+            }else{
+                aR1OneCC = parseFloat(aR1OneCC);                  
+            }
+            
+            var secYearOneCC = $("#secYearOneCC").val();
+            if(secYearOneCC ==''){
+                secYearOneCC = 0; 
+                secYearOneCC = parseFloat(secYearOneCC);                 
+            }else{
+                secYearOneCC = parseFloat(secYearOneCC);                  
+            }
+            
+            var thirYearOneCC = $("#thirYearOneCC").val();
+            if(thirYearOneCC ==''){
+                thirYearOneCC = 0; 
+                thirYearOneCC = parseFloat(thirYearOneCC);                 
+            }else{
+                thirYearOneCC = parseFloat(thirYearOneCC);                  
+            }
+            
+            var foryearOneCC = $("#foryearOneCC").val();
+            if(foryearOneCC ==''){
+                foryearOneCC = 0;  
+                foryearOneCC = parseFloat(foryearOneCC);                
+            }else{
+                foryearOneCC = parseFloat(foryearOneCC);                  
+            }
+            
+            var aR1OneSecCC = $("#aR1OneSecCC").val();
+            if(aR1OneSecCC ==''){
+                aR1OneSecCC = 0;
+                aR1OneSecCC = parseFloat(aR1OneSecCC);                  
+            }else{
+                aR1OneSecCC = parseFloat(aR1OneSecCC);                  
+            }
+            var secYearOneSecCC = $("#secYearOneSecCC").val();
+            if(secYearOneSecCC ==''){
+                secYearOneSecCC = 0;
+                secYearOneSecCC = parseFloat(secYearOneSecCC);                  
+            }else{
+                secYearOneSecCC = parseFloat(secYearOneSecCC);                  
+            }
+            
+            var thirYearOneSecCC = $("#thirYearOneSecCC").val();
+            if(thirYearOneSecCC ==''){
+                thirYearOneSecCC = 0;  
+                thirYearOneSecCC = parseFloat(thirYearOneSecCC);                
+            }else{
+                thirYearOneSecCC = parseFloat(thirYearOneSecCC);                  
+            }
+            
+            var foryearOneSecCC = $("#foryearOneSecCC").val();
+            if(foryearOneSecCC ==''){
+                foryearOneSecCC = 0;  
+                foryearOneSecCC = parseFloat(foryearOneSecCC);                
+            }else{
+                foryearOneSecCC = parseFloat(foryearOneSecCC);                  
+            }
+            
+            var aR1SecCC = $("#aR1SecCC").val();
+            if(aR1SecCC ==''){
+                aR1SecCC = 0; 
+                aR1SecCC = parseFloat(aR1SecCC);                 
+            }else{
+                aR1SecCC = parseFloat(aR1SecCC);                  
+            }
+            
+            var secYearSecCC = $("#secYearSecCC").val();
+            if(secYearSecCC ==''){
+                secYearSecCC = 0; 
+                secYearSecCC = parseFloat(secYearSecCC);                 
+            }else{
+                secYearSecCC = parseFloat(secYearSecCC);                  
+            }
+            
+            var thirYearSecCC = $("#thirYearSecCC").val();
+            if(thirYearSecCC ==''){
+                thirYearSecCC = 0;  
+                thirYearSecCC = parseFloat(thirYearSecCC);                
+            }else{
+                thirYearSecCC = parseFloat(thirYearSecCC);                  
+            }
+            
+            var foryearSecCC = $("#foryearSecCC").val();
+            if(foryearSecCC ==''){
+                foryearSecCC = 0;    
+                foryearSecCC = parseFloat(foryearSecCC);              
+            }else{
+                foryearSecCC = parseFloat(foryearSecCC);                  
+            }
+            
+            var aR1SecSecCC = $("#aR1SecSecCC").val();
+            if(aR1SecSecCC ==''){
+                aR1SecSecCC = 0;    
+                aR1SecSecCC = parseFloat(aR1SecSecCC);              
+            }else{
+                aR1SecSecCC = parseFloat(aR1SecSecCC);                  
+            }
+            
+            var secYearSecSecCC = $("#secYearSecSecCC").val();
+            if(secYearSecSecCC ==''){
+                secYearSecSecCC = 0;  
+                secYearSecSecCC = parseFloat(secYearSecSecCC);                
+            }else{
+                secYearSecSecCC = parseFloat(secYearSecSecCC);                  
+            }
+            
+            var thirYearSecSecCC = $("#thirYearSecSecCC").val();
+            if(thirYearSecSecCC ==''){
+                thirYearSecSecCC = 0;   
+                thirYearSecSecCC = parseFloat(thirYearSecSecCC);               
+            }else{
+                thirYearSecSecCC = parseFloat(thirYearSecSecCC);                  
+            }
+            
+            var foryearSecSecCC = $("#foryearSecSecCC").val();
+            if(foryearSecSecCC ==''){
+                foryearSecSecCC = 0;   
+                foryearSecSecCC = parseFloat(foryearSecSecCC);               
+            }else{
+                foryearSecSecCC = parseFloat(foryearSecSecCC);                  
+            }
+            
+            var aR1ThirCC = $("#aR1ThirCC").val();
+            if(aR1ThirCC ==''){
+                aR1ThirCC = 0;   
+                aR1ThirCC = parseFloat(aR1ThirCC);               
+            }else{
+                aR1ThirCC = parseFloat(aR1ThirCC);                  
+            }
+            
+            var secYearThirCC = $("#secYearThirCC").val();
+            if(secYearThirCC ==''){
+                secYearThirCC = 0;       
+                secYearThirCC = parseFloat(secYearThirCC);           
+            }else{
+                secYearThirCC = parseFloat(secYearThirCC);                  
+            }
+            
+            var thirYearThirCC = $("#thirYearThirCC").val();
+            if(thirYearThirCC ==''){
+                thirYearThirCC = 0;  
+                thirYearThirCC = parseFloat(thirYearThirCC);                
+            }else{
+                thirYearThirCC = parseFloat(thirYearThirCC);                  
+            }
+            
+            var foryearThirCC = $("#foryearThirCC").val();
+            if(foryearThirCC ==''){
+                foryearThirCC = 0;    
+                foryearThirCC = parseFloat(foryearThirCC);              
+            }else{
+                foryearThirCC = parseFloat(foryearThirCC);                  
+            }
+            
+            var aR1ThirSecCC = $("#aR1ThirSecCC").val();
+            if(aR1ThirSecCC ==''){
+                aR1ThirSecCC = 0;      
+                aR1ThirSecCC = parseFloat(aR1ThirSecCC);            
+            }else{
+                aR1ThirSecCC = parseFloat(aR1ThirSecCC);                  
+            }
+            
+            var secYearThirSecCC = $("#secYearThirSecCC").val();
+            if(secYearThirSecCC ==''){
+                secYearThirSecCC = 0;  
+                secYearThirSecCC = parseFloat(secYearThirSecCC);                
+            }else{
+                secYearThirSecCC = parseFloat(secYearThirSecCC);                  
+            }
+            
+            var thirYearThirSecCC = $("#thirYearThirSecCC").val();
+            if(thirYearThirSecCC ==''){
+                thirYearThirSecCC = 0;
+                thirYearThirSecCC = parseFloat(thirYearThirSecCC);                   
+            }else{
+                thirYearThirSecCC = parseFloat(thirYearThirSecCC);                  
+            }
+            
+            var foryearThirSecCC = $("#foryearThirSecCC").val();
+            if(foryearThirSecCC ==''){
+                foryearThirSecCC = 0; 
+                foryearThirSecCC = parseFloat(foryearThirSecCC);                 
+            }else{
+                foryearThirSecCC = parseFloat(foryearThirSecCC);                  
+            }
+            
+            var aR1ForCC = $("#aR1ForCC").val();
+            if(aR1ForCC ==''){
+                aR1ForCC = 0;      
+                aR1ForCC = parseFloat(aR1ForCC);            
+            }else{
+                aR1ForCC = parseFloat(aR1ForCC);                  
+            }
+            
+            var secYearForCC = $("#secYearForCC").val();
+            if(secYearForCC ==''){
+                secYearForCC = 0;  
+                secYearForCC = parseFloat(secYearForCC);                 
+            }else{
+                secYearForCC = parseFloat(secYearForCC);                  
+            }
+            
+            var thirYearForCC = $("#thirYearForCC").val();
+            if(thirYearForCC ==''){
+                thirYearForCC = 0;   
+                thirYearForCC = parseFloat(thirYearForCC);               
+            }else{
+                thirYearForCC = parseFloat(thirYearForCC);                  
+            }
+            
+            var foryearForCC = $("#foryearForCC").val();
+            if(foryearForCC ==''){
+                foryearForCC = 0;
+                foryearForCC = parseFloat(foryearForCC);                  
+            }else{
+                foryearForCC = parseFloat(foryearForCC);                  
+            }
+            
+            var aR1ForSecCC = $("#aR1ForSecCC").val();
+            if(aR1ForSecCC ==''){
+                aR1ForSecCC = 0;
+                aR1ForSecCC = parseFloat(aR1ForSecCC);                  
+            }else{
+                aR1ForSecCC = parseFloat(aR1ForSecCC);                  
+            }
+            
+            var secYearForSecCC = $("#secYearForSecCC").val();
+            if(secYearForSecCC ==''){
+                secYearForSecCC = 0;       
+                secYearForSecCC = parseFloat(secYearForSecCC);           
+            }else{
+                secYearForSecCC = parseFloat(secYearForSecCC);                  
+            }
+            
+            var thirYearForSecCC = $("#thirYearForSecCC").val();
+            if(thirYearForSecCC ==''){
+                thirYearForSecCC = 0;
+                thirYearForSecCC = parseFloat(thirYearForSecCC);                  
+            }else{
+                thirYearForSecCC = parseFloat(thirYearForSecCC);                  
+            }
+            
+            var foryearForSecCC = $("#foryearForSecCC").val();
+            if(foryearForSecCC ==''){
+                foryearForSecCC = 0;
+                foryearForSecCC = parseFloat(foryearForSecCC);                  
+            }else{
+                foryearForSecCC = parseFloat(foryearForSecCC);                  
+            }
+            //}
+            
+            var contId = $( "input[id$='ContactName_lkid']" ).val();
+            var OppName = $( "input[id$='OppName_lkid']" ).val();
+            var Product = $( "input[id$='Product']" ).val();
+            
+            var jsConlist = []; 
+            <apex:repeat value="{!lstContYear}" var="con">          
+                jsConlist.push("{!JSENCODE(con)}");        
+            </apex:repeat>
+            
+            var allValues = aR1One+","+secYearOne+","+thirYearOne+","+foryearOne+","+aR1OneSec+","+secYearOneSec+","+thirYearOneSec+","+foryearOneSec+","+aR1Sec+","+secYearSec+","+thirYearSec+","+foryearSec+","+aR1SecSec+","+secYearSecSec+","+thirYearSecSec+","+foryearSecSec+","+aR1Thir+","+secYearThir+","+thirYearThir+","+foryearThir+","+aR1ThirSec+","+secYearThirSec+","+thirYearThirSec+","+foryearThirSec+","+aR1For+","+secYearFor+","+thirYearFor+","+foryearFor+","+aR1ForSec+","+secYearForSec+","+thirYearForSec+","+foryearForSec; 
+            allValues = allValues + "," + contId + "," + OppName + "," + productVal + "," + "{!instOfProp.id}" ;
+            
+            
+            
+            //if(productVal == 'Event & Crowd Compass')
+            allValues =  allValues+","+aR1OneCC+","+secYearOneCC+","+thirYearOneCC+","+foryearOneCC+","+aR1OneSecCC+","+secYearOneSecCC+","+thirYearOneSecCC+","+foryearOneSecCC+","+aR1SecCC+","+secYearSecCC+","+thirYearSecCC+","+foryearSecCC+","+aR1SecSecCC+","+secYearSecSecCC+","+thirYearSecSecCC+","+foryearSecSecCC+","+aR1ThirCC+","+secYearThirCC+","+thirYearThirCC+","+foryearThirCC+","+aR1ThirSecCC+","+secYearThirSecCC+","+thirYearThirSecCC+","+foryearThirSecCC+","+aR1ForCC+","+secYearForCC+","+thirYearForCC+","+foryearForCC+","+aR1ForSecCC+","+secYearForSecCC+","+thirYearForSecCC+","+foryearForSecCC;
+            //alert(counterCC);
+            for (i = 0; i < jsConlist.length; i++){
+                allValues = allValues+","+jsConlist[i];
+            }
+            
+            allValues = allValues+","+counterCC+","+counter;
+            //alert('allValues+++'+allValues);
+            UpdateProposalCls.save(allValues, function(result, event){ 
+                if(event.type == 'exception') {
+                  alert(event.message);
+                }else{
+                  console.log(result);
+                  window.open(result,"_self");
+                }
+            });
+        }
+    </script>
+    
+    <apex:form >
+    <apex:sectionHeader title="New Proposal"/>
+        <apex:pageBlock title="Proposal Edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" onclick="save()" rerender="sectionId" />
+                <apex:commandButton value="Cancel" action="{!cancelNow}"/>
+            </apex:pageBlockButtons>
+            <apex:PageBlockSection title="Information" columns="2" >
+                <apex:Inputfield styleClass="ContactName" Id="ContactName" value="{!instOfProp.Contact_Name__c}"/>
+                <apex:Inputfield styleClass="OppName" Id="OppName" value="{!instOfProp.Opportunity_Name__c}"/>
+                <apex:inputfield styleClass="Product" Id="Product" value="{!instOfProp.Product__c}" onchange="getProduct(this.value)" />
+                <apex:outputfield styleClass="NameOfPro" Id="NameOfPro" value="{!instOfProp.Name}" />
+            </apex:PageBlockSection>
+            <apex:PageBlockSection title="Usage Fee">
+                <div id="sectionIdSec"><b>Event</b></div>
+                <div class="pbBody" id="sectionId">
+                    <table class="list" border="0" cellpadding="00" cellspacing="00">
+                        <thead>
+                            <tr class="headerRow">
+                                <th class="headerRowEmpty" scope="col"> </th>
+                                <th class="headerRowVar" id="headerRowVar" scope="col">Annual Registrants/Yr</th>
+                                <th class="headerRow" scope="col">2nd Year Term</th>
+                                <th class="headerRow" scope="col">3rd Year Term</th>
+                                <th class="headerRow" scope="col">4th Year Term</th>
+                                <th class="headerRow" scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1One}" id="aR1One" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearOne}" id="secYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearOne}" id="thirYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearOne}" id="foryearOne" type="number"></input></span></td>
+                                <td id="tdFirst" class="dataCell"><span><a onclick="showTr();" href=""><b><u>Add</u></b></a></span></td>
+                            </tr>
+                            <tr>
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1OneSec}" id="aR1OneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearOneSec}" id="secYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearOneSec}" id="thirYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearOneSec}" id="foryearOneSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row1">
+                                <td>Pricing</td>    
+                                <td class="dataCell"><span><input step="any" value="{!aR1Sec}" id="aR1Sec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearSec}" id="secYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearSec}" id="thirYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearSec}" id="foryearSec" type="number"></input></span></td>
+                                <td id="tdSec" class="dataCell"><span><a onclick="showTr();" href=""><b><u>Add</u></b></a><b>/</b><a onclick="removeTr();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row1Sec">
+                                <td>Rack</td>    
+                                <td class="dataCell"><span><input step="any" value="{!aR1SecSec}" id="aR1SecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearSecSec}" id="secYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearSecSec}" id="thirYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearSecSec}" id="foryearSecSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row2">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1Thir}" id="aR1Thir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearThir}" id="secYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearThir}" id="thirYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearThir}" id="foryearThir" type="number"></input></span></td>
+                                <td id="tdSecThir" class="dataCell"><span><a onclick="showTr();" href=""><b><u>Add</u></b></a><b>/</b><a onclick="removeTr();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row2Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ThirSec}" id="aR1ThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearThirSec}" id="secYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearThirSec}" id="thirYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearThirSec}" id="foryearThirSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row3">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1For}" id="aR1For" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearFor}" id="secYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearFor}" id="thirYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearFor}" id="foryearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><a onclick="removeTr();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row3Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ForSec}" id="aR1ForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearForSec}" id="secYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearForSec}" id="thirYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearForSec}" id="foryearForSec" type="number"></input></span></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- CC div -->
+                <div id="sectionIdCCSec"><b>Crowd Compass</b></div>
+                <div class="pbBody" id="sectionIdCC">
+                    <table class="list" border="0" cellpadding="00" cellspacing="00">
+                        <thead>
+                            <tr class="headerRow">
+                                <th class="headerRowEmpty" scope="col"> </th>
+                                <th class="headerRowVarSec" id="headerRowVarSec" scope="col">Annual Registrants/Yr</th>
+                                <th class="headerRow" scope="col">2nd Year Term</th>
+                                <th class="headerRow" scope="col">3rd Year Term</th>
+                                <th class="headerRow" scope="col">4th Year Term</th>
+                                <th class="headerRow" scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1OneCC}" id="aR1OneCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearOnecc}" id="secYearOneCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearOnecc}" id="thirYearOneCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearOnecc}" id="foryearOneCC" type="number"></input></span></td>
+                                <td id="tdFirstCC" class="dataCell"><span><a onclick="showTrCC();" href=""><b><u>Add</u></b></a></span></td>
+                            </tr>
+                            <tr>
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1OneSecCC}" id="aR1OneSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearOneSecCC}" id="secYearOneSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearOneSecCC}" id="thirYearOneSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearOneSecCC}" id="foryearOneSecCC" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row1CC">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1SecCC}" id="aR1SecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearSecCC}" id="secYearSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearSecCC}" id="thirYearSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearSecCC}" id="foryearSecCC" type="number"></input></span></td>
+                                <td id="tdSecCC" class="dataCell"><span><a onclick="showTrCC();" href=""><b><u>Add</u></b></a><b>/</b><a onclick="removeTrCC();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row1SecCC">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1SecSecCC}" id="aR1SecSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearSecSecCC}" id="secYearSecSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearSecSecCC}" id="thirYearSecSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearSecSecCC}" id="foryearSecSecCC" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row2CC">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ThirCC}" id="aR1ThirCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearThirCC}" id="secYearThirCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearThirCC}" id="thirYearThirCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearThirCC}" id="foryearThirCC" type="number"></input></span></td>
+                                <td id="tdSecThirCC" class="dataCell"><span><a onclick="showTrCC();" href=""><b><u>Add</u></b></a><b>/</b><a onclick="removeTrCC();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row2SecCC">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ThirSecCC}" id="aR1ThirSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearThirSecCC}" id="secYearThirSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearThirSecCC}" id="thirYearThirSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearThirSecCC}" id="foryearThirSecCC" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row3CC">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ForCC}" id="aR1ForCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearForCC}" id="secYearForCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearForCC}" id="thirYearForCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearForCC}" id="foryearForCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><a onclick="removeTrCC();" href=""><b><u>Remove</u></b></a></span></td>
+                            </tr>
+                            <tr id="Row3SecCC">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input step="any" value="{!aR1ForSecCC}" id="aR1ForSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!secYearForSecCC}" id="secYearForSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!thirYearForSecCC}" id="thirYearForSecCC" type="number"></input></span></td>
+                                <td class="dataCell"><span><input step="any" value="{!foryearForSecCC}" id="foryearForSecCC" type="number"></input></span></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+                <!-- CC div -->
+                
+            </apex:PageBlockSection>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

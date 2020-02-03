@@ -1,0 +1,343 @@
+<!--
+//////////////////////////////////////
+//      @author Abhishek Pandey     //
+/////////////////////////////////////
+Version :   1.0
+Date : 17th June 2014
+Description : Show Quota Vs Budget report using Google Charting. 
+ -->
+<apex:page controller="QuotaVsBudgetReportCls" readOnly="true" showHeader="false">
+     <style>
+        .buttonClass{
+            left: 86% !important;
+            position: relative !important;         
+        }
+       
+        .odd {
+            background-color:white !important;
+        }
+        .even {
+            background-color:#eee !important;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+    </style>
+    <apex:form >
+         <apex:includeScript id="a" value="https://www.google.com/jsapi" /> 
+         <apex:sectionHeader title="Quota Attainment" subtitle="Welcome To Cvent Reporting"/>
+         <div>
+            <a style="position:absolute;top:0%;left:50%" id="report" href="/home/home.jsp">Exit Reporting</a>
+            <a style="position:absolute;top:0%;left:48%"  href="/apex/ReportsLandingPage">Back-</a> 
+         </div>
+         <apex:outputpanel >
+            <apex:actionstatus id="actionStatus">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;">              
+                        <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionstatus>        
+         </apex:outputpanel>
+         
+         <apex:pageBlock title="Filter It with selections below" id="pbId">
+             
+             <apex:pageBlockSection title="Filters" columns="2">  
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Month-From" for="idSelectOptionMonthFrom" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!monthFrom}" size="1" styleClass="monthFromSelected" id="idSelectOptionMonthFrom">
+                            <apex:selectOptions value="{!monthOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Month-To" for="idSelectOptionMonthTo" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!monthTo}" size="1" styleClass="monthToSelected" id="idSelectOptionMonthTo">
+                            <apex:selectOptions value="{!monthOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Team" for="idSelectOptionTeam" />  
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!teamSelected}" size="1" styleClass="teamSelected" id="idSelectOptionTeam" onchange="qTypValQ()">
+                            <apex:selectOptions value="{!teamOptions}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                    
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Opportunity.fields.Product__c.Label}" for="idSelectOption" />    
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!productSelection}" size="1" styleClass="Product" id="idSelectOption" onchange="qTypValQ()">
+                            <apex:selectOptions value="{!options}"/>
+                        </apex:selectList>
+                    </apex:outputPanel> 
+                </apex:pageblockSectionItem>
+                    
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Quota Type" for="idSelectOption" />    
+                    <apex:outputPanel id="pgSIID" >                       
+                        <apex:selectList value="{!masterTypeSelection}" size="1" styleClass="masterType" id="idSelectOptionmaster" disabled="{!if(qTFlag=true,true,false)}">
+                            <apex:selectOptions value="{!masterType}"/>
+                        </apex:selectList>
+                    </apex:outputPanel> 
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Top" for="idSelectOption" />    
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!topScorerSelection}" size="1" styleClass="topScorer" id="idSelectOptiontopScorer">
+                            <apex:selectOptions value="{!topScorer}"/>
+                        </apex:selectList>
+                    </apex:outputPanel> 
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Role" for="idSelectOptionRoleSel" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!roleSel}" size="1" styleClass="Role" id="idSelectOptionRoleSel">
+                            <apex:selectOptions value="{!ByRole}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Quota Year" for="idSelectOptionQuotaYear" />   
+                    <apex:outputPanel >                         
+                        <apex:selectList value="{!quotaYearSel}" size="1" styleClass="QuotaYear" id="idSelectOptionQuotaYear">
+                            <apex:selectOptions value="{!QuotaYear}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                <apex:outputPanel styleclass="buttonClass">                                             
+                    <apex:commandButton value="Apply" onclick="setvalues();" reRender="chartBlock"/>
+                </apex:outputPanel>
+                
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+         <br/>
+        <div style="position:relative ;left:39%;width:30%;font-style:italic">
+            (Please press apply for changes to take place)
+        </div>
+         <apex:actionRegion >
+             <apex:actionFunction name="qTypVal" rerender="pgSIID" status="actionStatus" action="{!qTypVal}">   
+                 <apex:param name="param1" assignTo="{!productSelection}" value="" />
+                 <apex:param name="param2" assignTo="{!teamSelected}" value="" />
+             </apex:actionFunction>
+         </apex:actionRegion>
+         
+         <apex:actionFunction action="{!setFilterValues}" name="setvalues" rerender="chartBlock" oncomplete="initCharts();" status="actionStatus">   
+         </apex:actionFunction>
+         
+         <apex:actionRegion >
+             <apex:actionFunction name="pgblockMethod" rerender="table" status="actionStatus">   
+             </apex:actionFunction>
+         </apex:actionRegion>
+         
+         <div id="chartBlock" style="top:30px" />
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+         
+         <hr style="position:relative;left:10%;top:34px;width:90%"/>
+         <div class="mComponent doesNotContainAChart" style="position:relative;left:10%;width:25%;height:100%;font-size:20px;top:28px">
+             <div class="cHeader brandSecondaryBrd">
+                 <table>
+                     <tbody>
+                         <tr>
+                             <td class="title">
+                                 <h2 class="moduleTitle">Delta Against Specified Period</h2> 
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>    
+             </div>
+         </div>
+         <div class="shadow" style="position:relative;left:10%;width:40%;height:100%;top:28px">
+             <div id="dynamictable" class="cContent" ></div>  
+         </div>
+         
+         <script type="text/javascript">
+            
+            // Load the Visualization API and the piechart package.
+            google.load('visualization', '1.0', {'packages':['corechart']});
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.setOnLoadCallback(initCharts);
+            var visualization; 
+            var data;
+            function qTypValQ(){
+                var tempProd = $(".Product").val();
+                var tempSel = $(".teamSelected").val();
+                qTypVal(tempProd,tempSel);
+            }
+            
+            function initCharts() { 
+                var Product = $(".Product").val();
+                var masterType = $(".masterType").val();
+                var topScorer = $(".topScorer").val();
+                var from = $(".monthFromSelected").val();
+                var to = $(".monthToSelected").val();
+                var teamSelected = $(".teamSelected").val(); 
+                var yearSelected = $(".QuotaYear").val();
+                var role = $(".Role").val();
+                
+                if(role =='')
+                role =null;
+                
+                if(yearSelected=='')
+                yearSelected =null;
+                
+                if(teamSelected=='')
+                teamSelected =null;
+                
+                if(Product=='')
+                Product =null;
+                
+                if(masterType=='')
+                masterType =null;
+                
+                if(topScorer=='')
+                topScorer =null;
+                //Month Validation
+                    if(from==''){
+                        from=null;                  
+                    }else{
+                        from = parseInt(from);                  
+                    }
+                    
+                    if(to==''){
+                        to =null;
+                    }else{
+                        to = parseInt(to); 
+                    }
+                    //For Improperly Filled Month Values Validation 
+                    if((from!=null && to==null)||(from==null && to!=null)){
+                        alert('Month values are incorrect');
+                        return false;
+                    }
+                    
+                    //For Incorrect Month Values Validation                             
+                    if(from != null && to!= null){
+                        if(from>to){
+                            alert('Month values are incorrect');
+                            return false;
+                        }
+                    }
+                //Month Validation
+                QuotaVsBudgetReportCls.loadOpps(teamSelected,from,to,Product,masterType,topScorer,role,yearSelected,  
+                    function(result, event){  
+                        // load Column chart
+                        //alert('Test');
+                        visualization = new google.visualization.BarChart(document.getElementById('chartBlock'));                     
+                        // Prepare table model for chart with columns
+                        data = new google.visualization.DataTable();
+                        
+                        data.addColumn('string', ' Month');
+                        
+                        data.addColumn('number', 'Quota Attained');                     
+                        data.addColumn({type: 'string', role: 'style'});
+                        data.addColumn({'type': 'string', 'role': 'tooltip', p: {html: true}});
+                        data.addColumn({id:'i0',type: 'string', role: 'annotation', p : {html: true}});                    
+                        // add rows from the remoting results
+                        var table;
+                        $('#dynamictable').empty();
+                        if(result.length>0){
+                            $('#dynamictable').empty();
+                            $('#dynamictable').append('<table class="list" border=6px cellpadding=0px  cellspacing=0px width=100%></table>');
+                            table = $('#dynamictable').children(); 
+                            table.append("<th class=headerRow>Full Name</th><th class=headerRow>Quota</th><th class=headerRow>Sum Of Contract Total</th><th class=headerRow>Delta</th><th class=headerRow>%-Achieved</th>") ;
+                        } 
+                        var rowcount=0; 
+                        for(var i =0; i<result.length;i++){
+                            var r = result[i];
+                            //var d1 = parseInt(r.data1);        
+                            //alert(r.data1);   
+                            //alert(r.data2);
+                            //alert(d1);
+                            //alert(d2);
+                            var delta;
+                            if(r.data2>r.data3){
+                                delta = r.data2 - r.data3;
+                                delta = Math.round(delta * 100) / 100;
+                            }else if(r.data3>r.data2){
+                                delta = r.data3 - r.data2;
+                                delta = Math.round(delta * 100) / 100;
+                            }
+                            var delta111= delta.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            var data222 = r.data2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            var data333 = r.data3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            data.addRow([r.userName, r.data1,'color: #3399FF',createCustomHTMLContent(r.linkPhoto,r.userName,r.data1,data333,data222,delta111),r.data1+'%']);
+                            if(rowcount % 2 === 0  ){
+                                table.append("<tr class=even><td> <img style=width:30px;height:30px src="+r.linkPhoto+">&nbsp;"+r.userName+"</td><td>$"+data333+"</td><td>$"+data222+"</td><td>$"+delta111+"</td><td>"+r.data1+"%</td></tr>");
+                                rowcount++;
+                            }else{
+                                table.append("<tr class=odd><td> <img style=width:30px;height:30px src="+r.linkPhoto+">&nbsp;"+r.userName+"</td><td>$"+data333+"</td><td>$"+data222+"</td><td>$"+delta111+"</td><td>"+r.data1+"%</td></tr>");
+                                rowcount++;
+                            }
+                        }
+                        // all done, lets draw the chart with some options to make it look nice.
+                        google.visualization.events.addListener(visualization, 'select', selectHandler);                                    
+                        visualization.draw(data,{bar:{groupWidth:'10'},colors:['#3399FF','#FF7D5C'],annotations:{'i0':  {style: 'line'},'i1': {textStyle: {opacity: 0.3}},'i1':  {style: 'line'},transform :"rotate(-91 83 318)"+"!important"},
+                        legend:{position: 'top', textStyle: {color: '#66FF99', fontSize: 16}},title:"Quota Attainment Analytics",titlePosition:"out",titleTextStyle:{ color: '#B82E00',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},tooltip: { isHtml: true },
+                        chartArea:{backgroundColor:'#F4F4F8',width:'80%',height: '70%' },width: '100%', height: 610, min: 0,backgroundColor: {stroke:'#8B8B8D', fill:'#C6C6C9',strokeSize: 10,strokeWidth:5},vAxis: {title: 'Reps', titleTextStyle: 
+                        {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},gridlines:{color: '#333', count: 11}},hAxis: {title: 'Quota%', titleTextStyle: {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false}}});    
+                                                          
+                    },  {escape:true}
+                );
+                pgblockMethod();
+            }
+            var message;
+            function selectHandler() {
+                //alert(data);
+                var selectedItem = visualization.getSelection()[0];
+                //alert(selectedItem);
+                //if (selectedItem) {
+                //  var topping = data.getValue(selectedItem.row, 2);
+                //  alert('The user selected ' + topping);
+                //}
+                var selection = visualization.getSelection();
+                for (var i = 0; i < selection.length; i++) {
+                    var item = selection[i];
+                    //alert(item.row);
+                    //alert(item.column);
+                    if (item.row != null && item.column != null) {
+                        //message += '{row:' + item.row + ',column:' + item.column + '}';
+                        message += 'The Selected Value is' + data.getValue(selectedItem.row, item.column);  
+                    } else if (item.row != null) {
+                        //message += '{row:' + item.row + '}';
+                    } else if (item.column != null) {
+                        //message += '{column:' + item.column + '}';
+                    }
+                }
+                if (message == '') {
+                    message = 'nothing';
+                }
+                //alert('You selected ' + message);
+                message = '';
+            }
+            function createCustomHTMLContent(flagURL,UserName,perAchieve,Quota,achieved,delta ) {
+                  return '<div style="padding:5px 5px 5px 5px;">' +
+                  '<img src="' + flagURL + '" style="width:75px;height:50px"><br/><br/>'
+                  +UserName + ' is at ' + perAchieve+'%'+'<br/>'
+                  +'Quota -'+ ': ' +'$'+Quota+'<br/>'
+                  +'Attained -'+ ': ' +'$'+achieved+'<br/>'
+                  +'Delta -'+ ': ' +'$'+delta+'<br/>'
+                  +'</div>';
+            }
+         </script>
+    </apex:form>
+</apex:page>

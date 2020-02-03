@@ -1,0 +1,1438 @@
+<apex:page controller="CommunitySearchResultsAngularCls" sidebar="false" showHeader="false">
+
+<accessible>{!$ObjectType[$CurrentPage.parameters.obj].accessible}</accessible> 
+    <head>
+    <apex:composition template="CventCommunityHeader"></apex:composition>
+    <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+        <!--Including Angular and Bootstrap-->
+
+<!--       <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000"  type="image/x-icon" />-->
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script> 
+
+<!-- Changed the CDN as angular website was down - 8/30/2017 -->
+<!--        <script src="https://code.angularjs.org/1.4.8/angular.js"></script> 
+        <script src="https://code.angularjs.org/1.4.8/angular-resource.js"></script>  -->
+
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> 
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+
+        <!-- Optional theme -->
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        
+        <!-- Latest compiled and minified JavaScript -->
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>
+
+        
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            
+        <style>
+           
+     ul li.Event3Express{
+                    margin-left: 10%;!important
+                }
+                ul li.Event2Flex{
+                    margin-left: 10%;!important
+                }
+                ul li.Event1Standard{
+                    margin-left: 10%;!important
+                }
+            .result-body .questions p span.resolved {
+                background: url(/resource/1541738298000/CommunityAssets2/assets/images/resolve.png) no-repeat 15px 0 !important;
+            }
+            .product-ctas ul li {list-style-type:none; float:left; margin: 0;}
+            .product-ctas ul li a {padding: 2px 8px 2px 8px !important; display: inline-block;  margin: 0 10px 15px 0 !important; border-radius: 2px !important; line-height: 23px !important; background: #dddee1; color: #000; font-size: 14px !important;}
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important; }
+
+/* GB STYLES */
+        .section--search { background: #126fb7 !important; padding: 2em 0 2em; }
+        .header .search {
+        border: 1px solid #ccc !important;
+        background: #fff;
+        font-size: 1.25em;
+        color: #444;
+        width: 90% !important;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+        
+        border-radius: 3px 0px 0px 3px !important;
+        }
+        .header .search::placeholder {
+        color: #aaa;
+        }
+        .header .submit {
+        border-radius: 0px 3px 3px 0px !important;
+        padding: 13px 0 13px 0 !important;
+        font-size: 15px !important;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+        }
+        
+        .left-top img.logo {
+        padding: 0 !important;
+        }
+
+        .top-band {
+         background: #fff !important;
+       }
+       .left-top div#navigation ul li a {
+         color: #0183EB !important;
+       }
+       .left-top div#navigation ul li.active a {
+        background: #eee;
+      }
+      .left-top div#navigation ul li.btn-login a, .left-top div#navigation ul li.btn-login a:hover {
+        color: #fff !important;
+      }
+      .left-top div#navigation ul li a:hover {
+       color: #0183EB !important;
+       text-decoration: underline;
+     }
+
+     li.btn-login {
+      float: right;
+    }
+    li.btn-login a {
+      background: #0183EB;
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 14px;
+      display: inline-block;
+    }
+    li.btn-login a:hover {
+      backround:#0069bd !important;
+      color: #fff !important;
+    }
+    
+    
+    /* Waleed Styles */
+    
+    h1, h2, h3, h4, h5, h6{
+    font-family: "Brandon Text", Arial, sans-serif;
+    }
+    
+    p, ul, li, span {
+    font-family: "Open Sans", Arial, sans-serif;
+    }
+    
+    .result-body .frame p {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #888;
+}
+    
+    .navbar-default .navbar-nav > li > a {
+    color: #333;
+    transition: all .25s;
+    letter-spacing: 1px;
+    font-size: 1.75rem;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #0183eb;
+}
+    
+    .side-filter.filter-article p, .side-filter.filter-product p, .side-filter.filter-languagee p {
+    color: #888;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 7px;
+    background: #f5f5f5;
+    margin-bottom: 10px;
+    font-family: "Brandon Text", Arial, sans-serif;
+    }
+    
+    .side-filter.filter-article li label, .side-filter.filter-product li label, .side-filter.filter-languagee li label {
+    font-weight: normal;
+    }
+    
+    
+    .navbar-default {
+    background-image: none;
+    background: #fff;
+    border-bottom: 2px solid #0183eb;
+    box-shadow: none;
+    }
+    
+    
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+    background-image: none;
+    background: #fff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#fff', GradientType=0);
+    background-repeat: repeat-x;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+    
+    #article {
+    padding: 50px 0px;
+    }
+    
+   #article h3 a {
+    color: #333;
+    text-decoration: underline;
+    font-size: 16px;
+    }
+    
+    @media (min-width: 768px){
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    margin-left: -15px;
+}
+
+input#search{
+width: 85%;
+    height: 34px;
+    padding: 5px;
+    font-style: italic;
+    margin-bottom: 20px;
+    
+}
+    input.submit {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #0183EB;
+    border-color: transparent;
+    color: #fff;
+    transition: 0.2s;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    margin-left: -5px;
+    margin-top: -3px;
+    }
+    
+    input.submit:hover {
+    color: #fff;
+    background-color: #044981;
+    border-color: transparent;
+    }
+    
+    strong.ng-binding {
+    font-weight: normal;
+    }
+    
+    .result-body .frame p.views {
+    color: #999999;
+    font-weight: normal;
+}
+
+.product-ctas ul li a{
+
+    background-color: #f2f2f2 !important;
+    border: 1px solid #ebebeb !important;
+    color: #888 !important;
+    font-family: Verdana,Geneva,sans-serif !important;
+    font-size: 10px !important;
+    font-weight: normal !important;
+    margin-bottom: 20px !important;
+}
+
+    
+    .search-header {
+    
+    background: #ECEFF8;
+    
+    }
+    
+    
+    
+    .search-header .container{
+    padding: 34px 0px 34px 10px;
+}
+
+.search-header .container h2{
+    font-size: 36px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    color: #0183EB !important;
+}
+
+
+        </style>    
+        
+       
+
+        <script type='text/javascript'>
+            function closeAndRefresh(){
+                var value =  $("#search").val();
+                if(value ==''){
+                    //alert('Please Enter Some Text To Search');
+                }else{
+                    //var url = 'https://cventhelp.force.com/';//location.href;
+                    //url = url +'apex/HL_CommunitysearchResultPage?searchFor='+value;
+                    var url = '/apex/HL_CommunitysearchResultPage?searchFor='+value;
+                    window.location.href = url ;
+                    return false;
+                }
+            }
+        </script>
+<!-- Site Catalyst Code-->
+        <script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function()
+                          {
+var resBox = document.getElementsByClassName("ng-binding");
+var resBoxText = resBox[0].textContent;
+console.log(resBoxText);
+if (resBoxText == "0 results")
+{
+s.linkTrackVars='prop3,eVar12,events';
+s.linkTrackEvents='event251';
+s.events = 'event251';
+//console.log(s.eVar12 + " - " + s.prop3);
+var keyTerm = ("No Result: " +s.eVar12);
+//console.log(keyTerm);
+s.tl(true,'o',keyTerm);
+}
+});
+</script>
+<!--Ends Here-->
+       
+
+        <!-- Angular -->
+
+        <script>
+
+            var app = angular.module('MyForm', ['ui.bootstrap', 'ngResource']);
+
+            app.controller('myCtrl', function ($scope) { 
+
+                //FOR KAV
+
+                $scope.predicate = 'name'; 
+
+                $scope.reverse = true; 
+
+                $scope.currentPage = 1; 
+
+                $scope.order = function (predicate){ 
+
+                    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false; 
+
+                    $scope.predicate = predicate; 
+
+                };
+
+                $scope.KAVS;    
+                $scope.totalItems;
+                $scope.numPerPage;
+                $scope.prodCat = '{!productSel}'; 
+                $scope.ArtType;
+                $scope.Lang;
+                
+                $scope.firstRecCountCurrentPage;
+                $scope.lastRecCountCurrentPage;
+                
+                //alert($scope.prodCat);
+                //For spliting the string
+
+                $scope.mySplit = function(string){
+
+                    var array = string.split(';');
+
+                    //alert('Array');
+
+                    //alert(array);
+
+                    return array;
+
+                }
+                $scope.highlightAgain = function(){
+                    
+                    var totalPages = Math.ceil($scope.totalItems / $scope.numPerPage);
+                    //For the current Page
+                    if($scope.currentPage == '1')
+                    {
+                        if($scope.totalItems<$scope.numPerPage)
+                        {
+                            $scope.firstRecCountCurrentPage = '1';
+                            $scope.lastRecCountCurrentPage = $scope.totalItems;
+                            //alert('1 to '+$scope.totalItems);
+                        }
+                        else{
+                            $scope.firstRecCountCurrentPage = '1';
+                            $scope.lastRecCountCurrentPage = $scope.numPerPage;
+                            //alert('1 to '+$scope.numPerPage);
+                        }
+                    }
+                    //For the last page
+                    if($scope.currentPage == totalPages){
+                        var startingRecordCount = (($scope.currentPage - 1)*$scope.numPerPage)+1;
+                        $scope.firstRecCountCurrentPage = startingRecordCount;
+                        $scope.lastRecCountCurrentPage = $scope.totalItems;
+                        //alert(recordCount + 'to' + $scope.totalItems);
+                    }
+                    //For all the middle pages left
+                    else if($scope.currentPage != 1 && $scope.currentPage != totalPages){
+                        var startRecordCounts = (($scope.currentPage -1)*$scope.numPerPage)+1;
+                        var lastRecordCounts = ($scope.currentPage * $scope.numPerPage);
+                        $scope.firstRecCountCurrentPage = startRecordCounts;
+                        $scope.lastRecCountCurrentPage = lastRecordCounts;
+                        //alert(startRecordCounts + 'to' + lastRecordCounts);
+                    }
+                }
+                //For spliting the string
+                
+                $scope.applyfilters =  function(){
+
+                    $scope.KAVS = [];
+
+                    $scope.QUES = [];
+
+                    $scope.TempKAVS = {!lstSearchResultKAAllStr};
+
+                    $scope.TempQUES = {!lstSearchResultQuesStr};
+
+                   
+
+                    $scope.LangTEMP = [];
+
+                    $scope.ArtTypeTEMP = [];
+
+                    $scope.prodCatTEMP = [];
+
+                   
+
+                    if($scope.Lang)
+
+                    $scope.LangTEMP = $scope.mySplit($scope.Lang);
+
+                   
+
+                    if($scope.ArtType)
+
+                    $scope.ArtTypeTEMP = $scope.mySplit($scope.ArtType);
+
+                   
+
+                    if($scope.prodCat)
+
+                    $scope.prodCatTEMP = $scope.mySplit($scope.prodCat);
+
+                   
+
+                    //angular.forEach($scope.accounts,function(value,index){
+
+                        //alert(value.name);
+
+                    //})
+
+                    //alert('Came Till HERE');
+
+                    //alert($scope.prodCatTEMP);
+
+                    //alert($scope.TempQUES);
+
+                    //alert('Came Till HERE2');
+
+                    //alert($scope.LangTEMP.length);
+
+                    //alert($scope.ArtTypeTEMP.length);
+
+                    //alert($scope.prodCatTEMP.length);
+
+                   
+
+                    angular.forEach($scope.TempKAVS, function(value, key){
+
+                        if($scope.LangTEMP.length == 0 && $scope.ArtTypeTEMP.length == 0 && $scope.prodCatTEMP.length == 0){
+
+                            $scope.KAVS = $scope.TempKAVS;
+
+                        }else if($scope.LangTEMP.length > 0 || $scope.ArtTypeTEMP.length > 0  || $scope.prodCatTEMP.length > 0){
+
+                            if($scope.LangTEMP.length > 0 && $scope.ArtTypeTEMP.length > 0 && $scope.prodCatTEMP.length > 0){
+
+                              
+
+                                var counterProd=0;
+
+                                angular.forEach($scope.prodCatTEMP, function(items, key){
+
+                                    if(items != null && value.product != null){
+
+                                        if(value.product.match(items))
+
+                                        counterProd++;
+
+                                    }
+
+                                });
+
+                               
+
+                                var counterArt=0;
+
+                                angular.forEach($scope.ArtTypeTEMP, function(items, key){
+
+                                    if(items != null && value.articleTypeSec != null){
+
+                                        if(value.articleTypeSec.match(items))
+
+                                        counterArt++;
+
+                                    }
+
+                                });
+
+                                
+
+                                var counterLang=0;
+
+                                angular.forEach($scope.LangTEMP, function(items, key){
+
+                                    if(items != null && value.Lang != null){
+
+                                        if(value.Lang.match(items))
+
+                                        counterLang++;
+
+                                    }
+
+                                });
+
+                               
+
+                                if(counterProd > 0 && counterArt > 0 && counterLang > 0){
+
+                                    $scope.KAVS.push(value);
+
+                                }
+
+                            }else if($scope.prodCatTEMP.length > 0 && $scope.LangTEMP.length > 0 && $scope.ArtTypeTEMP.length == 0){
+
+                                var counterProd=0;
+
+                                angular.forEach($scope.prodCatTEMP, function(items, key){
+
+                                    if(items != null && value.product != null){
+
+                                        if(value.product.match(items))
+
+                                        counterProd++;
+
+                                    }
+
+                                });
+
+                               
+
+                                var counterLang=0;
+
+                                angular.forEach($scope.LangTEMP, function(items, key){
+
+                                    if(items != null && value.Lang != null){
+
+                                        if(value.Lang.match(items))
+
+                                        counterLang++;
+
+                                    }
+
+                                });
+
+                               
+
+                                if(counterProd > 0 && counterLang > 0){
+
+                                    $scope.KAVS.push(value);
+
+                                }
+
+                               
+
+                            }else if($scope.ArtTypeTEMP.length > 0 && $scope.LangTEMP.length > 0 && $scope.prodCatTEMP.length == 0){
+
+                                var counterArt=0;
+
+                                angular.forEach($scope.ArtTypeTEMP, function(items, key){
+
+                                    //alert('items');
+
+                                    //alert(items);
+
+                                    if(items != null && value.articleTypeSec != null){
+
+                                        if(value.articleTypeSec.match(items))
+
+                                        counterArt++;
+
+                                    }
+
+                                });
+
+                                
+
+                                //alert('value.Lang');
+
+                                //alert(value.Lang);
+
+                                var counterLang=0;
+
+                                angular.forEach($scope.LangTEMP, function(items, key){
+
+                                    if(items != null && value.Lang!= null){
+
+                                        if(value.Lang.match(items))
+
+                                        counterLang++;
+
+                                    }
+
+                                });
+
+                               
+
+                                if(counterArt > 0 && counterLang > 0){
+
+                                    $scope.KAVS.push(value);
+
+                                }
+
+                            }else if($scope.prodCatTEMP.length > 0 && $scope.ArtTypeTEMP.length > 0 && $scope.LangTEMP.length == 0){
+
+                                var counterProd=0;
+
+                                angular.forEach($scope.prodCatTEMP, function(items, key){
+
+                                    if(items != null && value.product != null){
+
+                                        if(value.product.match(items))
+
+                                        counterProd++;
+
+                                    }
+
+                                });
+
+                               
+
+                                var counterArt=0;
+
+                                angular.forEach($scope.ArtTypeTEMP, function(items, key){
+
+                                    //alert('items');
+
+                                    //alert(items);
+
+                                    if(items != null && value.articleTypeSec != null){
+
+                                        if(value.articleTypeSec.match(items))
+
+                                        counterArt++;
+
+                                    }
+
+                                });
+
+                               
+
+                                if(counterProd > 0 && counterArt > 0){
+
+                                    $scope.KAVS.push(value);
+
+                                }
+
+                            }else if($scope.prodCatTEMP.length > 0 && ($scope.LangTEMP.length == 0 && $scope.ArtTypeTEMP.length == 0)){
+
+                                var counterProd=0;
+
+                                angular.forEach($scope.prodCatTEMP, function(items, key){
+
+                                    console.log('items');
+
+                                    console.log(items);
+
+                                    console.log('value.product');
+
+                                    console.log(value.product);
+
+                                    console.log(value.Name);
+
+                                    if(items == null){
+
+                                        console.log(items);
+
+                                        console.log(value.Name);
+
+                                        console.log($scope.prodCatTEMP);
+
+                                        console.log($scope.prodCatTEMP.length);
+
+                                    }
+
+                                    if(value.product == null){
+
+                                        console.log(items);
+
+                                        console.log(value.Name);
+
+                                        console.log($scope.prodCatTEMP);
+
+                                        console.log($scope.prodCatTEMP.length);
+
+                                    }
+
+                                   
+
+                                    //alert(value.product.match(items));
+
+                                    if(items != null && value.product != null){
+
+                                        if(value.product.match(items))
+
+                                        counterProd++;
+
+                                    }
+
+                                });
+
+                                
+
+                                if(counterProd > 0)
+
+                                $scope.KAVS.push(value);
+
+                            }else if($scope.ArtTypeTEMP.length > 0 && ($scope.LangTEMP.length == 0 && $scope.prodCatTEMP.length  == 0)){
+
+                                var counterArt=0;
+
+                                console.log('CAMEHERE');
+
+                                console.log('$scope.ArtTypeTEMP');
+
+                                console.log($scope.ArtTypeTEMP);
+
+                                console.log('value.articleTypeSec');
+
+                                console.log(value.articleTypeSec);
+
+                                angular.forEach($scope.ArtTypeTEMP, function(items, key){
+
+                                    console.log('items');
+
+                                    console.log(items);
+
+                                    if(items != null && value.articleTypeSec != null){
+
+                                        if(value.articleTypeSec.match(items))
+
+                                        counterArt++;
+
+                                    }
+
+                                    console.log('counterArt');
+
+                                    console.log(counterArt);
+
+                                    console.log('$scope.KAVS');
+
+                                    console.log($scope.KAVS);
+
+                                });
+
+                                if(counterArt > 0)
+
+                                $scope.KAVS.push(value);
+
+                            }else if($scope.LangTEMP.length > 0 && ($scope.ArtTypeTEMP.length == 0 && $scope.prodCatTEMP.length  == 0)){
+
+                                var counterLang=0;
+
+                                angular.forEach($scope.LangTEMP, function(items, key){
+
+                                    //alert('items');
+
+                                    //alert(items);
+
+                                    console.log('$scope.LangTEMP');
+
+                                    console.log($scope.LangTEMP);
+
+                                    console.log('items');
+
+                                    console.log(items);
+
+                                    console.log('value.Lang');
+
+                                    console.log(value.Lang);
+
+                                    if(items != null && value.Lang != null){
+
+                                        if(value.Lang.match(items))
+
+                                        counterLang++;
+
+                                    }
+
+                                    console.log('counterLang');
+
+                                    console.log(counterLang);
+
+                                });
+
+                                if(counterLang > 0)
+
+                                $scope.KAVS.push(value);
+
+                            }
+
+                        }
+
+                    });
+
+                   
+
+                    console.log('$scope.KAVS.length');
+
+                    console.log($scope.KAVS.length);
+
+                    //alert('Came Till HERE3');
+
+                    //alert($scope.prodCatTEMP);
+
+                    //alert($scope.TempQUES);
+
+                    //alert('Came Till HERE4');
+
+                    angular.forEach($scope.TempQUES, function(value, key){
+
+                        if($scope.prodCatTEMP.length == 0){
+
+                            $scope.QUES = $scope.TempQUES;
+
+                        }else if($scope.prodCatTEMP.length > 0){
+
+                            //alert('CAME IN QUES SECTION1');
+
+                            var counterProd=0;
+
+                            angular.forEach($scope.prodCatTEMP, function(items, key){
+
+                                //alert('CAME IN QUES SECTION');
+
+                                //alert(items);
+
+                                //alert(value.prodCategory);
+
+                                //alert('Match');
+
+                                //alert(value.prodCategory.match(items));
+
+                                //alert('MatchVALUE');
+
+                               
+
+                                if(items != null){
+
+                                    if(value.prodCategory.match(items))
+
+                                    counterProd++;
+
+                                }
+
+                            });
+
+                            //alert('counter');
+
+                            //alert(counterProd);
+
+                            //alert('$scope.QUES');
+
+                            //alert($scope.QUES);
+
+                            if(counterProd > 0)
+
+                            $scope.QUES.push(value);
+
+                        }
+
+                    });
+
+                   
+
+                    //FOR KAV
+
+                    $scope.predicate = 'name'; 
+
+                    $scope.reverse = true; 
+
+                    $scope.currentPage = 1; 
+
+                    $scope.order = function (predicate){ 
+
+                        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false; 
+
+                        $scope.predicate = predicate; 
+
+                    };
+
+                    //$scope.KAVS = {!lstSearchResultKAAllStr};     
+
+                    $scope.totalItems = $scope.KAVS.length; 
+
+                    //alert($scope.totalItems);
+
+                    $scope.numPerPage = 10;
+
+                    $scope.paginate = function (value){ 
+
+                        var begin, end, index; 
+
+                        begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+
+                        end = begin + $scope.numPerPage; 
+
+                        index = $scope.KAVS.indexOf(value); 
+
+                        return (begin <= index && index < end); 
+
+                    };
+
+                    //FOR KAV
+
+                   
+
+                    //FOR QUES
+
+                    $scope.predicateQ = 'name'; 
+
+                    $scope.reverseQ = true; 
+
+                    $scope.currentPageQ = 1; 
+
+                    $scope.orderQ = function (predicateQ){ 
+
+                        $scope.reverseQ = ($scope.predicateQ === predicateQ) ? !$scope.reverseQ : false; 
+
+                        $scope.predicateQ = predicateQ; 
+
+                    };
+
+                    //$scope.QUES = {!lstSearchResultQuesStr};     
+
+                    $scope.totalItemsQ = $scope.QUES.length; 
+
+                    //alert($scope.totalItemsQ);
+
+                    $scope.numPerPageQ = 10;
+
+                    $scope.paginateQ = function (value){ 
+
+                        var begin, end, index; 
+
+                        begin = ($scope.currentPageQ - 1) * $scope.numPerPageQ; 
+
+                        end = begin + $scope.numPerPageQ; 
+
+                        index = $scope.QUES.indexOf(value); 
+
+                        return (begin <= index && index < end); 
+
+                    };
+
+                    //FOR QUES
+
+                   
+
+                    //FOR COUNT
+
+                    $scope.totalResults = $scope.QUES.length + $scope.KAVS.length;
+
+                    $scope.articleSize = $scope.KAVS.length;
+
+                    $scope.quesSize = $scope.QUES.length;
+
+                    //FOR COUNT
+
+                   
+
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+
+                }
+                
+                
+                
+                
+                if($scope.prodCat){
+                    $scope.applyfilters($scope.prodCat);
+                }else{
+                    $scope.KAVS = {!lstSearchResultKAAllStr};
+                    $scope.totalItems = $scope.KAVS.length; 
+                    $scope.numPerPage = 10;
+                    $scope.paginate = function (value){ 
+
+                        var begin, end, index; 
+    
+                        begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+    
+                        end = begin + $scope.numPerPage; 
+    
+                        index = $scope.KAVS.indexOf(value); 
+    
+                        return (begin <= index && index < end); 
+    
+                    };
+                    
+                    //FOR KAV
+                    
+                    //FOR QUES
+
+                    $scope.predicateQ = 'name'; 
+
+                    $scope.reverseQ = true; 
+
+                    $scope.currentPageQ = 1; 
+
+                    $scope.orderQ = function (predicateQ){ 
+
+                        $scope.reverseQ = ($scope.predicateQ === predicateQ) ? !$scope.reverseQ : false; 
+
+                        $scope.predicateQ = predicateQ; 
+
+                    };
+
+                    $scope.QUES = {!lstSearchResultQuesStr};     
+
+                    $scope.totalItemsQ = $scope.QUES.length; 
+
+                    //alert($scope.totalItemsQ);
+
+                    $scope.numPerPageQ = 10;
+
+                    $scope.paginateQ = function (value){ 
+
+                        var begin, end, index; 
+
+                        begin = ($scope.currentPageQ - 1) * $scope.numPerPageQ; 
+
+                        end = begin + $scope.numPerPageQ; 
+
+                        index = $scope.QUES.indexOf(value); 
+
+                        return (begin <= index && index < end); 
+
+                    };
+
+                    //FOR QUES
+
+                    //For Highlighting
+
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+
+                   
+
+                    //For Highlighting
+
+                   
+
+                    //FOR COUNT
+
+                    $scope.totalResults = $scope.QUES.length + $scope.KAVS.length;
+
+                    $scope.articleSize = $scope.KAVS.length;
+
+                    $scope.quesSize = $scope.QUES.length;
+
+                    //FOR COUNT
+
+                }
+
+                
+                
+                //alert($scope.totalItems);
+
+
+                $scope.$watch('currentPageQ', function(newValue, oldValue) {
+
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+
+                });
+
+                $scope.$watch('currentPage', function(newValue, oldValue) {
+
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+
+                });
+                
+                
+                $scope.updateWithProdCat = function(filterValue){
+
+                    //alert(filterValue.target.id);
+
+                    //alert($scope.prodCat);
+
+                    //alert(filterValue);
+
+                    if($('#'+filterValue.target.id).is(":checked")){
+
+                        if($scope.prodCat){
+
+                            //alert(filterValue);
+
+                            //alert('If filled');
+
+                            $scope.prodCat = $scope.prodCat + ';' + filterValue.target.id;
+
+                        }else{
+
+                            //alert(filterValue);
+
+                            //alert('If empty');
+
+                            $scope.prodCat = filterValue.target.id;
+
+                        }
+
+                        //$('#'+filterValue.target.id+'div' ).addClass( "productClass" );
+
+                    }else{                  
+
+                        //$('#'+filterValue.target.id+'div' ).removeClass( "productClass" );
+
+                        var tempVar = $scope.prodCat;
+
+                        //alert(tempVar);
+
+                        var array = $scope.mySplit(tempVar);
+
+                        //alert('UNCHECKED IT');
+
+                        //alert($scope.prodCat);
+
+                        //alert(array);                       
+
+                        $scope.prodCat ='';
+
+                        //alert('array.length');
+
+                        //alert(array.length);
+
+                        for(var i=0; i < array.length; i++){
+
+                            //alert('array[i]');
+
+                            //alert(array[i]);
+
+                            //alert('filterValue.target.id');
+
+                            //alert(filterValue.target.id);
+
+                            if(array[i] != filterValue.target.id){
+
+                                if($scope.prodCat){
+
+                                    $scope.prodCat = $scope.prodCat + ';' + array[i];   
+
+                                }else{
+
+                                    $scope.prodCat = array[i];       
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    //alert($scope.prodCat);
+
+                    $scope.applyfilters();
+
+                }
+                
+                $scope.updateWithArtType = function(filterValue){
+
+                    //alert(filterValue.target.id);
+
+                    //alert($scope.ArtType);
+
+                    if($('#'+filterValue.target.id).is(":checked")){                   
+
+                        if($scope.ArtType){
+
+                            $scope.ArtType = $scope.ArtType + ';' + filterValue.target.id;
+
+                        }else{
+
+                            $scope.ArtType = filterValue.target.id;
+
+                        }
+
+                        //$('#'+filterValue.target.id+'div' ).addClass( "productClass" );
+
+                    }else{
+
+                        //$('#'+filterValue.target.id+'div' ).removeClass( "productClass" );
+
+                        var tempVar = $scope.ArtType;
+
+                        //alert(tempVar);
+
+                        var array = $scope.mySplit(tempVar);
+
+                        $scope.ArtType = '';
+
+                        for(var i=0; i < array.length; i++){
+
+                            if(array[i] != filterValue.target.id){
+
+                                if($scope.ArtType){
+
+                                    $scope.ArtType = $scope.ArtType + ';' + array[i];   
+
+                                }else{
+
+                                    $scope.ArtType = array[i];       
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    //alert($scope.ArtType);
+
+                    $scope.applyfilters();
+
+                }
+
+                $scope.updateWithLang = function(filterValue){
+
+                    if($('#'+filterValue.target.id).is(":checked")){
+
+                        if($scope.Lang){
+
+                            $scope.Lang = $scope.Lang + ';' + filterValue.target.id;
+
+                        }else{
+
+                            $scope.Lang = filterValue.target.id;
+
+                        }
+
+                        //$('#'+filterValue.target.id+'div' ).addClass( "productClass" );
+
+                    }else{
+
+                        //$('#'+filterValue.target.id+'div' ).removeClass( "productClass" );
+
+                        var tempVar = $scope.Lang;
+
+                        //alert(tempVar);
+
+                        var array = $scope.mySplit(tempVar);
+
+                        $scope.Lang = '';
+
+                        for(var i=0; i < array.length; i++){
+
+                            if(array[i] != filterValue.target.id){
+
+                                if($scope.Lang){
+
+                                    $scope.Lang = $scope.Lang + ';' + array[i];   
+
+                                }else{
+
+                                    $scope.Lang = array[i];       
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    //alert($scope.Lang);
+
+                    $scope.applyfilters();
+
+                }
+
+            });
+
+        </script>
+
+        <!-- Angular -->
+        
+
+    </head>
+
+    <!--<header>
+         <section class="header section--search">
+            <div class="container">
+                <div class="row col-md-12 reposition">
+                </div>
+                <div class="row col-md-12">
+                    <form id="search-form">
+                        <input type="text" class="search" placeholder="Search the Knowledge Base" required="true" id="search" value="" />
+                        <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                    </form>
+                </div>
+            </div>
+        </section> 
+    </header>-->
+
+   
+
+    <!--<apex:form html-ng-non-bindable="true" id="form">-->
+    <main>
+        <body ng-app="MyForm">
+            <div ng-controller="myCtrl"  ng-init="highlightAgain()">
+                <section id="article">
+                
+            <div class="search-header" style="padding-top: 70px;">
+            <div class="container">
+            
+            
+            <h2>Knowledge Base Search Results</h2>
+            
+            
+            </div>
+            </div>
+                
+                    <div class="container">
+                        <div class="row" style="margin-top: 50px;">
+                            <div id="filter-popup" class="col-md-3 col-sm-4 filter-col hide-for-mobile">
+                                <!--<div class="results-box">
+                                  <p><strong>{{totalResults}} results</strong> for "{!searchfor}"</p>
+                                </div>-->
+                                <p><strong>{{totalResults}} results</strong> for "{!searchfor}"</p>
+                                <div class="side-filter filter-product">
+                                    <p><strong>Refine By Product Type</strong></p>
+                                    <ul>
+                                        <apex:variable value="{!1}" var="rowNum"/>
+                                        <apex:repeat value="{!lstProdCatCount}" var="instOfCSRP">
+                                            <li class="{!instOfCSRP.ApiName}">
+                                                <apex:variable var="rowNum" value="{!instOfCSRP.ApiName}"/>
+                                                <input type="checkbox" name="" ng-checked="{!instOfCSRP.show}" value="CSN Planner" id="{!rowNum}" ng-click="updateWithProdCat($event);" />
+                                                <label for="product-planner">{!instOfCSRP.Name}</label>
+                                                <span>({!instOfCSRP.Count})</span>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                </div>
+                                <div class="side-filter filter-article">
+                                    <p><strong>Refine By Content Type</strong></p>
+                                    <ul>
+                                        <apex:variable value="{!2}" var="rowNumSec"/>
+                                        <apex:repeat value="{!lstarticleTypeCount}" var="instOfArtType">
+                                            <li>
+                                                <apex:variable var="rowNumSec" value="{!instOfArtType.apiName}"/>
+                                                <script>
+                                                    var iiiii;
+                                                    var iiiii = "{!instOfArtType.apiName}"+'div';
+                                                </script>
+                                                <input type="checkbox" name="" value="{!instOfArtType.show}" id="{!rowNumSec}" ng-click="updateWithArtType($event);" />
+                                                <label for="product-planner">{!instOfArtType.Name}</label>
+                                                <span>({!instOfArtType.Count})</span>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                </div>
+                                
+                                <div class="side-filter filter-languagee">
+                                    <p><strong>Refine By Language</strong></p>
+                                    <ul>
+                                        <apex:repeat value="{!lstLangCount}" var="instOflang">
+                                            <apex:variable var="rowNumThir" value="{!instOflang.isoLang}"/>
+                                            <li>
+                                                <input type="checkbox" id="{!rowNumThir}" ng-click="updateWithLang($event);" value="{!instOflang.show}"/>
+                                                <label for="language-english">{!instOflang.lang}</label>
+                                                <span>({!instOflang.Count})</span>
+                                            </li>
+                                        </apex:repeat> 
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-8 result-body ng-cloak">
+                                <div class="show-on-mobile">
+                                    <p class="filter-btn">Filter</p>
+                                </div>
+                                <div class="result-container">
+                                    <div class="head">
+                                    <input type="text" class="search" placeholder="Search the Knowledge Base" required="true" id="search" value="" />
+                                        <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                                        
+                                        <!--<h1>Articles ({{articleSize}})</h1>-->
+                                    </div>
+                                    {{firstRecCountCurrentPage}} to {{lastRecCountCurrentPage}} of {{totalItems}}
+                                    <div class="frame" ng-repeat="kav in KAVS | filter:paginate">
+                                        <h3><a style="cursor: pointer;" ng-href="CommunityArticle?id={{kav.articleNum}}&Lang={{kav.Lang}}&searchTerm={!searchfor}">{{kav.Name}}</a></h3>
+                                        
+                                        <div style="clear:both;"></div>
+                                        <p>{{kav.strSummary}}</p>
+                                        <div style="clear:both;"></div>
+                                        <div class="product-ctas clearfix" style="margin-top:10px;">
+                                           <span style="float: left; padding: 5px 10px 5px 0px;" class="glyphicon glyphicon-tags" aria-hidden="true"></span> <ul style="list-style-type:none;">
+                                           
+                                                <li><a class="grey-cta" href="#">{{kav.articleType}}</a></li>
+                                                <!--<li><a class="grey-cta" href="#">{{kav.product}}</a></li>-->
+                                                <div ng-repeat="n in kav.productSet">
+                                                    <li><a class="grey-cta" href="#">{{n}}</a></li>
+                                                </div>
+                                                <div ng-repeat="n in kav.langSet">
+                                                    <li><a class="grey-cta" href="#">{{n}}</a></li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                        <p class="views"><span style="color: #333;" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{kav.doubKAVs}} Views</p>
+                                    </div>
+                                    <pagination total-items="totalItems" ng-model="currentPage" 
+                                        max-size="5" boundary-links="true" 
+                                        items-per-page="numPerPage" class="pagination-sm" ng-click="highlightAgain();"> 
+                                    </pagination>
+                                    <!--<div class="head">
+                                        <p>Questions ({{quesSize}})</p>
+                                    </div>
+                                    <div class="questions" ng-repeat="que in QUES | filter:paginateQ">
+                                        <p><a style="cursor: pointer;" ng-href="/{{que.recordid }}" >{{que.Name}}</a><span class="resolved">Resolved</span></p>
+                                        <p>Is there a way to insert the "yes" and "no" buttons back into my email invitation? <span class="unresolved">Unresolved</span></p>
+                                    </div>
+                                    <pagination total-items="totalItemsQ" ng-model="currentPageQ" 
+                                        max-size="5" boundary-links="true" 
+                                        items-per-page="numPerPageQ" class="pagination-sm" ng-click="highlightAgain();"> 
+                                    </pagination>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+        </body>
+    </main>
+    <!-- Community Footer code added here-->
+    <apex:composition template="CventCommunityFooter"></apex:composition>
+        
+       
+
+</apex:page>

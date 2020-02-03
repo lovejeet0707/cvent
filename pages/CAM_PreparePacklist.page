@@ -1,0 +1,230 @@
+<apex:page standardController="Onsite_Hardware_Request_Item__c" extensions="CAM_PreparePacklist_Extension" recordSetVar="items" lightningStyleSheets="true" standardStylesheets="false" sidebar="false" docType="html-5.0" title="Prepare Packlist for the Onsite Hardware Request {! theRequest.Event_Name__r.Name }">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:slds />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <apex:form >
+    
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-1">
+                <div class="slds-page-header slds-page-header_record-home">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-work-order-item">
+                                        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#work_order_item')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1><span>Prepare Packlist</span>
+                                                <span class="slds-page-header__title slds-truncate">{! theRequest.Event_Name__r.Name }</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__col-actions">
+                            <div class="slds-page-header__controls">
+                                <div class="slds-page-header__control">
+                                    <apex:commandButton value="Back to the Request" action="{!cancel}" styleClass="slds-button slds-button_neutral" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-page-header__row slds-page-header__row_gutters">
+                        <div class="slds-page-header__col-details">
+                            <ul class="slds-page-header__detail-row">
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">ID</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{! theRequest.Name }"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Project Manager</div>
+                                    <apex:outputText value="{! theRequest.Event_Name__r.Project_Manager__c }"/>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">International <br/>Event?</div>
+                                    <div class="slds-truncate">
+                                        <apex:inputCheckbox value="{! theRequest.International_Event__c }" disabled="true"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Shipment Handled <br/>by the Client?</div>
+                                    <div class="slds-truncate">
+                                        <apex:inputCheckbox value="{! theRequest.Shipment_Handled_by_the_Client__c }" disabled="true"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Advance <br/>Warehouse?</div>
+                                    <div class="slds-truncate">
+                                        <apex:inputCheckbox value="{! theRequest.Advance_Warehouse__c }" disabled="true"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Estimated Packlist <br/>Creation Date</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                            <apex:param value="{! theRequest.Date_Current_Request_Freeze_Date__c }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Estimated <br/>Shipment Date</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                            <apex:param value="{! theRequest.Date_Current_Shipment_Date__c }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Drop Off Date</div>
+                                        <div class="slds-truncate">
+                                            <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                                <apex:param value="{! theRequest.Date_Drop_Off__c }" /> 
+                                            </apex:outputText>
+                                        </div>
+                                    </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Event Start Date</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                            <apex:param value="{! theRequest.Event_Start_Date__c }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="slds-grid slds-scope slds-gutters_small slds-m-top_small">
+        <div class="slds-col slds-size_1-of-1">
+            <apex:pageMessages id="pageMessages" showDetail="false"/>
+            <apex:pageBlock title="Packlist(s)" id="packlist" rendered="{! if(theRequest.Packlists__r.size == 0, FALSE, TRUE)}" tabStyle="Onsite_Hardware_Request__c" >
+                <apex:pageBlockTable value="{! theRequest.Packlists__r }" var="packlist" title="Packlist(s)" id="PacklistTable" styleClass="slds-table slds-table_striped slds-text-heading_medium"  style="table-layout:auto;">
+                    <apex:column width="10%">
+                        <apex:outputLink value="{! URLFOR($Action.Packlist__c.View, packlist.ID) }">View Packlist</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{! packlist.Name }" />
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </div>
+    </div>
+    <div class="slds-grid slds-scope slds-gutters_small slds-m-top_small">
+        <div class="slds-col slds-size_12-of-12">
+            <!-- requested items, grouped by Asset Type, and then Group > Subgroup. Each item can have its quantity updated. select warehouse for each -->
+            <!-- save will create the packlists, update the quantities, assign the items to packlists by warehouse -->
+            <apex:outputPanel >
+                <apex:pageBlock title="Request" tabStyle="Onsite_Hardware_Request__c" >
+                    <apex:pageBlockTable value="{! assets }" var="assetsByType" styleClass="slds-table slds-table_bordered" style="table-layout:auto;">
+                        <apex:column value="{! assetsByType.assetType.Name }" styleClass="slds-text-heading_medium" headerValue="Device" width="15%"/>
+                        <apex:column width="85%">
+                            <apex:pageBlockTable value="{! assetsByType.lst }" var="asset" styleClass="slds-table slds-table_bordered" style="table-layout:auto;" footerClass="slds-table slds-table_bordered slds-text-align_right slds-border_top">
+                                <apex:column width="34%" value="{! asset.reqItem.Onsite_Hardware_Request_Bundle__r.Cvent_Asset_Bundle__c  }" headerValue="Bundle" />
+                                <apex:column width="34%" value="{! asset.reqItem.Cvent_Asset_Group__c } > {! asset.reqItem.Cvent_Asset_Subgroup__c }" headerValue="Onsite Use">
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="Total Requested Quantity:" rendered="{! assetsByType.lst.size > 1 }"></apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                <apex:column width="10%" headerValue="Request" styleClass="slds-text-align_right" headerClass="slds-text-align_right">
+                                    <span class="slds-button slds-button_icon" style="display: {! if(asset.reqItem.Requested_Quantity__c <> 0 , 'none', '') }" title="This item was included as optional. It will not be shipped unless you increase the Packlist Quantity">
+                                        <svg class="slds-icon slds-icon_xx-small slds-icon-text-warning" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#warning')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                    <apex:outputText value="{0, number, ###,##0}">
+                                        <apex:param value="{! asset.reqItem.Requested_Quantity__c }" /> 
+                                    </apex:outputText>
+                                    <apex:facet name="footer">
+                                        <apex:outputText value="{0, number, ###,##0}" rendered="{! assetsByType.lst.size > 1 }">
+                                            <apex:param value="{! assetsByType.totalQty }" /> 
+                                        </apex:outputText>
+                                    </apex:facet>
+                                    <!--apex:facet name="header">
+                                        
+                                        <apex:outputText value="Request \n({0, number, ###,##0})" >
+                                            <apex:param value="{! assetsByType.totalQty }" /> 
+                                        </apex:outputText>
+                                        
+                                    </apex:facet-->
+                                </apex:column>
+                                    
+                                <apex:column width="2%">
+
+                                    <apex:commandLink action="{! splitItem }" title="Split this item into two" status="split-status">
+                                        <apex:param name="itemIdToBeSplit" value="{! asset.reqItem.ID }" />
+                                        <apex:param name="L1index" value="{! asset.c }" />
+                                        <apex:param name="L2index" value="{! assetsByType.c }" />
+                                        <span class="slds-button slds-button_icon">
+                                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#cut')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </span>
+                                    </apex:commandLink>
+                                    <apex:actionStatus id="split-status" stopText="">
+                                        <apex:facet name="start" ><img src="/img/loading.gif"/></apex:facet>
+                                    </apex:actionStatus>
+
+                                </apex:column>
+                                <apex:column width="10%" headerValue="Packlist" styleClass="slds-text-align_right" headerClass="slds-text-align_right">
+                                    <span class="slds-button slds-button_icon" style="display: {! if(asset.reqItem.Packlist_Quantity__c <> 0 , 'none', '') }">
+                                        <svg class="slds-icon slds-icon_xx-small slds-icon-text-error" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                    <apex:inputText value="{!asset.reqItem.Packlist_Quantity__c }" size="3" disabled="{! packlistExists }" style="{! if( asset.reqItem.Packlist_Quantity__c==0, 'border: 2px solid #c23934; ', 'border: 2px solid #c9c7c5;') }"/>
+                                </apex:column>
+                                <apex:column width="10%" headerValue="Warehouse" title="Which warehouse this item will be shipped from?">
+                                    <apex:selectList value="{! asset.warehouse }" size="1" multiselect="false" disabled="{! packlistExists }" >
+                                        <apex:selectOptions value="{! warehouses }"/>
+                                    </apex:selectList>
+                                </apex:column>
+                                
+                            </apex:pageBlockTable>
+                        </apex:column>
+                    </apex:pageBlockTable>
+
+
+                        <div style="text-align:right">
+                            <apex:selectList size="1" multiselect="false" rendered="{! NOT(packlistExists) }" id="bulkWarehouseSelection">
+                                <apex:selectOptions value="{! warehouses }"/>
+                            </apex:selectList>&nbsp;&nbsp;
+                            <apex:commandButton value="Assign To All Items" onclick="assignToAllItems();" reRender="theRequest" styleClass="slds-button slds-button_outline-brand" rendered="{! NOT(packlistExists) }"/>
+                        </div>
+                    <div style="text-align:center" id="pageButtons">
+                        <!--apex:commandButton value="Back to the Request" action="{! cancel }" styleClass="slds-button slds-button_destructive" rendered="{! NOT(packlistExists) }"/>
+                        <apex:commandButton value="Back to the Request" action="{! cancel }" styleClass="slds-button slds-button slds-button_neutral" rendered="{! packlistExists }"/-->
+                        <apex:commandButton value="Create Packlist(s)" action="{! createPacklists }" styleClass="slds-button slds-button_brand" status="packlistStatus" rendered="{! NOT(packlistExists) }"/>
+                        <apex:actionStatus id="packlistStatus" startText="Creating Packlist(s)..." stopText="">
+                            <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                        </apex:actionStatus>
+                        <apex:pageMessages id="pageMessages" showDetail="false"/>
+                    </div>
+                </apex:pageBlock>
+            </apex:outputPanel>    
+        </div>
+        </div>
+        <script>
+            function assignToAllItems() {
+                itemWarehouseSelect = document.getElementsByTagName('select');
+            
+                //console.log('Selects: ' + itemWarehouseSelect.length);
+                //This assumes that the last Select element found on the page should be the bulk selection one. 
+                for (i = 0; i < itemWarehouseSelect.length - 1; i++) {
+                       itemWarehouseSelect[i].options[itemWarehouseSelect[itemWarehouseSelect.length-1].selectedIndex].selected = true;
+                } 
+                return false;
+            }
+        </script>
+
+    </apex:form>
+</html>
+</apex:page>

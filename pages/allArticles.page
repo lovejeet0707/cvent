@@ -1,0 +1,42 @@
+<apex:page sidebar="false" title="{!resultTitle}" controller="ViewAllArticleCon">
+<style>
+body .bPageBlock, body #bodyCell .bResource .secondaryPalette, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock, body .bodyDiv .genericTable, body .genericPageBlockTable, body .bodyDiv .bSubBlock, body .bComponentBlock .bPageBlock, body .bMyDashboard .bPageBlock, body.rlHoverFrame .bPageBlock, body.subjectSelectionPopup div.choicesBox, body.lookupTab .secondaryPalette.bPageBlock, body.popupTab .secondaryPalette.bPageBlock, body.UserTagStatsPage .secondaryPalette.bPageBlock{
+background-color:#fff !important;
+
+}
+.homeTab .listViewport .subNav .linkBar, .homeTab .mComponent .cHeader, .homeTab .genericTable, .homeTab .bSubBlock, .homeTab .bPageBlock{border:0 !important}
+.pbSubheader.brandTertiaryBgr.first.tertiaryPalette{background-color:#fff !important;border-bottom:1px solid #ccc}
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody .pbSubheader h3 {
+  font-size: 2.1em;
+}
+body .pbBody table.list,body .bRelatedList .pbBody table.list, body .apexp .pbBody table.list,.apexp .detailList .list .headerRow th,body .pbBody table.list tr th, body .pbBody table.list tr td{border:0 !important}
+body .pbBody table.list tr.headerRow td, body .pbBody table.list tr.headerRow th{background:#fff !important}
+.bPageBlock .detailList .data2Col,.apexp .detailList .list td {padding-left:0 !important;width:100% !important}
+span.type{  color: #a3a3a3;background: #f7f7f7;padding: 2px;}
+span.title{  font-size: 16px;padding-left: 10px;}
+div.article{padding-bottom: 8px;}
+div.summary{font-size:15px}
+td.dataCell{border-bottom:1px solid #ccc;}
+tr.dataRow{display:block;padding-bottom:10px;margin-top:10px;border-bottom:1px solid #ccc}
+</style>
+<div id="info" style="background-color:#ffffff;width: 941px; margin: 0px auto 0;">
+               <!-- <div>
+                   <c:Portal2pointO_searchComponent />
+                </div> -->
+<div id="data-block">
+   <apex:pageBlock mode="detail">
+        <apex:pageBlockSection title="{!resultTitle}" columns="1" collapsible="false" >
+           <apex:outputPanel id="thePanel" rendered="{!CategoryArticleList.size=0}">No Records Found</apex:outputPanel>
+            <apex:pageBlockTable value="{!CategoryArticleList}" var="item" rendered="{!CategoryArticleList.size>0}">
+                <apex:column >
+                      <div class="article"><span class="type"> <apex:outputField value="{!item.articletype}"/></span><span class="title"><apex:outputLink value="/apex/CommunityArticle?id={!item.ArticleNumber}" id="articleLink">{!item.Title}</apex:outputLink></span></div>
+                      <div class="summary">{!item.Summary}</div>
+                </apex:column>        
+            </apex:pageBlockTable> 
+        </apex:pageBlockSection>
+    </apex:pageBlock>  
+
+</div>              
+    
+</div>
+</apex:page>

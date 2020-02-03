@@ -1,0 +1,71 @@
+<apex:component allowDML="true">
+<apex:attribute name="catNum" type="Integer" required="true" description="value that corresponds to the custom settings category group being displayed" />
+<apex:attribute name="catGroup" type="String" required="true" description="category group name" />
+<apex:attribute name="catGroupLabel" type="String" required="true" description="category group label" />
+<apex:attribute name="rootCat" type="String" required="true" description="root category name" />
+<!-----------------------------------------------------------
+    ADDED: apex attribute use in rendered condition statement
+    3-13-2013 [MarkCarloMempin]
+------------------------------------------------------------->
+<apex:attribute name="catGroupValue" type="String" required="true" description="cookie"/> 
+
+<!-----------------------------------------------------------
+    ADDED: contains list of categoryvalues
+    7-13-2014 [ASotto]
+------------------------------------------------------------->
+<apex:attribute name="catGroupValues" type="String[]" required="true" description="cookie"/>
+
+  <apex:variable var="one" value="&nbsp;" />
+  <apex:variable var="two" value="&nbsp;&nbsp;" />
+  <apex:variable var="three" value="&nbsp;&nbsp;&nbsp;" />
+  <apex:variable var="four" value="&nbsp;&nbsp;&nbsp;&nbsp;" />
+
+    <span><apex:outputText value="{!catGroupLabel}" /></span><br/>
+    <select name="categorySelect{!catNum}" id="categorySelect{!catNum}" onchange="setCategory(this);">       
+    <option value="">--{!$Label.PKB2_No_Filter}--</option>
+       <!---------------------------------------------------
+       MODIFIED BY: MARKCARLOMEMPIN
+       3-12-2013  :
+       DESCRIPTION: Filtering of the data categories based on the parameter
+                    to display.
+       ----------------------------------------------------->
+       <knowledge:categoryList categoryVar="c" categoryGroup="{!catGroup}" rootCategory="{!rootCat}" level="-1">    
+           <!-------------------------
+            MODIFIED BY: Joseph Barrameda
+            5-08-2013            
+            Removed <rendered="{!IF(CONTAINS(catGroupValue, catGroup + ':' + c.Name), true, false)}"> to display all the Data Categories
+           --------------------------->
+           <!-- Commented by ASotto
+           <apex:outputPanel rendered="{!IF(CONTAINS(catGroupValue, catGroup + ':' + c.Name), true, false)}" >           
+                  <option value="{!catGroup}:{!c.Name}" width="100px">
+                      <apex:outputText escape="false" value="{!
+                        IF (c.depth == 1, one,
+                          IF (c.depth == 2, two,
+                            IF (c.depth == 3, three,
+                              IF (c.depth == 4, four, ''
+                              )
+                            )
+                          )
+                        ) + c.Label}" />
+                  </option>
+            </apex:outputPanel>
+            -->
+            <!-- Added Asotto -->
+            <apex:repeat value="{!catGroupValues}" var="val">
+            	<apex:outputPanel rendered="{!IF(val == catGroup + ':' + c.Name, true, false)}" >           
+					<option value="{!catGroup}:{!c.Name}" width="100px">
+	                    <apex:outputText escape="false" value="{!
+	                      IF (c.depth == 1, one,
+	                        IF (c.depth == 2, two,
+	                          IF (c.depth == 3, three,
+	                            IF (c.depth == 4, four, ''
+	                            )
+	                          )
+	                        )
+	                      ) + c.Label}" />
+					</option>
+	            </apex:outputPanel>
+            </apex:repeat>
+        </knowledge:categoryList>
+    </select>
+</apex:component>

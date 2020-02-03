@@ -1,0 +1,123 @@
+<apex:page standardController="Quota_Allocation__c" sidebar="false">
+
+<script>
+
+window.onload=function()       
+    {   
+    var profileName = '{!$Profile.Name}';
+
+    if(profileName =='Human Resources - Commissions Analysts'|| profileName =='Finance - Management')
+        window.location.href = '/{!Quota_Allocation__c.Id}?nooverride=1';
+        
+    };
+</script>
+
+
+<style>
+th{
+     color:#0A5D89;
+     font-size: 15px;
+}
+
+td{
+     color:#3f4051;
+     font-size: 13px;
+}
+.pageTitleIcon{
+    align:center;
+}
+.pbButton{
+visibility:hidden;
+}
+a.actionLink{
+visibility:hidden;
+}
+
+
+.alignleft {
+    position: absolute;
+    left: 1%;
+    top: 2%;
+}
+
+</style>
+   
+   <apex:form style="height:300px">
+   
+       <div style="padding-left:35%;">
+         <apex:sectionHeader subtitle="{!Quota_Allocation__c.Name}" title="Quota Allocation"/>
+     </div>
+       
+    <div style="clear: both;">
+          <p class="alignleft"><apex:commandButton action="/apex/QuotaAllocation_Single_User_ViewPage?uid={!Quota_Allocation__c.User__c}" value="Back to previous page"/></p>
+    </div>
+    
+    
+    <hr/> 
+      <h1 style="color:black;font-size: 15px;"> Quota Allocation Details:</h1>
+        <div align="center">
+         
+         <table cellspacing="20" >
+           
+             <tr>
+                 <th>Quota Allocation Number</th>
+                 <th>Rep Name</th>
+                 <th>Quota Type</th>
+                 <th>DS Team Members</th>
+                 <th>Product</th>
+                 <th>Role</th>
+             </tr>
+             
+             <tr>
+                 <td><apex:outputField value="{!Quota_Allocation__c.Name}"/></td>
+                 <td><apex:outputField value="{!Quota_Allocation__c.User__r.Name}"/></td>
+                 <td><apex:outputField value="{!Quota_Allocation__c.Quota_Type__r.Name}"/></td>
+                 <td><apex:outputField value="{!Quota_Allocation__c.Sales_Team_Members__c}"/></td>
+                 <td><apex:outputField value="{!Quota_Allocation__c.Quota_Type__r.Product__c}"/></td>
+                 <td><apex:outputField value="{!Quota_Allocation__c.Quota_Type__r.Role__c}"/></td>
+             </tr>
+             
+         </table>
+         </div>
+
+         <h2 style="color:black;font-size: 15px;"> Quota Amounts: </h2>
+         <br/>
+         <br/>
+         <table style="cellspacing:20;width:100%; border: 1px solid black; border-collapse: separate; ">
+             <tr>
+                     <th>January</th>
+                     <th>February</th>
+                     <th>March</th>
+                     <th>April</th>
+                     <th>May</th>
+                     <th>June</th>
+                     <th>July</th>
+                     <th>August</th>
+                     <th>September</th>
+                     <th>October</th>
+                     <th>November </th>
+                     <th>December</th>
+                 </tr>
+                 
+                 
+                 <tr>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Jan__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Feb__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Mar__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Apr__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_May__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_June__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_July__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Aug__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Sept__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Oct__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Nov__c}" /></td>
+                   <td><apex:outputText value="{!Quota_Allocation__c.Quota_Type__r.Currency_Type__c}{!Quota_Allocation__c.Amount_for_Dec__c}" /></td>
+                 </tr>
+           </table>   
+           
+  </apex:form>   
+  
+  <apex:relatedList list="ProcessSteps"/>     
+
+</apex:page>

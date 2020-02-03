@@ -1,0 +1,26 @@
+<apex:page standardController="Address__c" extensions="AddressCustomStateCountryISO_Controller" sidebar="false">
+    <apex:form >
+       <apex:pageMessages />
+      <apex:sectionHeader title="Address Edit" subtitle="{!Address__c.Name}"/>
+      <apex:pageBlock title="Address Edit" mode="edit"> 
+          
+          <apex:pageBlockSection title="Information" columns="2">
+              <apex:repeat value="{!$ObjectType.Address__c.FieldSets.AddressEditFS}" var="f">
+                  <apex:inputField value="{!Address__c[f.fieldPath]}" 
+                      required="{!OR(f.required, f.dbrequired)}"/>
+              </apex:repeat> 
+              
+              <apex:inputField value="{!acc.BillingCountryCode}"/>
+              <apex:pageblockSectionItem ></apex:pageblockSectionItem>
+              <apex:inputField value="{!acc.BillingStateCode}"/>
+              <apex:inputField value="{!Address__c.Pre_Validation__c}"/>
+          </apex:pageBlockSection>
+          
+          <apex:pageblockButtons >
+              <apex:commandButton action="{!saveAction}" value="Save"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+          </apex:pageblockButtons>
+      </apex:pageBlock>
+
+    </apex:form>                
+</apex:page>

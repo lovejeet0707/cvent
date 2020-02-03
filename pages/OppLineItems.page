@@ -1,0 +1,32 @@
+<apex:page standardController="Opportunity">
+  
+   
+  <style>
+  
+     .btn{
+           visibility:hidden;
+      }
+      .pbHeader{
+          display:none;
+      }
+      
+      
+      .sortBtn{
+           visibility:visible;
+           width:2.5%;
+      }
+      .actionColumn{
+           display:none;
+      }
+      sort{
+           visibility:visible;
+      }
+  </style>
+  
+  <apex:form >
+      <apex:commandButton value="Sort" onclick="window.open('/oppitm/lineitemsort.jsp?id={!Opportunity.Id}&retURL=%2F{!Opportunity.Id}','_blank');"  styleClass="sortBtn" style="visibility:block;margin-left:45%;"/>
+  </apex:form>  
+  <apex:relatedList list="OpportunityLineItems"/> 
+  
+  
+</apex:page>

@@ -1,0 +1,449 @@
+<apex:page tabStyle="account" showHeader="false" sidebar="false" Controller="Am_Checklist_Class" title="AM Feature Set - View Mode">
+<style>
+.activeTab {background-color: #236FBD; color:white; background-image:none}
+.inactiveTab { background-color: lightgrey; color:black; background-image:none}
+</style>
+<style>
+
+TD, TH
+{
+    FONT-SIZE: 8pt;
+    COLOR: #2A3E64;
+    font-family: Verdana
+}
+TR.bgcolor1{
+    border-bottom: 1px solid #9FD0FF;
+    background-color: White;
+}
+INPUT
+{
+    FONT-SIZE: 9px;
+    COLOR: #365187;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+SELECT
+{
+    FONT-SIZE: 8pt;
+    COLOR: #365187;
+    
+}
+TEXTAREA
+{
+    FONT-SIZE: 8pt;
+    COLOR: #365187;
+    border: 1px solid #6382BD;
+}
+</style>
+<apex:form >
+
+<apex:outputPanel >
+
+<table border="0" width="100%" id="table1">
+<tr><td> &nbsp; &nbsp; &nbsp;</td></tr>
+        <tr>
+        <td>
+       
+   <table border="0" width="100%" id="table2" height="50">
+    <tr>
+    <td><div class="bPageTitle"><div class="ptBody secondaryPalette"><div class="content"><h2 class="pageDescription"> {!nameaccount}</h2></div> </td>
+        </tr>
+</table>   
+
+        
+        </td>
+    </tr>
+           <tr>
+        <td align="left"></apex:outputPanel> 
+        <apex:tabPanel switchType="server" value="{!nametab}" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+<apex:tab label="Features" name="name1" id="tabOne"><apex:pageBlock title="AM Feature Set">
+<table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+
+<tr>
+        <td align="center">
+        <apex:commandButton style="" value="       Edit       " action="{!edit1}"/> 
+        </td>
+    </tr></table>
+
+
+ <apex:pageBlockSection title="Features" columns="1"> <apex:outputPanel >
+        <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+ <tr>
+                <td width="37%"  align="left"><b>Address Book Segmentation</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Address_Book_Segmentation_CB__c}"/>
+</td>
+                <td   align="left">{!account.Address_Book_Segmentation_TB__c}</td>
+            </tr>
+
+<tr>
+                <td width="37%"  align="left"><b>Advanced Web Design</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Advanced_Web_Design_CB__c}"/>
+</td>
+                <td   align="left">{!account.Advanced_Web_Design_TB__c}</td>
+            </tr>
+
+<tr>
+                <td width="37%"  align="left"><b>Branding Package</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Branding_Package_CB__c}"/>
+</td>
+                <td   align="left">{!account.Branding_Package_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Budget</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Budget_CB__c}"/>
+</td>
+                <td   align="left">{!account.Budget_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Dashboards</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Dashboards_CB__c}"/>
+</td>
+                <td   align="left">{!account.Dashboards_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Event Approval Process</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Event_Approval_Process_CB__c}"/>
+</td>
+                <td   align="left">{!account.Event_Approval_Process_TB__c}</td>
+            </tr>
+            
+<tr>
+                <td width="37%"  align="left"><b>Event Credits Module</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Event_Credits_Module_CB__c}"/>
+</td>
+                <td   align="left">{!account.Event_Credits_Module_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Events Calendar</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Events_Calendar_CB__c}"/>
+</td>
+                <td   align="left">{!account.Events_Calendar_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>GL Codes</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.GL_Codes_CB__c}"/>
+</td>
+                <td   align="left">{!account.GL_Codes_TB__c}</td>
+            </tr>
+
+<tr>
+                <td width="37%"  align="left"><b>Group Items</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Group_Items_CB__c}"/>
+</td>
+                <td   align="left">{!account.Group_Item_TB__c}</td>
+            </tr>
+
+<tr>
+                <td width="37%"  align="left"><b>Increased Contacts in Address Book</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Increased_Contacts_in_Address_Book_CB__c}"/>
+</td>
+                <td   align="left">{!account.Increased_Contacts_in_Address_Book_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Increased Emails Sent</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Increased_Emails_Sent_CB__c}"/>
+</td>
+                <td   align="left">{!account.Increased_Emails_Sent_TB__c}</td>
+            </tr>
+            
+<tr>
+                <td width="37%"  align="left"><b>Increased Graphic Storage</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Increased_Graphics_Storage_CB__c}"/>
+</td>
+                <td   align="left">{!account.Increased_Graphics_Storage_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Multiple Registration Paths</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"> <apex:inputCheckbox disabled="True" value="{!account.Advanced_Registration_CB__c}"/></td>
+                <td height="18%" align="left">{!account.Advanced_Registration_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Parked Reports</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Parked_Reports_CB__c}"/>
+</td>
+                <td   align="left">{!account.Parked_Reports_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Registration Rules</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Registration_Rules_CB__c}"/>
+</td>
+                <td   align="left">{!account.Registration_Rules_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>SMM Meetings Module - Enterprise</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.SMM_Meetings_Module_Ent_CB__c}"/>
+</td>
+                <td   align="left">{!account.SMM_Meetings_Module_Ent_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>SMM Meetings Module - Professional</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.SMM_Meetings_Registration_CB__c}"/>
+</td>
+                <td   align="left">{!account.SMM_Meetings_Registration_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Table Management</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Table_Management_CB__c}"/>
+</td>
+                <td   align="left">{!account.Table_Management_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Task List</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Task_List_CB__c}"/>
+</td>
+                <td   align="left">{!account.Task_List_TB__c}</td>
+            </tr>
+            
+            <tr>
+                <td width="37%"  align="left"><b>Housing & Travel</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Housing_Travel_CB__c}"/>
+</td>
+                <td   align="left">{!account.Housing_Travel_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>User Logins</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.User_Logins_CB__c}"/>
+</td>
+                <td   align="left">{!account.User_Logins_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Others</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center">
+</td>
+                <td   align="left"> {!account.Others__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Reference?</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Reference__c}"/>
+</td>
+                <td   align="left"> </td>
+            </tr>
+            
+           
+            </table></apex:outputpanel></apex:pageBlockSection></apex:pageBlock></apex:tab>
+            
+                  
+<apex:tab label="Travel/Integration" name="name2" id="tabTwo">
+
+<apex:pageBlock title="AM Feature Set">
+
+<table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+
+<tr>
+        <td align="center">
+        <apex:commandButton style="" value="       Edit       " action="{!edit2}"/> 
+        </td>
+    </tr></table>
+ <apex:pageBlockSection title="Feature - Integration:" columns="1" > <apex:outputPanel >
+
+
+        <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+            
+             <tr>
+                <td width="37%"  align="left"><b>API</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.API_CB__c}"/>
+</td>
+                <td   align="left">{!account.API_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>HTTP Post</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.HTTP_Posting_CB__c}"/>
+</td>
+                <td   align="left">{!account.HTTP_Posting_TB__c}</td>
+            </tr>
+            
+            <tr>
+                <td width="37%"  align="left"><b>Salesforce Integration</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center">
+                    <apex:inputCheckbox disabled="True" value="{!account.Salesforce_Integration_CB__c}"/>
+
+                </td>
+                <td   align="left">{!account.Salesforce_Integration_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Webex Integration</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Webex_Integration_CB__c}"/>
+</td>
+                <td   align="left">{!account.Webex_Integration_TB__c}</td>
+            </tr>
+            </table></apex:outputPanel>
+             </apex:pageBlockSection> 
+ <apex:pageBlockSection title="Feature - Housing & Travel Integration:" columns="1"> <apex:outputPanel >
+            <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+            <tr>
+                <td width="37%"  align="left"><b>Cliqbook</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center">
+                    <apex:inputCheckbox disabled="True" value="{!account.Cliqbooks_CB__c}"/>
+
+                </td>
+                <td   align="left">{!account.Cliqbooks_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>GetThere</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.GetThere_CB__c}"/>
+</td>
+                <td   align="left">{!account.GetThere_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Passkey</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Passkey_CB__c}"/>
+</td>
+                <td   align="left">{!account.Passkey_TB__c}</td>
+            </tr>
+            </table></apex:outputPanel></apex:pageBlockSection></apex:pageBlock></apex:tab> 
+            
+            <apex:tab label="Service/Products" name="name3" id="tabThree">
+           
+ <apex:pageBlock title="AM Feature Set">
+ <table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+
+<tr>
+        <td align="center">
+        <apex:commandButton style="" value="       Edit       " action="{!edit3}"/> 
+        </td>
+    </tr></table>
+ <apex:pageBlockSection title="Services:" columns="1"> <apex:outputPanel >
+
+
+        <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+            <tr>
+                <td width="37%"  align="left"><b>Custom Reports</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center">
+                    <apex:inputCheckbox disabled="True" value="{!account.Custom_Reports_CB__c}"/>
+
+                </td>
+                <td   align="left">{!account.Custom_Reports_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Custom Graphics</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Custom_Graphics_CB__c}"/>
+</td>
+                <td   align="left">{!account.Custom_Graphics_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>EventBuilder</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.EventBuilder_CB__c}"/>
+</td>
+                <td   align="left">{!account.EventBuilder_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>SurveyBuilder</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.SurveyBuilder_CB__c}"/>
+</td>
+                <td   align="left">{!account.SurveyBuilder_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>ListBuilder</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.ListBuilder_CB__c}"/>
+</td>
+                <td   align="left">{!account.ListBuilder_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Professional Service Group</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.PSG_CB__c}"/>
+</td>
+                <td   align="left">{!account.PSG_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Call Center</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Call_Center_CB__c}"/>
+</td>
+                <td   align="left">{!account.Call_Center_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Backend/Onsite Service</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Backend_Onsite_Srv_AMI_Partner_CB__c}"/>
+</td>
+                <td   align="left">{!account.Backend_Onsite_Srv_AMI_Partner_TB__c}</td>
+            </tr>
+            
+            </table></apex:outputPanel></apex:pageBlockSection> 
+                        
+             <apex:pageBlockSection title="Service - Private Training:" columns="1"> <apex:outputPanel >
+
+            <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+            <tr>
+                <td width="37%"  align="left"><b>Web-based Training</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Webex_Training_CB__c}"/>
+</td>
+                <td   align="left">{!account.Webex_Training_TB__c}</td>
+            </tr>
+            <tr>
+                <td width="37%"  align="left"><b>Onsite Training</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Onsite_Training_CB__c}"/>
+</td>
+                <td   align="left">{!account.Onsite_Training_TB__c}</td>
+            </tr>
+                        
+            </table></apex:outputPanel></apex:pageBlockSection> 
+            
+          <apex:pageBlockSection title="Products:" columns="1"> <apex:outputPanel >
+
+            <table border="0" width="100%" id="table2" cellspacing="5" cellpadding="0">
+                        <tr>
+                <td width="37%"  align="left"><b>CSN</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.CSN_CB__c}"/>
+</td>
+                <td   align="left">{!account.CSN_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>Survey</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.Survey_CB__c}"/>
+</td>
+                <td   align="left">{!account.Survey_TB__c}</td>
+            </tr>
+<tr>
+                <td width="37%"  align="left"><b>eMarketing (TBD)</b></td>
+                <td width="2%"   align="center"><b><font size="2">:</font></b></td>
+                <td   width="37" align="center"><apex:inputCheckbox disabled="True" value="{!account.eMarketing_TBD_CB__c}"/></td>
+                <td   align="left">{!account.eMarketing_TBD_TB__c}</td>
+            </tr>
+
+                        
+            </table></apex:outputPanel></apex:pageBlockSection> </apex:pageBlock>
+              
+   </apex:tab>
+</apex:tabPanel>
+</apex:form></apex:page>

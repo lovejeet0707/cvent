@@ -1,0 +1,71 @@
+<apex:page standardController="Account" readOnly="true">
+<apex:form >
+    <apex:pageBlock title="All Contacts">
+    
+    <apex:pageBlockButtons >
+    <apex:commandButton value="Back to Account" action="/{!Account.Id}"/>
+     <apex:commandButton value="New Contact" onclick="window.open('/003/e?retURL=%2F{!Account.Id}&accid={!Account.Id}')"/>
+    </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection columns="2">
+            
+            <apex:pageBlock title="Regonline Contacts">
+            
+                <apex:pageBlockTable value="{!Account.Contacts}" var="con">
+                    
+                    <apex:column headerValue="Name" rendered="{!IF(OR(ISBLANK(con.Creation_Source_System_External_ID__c), NOT(contains(con.Creation_Source_System_External_ID__c, 'ROL'))),false,true)}">
+                         <apex:outputLink target="_blank" value="/{!con.Id}">{!con.Name}</apex:outputLink>   
+                    </apex:column>
+                    <apex:column value="{!con.Title}" rendered="{!IF(OR(ISBLANK(con.Creation_Source_System_External_ID__c), NOT(contains(con.Creation_Source_System_External_ID__c, 'ROL'))),false,true)}"/>
+                    <apex:column value="{!con.AccountId}" rendered="{!IF(OR(ISBLANK(con.Creation_Source_System_External_ID__c), NOT(contains(con.Creation_Source_System_External_ID__c, 'ROL'))),false,true)}"/>
+                    <apex:column value="{!con.Creation_Source_System_External_ID__c}" rendered="{!IF(OR(ISBLANK(con.Creation_Source_System_External_ID__c), NOT(contains(con.Creation_Source_System_External_ID__c, 'ROL'))),false,true)}"/>
+                   
+                    <apex:column headerValue="New Case?" rendered="{!IF(OR($Profile.Id='00e00000006xEF9AAM',ISBLANK(con.Creation_Source_System_External_ID__c),NOT(contains(con.Creation_Source_System_External_ID__c, 'ROL'))),false,true)}" >
+                         <apex:outputLink target="_blank" value="/500/e?retURL=%2F{!Account.Id}&def_account_id={!Account.Id}&cas3_lkid={!con.Id}">Create </apex:outputLink>
+                    </apex:column>
+                     
+                </apex:pageBlockTable>
+                
+            </apex:pageBlock>
+            
+            <apex:pageBlock title="Non Regonline Contacts">
+                <apex:pageBlockTable value="{!Account.Contacts}" var="con2">
+                    
+                    <apex:column headerValue="Name" rendered="{!IF(contains(con2.Creation_Source_System_External_ID__c, 'ROL'),false,true)}">
+                         <apex:outputLink target="_blank" value="/{!con2.Id}">{!con2.Name}</apex:outputLink>   
+                    </apex:column>
+                    <apex:column value="{!con2.Title}" rendered="{!IF(contains(con2.Creation_Source_System_External_ID__c, 'ROL'),false,true)}"/>
+                    <apex:column value="{!con2.AccountId}" rendered="{!IF(contains(con2.Creation_Source_System_External_ID__c, 'ROL'),false,true)}"/>
+                   
+                     
+                    <apex:column headerValue="New Case?" rendered="{!IF( contains(con2.Creation_Source_System_External_ID__c, 'ROL'),false,true)}">
+                         <apex:outputLink target="_blank" value="/500/e?retURL=%2F{!Account.Id}&def_account_id={!Account.Id}&cas3_lkid={!con2.Id}">Create </apex:outputLink>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+            
+            <!--
+            <apex:pageBlock title="Regonline Contacts">
+                
+                <apex:pageBlockTable  value="{!Account.Contacts}" var="con">
+                    
+                    <apex:column headerValue="Name" rendered="{!IF(contains(con.Creation_Source_System_External_ID__c, 'ROL'),true,false)}">
+                         <apex:outputLink target="_blank" value="/{!con.Id}">{!con.Name}</apex:outputLink>   
+                    </apex:column>
+                     
+                    <apex:column headerValue="Title" value="{!con.Title}" rendered="{!IF(contains(con.Creation_Source_System_External_ID__c, 'ROL'),true,false)}"/>
+                    <apex:column headerValue="Account Name" value="{!con.AccountId}" rendered="{!IF(contains(con.Creation_Source_System_External_ID__c, 'ROL'),true,false)}"/>
+                    <apex:column headerValue="Creation Source System External ID" value="{!con.Creation_Source_System_External_ID__c}" rendered="{!IF(contains(con.Creation_Source_System_External_ID__c, 'ROL'),true,false)}"/>
+                     
+                </apex:pageBlockTable>
+                
+            </apex:pageBlock>
+            -->
+            
+            
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<!-- Instance login VF page -------------
+   Salesforce to Salesforce instance Login Protocol --> 
+
+<apex:page standardController="Acquisition__c" extensions="AutoLogin_AKapow" action="{!OpenKapowAccount}" showHeader="false" showChat="false">
+    
+    <apex:form >
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <apex:outputPanel rendered="{!if(Id!=null,false,true)}">
+            <div class="alert alert-danger">
+              <strong>Info!</strong> Account data is not available. Please contact with Account manager or write an email to Sales Support India.
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

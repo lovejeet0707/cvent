@@ -1,0 +1,64 @@
+<!-- created by udita : used in vf PAGE - validateBuyerRole to show conbtact roles related list-->
+
+<apex:page standardController="Contact" extensions="validateBuyerRoleOnContact" cache="false">
+    <!--<apex:relatedList list="R00N000000071h6REAQ__r" />-->
+    <apex:pageMessage rendered="{!hideConValidateSection}" summary="You are not authorised to access this link." severity="error" strength="3"/>
+    <apex:form id="myform" rendered="{!!hideConValidateSection}">
+        <apex:pagemessages ></apex:pagemessages>
+        <apex:pageBlock title="Validate Contact Roles" rendered="{!IF(ContactRoles.size>0,true,false)}">        
+            <apex:pageBlockButtons location="top">                
+                <apex:actionstatus id="status">
+                    <apex:facet name="start">
+                        <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                                                                             height: 100%;opacity:0.65;width:100%;"> 
+                            <div class="waitingHolder" style="top: 120px; width: 91px;">
+                                <img class="waitingImage" src="/img/loading.gif" title="Validating...." />
+                                <span class="waitingDescription">Validating....</span>
+                            </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionstatus>                
+                <apex:commandButton value="Validate All" action="{!ValidateAll}" rerender="myform" status="status" />
+                <apex:commandButton value="Validate Selected" action="{!ValidateSelected}" rerender="myform" status="status"/>            
+            </apex:pageBlockButtons>       
+            <apex:pageBlockTable value="{!ContactRoles}" var="cWrapper">                       
+                <apex:column headerValue="Select">
+                    <!-- This is our selected Boolean property in our wrapper class -->
+                    <apex:inputCheckbox value="{!cWrapper.isSelected}"/>
+                </apex:column>
+                <apex:column value="{!cWrapper.conRole.Account_Buyer_Role__c}"/>
+                <apex:column headerValue="Contact Name">
+                    <apex:outputLink target="_blank" value="/{!cWrapper.conRole.Contact__c}">{!cWrapper.conRole.Contact__r.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column value="{!cWrapper.conRole.Contact__r.Email}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.Phone}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingCity}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingState}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingPostalCode}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingCountry}"/>
+                <!---Only For Buyer Role-->
+                <apex:column value="{!cWrapper.conRole.Executive_Sponsor__c}"/>
+                <apex:column value="{!cWrapper.conRole.Decision_Maker__c}"/>
+                <apex:column value="{!cWrapper.conRole.Influencer__c}"/>
+                <!---Only For Customer Role-->
+                
+                <apex:column Value="{!cWrapper.conRole.Contact_Validated_Date__c}"/>
+                <apex:column Value="{!cWrapper.conRole.Contract_Validated_By__c}"/>
+                <!--<apex:column headerValue="Validated ?" Value="{!cWrapper.conRole.Contact_Validated__c}"/>-->
+                <apex:column headerValue="Contact Role">
+                    <apex:outputLink target="_blank" value="/{!cWrapper.conRole.Id}/e?00No000000Dxuoy={!dt}&retURL={!cWrapper.conRole.Contact__r.id}">Click To View</apex:outputLink>
+                </apex:column>
+              </apex:pageBlockTable>
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="First" action="{!Setcon.First}" disabled="{!!setcon.hasPrevious}" reRender="myform" />
+                <apex:commandButton value="Previous" action="{!Setcon.Previous}" disabled="{!!setcon.hasPrevious}" reRender="myform" />
+                <apex:commandButton value="Next" action="{!Setcon.Next}" disabled="{!!setcon.hasNext}" reRender="myform" />
+                <apex:commandButton value="Last" action="{!Setcon.Last}" disabled="{!!setcon.hasNext}" reRender="myform" />
+            </apex:pageBlockButtons>
+            <apex:outputText >Page Number {!pageNumber} </apex:outputText>
+         </apex:pageBlock>
+      </apex:form>
+    
+
+   
+</apex:page>

@@ -1,0 +1,80 @@
+<apex:page standardController="Contract" extensions="contractRelatedOpp">
+  <style type="text/css">
+        .p { font-weight: bold; }
+  </style>
+  <apex:pageBlock >
+      <apex:pageBlockSection >
+            <apex:outputField value="{!relatedOpp.Name}"/>
+            <apex:outputField value="{!relatedOpp.Owner.Name}"/>
+            <apex:outputField value="{!relatedOpp.RecordType.Name}"/>
+            <apex:outputField value="{!relatedOpp.Product__c}"/>
+           <!-- <apex:outputField value="{!relatedOpp.True_Product__c}"/>-->
+            <apex:outputField value="{!relatedOpp.New_Type__c}"/>
+            <apex:outputField value="{!relatedOpp.License_Type__c}"/>
+            <apex:outputField value="{!relatedOpp.CloseDate}"/>
+            <apex:outputField value="{!relatedOpp.Team__c}"/>
+            <apex:outputField value="{!relatedOpp.Contract_Implemented__c}"/>
+            <apex:outputField value="{!relatedOpp.Contract_Implemented_Date__c}"/>
+            <apex:outputField value="{!relatedOpp.Original_Contract_End_Date__c}"/>
+            <apex:outputField value="{!relatedOpp.Sold_By__c}"/>
+            <apex:outputField value="{!relatedOpp.Deal_Booked_In__c}"/>
+            <apex:outputField value="{!relatedOpp.Additional_Terms__c}"/>
+            <apex:outputField value="{!relatedOpp.Are_you_Sales_Tax_Exempt__c}"/>
+            <apex:outputField value="{!relatedOpp.Federal_Tax_Id__c}"/>
+            <apex:outputField value="{!relatedOpp.Text_Type_II__c}"/>
+            <!--<apex:outputField value="{!relatedOpp.Discount__c}"/>
+            <!--<apex:outputText value="{0, number, ##,###,##0.00}" label="Discount">
+                <apex:param value="{!relatedOpp.Discount__c}" />
+            </apex:outputText>-->
+     </apex:pageBlockSection>
+      <apex:pageblockSection title="Contract Type Test 1">
+            <apex:outputField value="{!relatedOpp.Parent_Upsell__c}"/>
+            <apex:outputField value="{!relatedOpp.NBB_Renewal__c}"/>
+            <apex:outputField value="{!relatedOpp.MYD_Deal__c}"/>
+            <apex:outputField value="{!relatedOpp.PSG_Type__c}"/>.
+      </apex:pageblockSection>      
+      <!--<apex:pageblockSection title="Contract Total">
+            <apex:outputField value="{!relatedOpp.New_Contract_Total__c}"/>
+            <apex:outputField value="{!relatedOpp.Native_Total__c}"/>
+            <apex:outputField value="{!relatedOpp.Weighted_Contract_Total__c}"/>
+      </apex:pageblockSection> -->
+      <apex:pageblockSection title="Contract Dates">
+            <apex:outputField value="{!relatedOpp.ContractReceived__c}"/>
+            <apex:outputField value="{!relatedOpp.ContractStartDate__c}"/>
+            <apex:outputField value="{!relatedOpp.ContractEndDate__c}"/>
+            <apex:outputField value="{!relatedOpp.RenewalDate__c}"/>
+            <apex:outputField value="{!relatedOpp.Booked_Month__c}"/>
+            <apex:outputField value="{!relatedOpp.OptOutDate__c}"/>
+            <apex:outputField value="{!relatedOpp.Discount_Deadline__c}"/>
+            <apex:outputField value="{!relatedOpp.Received_in_Month__c}"/>
+            <apex:outputField value="{!relatedOpp.Opportunity_Start_Date__c}"/>
+            <apex:outputField value="{!relatedOpp.Opp_End_Date__c}"/>
+      </apex:pageblockSection>
+      <apex:pageblockSection title="Other Contract Details">
+            <apex:outputField value="{!relatedOpp.Years__c}"/>
+            <apex:outputField value="{!relatedOpp.PaymentTerms__c}"/>
+            <apex:outputField value="{!relatedOpp.Deal_Year__c}"/>
+            <apex:outputField value="{!relatedOpp.EnterOtherPaymentTerms__c}"/>
+            <!--<apex:outputField value="{!relatedOpp.Year_1_at_Risk__c}"/>
+            <apex:outputField value="{!relatedOpp.Total_Amount_at_Risk__c}"/>
+            <apex:outputField value="{!relatedOpp.Verisign_Required__c}"/>-->
+            <apex:outputField value="{!relatedOpp.Currency__c}"/>
+            <apex:outputField value="{!relatedOpp.Forex_rate__c}"/>
+            <apex:outputField value="{!relatedOpp.ARClause__c}"/>
+            <apex:outputField value="{!relatedOpp.Auto_Renewal_Details__c}"/>
+          <!--  <apex:outputField value="{!relatedOpp.Client_Signed_SLA__c}"/>-->
+            <apex:outputField value="{!relatedOpp.Unique_ID_Opp__c}"/>
+            <!--<apex:outputField value="{!relatedOpp.Non_Standard_Terms__c}" styleclass="p"/>-->
+            <apex:outputText value="{!relatedOpp.Non_Standard_Terms__c}" styleclass="p"/>
+            </apex:pageblockSection>
+      <apex:pageblockSection title="Contract Internal Fields">
+            <apex:outputField value="{!relatedOpp.CVII_Contract_Number__c}"/>
+            <apex:outputField value="{!relatedOpp.Parent_Contract_Number__c}"/>
+            <apex:outputField value="{!relatedOpp.Upsell_Category__c}"/>
+            <apex:outputField value="{!relatedOpp.Description}"/>
+            <apex:outputField value="{!relatedOpp.Contract_Error__c}"/>
+            <apex:outputField value="{!relatedOpp.Detail_of_Error__c}"/>
+            <apex:outputField value="{!relatedOpp.Commission_Type__c}"/>
+      </apex:pageblockSection>      
+  </apex:pageBlock>
+</apex:page>

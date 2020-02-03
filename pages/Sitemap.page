@@ -1,0 +1,17 @@
+<apex:page controller="SitemapClass" contentType="text/xml" readOnly="true">
+    <urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator 
+     www.xml-sitemaps.com -->  
+    <!-- Replace the following URL with the site URL that you want
+     to be mapped and accessible to Web crawlers. -->  
+        <apex:repeat value="{!communityArticleURL}" var="articleURLVal">
+        <url>
+            <loc>{!articleURLVal}</loc>
+        </url>
+        </apex:repeat>
+    </urlset>
+</apex:page>

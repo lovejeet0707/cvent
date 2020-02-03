@@ -1,0 +1,63 @@
+<apex:page Controller="ro_AccountSelectionController" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false">     
+	<apex:form Id="FRM">
+		<script>
+            function closeWindow(AccountName,AccountId){
+                window.parent.opener.appendEmailTemplateOptedLookupWindow(AccountName,AccountId);
+                window.parent.close();
+            }
+        </script>
+		<html lang="en">
+			<head>
+				<c:ro_header />
+				<title>Create New Case</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+			</head>
+			<body>
+				<div class="container">
+					<apex:pageBlock >
+						<apex:pageBlockSection title="Select Account"/>
+					</apex:pageBlock>
+					<table class="table table-hover" style="width:100%;">
+						<tr style="width:100%">
+							<td style="width:10%"></td>
+							<td style="width:80%">
+								<table style="width:100%" class="table table-hover table-bordered">
+									<tr style="width:100%">
+										<td width="33%" style="text-align: center;">
+											<apex:outputLabel >UC</apex:outputLabel>
+										</td>
+										<td width="33%" style="text-align: center;">
+											<apex:outputLabel >Account Name</apex:outputLabel>
+										</td>
+										<td width="33%" style="text-align: center;">
+											<apex:outputLabel >Contact Name</apex:outputLabel>
+										</td>
+									</tr>
+									<apex:repeat value="{!UCRList}" var="URC">
+										<tr style="width:100%">
+											<td width="33%" style="text-align: center;">
+<!-- 												<apex:outputText value="{!URC.Name}"/> -->
+												<apex:outputLink id="theLink" onclick="closeWindow('{!URC.Account__c}','{!URC.Related_Contact__r.AccountId}')">
+                        							{!URC.Name}
+                    							</apex:outputLink>
+											</td>
+											
+											<td width="33%" style="text-align: center;">
+												<apex:outputField value="{!URC.Account__c}"/>
+											</td>
+											
+											<td width="33%" style="text-align: center;">
+												<apex:outputField value="{!URC.Related_Contact__c}"/>
+											</td>
+										</tr>
+									</apex:repeat>
+								</table>
+							</td>
+							<td style="width:10%"></td>
+						</tr>
+					</table>
+				</div>					
+			</body>	
+		</html>	
+	</apex:form>
+</apex:page>

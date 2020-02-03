@@ -1,0 +1,85 @@
+<apex:component controller="ro_VoteController" allowDML="true">
+ <apex:attribute name="knowledgeArticleId" description="Knowledge Article Id" type="String" required="true" assignTo="{!kaId}"/>
+ <apex:attribute name="knowledgeArticleNumber" description="Knowledge Article #" type="String" assignTo="{!kaNumber}"/>
+ <apex:attribute name="knowledgeArticleTitle" description="Knowledge Article Title" type="String" assignTo="{!kaTitle}"/>
+ 
+ <script type="text/javascript">
+  function handleLike(){
+     /*j$('#btnLike').show();
+     j$('#btnDisLike').hide();*/
+     j$('#pnlCommentsOuter').show();
+    }
+    
+    function handleDislike(){
+     /*j$('#btnLike').hide();
+     j$('#btnDisLike').show();*/
+     j$('#pnlCommentsOuter').show();
+    }
+ </script>
+ 
+ <apex:form id="frmVoteComponent" >
+      <apex:actionFunction action="{!setIP}" name="setIP" rerender="pnlVoteOuter"> 
+        <apex:param assignTo="{!sPublicIp}" name="sPublicIp" value="" />
+      </apex:actionFunction>
+      
+      <apex:actionFunction action="{!hitLike}" name="hitLike" rerender="pnlVote" onComplete="handleLike();"/>      
+      <apex:actionFunction action="{!hitDislike}" name="hitDislike" rerender="pnlVote" onComplete="handleLike();"/>
+      
+      <apex:actionFunction action="{!addComment}" name="addComment" rerender="pnlVote">
+        <apex:param assignTo="{!sComments}" name="comments" value="" />
+      </apex:actionFunction>
+      
+     </apex:form>
+  <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+  
+ <apex:outputPanel id="pnlVoteOuter" >
+ <apex:outputPanel id="pnlVote" rendered="{!ValidToRender}">
+  <span style="font-weight: bold;height: 17px;vertical-align: bottom;display: inline-block;">Did this article resolve your issue?</span>
+  <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(voteIdTemp))}">
+      <span style="padding-left:6px; display: inline-block;height:20px; text-align:left;">
+       <apex:outputPanel layout="none" rendered="{!sVoted='Up'}">
+        <span class="cThumb cVoteUp">Like</span>
+       </apex:outputPanel>
+       
+       <apex:outputPanel layout="none" rendered="{!sVoted!='Up'}">
+        <span style="cursor:pointer;" class="cThumb cThumbUp" onclick="hitLike();">Like</span>
+       </apex:outputPanel>
+       
+       <span>{!nLikes}&nbsp;</span>
+       
+       <apex:outputPanel layout="none" rendered="{!sVoted='Down'}">
+        <span class="cThumb cVoteDown">Dislike</span>
+       </apex:outputPanel>
+       
+       <apex:outputPanel layout="none" rendered="{!sVoted!='Down'}">
+        <span style="cursor:pointer;" class="cThumb cThumbDown" onclick="hitDislike();">Dislike</span>
+        </apex:outputPanel>
+       <span>{!nDislikes}</span>
+      </span>
+     </apex:outputPanel>
+    
+     <apex:outputPanel layout="none" rendered="{!ISNULL(voteIdTemp)}">
+      <span style="padding-left:6px;display: inline-block;height:20px; text-align:left;">
+       <span style="cursor:pointer;" class="cThumb cThumbUp" onclick="hitLike();">Like</span>
+       
+       <span>{!nLikes}&nbsp;</span>
+       <span style="cursor:pointer;" class="cThumb cThumbDown" onclick="hitDislike();">Dislike</span>
+       <span>{!nDislikes}</span>
+      </span>
+     </apex:outputPanel>
+    
+    <span id="pnlCommentsOuter" style="display:none;"> 
+    <apex:outputPanel id="pnlComments" layout="block" style="background-color: #fff;border: 1px solid #2f2f2f;margin-top: 8px;padding: 4px 8px;position: absolute;right: 0;z-index: 999;color:#000;">
+        <div>{!$Label.Vote_Message}</div>
+        <textarea id="ta_Comments" rows="3" style="margin-bottom: 4px;margin-top: 4px;padding:2px;" class="col-xs-12">{!oVote.Comments__c}</textarea>
+        <button id="btnAddComment" onclick="addComment(document.getElementById('ta_Comments').value); j$('#pnlCommentsOuter').hide();">Submit</button>
+        
+        <!-- <button id="btnLike" style="display:none;color:#000;" onclick="hitLike(document.getElementById('ta_Comments').value); j$('#pnlCommentsOuter').hide();">Submit</button>
+        <button id="btnDisLike" style="display:none;color:#000;" onclick="hitDislike(document.getElementById('ta_Comments').value); j$('#pnlCommentsOuter').hide();">Submit</button> -->
+        
+        <button style="color:#000;" onclick="j$('#pnlCommentsOuter').hide();">Cancel</button>
+    </apex:outputPanel>
+    </span> 
+    </apex:outputPanel>
+ </apex:outputPanel>
+</apex:component>

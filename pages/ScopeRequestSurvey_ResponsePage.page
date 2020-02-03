@@ -1,0 +1,156 @@
+<apex:page controller="ScopeRequestSurvey_Cont" sidebar="false" showHeader="false" standardStylesheets="false" title="Scope Request - Fill Response">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+        <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+            <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+        
+        <style>            
+            .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+            }
+        </style>
+    </head>
+    <apex:form >
+        <body style="background-image: url('{!$Resource.ScopeReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;">
+                <div style="margin-top: 2%;">
+                    <!--  <apex:image url="https://custom.cvent.com/A8CEEF4A37C84E7C883B5BC855A216F9/pix/eadbbb31a3784c64b80d4c69b460dd69.jpg"/>-->
+                    <img src="{!$Resource.ScopeReqHeaderImage}"/>
+                </div>
+                <div style="margin-left: 45%;">Page 1 of 1</div>
+                <div style="margin-left: 5%;">Please verify the following information:</div>
+                <br/>           
+                <div style="margin-left: 7%;">First Name: {!respondentFirstName}</div>
+                <div style="margin-left: 7%;">Last Name: {!respondentLastName}</div>
+                <div style="margin-left: 7%;">Email Address: {!respondentEmailAddress}</div>
+                <apex:pageBlock >
+                    <apex:variable var="dateTimeId" value="{!0}"/>
+                    <apex:repeat value="{!surQuestnAnsList}" var="sQA">                        
+                        <div style="margin-top: 2%;">
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text', true, false)}">
+                                <div class="panel panel-primary" >
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:inputText required="true" value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text Area', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:inputTextarea richText="false" required="true" rows="5" value="{!sQA.Answer__c}" styleClass="form-control" style="width: 60%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Sub Questions Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Sub Questions', true, false)}">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>                                    
+                                    <div class="panel-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-3" style="font-weight: 300;">{!sQA.Sub_Question_1__c}</label>
+                                                <div class="col-sm-7">
+                                                    <apex:inputText required="true" value="{!sQA.Sub_Answer_1__c}" styleClass="form-control" style="width: 45%;"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-3" style="font-weight: 300;">{!sQA.Sub_Question_2__c}</label>
+                                                <div class="col-sm-7">
+                                                    <apex:inputText required="true" value="{!sQA.Sub_Answer_2__c}" styleClass="form-control" style="width: 45%;"/>
+                                                </div>
+                                            </div>                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of MultiSelect1 Question/ Answers  -->
+                            <apex:outputPanel id="MultiSelect1" rendered="{!IF(sQA.Answer_Type__c == 'MultiSelect1', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:actionRegion >
+                                            <apex:selectList value="{!selectedMultiSelect1Question}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                                <apex:actionSupport event="onchange" action="{!MultiSelect1QuestionVisibility}" reRender="MultiSelect1"/>
+                                                <apex:param name="MultiSelect1QuestionId" value="{!selectedMultiSelect1Question}"/>
+                                                <apex:selectOptions value="{!Answers}"/>                                                
+                                            </apex:selectList>
+                                        </apex:actionRegion>
+                                    </div>
+                                </div>
+                                <apex:outputPanel rendered="{!showMultiSelect1Question}">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">{!sQA.Sub_Question__c}</div>
+                                        <div class="panel-body">
+                                              <apex:inputTextarea richText="false" required="true" rows="5" value="{!sQA.Sub_Answer__c}" styleClass="form-control" style="width: 60%;"/>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>                                
+                            </apex:outputPanel>
+                            
+                             <!-- Output panel takes care of Picklist- Yes/ No Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Picklist - Yes/No', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:selectList value="{!selectedMultiSelect1Question}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                            <apex:selectOptions value="{!Answers}"/>                                                
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Country Name', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:selectList value="{!selectedCountry}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                            <apex:selectOptions value="{!Countries}"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'DateTime', true, false)}"> 
+                                <apex:variable var="dateTimeId" value="{!dateTimeId+1}"/>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">*{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="{!dateTimeId}" style="width: 47%;">
+                                                <apex:inputText required="true" value="{!sQA.Answer__c}" styleClass="form-control"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                        $(function (){
+                                            var v = {!dateTimeId};
+                                            $('#' + v).datetimepicker();
+                                        });
+                                        </script>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                        </div> 
+                    </apex:repeat>
+                </apex:pageBlock>
+                <form class="form-inline">                    
+                    <div class="form-group"> 
+                        <apex:commandButton id="cancel" action="{!scopeRequestCancel}" styleClass="btn btn-primary" style="margin-left: 40%;" value="Cancel" />
+                        <apex:commandButton id="finish" action="{!scopeRequestFinish}" styleClass="btn btn-primary" value="Finish" />
+                    </div>                    
+                </form>
+            </div>
+        </body>     
+    </apex:form>
+</apex:page>

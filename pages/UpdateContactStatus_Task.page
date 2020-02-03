@@ -1,0 +1,131 @@
+<apex:page standardController="Task" extensions="UpdateContactStatus_Task_Controller"  action="{!DetailPageReference}" showHeader="false" sidebar="false"> 
+    <apex:sectionHeader title="{!if(showContactStatus,'Contact','Lead')}" subtitle="{!if(showContactStatus,contactRec.Name,leadRec.Name)}"/>
+    <apex:pagemessages />
+    <apex:form >
+        <apex:pageBlock title="Contact Edit" mode="edit" rendered="{!showContactStatus}">
+            <apex:pageBlockSection columns="{!if((recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'),2,(if((recordTypeName=='CC_Tasks'||recordTypeName=='PA_Tasks'||recordTypeName=='Inquisium_Tasks'||recordTypeName=='CSN_Tasks'||recordTypeName=='SR_Tasks' || recordTypeName=='Enterprise'),1,0)))}" title="Contact Status Information">
+                
+                <apex:inputField value="{!contactRec.Event_Contact_Status__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks' || recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CC_Contact_Status__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks' || recordTypeName=='TPP_Intl_Task'}"/>
+                <!--<apex:inputField value="{!contactRec.SMM_Contact_Status__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'}"/>-->
+                <apex:inputField value="{!contactRec.CSN_P_Contact_Status__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'|| || recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!contactRec.CSNS_Contact_Status__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!contactRec.Survey_Contact_Status__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!contactRec.Event_Recycle_Reason__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CC_Recycle_Trash_Reason__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <!--<apex:inputField value="{!contactRec.SMM_Recycle_Trash_Reason__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'}"/>-->
+                <apex:inputField value="{!contactRec.Sourcing_through__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'||-->
+                <apex:inputField value="{!contactRec.CSN_S_Recycle_Trash__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!contactRec.Survey_Recycle_Reason__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!contactRec.Event_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CC_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <!--<apex:inputField value="{!contactRec.SMM_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'}"/>-->
+                <apex:inputField value="{!contactRec.CSN_P_Status_Details__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!-- recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!contactRec.CSN_S_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!contactRec.Survey_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!contactRec.Event_Lost_Details__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CC_Lost_Details__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <!--<apex:inputField value="{!contactRec.SMM_Lost_Details__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'}"/>-->
+                <apex:inputField value="{!contactRec.CSN_P_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'|| || recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!contactRec.CSN_S_Lost_Details__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!contactRec.Survey_Lost_Details__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Lost_Details__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'|||| recordTypeName=='TPP_Intl_Task'-->
+                
+                <apex:inputField value="{!contactRec.Event_Not_Ready_Reason__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CC_Not_Ready_Reason__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Not_Ready_Reason__c}" rendered="{!recordTypeName=='PA_Tasks'}"/>
+                <apex:inputField value="{!contactRec.HC_Not_Ready_Reason__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!contactRec.Inquisium_Not_Ready_Reason__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+            </apex:pageBlockSection><br/><br/>
+            <apex:pageBlockSection columns="1" rendered="{!recordTypeName=='BizDev_Tasks'}">
+                <apex:inputField value="{!contactRec.SMM_Contact_Status__c}"/>
+                <apex:inputField value="{!contactRec.SMM_Recycle_Trash_Reason__c}"/>
+                <apex:inputField value="{!contactRec.SMM_Recycle_Competitor_Name__c}"/>
+                <apex:inputField value="{!contactRec.SMM_Lost_Details__c}"/>
+             </apex:pageBlockSection>   
+                <!-- ...........New Section................ -->
+             <apex:pageBlockSection columns="2" rendered="{!recordTypeName=='Enterprise'}">   
+                <apex:inputField value="{!contactRec.Event_Contact_Status__c}"/>
+                <apex:inputField value="{!contactRec.CC_Contact_Status__c}"/>
+                <apex:inputField value="{!contactRec.Event_Recycle_Reason__c}"/>
+                <apex:inputField value="{!contactRec.CC_Recycle_Trash_Reason__c}"/>
+                <apex:inputField value="{!contactRec.Event_Recycle_Competitor_Name__c}"/>
+                <apex:inputField value="{!contactRec.CC_Recycle_Competitor_Name__c}"/>
+                <apex:inputField value="{!contactRec.Event_Lost_Details__c}"/>
+                <apex:inputField value="{!contactRec.CC_Lost_Details__c}"/>
+                <apex:inputField value="{!contactRec.Event_Not_Ready_Reason__c}"/>
+                <apex:inputField value="{!contactRec.CC_Not_Ready_Reason__c}"/>
+                
+                <!-- ...........end................ -->
+                
+                
+            </apex:pageBlockSection>
+            <!-- 23rd June : HSR Adding new section for the TPP_Intl_Task &&  Event_Tasks recordType -->
+            <apex:pageBlockSection columns="1" rendered="{!recordTypeName=='TPP_Intl_Task' || recordTypeName=='Event_Tasks'}">
+                <apex:inputField value="{!contactRec.CSN_P_Contact_Status__c}"/>
+                <apex:inputField value="{!contactRec.Sourcing_through__c}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Status_Details__c}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Recycle_Competitor_Name__c}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Lost_Details__c}" />
+                <apex:inputField value="{!contactRec.CSN_P_Contact_Status_Notes__c}"/>
+                <apex:inputField value="{!contactRec.CSN_P_Not_Ready_Reason__c}"/>
+            </apex:pageBlockSection>
+            <!-- ..................Ends Here.......................................... -->
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!SaveContact}"/>
+                 <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="Lead Edit" mode="edit" rendered="{!showLeadStatus}">
+            <apex:pageBlockSection columns="{!if((recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'),2,(if((recordTypeName=='CC_Tasks'||recordTypeName=='PA_Tasks'||recordTypeName=='Inquisium_Tasks'||recordTypeName=='CSN_Tasks'||recordTypeName=='SR_Tasks' || recordTypeName=='Enterprise'),1,0)))}" title="Lead Status Information">
+                <apex:inputField value="{!leadRec.Event_Lead_Status__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks' || recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CC_Lead_Status__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'}"/><!--|| recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!leadRec.CSN_P_Lead_Status__c}" rendered="{!recordTypeName=='PA_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/><!--recordTypeName=='Event_Tasks'||-->
+                <apex:inputField value="{!leadRec.CSN_S_Lead_Status__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!leadRec.Inquisium_Lead_Status__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!leadRec.Event_Recycle_Reason__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CC_Recycle_Trash_Reason__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.Sourcing_through__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'||-->
+                <apex:inputField value="{!leadRec.CSN_S_Recycle_Trash_Reason__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!leadRec.Survey_Recycle_Reason__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!leadRec.Event_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CC_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CSN_P_Status_Details__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!-- recordTypeName=='Event_Tasks'|||| recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!leadRec.CSN_S_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!leadRec.Survey_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                
+                <apex:inputField value="{!leadRec.Event_Lost_Details__c}" rendered="{!recordTypeName=='Event_Tasks'||recordTypeName=='BizDev_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CC_Lost_Details__c}" rendered="{!recordTypeName=='CC_Tasks' || recordTypeName=='BizDev_Tasks' ||recordTypeName=='Event_Tasks'|| recordTypeName=='TPP_Intl_Task'}"/>
+                <apex:inputField value="{!leadRec.CSN_P_Recycle_Competitor_Name__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'|| || recordTypeName=='TPP_Intl_Task'-->
+                <apex:inputField value="{!leadRec.CSN_S_Lost_Details__c}" rendered="{!recordTypeName=='CSN_Tasks' || recordTypeName=='SR_Tasks'}"/>
+                <apex:inputField value="{!leadRec.Survey_Lost_Details__c}" rendered="{!recordTypeName=='Inquisium_Tasks'}"/>
+                <apex:inputField value="{!leadRec.CSN_P_Lost_Details__c}" rendered="{!recordTypeName=='PA_Tasks'}"/><!--recordTypeName=='Event_Tasks'|| || recordTypeName=='TPP_Intl_Task'-->
+            </apex:pageBlockSection><br/><br/>
+             <apex:pageBlockSection columns="1" rendered="{!recordTypeName=='BizDev_Tasks'||recordTypeName=='Enterprise'}">
+                <apex:inputField value="{!leadRec.SMM_Lead_Status__c}"/>
+                <apex:inputField value="{!leadRec.SMM_Recycle_Trash_Reason__c}"/>
+                <apex:inputField value="{!leadRec.SMM_Recycle_Competitor_Name__c}"/>
+                <apex:inputField value="{!leadRec.SMM_Lost_Details__c}"/>
+            </apex:pageBlockSection>
+            <!-- 23rd June : HSR Adding new section for the TPP_Intl_Task recordType -->
+            <apex:pageBlockSection columns="1" rendered="{!recordTypeName=='TPP_Intl_Task'  || recordTypeName=='Event_Tasks'}">
+                <apex:inputField value="{!leadRec.CSN_P_Lead_Status__c}"/>
+                <apex:inputField value="{!leadRec.Sourcing_through__c}"/>
+                <apex:inputField value="{!leadRec.CSN_P_Status_Details__c}"/>
+                <apex:inputField value="{!leadRec.CSN_P_Recycle_Competitor_Name__c}"/>
+                <!--<apex:inputField value="{!leadRec.CSN_P_Contact_Status_Notes__c}"/>-->
+            </apex:pageBlockSection>
+            <!-- ..................Ends Here.......................................... -->
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!SaveContact}"/>
+                 <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,50 @@
+<apex:page standardController="Case"  showHeader="false" sidebar="false" showChat="false" >
+    
+   
+    
+    <apex:form >
+    
+    <apex:pageBlock >
+        
+        <apex:pageBlockButtons location="top" >
+        
+            <apex:commandButton value="Attach File" rendered="{!IF($Profile.Name == 'Cvent Customer Community User' && Case.isClosed, false, true) }" onClick="window.open('/p/attach/NoteAttach?pid={!Case.Id}&parentname={!Case.CaseNumber}&retURL=%2F{!Case.Id}','_parent');"/>
+            <apex:commandButton value="View All" onClick="window.open('/ui/content/ViewAllAttachmentsPage?id={!Case.Id}&retURL=%2F{!Case.Id}','_parent');"/>
+            
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!Case.Attachments}" var="attachment">
+           
+            <apex:column headerValue="Action">
+                     
+                     <a   style="color: #507EC5;" href="/{!attachment.Id}/e?retURL=%2F{!case.Id}%3Fnooverride%3D1" target="_parent">Edit</a>
+                     &nbsp;|
+                     <a   style="color: #507EC5;" href="/servlet/servlet.FileDownload?file={!attachment.Id}" target="_parent">View</a>
+                     &nbsp;|
+                     <a   style="color: #507EC5;" href="/setup/own/deleteredirect.jsp?delID={!attachment.Id}&retURL=%2F{!case.Id}" target="_parent" >Del</a>
+                     
+            </apex:column>
+                    
+                    
+            <apex:column headervalue="File Name">
+                <a target="_parent" href="/{!attachment.Id}">{!attachment.Name}</a>
+            </apex:column>
+            
+            <apex:column headervalue="Size">
+                     {!attachment.BodyLength}
+            </apex:column>
+                        
+            <apex:column headervalue="Last Modified">
+                      <apex:outputField value="{!attachment.LastModifiedDate}"/>
+            </apex:column>
+            
+            <apex:column headervalue="Created By">
+               <apex:outputField value="{!attachment.CreatedBy.Name}"/>
+            </apex:column>
+                
+        </apex:pageBlockTable>
+
+       
+    </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

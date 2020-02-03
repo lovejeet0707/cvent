@@ -1,0 +1,64 @@
+<apex:page standardController="EB_Agent_Profile__c" extensions="EBProjectCustomRelatedList_ContExt" showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"  />
+    <script type="text/javascript">
+        var i, frames; 
+    
+        window.onload = function(){       
+           frames = parent.document.getElementsByTagName("iframe");               
+            alert(frames.length);
+            for (i = 0; i < frames.length; ++i){ 
+                alert(frames[i].title);
+                if(frames[i].title == "EBProjectCustomRelatedList_Page"){ 
+                    frames[i].height = "";
+                    frames[i].height = frames[i].contentWindow.document.body.scrollHeight + "px";
+                }
+            } 
+        }
+    </script>
+    <apex:form styleClass="form-horizontal" id="formId" >
+        <apex:outputPanel rendered="{!!showChildRecords}">
+            <div class="alert-body">
+                <div class="alert alert-info" style="height:25%; width:15%">
+                    <strong>No records available for Agent.</strong>
+                </div>                
+            </div>           
+        </apex:outputPanel>        
+        <apex:repeat value="{!agentIdToEBProjMap}" var="agentId" rendered="{!showChildRecords}">
+            <table class="table table-hover">
+                <tr class="alert alert-info">                        
+                    <th>#</th><th><center>EB/SB Builders Name</center></th><th><center>Account</center></th><th><center>Opportunity</center></th>
+                    <th><center>Project</center></th><th><center>Project Type</center></th><th><center>Project Complexity</center></th><th><center>Day(s) To Go</center></th>
+                    <th><center>Project Received Date</center></th><th><center>Project Launched</center></th><th><center>Project Reviewed</center></th>
+                    <th><center>Project Stage</center></th><th><center>Project Status</center></th><th><center>Expected Launch Date</center></th>
+                    <th><center>Project Health</center></th><th><center>Hrs. Needed for Completion</center></th>
+                </tr>                    
+                <apex:variable var="rowNumbertable1" value="{!0}" />
+                <apex:repeat value="{!agentIdToEBProjMap[agentId]}" var="EbProj" >                        
+                    <tr>                                                                                       
+                        <td>
+                            <apex:variable var="rowNumbertable1" value="{!rowNumbertable1+1}"/>
+                            <apex:outputText id="rowNumbertable1" value="{!rowNumbertable1}"/>
+                        </td>
+                        <td><center><apex:outputlink target="_blank" value="{!URLFOR($Action.EB_SB_Builder__c.View,EbProj.Id)}">{!EbProj.Name}</apex:outputlink></center></td>
+                        <td><center><apex:outputField value="{!EbProj.AccountCustom__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Opportunity__c}" /></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Type_del__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Complexity__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Day_s_To_Go__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Received_Date__c}" /></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Launched_del__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Reviewed__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Stage__c}" /></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Status_del__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Expected_Launch_Date__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Project_Health__c}"/></center></td>
+                        <td><center><apex:outputField value="{!EbProj.Hrs_Pending_for_Completion__c}"/></center></td>
+                    </tr> 
+                </apex:repeat> 
+            </table>
+        </apex:repeat>
+    </apex:form>    
+</apex:page>

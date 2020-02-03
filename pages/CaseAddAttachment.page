@@ -1,0 +1,237 @@
+<apex:page Controller="CaseAddAttachmentController" sidebar="false" title="Add Attachment" cache="false">
+<apex:composition template="CventCommunityHeader"></apex:composition>
+<style>
+/* GB STYLES */
+
+hr {
+    margin: 0.5em 0;
+}
+
+p {
+    font-size: 1.125em;
+}
+
+.pad-md {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.pad-lg {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+
+.card {
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.125);
+}
+
+.card-body {
+    padding: 1.25em;
+}
+
+@media (min-width: 768px) {
+    .card-body {
+        padding: 2em;
+    }
+}
+
+.button {
+  display: inline-block !important;
+  padding: 6px 12px !important;
+  margin-bottom: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.42857143 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; !important
+  background-image: none !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+}
+
+.button-blue, .button-blue:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+.button-blue:hover, .button-blue:focus {
+  color: #fff !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+
+.button-lightblue, .button-lightblue:visited {
+  color: #1C2C43 !important;
+  background: none !important;
+  background-color: #64D2FF !important;
+  border-color: transparent !important;
+}
+.button-lightblue:hover, .button-lightblue:focus {
+  color: #1C2C43 !important;
+  background-color: #56b6dd !important;
+  border-color: transparent !important;
+}
+
+.button-outline, .button-outline:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: none !important;
+  border: 2px solid #fff !important;
+}
+.button-outline:hover, .button-outline:focus {
+  color: #286090 !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.button-red, .button-red:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #F45F5F !important;
+  border-color: transparent !important;
+}
+.button-red:hover, .button-red:focus {
+  color: #fff !important;
+  background-color: #d15151 !important;
+  border-color: transparent !important;
+}
+
+
+
+.button-small {
+    font-size: 12px !important;
+    padding: 4px 4px !important;
+    font-weight: 600 !important;
+}
+
+body .container .apexDefaultPageBlock {
+  background: none !important;
+  border: 0 !important;
+}
+
+.pbSubheader {
+  display: none !important;
+}
+
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+  margin: 0 !important;
+}
+
+.bPageBlock .requiredInput .requiredBlock {
+    background-color: #c00;
+    position: absolute;
+    left: 1px;
+    width: 4px !important;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 4px 0 0px 4px !important;
+  }
+
+  .content-header {
+    padding-top: 3em;
+    padding-bottom: 1em;
+  }
+  .support-header{
+   background:#ECEFF8;
+   }
+   
+   .support-header .container {
+   background: #ECEFF8;
+   padding: 34px 0px 34px 10px
+   }
+   
+   .support-header h2 {
+   font-size: 36px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   font-style: normal;
+   text-rendering: optimizeLegibility;
+   color: #0183EB !important;
+   }
+  
+   
+  </style>
+        
+    <apex:form >
+     <div class="support-header">
+        <div class="container" style="margin-top: 110px;">
+          <h2>Contact Support</h2>
+        </div>
+     </div>
+        <apex:actionFunction action="{!done}" name="done" />
+        <apex:actionFunction action="{!upload}" name="uploadAttach" />
+        <div class="container">
+            <div class="pad-md"></div>
+            <div class="row pad-md">
+                <div class="col-xs-8">
+                    <h3 style="font-size: 24px !important;">Attach File to Case {!oCase.CaseNumber}</h3>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <input type="button" onclick="done();" class="button button-blue" value="Done" style="margin-top: 67px;"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-7 pad-md">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Select File</h3>
+                            <div style="padding: 10px 0;">
+                            <apex:inputFile value="{!Attachment.Body}" fileName="{!Attachment.Name}" filesize="{!Attachment.BodyLength}"/>
+                            </div>
+                            <apex:outputLabel value="(Maximum attachment size allowed 5 MB)" />
+                            <div style="display: block;">
+                            <apex:commandLink action="{!upload}" value="Upload" styleclass="button button-lightblue" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--onclick="j$('#uploadStatus').show();"-->
+                    
+                </div>
+
+                <div class="col-xs-12 col-md-5 pad-md">
+                    <apex:outputPanel id="pnlAttachments"> 
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Attachments</th>    
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!lstAttachment}" var="att">
+                                    <tr>
+                                        <td><a href="{!URLFOR($Action.Attachment.Download, att.Id)}" >{!att.Name}</a></td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                            <apex:outputPanel layout="none" rendered="{!lstAttachment.size=0}">
+                                <tr>
+                                    <td colspan="3">
+                                        <div>No Attachment found</div>           
+                                    </td>
+                                </tr>
+                            </apex:outputPanel>
+                        </table>
+                    </apex:outputPanel>
+                </div>
+            </div>
+
+        </div>
+            
+        
+
+    
+    <apex:composition template="CventCommunityFooter"></apex:composition>
+    </apex:form>
+</apex:page>

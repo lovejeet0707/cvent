@@ -1,0 +1,61 @@
+<apex:component controller="QuoteLineInfoController" access="global">
+    <apex:attribute name="quoteId" description="Id of the quote" type="Id" assignTo="{!objId}" />      
+         <html>
+            <body><div style="font-size:15px">
+                     Hi,<br/>
+<br/>
+In order to add the below product(s) to your account, please respond "I confirm" to the following:  <br/><br/>
+
+             <table border="1">
+               <apex:repeat value="{!quoteLines1}" var="group">
+                 <thead colspan="5">  <tr>
+                  <apex:outputPanel rendered="{!IF((group.year == 0),false,true)}">
+                   <th colspan="5" style="display: {!IF((group.year == 0),'none', '')};"><b>Year {!group.year} - {!group.startDate}</b></th> 
+                  </apex:outputPanel></tr>
+                 </thead>
+                 
+                  <tbody> 
+                 <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Currency</th>
+                    <!--<th>Discount Type</th>-->
+                    <!--<th>Discount</th>-->
+                    <th>Amount Total</th>
+                    <th>Overage Fee</th>
+                </tr>
+               
+                  <apex:repeat value="{!group.qLines}" var="qt">
+                  <tr>
+                    <td style="display: {!IF((qt.SBQQ__Product__r.Name == null),'none', '')};">{!qt.SBQQ__Product__r.Name}</td>
+                    <td style="display: {!IF((RollupQtyMap[qt.id] == null),'none', '')};">{!RollupQtyMap[qt.id]}</td>
+                    <td style="display: {!IF((q.CurrencyISOCode  == null),'none', '')};">{!q.CurrencyISOCode }</td>
+                    <!--<td style="display: {!IF((qt.Discount_Type__c == null),'none', '')};">{!qt.Discount_Type__c}</td>-->
+                    <!--<td style="display: {!IF((qt.Custom_Discount__c == null),'none', '')};">{!qt.Custom_Discount__c}</td>-->
+                    <td style="display: {!IF((RollupPriceMap[qt.id] == null),'none', '')};">{!RollupPriceMap[qt.id]}</td>
+                    <td style="display: {!IF((overrageMap[qt.id] == null),'none', '')};">{!overrageMap[qt.id]}</td>
+                  </tr>
+                  </apex:repeat> 
+                </tbody>
+               </apex:repeat>
+              
+              </table>
+              <br/>
+              <Apex:outputPanel rendered="{!If(q.SBQQ__Type__c != 'Amendment',True,False)}">
+                 This is an additional purchase within the existing agreement. The term is {!q.Dynamic_Contract_Term_Dates_USD_NONUSD__c}. Except as herein provided, the terms of the original Agreement remain the same and there is no impact on fees or services agreed upon to date. The additional purchase is payable within {!q.SBQQ__PaymentTerms__c} days of purchase and is subject to the Terms of Use governing your master agreement, located at www.cvent.com.
+                 <!-- The additional feature(s) is available for use during {!q.Dynamic_Contract_Term_Dates_USD_NONUSD__c} of the current agreement term, and have no impact on fees or services agreed upon to date. This additional purchase is payable within 30 days of purchase and is subject to the Terms of Use governing your master agreement, located at www.cvent.com.-->
+              </Apex:outputPanel>
+              <Apex:outputPanel rendered="{!If(q.SBQQ__Type__c == 'Amendment',True,False)}">
+                 This is an additional purchase within your existing agreement with Cvent dated {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())} ("Agreement"). The term is {!q.Dynamic_Contract_Term_Dates_USD_NONUSD__c}.Except as herein provided, the terms of the Agreement remain the same and there is no impact on fees or services agreed upon to date. The additional purchase is payable within {!q.SBQQ__PaymentTerms__c} days of purchase and is subject to the terms and conditions of the Agreement.
+              </Apex:outputPanel>
+            <br/>
+            <br/>Thanks
+            </div>
+           </body>
+           
+
+          </html>
+          
+         
+    <!--</apex:outputPanel>-->
+</apex:component>

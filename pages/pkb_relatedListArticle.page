@@ -1,0 +1,45 @@
+<apex:page standardController="Case" extensions="pkb_relatedListArticleController" showHeader="false" sidebar="false">
+    <style>
+        .fewerMore {display:none;}
+        body {background-color: #FFFFFF;}
+        body .bPageBlock .pbBody .labelCol, body .bPageBlock .pbBody .dataCol, body .bPageBlock .pbBody .data2Col, body .print .topics-label, body .print .topics-list {
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+.bPageBlock .detailList .dataCol {
+    width: 14%;
+}
+    </style>
+     <apex:form >    
+        <apex:pagemessages />  
+        
+        <!-- Command Button "Find Article" -->
+       <apex:pageBlock id="CustomList" tabStyle="case">
+       <apex:pageblocksection >
+        <div style="margin-top:0px;margin-left:100px;">
+            <apex:outputLink value="{!urlFor('https://cventhelp.force.com/apex/helphome', null, [q=Case.Subject] )}"  target="_blank" styleClass="btn" style="text-decoration:none" >Find Articles</apex:outputLink>            
+        </div>
+        </apex:pageblocksection>
+        
+        <div style="margin-top:-20px;margin-left:0px">
+            
+                <apex:pageblockTable value="{!relatedCaseArticleList}" var="rel" style="font-size:13px;">            
+                    
+                    <apex:column width="35%">
+                        <apex:facet name="header">Title</apex:facet>
+                        <a href="/apex/CommunityArticle?id={!rel.ArticleNumber}" target="_top"> {!rel.Title} </a> 
+                      <!--  <a href="/{!rel.Id}" target="_blank"> {!rel.Title} </a> -->
+                    </apex:column>                    
+    
+                    <apex:column value="{!rel.Summary}"  width="65%">                    
+                        <apex:facet name="header">Summary</apex:facet>                    
+                    </apex:column>
+                    
+                </apex:pageblockTable> 
+                <apex:outputLabel value="No records to display" rendered="{!ISNULL(relatedCaseArticleList)}" styleClass="noRowsHeader"></apex:outputLabel>                          
+            </div>
+            </apex:pageBlock>
+        
+    </apex:form>
+
+</apex:page>

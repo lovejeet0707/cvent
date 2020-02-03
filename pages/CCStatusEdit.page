@@ -1,0 +1,21 @@
+<apex:page controller="CCAcctStatus" tabStyle="Current_Status__c" showHeader="false" sidebar="false">
+  <!-- Begin Default Content REMOVE THIS -->
+    <style>
+        .activeTab {background-color: #236FBD; color:white; background-image:none}
+        .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+    </style>
+    <apex:form >
+    <apex:pageblock >
+        <br><center><h1>Parent Account : {!parentaccount}</h1></center></br>
+        <apex:pageblockButtons >
+            <apex:commandButton action="{!save}" value="Save" id="theButton"/>
+            <apex:commandButton action="{!cancel}" value="Cancel" id="theButton1"/>            
+        </apex:pageblockButtons>
+        <apex:pageblockSection columns="1" title="Status">
+            <apex:inputField value="{!accdetails.CC_Acct_Status__c}"/>
+            <apex:inputTextarea value="{!accdetails.CC_Progress_Details__c}" rows="4" cols="100"/>
+            <apex:inputField value="{!accdetails.CC_Assigned_User__c}"/>
+        </apex:pageblockSection>
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,81 @@
+<apex:page standardStylesheets="false" sidebar="false" docType="html-5.0" showHeader="false" controller="GroupsController">
+    
+    
+   <style>
+        input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin-left:45px;
+        border: none;
+        border-radius: 4px;
+       
+        }
+        
+        input[type=submit]:hover {
+        background-color: #45a049;
+        }
+        
+        #divcustom{
+        width:50%;
+        margin-left:25%;
+        margin-top:4%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        }
+    </style>
+
+        
+        
+    <apex:form >
+        <div id="divcustom">
+            <apex:pageMessages id="message"></apex:pageMessages><br/><br/>
+        <h3 style= "color:gray;text-align:center;font-size:15px">Create a New Chatter Group </h3> <hr/><br/>
+            <b>Group Name</b>            
+            <apex:inputText value="{!groupName}" required="true"/><br/><br/>
+            
+            <b>Description</b> 
+            <apex:inputText value="{!groupDescrition}"/><br/><br/>
+           
+     
+            <b>Category</b>
+            
+            <apex:selectList value="{!groupCategory}" size="1" id="catList">
+                <apex:selectOption itemLabel="--None--" itemValue="--None--"/>           
+                <!--<apex:selectOption itemLabel="Regional" itemValue="Regional"/>
+                <apex:selectOption itemLabel="Vertical" itemValue="Vertical"/>-->
+                <apex:selectOption itemLabel="Getting Started" itemValue="Getting Started"/>
+                <apex:selectOption itemLabel="Tips & Trends" itemValue="Tips & Trends"/>
+                <apex:selectOption itemLabel="In Your Area" itemValue="In Your Area"/> 
+            </apex:selectList><br/><br/>
+             
+             <b>Visibility</b>
+             
+             <apex:selectList value="{!groupType}" size="1" id="typeList">
+                <apex:selectOption itemLabel="--None--" itemValue="--None--"/>         
+                <apex:selectOption itemLabel="Public" itemValue="Public"/>
+                <apex:selectOption itemLabel="Private" itemValue="Private"/>
+            </apex:selectList><br/><br/>
+           
+           <apex:commandButton value="Save" action="{!createGroup}" rerender="message"/>
+           <apex:commandButton value="Cancel" action="/apex/Groups"/>
+            
+
+        </div>
+    </apex:form>
+
+
+
+</apex:page>

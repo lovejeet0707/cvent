@@ -1,0 +1,28 @@
+<apex:page standardController="Opportunity" extensions="OppLineController" tabStyle="Opportunity">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!OppsList2}" var="div">
+                <apex:column >
+                    <apex:pageBlockTable value="{!div.OpportunityLineItems}"  var="OppVar" id="lineitems">
+                        <apex:column headerValue="Product Name" >
+                            <apex:outputLink value="/{!OppVar.Id}">{!OppVar.PricebookEntry.Name}</apex:outputLink>   
+                        </apex:column>
+                        <apex:column headerValue="ARR" value="{!OppVar.Annual_Recurring_Revenue__c}"/>
+                        <apex:column headerValue="NRR" value="{!OppVar.Non_Recurring_Revenue__c}"/>
+                        <apex:column headerValue="NBB Value" value="{!OppVar.NBB_Value__c}"/>
+                        <apex:column headerValue="NBB New Logo" value="{!OppVar.NBB_New_Account_New_Logo__c}"/>
+                        <apex:column headerValue="NBB Upsell" value="{!OppVar.NBB_Upsell__c}"/>
+                        <apex:column headerValue="NBB Cross Sell" value="{!OppVar.NBB_Cross_Sell__c}"/>
+                        <apex:column headerValue="MYD" value="{!OppVar.MYD__c}"/>                                                            
+                        <apex:column headerValue="Renewal Value" value="{!OppVar.Renewal_Value__c}"/>
+                        <apex:column headerValue="UFR Value" value="{!OppVar.UFR_Value__c}"/>
+                        <apex:column headerValue="Vista Bookings Value" value="{!OppVar.Vista_Bookings_Value__c}"/>
+                        <apex:column headerValue="Total Line Value" value="{!OppVar.Total_Line_Value__c}"/>                                                            
+                        <apex:column headerValue="Revenue Team Code" value="{!OppVar.Revenue_Team_Code__c}"/>
+                    </apex:pageBlockTable>
+                </apex:column>
+                <!--<apex:commandLink value="Show 25 items" action="{!}" reRender="table"  />-->
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

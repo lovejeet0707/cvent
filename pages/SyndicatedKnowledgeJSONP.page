@@ -1,0 +1,11 @@
+<apex:page controller="SyndicatedKnowledgeController" contentType="text/javascript" sidebar="false" showheader="false">
+{!callBackFunction}({
+ "SearchPhrase" : "{!searchPhrase}",
+ "kbBaseURL" : "{!kbBaseURL}",
+ "Articles" : [
+<apex:repeat value="{!searchResults}" var="article">
+   {"Title" : "{!article.Title}", "Summary" : "{!article.Summary}", "URLName" : "{!article.URLName}"},
+</apex:repeat>
+  ]
+ })
+</apex:page>

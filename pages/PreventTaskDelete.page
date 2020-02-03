@@ -1,0 +1,9 @@
+<apex:page standardController="Task" action="{!if(isOwner, urlFor($Action.Task.Delete,
+                              $CurrentPage.Parameters.id, [retURL='/home/home.jsp'], true), null)}" extensions="TaskDeleteController">
+     <apex:pageBlock >
+        <apex:PageMessage summary="You are not allowed to delete Tasks"
+            severity="Warning"
+            strength="3"/>
+        <apex:pageMessages />
+    </apex:pageBlock>
+</apex:page>

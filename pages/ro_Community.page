@@ -1,0 +1,36 @@
+<apex:page showHeader="false" sidebar="false">
+ <html lang="en">
+  <head>
+   <c:ro_header />
+  </head>
+  <body>
+   
+   <!-- src="/Community/_ui/core/chatter/ui/ChatterPage?isdtp=vw" -->
+   <c:ro_navbar activeTab="lanyoncommunities"/>
+    <iframe id="iframeCommunity" scrolling="no"
+            src="/_ui/chatter/service/ChatterAnswersUi?isdtp=vw"  
+            onload="iFrameUIFix();"   
+            style="width:100%;border:none;"></iframe>
+    <c:ro_footer /> 
+  </body> 
+  <script>
+   function iFrameUIFix(){
+    var cStyle = '.site-header{display:none;}';
+    cStyle += ' .site-footer {display: none;}';
+    cStyle += ' body.hasMotif{margin: 0;}';
+    cStyle += ' body #AppBodyHeader{display:none;}';
+    cStyle += ' #sidebarCell{display:none;}';
+    cStyle += ' div.bPageTitle{display:none;}';
+    cStyle += ' .zen #tabContainer {display:none;}';
+    
+    j$('#iframeCommunity').contents().find("head").append(j$("<style type='text/css'>" + cStyle + "</style>"));
+    resizeIframe();
+   }
+   
+   function resizeIframe() {
+    var iFrame = document.getElementById('iframeCommunity'); 
+    iFrame.style.height = iFrame.contentWindow.document.body.scrollHeight + 'px';
+  }
+  </script>
+ </html>
+</apex:page>

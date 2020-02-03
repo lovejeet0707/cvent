@@ -1,0 +1,155 @@
+<apex:page standardController="Opportunity" extensions="CreateEBProject_ContExt" standardStylesheets="false" showHeader="false" title="Create EB Project Page">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <script type="text/JavaScript"> 
+        
+        </script>    
+        <style>
+            .header {
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url(../img/bg.jpg) no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            }
+            
+            .commandButton-center{
+            width: 100%;
+            text-align: center;
+            height:100%;
+            }
+            
+            .loaderBg{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: #000;
+            opacity: 0.2;
+            z-index: 999999;
+            }
+            
+            .loader {
+            position:absolute;
+            margin: auto;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;;
+            height: 120px;;
+            left: 0;
+            right:0;
+            top:0;
+            z-index: 9999999;
+            opacity: 1;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            }
+            
+            @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+            }
+            
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }        
+        </style> 
+    </head>
+    <apex:actionStatus id="spinnerStatus">
+        <apex:facet name="start">
+            <div class="loader" style="margin-top:15%;"/> 
+            <div class="loaderBg"/> 
+        </apex:facet>
+    </apex:actionStatus>
+    <apex:form styleClass="form-horizontal" id="formId">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class = "navbar-header">
+                <a class = "navbar-brand">Cvent Internal</a>
+            </div>
+            <div class = "navbar-header" style="float:right;">
+                <a class = "navbar-brand"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;{!loggedUser}</a>
+            </div>
+        </nav>                      
+        <apex:pageBlock id="pageBlock">            
+            <div style="margin-top:2.7%;" class="header container">                  
+                <apex:outputPanel rendered="{!!showProductsPanel}">
+                    <br/>
+                    
+                    <br/>
+                    <div class="alert-body" style="margin-left:5.2%;margin-right:5.2%;">
+                        <div class="alert alert-danger commandButton-center" style="margin-top:1%;">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <strong>No Products available on Opportunity. Click on the "Back" button to navigate to opportunity or click on "Show All Products", this will let you select a product from all Event Builder Products.</strong>
+                        </div>                
+                    </div>
+                    <br/>
+                    <div class="commandButton-center" style="margin-top:1%;">
+                        <apex:commandButton style="width:7%;" styleClass="btn btn-success" id="back" value="Back" action="{!back}"/>
+                        <apex:commandButton style="margin-left:1%;width:8%;" styleClass="btn btn-info" id="showAll" value="Show All Products" action="{!showAllProducts}" status="spinnerStatus" reRender="pageBlock" />
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!showAccountError}">
+                    <br/>
+                    <div class="commandButton-center" style="margin-top:3%;">
+                        <apex:commandButton style="width:7%;" styleClass="btn btn-danger" id="back1" value="Back" action="{!back}"/>
+                    </div>
+                    <br/>
+                    <div class="alert-body" style="margin-left:5.2%;margin-right:5.2%;">
+                        <div class="alert alert-danger commandButton-center" style="margin-top:1%;">
+                            <span class="glyphicon glyphicon-exclamation-sign-alt" aria-hidden="true"></span>
+                            <strong>Account doesn't exist for the Opportunity. Click on the "Back" button to navigate to opportunity and then select "Account" before you proceed further.</strong>
+                        </div>                
+                    </div>                    
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(IF(!!showAccountError,false,true) && IF(showProductsPanel,true,false),true,false)}">
+                    <div style="margin-left:3.2%;margin-right:3.2%;">
+                        <br/>
+                        <apex:outputPanel rendered="{!showNoProductSelectedError}">
+                            <div class="alert-body" style="margin-left:5.2%;margin-right:5.2%;">
+                                <div class="alert alert-danger commandButton-center" style="margin-top:.5%;">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <strong>No Products selected. Please select product using checkbox and hit "Create EB Project" button</strong>
+                                </div>                
+                            </div>
+                        </apex:outputPanel>
+                        <div class="commandButton-center">
+                            <apex:commandButton style="width:8%;" styleClass="btn btn-primary" id="createProject1" value="Create EB Project" action="{!CreateProjects}" oncomplete="sampleMethod();" status="spinnerStatus" rerender="pageBlock"/>
+                            <apex:commandButton style="margin-left:1.2%;width:4%;" styleClass="btn btn-danger" id="back2" value="Cancel" action="{!back}"/>
+                        </div>
+                        <br/>
+                        Note: Please "select" the product's using checkbox and hit "Create Projects" button. It creates the project with required project type and complexity.
+                        <br/>
+                        <div>
+                            <table id="mainTable" class="table table-hover table-bordered">   
+                                <tr class="alert alert-info">                        
+                                    <th style="width:1px;">Select</th><th>Product Name</th><th>Quantity</th><th># of EB Projects To Create</th>
+                                </tr> 
+                                <apex:repeat value="{!WrapOppLineItemList}" var="oppItem">
+                                    <tr>
+                                        <td><apex:inputCheckbox value="{!oppItem.selected}"/></td>
+                                        <td><apex:outputField value="{!oppItem.oppLineItem.Product2.Name}"/></td>
+                                        <td><apex:outputField value="{!oppItem.oppLineItem.Quantity}"/></td>
+                                        <td><apex:inputText value="{!oppItem.noOfEBProjToCreate}"/></td>
+                                    </tr>
+                                </apex:repeat>
+                            </table>                             
+                        </div> 
+                        <br/>
+                        <div class ="commandButton-center">
+                            <apex:commandButton style="width:8%;" styleClass="btn btn-primary" id="createProject2" value="Create EB Project" action="{!CreateProjects}" status="spinnerStatus" reRender="pageBlock"/>
+                            <apex:commandButton style="margin-left:1.2%;width:4%;" styleClass="btn btn-danger" id="back3" value="Cancel" action="{!back}"/>
+                        </div>
+                        <br/>
+                    </div>                    
+                </apex:outputPanel>                                   
+            </div>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

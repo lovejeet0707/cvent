@@ -1,0 +1,21 @@
+<apex:page standardController="Case" extensions="EscalateCSExtension">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageblockButtons >
+                    <apex:commandButton value="Escalate to CS Management" action="{!Save}"/>
+                    <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageblockSection >
+                <apex:outputField value="{!caseObj.CaseNumber}"/>
+                <apex:outputField value="{!caseObj.AccountId}"/>
+                <apex:outputField value="{!caseObj.ContactId}"/>
+                <apex:inputfield value="{!caseObj.CC_Email_To__c}"/> 
+                <!--<apex:inputCheckbox selected="true" value="{!caseObj.External_Escalation__c}" rendered="false" />-->
+                <apex:inputField value="{!caseObj.Escalation_Reason__c}" required="true"/>
+                <!--<apex:inputfield value="{!caseObj.Esclated_Date__c}" rendered="false" /> -->
+                <apex:inputTextarea value="{!caseObj.Escalation_Comments__c}"/>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

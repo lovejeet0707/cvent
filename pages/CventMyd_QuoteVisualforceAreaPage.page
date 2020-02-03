@@ -1,0 +1,421 @@
+<apex:page showHeader="false" sidebar="false" standardController="SBQQ__Quote__c" extensions="CventMyd_QuoteVisualforceAreaController">
+
+    <script>
+
+        var outyearMapJson;
+
+        var controllerContractTermYears;
+
+        var quoteEndDateString;
+
+        var userLocale;
+
+        var currentYearStartDate = {!currentYearStartDate};
+
+        window.onload = setTimeout(function(){loadInitialValues();}, 100);
+
+        function loadInitialValues() {
+
+            outyearMapJson = '{!outyearMapJson}';
+
+            controllerContractTermYears = parseInt('{!quote.Contract_Term_Years__c}');
+
+            var quoteEndDate = '{!quote.SBQQ__EndDate__c}';
+
+            quoteEndDateString = getDateStringFromDate(new Date(quoteEndDate.split(" GMT")[0] + quoteEndDate.split(" GMT")[1]));
+
+            userLocale = '{!userLocale}';
+
+        }
+
+        function processEndDateChange(fieldApiName,fieldValue,term) {
+
+            var outyearMap = null;
+
+            var currentYearChange = false;
+
+            if(fieldApiName == 'SBQQ__StartDate__c') {
+
+                currentYearStartDate = fieldValue;
+
+            }
+
+            if(fieldApiName == 'Contract_Extension__c') {
+
+                var extensionYears = (fieldValue != null && fieldValue != '') ? parseInt(fieldValue) : 0;
+
+                fieldValue = {!quote.originalContractTerm__c} + extensionYears;
+
+                fieldApiName = 'Contract_Term_Years__c';
+
+            }
+
+            if(fieldApiName != null && fieldApiName == 'SBQQ__EndDate__c') {
+
+                outyearMap = getNewOutyearMap(term,fieldValue,true);
+
+                quoteEndDateString = getDateStringFromDate(getDateFromDateString(fieldValue));
+
+                currentYearChange = true;
+
+            }
+
+            else if(fieldApiName == null) {
+
+                outyearMap = getNewOutyearMap(term,fieldValue,false);
+
+            }
+
+            if(outyearMap != null && fieldApiName != 'Contract_Term_Years__c' && fieldApiName != 'Contract_Extension__c') {
+
+                outyearMapJson = JSON.stringify(outyearMap);
+
+                passOutyearMapToController(JSON.stringify(outyearMap),currentYearChange);
+
+            }
+
+            else if((fieldApiName == null && outyearMap == null) || (fieldApiName != null && fieldApiName == 'SBQQ__EndDate__c' && outyearMap == null)) {
+
+                alert("you selected an end date that is before the start date of the same year");
+
+            }
+
+            else if(fieldApiName != null && fieldApiName == 'Contract_Term_Years__c') {
+
+                var oldContractTermYears = controllerContractTermYears;
+
+                var newContractTermYears = (fieldValue != '') ? parseInt(fieldValue) : oldContractTermYears;
+
+                outyearMap = JSON.parse(outyearMapJson);
+
+                if(newContractTermYears > oldContractTermYears) {
+
+                    var previousEndDateString = quoteEndDateString;
+
+                    previousEndDateString = (outyearMap[oldContractTermYears] != null) ? outyearMap[oldContractTermYears].endDate : previousEndDateString;
+
+                    var firstNewOutyear = (oldContractTermYears > {!quote.Current_Year__c}) ? oldContractTermYears + 1 : {!quote.Current_Year__c} + 1;
+
+                    for(var i = firstNewOutyear; i <= newContractTermYears; i++) {
+
+                        var outyear = {};
+
+                        outyear["startDate"] = getDateStringFromDate(addTimeToDate(previousEndDateString,0,1));
+
+                        outyear["endDate"] = getDateStringFromDate(addTimeToDate(outyear.startDate,12,-1));
+
+                        outyearMap[i] = outyear;
+                        
+                        previousEndDateString = outyear.endDate;
+
+                    }                  
+
+                }
+
+                if(newContractTermYears < oldContractTermYears) {
+
+                    for(var i = oldContractTermYears; i > newContractTermYears; i--) {
+
+                        delete outyearMap[i];
+
+                    }
+
+                }
+
+                else if (newContractTermYears == {!quote.Current_Year__c}) {
+
+                    outyearMap = {};
+
+                }
+
+                controllerContractTermYears = newContractTermYears;
+
+                outyearMapJson = JSON.stringify(outyearMap);
+
+                passOutyearMapToController(outyearMapJson,false);
+
+            }
+            
+        }    
+
+        function getNewOutyearMap(term,newEndDateString,isCurrentYear) {
+
+            var outyearMap = JSON.parse(outyearMapJson);
+
+            var newEndDate = getDateFromDateString(newEndDateString);
+
+            var startDateString = (isCurrentYear == true) ? currentYearStartDate : outyearMap[term].startDate;
+
+            var startDate = getDateFromDateString(startDateString);
+
+            if(term == controllerContractTermYears && isCurrentYear && (newEndDate > startDate)) {
+
+                return {};
+
+            }
+
+            else if(newEndDate > startDate) {
+
+                if(term != {!quote.Current_Year__c}) {
+
+                    outyearMap[term].endDate = getDateStringFromDate(newEndDate);
+
+                }
+
+                var previousEndDate = newEndDate;
+
+                var finalYear = controllerContractTermYears;
+
+                for(var i = term + 1; i < finalYear + 1; i++) {
+
+                    var startDate = addTimeToDate(getDateStringFromDate(previousEndDate),0,1);
+
+                    var endDate = addTimeToDate(getDateStringFromDate(startDate),12,-1);
+
+                    outyearMap[i].startDate = getDateStringFromDate(startDate);
+
+                    outyearMap[i].endDate = getDateStringFromDate(endDate);
+
+                    previousEndDate = endDate;
+
+                }
+
+                return outyearMap;
+
+            }
+
+            else if(newEndDate <= startDate) {
+
+                return null;
+
+            }            
+
+        }
+
+        function passOutyearMapToController(outyearMap,currentYearChange) {}
+
+        function getDateStringFromDate(date) {
+            
+            var dateString;
+            
+            dateString = date.getFullYear().toString() + '-';
+            
+            dateString = (dateString + (date.getMonth() + 1)).toString() + '-';
+            
+            dateString = (dateString + (date.getDate())).toString();
+            
+            return dateString;
+            
+        }        
+
+        function addTimeToDate(dateString,months,days) {
+
+            var year = parseInt(dateString.split('-')[0]);
+            
+            var month = (parseInt(dateString.split('-')[1]) -1) + months;
+            
+            var day = (parseInt(dateString.split('-')[2])) + days;
+
+            var date = new Date(year,month,day);
+            
+            return date;
+
+        }
+
+        function getDateFromDateString(dateString) {
+
+            var year,month,day;
+
+            if(dateString.includes('/')) {
+
+                var monthIndex = (userLocale.includes('US')) ? 0 : 1 ;
+
+                var dayIndex = (monthIndex == 0) ? 1 : 0 ;
+
+                year = parseInt(dateString.split('/')[2]);
+
+                month = parseInt(dateString.split('/')[monthIndex]) - 1;
+
+                day = parseInt(dateString.split('/')[dayIndex]);
+
+            }
+
+            else if(dateString.includes('-')) {
+
+                year = parseInt(dateString.split('-')[0]);
+
+                month = parseInt(dateString.split('-')[1]) - 1;
+
+                day = parseInt(dateString.split('-')[2]);               
+
+            }
+
+            var date = new Date(year,month,day);
+            
+            return date;
+
+        }
+
+    </script>
+
+    <apex:slds />
+
+    <style type="text/css">
+
+        th {
+
+            text-align:center;
+
+            font-weight:bold;  
+
+        }    
+
+        tr,td {border: 1px solid #AEE0EF;}
+
+        table {border: 1px solid black;}         
+
+    </style>
+
+    <style>
+        .spinnerBg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #000;
+            opacity: 0.2;
+            z-index: 999999;
+        }
+        .spinner{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: url("/img/loading32.gif");
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            z-index: 9999999;
+            opacity: 1;
+        }
+    </style>
+
+    <div align="center" style="margin-top:60px;">
+        <apex:actionStatus id="spinnerStatus">
+            <apex:facet name="start">
+                <div class="spinnerBg" />
+                <div class="spinner" />
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:form id="formId">
+
+            <apex:actionFunction action="{!updateControllerDates}" name="passOutyearMapToController" reRender="formId">
+
+                <apex:param name="outyearMap" value=""/>
+
+                <apex:param name="currentYearChange" value=""/>
+
+            </apex:actionFunction>          
+
+            <table style="float: left; margin-left:100px; width:335px;">     
+
+                <tr><td style="background-color:#1C4178; color:white; text-align:center; font-weight:bold;" align="center" colspan="4">Contract Information</td></tr>
+
+                <apex:repeat value="{!quoteFields}" var="qf">
+
+                    <tr> 
+
+                        <td style="font-weight:bold;">{!qf.fieldLabel}</td>
+
+                        <td>
+
+                            <c:CventMyd_DateInputWithoutLink >
+
+                                <apex:inputField rendered="{!qf.editable}" style="width:100px;" value="{!quote[qf.fieldApiName]}" onchange="processEndDateChange('{!qf.fieldApiName}',this.value,{!quote.Current_Year__c});"/>
+
+                                <apex:outputField rendered="{!NOT(qf.editable)}" style="width:100px;" value="{!quote[qf.fieldApiName]}" />
+
+                            </c:CventMyd_DateInputWithoutLink>
+
+                        </td>
+
+                    </tr>
+
+                </apex:repeat>  
+
+                <apex:variable value="foo" var="foo" rendered="{!AND(NOT(quote.RecordType.Name == 'Approved'),OR(NOT(parentContractExists),AND(quote.SBQQ__Type__c == 'Amendment',NOT(opportunityIsContracted))))}" id="varId0">
+
+                    <tr>
+
+                        <td style="text-align:center;" align="center" colspan="4">
+                    
+                            <apex:commandButton styleClass="slds-button slds-button_brand" value="save" action="{!saveQuote}" reRender="formId" status="spinnerStatus"/>
+                
+                        </td>
+                    
+                    </tr>   
+
+                </apex:variable> 
+
+                <apex:variable value="foo" var="foo" rendered="{!userMessage != null && messageLocation == 'firstTable'}" id="varId1">  
+
+                    <tr><td style="font-weight:bold;color:{!messageColor}; text-align:center;" align="center" colspan="4">{!userMessage}</td></tr>  
+
+                </apex:variable>                       
+
+            </table>    
+
+            <apex:variable value="foo" var="foo" rendered="{!showOutyearTable}" id="varId"> 
+
+                <table style="float: left; margin-left:100px; width:220px;" id="tableId">
+
+                    <tr><td style="background-color:#1C4178; color:white; text-align:center; font-weight:bold;" align="center" colspan="4">Outyear Dates</td></tr>
+
+                    <tr>
+
+                        <th>Year</th>
+
+                        <th>Start Date</th>
+
+                        <th>End Date</th>
+
+                    </tr>
+
+                    <apex:repeat value="{!quoteLineGroups}" var="qlg" id="repeatId">
+
+                        <tr>
+
+                            <td style="width:50px;" align="center"><apex:outputText style="font-weight:bold;" value="{!qlg.Name}"/></td>
+
+                            <td><apex:outputField value="{!qlg.SBQQ__StartDate__c}"/></td>
+
+                            <td id="tdId">
+
+                                <c:CventMyd_DateInputWithoutLink >
+
+                                    <apex:inputField rendered="{!qlg.SBQQ__Optional__c}" onchange="processEndDateChange(null,this.value,{!qlg.term__c});" style="text-align:center; font-size:12px; width:80px;" value="{!qlg.SBQQ__EndDate__c}"/>
+
+                                    <apex:outputField rendered="{!NOT(qlg.SBQQ__Optional__c)}" value="{!qlg.SBQQ__EndDate__c}"/>
+
+                                </c:CventMyd_DateInputWithoutLink>
+
+                            </td>
+
+                        </tr>
+
+                    </apex:repeat>
+
+                    <apex:variable value="foo" var="foo" rendered="{!userMessage != null && messageLocation == 'secondTable'}" id="varId1">  
+
+                        <tr><td style="font-weight:bold;color:{!messageColor}; text-align:center;" align="center" colspan="4">{!userMessage}</td></tr>  
+
+                    </apex:variable>
+
+                </table>
+
+            </apex:variable>
+
+        </apex:form>
+    
+    </div>  
+    
+</apex:page>

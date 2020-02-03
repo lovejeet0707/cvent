@@ -1,0 +1,30 @@
+<apex:page standardController="Contract" extensions="contractRelatedOpp">
+  <style type="text/css">
+        .p { font-weight: bold; }
+  </style>
+  <apex:pageBlock >
+      <apex:pageBlockSection >
+            <apex:outputField value="{!relatedAcc.Name}"/>
+            <apex:outputField value="{!relatedAcc.Owner.Name}"/>
+            <apex:outputField value="{!relatedAcc.ParentId}"/>
+            <apex:outputField value="{!relatedAcc.Named_Acct__c}"/>
+            <apex:outputField value="{!relatedAcc.Account_Status__c}"/>
+            <apex:outputField value="{!relatedAcc.Type}"/>
+            <apex:outputField value="{!relatedAcc.CVII_ID__c}"/>
+            <apex:outputField value="{!relatedAcc.Cvent_Account_ID__c}"/>
+            <apex:outputField value="{!relatedAcc.Purchased_License__c}"/>
+            <apex:outputField value="{!relatedAcc.Standard_Non_Standard_Contract__c}"/>
+            <!--<apex:outputField value="{!relatedAcc.BillingAddress}"/>-->
+            <apex:outputField value="{!relatedAcc.Phone}"/>
+            <apex:outputField value="{!relatedAcc.Fax}"/>
+            <apex:outputField value="{!relatedAcc.Time_Zone__c}"/>
+            <apex:outputField value="{!relatedAcc.Website}"/>
+            <apex:outputField value="{!relatedAcc.Country_Region__c}"/>
+            <!--<apex:outputField value="{!relatedAcc.Consent_for_logo__c}"/>-->
+            <apex:outputText value="{!relatedAcc.Consent_for_logo__c}" styleClass="p"/>
+      </apex:pageblockSection>   
+      <apex:pageBlockSection title="Description Information" columns="1">
+            <apex:outputField value="{!relatedAcc.Description}"/>
+      </apex:pageblockSection>           
+  </apex:pageBlock>
+</apex:page>

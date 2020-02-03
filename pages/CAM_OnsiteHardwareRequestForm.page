@@ -1,0 +1,275 @@
+<apex:page standardController="Onsite_Hardware_Request__c" extensions="CAM_OnsiteHardwareRequestForm_Extension" lightningStyleSheets="true" standardStylesheets="false" sidebar="false" docType="html-5.0" title="Onsite Hardware Request for {! theRequest.Event_Name__r.Name }">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<apex:slds />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <apex:form >
+        <div class="slds-grid slds-scope slds-gutters_small">
+            <!-- Header -->
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-page-header slds-page-header_record-home">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-work-order-item">
+                                        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#work_order_item')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1><span>Hardware Request</span>
+                                                <span class="slds-page-header__title slds-truncate">{! theRequest.Event_Name__r.Name }</span> 
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__col-actions">
+                            <div class="slds-page-header__controls">
+                                <div class="slds-page-header__control">
+                                    <ul class="slds-button-group-list">
+                                        <li>
+                                            <apex:commandButton value="Back to the Request" action="{!cancel}" styleClass="slds-button slds-button_neutral" />
+                                        </li>
+                                        <li>
+                                            <apex:commandButton value="Back to the Event Data" action="{! URLFOR($Action.Event_Data__c.View, theRequest.Event_Name__c) }"  styleClass="slds-button slds-button_neutral" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-page-header__row slds-page-header__row_gutters">
+                        <div class="slds-page-header__col-details">
+                            <ul class="slds-page-header__detail-row">
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">ID</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{! theRequest.Name }"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Project Manager</div>
+                                    <apex:outputText value="{! theRequest.Event_Name__r.Project_Manager__c }"/>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">International Event?</div>
+                                    <div class="slds-truncate">
+                                        <apex:inputCheckbox value="{! theRequest.International_Event__c }" disabled="true"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Shipment Handled by the Client?</div>
+                                    <div class="slds-truncate">
+                                        <apex:inputCheckbox value="{! theRequest.Shipment_Handled_by_the_Client__c }" disabled="true"/>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-scope">
+            <div class="slds-col slds-size_1-of-1">
+                <apex:pageMessages id="pageMessages" showDetail="false"/>
+            </div>
+        </div>
+
+
+        <div class="slds-grid slds-scope slds-gutters_small slds-m-top_small">
+            <!-- Timeline and Requested Assets -->
+            <div class="slds-col slds-size_1-of-3">
+                <apex:outputPanel >
+                    <!-- Timeline  -->                    
+                    <apex:pageBlock title="Timeline">
+                        <div class="slds-progress slds-progress_vertical slds-text-heading_medium">
+                            <ol class="slds-progress__list">
+                                <apex:repeat value="{! timeline }" var="tl">
+                                    <li class="slds-progress__item {! if(tl.completed, 'slds-is-completed', '') } {! if(tl.isActive, 'slds-is-active', '') }" title="{! tl.dsc }">
+                                        <span class="slds-icon_container slds-icon-utility-success slds-progress__marker slds-progress__marker_icon" style="display: {! if (tl.completed, '', 'none;') }">
+                                            <svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </span>
+                                        <div class="slds-progress__marker" style="display: {! if (tl.completed, 'none;', '') }"></div>
+                                        <div class="slds-progress__item_content slds-grid">
+                                            <apex:outputText value="{0, date, MMM d}">
+                                                <apex:param value="{! tl.dt }" /> 
+                                            </apex:outputText>&nbsp;
+                                            {! tl.label }
+                                        </div>
+                                    </li>
+
+                                </apex:repeat>
+                            </ol>
+                        </div>
+                    </apex:pageBlock>
+                    <!-- Requested Items -->
+                    <apex:pageBlock title="Request" id="cart">
+                        <apex:pageBlockTable value="{! theRequest.Onsite_Hardware_Request_Bundles__r }" var="item" title="Requested Items" id="RequestTable" styleClass="slds-table slds-table_striped slds-text-body_small slds-truncate"  style="table-layout:auto;">
+                            <apex:column title="Remove Item" rendered="{! if(theRequest.Packlists__r.size == 0, TRUE, FALSE)}">
+                                <apex:commandLink action="{! removeItem }" reRender="cart,pageMessages,catalog" status="removal-status">
+                                    <apex:param name="itemID" value="{! item.ID}" />
+                                    <span class="slds-button slds-button_icon">
+                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#delete')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </apex:commandLink>
+                                <apex:actionStatus id="removal-status" onstop="setcurrentCventTabAgain();">
+                                    <apex:facet name="start"><img src="/img/loading.gif" /></apex:facet>
+                                </apex:actionStatus>
+                            </apex:column>
+                            <apex:column headerValue="Device" title="{! item.Cvent_Asset_Bundle__c + newLine + item.Cvent_Asset_Group__c + ' > ' + item.Cvent_Asset_Subgroup__c }">
+                                {! (LEFT(item.Cvent_Asset_Bundle__c, charLmt)) }{! if(LEN(item.Cvent_Asset_Bundle__c)>charLmt, '...', '') }<br/>
+                                {! (LEFT(item.Cvent_Asset_Group__c + ' > ' + item.Cvent_Asset_Subgroup__c, charLmt)) }{! if(LEN(item.Cvent_Asset_Group__c + ' > ' + item.Cvent_Asset_Subgroup__c)>charLmt, '...', '') }
+                            </apex:column>
+                            <apex:column headerValue="Quantity" value="{!item.Requested_Quantity__c }" styleClass="slds-text-align_right" headerClass="slds-text-align_right"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </apex:outputPanel>  
+            </div>
+            <!-- Catalog of Assets -->
+            <div class="slds-col slds-size_2-of-3">
+                <apex:pageBlock title="Catalog" id="catalog" rendered="{! if(theRequest.Packlists__r.size == 0, TRUE, FALSE)}">
+                    <div class="slds-vertical-tabs">
+                        <ul class="slds-vertical-tabs__nav" role="tablist" aria-orientation="vertical">
+                            <!-- Asset Groups are listed as tabs -->
+                            <apex:repeat value="{! catalog }" var="L3">
+                                <li class="slds-vertical-tabs__nav-item" title="{! L3.grp.Name }" role="presentation">
+                                    <a class="slds-vertical-tabs__link" onclick="changeTab('{! L3.grp.id }');"  tabindex="-1" aria-selected="false" role="tab" aria-controls="slds-vertical-tabs-0" id="tab-{! L3.grp.id }">
+                                        <span class="slds-truncate" title="{! L3.grp.Name }">{! L3.grp.Name }</span>
+                                        <span class="slds-vertical-tabs__right-icon" style="display: {! if(L3.inUse, '', 'none') }">
+                                            <svg height="10" width="10">
+                                                <circle cx="5" cy="5" r="4" stroke="#4bca81" stroke-width="1" fill="#4bca81" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </li>
+                            </apex:repeat>
+                        </ul>
+                        <!-- Asset Bundles are listed as tables within divs -->
+                        <apex:repeat value="{! catalog }" var="L3">
+                            <div class="slds-vertical-tabs__content slds-hide" id="div-{! L3.grp.id }" role="tabpanel" aria-labelledby="slds-vertical-tabs-0__nav">
+                                <apex:pageBlockTable value="{! L3.lst }" var="L2" styleClass="slds-no-row-hover slds-table_header-hidden">
+                                    <apex:column value="{! L2.subgrp.name }" width="15%" headerValue="Subgroup" styleClass="slds-text-heading_medium slds-text-align_center" headerClass="slds-text-align_center"/>
+                                    <apex:column >
+                                        <apex:pageBlockTable value="{! L2.lst }" var="L1" id="assetTable" styleClass="slds-table slds-table_striped"  style="table-layout:auto;">
+                                            <apex:column headerValue="Device">
+                                                <apex:outputField value="{! L1.asset.Cvent_Asset_Bundle__r.Name }"></apex:outputField>
+                                                <span class="slds-button slds-button_icon" title="{! L1.multi_desc }" style="display: {! if(NOT(L1.multi), 'none', '') }">
+                                                    <svg aria-hidden="true" class="slds-icon slds-icon-text-default slds-icon_x-small">
+                                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#thanks')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                    </svg>
+                                                </span>
+                                            </apex:column>
+                                            <apex:column headerValue="Quantity" width="5%" styleClass="slds-text-align_right" headerClass="slds-text-align_right">
+                                                <apex:inputText maxlength="5" size="5" value="{! L1.qty }" style="{! if( L1.qty>0, 'border: 2px solid #4bca81; ', 'border: 2px solid #c9c7c5;') }"/>
+                                            </apex:column>
+                                            <apex:column width="5%" title="{! if( L1.qty>0, 'Update the Request', 'Add to the Request') }" styleClass="slds-text-align_left">
+                                                <apex:commandLink action="{! addItem }" rendered="{! IF( L1.qty==0,TRUE,FALSE)  }" reRender="cart,pageMessages,catalog" status="addition-status">
+                                                    <span class="slds-button slds-button_icon">
+                                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                                            <use xlink:href="{! if(L1.qty>0, URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#edit'), URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#add')) }" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <apex:param name="assetID" value="{! L1.asset.ID }" />
+                                                    <apex:param name="L1index" value="{! L1.c }" />
+                                                    <apex:param name="L2index" value="{! L2.c }" />
+                                                    <apex:param name="L3index" value="{! L3.c }" />
+                                                </apex:commandLink>
+                                                <apex:commandLink action="{! updateItem }" rendered="{! IF( L1.qty>0,TRUE,FALSE)  }" reRender="cart,pageMessages,catalog" status="addition-status">
+                                                    <span class="slds-button slds-button_icon">
+                                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                                            <use xlink:href="{! if(L1.qty>0, URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#edit'), URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#add')) }" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <apex:param name="assetID" value="{! L1.asset.ID }" />
+                                                    <apex:param name="L1index" value="{! L1.c }" />
+                                                    <apex:param name="L2index" value="{! L2.c }" />
+                                                    <apex:param name="L3index" value="{! L3.c }" />
+                                                </apex:commandLink>
+                                                <apex:actionStatus id="addition-status" onstop="setcurrentCventTabAgain();">
+                                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                                </apex:actionStatus>
+                                            </apex:column>
+                                        </apex:pageBlockTable>  
+                                    </apex:column>
+                                </apex:pageBlockTable>
+                            </div>
+                        </apex:repeat>
+                    </div>
+                </apex:pageBlock>
+                <apex:pageBlock title="Packlist(s)" id="packlist" rendered="{! if(theRequest.Packlists__r.size == 0, FALSE, TRUE)}">
+                    <apex:pageBlockTable value="{! theRequest.Packlists__r }" var="packlist" title="Packlist(s)" id="PacklistTable" styleClass="slds-table slds-table_striped slds-text-heading_medium"  style="table-layout:auto;">
+                        <apex:column width="10%">
+                            <apex:outputLink value="{! URLFOR($Action.Packlist__c.View, packlist.ID) }">View Packlist</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{! packlist.Name }" />
+                    </apex:pageBlockTable>
+            </apex:pageBlock>
+            </div>
+        </div>
+
+        <script>
+
+            //onload: set the selected tab
+            var currentCventTab; 
+        
+            function setcurrentCventTabAgain(){
+                tab = document.getElementById('tab-' + currentCventTab);
+                tab.setAttribute("tabindex", "0");
+                tab.setAttribute("aria-selected", "true");
+                tab.parentElement.setAttribute("class", "slds-vertical-tabs__nav-item slds-is-active");
+        
+                tab = document.getElementById('div-' + currentCventTab);
+                tab.setAttribute("class", "slds-vertical-tabs__content slds-show");
+        
+                return false;
+            }
+        
+            function changeTab(i){
+                if ( i == currentCventTab){
+                    return false;
+                } else {
+                    //console.log('Change Tab worked' + 'i=' + i + ' currentCventTab='+ currentCventTab);
+        
+                    tab = document.getElementById('tab-' + i);
+                    tab.setAttribute("tabindex", "0");
+                    tab.setAttribute("aria-selected", "true");
+                    tab.parentElement.setAttribute("class", "slds-vertical-tabs__nav-item slds-is-active");
+        
+                    tab = document.getElementById('div-' + i);
+                    tab.setAttribute("class", "slds-vertical-tabs__content slds-show");
+        
+        
+                    tab = document.getElementById('tab-' + currentCventTab);
+                    tab.setAttribute("tabindex", "-1");
+                    tab.setAttribute("aria-selected", "true");
+                    tab.parentElement.setAttribute("class", "slds-vertical-tabs__nav-item");
+        
+                    tab = document.getElementById('div-' + currentCventTab);
+                    tab.setAttribute("class", "slds-vertical-tabs__content slds-hide");
+                    
+                    currentCventTab = i;
+                }
+                return false;
+            }//changeTab
+
+            $(document).ready(function() { 
+                currentCventTab = '{! selectedTab }';
+                setcurrentCventTabAgain();
+            });
+            
+        </script>
+
+    </apex:form>
+</html>        
+</apex:page>

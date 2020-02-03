@@ -1,0 +1,27 @@
+<apex:page controller="RushRequestSurvey_Cont" sidebar="false" showHeader="false" standardStylesheets="false" title="Rush Request Submitted"> 
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <style>            
+        .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+        }
+        </style>
+   </head>
+        <apex:form >
+        <body class="img-fluid" style="background-image: url('{!$Resource.RushReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;margin-top: 1%;">
+                <div style="margin-top: 2%;">
+                    <img src="{!$Resource.RushReqHeader}"/>
+                </div>
+                <div style="margin-top: 2%;color: aliceblue;">Thank you for completing the survey! We would revert back to you in 1 business day.</div>
+                <div style="margin-top: 2%;margin-bottom: 2%">
+                    <img src="{!$Resource.ScopeReqFooterImage}"/>
+                </div>                
+            </div>
+        </body>
+    </apex:form>  
+</apex:page>

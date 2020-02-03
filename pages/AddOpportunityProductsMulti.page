@@ -1,0 +1,95 @@
+<apex:page standardController="Opportunity" extensions="AddOpportunityProductMultiExtension"  sidebar="false" action="{!loadForAddProdsAction}">
+            
+    <script type="text/javascript">
+        var selectedProdCounter = 0;
+        function updateCounter(elm){
+            alert(elm.value);
+            selectedProdCounter++;
+            alert(selectedProdCounter);
+        }
+        function runOnEnter(ev) {
+            //if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                runApexMethod();
+                return false;
+            //} else {
+            //    return true;
+            //}
+        } 
+        function runOnProdChange(){
+            runApexMethod();
+        }
+    </script>
+    
+    <apex:form >
+    <apex:actionFunction name="runApexMethod" action="{!searchProdAction}" reRender="resultsPanel" status="status0"/> 
+    <apex:pageMessages />
+      <apex:sectionHeader subtitle="Add Opportunity Product(s) - Step 1" title="{!Opportunity.Name}"/>
+      
+      <apex:pageBlock title="Search & Select Products">
+          <apex:pageblockSection columns="1" id="searchPanel">
+              <apex:pageblocksectionItem >
+              <apex:outputLabel >Product Family (Record Type)</apex:outputLabel>
+              <apex:selectList value="{!selectedFamily}" size="1" onChange="return runOnProdChange();">
+                  <apex:selectOptions value="{!productFamilyOptions}"></apex:selectOptions>
+              </apex:selectList>
+              </apex:pageblocksectionItem>
+              <apex:pageblocksectionItem >
+                  <apex:outputLabel >Product Name </apex:outputLabel>    
+                  <apex:inputText value="{!selectedName}">
+                      <apex:actionSupport action="{!searchProdAction}" event="onkeyup" reRender="resultsPanel" />
+                  </apex:inputText>
+              </apex:pageblocksectionItem>
+              <apex:pageblocksectionItem >
+                  <apex:outputLabel ></apex:outputLabel>    
+                  <!--<apex:commandButton value="Search" action="{!searchProdAction}" rerender="resultsPanel" status="status0"/>-->
+              </apex:pageblocksectionItem>
+          </apex:pageblockSection>
+
+
+      <apex:actionStatus id="status0">
+            <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.65; z-index: 1000; background-color: black;">
+                &nbsp;
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 30% 50%">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/e/ed/Cursor_Windows_Vista.gif" />
+            </div>
+            </apex:facet>
+        </apex:actionStatus>
+
+    <apex:pageblockSection columns="1" id="resultsPanel">
+        <apex:outputPanel rendered="{! productWrapperList.size > 0}">
+        <center>
+              <apex:commandButton action="{!selectAction}" value="Select & Continue"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+        </center>
+        
+        </apex:outputPanel> 
+
+        <apex:pageblockTable value="{!productWrapperList}" var="p" rendered="{! productWrapperList.size > 0}">
+            <apex:column headerValue="">
+                 <apex:inputCheckbox value="{!p.isSelected}"/>
+            </apex:column>
+            <apex:column headerValue="Product Name">
+                <apex:outputField value="{!p.pbe.Name}"/>
+            </apex:column>
+            <apex:column headerValue="Product Family">
+                <apex:outputField value="{!p.pbe.Product2.Family}"/>
+            </apex:column>
+            <apex:column headerValue="Product Code">
+                <apex:outputField value="{!p.pbe.ProductCode}"/>
+            </apex:column>
+            <apex:column headerValue="Rack Rate (Pricebook)">
+                <apex:outputField value="{!p.pbe.UnitPrice}"/>                
+            </apex:column>         
+            
+            <apex:facet name="footer">
+                    <apex:outputLabel style="background-color: yellow;">Total {!selectedProducts.size} product(s) selected.</apex:outputLabel>
+            </apex:facet>
+                      
+        </apex:pageblockTable>
+        
+        </apex:pageblockSection>
+      </apex:pageblock>
+    </apex:form>  
+</apex:page>

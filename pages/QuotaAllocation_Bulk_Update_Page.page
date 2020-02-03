@@ -1,0 +1,362 @@
+<apex:page sidebar="false" standardController="Quota_Allocation__c" tabStyle="Quota_Management__tab"  extensions="QuotaAllocation_Bulk_Update_Extension" action="{!initializeQuotaData}">
+<apex:form >
+
+    <style type="text/css">
+      
+        .outputfieldcolor{ color: red; font-weight: bold; }
+        
+      .hideDropdown input{
+           width:85%;
+       }
+       .hideDropdown select{
+            display: none;
+       }
+       
+       .list{
+            text-align:center;
+         }
+         
+        .headerRow{
+            text-align:center;
+           
+        }
+        
+        .headerCls{
+          text-align:left;
+        }
+        
+
+        .headerRow leftrow{
+            text-align:left;
+        }
+        
+        .alignleft {
+        position: absolute;
+        left: 1%;
+        top: 2%;
+        }
+        
+    </style>
+    
+    <script>
+        var newWin=null;
+         function openLookupPopup(name)
+         {
+          var url="/apex/Quota_DirectSales_Team_Lookup?namefield=" + name;
+          newWin=window.open(url,'Popup',"directories=no, status=no, menubar=no, scrollbars=no, resizable=no,width=800%, height=500%,top=200%,left=600%");
+    
+    
+          if (window.focus) 
+          {
+           newWin.focus();
+          }
+            
+             return false;
+          }
+               
+         function closeLookupPopup()
+         {
+            if (null!=newWin)
+            {
+               newWin.close();
+            }  
+         }
+         
+    </script>
+    
+    <apex:actionstatus id="saveStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                       height: 100%;opacity:0.65;width:100%;"> 
+                    <div class="waitingHolder" style="top: 120px; width: 91px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    
+    
+    <apex:variable var="rowNum" value="{!0}"/>     
+    
+    <apex:pageBlock id="mainPgBlock" tabStyle="User" title="Quota Allocations">
+    
+    <apex:variable var="rowNum" value="{!0}"/>     
+    
+    <apex:pageMessages />
+    
+    
+    
+        <apex:pageBlockButtons location="top">
+           <apex:commandButton value="Submit Changes for Approval" action="{!doSave}" status="saveStatus" rerender="mainPgBlock"/>
+            <apex:commandButton value="Cancel" action="{!Cancel}"/> 
+          
+        </apex:pageBlockButtons>
+        
+        
+        <apex:outputPanel style="margin-left:35%" > 
+             <apex:commandButton value="Sync" action="{!initializeQuotaData}" rerender="mainPgBlock" status="saveStatus"/>   
+          <!--  <apex:commandButton value="Save New Quota" action="{!SaveNewQuota}" rerender="mainPgBlock"/>&nbsp;&nbsp;
+            <apex:commandLink value="Back to List" action="{!cancel}" />
+		  -->
+        </apex:outputPanel>
+    	
+
+       
+         <br/>
+         <br/>
+        <apex:pageblockTable value="{!qAllocationUserWrapper}" var="qWrapper">
+            
+            <apex:column headerValue="User Details" style="width: 25%; vertical-align: top;" headerClass="headerCls">
+                
+                <apex:pageblockSection >
+                    
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Name</b></apex:outputLabel>
+                             <apex:outputLink target="_blank" value="/apex/QuotaAllocation_Single_User_ViewPage?uid={!qWrapper.uWrapper.usr.Id}" >{!qWrapper.uWrapper.usr.FirstName } {!qWrapper.uWrapper.usr.LastName }</apex:outputLink>
+                        </apex:pageblockSectionItem>
+
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Emp Code</b></apex:outputLabel>
+                            <apex:outputLabel >{!qWrapper.uWrapper.usr.EmployeeNumber}</apex:outputLabel>
+                        </apex:pageblockSectionItem>
+                        
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Role</b></apex:outputLabel>
+                            <apex:outputLabel >{!qWrapper.qHistoryCurrentRec.User__r.UserRole.Name}</apex:outputLabel>
+                        </apex:pageblockSectionItem>
+                        
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Effective Date</b></apex:outputLabel>
+                            <apex:OutputField rendered="{!IF(qWrapper.qHistoryCurrentRec!=null, true, false)}" value="{!qWrapper.qHistoryCurrentRec.Effective_Date__c}"/>
+                        </apex:pageblockSectionItem>
+                        
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Title</b></apex:outputLabel>
+                            <apex:outputField rendered="{!IF(qWrapper.qHistoryCurrentRec!=null, true, false)}" value="{!qWrapper.qHistoryCurrentRec.Title__c}"/>
+                        </apex:pageblockSectionItem>
+                        
+                        <!--
+                        <apex:pageblockSectionItem rendered="{!IF(CONTAINS(qWrapper.qHistoryCurrentRec.User__r.UserRole.Name, 'Pre Sales'),True, False)}">
+                            <apex:outputLabel >DS</apex:outputLabel>
+                            <apex:InputField styleClass="hideDropdown"  rendered="{!IF(qWrapper.qHistoryCurrentRec!=null, true, false)}" value="{!qWrapper.qHistoryCurrentRec.DS__c}" /> 
+                        </apex:pageblockSectionItem>
+                        -->
+                        
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Direct Manager</b></apex:outputLabel>
+                            <apex:outputField value="{!qWrapper.qHistoryCurrentRec.Direct_Manager__c}"/>
+                        </apex:pageblockSectionItem>
+                        
+                        
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Tier</b></apex:outputLabel>
+                            <apex:outputLabel >{!qWrapper.uWrapper.usr.Sales_Rep_Tier__c}</apex:outputLabel>
+                        </apex:pageblockSectionItem>
+            
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel ><b>Product</b></apex:outputLabel>
+                            <apex:outputLabel >{!qWrapper.uWrapper.Product}</apex:outputLabel>
+                        </apex:pageblockSectionItem>
+
+						<!--
+                        <apex:pageblockSectionItem >
+                            <apex:outputLabel >Created By</apex:outputLabel>
+                            <apex:outputLabel ><apex:outputLink target="_blank" value="/{!qWrapper.uWrapper.usr.CreatedBy.Id}">{!qWrapper.uWrapper.usr.CreatedBy.Name}</apex:outputLink>,<apex:outputField value="{!qWrapper.uWrapper.usr.CreatedDate}"/></apex:outputLabel>
+                        </apex:pageblockSectionItem>
+                        -->
+                       
+					   
+					    <!-- Direct Sales Team Members (EDIT) 
+                            <apex:pageblockSectionItem rendered="{!IF(CONTAINS(qWrapper.qHistoryCurrentRec.User__r.UserRole.Name, 'Pre Sales'),True, False)}"> 
+                            <apex:outputLabel >Direct Sales Members</apex:outputLabel>
+                            <apex:panelGroup >
+                              <table>                      
+                               <tr>
+                                  <td><apex:inputTextarea value="{!qWrapper.qHistoryCurrentRec.Sales_Team_Members__c}" id="targetName" onFocus="this.blur()" disabled="false"/></td>
+                                  <td><a href="#" onclick="openLookupPopup('{!$Component.targetName}'); return false" >Lookup</a></td>       
+                              </tr>
+        
+                              </table>
+                            </apex:panelGroup>
+                            </apex:pageblockSectionItem> 
+						-->
+                       
+                    
+                    <!-- Direct Sales Team Members (READ-ONLY) -->
+                    <apex:pageblockSectionItem rendered="{!IF(CONTAINS(qWrapper.qHistoryCurrentRec.User__r.UserRole.Name, 'Pre Sales'),True, False)}"> 
+                        <apex:outputLabel ><b>Direct Sales Members</b></apex:outputLabel>   
+                        <apex:outputLabel value="{!qWrapper.qHistoryCurrentRec.Sales_Team_Members__c}" id="targetName"/>
+                    </apex:pageblockSectionItem> 	
+                    
+                    <apex:pageblockSectionItem >
+                            <apex:outputLabel >Created By</apex:outputLabel>
+                            <apex:outputLabel ><apex:outputLink target="_blank" value="/{!qWrapper.uWrapper.usr.CreatedBy.Id}">{!qWrapper.uWrapper.usr.CreatedBy.Name}</apex:outputLink>,<apex:outputField value="{!qWrapper.uWrapper.usr.CreatedDate}"/></apex:outputLabel>
+                    </apex:pageblockSectionItem>
+        
+                </apex:pageblockSection>
+
+            </apex:column>
+            
+            <apex:column headerValue="Allocation for Current Year ({!year(today())})"  headerClass="headerCls"> 
+            
+                <apex:pageblockTable value="{!qWrapper.qWrapperList}" var="q" id="pbQuotaTable">
+                    
+                    <div id="columns">
+                    
+                    <apex:column headerValue="Quota Type" style="width:90px;"> 
+                        <!--<apex:InputField value="{!q.qAllocationObj.Quota_Type__c}" style="align:center;" rendered="{!q.isNewQuota}"/>-->
+                        
+                        <apex:selectList id="quotaTypePicklist"  rendered="{!q.isNewQuota}" style="width:150px;"  value="{!q.qAllocationObj.Quota_Type__c}" size="1" >  
+                                    <apex:selectOptions value="{!q.quotaTypes}"/> 
+                        </apex:selectList> 
+                   
+                                    
+                        <!--<apex:outputLabel rendered="{!IF(q.quotaName == 'Monthly Total' , true,false)}" style="font-weight:bold">{!q.quotaName }</apex:outputLabel>-->
+                        <apex:outputLink rendered="{!IF(q.quotaName != 'Monthly Total' && NOT(q.isNewQuota) , true,false)}" target="_blank" value="/{!q.qAllocationObj.Id}#{!LEFT(q.qAllocationObj.Id,15)}_RelatedProcessHistoryList"> {!q.quotaName } </apex:outputLink>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Jan">
+                    
+                        <apex:inputField value="{!q.qAllocationObj.Amount_for_Jan__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Jan__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Jan__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Jan__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Jan__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[0]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Feb">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Feb__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Feb__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Feb__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Feb__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Feb__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[1]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Mar">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Mar__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Mar__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Mar__c !=null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Mar__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Mar__c == null, false , true)}"/>
+                    
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[2]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Apr">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Apr__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Apr__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Apr__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Apr__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Apr__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[3]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="May">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_May__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_May__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_May__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_May__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_May__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[4]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Jun">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_June__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_June__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_June__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_June__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_June__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[5]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Jul">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_July__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_July__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_July__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_July__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_July__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[6]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Aug">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Aug__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Aug__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Aug__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Aug__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Aug__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[7]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Sep">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Sept__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Sept__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Sept__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Sept__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Sept__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[8]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Oct">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Oct__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Oct__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Oct__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Oct__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Oct__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[9]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    <apex:column headerValue="Nov">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Nov__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Nov__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Nov__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Nov__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Nov__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[10]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                    
+                    
+                    <apex:column headerValue="Dec">
+                    
+                    <apex:inputField value="{!q.qAllocationObj.Amount_for_Dec__c}" style="width:50px;" onchange="this.style.color = 'red'; docheckforValue(this,'{!q.qAllocationObj.Id}','Amount_for_Dec__c')" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Dec__c != null, false, true)}"/>
+                        <apex:outputText value="{!q.qAllocationObj.Amount_for_Dec__c}" styleclass="outputfieldcolor" rendered="{!IF(q.quotaName == 'Monthly Total' || q.qAllocationObj.Old_Amount_for_Dec__c == null, false , true)}"/>
+                        
+                        <!--<apex:outputLabel style="font-weight:bold" value="{!q.monthsAmount[11]}" rendered="{!IF(q.quotaName == 'Monthly Total', true, false )}">  </apex:outputLabel>-->
+                    </apex:column>
+                                
+                    
+                    <apex:column headerValue="Yearly Total">
+                        <b>{!IF(q.quotaName != 'Monthly Total' , q.totalAmount , '')}</b>
+                    </apex:column>
+                    
+                    <!--
+                    <apex:column headerValue="Action">
+
+                       
+                       <apex:commandLink id="delExisting" value="Delete" rendered="{!IF(q.quotaName != 'Monthly Total' && NOT(q.isNewQuota), true, false)}" action="{!DeleteQuota}" rerender="pbQuotaTable">
+                              <apex:param name="quotaDeleteId" value="{!q.qAllocationObj.Id}" assignTo="{!quotaDeleteId}"/> 
+                       </apex:commandLink>
+                                
+
+                       <apex:commandLink id="delNew" immediate="true"  style="color:red;" value="Delete"  rendered="{!IF(q.quotaName != 'Monthly Total' && q.isNewQuota, true, false)}" action="{!DeleteRow}" rerender="mainPgBlock,temp">
+                            <apex:param value="{!rowNum}" name="index" />                     
+                       </apex:commandLink>
+
+                       <apex:variable var="rowNum" rendered="{!q.isNewQuota}" value="{!rowNum+1}"/>
+                       {!rowNum}
+                    
+                    </apex:column>
+                    -->
+                    </div>
+                     
+                </apex:pageblockTable>
+                                
+            </apex:column>
+            
+            
+            <apex:column headerValue="Add New Quota" headerClass="headerCls">
+    
+              <apex:commandButton value="Add Quota" action="{!AddNewQuota}" rerender="mainPgBlock,quotaTypePicklist">
+                <apex:param name="userIdForNewQuota" value="{!qWrapper.uWrapper.usr.Id}" assignTo="{!userIdForNewQuota}"/> 
+              </apex:commandButton>
+              
+               <apex:param value="{!rowNum+1}" /> 
+             
+            </apex:column>
+       
+            
+        </apex:pageblockTable>
+    
+     </apex:pageBlock>
+
+</apex:form>
+</apex:page>

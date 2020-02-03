@@ -1,0 +1,7 @@
+<apex:page contentType="text/plain">
+   User-Agent: *
+   Allow: /
+<!-- Replace this path with your site's actual
+     path and sitemap name. -->
+   Sitemap: {!$Page.Sitemap}
+</apex:page>

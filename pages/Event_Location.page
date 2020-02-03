@@ -1,0 +1,12 @@
+<apex:page standardcontroller="Marketing_Project__c">  
+    <apex:form >  
+        <apex:pageblock >  
+            <apex:pageblocksection columns="2">  
+                <apex:repeat value="{!$ObjectType.Marketing_Project__c.FieldSets.Location}" var="f">  
+                        <apex:inputfield value="{!Marketing_Project__c[f]}">  
+                </apex:inputfield>  
+            </apex:repeat>  
+        </apex:pageblocksection>  
+    </apex:pageblock>  
+</apex:form>  
+</apex:page>

@@ -1,0 +1,36 @@
+<!-- Date       : 3/25/2015,
+     Purpose    : To display custom reports (tablu);
+     Code       : Using standard controller for the Object wherein using Merge fields.
+-->     
+<apex:page sidebar="false" showHeader="true"  standardStyleSheets="false" standardController="Custom_Report__c">
+<!-- <apex:stylesheet value="http://jacobraccuia.com/bootstrap/css/bootstrap.min.css" />
+<apex:stylesheet value="http://jacobraccuia.com/sf_styles.css" />
+
+<style>
+    #header{width:941px;margin:0 auto}
+    #header .logo{float:left;margin-right:25px;margin-top:12px}
+    #header .nav ul li{list-style-type:none;float:left}
+    #header .nav{float:left;margin-right:20px}
+    #header .user-profile {float:left}
+    #header .nav li{padding:10px}
+    #header .nav li a{display:block;clor:#000;text-decoration:none;font-size: 14px;}
+    #header .nav li a:hover{clor:#000;text-decoration:none}
+    body #AppBodyHeader {display: none;}    
+    html .brandQuaternaryBgr {background: none repeat scroll 0 0 #fafafa !important;}
+
+</style>
+<div id="header">
+    <div class="logo"><a href="#"><img src="http://www.cvent.com/en/images/cvent-footer-logo.png" alt="Cvent" /></a></div>
+    <div class="nav">
+        <ul>
+            <li><a href="/home/home.jsp"> Salesforce Home </a></li>
+            <li><a href="/001/o"> Accounts </a></li>
+            <li><a href="/_ui/core/userprofile/UserProfilePage?tab=sfdc.ProfilePlatformFeed"> My Profile </a></li>
+            
+              </ul>   
+    </div>
+    <div class="user-profile"></div>
+    
+</div> -->
+<iframe height="750px" id="theIframe" name="theIframe" src="{!Custom_Report__c.Report_Link__c}" width="100%"></iframe>
+</apex:page>

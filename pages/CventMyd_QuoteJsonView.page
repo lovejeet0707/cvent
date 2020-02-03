@@ -1,0 +1,117 @@
+<apex:page showHeader="false" sidebar="false" standardController="SBQQ__Quote__c" extensions="CventMyd_QuoteJsonController">
+
+	<script>
+
+		window.onload = setTimeout(function(){loadJson();}, 300);
+
+		var controllerJsonString = '{!quote.jsonString__c}';
+
+		var quoteObject;
+
+		function loadJson() {
+
+			if( document.getElementById("preId0") != null) {
+
+				console.log('this happened 0: ');
+
+				quoteObject = JSON.parse(controllerJsonString);
+
+				document.getElementById("preId0").innerText = JSON.stringify(quoteObject,null,2);
+
+			}
+
+			else {
+
+				console.log('this happened 2: ');
+
+				quoteObject = JSON.parse(controllerJsonString);
+
+				var inputTextAreaElement = document.getElementById("inputTextAreaId");
+
+				inputTextAreaElement.innerHTML = JSON.stringify(quoteObject,null,2);
+
+			}
+
+			var quoteLines = {!quoteLinesJson};
+
+			quoteLines.forEach(function(quoteLine) {
+
+				var lineElement = document.getElementById(quoteLine.Id);
+
+				if(lineElement != null && typeof quoteLine.jsonString__c !== 'undefined') {
+
+					var quoteLineObject = JSON.parse(quoteLine.jsonString__c);					
+
+					lineElement.innerText = 'line: ';
+
+					lineElement.innerText += quoteLine.SBQQ__Number__c + '; year: ';
+
+					lineElement.innerText +=  quoteLine.term__c + ' ' + JSON.stringify(quoteLineObject,null,2);
+
+				}
+
+			});
+
+		}
+
+		function passJsonStringToController(jsonString) {}
+
+		function executeSave() {
+			document.getElementById("thisIsTheDivId").innerHTML = 'JSON is saving, please wait.';
+			document.getElementById("thisIsTheDivId").style.fontWeight = 'bold';
+			document.getElementById("thisIsTheDivId").style.color = 'blue';
+			var inputTextAreaElement = document.getElementById("inputTextAreaId");
+			var updatedJsonString = inputTextAreaElement.value;
+			controllerJsonString = updatedJsonString;
+			passJsonStringToController(updatedJsonString);
+		}
+
+	</script>
+
+	<apex:form id="formId">
+
+		<apex:actionFunction action="{!saveQuoteJson}" name="passJsonStringToController" reRender="formId" oncomplete="loadJson();">
+
+			<apex:param name="quoteJsonString" value=""/>
+
+		</apex:actionFunction>  
+
+		<div style="{!messageStyle}" id="thisIsTheDivId">{!messageToUser}</div>
+
+		<apex:commandButton rendered="{!NOT(editQuoteJson)}" action="{!toggleEditForm}" value="Edit Quote JSON" />
+
+		<apex:variable value="foo" var="foo" rendered="{!editQuoteJson}" id="foo2">
+
+			<input type="button" onclick="executeSave();" value="Save Quote JSON"/>
+
+		</apex:variable>
+
+		<apex:commandButton rendered="{!editQuoteJson}" action="{!toggleEditForm}" value="Cancel" />
+
+		<br/>
+
+		<apex:variable value="foo" var="foo" rendered="{!editQuoteJson}" id="foo0">
+
+			<textarea rows="70" cols="50" id="inputTextAreaId">
+
+				{!quote.jsonString__c}
+
+			</textarea>
+
+		</apex:variable>
+
+		<apex:variable value="foo" var="foo" rendered="{!NOT(editQuoteJson)}" id="foo1">
+
+				<pre style="font-size:10px; float:left;" id="preId0">{!quote.jsonString__c}</pre>
+		
+				<apex:repeat value="{!quoteLines}" var="ql">
+		
+					<pre style="font-size:10px; float:left;" id="{!ql.Id}">{!ql.jsonString__c}</pre>
+		
+				</apex:repeat>
+		
+			</apex:variable>		
+
+	</apex:form>	
+	
+</apex:page>

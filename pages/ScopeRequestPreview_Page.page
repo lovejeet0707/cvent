@@ -1,0 +1,95 @@
+<apex:page controller="ScopeRequestSurvey_Cont" sidebar="false" showHeader="false" standardStylesheets="false" title="Scope Request Form">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <style>            
+            .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+            }
+        </style>
+    </head>
+    <apex:form >
+        <body style="background-image: url('{!$Resource.ScopeReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;">
+                <div style="margin-top: 2%;">
+                    <img src="{!$Resource.ScopeReqHeaderImage}"/>
+                </div>
+                <div style="margin-left: 5%;color: aliceblue;margin-top: 2%;">Respondent information:</div>
+                <div style="margin-left: 7%;color: aliceblue;">Name: {!respondentName}</div>
+                <div style="margin-left: 7%;color: aliceblue;">Email Address: {!respondentEmailAddress}</div>
+                <apex:pageBlock >
+                    <apex:repeat value="{!surveyResultList}" var="sQA">                        
+                        <div style="margin-top: 2%;">
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text', true, false)}">
+                                <div class="panel panel-primary" >
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:outputText value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text Area', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:outputField value="{!sQA.Answer__c}" style="width: 60%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Country Name', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:outputText value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <!-- Output panel takes care of Picklist- Yes/ No Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Picklist - Yes/No', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:outputText value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <!-- Output panel takes care of MultiSelect1 Question/ Answers  -->
+                            <apex:outputPanel id="MultiSelect1" rendered="{!IF(sQA.Answer_Type__c == 'MultiSelect1', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:outputText value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                                <apex:outputPanel rendered="{!IF(sQA.Answer__c == 'Yes',true,false)}">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">{!sQA.Sub_Question__c}</div>
+                                        <div class="panel-body">
+                                            <apex:outputText value="{!sQA.Sub_Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>                                
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'DateTime', true, false)}"> 
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">*{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="input-group date" style="width: 47%;">
+                                                <apex:outputText value="{!sQA.Answer__c}" styleClass="form-control"/>                                                
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                        </div> 
+                    </apex:repeat>
+                </apex:pageBlock>                
+            </div>
+        </body>     
+    </apex:form>
+</apex:page>

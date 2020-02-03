@@ -1,0 +1,19 @@
+<apex:page standardController="Account">
+
+    
+    <!-- Old URL
+    <apex:iframe src="https://tableau/views/SFVisualisation/Dashboard1?:isGuestRedirectFromVizportal=y&:embed=y&csn%20id={!Account.CSN_ID__c}&:toolbar=no"/>
+     <apex:iframe src="https://tableau.cvent.net/views/PlaybookCharts-Final/Dashboard1?:embed=yes&csn%20id={!Account.CSN_ID__c}&:toolbar=no#39"/>
+    -->    
+    <apex:pageMessage rendered="{!ISBLANK(Account.CSN_ID__c)}" summary="CSN ID is required for showing Tableau Dashbaord." severity="info" strength="3"></apex:pageMessage>
+    <!--<apex:iframe rendered="{!NOT(ISBLANK(Account.CSN_ID__c))}" src="https://tableau.cvent.net/views/PlaybookCharts-Final/Dashboard1?:embed=yes&csn%20id={!Account.CSN_ID__c}&:toolbar=no#39"/>-->
+    <!-- <apex:iframe id="theFrame" scrolling="yes" height="900px" rendered="{!NOT(ISBLANK(Account.CSN_ID__c))}" src="https://tableau.cvent.net/views/FeederforSF/SMPlaybook?:embed=yes&csn%20id={!Account.CSN_ID__c}&:toolbar=no#3"/> -->
+    <apex:iframe id="theFrame" scrolling="yes" height="900px" rendered="{!NOT(ISBLANK(Account.CSN_ID__c))}" src="https://tableau.cvent.net/views/FeederforSF-SMPlaybook/SMPlaybook?:embed=yes&csn%20id={!Account.CSN_ID__c}&:showAppBanner=false&:display_count=no&:showVizHome=no#8"/>
+    
+    
+    <script>
+    
+    document.getElementById('theFrame').height = 1000;
+    document.getElementById('theFrame').width = 1800;
+    </script> 
+</apex:page>

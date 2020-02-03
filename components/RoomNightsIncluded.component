@@ -1,0 +1,8 @@
+<apex:component controller="RoomNightsController" access="global">
+    <apex:attribute name="quoteId" description="Id of the quote" type="Id" assignTo="{!objId}" />   
+    
+    <apex:variable var="room" value="{!roomNights}" />
+    <apex:outputPanel rendered="{!NOT(ISBLANK(room))}">
+        <b>Commitment: </b><apex:outputText value="{!room.name}" />&nbsp;<apex:outputText value="{!room.value}" />
+    </apex:outputPanel>
+</apex:component>

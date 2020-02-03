@@ -1,0 +1,11 @@
+<apex:page controller="QuoteReconfigureClass">
+    <apex:form id="frm">
+        <apex:outputPanel rendered="{!showInfo}" id="panelId">
+            Bhai record khtm... Naye record daal... Khali peeli maje lene ke liye button pe click na kr...
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showNextInfo}" id="panelNextId">
+            NECHE DABA NA............ Button Pagle......
+        </apex:outputPanel>
+        <apex:commandButton value="Quote Reconfigure" action="{!reconfigureQuote}" reRender="frm,panelId,panelNextId" />  
+    </apex:form>
+</apex:page>

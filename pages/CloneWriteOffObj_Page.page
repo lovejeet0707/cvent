@@ -1,0 +1,106 @@
+<apex:page standardController="WriteOff__c" title="Write-Off" extensions="CloneWriteOffObj_ControllerExt" tabStyle="WriteOff__c">
+    <apex:form >
+        <apex:sectionHeader title="Write-Off Edit" subtitle="New Write-Off"/>
+        <div style="margin-left:25%;margin-right:25%">
+            <apex:pageMessages />
+        </div>                    
+        <apex:pageBlock title="Write-Off" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveWriteOff}" value="Save"/>
+                <apex:commandButton style="center" action="{!saveAndNewWriteOff}" value="Save & New"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>            
+            <apex:pageBlockSection title="Information" columns="2">
+                <apex:outputField value="{!writeOffObj.OwnerId}"/>
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Introduction}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Invoice 1" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Invoice_1}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Invoice 2" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Invoice_2}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Invoice 3" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Invoice_3}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Invoice 4" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Invoice_4}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Invoice 5" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Invoice_5}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Comments" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Comments}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Paid/Outstanding/Unbilled" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Paid_Outstanding_Unbilled}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Details" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Details}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Year 1" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Year_1}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Year 2" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Year_2}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Year 3" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Year_3}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Year 4" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Year_4}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Year 5" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Year_5}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="More Info" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.More_Info}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Reviewer Section" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Reviewer_Section}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Accounting Related" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Accounting_Related}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Refund Details" columns="2">
+                <apex:repeat value="{!$ObjectType.WriteOff__c.FieldSets.Refund_Details}" var="f">
+                    <apex:inputField value="{!writeOffObj[f]}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

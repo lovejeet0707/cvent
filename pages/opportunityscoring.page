@@ -1,0 +1,37 @@
+<apex:page standardController="Opportunity_Scoring__c"  showHeader="false" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        var oppId = "{!$CurrentPage.parameters.Oppid}";
+        //$(".jsName").attr("value",oppId );
+        //alert(oppId);
+        document.getElementById("j_id0:j_id2:j_id3:jsName_lkid").value =oppId ;
+        document.getElementById("j_id0:j_id2:j_id3:jsName_lkold").value = "{!$CurrentPage.parameters.OppName}";
+        document.getElementById("j_id0:j_id2:j_id3:jsName").value = "{!$CurrentPage.parameters.OppName}";
+    });
+</script>
+<apex:form >
+<apex:pageblock >
+            <apex:pageblockbuttons >
+                <apex:commandbutton value="Save" action="{!Save}"/>
+                <apex:commandbutton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockbuttons>
+<br></br>            
+<br>Opportunity<apex:inputField styleClass="jsName" id="jsName" value="{!Opportunity_Scoring__c.Opportunity__c}"/></br>
+<apex:dataTable value="{!Opportunity_Scoring__c}" var="OS">
+<apex:column >
+<br>You've clearly defined the prospect's problem or need <apex:inputField value="{!OS.Scoring_Field_1__c}"/></br>
+<br>Clear understanding of the decision making process<apex:inputField value="{!OS.Scoring_Field_2__c}"/></br>
+<br>Clearly defined timeline to make a decision and to launch the app<apex:inputField value="{!OS.Scoring_Field_3__c}"/></br>
+<br>Clearly defined budget or how they plan to pay for the app<apex:inputField value="{!OS.Scoring_Field_4__c}"/></br>
+<br>You've completed a full demo (front and back end)<apex:inputField value="{!OS.Scoring_Field_5__c}"/></br>
+<br>Aware of competitors they are evaluating <apex:inputField value="{!OS.Scoring_Field_6__c}"/></br>
+<br>Established who is responsible for building app/managing content <apex:inputField value="{!OS.Scoring_Field_7__c}"/></br>
+<br>We have a clear understanding of/have thoroughly addressed all of their concerns <apex:inputField value="{!OS.Scoring_Field_8__c}"/></br>
+<br>They have an agreement<apex:inputField value="{!OS.Scoring_Field_9__c}"/></br>
+<br>They have a time-sensitive incentive to purchase<apex:inputField value="{!OS.Scoring_Field_10__c}"/></br>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

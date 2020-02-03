@@ -1,0 +1,113 @@
+<apex:page showHeader="false" standardController="Onsite_Troubleshooting__c" extensions="OnsiteTroubleShootingController" sidebar="false" applybodyTag="false">
+
+    <style> 
+       
+       div.questions{
+          
+          margin-top:5%;
+          margin-left:5%;
+          border-radius: 10px;
+          width:89%;
+          height:70%;
+          background-color: rgba(161, 193, 222, 0.2)
+        }
+       
+       
+       div.transbox {
+          border-radius: 10px;
+          margin-left:0.6%;
+          width:  98%;
+          min-height:500px;
+          margin-bottom:10%;
+          ;
+          //background-color: #ffffff;
+          border: 1px solid black;
+          
+          /*opacity: 0.6;
+          filter: alpha(opacity=60); /* For IE8 and earlier */
+          */
+          
+          position: relative;
+          background: rgba(255,255, 255, 0.6)
+        }
+        
+        div.transbox p {
+          margin-left: 3%;
+          margin-top: 3%;
+          font-weight: bold;
+          font-size: 18px;
+          color: #000000;
+          
+         
+        }
+        
+         div.transbox .message{
+             background:none;
+             font-size: 15px;
+             border: none;
+             border-style: groove;
+         }
+         
+         
+         
+         /*CSS By Ankit Sharma Marketing */
+         html,body,form {width: 100% !important;}
+         
+         div#container {width: 100%; max-width: 787px;margin:auto;}
+         div#container img {width:100%;}
+         @media (max-width:540px){div.transbox {min-height: 320px;}}
+      </style>
+   
+    <apex:form id="form1" >
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+         
+    <body style="background-image:url('{!URLFOR($Resource.OnsiteTroubleshootingImages, 'Background7.jpg')}');background-size:cover;">
+        
+             
+      <!--Header-->
+      <div id="container">
+         
+         
+
+         <img src="{!URLFOR($Resource.OnsiteTroubleshootingImages,'Header.png')}" />
+        
+           <div id="page" class="transbox">
+              <apex:pageMessages id="message"/>
+              
+              
+                   <div id="ques" class ="questions">
+                
+                       <p style="color:darkblue;padding-top:3%">
+                          
+                          <apex:outputText escape="false" value="{!currentQues.Question__c}"/>
+                          
+                       </p>
+    
+                       <!--Answers-->
+                       <p>    
+                            <apex:selectRadio style="font-size:18px;" value="{!answer}" layout="{!IF (options.size==2,'lineDirection','pageDirection')}">
+                                <apex:selectOptions value="{!options}"/>
+                            </apex:selectRadio>
+                       </p>
+                       
+        
+                   </div>
+               
+               <p style="text-align: center;">
+                 <apex:outputPanel rendered="{!IF(currentQues.Name!='0',true,false)}" >
+                      <apex:commandButton disabled="{!IF(currentQues.Name=='1',true,false)}"  style="background:rgb(64,64,64);display:inline-block;height:30px;width:100px;font-size:12px;color:white;border:none;border-radius:5px;" action="{!doPrevious}" value="Previous"/>&nbsp;&nbsp;
+                      <apex:commandButton style="background:rgb(64,64,64);display:inline-block;height:30px;width:100px;font-size:12px;color:white;border:none;border-radius:5px;" value="Next" action="{!doNext}" reRender="form1"/>
+                 </apex:outputPanel>
+               </p>
+                     
+           </div>
+     </div>
+    </body>
+    
+     
+    </apex:form>
+
+</apex:page>

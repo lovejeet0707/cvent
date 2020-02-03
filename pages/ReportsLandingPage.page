@@ -1,0 +1,248 @@
+<apex:page controller="ReportsLandingCls" showHeader="false">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+    <script type="text/javascript">
+        function Redirect(str){
+            //alert(str);
+            RedirectSec(str);
+        }
+    </script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:400);
+        @import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:700);
+        body {
+          width: 100%;
+          background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/grid.png) repeat #fefefe;
+        }
+        .wrap {
+          width: 500px;
+          margin: 100px auto;
+          /* button stuffs */
+        }
+        .wrap button {
+          font-family: 'Archivo Narrow', sans-serif;
+          font-weight: bold;
+          font-size: 36px;
+          text-shadow: 1px 1px 0px #ffffff;
+          display: block;
+          padding: 10px 30px;
+          margin: 0 auto;
+          min-width: 200px;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          position: relative;
+          z-index: 1;
+          box-shadow: 1px 1px 1px #ffffff;
+          -moz-box-shadow: 1px 1px 1px #ffffff;
+          -webkit-box-shadow: 1px 1px 1px #ffffff;
+          text-shadow: 1px 1px 0px #fff;
+          font-weight: 400;
+          color: #333;
+          border: 1px solid #aaa;
+          cursor: pointer;
+          -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+          background: #feffe8;
+          /* Old browsers */
+          background: -moz-linear-gradient(top, #feffe8 0%, #d6dbbf 100%);
+          /* FF3.6+ */
+          background: -webkit-linear-gradient(top, #feffe8 0%, #d6dbbf 100%);
+          /* Chrome10+,Safari5.1+ */
+          background: linear-gradient(to bottom, #feffe8 0%, #d6dbbf 100%);
+          /* W3C */
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+          /* span stuffs (tooltip) */
+        }
+        .wrap button:hover {
+          background: -moz-linear-gradient(top, #fffce7 0%, #fdfd9f 100%);
+          /* FF3.6+ */
+          background: -webkit-linear-gradient(top, #fffce7 0%, #fdfd9f 100%);
+          /* Chrome10+,Safari5.1+ */
+          background: linear-gradient(to bottom, #fffce7 0%, #fdfd9f 100%);
+          /* W3C */
+        }
+        .wrap button:active {
+          background: -moz-linear-gradient(top, #f8c67a 0%, #e28904 49%, #f9ac39 50%, #f9d4a1 100%);
+          /* FF3.6+ */
+          background: -webkit-linear-gradient(top, #f8c67a 0%, #e28904 49%, #f9ac39 50%, #f9d4a1 100%);
+          /* Chrome10+,Safari5.1+ */
+          background: linear-gradient(to bottom, #f8c67a 0%, #e28904 49%, #f9ac39 50%, #f9d4a1 100%);
+          /* W3C */
+        }
+        .wrap button span {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          position: absolute;
+          padding: 10px;
+          width: 190px;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          text-shadow: 0 0 0 #ffffff;
+          font-weight: normal;
+          color: rgba(255, 255, 255, 0);
+          opacity: 0;
+          font-size: 16px;
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+          -webkit-transition-delay: 0.2s;
+          -moz-transition-delay: 0.2s;
+          -o-transition-delay: 0.2s;
+          -transition-delay: 0.2s;
+          z-index: 1;
+        }
+        .wrap button span .nub {
+          display: block;
+          width: 10px;
+          height: 10px;
+          padding: 5px;
+          border-style: solid;
+          border-color: transparent;
+          background: rgba(255, 255, 255, 0.8);
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          position: absolute;
+          left: 42%;
+          -moz-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+          z-index: 0;
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+          -webkit-transition-delay: 0.2s;
+          -moz-transition-delay: 0.2s;
+          -o-transition-delay: 0.2s;
+          -transition-delay: 0.2s;
+          -moz-border-radius: 0px;
+          -webkit-border-radius: 0px;
+          border-radius: 0px;
+        }
+        .wrap button span.top {
+          top: 0px;
+          left: 4px;
+        }
+        .wrap button span.top .nub {
+          left: 20%;
+          bottom: -8px;
+        }
+        .wrap button span.bottom {
+          bottom: 0px;
+          left: 4px;
+        }
+        .wrap button span.bottom .nub {
+          left: 20%;
+          top: -8px;
+        }
+        .wrap button span.left {
+          top: 0px;
+          left: 4px;
+        }
+        .wrap button span.left .nub {
+          left: 180px;
+          top: 20px;
+        }
+        .wrap button span.right {
+          top: 0px;
+          right: 4px;
+        }
+        .wrap button span.right .nub {
+          left: -8px;
+          top: 20px;
+          margin: 0 0 0 0;
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+        }
+        .wrap button:hover span {
+          background: #0099ff;
+          height: auto;
+          color: #fff;
+          font-size: 16px;
+          opacity: 100;
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+          -webkit-transition-delay: 0.2s;
+          -moz-transition-delay: 0.2s;
+          -o-transition-delay: 0.2s;
+          -transition-delay: 0.2s;
+        }
+        .wrap button:hover span .nub {
+          -moz-transition: all 0.4s ease-in;
+          -webkit-transition: all 0.4s ease-in;
+          -o-transition: all 0.4s ease-in;
+          transition: all 0.4s ease-in;
+          -webkit-transition-delay: 0.2s;
+          -moz-transition-delay: 0.2s;
+          -o-transition-delay: 0.2s;
+          -transition-delay: 0.2s;
+        }
+        .wrap button:hover span.bottom {
+          bottom: -60px;
+        }
+        .wrap button:hover span.left {
+          left: -193px;
+        }
+        .wrap button:hover span.right {
+          right: -193px;
+        }
+        .wrap button:hover span.top {
+          top: -60px;
+        }
+    </style>
+    
+        <div>
+            <img id="analyticId" width="10%" height="20%" style="position:absolute;left:88%;top:26%" src="https://www.sugaroutfitters.com/assets/img/addons/reports-for-sugarcrm-ce/logo.png?1395116711" alt="Cvent"/>
+        </div>
+        <div>
+             <a style="float:right" id="report" href="/home/home.jsp">Exit Reporting</a> 
+        </div>
+        <div class="wrap">
+            <button class="tip" onclick="Redirect('BudVsAc');">
+                Budget Vs Actual
+                <!-- change the class on the span below between 'top', 'right', 'bottom', 'left' -->
+                <span class="left">Data based on Opps Budget and actuals achieved<span class="nub"></span>
+                </span>
+            </button>
+        </div>
+        
+        <div class="wrap" onclick="Redirect('QuotaA');">
+            <button class="tip">
+                Quota Attainment
+                <!-- change the class on the span below between 'top', 'right', 'bottom', 'left' -->
+                <span class="left">Quota attained this year by Reps<span class="nub"></span>
+                </span>
+            </button>
+        </div>
+        
+        <div class="wrap" onclick="Redirect('LSCR');">
+            <button class="tip">
+                Large Screen Report 
+                <!-- change the class on the span below between 'top', 'right', 'bottom', 'left' -->
+                <span class="left">Top 20 DS/AM Achievements<span class="nub"></span>
+                </span>
+            </button>
+        </div>
+     <apex:form >   
+        <apex:actionRegion >
+            <apex:actionFunction reRender="analyticId" name="RedirectSec" action="{!setRedirections}">
+                <apex:param name="Text" value="" assignTo="{!text}"/>
+            </apex:actionFunction>
+        </apex:actionRegion>
+    </apex:form>
+    
+</apex:page>

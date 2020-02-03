@@ -1,0 +1,64 @@
+<apex:page standardController="Account"  extensions="SeedOwnerController" sidebar="false" showHeader="false">
+   
+  <style>
+ 
+    .datePicker{
+        display:none;
+        padding:0px 0px 0px 0px;
+
+    }
+    
+    .bPageBlock .detailList .dataCol {
+    width: 22%;
+    }    
+   
+
+  </style>
+  
+  
+  <apex:form >
+  
+
+     <apex:pageBlock mode="inlineEdit">
+          <!--<apex:inlineEditSupport showOnEdit="SaveButton,CancelButton">   
+          </apex:inlineEditSupport>-->
+          <div style="height:125px">
+           <apex:pageBlockSection columns="3">
+            
+              <apex:pageBlockSectionItem labelStyle="color:#4a4a56;" dataStyle="width:6%;color:white;background-color:{!If (Account.Seed_Expiration_Date__c!=NULL && TODAY() < Account.Seed_Expiration_Date__c , 'green', IF (Account.Seed_Owner_Name__c==NULL, 'none', 'red'))};">
+                  <apex:outputLabel value="Seed Owner Name"/>
+                  <apex:outputField value="{!Account.Seed_Owner_Name__c}">
+                      
+                      <apex:inlineEditSupport showOnEdit="SaveButton, CancelButton" />
+                  </apex:outputField>
+              </apex:pageBlockSectionItem>
+              
+            
+             
+              <apex:pageBlockSectionItem labelStyle="color:#4a4a56;" dataStyle="width:6%;color:white;background-color:{!If (Account.Seed_Expiration_Date__c!=NULL && TODAY() < Account.Seed_Expiration_Date__c , 'green', IF (Account.Seed_Expiration_Date__c==NULL, 'none', 'red'))};" >
+                 <apex:outputLabel value="Seed Expiration Date"/>
+                 <apex:outputField value="{!Account.Seed_Expiration_Date__c}" id="dateField">
+                     <apex:inlineEditSupport showOnEdit="SaveButton, CancelButton" />
+                        
+                 </apex:outputField>
+              </apex:pageBlockSectionItem>
+              
+               <apex:pageBlockSectionItem >
+               <apex:outputLabel value="Seed Type"/>
+                   <apex:outputField value="{!Account.Seed_Type__c}"/>
+               </apex:pageBlockSectionItem>
+           
+          </apex:pageBlockSection>
+        </div>
+        
+          <apex:pageBlockButtons location="top">
+          <apex:commandButton value="Save" action="{!save}" id="SaveButton" style="display:none" />
+          <apex:commandButton value="Cancel" action="{!cancel}" id="CancelButton" style="display:none"/>
+          </apex:pageBlockButtons>
+          
+              
+      </apex:pageBlock>
+  </apex:form>
+
+  
+</apex:page>

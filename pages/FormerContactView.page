@@ -1,0 +1,41 @@
+<apex:page standardController="Contact" extensions="FormerContactViewController">
+ <apex:form >
+  <apex:pagemessages ></apex:pagemessages>
+  <apex:actionstatus id="counterStatus">
+    <apex:facet name="start">
+        <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:100%;opacity:0.65;width:100%;">
+            <div class="waitingHolder" style="top: 100px; width: 91px;">
+            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+            <span class="waitingDescription">Loading...</span>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionstatus>
+  <Apex:outputPanel id="counter">
+  <apex:pageBlock >
+  <b><apex:outputLabel value="Show activities for former account" style="font-size: 15px;"></apex:outputLabel></b>
+    <apex:selectList value="{!accName}" multiselect="false" size="1" style="margin-left: 20px;height: 28px;">
+      <apex:selectOptions value="{!selectValues}"></apex:selectOptions>
+      <Apex:actionSupport event="onchange" action="{!fetchActivities}" rerender="counter" status="counterStatus"/>
+    </apex:selectList>    
+    <apex:pageBlockTable rendered="{!if(taskEventList.size > 0,true,false)}" value="{!taskEventList}" var="i" style="margin-top: 17px;">
+      <apex:column headerValue="Subject" colspan="5">
+        <apex:outputLink value="/{!i.RecordId}" target="_blank">{!i.Subject}</apex:outputLink>
+      </apex:column>
+      <apex:column headerValue="Task"><apex:inputCheckbox value="{!i.taskOrEvent}" selected="True" disabled="true"/></apex:column>
+      <apex:column headerValue="Related To"><apex:outputLink value="/{!i.WhatId}" target="_blank">{!i.whatName}</apex:outputLink></apex:column>
+      <apex:column headerValue="Due Date" >
+        <apex:outputText value="{0,date,MM/dd/yyyy}">
+            <apex:param value="{!i.activityDate}"/>
+        </apex:outputText>
+      </apex:column>
+      <apex:column headerValue="Status" value="{!i.status}"/>
+      <apex:column headerValue="Priority" value="{!i.Priority}"/>
+      <apex:column headerValue="Assigned To" value="{!i.ownerId}"/>
+    </apex:pageBlockTable>
+    <apex:pageBlockSection >    <apex:outputPanel rendered="{!if(taskEventList.size == 0,true,false)}" style="color:indigo;">No Activities created for this account!</apex:outputPanel>
+</apex:pageBlockSection>
+    </apex:pageBlock>
+   </Apex:outputPanel>
+  </apex:form>
+</apex:page>

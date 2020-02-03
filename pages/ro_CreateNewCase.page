@@ -1,0 +1,296 @@
+<apex:page Controller="ro_CreateNewCase" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" Id="PG">
+    <apex:form styleClass="" Id="FRM">
+        <apex:actionFunction name="AF1" Id="AF1" action="{!PopulateAccountId}" rerender="PBLOCK"/>
+        <style>
+            .requiredBlock {
+                background-color: #c00;
+                position: absolute;
+                left: -4px;
+                width: 3px;
+                top: 1px;
+                bottom: 1px;
+            }
+            .requiredInput {
+                position: relative;
+                height: 100%;
+            }
+            .errorMsg{
+                color: Red;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                if('{!pageReload}' == 'true'){
+                    document.getElementById('PG:FRM:PBLOCK:IH2').value='false';
+                    if('{!showPOPUP}' == 'true'){
+                       // OpenAccountSelection();
+                    }   
+                }
+            };
+            
+            function OpenAccountSelection(){
+                //window.open("/apex/ro_AccountSelectionPage","","toolbar=no, scrollbars=yes, resizable=no, top=500, left=500, width=600, height=600");
+                var obj = [{"name":"Select Account","url":"/apex/ro_AccountSelectionPage"}]
+                var dialogWin = window.showModalDialog('/apex/ro_AccountSelectionPage', obj, "dialogwidth: 500; dialogheight: 300; resizable: no; dialogtop: 300; dialogleft: 500;");
+            }
+            
+            function appendEmailTemplateOptedLookupWindow(AccountName,AccountId){
+                //document.getElementById('PG:FRM:PBLOCK:AccountId').innerHTML=AccountName;
+                document.getElementById('PG:FRM:PBLOCK:IH').value=AccountId;
+                //document.getElementById('PG:FRM:PBLOCK:IH2').value='false';
+                //document.getElementById('PG:FRM:PBLOCK:AccountId').innerHTML=AccountId;
+                AF1();
+            }
+            
+            function validForSave(){
+             var result = true;
+             if({!isSite}){
+                 if(j$(document.getElementById('PG:FRM:PBLOCK:firstName')).val() == ''){
+                  alert('Please enter first name');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:lastName')).val() == ''){
+                  alert('Please enter last name');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:companyName')).val() == ''){
+                  alert('Please enter company name');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:email')).val() == ''){
+                  alert('Please enter email');
+                  result = false;
+                 }
+                 else if(!validateEmail(j$(document.getElementById('PG:FRM:PBLOCK:email')).val())){
+                  alert('Please enter valid email');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:CImpact')).val() == ''){
+                  alert('Please enter customer impact');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:Subject')).val() == ''){
+                  alert('Please enter subject');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:Description')).val() == ''){
+                  alert('Please enter description');
+                  result = false;
+                 }
+                }
+                else{
+                 if(j$(document.getElementById('PG:FRM:PBLOCK:CImpact')).val() == ''){
+                  alert('Please enter customer impact');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:Subject')).val() == ''){
+                  alert('Please enter subject');
+                  result = false;
+                 }
+                 else if(j$(document.getElementById('PG:FRM:PBLOCK:Description')).val() == ''){
+                  alert('Please enter description');
+                  result = false;
+                 }
+                }
+             
+             return result;
+            }
+            
+            function validateEmail(email) {
+                                                  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                                                  return re.test(email);
+                                                }
+
+        </script>
+        <html lang="en">
+            <head Id="Hd">
+                <c:ro_header />
+                <title>Create New Case</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+            </head>
+            
+            <body Id="BD">
+                <c:ro_navbar activeTab="support"/>
+                <center><apex:pageMessages /></center>
+                <div class="container" Id="div1">
+                    <table class="table table-hover" style="width:100%;"> 
+                        <tr>
+                            <td width="35%">
+                                <apex:outputLabel style="font-size: 20px;">CASE EDIT</apex:outputLabel> &nbsp;&nbsp;&nbsp;<apex:outputLabel style="font-size: 25px;color: black;">NEW CASE</apex:outputLabel>
+                            </td>
+                            <td width="10%" style="text-align: right;"><apex:commandButton onclick="if(!validForSave()) return false;" action="{!save}" value="     Submit     " styleclass="btn btn-default"/></td>
+                            <td width="10%" style="text-align: right;"><apex:commandButton onclick="if(!validForSave()) return false;" action="{!saveAndAddAttachment}" value="Submit and  Add Attachments" styleclass="btn btn-default"/></td>
+                            <td width="10%" style="text-align: left;"><apex:commandButton value="     Cancel     " styleclass="btn btn-default" onclick="window.open('{!$Site.prefix}/apex/ro_Articles?catgroup='+categoryGroup+'&cat='+category,'_self');return false;"/></td>
+                            <td width="35%"></td>
+                        </tr>
+                    </table>
+                    <apex:pageBlock Id="PBLOCK">
+                     <apex:inputHidden value="{!pageReload}" Id="IH2"/>
+                     <apex:inputHidden value="{!newAccountId}" Id="IH"/>
+                     
+                        <apex:pageBlockSection title="Case Detail"/>
+                    
+                        <table class="table table-hover" style="width:100%;" Id="Table1">
+                            <!-- Account & Contact -->
+                            <apex:outputpanel layout="none" rendered="{!!isSite}">
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Contact Name:</apex:outputLabel> 
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputText id="ContactId" label="Contact Name" value="{!sContact}" style="width: 90%; height: 35px;"/>
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Account Name:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputText id="AccountId" label="Account Name" value="{!sAccount}" style="width: 90%; height: 35px;"/>
+                                </td>
+                            </tr>
+                           </apex:outputpanel> 
+                           
+                           <apex:outputpanel layout="none" rendered="{!isSite}">
+                           <tr>
+                                <td width="20%" style="text-align: right;">
+                                  <apex:outputLabel >First Name:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText id="firstName" value="{!sFirstName}"  style="width: 90%; height: 25px;"/>
+                                    </div>  
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Last Name: </apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText id="lastName" value="{!sLastName}"  style="width: 90%; height: 25px;"/>
+                                    </div>
+                                </td>
+                            </tr> 
+                            
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                  <apex:outputLabel >Company Name:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText id="companyName" value="{!sCompanyName}"  style="width: 90%; height: 25px;"/>
+                                    </div>  
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Work Email: </apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputText id="email" value="{!sEmail}"  style="width: 90%; height: 25px;"/>
+                                    </div>
+                                </td>
+                            </tr> 
+                            </apex:outputpanel>
+                            
+                            <!-- Customer Impact -->
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Customer Impact:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField id="CImpact" value="{!c.Customer_Impact__c}"  style="width: 90%; height: 25px;"/>
+                                    </div>  
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >  </apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputLabel >  </apex:outputLabel>
+                                </td>
+                            </tr>
+                        </table>    
+                        <table class="table table-hover" style="width:100%;">   
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >1 Sentence Summary:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="75%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField id="Subject" value="{!c.Subject}"  style="width: 90%; height: 25px;"/>
+                                    </div>  
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Description:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="75%">
+                                    <div class="requiredInput">
+                                        <div class="requiredBlock"></div>
+                                        <apex:inputField id="Description" value="{!c.Description}"  style="width: 90%; height: 200px;"/>
+                                    </div>   
+                                </td>
+                            </tr>
+                        </table>
+                    </apex:pageBlock>   
+                    <!-- <apex:pageBlock >
+                        <apex:pageBlockSection title=" Add Attachment"/>
+                    </apex:pageBlock>
+                    <apex:pageBlock Id="PBlock2">
+                    <table class="table table-hover" style="width:100%;">
+                        <tr>
+                            <td width="20%" style="text-align: right;">
+                                <apex:outputLabel >Attach:</apex:outputLabel>
+                                <br/>
+                            </td>
+                            <td width="5%"></td>
+                            <td width="75%">
+                                <apex:inputFile value="{!Att.Body}" filename="{!Att.Name}" />
+                            </td>
+                        </tr>
+                    </table>
+                    </apex:pageBlock> -->
+                    <table class="table table-hover" style="width:100%;">
+                        <tr>
+                            <td width="35%">
+                                <apex:outputLabel style="font-size: 20px;"></apex:outputLabel> &nbsp;&nbsp;&nbsp;<apex:outputLabel style="font-size: 25px;"></apex:outputLabel>
+                            </td>
+                            <td width="10%" style="text-align: right;"><apex:commandButton onclick="if(!validForSave()) return false;" action="{!save}" value="     Submit     " styleclass="btn btn-default"/></td>
+                            <td width="10%" style="text-align: right;"><apex:commandButton onclick="if(!validForSave()) return false;" action="{!saveAndAddAttachment}" value="Submit and  Add Attachments" styleclass="btn btn-default"/></td>
+                            <td width="10%" style="text-align: left;"><apex:commandButton value="     Cancel     " styleclass="btn btn-default" onclick="window.open('{!$Site.prefix}/apex/ro_Articles?catgroup='+categoryGroup+'&cat='+category,'_self');return false;"/></td>
+                            <td width="35%"></td>
+                        </tr>
+                    </table>
+                </div>  
+            </body>
+        </html>
+        <c:ro_footer />
+    </apex:form>
+</apex:page>

@@ -1,0 +1,182 @@
+<apex:page controller="CommunityUserDetCls" Sidebar="false">
+    <style>
+        .photoUploadSection {
+            background:none repeat scroll 0 0 #F6F6F6;
+            font-size:1em;
+            height: 1.6em;
+            line-height: 1.6em;
+            left:1px;
+            bottom: 2px;
+            overflow: hidden;
+            text-align: center;
+            width: 198px;
+            z-index: 3;
+            opacity:1;
+            position:relative;
+            clip: rect(1px 1px 1px 1px);
+            top: -20px;
+        }
+        .custPopup{
+            background-color: white;
+            //border-width: 2px;
+            //border-style: solid;
+            z-index: 9999;
+            border
+            left: 50%;
+            //padding:10px;
+            position: absolute;
+            /* These are the 3 css properties you will need to change so the popup 
+            displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can add 
+            the height property for a fixed size pop up if you want.*/
+            width: 25%;
+            margin-left: -250px;
+            top:100px;
+            border-radius: 5px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+    </style>
+    <apex:form >
+        <div style="width: 941px; margin: 20px auto 0;">
+            <div id="imgClass1" style="float:left">
+                
+                <img id="piclink" src="{!instOfUsr.FullPhotoUrl}" />
+                <img id="default" src="/profilephoto/005/F" />
+                
+                <!--
+                <div id="nameClass1" class="photoUploadSection ">
+                    <a style="text-decoration:none;" href="#" onclick="openUpdatPic();" >Upload</a> | <a style="text-decoration:none;" href="">Delete</a>
+                </div>
+                -->
+                <div style="text-align:center;margin: 8px 0 0 0;"><b>{!instOfUsr.FirstName} {!instOfUsr.LastName}</b></div>
+                <div style="background-color: #eeeeee;padding: 1px 0px 4px 10px;margin: 8px 0 0 0;border:1px solid #d6d6d6;">
+                    <p id="idMyCase"><a href="/500?fcf=00B000000097v9y">My Cases</a></p>
+                    <p id="idMyCollab"><a href="/{!instOfUsr.id}">Collaboration</a></p>
+                </div>
+                <div style="background-color: #eeeeee;padding: 1px 0px 4px 10px;margin: 8px 0 0 0;border:1px solid #d6d6d6;">
+                    <p>Questions Asked ({!questCount})</p>
+                    <p>Answers ({!ansCount})</p>
+                    <p>Best Answers ({!bestAnsCount})</p>
+                </div>
+                
+            </div>
+            
+            <div style="float:left;width: 67%;padding: 0px 31px 8px 31px;">
+                <p><b>About Me</b></p>
+            </div>
+            <div style="float:left;width: 67%;padding: 0px 31px 8px 31px;">
+                <div id ="aboutMe" style="position:relative;width:100%;">
+                    {!instOfUsr.AboutMe}
+                </div>
+                <div id ="updateProf" style="position:relative;width:100%;">
+                    <apex:outputPanel rendered="{!flag}" >
+                        <a href="/_ui/core/userprofile/UserProfilePage?u={!instOfUsr.Id}&tab=sfdc.ProfilePlatformOverview"> I want to update my info</a>
+                    </apex:outputPanel>
+                    <!--
+                    <div id="hoverDiv" style="position:relative;width:100%;opacity:0;">
+                        <a style="text-decoration:none !important;" href="/{!instOfUsr.id}"> 
+                            <div style="padding-bottom:21%;text-align:center;font-size:2.0em;background-color: #eeeeee;opacity: 1;">                               
+                                <div style="opacity:1 !important;">I want to edit my Info</div>
+                            </div>
+                        </a>
+                    </div>
+                    --->
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <!--
+        <apex:outputPanel id="tstpopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" />
+            rendered="{!displayPopUp}" rendered="{!displayPopUp}"
+            
+            <apex:outputPanel styleClass="custPopup" layout="block" >
+                <div style="border:1px solid;background:#e8e9eb;font-size: 1.25em;font-family:Arial,Helvetica,sans-serif;">
+                <p><b>Upload Profile Pic</b></p>
+                </div>
+                
+                <div style="border:1px solid">
+                    <p>You can upload a JPG,GIF or PNG file, Maximum file size is * MB. </p>
+                    <p> </p>
+                    <apex:commandButton value="Hide Pop up" action="{!closePopup}" rerender="tstpopup"/>
+                </div>
+                
+            </apex:outputPanel>
+            
+        </apex:outputPanel>
+        -->
+    </apex:form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>    
+        jQuery(document).ready(function ($) {
+            //alert({!flag});
+            var flag = "{!flag}";
+            if( flag == 'false' )
+            $('#idMyCase').hide();
+            
+            $('#piclink').hide();
+            $('#default').hide();
+            
+            var link = '{!instOfUsr.FullPhotoUrl}';
+            //alert(link);
+            if(link=='')
+            $('#default').show();
+            else
+            $('#piclink').show();
+            
+            $('#updateProf').hide();
+            $('#aboutMe').hide();
+            
+            var aboutMe = "{!flagAbtMe}";
+                
+            if( aboutMe == 'false' ){
+                $('#updateProf').show();
+                
+                $("#updateProf").on('mouseleave',function( e ) {
+                    $("#hoverDiv").fadeTo(200, 0);
+                });
+                
+                $("#updateProf").on('mouseenter',function( e ) {
+                    $("#hoverDiv").fadeTo(200, 1);
+                });
+            }else{
+                $('#aboutMe').show();
+            }
+        });
+        
+        //$("#nameClass1").hide();
+        //$(".popupBackground").hide();
+        //$(".custPopup").hide();
+        
+        //function openUpdatPic(){
+            //$(".popupBackground").show();
+            //$(".custPopup").show();
+        //}
+        
+        //$("#imgClass1").on('mouseenter',function( e ) {
+            //alert('test');
+            //$(".user-name", this).stop().fadeTo(300, e.type=="mouseenter"? 1 : 0.2 );
+            ////alert(e.type);
+            //$("#nameClass1").fadeTo(200, 1);
+        //});
+        //$("#imgClass1").on('mouseleave',function( e ) {
+            //alert('test');
+            //$(".user-name", this).stop().fadeTo(300, e.type=="mouseenter"? 1 : 0.2 );
+            //alert(e.type);
+            //$("#nameClass1").fadeTo(200, 0);
+        //});
+    
+    </script>
+</apex:page>

@@ -1,0 +1,44 @@
+<apex:page standardController="Contact" showheader="False">
+    <style>
+        .apexp, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock
+        {
+            background-color:#F76566;
+            color:#000;
+        }
+        body .bPageBlock .pbBody .labelCol {
+            color: #000;
+            width:17%;
+            font-size:13px;
+        }
+        .body 
+        {
+            font-size:14px;
+            font-weight:bolder;
+        }
+        
+
+     </style>
+     <apex:form styleClass="form">
+         <apex:pageBlock rendered="{!if(contact.account.Emergency_Notes__c!=null,true,false)}"> 
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="{!contact.account.Emergency_Notes__c}" />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         <apex:pageBlock rendered="{!if(contact.account.ARA_Emergency_Notes__c!=null,true,false)}"> 
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="{!contact.account.ARA_Emergency_Notes__c}" />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+          <!-- added by udita for : Adding Emergency notes to ROL and EBS Accounts and Contacts- TICCM-297 --> 
+          <apex:pageBlock rendered="{!if(contact.Creation_Source_System_External_ID__c!=null,true,false)}" id="ROLContact"> 
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="This is an ROL Contact and we need to keep this as is for ROL integration & billing to work properly. We do not have an easy fix for this as of now. So, please do not MERGE or DELETE this account." />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         <apex:pageBlock rendered="{!if(contact.EBS_Contact_ID__c !=null ,true,false)}" id="EBSContact"> <!--HJ: Removed (|| contact.EBS_Contact_Number__c!=null) from If condition as part of TICCM-1077-->
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="This is an EBS Contact and we need to keep this as is for EBS integration & billing to work properly. We do not have an easy fix for this as of now. So, please do not MERGE or DELETE this account." />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+     </apex:form>
+</apex:page>

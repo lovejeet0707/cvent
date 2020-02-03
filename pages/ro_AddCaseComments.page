@@ -1,0 +1,75 @@
+<apex:page Controller="ro_AddCaseComment" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" title="Create New Case Comment" cache="false">
+<html lang="en">
+ <head>
+  <c:ro_header />
+  <style>
+   .requiredBlock {
+       background-color: #c00;
+       position: absolute;
+       left: -4px;
+       width: 3px;
+       top: 1px;
+       bottom: 1px;
+   }
+   .requiredInput {
+       position: relative;
+       height: 100%;
+   }
+  </style>
+ </head>  
+ <body> 
+  <c:ro_navbar activeTab="support"/>
+  
+  <apex:outputPanel id="pnlMain">
+  <apex:outputPanel id="pnlCaseMessages">
+   <apex:outputPanel rendered="{!errMessage != ''}" styleclass="col-sm-12" style="margin-left: 2px;">
+    <span style="font-weight:bold;color:#cc0000;padding-right:4px">Error:</span>
+    <span style="color:#cc0000;">{!errMessage}</span>
+   </apex:outputPanel>
+  </apex:outputPanel>
+  
+  <div class="clearfix"></div>
+  
+  <div class="col-lg-12 container mt30">
+   <div style="padding: 20px 20px 10px;margin-bottom: 0px" class="jumbotron">
+    <div style="padding-bottom:8px;">
+     <div style="" class="col-sm-3">
+      <span style="font-weight: bold; font-size: 18px; display: inline-block;white-space: nowrap;color:#000;padding-top: 6px;">Case Comment</span>
+     </div>
+     <div style="" class="col-sm-9 nopadding">
+				  <div class="col-sm-3">&nbsp;</div>
+					<div class="col-sm-6">
+	     <button type="button" onclick="submitcomment(j$('#txtComment').val());j$(this).prop('disabled', true);" class="btn btn-default">Submit</button>
+      <button type="button" onclick="cancel();" class="btn btn-default">Cancel</button> 
+     </div>    
+    </div>
+   </div>
+   <div class="clearfix"></div>
+   
+   <div class="col-sm-12 mt30" style="padding-left:0px;">
+	   <label for="txtComment" class="control-label col-sm-4" style="text-align:right;">Comments</label>
+    <div class="col-sm-8">
+     <div class="requiredInput">
+      <div class="requiredBlock"></div>
+      <textarea  id="txtComment" class="form-control" rows="5" placeholder="Enter Comments">{!CommentBody}</textarea>
+     </div>
+    </div>     
+	  </div>  
+	  <div class="clearfix"></div>
+	  <div class="mt10">&nbsp;</div> 
+  </div> 
+ </div> 
+       
+ <apex:form >
+  <apex:actionFunction action="{!submitcomment}" name="submitcomment" rerender="pnlMain">
+   <apex:param assignTo="{!CommentBody}" name="CommentBody" value="" />
+  </apex:actionFunction>
+  <apex:actionFunction action="{!cancel}" name="cancel" />
+ </apex:form>
+
+ </apex:outputPanel> 
+ 
+ <c:ro_footer />
+ </body>
+</html> 
+</apex:page>

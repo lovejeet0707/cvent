@@ -1,0 +1,180 @@
+<apex:page sidebar="false" standardController="Quota_Allocation__c" Extensions="QuotaAllocation_Creation_Bulk_Extension" tabStyle="Quota_Allocation_Entry__tab" action="{!CheckPermission}">
+    
+<style>  
+    .hideDropdown select{
+        display: none;
+       
+    }
+</style>
+    <apex:outputPanel rendered="{!NOT(isAuthorizedUser)}">
+        <font size="4px" color="black"><b><i>You are not authorized to view this page.</i></b></font>
+    </apex:outputPanel>
+    
+    
+    <script>
+         var newWin=null;
+         function openLookupPopup(name)
+         {
+          var url="/apex/Quota_DirectSales_Team_Lookup?namefield=" + name;
+          newWin=window.open(url,'Popup',"directories=no, status=no, menubar=no, scrollbars=no, resizable=no,width=900%, height=550%,top=200%,left=600%");
+    
+    
+          if (window.focus) 
+          {
+           newWin.focus();
+          }
+            
+             return false;
+          }
+               
+         function closeLookupPopup()
+         {
+            if (null!=newWin)
+            {
+               newWin.close();
+            }  
+         }
+    
+    	
+    </script>
+   
+    
+
+    <apex:form rendered="{!isAuthorizedUser}">
+    <apex:sectionHeader title="Quota Allocation For New User"/>
+    
+    
+    <apex:pageBlock title="Bulk Quota Allocation" id="pageMain" > 
+    <apex:pageMessages id="message"></apex:pageMessages>
+      <apex:pageBlockTable value="{!wrappers}" var="wrapper" id="wtable">
+         
+         
+         <apex:column headerValue="S No.">
+            <apex:outputText value="{!wrapper.ident}"/>
+         </apex:column>
+         
+         <apex:column headerValue="Quota Details" style="width:20px; vertical-align: top;" >
+           <apex:pageblockSection columns="2">
+                
+                <apex:pageblockSectionItem >
+                    
+                    <apex:outputLabel style="font-weight: bold;" >User</apex:outputLabel>
+                    
+                   		<apex:actionRegion >
+                        <apex:inputField styleClass="hideDropdown"  value="{!wrapper.qAllocation.User__c}" required="true">
+                            <apex:actionSupport event="onchange" action="{!RefereshQuotas}" reRender="targetName,quotaTypePicklist,message">
+                                <apex:param name="rowIndex" assignTo="{!rowIndex}" value="{!wrapper.ident}"/>
+                            </apex:actionSupport>
+
+                        </apex:inputField>
+                   		</apex:actionRegion>
+                    
+                        
+                </apex:pageblockSectionItem>
+         
+               <apex:pageblockSectionItem >
+                   <apex:outputLabel style="font-weight: bold;" for="quotaTypePicklist" >Quota Type</apex:outputLabel>
+                   <!--<apex:inputField style="width:80px;" value="{!wrapper.qAllocation.Quota_Type__c}"/>-->
+                   <apex:selectList required="true" style="width:100px;" id="quotaTypePicklist"  value="{!wrapper.qAllocation.Quota_Type__c}" size="1" >  
+                        <apex:selectOptions value="{!wrapper.QuotaTypes}"/> 
+                   </apex:selectList> 
+                 
+                </apex:pageblockSectionItem>
+
+                <!-- Product is being displayed based on the Role defined on User
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel style="font-weight: bold;" >Product / Team</apex:outputLabel>
+                    <apex:inputField style="width:80px;" value="{!wrapper.qAllocation.Product_Team__c}"/>
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel style="font-weight: bold;" >Role</apex:outputLabel>
+                    <apex:inputField style="width:80px;" value="{!wrapper.qAllocation.Role_Name__c}"/>
+                </apex:pageblockSectionItem>
+                
+                -->
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel style="font-weight: bold;" >Year</apex:outputLabel>
+                    <apex:inputField value="{!wrapper.qAllocation.Year__c}" required="true"/>
+                </apex:pageblockSectionItem>
+                
+                
+                
+                
+         
+         </apex:pageblockSection>
+         </apex:column>
+        
+         <apex:column headerValue="Direct Sales Team Members" style="width:20px; vertical-align: center;">
+            <apex:inputTextarea style="width:200px;height:40px"  value="{!wrapper.salesTeamMembers}" id="targetName" onFocus="this.blur()" disabled="false"/> 
+         </apex:column>
+         <apex:column >
+            <a href="#" onclick="openLookupPopup('{!$Component.targetName}'); return false" >Lookup</a>
+         </apex:column>
+                 
+         <!--Month Fields-->
+         <apex:column headerValue="Jan">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Jan__c}"/>
+         </apex:column>
+         <apex:column headerValue="Feb">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Feb__c}"/>
+         </apex:column>
+         <apex:column headerValue="Mar">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Mar__c}"/>
+         </apex:column>
+         <apex:column headerValue="Apr">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Apr__c}"/>
+         </apex:column>
+         <apex:column headerValue="May">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_May__c}"/>
+         </apex:column>
+         <apex:column headerValue="June">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_June__c}"/>
+         </apex:column>
+         <apex:column headerValue="July">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_July__c}"/>
+         </apex:column>
+         <apex:column headerValue="Aug">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Aug__c}"/>
+         </apex:column>
+         <apex:column headerValue="Sept">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Sept__c}"/>
+         </apex:column>
+         <apex:column headerValue="Oct">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Oct__c}"/>
+         </apex:column>
+         <apex:column headerValue="Nov">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Nov__c}"/>
+         </apex:column>
+         <apex:column headerValue="Dec">
+            <apex:inputField style="width:50px;" value="{!wrapper.qAllocation.Amount_for_Dec__c}"/>
+         </apex:column>
+        
+    
+         <apex:column headerValue="Action">
+            <apex:commandLink value="Delete" action="{!delWrapper}" rerender="wtable" >
+               <apex:param name="toDelIdent" value="{!wrapper.ident}" assignTo="{!toDelIdent}"/> 
+            </apex:commandLink>
+         </apex:column>
+         
+      </apex:pageBlockTable>
+      
+      
+      <apex:commandLink value="Add Row" action="{!addRows}" rerender="wtable">
+         <apex:param name="addCount" value="1" assignTo="{!addCount}"/> 
+      </apex:commandLink> &nbsp;
+     
+      <apex:commandLink value="5 More.." action="{!addRows}" rerender="wtable">
+         <apex:param name="addCount" value="5" assignTo="{!addCount}"/> 
+      </apex:commandLink>
+            
+      <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="/apex/QuotaAllocation_User_Selection_Page" immediate="true"/>
+      </apex:pageBlockButtons>
+   </apex:pageBlock>
+   
+    
+    </apex:form>
+
+</apex:page>

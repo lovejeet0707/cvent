@@ -1,0 +1,35 @@
+<apex:page standardController="Case" showheader="False">
+    <style>
+        .apexp, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock
+        {
+            background-color:#F76566;
+            color:#000;
+        }
+        body .bPageBlock .pbBody .labelCol {
+            color: #000;
+            width:17%;
+            font-size:13px;
+        }
+        .body 
+        {
+            font-size:14px;
+            font-weight:bolder;
+        }
+
+     </style>
+     <apex:form styleClass="form">
+         <apex:pageBlock rendered="{!if(case.account.ARA_Emergency_Notes__c!=null,true,false)}"> 
+             <apex:pageBlockSection columns="1">    
+             <apex:outputText styleclass="body" value="{!Case.account.ARA_Emergency_Notes__C }"/>       
+                 
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         
+         <apex:pageBlock rendered="{!if(case.account.Emergency_Notes__c!=null,true,false)}"> 
+             <apex:pageBlockSection columns="1">    
+            
+                 <apex:outputText styleclass="body" value="{!case.account.Emergency_Notes__c}" />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+     </apex:form>
+</apex:page>

@@ -1,0 +1,490 @@
+<apex:page Controller="CaseDataMigrationDetail_Class" showHeader="false" sidebar="false" standardStylesheets="false" cache="false">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <apex:form >
+        <html lang="en">
+            <head>
+                <!--<c:ro_header />-->
+                <title>Create New Case</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+                <apex:composition template="CventCommunityHeader"></apex:composition>
+                <style>
+                    /* GB STYLES */
+h1, h2, h3, h4, h5 {
+    margin-bottom: 0.5em !important;
+    font-weight: bold;
+    display: inline-block;
+    color: #444;
+    margin-top: 0;
+}
+
+hr {
+    margin: 0.5em 0;
+}
+
+p {
+    font-size: 1.125em;
+}
+
+.pad-xs {
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+.pad-sm {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.pad-md {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.pad-lg {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+.pClass{
+    display: inline-block !important;
+}
+.button {
+  display: inline-block !important;
+  padding: 6px 12px !important;
+  margin-bottom: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.42857143 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; !important
+  background-image: none !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+}
+
+.button-blue, .button-blue:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+.button-blue:hover, .button-blue:focus {
+  color: #fff !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+
+.button-lightblue, .button-lightblue:visited {
+  color: #1C2C43 !important;
+  background: none !important;
+  background-color: #64D2FF !important;
+  border-color: transparent !important;
+}
+.button-lightblue:hover, .button-lightblue:focus {
+  color: #1C2C43 !important;
+  background-color: #56b6dd !important;
+  border-color: transparent !important;
+}
+
+.button-outline, .button-outline:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: none !important;
+  border: 2px solid #fff !important;
+}
+.button-outline:hover, .button-outline:focus {
+  color: #286090 !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.button-red, .button-red:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #F45F5F !important;
+  border-color: transparent !important;
+}
+.button-red:hover, .button-red:focus {
+  color: #fff !important;
+  background-color: #d15151 !important;
+  border-color: transparent !important;
+}
+
+
+
+.button-small {
+    font-size: 12px !important;
+    padding: 4px 4px !important;
+    font-weight: 600 !important;
+}
+
+body .container .apexDefaultPageBlock {
+  background: none !important;
+  border: 0 !important;
+}
+
+.pbSubheader {
+  display: none !important;
+}
+
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+  margin: 0 !important;
+}
+
+.bPageBlock .requiredInput .requiredBlock {
+    background-color: #c00;
+    position: absolute;
+    left: 1px;
+    width: 4px !important;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 4px 0 0px 4px !important;
+  }
+
+  .content-header {
+    padding-top: 3em;
+    padding-bottom: 1em;
+  }
+  
+  .col-centered {
+  float: none;
+  margin: 0 auto;
+  }
+            </style>
+            </head>
+            <body>
+                <!--<c:ro_navbar activeTab="support"/>-->
+                    <div class="container">
+
+                        <div class="row pad-md" style="margin-top: 10%;">
+                            <div class="col-xs-8">
+                                <h2>Case {!c.CaseNumber}</h2>
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <apex:outputLink value="/apex/SupportPage" target="_parent">&larr; Return to all cases</apex:outputLink>
+                                
+                            </div>
+                        </div>
+
+    
+<!--                        <apex:pageBlock > -->
+<!--                            <apex:pageBlockSection title="Case Detail"/> -->
+<!--                        </apex:pageBlock> -->
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr />
+                            </div>
+                        </div>
+
+<div class="pad-md">
+
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Case Information"/>
+                        </apex:pageBlock>
+
+ 
+
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-5">
+                                <apex:outputpanel layout="none" rendered="{!!isSite}">
+                                    <apex:outputLabel >Contact Name:</apex:outputLabel>
+                                    <p style="display:block; font-size: 18px;"><apex:outputField id="ContactId" label="Contact Name" value="{!contactRec.Name}" /></p>
+
+                                    <!--<apex:outputLabel >Account Name:</apex:outputLabel>
+                                    <p style="display:block; font-size: 18px;"><apex:outputField id="AccountId" label="Account Name" value="{!accountRec.Name}" /> </p>
+                                    -->
+                                    
+                                </apex:outputpanel> 
+                                
+                                <apex:outputLabel >Status:</apex:outputLabel>
+                                <p style="display:block; font-size: 18px;"><apex:outputField id="CStatus" value="{!c.Status}" style="display: block; font-size: 18px;" /></p>
+
+                                <apex:outputLabel >Case Date/Time Opened:</apex:outputLabel>
+                                <p style="display:block; font-size: 18px;"><apex:outputField id="CCreatedDAte" value="{!c.CreatedDate}" /></p>
+                            </div>
+
+                            <div class="col-xs-12 col-md-7">
+                                <apex:pageBlock >
+                                <apex:pageBlockSection title="Case Description"/>
+                            </apex:pageBlock>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4>Case Description</h4>
+                                </div>
+                            </div>
+                         
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <apex:outputLabel >Subject:</apex:outputLabel>
+                                </div>
+                                <div class="col-xs-12">
+                                    <p style="display:block; font-size: 18px;"><apex:outputField id="Subject" value="{!c.Subject}" /></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <apex:outputLabel >Fields to be moved:</apex:outputLabel>
+                                </div>
+                                <div class="col-xs-12">
+                                    <p style="display:block;!important font-size: 18px;" class="pClass"><apex:outputField id="Description" value="{!c.Description}" /></p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <apex:outputLabel >Start Date for Data Extraction (Maximum 5 Years):</apex:outputLabel>
+                                </div>
+                                <div class="col-xs-12">
+                                    <p style="display:block;!important font-size: 18px;" class="pClass"><apex:outputField id="startDate" value="{!c.SU4_Agreement_to_Apollo__c}" /></p>
+                                </div>
+                            </div>
+                            
+                            
+                            </div>
+                        </div>
+</div>
+
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="pad-md">
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Case Comments"/>
+                        </apex:pageBlock>
+
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <h4>Case Comments</h4>
+                            </div>
+                            <div class="col-xs-6 text-right"><!-- text-right-->
+                                <apex:commandButton action="{!AddAuthorization}" value="Add Authorization" rendered="{!showAddButton}" styleclass="button button-lightblue button-small"/>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <apex:commandButton action="{!AddCaseComments}" value="Add Comment" rendered="{!showAddButton}" styleclass="button button-lightblue button-small"/>
+                            </div>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="20%">
+                                    <apex:outputLabel >Created By</apex:outputLabel>
+                                </th>
+                                <th width="20">
+                                    <apex:outputLabel >Created Date</apex:outputLabel>
+                                </th>
+                                <th width="60%">
+                                    <apex:outputLabel >Description</apex:outputLabel> 
+                                </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <apex:repeat value="{!CaseComments}" var="cs">
+                                <tr>
+                                    <td>
+                                        <apex:outputField value="{!cs.CreatedBy.Name}"/>
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!cs.CreatedDate}"/>
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!cs.CommentBody}"/> 
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+<!--Attached Article Section-->
+<div class="row">
+        <div class="col-xs-12">
+            <hr />
+        </div>
+    </div>
+    <div class="pad-md">
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Articles"/>
+    </apex:pageBlock>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Articles</h4>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="20%">
+                <apex:outputLabel >Title</apex:outputLabel>
+            </th>
+            <th width="20">
+                <apex:outputLabel >Summary</apex:outputLabel>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+        <apex:repeat value="{!attachedArticleDetailList}" var="cs">
+            <tr>
+                <td>
+                    <apex:outputLink value="/apex/CommunityArticle?id={!cs.ArticleNumber}&Lang=en_US" target="_blank">{!cs.Title}
+                    </apex:outputLink>
+                </td>
+                <td>
+                    <apex:outputField value="{!cs.Summary}"/>
+                </td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+</div>
+<!--Ends Here-->
+                   
+<!--                        
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Emails"/>
+                        </apex:pageBlock> -->
+<!--                        <table class="table table-hover" style="width:100%;"> -->
+<!--                            <tr> -->
+<!--                                <td width="100%" style="text-align: center;"> -->
+<!--                                    <apex:commandButton action="{!AddCaseComments}" value="Add Comment" styleclass="btn btn-default"/> -->
+<!--                                </td> -->
+<!--                            </tr> -->
+<!--                        </table> -->
+<!--                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <td width="10%" style="text-align: center;">
+                                    <apex:outputLabel >Status</apex:outputLabel>
+                                </td>
+                                <td width="40" style="text-align: center;">
+                                    <apex:outputLabel >Subject</apex:outputLabel>
+                                </td>
+                                <td width="30%" style="text-align: center;">
+                                    <apex:outputLabel >Email Address</apex:outputLabel> 
+                                </td>
+                                <td width="20%" style="text-align: center;">
+                                    <apex:outputLabel >Message Date</apex:outputLabel> 
+                                </td>
+                            </tr>
+                            <apex:repeat value="{!Emails}" var="email">
+                                <tr>
+                                    <td width="10%" style="text-align: center;">
+                                        <apex:outputLabel >{!mapEmailMessageStatus[email.Status]}</apex:outputLabel>
+                                    </td>
+                                    <td width="40" style="text-align: center;">
+                                      <a href="{!$Site.prefix}/{!email.Id}" target="_blank">{!email.Subject}</a> -->
+                                        <!-- <apex:outputLabel >{!email.Subject}</apex:outputLabel> -->
+                                  <!--  </td>
+                                    <td width="30%" style="text-align: center;">
+                                        <apex:outputLabel >{!email.ToAddress}</apex:outputLabel> 
+                                    </td>
+                                    <td width="20%" style="text-align: center;"> -->
+                                     <!-- {!email.MessageDate}<br/> -->
+                                  <!--   <apex:outputText value="{0,date,MM'/'dd'/'yyyy hh:mm a}">
+                                                                                                                                                        <apex:param value="{!email.MessageDate}" />
+                                                                                                                                                    </apex:outputText>
+                                   </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>  -->
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr />
+                            </div>
+                        </div>
+
+                    
+                        <div class="pad-md">
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Attachments"/>
+                        </apex:pageBlock>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h4>Attachments</h4>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <apex:commandButton action="{!AddAttachments}" value="Add Attachments"  rendered="{!showAddButton}" styleclass="button button-lightblue button-small"/>
+                            </div>
+                        </div>
+     
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="20%" >
+                                    <apex:outputLabel >Created By</apex:outputLabel>
+                                </th>
+                                <th width="20%" >
+                                    <apex:outputLabel >Created Date</apex:outputLabel>
+                                </th>
+                                <th width="60%" >
+                                    <apex:outputLabel >Attachment Name</apex:outputLabel> 
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!Attachments}" var="at">
+                                <tr>
+                                    <td>
+                                        <apex:outputField value="{!at.CreatedBy.Name}"/>
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!at.CreatedDate}"/>
+                                    </td>
+                                    <td>
+<!--                                        <a target="_self" href="https://c.cs22.content.force.com/servlet/servlet.FileDownload?file={!at.Id}">{!at.Name}</a>  -->
+                                        <a target="_blank" href="{!URLFOR($Action.Attachment.Download, at.Id)}" >{!at.Name}</a>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="row pad-md">
+                           <div class="col-xs-12 col-centered text-center">
+                           <apex:commandButton value="      Close This Case     " onClick="hideMessage();" action="{!closeCase}" rendered="{!showCloseCase}" styleclass="button button-red"/>
+                           </div>
+                        </div>
+                        
+
+                    </div>  
+            </body>
+        </html>
+        <!--<c:ro_footer />-->
+        <script>
+            $(document).ready(function() {
+                var showButton = '{!showCloseCase}';
+                if(showButton == 'false')
+                {
+                    $("p:contains('action')").hide();    
+                }
+            });
+            function DownloadAttachment(str){
+                //https://c.cs22.content.force.com/servlet/servlet.FileDownload?file=00P17000000ygUy
+                
+            }
+            function hideMessage(){
+                //alert('test');
+                $("p:contains('action')").hide();
+            }
+        </script>
+        <!-- Community Footer code added here-->
+    <apex:composition template="CventCommunityFooter"></apex:composition>
+    </apex:form>         
+</apex:page>

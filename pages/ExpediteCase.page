@@ -1,0 +1,22 @@
+<apex:page standardController="Case" >
+    <apex:includeScript value="{!URLFOR($Resource.jQuery)}"/>
+                <style>  
+                .hideDropdown select{
+                visibility: hidden !important;
+                display: block !important;
+                }
+                </style>
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageblockButtons >
+                    <apex:commandButton value="Expedite Case" action="{!Save}"/>
+                    <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageblockSection columns="1">
+                <apex:inputField styleClass="hideDropdown" value="{!Case.Approver__c}" required="true"/>
+                <apex:inputField value="{!Case.Reason_for_Expedite__c}" required="true" style="height:100px;width:500px;"/>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

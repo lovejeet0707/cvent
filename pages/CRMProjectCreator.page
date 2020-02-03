@@ -1,0 +1,64 @@
+<apex:page standardController="CRM_Project_Queue_Item__c" extensions="CRMProjectCreateController" tabStyle="CRM_360_View__tab">
+     
+     <apex:form >
+     <apex:pageBlock title="CRM Project">
+     <apex:pageBlockButtons > 
+        <apex:commandButton value="Save" action="{!save}"/>   
+        <apex:commandButton value="Cancel" action="{!cancel}"/>       
+        
+     </apex:pageBlockButtons>
+     
+     <apex:pageBlockSection columns="2" title="Project Information" >
+           <apex:inputField value="{!proj.CRM_Release__c}" style="width:300px"/>
+           <apex:inputField required="true" value="{!proj.Project_Team__c}"/>
+           <apex:inputField required="true" value="{!proj.Project_Name__c}" style="width:300px"/>
+           <apex:inputField required="true" value="{!proj.Reporting_Process_Improvement_Automation__c}"/>
+           <apex:inputField required="true" value="{!proj.Status__c}"/>
+           <apex:inputField required="true" value="{!proj.Requestor__c}"/>
+           <apex:inputField required="true" value="{!proj.Development_Team__c}"/>
+           <apex:inputField required="true" value="{!proj.Development_Owner__c}"/>
+           <apex:outputField rendered="{!IF(ISBLANK(proj.Case__c),false,true)}" value="{!proj.Case__c}" style="width:300px"/>
+     </apex:pageBlockSection>
+     
+     <apex:pageBlockSection columns="1">
+     <apex:inputField value="{!proj.Description__c}" required="true" />
+     </apex:pageBlockSection>
+
+     <!--<apex:pageBlockSection columns="2">
+         <b>Attach File</b>
+         <apex:inputFile id="att"  value="{!att.body}" filename="{!att.name}"/>
+     </apex:pageBlockSection>-->
+     
+     <!--<apex:pageBlockSection id="pb" columns="2" title="Project Work Item Information">
+           <apex:inputField value="{!item.Subject__c}"/>  
+           <apex:inputField required="true" value="{!item.Assigned_To__c}"/>
+           <apex:inputField required="true" value="{!item.Estimated_Effort_Hours__c}"/>
+           <apex:inputField value="{!item.Item_Type__c}"/>
+     </apex:pageBlockSection> -->
+     </apex:pageBlock>
+     
+     <apex:pageBlock title="Project Work Items">
+        <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Add Work Item" action="{!addRow}" reRender="table" immediate="true"/>
+            </apex:pageBlockButtons>
+                
+                <apex:pageBlockTable value="{!itemWrapperList}" var="page" id="table"> 
+                    
+                   <apex:column headerValue="Subject"><apex:inputField value="{!page.item.Subject__c}"/></apex:column>  
+                   <apex:column headerValue="Estimated Efforts (Hrs)"><apex:inputField required="true" value="{!page.item.Estimated_Effort_Hours__c}"/></apex:column>  
+                   <apex:column headerValue="Item Type"><apex:inputField value="{!page.item.Item_Type__c}"/></apex:column>  
+                   <apex:column headerValue="Assigned To"><apex:inputField required="true" value="{!page.item.Assigned_To__c}"/></apex:column>                      
+                    
+                    <apex:column headerValue="Action">
+                        <apex:commandLink value="Delete" action="{!removingRow}" immediate="true">
+                            <apex:param name="index" value="{!page.counterWrap}"/>  
+                        </apex:commandLink>
+                    </apex:column>
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+     
+     
+     
+     </apex:form>
+</apex:page>

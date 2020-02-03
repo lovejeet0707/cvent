@@ -1,0 +1,291 @@
+<apex:page standardController="OpportunityLineItem">
+    <apex:form >
+       <apex:pageMessages />
+      <apex:sectionHeader title="Opportunity Product Edit" subtitle="{!OpportunityLineItem.Product2.Name}"/>
+      <apex:pageBlock title="Opportunity Product" mode="edit"> 
+          
+      <!-- EVENT Layout START -->
+          <apex:pageBlockSection rendered="{!OR(OpportunityLineItem.Product2.Family == 'Event',OpportunityLineItem.Product2.Family == 'Cvent Connect')}">
+              <!--<apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Event}" var="f">
+                  <apex:inputField value="{!OpportunityLineItem[f.fieldPath]}" 
+                      required="{!OR(f.required, f.dbrequired)}"/>
+              </apex:repeat> -->
+
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OR(OpportunityLineItem.Product2.Family == 'Event',OpportunityLineItem.Product2.Family == 'Cvent Connect')}">
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>
+          </apex:pageBlockSection>
+     <!-- EVENT Layout ENDS -->
+     
+     
+     <!-- ONSITE SOLUTIONS Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'Onsite Solutions'}">
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+                            
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Onsite Solutions" rendered="{!OpportunityLineItem.Product2.Family == 'Onsite Solutions'}">
+              <apex:inputField value="{!OpportunityLineItem.License_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Event_Name_Location__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Equipment_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.City__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Supplies_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.State__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Per_Diem__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Country__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Shipping__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Zip__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Travel_Expense__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.County__c}"/>                                          
+              
+              <apex:inputField value="{!OpportunityLineItem.Project_Management_Fee__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:inputField value="{!OpportunityLineItem.Reporting_Fee__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:inputField value="{!OpportunityLineItem.Professional_Configuration_Fee__c}"/>
+          </apex:pageBlockSection>
+     <!-- ONSITE SOLUTIONS Layout ENDS -->
+     
+               
+      <!-- SignUp4 Layout START -->
+          <apex:pageBlockSection title="Product Edit" rendered="{!OpportunityLineItem.Product2.Family == 'SignUp4'}">
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Partner_Name__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Event_Name_Location__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_OnArrival_Badges__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Tickets_Sold__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OpportunityLineItem.Product2.Family == 'SignUp4'}">
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>
+          </apex:pageBlockSection>
+     <!-- SignUp4 Layout ENDS -->
+
+     <!-- PSG Layout START -->
+          <apex:pageBlockSection title="Product Edit" rendered="{!OpportunityLineItem.Product2.Family == 'PSG'}">
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Tickets_Sold__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Event_Start_Date__c}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="PSG - Feature Pricing/Details" rendered="{!OpportunityLineItem.Product2.Family == 'PSG'}">
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>          
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Details_of_Other__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>
+          </apex:pageBlockSection>
+     <!-- PSG Layout ENDS -->
+     
+          
+      <!-- CSN Supplier Layout START -->
+          <apex:pageBlockSection title="Product Edit" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'),NOT(OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles'))}">
+
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.US_State__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:inputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+
+              <apex:inputField value="{!OpportunityLineItem.Contractor_s_Name__c}" />
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'),NOT(OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles'))}">
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}" required="true"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="CSN Supplier - Feature Pricing/Details" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'),NOT(OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles'))}">
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Details_of_Other__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}" required="true"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Advertisement_Tab__c}"/>
+           </apex:pageBlockSection>
+          
+
+          <apex:pageBlockSection title="Additional Details" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'),NOT(OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles'))}">
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Original_Feature_Start_Date__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.City__c}"/>
+
+              <!--<apex:inputField value="{!OpportunityLineItem.Ad_Listing_To_Page__c}"/>-->
+              <apex:inputField value="{!OpportunityLineItem.Please_specify_Other_City__c}"/>
+
+              <!--<apex:inputField value="{!OpportunityLineItem.Region__c}"/>-->
+              <apex:inputField value="{!OpportunityLineItem.Country__c}"/>
+
+              <!--<apex:inputField value="{!OpportunityLineItem.Subregion__c}"/>-->
+              <apex:inputField value="{!OpportunityLineItem.Other_Country_Name__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Other_Region__c}"/>
+              <!--<apex:inputField value="{!OpportunityLineItem.City_Neighborhood__c}"/>-->
+
+              <apex:inputField value="{!OpportunityLineItem.State__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+       </apex:pageBlockSection>
+     <!-- CSN Supplier Layout ENDS -->
+     
+
+      <!-- CSN-Planner Layout START-->
+          <apex:pageBlockSection title="Product Edit" rendered="{!OR(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature',OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles')}">
+              <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Badge_Types__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Details_of_Other__c}" style="disabled: true"/>
+              <apex:inputField value="{!OpportunityLineItem.of_OnArrival_Badges__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Partner_Name__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Event_Name_Location__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Tickets_Sold__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Original_Feature_Start_Date__c}"/>
+              <!--apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem-->
+
+              <apex:inputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OR(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature',OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles')}">
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>       
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockSection title="Additional Details" rendered="{!OpportunityLineItem.Product2.Family == 'CSN-Supplier Bundles'}">
+              <apex:inputField value="{!OpportunityLineItem.Ad_Listing_To_Page__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Region__c}"/>  
+              <apex:inputField value="{!OpportunityLineItem.Subregion__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Other_Region__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.State__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.City_Neighborhood__c}"/>                  
+          </apex:pageBlockSection>
+
+          
+     <!-- CSN-Planner Layout ENDS -->
+        <!-- CrowdCompass Layout START -->
+        <apex:pageBlockSection title="Product Edit" rendered="{!OpportunityLineItem.Product2.Family == 'CrowdCompass'}">
+             <apex:inputField value="{!OpportunityLineItem.Product_Family__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.OpportunityId}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Product2Id}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Items__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Badge_Types__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Details_of_Other__c}" style="disabled: true"/>
+              <apex:inputField value="{!OpportunityLineItem.of_OnArrival_Badges__c}" />
+
+              <apex:inputField value="{!OpportunityLineItem.Partner_Name__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.End_Date__c}"/>
+
+              <apex:inputField value="{!OpportunityLineItem.Event_Name_Location__c}"/>
+              <apex:inputField value="{!OpportunityLineItem.Start_Date__c}"/>
+              
+              <apex:inputField value="{!OpportunityLineItem.Tickets_Sold__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+
+              <apex:inputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:inputField value="{!OpportunityLineItem.Notes__c}"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection title="Per Item Fee" rendered="{!OpportunityLineItem.Product2.Family == 'CrowdCompass'}">
+            <apex:inputField value="{!OpportunityLineItem.Per_Item_Fee__c}"/>
+            <apex:inputField value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}"/>       
+        </apex:pageBlockSection>
+
+
+
+        <!-- CrowdCompass Layout ENDS -->
+     
+     
+
+          
+          <apex:pageBlockSection title="Product Edit" rendered="{!OpportunityLineItem.Product2.Family == 'Survey'}">
+              <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Survey}" var="f">
+                  <apex:inputField value="{!OpportunityLineItem[f.fieldPath]}" 
+                      required="{!OR(f.required, f.dbrequired)}"/>
+              </apex:repeat>
+          </apex:pageBlockSection>
+          
+          <apex:pageblockButtons >
+              <apex:commandButton action="{!save}" value="Save"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+          </apex:pageblockButtons>
+      </apex:pageBlock>
+
+    </apex:form>  
+</apex:page>

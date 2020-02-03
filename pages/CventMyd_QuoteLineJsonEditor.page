@@ -1,0 +1,65 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardController="SBQQ__QuoteLine__c" extensions="CventMyd_QuoteLineJsonEditorController">
+
+    <style type="text/css">
+
+        table {border: 1px solid black;}  
+
+        tr,td {border: 1px solid black;}      
+
+    </style>
+
+    <apex:form >
+
+        <table style="width:405px;">
+
+            <tr>
+
+                <td align="center" colspan="2" style="font-weight:bold;background-color:#00ffff">Quantity/Price Injection </td>
+
+            </tr>           
+
+            <tr>
+
+                <td>Desired Quantity</td>
+
+                <td><apex:inputField value="{!quoteLine.SBQQ__Quantity__c}" /></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Desired Net Unit Price</td>
+
+                <td><apex:input value="{!netPrice}" /></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Auto-Recalculate?</td>
+
+                <td><apex:inputCheckbox value="{!recalculate}"/></td>
+
+            </tr>
+
+            <apex:variable value="foo" var="foo" rendered="{!showInjectionButton}" id="varId0">
+
+                <tr>
+
+                    <td align="center" colspan="2"><apex:commandbutton value="Inject Values" action="{!updateJson}"/></td>
+
+                </tr>
+
+            </apex:variable> 
+
+            <apex:variable value="foo" var="foo" rendered="{!NOT(ISNULL(userMessage))}" id="varId1">
+
+                <tr><td align="center" colspan="2"><apex:outputText escape="false" value="{!userMessage}" style="{!style}"/></td></tr>  
+
+            </apex:variable>                                                                
+
+        </table>
+
+    </apex:form>
+    
+</apex:page>

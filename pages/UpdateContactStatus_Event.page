@@ -1,0 +1,47 @@
+<apex:page standardController="Event" extensions="UpdateContactStatus_Event_Controller"  action="{!DetailPageReference}" showHeader="true" sidebar="true"> 
+    <apex:sectionHeader title="{!if(showContactStatus,'Contact','Lead')}" subtitle="{!if(showContactStatus,contactRec.Name,leadRec.Name)}"/>
+    <apex:form >
+        <apex:pageBlock title="Contact Edit" mode="edit" rendered="{!showContactStatus}">
+            <apex:pageBlockSection columns="{!If((recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'),2,1)}" title="Scoring Fields">
+                <apex:inputField value="{!contactRec.of_Attendees_Eloqua__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='CrowdCompass_Presentations' || recordTypeName=='SMM_BD_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.of_Events_CC__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='SMM_BD_Presentations'|| recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.Type_of_Events__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='SMM_BD_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.Ever_Used_Mobile_App_CC__c}" rendered="{!recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.ChargeFeeforEvents__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='CrowdCompass_Presentations' || recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.of_Exhibitors_CC__c}" rendered="{!recordTypeName=='SMM_BD_Presentations'||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputHidden />
+                <apex:inputField value="{!contactRec.Have_Breakouts_CC__c}" rendered="{!recordTypeName=='SMM_BD_Presentations'||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!contactRec.Why_are_you_looking_for_a_survey_tool__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <apex:inputField value="{!contactRec.Types_of_Surveys_Eloqua__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <apex:inputField value="{!contactRec.of_Employees_in_Organisation_del__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <apex:inputField value="{!contactRec.of_Offsite_Events__c}" rendered="{!recordTypeName=='TPP_Intl' || recordTypeName=='PA_Presentations' || recordTypeName== 'Event_Presentations1'}"/>
+                <apex:inputField value="{!contactRec.Account.Back_Office_System__c}" rendered="{!recordTypeName== 'Event_Presentations1'}"/>   <!-- added by udita for P-003643  Providing Access to “Back-Office Systems” Field --> 
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!SaveContact}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <!-- --------------------- Lead Status Field-------------------------------------------------------------------------------------- -->
+        <apex:pageBlock title="Lead Edit" mode="edit" rendered="{!showLeadStatus}">
+            <apex:pageBlockSection columns="{!If((recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations' || recordTypeName=='TPP_Intl'),2,1)}" title="Lead Status Information">
+                <apex:inputField value="{!leadRec.of_Attendees_Eloqua__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='CrowdCompass_Presentations'|| recordTypeName=='SMM_BD_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.of_Events_CC__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='SMM_BD_Presentations'|| recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.Type_of_Events__c}" rendered="{!recordTypeName=='PA_Presentations' ||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='SMM_BD_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.Ever_Used_Mobile_App_CC__c}" rendered="{!recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.Charge_Fee_for_Events__c}" rendered="{!recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.of_Exhibitors_CC__c}" rendered="{!recordTypeName=='SMM_BD_Presentations'||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputHidden />
+                <apex:inputField value="{!leadRec.Have_Breakouts_CC__c}" rendered="{!recordTypeName=='SMM_BD_Presentations'||recordTypeName=='CrowdCompass_Presentations'||recordTypeName=='Event_Presentations1' || recordTypeName=='BD_Presentations'|| recordTypeName=='TPP_Intl'}"/>
+                <apex:inputField value="{!leadRec.Why_are_you_looking_for_a_survey_tool__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <apex:inputField value="{!leadRec.Types_of_Surveys_Eloqua__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <apex:inputField value="{!leadRec.of_Employees_in_Organisation__c}" rendered="{!recordTypeName=='Survey_Presentations'}"/>
+                <!--<apex:inputField value="{!leadRec.of_Offsite_Events__c}" rendered="{!recordTypeName=='TPP_Intl' || recordTypeName=='PA_Presentations' || recordTypeName== 'Event_Presentations1'}"/>-->
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!SaveContact}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:Page tabStyle="Case" action="{!if($Profile.Name='Cvent Customer Community User',null,
+urlFor($Action.Case.Tab, $ObjectType.Case, null, true))}" >
+<script src="/soap/ajax/29.0/connection.js"></script>
+<script type="text/javascript" />
+<script>
+     window.onload = function() {
+
+    // sforce.connection.sessionId = '{!$Api.Session_ID}';
+
+   //  var describeSObjectResult = sforce.connection.describeSObject("Case");
+    // var prefix = describeSObjectResult.keyPrefix;
+
+     // Determine the View
+    // var cView  = "00B000000097v9y";
+     
+   //  default: cView = "00B000000097v9y"; 
+     
+
+     // Change the whole window to point to this location
+     parent.document.location.href = "/500?fcf=00B000000097v9y" ;
+    //+ prefix + "?fcf=" + cView ;
+}
+</script>
+<center><h2>Please Wait ..... Loading 'Your' Tab</h2></center>
+</apex:page>

@@ -1,0 +1,521 @@
+<!--
+//////////////////////////////////////
+//      @author Abhishek Pandey     //
+/////////////////////////////////////
+Version :   1.0
+Date : 20th July 2015
+Description : To show annual opps and TCV(s)
+-->
+<apex:page controller="OpportunitySelectCls" sidebar="false" action="{!Search}">
+    <style>
+        .loader {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity:0.90;
+            z-index: 9999;
+            background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+        }
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <style>
+            .btn-primary {
+                color: #fff !important;
+                background-color: #337ab7 !important;
+                border-color: #2e6da4 !important;
+                background: #2e6da4 !important; 
+                padding: 7px 9px 7px 9px !important; 
+            }
+        </style>
+    </head>
+    <apex:form >
+        <apex:outputpanel >
+             <apex:actionstatus id="actionStatus">
+                  <apex:facet name="start">
+                      <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                           <!-- <div class="waitingHolder" style="top: 74.2px; width: 91px;">-->
+                          <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                          <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                          <span class="waitingDescription">Loading...</span>
+                          </div>
+                      </div>
+                  </apex:facet>
+             </apex:actionstatus>
+         </apex:outputpanel>
+        <apex:pagemessages >
+        </apex:pagemessages>
+        <apex:pageBlock title="Search Box">
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    Enter Contract #
+                    <apex:inputText value="{!strContractNum}" styleClass="inputContactNumber"/>
+                </apex:pageblockSectionItem>
+                <apex:commandButton action="{!Search}" value="Search" rerender="pbLock" oncomplete="reRenderPbSec();" status="actionStatus">
+                </apex:commandButton>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="pbLock" styleClass="pbHide">
+            <apex:pageBlock title="Annual Opps">
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!SubmitSec}" onclick="updateAnnualOpps();" reRender="#" value="Save" id="theButton" status="actionStatus"/>
+                    <apex:commandButton action="{!SubmitSec}" onclick="updateAnnualPickListsOnly();" reRender="#" value="Restore" id="theButtonRestore" status="actionStatus" rendered="{!flag}"/>
+                </apex:pageBlockButtons>
+                <apex:variable value="{!1}" var="rowNum"/>
+                <apex:pageBlockTable value="{!lstOpp}" var="instOfOpp" id="pbTable">
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Name'].Label}"> 
+                        <apex:outputLink value="/{!instOfOpp.Id}">{!instOfOpp.Name}</apex:outputLink> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Deal_Year__c'].Label}"> 
+                       <apex:outputText value="{!instOfOpp.Deal_Year__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Opportunity_Start_Date__c'].Label}"> 
+                        <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                            <apex:param value="{!instOfOpp.Opportunity_Start_Date__c}"/>  
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Opp_End_Date__c'].Label}"> 
+                        <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                            <apex:param value="{!instOfOpp.Opp_End_Date__c}"/>  
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['StageName'].Label}"> 
+                        <apex:outputText value="{!instOfOpp.StageName}"></apex:outputText> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['New_Contract_Total__c'].Label}"> 
+                        <apex:outputText value="{!instOfOpp.New_Contract_Total__c}"></apex:outputText> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Counted_sales_Cancellation_Value__c'].Label}"> 
+                        <apex:outputText value="{!instOfOpp.Counted_sales_Cancellation_Value__c}"></apex:outputText> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Opportunity.Fields['Set_Cancellation_Status__c'].Label}">
+                        <apex:variable var="rowNum2" value="{!instOfOpp.Id}{!instOfOpp.Id}"/>
+                        <div id="{!rowNum2}">
+                            <!--<apex:selectList value="{!instOfOpp.Set_Cancellation_Status__c}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!StateList}"/>
+                            </apex:selectList>-->
+                        </div>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Roll-up to TCV"> 
+                        <apex:variable var="rowNum" value="{!instOfOpp.Id}"/>
+                        <input type="checkbox" id="{!rowNum}" value="{!instOfOpp.Send_This_To_Tract__c}"  />
+                    </apex:column>
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockTable value="{!lstOppSec}" var="instOfOpp" id="pbTableSec" columns="1">
+                    <apex:column headerValue="TCV(s)">
+                        <a class="btn btn-primary" href="/{!instOfOpp.Id}" >{!instOfOpp.Name}</a>
+                        <apex:pageBlockSection columns="2" title="Opportunity Detail">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Product_Category_Tract__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Product_Category_Tract__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Type_Rev_Rec__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Type_Rev_Rec__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Rev_Rec_Rule_Assigned__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Rev_Rec_Rule_Assigned__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Deal_Booked_In__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Deal_Booked_In__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Tract_Implementation_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Tract_Implementation_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Tract__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Tract__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['ContractStartDate__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.ContractStartDate__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['ContractEndDate__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.ContractEndDate__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection columns="2" title="Year 1">
+                        
+                            <!-- <apex:pageBlockSectionItem >
+                               <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_Contract_Type__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_1_Contract_Type__c}"></apex:outputText> 
+                            </apex:pageBlockSectionItem> -->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_Start_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_1_Start_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_End_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_1_End_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_Value__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_1_Value__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Year_1_Rev_Rec_Rule_Assgn__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Year_1_Rev_Rec_Rule_Assgn__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_Liquidation_fee__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_1_Liquidation_fee__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_1_Opt_out_Date__c'].Label}"></apex:outputLabel>  //comment by kd
+                                <apex:outputText value="{!instOfOpp.Year_1_Opt_out_Date__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" title="Year 2">
+                             <!--  <apex:pageBlockSectionItem >
+                             <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_Contract_Type__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_2_Contract_Type__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>  --> 
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_Start_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_2_Start_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_End_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_2_End_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_Value__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_2_Value__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Year_2_Rev_Rec_Rule_Assgn__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Year_2_Rev_Rec_Rule_Assgn__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_Liquidation_fee__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_2_Liquidation_fee__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                           <!-- <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_2_Opt_out_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_2_Opt_out_Date__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem> -->
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" title="Year 3">
+                           <!-- <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_Contract_Type__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_3_Contract_Type__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem> -->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_Start_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_3_Start_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_End_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_3_End_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_Value__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_3_Value__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Year_3_Rev_Rec_Rule_Assgn__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Year_3_Rev_Rec_Rule_Assgn__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_Liquidation_fee__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_3_Liquidation_fee__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                           <!-- <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_3_Opt_out_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_3_Opt_out_Date__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" title="Year 4">
+                           <!-- <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_Contract_Type__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_4_Contract_Type__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_Start_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_4_Start_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_End_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_4_End_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_Value__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_4_Value__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Year_4_Rev_Rec_Rule_Assgn__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Year_4_Rev_Rec_Rule_Assgn__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_Liquidation_fee__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_4_Liquidation_fee__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                             <!--<apex:pageBlockSectionItem >
+                               <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_4_Opt_out_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_4_Opt_out_Date__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="2" title="Year 5">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_Contract_Type__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_5_Contract_Type__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_Start_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_5_Start_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_End_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{0,date,MMMM dd, yyyy}">  
+                                    <apex:param value="{!instOfOpp.Year_5_End_Date__c}"/>  
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_Value__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_5_Value__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Contract_Total_Year_5_Rev_Rec_Rule_Assgn__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Contract_Total_Year_5_Rev_Rec_Rule_Assgn__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <!--<apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_Liquidation_fee__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_5_Liquidation_fee__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>-->
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Opportunity.Fields['Year_5_Opt_out_Date__c'].Label}"></apex:outputLabel>
+                                <apex:outputText value="{!instOfOpp.Year_5_Opt_out_Date__c}"></apex:outputText>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:actionFunction name="reRenderPbSec" rerender="javaProg" status="actionStatus" oncomplete="checkAgainSec();"/>
+        <div id="load_scrl" class="loadingBox loader" style="display:none" />
+    </apex:form>
+    
+    
+    <apex:outputPanel id="javaProg">
+        <script>
+            var checkboxBoolean ='';
+            $( document ).ready(function() {
+                checkboxBoolean ='';
+                //console.log("Came Here");
+                //console.log("{!lstOpp}");
+                var myList = new Array();
+                myList = '{!lstOpp}';
+                
+                console.log('-----------------------------');
+                var idCancelStatMap = new Map();
+                idCancelStatMap = JSON.parse('{!JsonMap}'); //getting the values from map 
+                //console.log(idCancelStat);
+                //console.log('-----------------------------');
+                
+                //console.log(myList.length);
+                var jsConlistTHirr = [];
+                var jsConlistTHirrSec = [];
+                <apex:repeat value="{!lstIdTractSec}" var="instOFPCCC"> //contains id of annual opps
+                    //console.log("{!instOFPCCC}");
+                    jsConlistTHirr.push("{!JSENCODE(instOFPCCC)}");
+                    //console.log(jsConlistTHirr);
+                </apex:repeat>
+                
+                <apex:repeat value="{!StateListLabels}" var="instOFPCCSec"> //contains labels of picklist
+                    console.log("{!instOFPCCSec}");
+                    jsConlistTHirrSec.push("{!JSENCODE(instOFPCCSec)}");
+                    //console.log(jsConlistTHirrSec);
+                </apex:repeat>
+                
+                var sizeLstt = jsConlistTHirr.length;
+                console.log('-----------------------------Size'+sizeLstt);
+                var tempCounter = 0;
+                for(var i = 0; i < jsConlistTHirr.length; i++){
+                    //console.log('-----------------------------2');
+                    //console.log(idCancelStatMap[jsConlistTHirr[i]]);
+                    var newDiv = document.createElement('div');
+                    var selectHTML = "";
+                    var valueOfOpp = idCancelStatMap[jsConlistTHirr[i]];
+                    
+                    if('Do not open' == valueOfOpp){
+                        tempCounter = tempCounter + 1;
+                    }
+                        
+                    selectHTML ="<select id="+jsConlistTHirr[i]+jsConlistTHirr[i]+"Pick"+">";
+                    for(var k = 0; k < jsConlistTHirrSec.length; k = k + 1) {
+                        if(valueOfOpp==jsConlistTHirrSec[k])
+                        selectHTML += "<option value='" + jsConlistTHirrSec[k] + "' selected >" + jsConlistTHirrSec[k] + "</option>";
+                        else
+                        selectHTML += "<option value='" + jsConlistTHirrSec[k] + "'>" + jsConlistTHirrSec[k] + "</option>";
+                    }
+                    selectHTML += "</select>";
+                    //console.log('----------------------------3');
+                    newDiv.innerHTML = selectHTML;
+                    var tempId = '#'+jsConlistTHirr[i]+jsConlistTHirr[i];
+                    //console.log('-----------------------------4');
+                    //console.log(tempId);
+                    //alert(tempId);
+                    $(tempId).prepend($(newDiv));
+                    //document.getElementById(divName).appendChild(newDiv);
+                }
+                
+                //var tempSelectVal = $(tempSelectValId).text();
+                var tempId = '';
+                console.log('--------333------------');
+                console.log(tempCounter);
+                console.log(jsConlistTHirr.length);
+                console.log('---------333-----------');
+                if(tempCounter != jsConlistTHirr.length){
+                    for(var i = 0; i < jsConlistTHirr.length; i++){
+                        console.log(jsConlistTHirr[i]);
+                        tempId = '#'+jsConlistTHirr[i]+jsConlistTHirr[i]+"Pick";
+                        console.log('---------333-----------');
+                        console.log(tempId);
+                        $(tempId).attr('disabled','disabled');
+                        //$(tempId).children().attr("disabled","disabled");
+                        //$(tempId).children().prop('disabled',true);
+                    }
+                }
+                
+                if(tempCounter ==jsConlistTHirr.length)
+                checkboxBoolean = true;
+                checkAgainSec();
+            });
+            function checkAgainSec(){
+                console.log("{!lstIdTract}");
+                var jsConlistTHir = []; 
+                <apex:repeat value="{!lstIdTract}" var="instOFPCC">
+                    console.log("{!instOFPCC}");
+                    jsConlistTHir.push("{!JSENCODE(instOFPCC)}");
+                    console.log(jsConlistTHir);
+                </apex:repeat>
+                var sizeLst = jsConlistTHir.length;
+                console.log('sizeLst++'+sizeLst);
+                var temp;
+                for(var k=0;k<=sizeLst;k++){
+                    console.log('jsConlist[k]++'+jsConlistTHir[k]);
+                    temp = "#"+jsConlistTHir[k];
+                    console.log(temp);
+                    
+                    $(temp).prop('checked', true);
+                    console.log(checkboxBoolean);
+                    if(checkboxBoolean == true)
+                    $(temp).attr("disabled", true);
+                }
+            }
+            
+            function updateAnnualPickListsOnly(){
+                $(".loader").show();
+                var strVal ='';
+                strVal = $(".inputContactNumber").val();
+                OpportunitySelectCls.updateAnnualPickListsOnly(strVal,function(result,event){
+                        if (event.status && event.result) {  
+                            alert('Records updated please search again to see the results on TCV(s)');
+                            $(".loader").hide();
+                            $(".pbHide").hide();
+                        }else{
+                            alert(event.message);
+                            $(".loader").hide();
+                            $(".pbHide").hide();
+                        }
+                    }
+                );
+                //$(".loader").hide();
+            }
+            function updateAnnualOpps(){
+                $(".loader").show();
+                var jsConlistTHir = []; 
+                var jsConlistCheck = []; 
+                var jsConlistUnCheck = []; 
+                var jsPickSelect = [];
+                <apex:repeat value="{!lstOpp}" var="instOFPCC">
+                    jsConlistTHir.push("{!JSENCODE(instOFPCC.Id)}");
+                </apex:repeat>
+                var sizeLst = jsConlistTHir.length;
+                console.log(sizeLst);
+                for(var k=0;k<sizeLst;k++){
+                    var temp = "#"+jsConlistTHir[k];
+                    var tempSelectValId  = '';
+                    tempSelectValId = "#"+jsConlistTHir[k]+jsConlistTHir[k] + ' option:selected';
+                    console.log(tempSelectValId);
+                    var tempSelectVal = $(tempSelectValId).text();
+                    tempSelectVal = jsConlistTHir[k]+";"+tempSelectVal;
+                    console.log(tempSelectVal);
+                    jsPickSelect.push(tempSelectVal);
+                    if($(temp).is(':checked')){
+                        jsConlistCheck.push(jsConlistTHir[k]);
+                    }else{
+                        jsConlistUnCheck.push(jsConlistTHir[k]);
+                    }
+                }
+                //console.log(jsConlistCheck);
+                //console.log(jsConlistUnCheck);
+                OpportunitySelectCls.updateAnnualOpps(jsConlistCheck,jsConlistUnCheck,jsPickSelect,function(result,event){
+                        console.log(result);
+                        if (event.status && event.result) {       
+                          alert('Records updated please search again to see the results on TCV(s)');
+                          $(".loader").hide();
+                          $(".pbHide").hide();
+                          
+                        }else {
+                          alert(event.message);
+                          $(".loader").hide();
+                          $(".pbHide").hide();
+                       }
+                    }
+                );
+            }
+        </script>
+        
+    </apex:outputPanel>
+</apex:page>

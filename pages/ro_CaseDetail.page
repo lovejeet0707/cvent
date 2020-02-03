@@ -1,0 +1,260 @@
+<apex:page Controller="ro_CaseDetail" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" cache="false">
+    <apex:form >
+        <html lang="en">
+            <head>
+                <c:ro_header />
+                <title>Create New Case</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+            </head>
+            <body>
+                <c:ro_navbar activeTab="support"/>
+                    <div class="container">
+                        <table style="width:100%;" class="table table-hover">
+                            <tr>
+                                <td width="40%">
+                                    <h3>Case {!c.CaseNumber}</h3>
+                                </td>
+                                <td width="20%" style="text-align: center;">
+                                 &nbsp;
+                                    <!-- <apex:commandButton value="      Close Case     " action="{!closeCase}" rendered="{!showCloseCase}" styleclass="btn btn-default"/> -->
+                                </td>
+                                <td width="40%">
+                                
+                                </td>
+                            </tr>
+                        </table>
+<!--                        <apex:pageBlock > -->
+<!--                            <apex:pageBlockSection title="Case Detail"/> -->
+<!--                        </apex:pageBlock> -->
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Case Information"/>
+                        </apex:pageBlock>
+                        <table class="table table-hover" style="width:100%;">
+                         <apex:outputpanel layout="none" rendered="{!!isSite}">
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Contact Name:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputText id="ContactId" label="Contact Name" value="{!c.Contact.Name}" style="width: 70%; height: 35px;"/>
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Account Name:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputText id="AccountId" label="Account Name" value="{!c.Account.Name}" style="width: 70%; height: 35px"/>
+                                </td>
+                            </tr>
+                           </apex:outputpanel> 
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Customer Impact:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputField id="CImpact" value="{!c.Customer_Impact__c}"  style="width: 70%; height: 25px;"/> 
+                                </td>
+                                
+                                <td width="10%"></td>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Status:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputField id="CStatus" value="{!c.Status}"  style="width: 70%; height: 25px;"/>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Case Date/Time Opened:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputField id="CCreatedDAte" value="{!c.CreatedDate}"  style="width: 70%; height: 25px;"/> 
+                                </td>
+                                
+                                <td width="10%"></td>
+                                <!--
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Product Family:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="20%">
+                                    <apex:outputField id="CFamily" value="{!c.Product_Family_Name__c}"  style="width: 70%; height: 25px;"/>
+                                </td> -->
+                            </tr>
+                        </table>
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Case Description"/>
+                        </apex:pageBlock>
+                        <table class="table table-hover" style="width:100%;">
+                            <tr>
+                                
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Subject:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="75%">
+                                    <apex:outputField id="Subject" value="{!c.Subject}"  style="width: 70%; height: 25px;"/>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <apex:outputLabel >Description:</apex:outputLabel>
+                                </td>
+                                <td width="5%"></td>
+                                <td width="75%">
+                                    <apex:outputField id="Description" value="{!c.Description}"  style="width: 70%; height: 200px;"/> 
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <table style="width:100%;">
+                            <tr>
+                                <td width="100%" style="text-align: center;">
+                                    <apex:commandButton value="      Close Case     " action="{!closeCase}" rendered="{!showCloseCase}" styleclass="btn btn-default"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Case Comments"/>
+                        </apex:pageBlock>
+                        <table class="table table-hover" style="width:100%;">
+                            <tr>
+                                <td width="100%" style="text-align: center;">
+                                    <apex:commandButton action="{!AddCaseComments}" value="Add Comment" rendered="{!showAddButton}" styleclass="btn btn-default"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <td width="20%" style="text-align: center;">
+                                    <apex:outputLabel >Created By</apex:outputLabel>
+                                </td>
+                                <td width="20" style="text-align: center;">
+                                    <apex:outputLabel >Created Date</apex:outputLabel>
+                                </td>
+                                <td width="60%" style="text-align: center;">
+                                    <apex:outputLabel >Description</apex:outputLabel> 
+                                </td>
+                                </tr>
+                            <apex:repeat value="{!CaseComments}" var="cs">
+                                <tr>
+                                    <td width="20%" style="text-align: center;">
+                                        <apex:outputField value="{!cs.CreatedBy.Name}"/>
+                                    </td>
+                                    <td width="20%" style="text-align: center;">
+                                        <apex:outputField value="{!cs.CreatedDate}"/>
+                                    </td>
+                                    <td width="60%" style="text-align: center;">
+                                        <apex:outputField value="{!cs.CommentBody}"/> 
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+<!--                        
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Emails"/>
+                        </apex:pageBlock> -->
+<!--                        <table class="table table-hover" style="width:100%;"> -->
+<!--                            <tr> -->
+<!--                                <td width="100%" style="text-align: center;"> -->
+<!--                                    <apex:commandButton action="{!AddCaseComments}" value="Add Comment" styleclass="btn btn-default"/> -->
+<!--                                </td> -->
+<!--                            </tr> -->
+<!--                        </table> -->
+<!--                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <td width="10%" style="text-align: center;">
+                                    <apex:outputLabel >Status</apex:outputLabel>
+                                </td>
+                                <td width="40" style="text-align: center;">
+                                    <apex:outputLabel >Subject</apex:outputLabel>
+                                </td>
+                                <td width="30%" style="text-align: center;">
+                                    <apex:outputLabel >Email Address</apex:outputLabel> 
+                                </td>
+                                <td width="20%" style="text-align: center;">
+                                    <apex:outputLabel >Message Date</apex:outputLabel> 
+                                </td>
+                            </tr>
+                            <apex:repeat value="{!Emails}" var="email">
+                                <tr>
+                                    <td width="10%" style="text-align: center;">
+                                        <apex:outputLabel >{!mapEmailMessageStatus[email.Status]}</apex:outputLabel>
+                                    </td>
+                                    <td width="40" style="text-align: center;">
+                                      <a href="{!$Site.prefix}/{!email.Id}" target="_blank">{!email.Subject}</a> -->
+                                        <!-- <apex:outputLabel >{!email.Subject}</apex:outputLabel> -->
+                                  <!--  </td>
+                                    <td width="30%" style="text-align: center;">
+                                        <apex:outputLabel >{!email.ToAddress}</apex:outputLabel> 
+                                    </td>
+                                    <td width="20%" style="text-align: center;"> -->
+                                     <!-- {!email.MessageDate}<br/> -->
+                                  <!--   <apex:outputText value="{0,date,MM'/'dd'/'yyyy hh:mm a}">
+                                                                                                                                                        <apex:param value="{!email.MessageDate}" />
+                                                                                                                                                    </apex:outputText>
+                                   </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>  -->
+
+                        <apex:pageBlock >
+                            <apex:pageBlockSection title="Attachments"/>
+                        </apex:pageBlock>
+                        <table class="table table-hover" style="width:100%;">
+                            <tr>
+                                <td width="100%" style="text-align: center;">
+                                    <apex:commandButton action="{!AddAttachments}" value="Add Attachments"  rendered="{!showAddButton}" styleclass="btn btn-default"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <td width="20%" style="text-align: center;">
+                                    <apex:outputLabel >Created By</apex:outputLabel>
+                                </td>
+                                <td width="20%" style="text-align: center;">
+                                    <apex:outputLabel >Created Date</apex:outputLabel>
+                                </td>
+                                <td width="60%" style="text-align: center;">
+                                    <apex:outputLabel >Attachment Name</apex:outputLabel> 
+                                </td>
+                            </tr>
+                            <apex:repeat value="{!Attachments}" var="at">
+                                <tr>
+                                    <td width="20%" style="text-align: center;">
+                                        <apex:outputField value="{!at.CreatedBy.Name}"/>
+                                    </td>
+                                    <td width="20%" style="text-align: center;">
+                                        <apex:outputField value="{!at.CreatedDate}"/>
+                                    </td>
+                                    <td width="60%" style="text-align: center;">
+<!--                                        <a target="_self" href="https://c.cs22.content.force.com/servlet/servlet.FileDownload?file={!at.Id}">{!at.Name}</a>  -->
+                                        <a target="_blank" href="{!URLFOR($Action.Attachment.Download, at.Id)}" >{!at.Name}</a>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </div>  
+            </body>
+        </html>
+        <c:ro_footer />
+        <script>
+            function DownloadAttachment(str){
+                //https://c.cs22.content.force.com/servlet/servlet.FileDownload?file=00P17000000ygUy
+                
+            }
+        </script>
+    </apex:form>         
+</apex:page>

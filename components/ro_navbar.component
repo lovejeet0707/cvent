@@ -1,0 +1,64 @@
+<!--Modified By : HSR
+Date : 2nd May 2017
+Description : Commented two tabs "Lanyon Communities" & "Ideas" from the header portion
+-->
+<apex:component controller="ro_navbarController">
+ <apex:attribute name="activeTab" description="active tab name" type="String" required="true"/>
+ 
+ <nav class="navbar navbar-default">
+   <div class="container">
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+        <img src="{!URLFOR($Resource.ro_Resources,'images/Lanyon-Logo_White_TP.png')}"/>
+       <!-- <a class="navbar-brand" href="#"><img src="{!URLFOR($Resource.ro_Resources,'images/Lanyon-Logo_White_TP.png')}"/></a> -->
+     </div>
+     <div id="navbar" class="collapse navbar-collapse">
+       <ul class="nav navbar-nav">
+         <li id="home" class="{!IF(activeTab=='home','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('home','{!$Site.prefix}/apex/ro_Home');">Home</a>
+         </li>
+         <li id="articles" class="{!IF(activeTab=='articles','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('articles','{!$Site.prefix}/apex/ro_Articles?catgroup={!sCategoryGroup}&cat={!sCategory}');">Articles</a>
+         </li>
+         <li id="training" class="{!IF(activeTab=='training','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('training','{!$Site.prefix}/apex/ro_Training');">Training</a>
+         </li>
+         <li id="guides" class="{!IF(activeTab=='guides','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('user guides','{!$Site.prefix}/apex/ro_Documentation');">User Guides</a>
+         </li>
+         <!--HSR : Commented two tabs "Lanyon Communities" & "Ideas" from the header portion-->
+         <!--<li id="lanyoncommunities" class="{!IF(activeTab=='lanyoncommunities','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('lanyon communities','{!$Site.prefix}/_ui/chatter/service/ChatterAnswersUi');">Lanyon Communities</a> 
+         </li>
+         <li id="ideas" class="{!IF(activeTab=='ideas','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('ideas','{!$Site.prefix}/ideas/ideaList.apexp');" >Ideas</a>
+         </li>-->
+         <!--............................ENDS HERE............-->
+         <li id="support" class="{!IF(activeTab=='support','active','')}">
+          <a href="javascript:void(0);" onclick="fNavigate('support','{!$Site.prefix}/apex/ro_Support?catgroup={!sCategoryGroup}&cat={!sCategory}');">Support</a>
+         </li>
+       </ul>
+     </div><!--/.nav-collapse -->
+   </div>
+ </nav>
+ 
+ <script>  
+  categoryGroup = '{!sCategoryGroup}';
+  category = '{!sCategory}';
+  isSite = {!isSite};
+  sitePrefix = '{!SitePrefix}';
+  <apex:repeat value="{!lstTab}" var="tab">
+   lstTab.push("{!tab}");
+  </apex:repeat>
+   
+  if('{!activeTab}' != ''){
+   setCookie('ro_activeMenu','{!activeTab}');
+  }
+ </script>
+ 
+</apex:component>

@@ -1,0 +1,92 @@
+<!-- 
+//////////////////////////////////////
+//      @author Abhishek Pandey     //
+/////////////////////////////////////
+Version :   1.0
+Date : 1st Oct 2014
+Description : Narrow home component for federation Id search. Controller federationIdPageCls
+ -->
+<apex:page controller="federationIdPageCls" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<apex:outputPanel id="Mypanel">
+    
+    <script type="text/javascript">
+    
+    var jsConlist = []; 
+    
+    $(document).ready(function(){
+        $( ".dark" ).hide();
+        $( ".infoMsg" ).hide();
+        setTimeout("$('.InputClassPP').prop('disabled', false);",1000);
+    });
+    
+    var m=0;
+    
+    function values(){
+        var instOfVar = $(".InputClassPP").val();
+        setParams(instOfVar);
+    }
+    function show(){
+        <apex:repeat value="{!lstUsers}" var="con" >          
+            jsConlist.push("{!JSENCODE(con.id)}");    
+            m++;    
+        </apex:repeat>
+        
+        if(m>0){
+            $( ".infoMsg" ).hide();
+            $( ".dark" ).show();
+        }else{
+            $( ".infoMsg" ).show();
+            $( ".infoMsg" ).hide();
+            $( ".infoMsg" ).show();
+            $( ".dark" ).hide();
+        }
+    }
+    
+    </script>
+</apex:outputpanel>
+<style>
+    .dark{
+        width  : 150%;
+        height : 150%;
+    }
+    .infoMsg{
+        color : red;
+        font-weight: bold;
+        font-weight: 900;
+    }   
+</style>       
+    <apex:form >
+    <apex:outputpanel id="panelId" >
+        <apex:inputText value="{!fedIdStr }" size="13" styleClass="InputClassPP" disabled="true" />
+        <apex:commandButton value="Go!" onclick="values()" action="{!test}" rerender="someId" />
+    </apex:outputpanel>
+    <div class='dark'>
+        <apex:pageBlock id="Block" >
+            <apex:pageBlockTable value="{!lstUsers}"  var="instOfUser" id="table" rendered="{!lstUsers.size>0}">
+                <apex:column >
+                    <apex:facet name="header">{!$ObjectType.User.Fields.Name.Label}</apex:facet>
+                    <apex:outputLink target="_blank"  value="/{!instOfUser.id}">{!instOfUser.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">{!IF(userNameFilter,'Username','SAML Federation ID')}</apex:facet>
+                    <apex:outputPanel rendered="{!!userNameFilter}">
+                      <apex:OutputText >{!instOfUser.FederationIdentifier}</apex:OutputText>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!userNameFilter}">
+                       <apex:OutputText >{!instOfUser.Username}</apex:OutputText>
+                    </apex:outputPanel>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </div>
+    <div class='infoMsg'>
+        <apex:OutputText >{!infoMessage}</apex:OutputText>
+    </div>
+    <apex:actionRegion >
+        <apex:actionFunction action="{!search}" name="setParams" oncomplete="show();" rerender="Block,Mypanel,infoMsg">
+            <apex:param name="fedIdStr" assignTo="{!fedIdStr}" value="" />
+        </apex:actionFunction>
+    </apex:actionRegion>
+    </apex:form>
+</apex:page>

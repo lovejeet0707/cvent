@@ -1,0 +1,437 @@
+<apex:page id="mainPage" standardController="Account" extensions="AccountPlanning_ContExt" lightningStylesheets="false" sidebar="false" title="Account Planning (Read_Only)">
+    <style>
+        .loaderBg{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #000;
+        opacity: 0.2;
+        z-index: 999999;
+        }
+        
+        .loader {
+        position:absolute;
+        margin: auto;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 60px;;
+        height: 60px;;
+        left: 0;
+        right:0;
+        top:0;
+        z-index: 9999999;
+        opacity: 1;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }        
+    </style> 
+    <script>
+      function AccountFields(data){
+        var url = 'https://cvent.my.salesforce.com/apex/AccountPlanning_Page?scontrolCaching=1&id='+data.value;
+        window.top.location.href = url
+      }
+    </script>
+    
+    <apex:actionStatus id="spinnerStatus">
+        <apex:facet name="start">
+            <div class="loader" style="margin-top:15%;"/> 
+            <div class="loaderBg"/> 
+        </apex:facet>
+    </apex:actionStatus>
+    <apex:form >
+         <apex:pageBlock id="pageBlock" tabStyle="User" title="Account Planning for {!Account.Name}">   
+           <apex:pageBlockSection >
+            <apex:selectList label="Account" value="{!accName}" size="1" id="values" onchange="AccountFields(this);">
+               <apex:selectOptions value="{!selectedAccNameFields}"></apex:SelectOptions>
+            </apex:selectList>    
+            </apex:pageBlockSection>
+           <apex:pageBlockButtons >                          
+                <apex:commandButton value="Cancel" action="{!Cancel}" immediate="true" style="float:right"/>                
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="General Account Information" columns="2">
+                
+                <apex:pageBlockSectionItem helpText="Lifetime # of Onsites- Source: Activity History">
+                    <apex:outputLabel value="# of Onsites"/>
+                    <apex:outputText value="{!noOfOnsites}" />
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem helpText="Source: Activity History" >   
+                <apex:outputLabel value="Last AM Touchpoint"/>           
+                <apex:outputText value="{0,date,MM/dd/yyyy}">
+                    <apex:param value="{!lastAMTouchPoint}"/>
+                </apex:outputText>
+                </apex:pageBlockSectionItem> 
+                
+                 <apex:pageBlockSectionItem helpText="Over previous 12 months- Source: Gainsight" > 
+                    <apex:outputLabel value="Largest Event"/>
+                    <apex:outputText value="{!customerLargestEvent}"/>
+                </apex:pageBlockSectionItem> 
+                
+                
+                 <apex:pageBlockSectionItem helpText="Source: Buyer Roles"> 
+                    <apex:outputLabel value="Influencer"/>
+                    <apex:outputText value="{!accBuyerRoleInfluencer}"/>
+                </apex:pageBlockSectionItem> 
+                
+                  <apex:pageBlockSectionItem helpText="Launched Events in Previous 12 Months"> 
+                    <apex:outputLabel value="# Launched Events/ Year"/>
+                    <apex:outputText value="{!noOfLauncedEvents}"/>  
+                </apex:pageBlockSectionItem> 
+                                             
+                
+                <apex:pageBlockSectionItem helpText="Source: Buyer Roles"> 
+                <apex:outputLabel value="Decision Maker"/>
+                <apex:outputText value="{!accBuyerRoleDecisionMaker}" />              
+                </apex:pageBlockSectionItem>
+                
+                 
+                <apex:pageBlockSectionItem helpText="Source: Gainsight"> 
+                <apex:outputLabel value="# of Events over 200 Attendees"/>
+                <apex:outputText value="{!noOfEventsGreaterThan200}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Buyer Roles"> 
+                <apex:outputLabel value="Executive Sponsor"/>
+                <apex:outputText value="{!accBuyerRoleExecutiveSponsor}"/> 
+                </apex:pageBlockSectionItem>
+                
+                
+
+                
+                
+                <apex:pageBlockSectionItem helpText="Source: CSR Object" > 
+                    <apex:outputLabel value="Business Goals"/>
+                    <apex:inputTextarea rows="5" style="width: 100%;" value="{!cventBusinessGoals}"/>
+                </apex:pageBlockSectionItem>   
+                
+                             
+                <apex:pageBlockSectionItem > 
+                    <apex:outputLabel value="Account Strategy"/>
+                    <apex:inputTextarea rows="5" style="width: 98%;" value="{!cventAccountStrategy}"/>
+                </apex:pageBlockSectionItem>
+
+                
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Growth Drivers" columns="2">
+                
+                <apex:pageBlockSectionItem helpText="Account:EC Contracted ARR (Client)">
+                <apex:outputLabel value="EC Contracted ARR (Client)"/>
+                <apex:outputText value="{0, number, #,###}">
+                    <apex:param value="{!ROUND(contractedArr,0)}"/>
+                </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="# of Employees >1,000 AND Wallet Share > $100,000 – Source: Business Intelligence">
+                    <apex:outputLabel value="Growth Potential"/>
+                    <apex:inputCheckbox value="{!growthPotential}" disabled="true" />
+                </apex:pageBlockSectionItem>  
+                
+                
+              
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=Event > Contract Term= Current">
+                <apex:outputLabel value="Event Management ARR ($)"/>
+                <apex:outputText value="{0, number, #,###}">
+                    <apex:param value="{!ROUND(eventManagementProducts,0)}"/>
+                </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                
+                <!--<apex:outputText label="Account Assignment Value ($)" value="{0, number, #,###}">
+                    <apex:param value="{!ROUND(accLast12MonthSpent,0)}"/>
+                </apex:outputText>-->  
+                
+                <apex:pageBlockSectionItem helpText="Source: Business Intelligence">
+                    <apex:outputLabel value="# of Employees Range (Parent)"/> 
+                    <apex:outputText value="{!accEmployeeRange }">
+                    </apex:outputText>      
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=CrowdCompass > Contract Term= Current">      
+                    <apex:outputLabel value="CrowdCompass ARR ($)"/>         
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(crowdCompassProducts,0)}"/>
+                    </apex:outputText>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Business Intelligence">
+                    <apex:outputLabel value="Wallet Size ($)"/> 
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(accWalletSize,0)}"/>
+                    </apex:outputText>      
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=Onsite Solutions > Contract Term= Current">
+                    <apex:outputLabel value="Onsite Solutions ARR ($)"/>         
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(onsiteSolutionsProducts,0)}"/>
+                    </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                                
+                 <apex:pageBlockSectionItem helpText="Formula: ($Last 12 month spent/Wallet Size">
+                    <apex:outputLabel value="Penetration"/>
+                    <apex:outputText value=" {!penetrationPercent} %"/>       
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=Survey > Contract Term= Current"> 
+                    <apex:outputLabel value="Inquisium ARR ($)"/>          
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(inquisiumProducts,0)}"/>
+                    </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Formula: (($Last 0-12 month spent- Original Opp Value)/$Original Opp Value">
+                    <apex:outputLabel value="Lifetime Growth"/>
+                    <apex:outputText value=" {!lifeTimeGrowth} %" />
+                </apex:pageBlockSectionItem>   
+                
+               
+                <!--<apex:outputText label="CSN ARR ($)" value="{0, number, #,###}">
+                    <apex:param value="{!ROUND(csnProducts,0)}"/>
+                </apex:outputText> -->
+                
+                 <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=Onsite Solutions > Product Name Includes “LeadCapture” > Contract Term=Current"> 
+                    <apex:outputLabel value="LeadCapture Revenue"/>          
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(LeadCaptureRevenue,0)}"/>
+                    </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Formula: (($Last 0-12 month spent-$Last 13-24 month spent)/$Last 13-24 month spent">
+                    <apex:outputLabel value="YOY Growth"/>
+                    <apex:outputText value=" {!yoyGrowth} %" />
+                </apex:pageBlockSectionItem>        
+                
+               
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Assets > Product Family=Event > Product Name=Cvent Payment Services > Contract Term=Current"> 
+                    <apex:outputLabel value="CPS Revenue"/>          
+                    <apex:outputText value="{0, number, #,###}">
+                        <apex:param value="{!ROUND(CPSRevenue,0)}"/>
+                    </apex:outputText> 
+                </apex:pageBlockSectionItem>
+                
+               
+                
+                             
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Retention Drivers" columns="2">
+                
+                <apex:pageBlockSectionItem helpText="Source: Original NBB Opportunity">
+                    <apex:outputLabel value="Customer Since"/>
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" rendered="{!showfirstNBBDealWithCvent}">
+                        <apex:param value="{!firstNBBDealWithCvent}"/>
+                    </apex:outputText>  
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageBlockSectionItem helpText="Source: Active Subscriptions> Product Name Includes “Integration OR API”">
+                <apex:outputLabel value="Integrations"/>
+                <apex:outputText value="{!integrationProducts}"/>  
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Parent Agreement with Closest End Date" rendered="{!NOT(showfirstNBBDealWithCvent)}">
+                    <apex:outputLabel value="Renewal Date"/>    
+                    <apex:outputText value="Not Applicable - (There is no closed NBB opportunity available.)" />  
+                </apex:pageBlockSectionItem>
+                              
+               
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Parent Agreement with Closest End Date" rendered="{!showOppRenewableDate}">   
+                    <apex:outputLabel value="Renewal Date"/>           
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" >
+                    <apex:param value="{!oppRenewableDate}"/>
+                </apex:outputText>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Parent Agreement with Closest End Date" rendered="{!NOT(showOppRenewableDate)}">
+                <apex:outputLabel value="Renewal Date"/>
+                <apex:outputText value="Not Applicable - (There is no opportunity pending for renewable.)" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Salesforce Account Page">
+                <apex:outputLabel value="Back Office System"/>
+                <apex:outputText value="{!backOfficeSystem}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                <apex:pageBlockSectionItem helpText="Source: Active Parent Agreement">
+                <apex:outputLabel value="Contract Length"/>
+                <apex:outputText value="{!contractLength}"/>   
+                </apex:pageBlockSectionItem>
+                
+               
+                
+                <apex:pageBlockSectionItem helpText="Source: Customer Success Review Object> Status= Conducted">
+                <apex:outputLabel value="CSR Conducted"/>
+                <apex:outputText value="{!isCSRConducted}" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: ARA Object Created= Yes">
+                <apex:outputLabel value="ARA History"/>
+                <apex:outputText label="ARA History" value="{!isAccountHavingARAHistory}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem helpText="Source: Campaign Event Type= Live Event; Status= Attended">
+                <apex:outputLabel value="Attended Cvent Live Event"/>
+                <apex:outputText value="{!isAttendedCustomerEvent}" />
+                </apex:pageBlockSectionItem>
+                
+                
+                
+            </apex:pageBlockSection>
+            
+            
+            
+            <apex:pageBlockSection id="customerLiveEventsSection" title="Customer Live Events Attended" columns="1" rendered="{!IF((showDetailedView && customerLiveEvents.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!customerLiveEvents}" var="camp">
+                    <apex:column headerValue="Name" colspan="5">
+                        <apex:outputLink value="/{!camp.Id}" target="_blank">{!camp.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!camp.Project__c}" colspan="5"/>
+                    <apex:column value="{!camp.StartDate}" colspan="5"/>
+                    <!--<apex:column value="{!camp.Type}"/>
+                    <apex:column value="{!camp.Status}"/>-->
+                </apex:pageBlockTable>
+            </apex:pageBlockSection> 
+            
+            
+            <apex:pageBlockSection id="openOpportunitiesBlockSection" title="Open Opportunities" columns="1" rendered="{!IF((showDetailedView && openOpportunitiesList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!openOpportunitiesList}" var="openOpp">
+                    <apex:column headerValue="Name" width="3%">
+                        <apex:outputLink value="/{!openOpp.Id}" target="_blank">{!openOpp.name}</apex:outputLink>
+                    </apex:column>                    
+                    <apex:column headerValue="Stage" width="2%">
+                        <apex:outputField value="{!openOpp.StageName}"/>
+                    </apex:column>                    
+                    <apex:column headerValue="Net Amount (Opp)" width="2%"> 
+                        <apex:outputText value="{!openOpp.Net_Amount_Opp__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Close Date" width="2%">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!openOpp.CloseDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>  
+            
+            <apex:pageBlockSection id="detailProdViewBlock" title="Purchased Products" columns="1" rendered="{!IF((showDetailedView && oppLineItemList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!cusAssetList}" var="cusAsset">
+                    <apex:column headerValue="Customer Asset #" width="6%">
+                        <apex:outputLink value="/{!cusAsset.Id}" target="_blank">{!cusAsset.Name}</apex:outputLink>
+                    </apex:column>
+                    <!--<apex:column headerValue="Contract #" width="25%">
+                        <apex:outputLink value="/{!cusAsset.Contract__c}" target="_blank">{!cusAsset.Contract__r.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Opportunity" width="20%">
+                        <apex:outputLink value="/{!cusAsset.Contract__r.Primary_Opportunity__c}" target="_blank">{!cusAsset.Contract__r.Primary_Opportunity__r.Name}</apex:outputLink>
+                    </apex:column> commented by udita-->
+                    <apex:column headerValue="Product Name" value="{!cusAsset.Product__c}"/>
+                    <apex:column headerValue="Quantity" value="{!cusAsset.Quantity__c}"/>
+                    <apex:column headerValue="Product Family" value="{!cusAsset.Product__r.Product_Family__c}"/>
+                    <apex:column headerValue="Term End Date" value="{!cusAsset.Term_End_Date__c}"/>
+                    <apex:column headerValue="Total Price" value="{!cusAsset.Annual_Recurring_Revenue__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>  
+            
+            <apex:pageBlockSection id="buyerRolePgBlock" title="Buyer Roles" columns="1" rendered="{!IF((showDetailedView && buyerRoleList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!buyerRoleList}" var="buyerRole">
+                    <apex:column headerValue="Name" width="6%">
+                        <apex:outputLink value="/{!buyerRole.Contact__c}" target="_blank">{!buyerRole.Contact__r.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Executive Sponsor" value="{!buyerRole.Executive_Sponsor__c}" width="2%"/>
+                    <apex:column headerValue="Decision Maker" value="{!buyerRole.Decision_Maker__c}" width="2%"/>
+                    <apex:column headerValue="Influencer" value="{!buyerRole.Influencer__c}" width="2%"/>
+                    <apex:column headerValue="Executive Sponsor - Products" value="{!buyerRole.Executive_Sponsor_Products__c}" width="7%"/>
+                    <apex:column headerValue="Decision Maker - Products" value="{!buyerRole.Decision_Maker_Products__c}" width="7%"/>
+                    <apex:column headerValue="Influencer - Products" value="{!buyerRole.Influencer_Products__c}" width="7%"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection id="araBlockSection" title="ARAs" columns="1" rendered="{!IF((showDetailedView && arasList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!arasList}" var="ara">
+                    <apex:column headerValue="Name" width="1.5%">
+                        <apex:outputLink value="/{!ara.Id}" target="_blank">{!ara.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Primary Contact" width="2%">
+                        <apex:outputField value="{!ara.Primary_Contact__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Renewal Opportunity Value" width="2%"> 
+                        <apex:outputField value="{!ara.Renewal_Opportunity_Value__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Current Account ARR" width="2%">
+                        <apex:outputField value="{!ara.Current_Account_ARR__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="ARA Category" width="2%">
+                        <apex:outputField value="{!ara.ARA_Category__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="ARA Secondary Category" width="2%">
+                        <apex:outputField value="{!ara.Secondary_ARA_Category__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Product Line Impacted" width="2%"> 
+                        <apex:outputField value="{!ara.Product_Line_Impacted__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Severity Level" width="2%">
+                        <apex:outputField value="{!ara.Severity_Level__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Relevant Account History Previous Issue" width="3%">
+                        <apex:outputField value="{!ara.Relevant_Account_History_Previous_Issue__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Status" width="2%">
+                        <apex:outputField value="{!ara.Status__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Created By" width="2%">
+                        <apex:outputField value="{!ara.CreatedBy.Name}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>  
+            
+            <apex:pageBlockSection id="csrBlockSection" title="Customer Success Reviews" columns="1" rendered="{!IF((showDetailedView && customerSuccessReviewList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!customerSuccessReviewList}" var="csrObj">
+                    <apex:column headerValue="Name" width="5%">
+                        <apex:outputLink value="/{!csrObj.Id}" target="_blank">{!csrObj.name}</apex:outputLink>
+                    </apex:column>                    
+                    <apex:column headerValue="Date of Review" width="5%">
+                        <apex:outputField value="{!csrObj.Date_of_Review__c}"/>
+                    </apex:column>                    
+                   <!-- <apex:column headerValue="Opportunity" width="5%"> 
+                        <apex:outputField value="{!csrObj.Opportunity__c}"/>
+                    </apex:column>-->
+                    <apex:column headerValue="Status" width="5%">
+                        <apex:outputField value="{!csrObj.Status__c}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="atiBlockSection" title="Account Transition Information" columns="1" rendered="{!IF((showDetailedView && ATIList.size > 0),true,false)}">
+                <apex:pageBlockTable value="{!ATIList}" var="ati">
+                    <apex:column headerValue="Name" width="5%">
+                        <apex:outputLink value="/{!ati.Id}" target="_blank">{!ati.name}</apex:outputLink>
+                    </apex:column>      
+                    <apex:column headerValue="Previous Process" width="5%"> 
+                        <apex:outputField value="{!ati.Previous_Process__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Role of Events" width="5%">
+                        <apex:outputField value="{!ati.Role_of_Events__c}"/>
+                    </apex:column>                    
+                    <apex:column headerValue="Level of Competency" width="5%">
+                        <apex:outputField value="{!ati.Level_of_Competency__c}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>  
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

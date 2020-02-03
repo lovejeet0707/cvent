@@ -1,0 +1,58 @@
+<apex:page showHeader="false" standardStyleSheets="false" >
+            <html lang="en">
+        <head>      
+            <meta charset="utf-8"/>     
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>      
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>       
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"></script>        
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"></script>-->       
+            <!-- <apex:includeScript value="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"/>     
+            <apex:includeScript value="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"/>        
+            Font -->            
+                
+            <!--<apex:includeScript value="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}"/>        
+            <apex:includeScript value="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}"/>-->         
+            <!--<link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}" rel="stylesheet" type="text/css" />     
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />-->      
+                <script>      
+$(document).ready(function() {
+var userId ="{!$User.Id}";
+
+if(userId == '005o0000001zagpAAA'){
+        $("#helpNowId").hide();
+            $("#guildeLinesId").hide();
+    }
+    });
+    </script>
+        </head>     
+        <body id="articles" class="inner">
+<div style="clear:both;"></div>
+            <footer>
+                <section id="footer" class="pad-topbot-ten">
+                    <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                        
+                        <div class="row col-md-12 footer pad-topbot-ten">
+                            <div class="col-md-3 left-side">
+                                <p>Copyright © Cvent <span class="year">2016</span></p>
+                            </div>
+                            <div class="col-md-5 right-side" style="width:50%;">
+                            <p><apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a href="/apex/CommunityGuidelines" target="_blank" class="blue-link" id="guildeLinesId">Community Guidelines</a> | </apex:actionRegion> 
+                            
+                            <a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank" class="blue-link">Privacy Policy</a> 
+                            
+                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml" target="_blank" class="blue-link">GDPR Sub-Processors</a></apex:actionRegion>
+                            
+                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="/apex/ContactSupport?lang=en_US" target="_blank" class="blue-link" id="helpNowId">Get Help Now</a></apex:actionRegion></p>
+                            </div>                
+                        </div>
+                    </div>
+                </section>
+            </footer>
+            <style>
+            .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}
+              </style>  
+                
+        </body>     
+    </html>
+</apex:page>

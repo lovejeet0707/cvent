@@ -1,0 +1,4 @@
+<apex:page >
+  <apex:scontrol controlName="CVII_RFP"  />
+  {!$CurrentPage.Parameters.retURL}
+</apex:page>

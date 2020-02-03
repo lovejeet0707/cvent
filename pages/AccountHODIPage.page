@@ -1,0 +1,96 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" extensions="AccountHODIPage_Controller" id="pageId">
+ <head>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/jquery-1.8.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/postmessage/jquery.ba-postmessage.js')}"/>
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+        var parent_domain ='{!JSENCODE($CurrentPage.parameters.parent_domain)}';
+        j$(document).ready(function() {
+            j$('input[id$=btnCloseModalDialog]').click(function(event) {
+                event.preventDefault();
+                closeModalDialog();
+            });
+        });
+        j$(document).ready(function() {
+            j$('input[id$=btnCancelModalDialog]').click(function(event) {
+                event.preventDefault();
+                closeModalDialog();
+            });
+        });
+        function closeModalDialog() {
+            var cross_result = new Object();
+            cross_result.action = 'close_modal_dialog';
+            j$.postMessage(
+                cross_result,
+                parent_domain,
+                parent
+            );
+        }
+         function close_pBlock()
+            {
+                 document.getElementById("pageId:formId:pBlock_Id:pbButtonId:submitId").style.display ='none';
+                 document.getElementById("pageId:formId:pBlock_Id:pbSectionId").style.display ='none';
+            }
+    </script>
+</head>
+<style type="text/css">
+.bPageBlock
+{
+    <!--border-top:0;-->
+} 
+</style>
+    <apex:form id="formId">
+        <apex:pageBlock id="pBlock_Id">
+            <apex:outputPanel id="panel1">
+            <strong>
+                <font color="#ff0000" size="2">
+                    
+                        <apex:pagemessages />
+                   
+                </font>
+            </strong>
+             </apex:outputPanel>
+            <apex:pageBlockButtons location="bottom" id="pbButtonId"> 
+                <apex:commandButton value="Submit" action="{!submitForApproval}" rerender="pBlock_Id,panel1" oncomplete="close_pBlock();" status="Status" id="submitId" rendered="{!renderSubmitApp}"/>
+                <apex:commandButton id="btnCancelModalDialog" value="Cancel" rendered="{!showCancel}"/>
+                <apex:commandButton id="btnCloseModalDialog" value="Close" rendered="{!showClose}" onclick="closeModalDialog();"/>
+                <apex:commandButton id="cancelReveseId" value="Cancel Reverse HODI" rendered="{!showCancelReverseHODI}" action="{!CancelReverseHODI}" status="Status" rerender="pBlock_Id,panel1,pbSectionId"/> <!--rendered="{!showClose}" onclick="closeModalDialog();"-->
+                <apex:actionStatus id="Status"> 
+                    <apex:facet name="start">
+                        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                        &nbsp;
+                        </div>
+                        <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                        <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                        <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                        <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                        </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" id="pbSectionId" rendered="{!renderPBS}">
+                    <apex:pageBlockSectionItem >
+                        Approver
+                        <apex:selectList value="{!HODIName}" size="1" required="true">
+                        <apex:selectOptions value="{!HODIList}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        Current Tier
+                        <apex:outputText value="{!currentServiceTier}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        Desired Tier
+                        <apex:selectList value="{!tierName}" size="1" required="true">
+                        <apex:selectOptions value="{!TierList}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        Comment
+                        <apex:inputfield value="{!accRecord[0].HOD_Comment_Dev__c}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

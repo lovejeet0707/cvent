@@ -1,0 +1,378 @@
+<apex:page standardController="Case" extensions="FeedbackCls" sidebar="true" standardStylesheets="true">
+<apex:composition template="CventCommunityHeader"></apex:composition>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <style>
+            .textArea{
+                margin: 0px;
+                width: 648px;
+                height: 360px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".ProductTypeClass").hide(); 
+                $(".ProductTypeClassVal").hide(); 
+                $( '#requiredInIdSec' ).addClass( 'requiredInput' );
+                $( '#requiredInBlockSec' ).addClass( 'requiredBlock' );
+                //$(".ProductTypeClassVal").attr("required","true");
+            });
+            function showHideProd(selValue){
+                //alert(selValue);
+                if(selValue == 'Product' || selValue == 'Service'){
+                    $(".ProductTypeClass").show(); 
+                    $(".ProductTypeClassVal").show();
+                    $( '#requiredInId' ).addClass( 'requiredInput' );
+                    $( '#requiredInBlock' ).addClass( 'requiredBlock' );
+                }else{
+                    $(".ProductTypeClass").hide();
+                    $(".ProductTypeClassVal").hide();
+                    $(".ProductTypeClassVal").val("");
+                    $( '#requiredInId' ).removeClass( 'requiredInput' );
+                    $( '#requiredInBlock' ).removeClass( 'requiredBlock' );
+                }
+            }
+            function showHideProdSec(selValue){
+                if(selValue == ''){
+                    $(".ProductTypeClass").hide();
+                    $(".ProductTypeClassVal").hide();
+                    $(".ProductTypeClassVal").val("");
+                    $( '#requiredInId' ).removeClass( 'requiredInput' );
+                    $( '#requiredInBlock' ).removeClass( 'requiredBlock' );
+                }
+            }
+        </script>
+        <style>
+/* GB STYLES */
+
+
+hr {
+    margin: 0.5em 0;
+}
+
+p {
+    font-size: 1.125em;
+}
+
+.pad-md {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.pad-lg {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+.label {
+    color: #333;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.125);
+}
+
+
+
+.item-article {
+    border-top: 1px solid #eee;
+    margin: 0;
+}
+
+.item-article p {
+    margin-bottom: 0;
+}
+
+.item-article h3 {
+    margin-bottom: 8px;
+}
+
+.result-body .frame {
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.result-body .frame:last-child {
+  padding-bottom: 0;
+}
+
+.create-case {
+    background: #0183EB;
+    padding: 1.5em;
+    color: #fff;
+    border-radius: 3px;
+    margin-bottom: 1.5em;
+}
+
+.create-case h2 {
+    color: #fff;
+}
+
+body .btn, body input.btn {
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+
+}
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.button-blue, .button-blue:visited {
+    color: #fff !important;
+    background: none !important;
+    background-color: #0183EB !important;
+    border-color: transparent !important;
+}
+.button-blue:hover, .button-blue:focus {
+    color: #fff !important;
+    background-color: #0183EB !important;
+    border-color: transparent !important;
+}
+
+.button-outline, .button-outline:visited {
+    color: #fff !important;
+    background: none !important;
+    background-color: none !important;
+    border: 2px solid #fff !important;
+}
+.button-outline:hover, .button-outline:focus {
+    color: #286090 !important;
+    background-color: #fff !important;
+    border-color: #fff !important;
+}
+
+.button-outline-blue, .button-outline-blue:visited {
+    color: #0183EB!important;
+    background: none !important;
+    background-color: none !important;
+    border: 2px solid #0183EB !important;
+}
+.button-outline-blue:hover, .button-outline-blue:focus {
+    color: #fff !important;
+    background-color: #0183EB !important;
+    border-color: #0183EB !important;
+}
+
+.col-centered {
+    margin: 0 auto;
+    float: none;
+}
+
+.textArea {
+    width: 100%;
+}
+
+body .bPageBlock .detailList tr td, body .bPageBlock .detailList tr th, body table.list tr td, body table.list tr th, body .hoverDetail .bPageBlock .detailList tr td, body .hoverDetail .bPageBlock .detailList tr th, body .bEditBlock .pbBottomButtons, body .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons, body .bEditBlock .pbHeader, body .bLayoutBlock .pbHeader, body .apexp .bPageBlock.apexDefaultPageBlock .pbHeader {
+    border: 0 !important;
+}
+
+body .container .apexDefaultPageBlock {
+  background: none !important;
+  border: 0 !important;
+}
+
+.pbHeader {
+  display: none !important;
+}
+
+.apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+  margin: 0 !important;
+}
+
+.bPageBlock .requiredInput .requiredBlock {
+    background-color: #c00;
+    position: absolute;
+    left: 1px;
+    width: 4px !important;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 4px 0 0px 4px !important;
+  }
+   .support-header{
+   background:#ECEFF8;
+   margin-bottom: 30px;
+   }
+   
+   .support-header .container {
+   background: #ECEFF8;
+   padding: 34px 0px 34px 10px
+   }
+   
+   .support-header h2 {
+   font-size: 36px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   font-style: normal;
+   text-rendering: optimizeLegibility;
+   color: #0183EB !important;
+   }
+   
+   table#bodyTable.outer {
+   max-width: 100%;
+   }
+   
+   .outer td.oRight {
+   padding: 0 !important;
+   }
+   
+   h1, h2, h3, h4, h5, h6 {
+    font-family: BrandonTextWeb-Regular, Arial, sans-serif !important;
+}
+
+p, ul, li, span {
+    font-family: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif !important;
+}
+
+.btn-outline {
+    background-color: #fff !important;
+    border: 1.5px solid #0183EB !important;
+    color: #0183EB !important;
+    transition: 0.2s !important;
+    font-weight: bold !important;
+    font-family: BrandonTextWeb-regular !important;
+    padding: 6px 12px !important;
+    background: transparent !important;
+   }
+   
+   .btn-outline:hover {
+    color: #fff !important;
+    background-color: #0183EB !important;
+    border: 1.5px solid #0183EB !important;
+    font-family: BrandonTextWeb-regular !important;
+    }
+
+    body .btn {
+    font-family: brandontextweb-regular !important;
+    }
+
+        </style>
+    </head>
+    <div class="support-header">
+                             <div class="container" style="margin-top: 110px;">
+                                  <h2 >Contact Support</h2>
+                             </div>
+                  </div>
+    
+    <div class="container"> 
+      <div class="row">
+      <div class="col-md-12">
+       <h3>Share Your Feedback</h3>
+       <br />
+       <br />
+       <p>Have a comment or suggestion about our products and services? Enter it here. We review feedback regularly to improve all aspects of our business. 
+<b>Please note:</b> We are unable to reply to these submissions directly. If you require a reply, please <a href="/apex/FindHelp" style="color: #337ab7;">submit a case</a> instead and a Product Consultant will contact you.</p> 
+<br/><br/>
+</div>
+</div>
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 ">
+                <div >
+                    <div  style="margin-bottom: 100px;">
+                        <apex:form styleClass="form">
+                            <apex:PageBlock >
+                                <apex:pageBlockSection columns="1">
+                                    <!--  <div class="row pad-sm">-->
+                                        <!--<div class="col-xs-12">
+                                            <h3>Submit Feedback</h3>
+                                            <hr />
+                                        </div>-->
+                                       <!-- <div class="col-xs-6">
+                                            <h3>Give Feedback</h3><br/>
+                                            <h6>We review feedback regularly to improve all aspects of our business. However, we are unable to reply to any feedback directly. If you need a reply, please <a href="/apex/FindHelp" style="color: #337ab7;">submit a case</a> instead and a Product Consultant will get back to you.</h6>
+                                            <hr />
+                                        </div>-->
+                                    <!--  </div>-->
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            
+                                            <apex:inputField style="width:100%" required="true" value="{!instOfCase.Feedback_Type__c}" onchange="showHideProdSec(this.value);" styleclass="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <apex:inputField required="true" style="width:100%" value="{!instOfCase.Feedback_Driver__c}" onchange="showHideProd(this.value);" styleclass="form-control" />
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <apex:pageBlockSectionItem id="ProductTypeId">
+                                                <apex:outputLabel value="Which product?" styleClass="ProductTypeClass"></apex:outputLabel>
+                                                <apex:outputPanel >
+                                                    <div id="requiredInId">
+                                                        <div  id="requiredInBlock"></div>
+                                                        <apex:inputField style="width:100%" value="{!instOfCase.Product_Type__c}" label="Which product?" styleClass="ProductTypeClassVal form-control"/>
+                                                    </div>
+                                                </apex:outputPanel>
+                                            </apex:pageBlockSectionItem>
+                                        </div>
+                                    </div>
+                                    
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection columns="1">
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel value="Feedback"></apex:outputLabel>
+                                        <apex:outputPanel >
+                                            <div  id="requiredInIdSec">
+                                                <div  id="requiredInBlockSec"></div>
+                                                <apex:inputField style="width:100%" styleclass="textArea form-control" value="{!instOfCase.Description}" label="Feedback"  />
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:pageBlockSectionItem>
+                                </apex:pageBlockSection>
+                                <apex:pageBlockButtons >
+                                    <apex:commandButton action="{!save}" value="Submit" reRender="messages" status="actionStatus" styleclass="button button-blue" />
+                                    <apex:commandButton action="{!cancel}" value="Cancel" reRender="messages" status="actionStatus" styleclass="button button-outline-blue" />
+                                    <button type="button" class="button btn-outline" onclick="location.href='https://support.cvent.com/apex/ContactSupport';" style="margin-bottom: 0px;">See Other Support Options</button>
+                                </apex:pageBlockButtons>
+                            </apex:PageBlock>
+
+
+                            <apex:outputpanel >
+                                 <apex:actionstatus id="actionStatus">
+                                      <apex:facet name="start">
+                                          <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                                               <!-- <div class="waitingHolder" style="top: 74.2px; width: 91px;">-->
+                                              <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                                              <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                                              <span class="waitingDescription">Loading...</span>
+                                              </div>
+                                          </div>
+                                      </apex:facet>
+                                 </apex:actionstatus>
+                             </apex:outputpanel>
+                        </apex:form>             
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+                    
+
+    </div>
+<apex:composition template="CventCommunityFooter"></apex:composition>  
+</apex:page>

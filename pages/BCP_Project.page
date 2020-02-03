@@ -1,0 +1,104 @@
+<apex:page controller="BCP_Project_Class" tabStyle="Current_Status__c" showHeader="false" sidebar="false" title="AM Feature Set - View Mode">
+  <!-- Begin Default Content REMOVE THIS -->
+ <apex:form >
+  <style>
+.activeTab {background-color: #236FBD; color:white; background-image:none}
+.inactiveTab { background-color: lightgrey; color:black; background-image:none}
+</style>
+<style>
+
+TD, TH
+{
+    FONT-SIZE: 8pt;
+    COLOR: #2A3E64;
+    font-family: Verdana
+}
+TR.bgcolor1{
+    border-bottom: 1px solid #9FD0FF;
+    background-color: White;
+}
+INPUT
+{
+    FONT-SIZE: 9px;
+    COLOR: #365187;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+SELECT
+{
+    FONT-SIZE: 8pt;
+    COLOR: #365187;
+    
+}
+TEXTAREA
+{
+    FONT-SIZE: 8pt;
+    COLOR: #365187;
+    border: 1px solid #6382BD;
+}
+</style>
+
+<table border="0" width="80%" id="table11" height="50" align = "Center">
+<tr>
+    <td></td>
+        </tr>
+        <tr>
+    <td></td>
+        </tr>
+<tr>
+<tr>
+
+    <td>
+<table border="0" width="100%" id="table2" height="50">
+    <tr>
+    <td><div class="bPageTitle"><div class="ptBody secondaryPalette"><div class="content"><h2 class="pageDescription"> Parent Account :&nbsp;&nbsp;&nbsp;{!parentaccount}</h2></div> </td>
+        </tr>
+</table>  
+<table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+
+<tr>
+        <td align="center">
+        <apex:commandButton style="" value="       Edit       " action="{!edit}"/> 
+        </td>
+    </tr></table>
+                 
+  <apex:pageBlock title="Status">
+
+<table border="0" width="100%" id="table3" cellspacing="0" cellpadding="0">
+
+
+
+<tr>
+                <td width="20%"  align="left">&nbsp;</td>
+                <td   width="10" align="center">
+                
+                </td>
+                <td align="left">&nbsp;</td>
+            </tr>
+
+
+            <tr>
+                <td width="20%"  align="left"><b>Account Progress</font></b></td>
+                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td align="left"><apex:outputField value="{!account.Account_Progress__c}"/></td>
+                
+            </tr>
+    <tr>
+                <td width="20%"  align="left">&nbsp;</td>
+                <td   width="10" align="center">
+                
+                </td>
+                <td align="left">&nbsp;</td>
+            </tr>        
+ <tr>
+                <td width="20%"  align="left"><b>Progress Details</font></b></td>
+                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td align="left"><apex:outputField value="{!account.BCP_Status__c}"/></td>
+            </tr>
+            </table>
+
+</apex:pageBlock> 
+</td>
+ </tr>
+</table>
+  <!-- End Default Content REMOVE THIS --></apex:form>
+</apex:page>

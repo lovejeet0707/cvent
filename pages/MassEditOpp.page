@@ -1,0 +1,86 @@
+<!--
+/**
+//////////////////////////////////////
+//      @author Abhishek Pandey     //
+/////////////////////////////////////
+Version :   1.0
+Date : 27th October 2014
+ */-->
+<apex:page standardController="Opportunity" extensions="MassEditOppController" recordSetVar="unused" sidebar="false" docType="html-5.0">
+    <apex:includeScript value="{!$Resource.UtilJS}" />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />
+        <apex:pageBlock >
+        Note: All modifications made on the page will be lost if Return button is clicked without clicking the Save button first. 
+        </apex:pageBlock>
+        
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Return" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!selected}" var="opp" id="table">
+            
+                <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                    <apex:outputField value="{!opp.Account.Name}"/>
+                </apex:column>
+                <!-- 
+                <apex:column headerValue="{!$ObjectType.Opportunity.Fields.Name.Label}" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <apex:outputField value="{!opp.Name}"/>
+                </apex:column>-->
+                
+                <apex:column headerValue="Stage">
+                    <apex:inputField value="{!opp.stageName}"/>
+                </apex:column>
+                
+                <apex:column headerValue="{!$ObjectType.Opportunity.Fields.closeDate.Label}">
+                    <apex:inputField value="{!opp.closeDate}"/>
+                </apex:column>
+                
+                <apex:column headerValue="{!$ObjectType.Opportunity.Fields.Years__c.Label}" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <apex:inputField value="{!opp.Years__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Contract Total">
+                    <!--<apex:outputField value="{!opp.Contract_Total_Text__c}"/>-->
+                    <apex:outputText value="${0, number, ###,###,###,##0.00}">  
+                        <apex:param value="{!opp.New_Contract_Total__c}"/>  
+                    </apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Per Reg/Trx Fee" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <!--<apex:outputField value="{!opp.Per_Reg_Trx_Fee_For__c}"/>-->
+                    <apex:outputText value="${0, number, ###,###,###,##0.00}">  
+                        <apex:param value="{!opp.RegTransFee__c}"/>  
+                    </apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="# of Regs/Trx" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <apex:outputField value="{!opp.RegsEvents__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Feature Total Roll-up" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <!--<apex:outputField value="{!opp.Feature_Total_Roll_up_For__c}"/>-->
+                    <apex:outputText value="${0, number, ###,###,###,##0.00}">  
+                        <apex:param value="{!opp.Feature_Total_Roll_up_MCValue__c}"/>  
+                    </apex:outputText>
+                </apex:column>
+                
+                 <apex:column headerValue="Maintenance Fee" rendered="{!IF(boolForEvent==true,true,false)}">
+                    <!--<apex:outputField value="{!opp.Maintenance_Fee_For__c}"/>-->
+                    <apex:outputText value="${0, number, ###,###,###,##0.00}">  
+                        <apex:param value="{!opp.MaintenanceFee__c}"/>  
+                    </apex:outputText>
+                </apex:column>
+                <!--
+                <apex:column headerValue="{!$ObjectType.Opportunity.Fields.New_Type__c.Label}">
+                    <apex:outputField value="{!opp.New_Type__c}"/>
+                </apex:column>-->
+            
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

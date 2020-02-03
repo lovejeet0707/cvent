@@ -1,0 +1,702 @@
+<apex:page standardController="Opportunity" extensions="ShowImplementationSurveyDetailsCtrl" showHeader="false" sidebar="false">
+    <style>
+        #tooltip {
+        position: absolute;
+        z-index: 3000 !important;
+        border: 1px solid #FFA603;
+        background-color: #FEFDB9;
+        padding: 5px;
+        opacity: 1;
+        width:200px;
+        }
+        #tooltip h3, #tooltip div { 
+        font-family: Arial,Helvetica,sans-serif;
+        color: black;
+        margin: 0; 
+        font-size: 75%;
+        font-weight:normal;
+        }
+        .helpButton_cust, .helpButtonOn_cust {
+        position: relative; 
+        width: 16px;
+        height: 15px;
+        background-position:0px 0px;
+        vertical-align:text-bottom;
+        }
+        .helpButtonOn_cust{
+        background-position:20px 0px;
+        }
+        
+        span.spnCustomTool{   display:inline-block; width:16px; height:16px; position:absolute;}
+        .spnCustomTool .tooltip { display:none; position:absolute; width:175px; height:auto; background:#fefdb9; border:1px solid #fda401; padding:5px; top:30px; right:0px; z-index: 1 }
+        .spnCustomTool:hover .tooltip { display:block !important;}
+        td.pbHelp
+        {
+        font-size: 121%;
+        font-weight: bold;
+        }
+        
+        .spinnerBg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.2;
+        z-index: 999999;
+        }
+        .spinner{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url("/img/loading32.gif");
+        background-size: 16px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        z-index: 9999999;
+        opacity: 1;
+        }
+        
+        img:hover
+        {
+        	    background-position: top right !important; 
+        		position:relative;
+        }
+    </style>
+    
+    <!-- SPINNER -->
+    <apex:actionStatus id="spinnerStatus">
+        <apex:facet name="start">
+            <div class="spinnerBg" />
+            <div class="spinner" />
+        </apex:facet>
+    </apex:actionStatus>
+    <!-- / SPINNER --> 
+    <apex:form id="theForm"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $(".pbSubheader").css("background-color","#3399ff");
+            $(".pbSubheader").css("border-color","#3399ff");
+            $(".requiredInput").css("display","inline-block");
+        });
+        </script>
+        <script type="text/javascript"> 
+        //var previousOnload = window.onload; 
+        /* window.onload = function() 
+                { 
+                   onfocus = function(){
+                    location.reload(true)}
+                    showUpload();
+                }
+                */
+        window.onload = showUpload();
+        function showUpload()
+        {
+            var uploadOption = document.querySelector('[id$=":uploadFile');
+            var taxExempt = document.querySelector('[id$=":TaxExempt');
+            if(taxExempt != null)
+            {
+                if(taxExempt.value == "Yes, but certificate on file is expired" || taxExempt.value == "Yes, and we have no certificate on file")
+                {
+                    uploadOption.style.display ="inline-block";
+                }
+                else
+                {
+                    uploadOption.style.display ="none";
+                }
+            }
+            /*
+                    var e = document.querySelectorAll('[id$="TaxExempt"]')[0];
+                    if (e && !e[0].value) 
+                    {
+                        e.remove(1);
+                    } */
+            
+            var e = document.querySelectorAll('[id$="TaxExempt"]')[0];
+            if (e && e != null) 
+            {
+                debugger;
+                if(Boolean(taxExempt[0].text == "--None--"))
+                {
+                    taxExempt.remove(0);
+                }
+                if(Boolean(taxExempt[0].text == "Yes") )
+                {
+                    taxExempt.remove(0);
+                }
+            }
+        }
+        
+        function showUploadExhibit()
+        {
+            var uploadOption = document.querySelector('[id$=":uploadFile2');
+            var multipleShipBillToVar = document.querySelector('[id$=":multipleShipBillTo');
+            if(multipleShipBillToVar != null)
+            {
+                if(multipleShipBillToVar.value == "Yes")
+                {
+                    uploadOption.style.display ="inline-block";
+                }
+                else
+                {
+                    uploadOption.style.display ="none";
+                }
+            }
+        }
+        
+        function showSpecificDetails()
+        {
+            var upgradeAccount = document.querySelector('[id$=":upgradeAccount');
+            var specificDetails = document.querySelector('[id$=":GiveSpecificDetailsPanel');
+            if(upgradeAccount != null)
+            {
+                if(upgradeAccount.value == "Yes")
+                {
+                    specificDetails.style.display ="block";
+                }
+                else
+                {
+                    specificDetails.style.display ="none";
+                }
+            }
+            
+        }
+        
+        function showSourceOpp()
+        {
+            var outlineSpecialVar = document.querySelector('[id$=":outlineSpecial');
+            var sourceOppVar = document.querySelector('[id$=":sourceOpp');
+            if(outlineSpecialVar != null)
+            {
+                if(outlineSpecialVar.value == "Apply Credit Amount")
+                {
+                    sourceOppVar.style.display ="block";
+                }
+                else
+                {
+                    sourceOppVar.style.display ="none";
+                }
+            }
+        }
+        
+        function showSpinner()
+        {
+            document.querySelector('[id$=":spinnerStatus.start').style.display="block";
+        }
+        </script>
+        <apex:pageMessages id="messages" />
+        <apex:pageBlock helpTitle="Survey Guidance and Help: Click Here" helpUrl="{!helpUrl}">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Edit" action="{!EdittheSection}" immediate="true" rendered="{!IF(!editSection && (editSectionExtraCondition || showTaxValidation),true,false)}" rerender="theForm"/>
+                
+                <apex:commandButton value="Save" action="{!OnSave}" onclick="showSpinner();" rendered="{!editSection}" />
+                
+                <apex:commandButton value="Cancel" action="{!OnCancel}" rendered="{!editSection}" immediate="true" html-formnovalidate="formnovalidate" />
+            </apex:pageBlockButtons>
+            
+            <apex:outputPanel id="redirectPanel" >
+                <apex:outputText rendered="{!shouldRedirect}">
+                    <script type="text/javascript">
+                    window.top.location.href = '{!redirectUrl}';
+                    </script>
+                </apex:outputText>
+            </apex:outputPanel>
+            <!-- Non Edit Section -->
+            <apex:pageBlockSection title="Information" columns="1" rendered="{!!editSection}">
+                <apex:pageBlockSection columns="2" showHeader="false" title="PrimarySection">
+                    <apex:repeat value="{!selectedFields}" var="f">
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Source_Opp_for_Credit__c' || f.fieldPath=='Give_Specific_Details__c' || f.fieldPath=='Tax_Exempt__c' || f.fieldPath=='Upload_Tax_Exempt_Cert__c' || f.fieldPath=='Upload_Exhibit__c' || f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate' || f.fieldPath=='Tax_Validation__c' || f.fieldPath=='Sandbox_Account__c',false,true)}">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        
+                        <!-- Source Opp For Credit Field -->
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Source_Opp_for_Credit__c' && implementationSurvey.Outline_Special_Invoicing_Needs__c == 'Apply Credit Amount',true,false)}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Tax_Exempt__c',true,false)}" label="Is the customer tax exempt based on jurisdiction of related shipping address?">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Sandbox_Account__c',true,false)}" label="Provide Existing Account #">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Federal_Tax_ID_VAT_ID_GST_ID__c' && hospitalityCloud,true,false)}" styleClass="labelCol vfLabelColTextWrap  first" style="margin-left: -2px;">
+                            <apex:outputLabel value="US Tax Exempt Customers Repository" for="theFile"/>
+                            <apex:outputLink id="theFile" value="{!$Resource.ExemptionCertificateListOfCustomers}" style="margin-left: 19px;">Click Here To Download</apex:outputLink>
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputPanel>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate') && (contains($Profile.Name,"Contract Implementation")),true,false)}" />
+                    	<apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='Tax_Validation__c') && (contains($Profile.Name,'Finance')),true,false)}">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                         
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="2" showHeader="true" title="Finance Details" rendered="{!eventCloud}">
+                    <apex:repeat value="{!extraAdditionalFieldsEC}" var="f">
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Tax_Exempt__c' || f.fieldPath=='Additional_Comments__c' || f.fieldPath=='Upload_Tax_Exempt_Cert__c' || f.fieldPath=='Upload_Exhibit__c',false,true)}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Tax_Exempt__c',true,false)}" label="Is the customer tax exempt based on jurisdiction of related shipping address?">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Additional_Comments__c',true,false)}" label="Additional Comments for Invoicing">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Federal_Tax_ID_VAT_ID_GST_ID__c',true,false)}" styleClass="labelCol vfLabelColTextWrap  first" style="margin-left: -2px;">
+                            <apex:outputLabel value="US Tax Exempt Customers Repository" for="theFile"/>
+                            <apex:outputLink id="theFile" value="{!$Resource.ExemptionCertificateListOfCustomers}" style="margin-left: 19px;">Click Here To Download</apex:outputLink>
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!IF(hospitalityCloud,'Brand Pages & Microsites (If Applicable)','Additional Details')}" rendered="{!IF(editSection == false && renderAddSection == true,true,false)}">
+                <apex:repeat value="{!additionalFields}" var="f">
+                    <apex:outputField value="{!implementationSurvey[f.fieldPath]}">
+                    <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                    </apex:outputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Live Events (If Applicable)" rendered="{!IF(editSection ==false && renderExtraAddSection == true,true,false)}">
+                <apex:repeat value="{!extraAdditionalFields}" var="f">
+                    <apex:outputField value="{!implementationSurvey[f.fieldPath]}">
+                    <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                    </apex:outputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <!-- Non Edit Section Ends -->
+            
+            <!-- Edit Section -->
+            <apex:pageBlockSection title="Information" columns="1" rendered="{!IF(AND(editSection,NOT(showTaxValidation)),true,false)}">
+                
+                <apex:pageBlockSection columns="2" showHeader="false" title="PrimarySection">
+                    <apex:repeat value="{!selectedFields}" var="f">
+                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='RecordTypeId' || f.fieldPath=='Outline_Special_Invoicing_Needs__c' || f.fieldPath=='K_has_mult_Bill_to_or_Ship_to_addresses__c' || f.fieldPath=='Upload_Exhibit__c' || f.fieldPath=='Source_Opp_for_Credit__c' || f.fieldPath=='Upgrade_account_from_Renewal_Desk_to_AM__c' || f.fieldPath=='Give_Specific_Details__c' || f.fieldPath=='Account__c' || f.fieldPath=='Quote__c' || f.fieldPath=='Upload_Tax_Exempt_Cert__c' || f.fieldPath=='Tax_Exempt__c' || f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate' || f.fieldPath=='Tax_Validation__c' || f.fieldPath=='Sandbox_Account__c',false,true)}" id="sfField"  required="{!OR(f.required, f.dbrequired)}" styleClass="overflow-hide" style="display:inline-block !important;">
+                            <!-- apex:actionSupport rendered="{!IF(f.fieldPath=='Upgrade_account_from_Renewal_Desk_to_AM__c',true,false)}" event="onchange" reRender="GiveSpecificDetails" /-->
+                        	<span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        
+                        <!-- Outline Special Invoicing Needs For HC Starts-->
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Outline_Special_Invoicing_Needs__c',true,false)}" value="{!implementationSurvey[f.fieldPath]}" id="outlineSpecial" required="{!OR(f.required, f.dbrequired)}" onchange="showSourceOpp()">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Source_Opp_for_Credit__c',true,false)}" style="display:none;margin-left: 152px;" id="sourceOpp">
+                            <apex:outputLabel value="{!f.Label}" for="SourceOppField" style="text-align: right;font-size: 91%;font-weight: bold;color: #4a4a56;margin-right: 3.3%;" />
+                            <apex:inputField value="{!implementationSurvey[f.fieldPath]}" id="SourceOppField">
+                                <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                    <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                    <span class="tooltip">
+                                        {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                    </span>
+                                </span>
+                            </apex:inputField>
+                        </apex:outputPanel>
+                         <!-- Outline Special Invoicing Needs For HC Ends-->
+                        
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Upgrade_account_from_Renewal_Desk_to_AM__c',true,false)}" value="{!implementationSurvey[f.fieldPath]}" id="upgradeAccount" onchange="showSpecificDetails()">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Give_Specific_Details__c',true,false)}" id="GiveSpecificDetailsPanel" style="display:none;">
+                            <div style="color:#4a4a56;font-size: 91%;font-weight: bold;display: inline-block !important;padding-left: 22.8%;">
+                                <p style="display: inline-block !important;margin-left: -14%">Give Specific Details</p>
+                                <apex:inputField rendered="{!IF(f.fieldPath=='Give_Specific_Details__c',true,false)}" value="{!implementationSurvey[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}" id="GiveSpecificDetails" style="margin-left: 14%;">
+                                    <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                        <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                        <span class="tooltip">
+                                            {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                        </span>
+                                    </span>
+                                </apex:inputField>
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='RecordTypeId' || f.fieldPath=='Account__c' || f.fieldPath=='Quote__c',true,false)}">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:outputField>
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Sandbox_Account__c',true,false)}" value="{!implementationSurvey[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}" label="Provide Existing Account #">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Tax_Exempt__c',true,false)}" required="{!OR(f.required, f.dbrequired)}" value="{!implementationSurvey.Tax_Exempt__c}" onchange="showUpload();" id="TaxExempt" label="Is the customer tax exempt based on jurisdiction of related shipping address?">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Upload_Tax_Exempt_Cert__c',true,false)}">
+                            <div style="color:#4a4a56;font-size: 91%;font-weight: bold;display: inline-block !important;padding-left: 12%;">
+                                <p style="display: inline-block !important;">Upload Tax Exempt Cert</p>
+                                <apex:inputFile value="{!Attachment.Body}" fileName="{!Attachment.Name}" filesize="{!Attachment.BodyLength}" id="uploadFile" style="padding-left: 5%;display: none;"/>
+                            </div>
+                        </apex:outputPanel>
+                        
+                        <!-- Multiple Bill To/Ship To & Upload Exhibit For HC Starts -->
+                        
+                        <apex:inputField rendered="{!IF(f.fieldPath=='K_has_mult_Bill_to_or_Ship_to_addresses__c',true,false)}" required="{!OR(f.required, f.dbrequired)}" value="{!implementationSurvey.K_has_mult_Bill_to_or_Ship_to_addresses__c}" onchange="showUploadExhibit();" id="multipleShipBillTo">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Upload_Exhibit__c',true,false)}">
+                            <div style="color:#4a4a56;font-size: 91%;font-weight: bold;display: inline-block !important;padding-left: 12%;">
+                                <p style="display: inline-block !important;">Upload Exhibit</p>
+                                <apex:inputFile value="{!Attachment2.Body}" fileName="{!Attachment2.Name}" filesize="{!Attachment2.BodyLength}" id="uploadFile2" style="padding-left: 5%;display: none;"/>
+                            </div>
+                        </apex:outputPanel>
+                        
+                        <!-- Multiple Bill To/Ship To & Upload Exhibit For HC Ends -->
+                        
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Federal_Tax_ID_VAT_ID_GST_ID__c',true,false)}" styleClass="labelCol vfLabelColTextWrap  first" style="margin-left: -2px;">
+                            <apex:outputLabel value="US Tax Exempt Customers Repository" for="theFile"/>
+                            <apex:outputLink id="theFile" value="{!$Resource.ExemptionCertificateListOfCustomers}" style="margin-left: 19px;">Click Here To Download</apex:outputLink>
+                        </apex:outputPanel>
+                        <!--
+                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==true),true,false)}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        -->
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==false,contains($Profile.Name,'Finance')),true,false)}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                            </apex:outputField>
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate') && (contains($Profile.Name,"Contract Implementation")),true,false)}" />
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="2" showHeader="true" title="Finance Details" rendered="{!eventCloud}">
+                    <apex:repeat value="{!extraAdditionalFieldsEC}" var="f">
+                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Tax_Exempt__c' || f.fieldPath=='K_has_mult_Bill_to_or_Ship_to_addresses__c' || f.fieldPath=='Upload_Exhibit__c' || f.fieldPath=='Additional_Comments__c' || f.fieldPath=='Upload_Tax_Exempt_Cert__c' || f.fieldPath=='Outline_Special_Invoicing_Needs__c' || f.fieldPath=='Source_Opp_for_Credit__c',false,true)}">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Tax_Exempt__c',true,false)}" required="{!OR(f.required, f.dbrequired)}" value="{!implementationSurvey.Tax_Exempt__c}" onchange="showUpload();" id="TaxExempt" label="Is the customer tax exempt based on jurisdiction of related shipping address?">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        
+                        <!-- Outline Special Invoicing Needs For EC Starts-->
+                        <apex:inputField rendered="{!IF(f.fieldPath=='Outline_Special_Invoicing_Needs__c',true,false)}" value="{!implementationSurvey[f.fieldPath]}" id="outlineSpecial" required="{!OR(f.required, f.dbrequired)}" onchange="showSourceOpp()">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Source_Opp_for_Credit__c',true,false)}" style="display:none;margin-left: 153px;" id="sourceOpp">
+                            <apex:outputLabel value="{!f.Label}" for="SourceOppField" style="text-align: right;font-size: 91%;font-weight: bold;color: #4a4a56;margin-right: 20px;" />
+                            <apex:inputField value="{!implementationSurvey[f.fieldPath]}" id="SourceOppField">
+                                <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                    <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                    <span class="tooltip">
+                                        {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                    </span>
+                                </span>
+                            </apex:inputField>
+                        </apex:outputPanel>
+                         <!-- Outline Special Invoicing Needs For EC Ends-->
+                        
+                        
+                        <!-- Multiple Bill To/Ship To & Upload Exhibit For EC Starts -->
+                        <apex:inputField rendered="{!IF(f.fieldPath=='K_has_mult_Bill_to_or_Ship_to_addresses__c',true,false)}" required="{!OR(f.required, f.dbrequired)}" value="{!implementationSurvey.K_has_mult_Bill_to_or_Ship_to_addresses__c}" onchange="showUploadExhibit();" id="multipleShipBillTo">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Upload_Exhibit__c',true,false)}">
+                            <div style="color:#4a4a56;font-size: 91%;font-weight: bold;display: inline-block !important;margin-left:189px;">
+                                <p style="display: inline-block !important;">Upload Exhibit</p>
+                                <apex:inputFile value="{!Attachment2.Body}" fileName="{!Attachment2.Name}" filesize="{!Attachment2.BodyLength}" id="uploadFile2" style="margin-left: 22px;display: none;"/>
+                            </div>
+                        </apex:outputPanel>
+                        <!-- Multiple Bill To/Ship To & Upload Exhibit For HC Ends -->
+                        
+                        
+                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Additional_Comments__c',true,false)}" label="Additional Comments for Invoicing">
+                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Federal_Tax_ID_VAT_ID_GST_ID__c',true,false)}" styleClass="labelCol vfLabelColTextWrap  first" style="margin-left: 65px;">
+                            <apex:outputLabel value="US Tax Exempt Customers Repository" for="theFile"/>
+                            <apex:outputLink id="theFile" value="{!$Resource.ExemptionCertificateListOfCustomers}" style="margin-left: 20px;">Click Here To Download</apex:outputLink>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(f.fieldPath=='Upload_Tax_Exempt_Cert__c',true,false)}">
+                            <div style="color:#4a4a56;font-size: 91%;font-weight: bold;display: inline-block !important;margin-left: 140px;">
+                                <p style="display: inline-block !important;">Upload Tax Exempt Cert</p>
+                                <apex:inputFile value="{!Attachment.Body}" fileName="{!Attachment.Name}" filesize="{!Attachment.BodyLength}" id="uploadFile" style="margin-left: 21px;display: none;"/>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="{!IF(hospitalityCloud,LabelForHCCloud,'Additional Details')}" rendered="{!IF(editSection == true && renderAddSection == true && showTaxValidation == false,true,false)}">
+                <apex:repeat value="{!additionalFields}" var="f">
+                    <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Standard_Account__c',false,true)}" required="{!OR(f.required, f.dbrequired)}" styleClass="overflow-hide">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                    </apex:inputField>
+                    <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Standard_Account__c',true,false)}" required="{!OR(f.required, f.dbrequired)}" id="standardAccount">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                    </apex:inputField>
+                    <!--apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='RecordTypeId',true,false)}" /-->
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Live Events (If Applicable)" rendered="{!IF(editSection == true && renderExtraAddSection == true && showTaxValidation == false,true,false)}">
+                <apex:repeat value="{!extraAdditionalFields}" var="f">
+                    <apex:inputField value="{!implementationSurvey[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
+                                </span>
+                            </span>
+                    </apex:inputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Information" rendered="{!IF(editSection == true && showTaxValidation == true,true,false)}">
+                <apex:inputField value="{!implementationSurvey.Tax_Validation__c}" required="true" rendered="{!showTaxValidation}">
+                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText =='','none','inline-block')};">  
+                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
+                                <span class="tooltip">
+                                    {!$ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText}
+                                </span>
+                            </span>
+                        </apex:inputField>
+            </apex:pageBlockSection>
+            <!-- Edit Section Ends -->
+            
+            
+        </apex:pageBlock>
+        <script type="application/javascript">
+        var aTags = document.getElementsByTagName('a');
+        for(var i = 0; i < aTags.length; i++)
+            {
+                if(!aTags[i].title.includes("Lookup (New Window)")){
+            		aTags[i].target = "_parent";
+                    }
+            }
+        
+        var uploadOption = document.querySelector('[id$=":uploadFile');
+        var taxExempt = document.querySelector('[id$=":TaxExempt');
+        if(taxExempt != null)
+        {
+            if(taxExempt.value == "Yes, but certificate on file is expired" || taxExempt.value == "Yes, and we have no certificate on file")
+            {
+                uploadOption.style.display ="inline-block";
+            }
+            else
+            {
+                uploadOption.style.display ="none";
+            }
+        }
+        
+        var uploadOption = document.querySelector('[id$=":uploadFile2');
+        var multipleShipBillToVar = document.querySelector('[id$=":multipleShipBillTo');
+        if(multipleShipBillToVar != null)
+        {
+            if(multipleShipBillToVar.value == "Yes")
+            {
+                uploadOption.style.display ="inline-block";
+            }
+            else
+            {
+                uploadOption.style.display ="none";
+            }
+        }
+        
+        var upgradeAccount = document.querySelector('[id$=":upgradeAccount');
+        var specificDetails = document.querySelector('[id$=":GiveSpecificDetailsPanel');
+        if(upgradeAccount != null)
+        {
+            if(upgradeAccount.value == "Yes")
+            {
+                specificDetails.style.display ="block";
+            }
+            else
+            {
+                specificDetails.style.display ="none";
+            }
+        }
+        
+        var outlineSpecialVar = document.querySelector('[id$=":outlineSpecial');
+        var sourceOppVar = document.querySelector('[id$=":sourceOpp');
+        if(outlineSpecialVar != null)
+        {
+            if(outlineSpecialVar.value == "Apply Credit Amount")
+            {
+                sourceOppVar.style.display ="block";
+            }
+            else
+            {
+                sourceOppVar.style.display ="none";
+            }
+        }
+        
+        var taxExempt = document.querySelectorAll('[id$="TaxExempt"]')[0];
+        if (taxExempt && taxExempt != null) 
+        {
+            debugger;
+            if(Boolean(taxExempt[0].text == "--None--"))
+            {
+                taxExempt.remove(0);
+            }
+            if(Boolean(taxExempt[0].text == "Yes") )
+            {
+                taxExempt.remove(0);
+            }
+        }
+        
+        var allHelpText = document.getElementsByClassName("helpOrb");
+        for(var i = allHelpText.length - 1 ; i >= 0; i--)
+        {
+            allHelpText[i].classList.remove("helpOrb");
+        }
+        
+        var temp = "Flex and Legacy";
+        var mySelect = document.querySelectorAll('[id$="standardAccount"]')[0];
+        debugger;
+        if(mySelect != null)
+        {
+            if(Boolean(mySelect.selectedIndex == 0))
+            {
+                for(var i, j = 0; i = mySelect.options[j]; j++) {
+                    if(i.value == temp) {
+                        mySelect.selectedIndex = j;
+                        break;
+                    }
+                }
+            }
+        }
+        </script>
+    </apex:form>
+    
+</apex:page>

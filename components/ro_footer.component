@@ -1,0 +1,8 @@
+<apex:component controller="ro_footerController" >
+<script type="text/javascript">_satellite.pageBottom();</script>
+ <footer class="footer">
+  <div class="container">
+   <p style="cursor: default;" class="text-muted"><apex:outputText value="{!sCopyright}" escape="false"/></p>
+  </div>
+ </footer><!-- /.footer -->
+</apex:component>

@@ -1,0 +1,173 @@
+<apex:page controller="GDPRController" showHeader="false" sidebar="false" standardStylesheets="true" cache="false">
+    <div id="content" style="width: 900px; margin: 0px auto 0;">  
+        <style>
+            .bPageBlock .detailList tr td, .bPageBlock .detailList tr th, .hoverDetail .bPageBlock .detailList tr td, .hoverDetail .bPageBlock .detailList tr th {
+            border-bottom: 0px solid;
+            }
+            
+            .bPageBlock .detailList .dataCol {
+            width:0%;!important
+            }
+            .bPageBlock .dataCol {
+            padding-left: 0px;
+            padding-right: 0px;
+            }
+            
+            
+            body {
+            background: #eaeaea url('//www.cvent.com/uk/gdpr/img/gdpr-hero-banner.jpg') no-repeat;
+            background-size: cover;
+            }
+            #form-wrap {margin: 10px 0 70px 0;}
+            .top-logo {width:100%; padding: 40px 0;}
+            input.btn {
+            background: #e95325;
+            width: 100%;
+            text-transform: uppercase;
+            margin-top: 0;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            font-size: 21px;
+            font-weight: 400;
+            padding: 14px 30px !important;
+            transition: all ease .3s;
+            border-radius: 0;
+            max-width: 300px;
+            }
+            input.btn:hover {background: #dc5f38;}
+            .bPageBlock .detailList .labelCol {
+            width: 50%;
+            }
+            .bPageBlock .detailList .data2Col {
+            width: 50%;
+            }
+            input[type=text] {width: 100%; max-width: 245px;}
+            
+            .data2Col label {width:}
+            #j_id0\3a GDPRForm\3a j_id4\3a j_id32 > div > table > tbody > tr:nth-child(11) {text-align: center;} 
+            #j_id0\3a GDPRForm\3a j_id4\3a j_id32 > div > table > tbody > tr:nth-child(11) > td {text-align: center;} 
+            #j_id0\3a GDPRForm\3a j_id4\3a j_id32 > div > table > tbody > tr:nth-child(11) > td > fieldset {margin: auto; width: 100px;}
+            #j_id0\3a GDPRForm\3a j_id4\3a j_id53 > div > table > tbody > tr > td:nth-child(2) {width:50% !important; text-align: right; padding-right: 30px;}
+            #j_id0\3a GDPRForm\3a j_id4 > div.pbHeader > table > tbody > tr > td.pbTitle {width: 100%; text-align: center; font-size: 18px;}
+            div.col-left {    width: 48%;
+            text-align: right;
+            padding-right: 20px;
+            float: left;
+            margin-top: 10px;
+            display: inline-block;
+            }
+            
+            .pp {text-align: center; width: 870px; color: #fff;}
+            .pp a {color: #fff; text-decoration: none;}
+            .pp a:hover {color: #fff; text-decoration: underline;}
+        </style>
+        <div class="top-logo">
+            <img src="//www.cvent.com/themes/custom/themekit/logo.svg" alt="Cvent" />
+        </div>
+        <div id="form-wrap">
+            <apex:form id="GDPRForm">
+                <apex:actionFunction name="GetProducts" action="{!GetProducts}" reRender="accInfo,msgs" status="actStatusId" />
+                
+                <apex:actionstatus id="actStatusId">
+                    <apex:facet name="start">
+                        <div class="waitingSearchDiv" id="el_loading" style="background-color: #DCD6D6; height: 100%;opacity:0.65;width:100%;">
+                            <div class="waitingHolder" style="top: 74.2px; width: 91px;">
+                                <img class="waitingImage" src="/img/loading.gif"     title="Please Wait..." />
+                                <span class="waitingDescription">Saving...</span>
+                            </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionstatus>
+                
+                <apex:pageBlock title="Privacy Request Form">
+                    <apex:pageMessages id="msgs"></apex:pageMessages>
+                    
+                    <apex:pageBlockButtons location="bottom" >
+                        <apex:commandButton value="Submit" action="{!submitRequest}" />
+                        <!--<apex:commandButton value="Submit" status="actStatusId" action="{!submitRequest}" oncomplete="window.open('http://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors-reject-thank-you.shtml','_self')" />-->
+                    </apex:pageBlockButtons>      
+                    
+                    
+                    <apex:pageBlockSection columns="1">
+                        <apex:outputLabel style="color:red" styleClass="labelCol vfLabelColTextWrap" >
+                            Note: If you have 5 or more data subjects that you would like to anonymize, please partner with your Customer Success Consultant or Account Manager to start the obfuscation process.If you are unsure who to contact, you can partner with our <a href="https://www.cvent.com/en/contact/cvent-customer-support-hours-and-numbers" target="_blank">support team</a>, who can assist further.
+                        </apex:outputLabel>
+                        <apex:inputField label="*Please enter your name:" value="{!c.Submitter_Name__c}"/>
+                        <apex:inputField label="*Please enter your email:" value="{!c.Submitter_Email__c}"/>
+                        <apex:inputText label="*Requester's (Data Subject's) First Name:" value="{!fName}"/>
+                        <apex:inputText label="*Requester's (Data Subject's) Last Name:" value="{!lName}"/>
+                        <apex:inputField label="*Requester's (Data Subject's) Email:" value="{!c.Requester_s_Email__c}"/>
+                        <apex:inputField label="*Type of request:" value="{!c.GDPR_Type__c}"/>
+                        <apex:selectList id="privacyType" label="Privacy Request type" value="{!privacyType}" size="1">
+                            <apex:selectOption itemValue="GDPR" itemLabel="GDPR"/>
+                            <apex:selectOption itemValue="CCPA" itemLabel="CCPA"/>
+                            <apex:selectOption itemValue="Both" itemLabel="Both"/>
+                        </apex:selectList>         
+                        <apex:inputField id="dataSubjectType"  label="*Select the Data Subject Type" value="{!c.Data_Subject__c}" />
+                        <apex:inputField label="*Please list the date that the data subject submitted their Privacy request:" value="{!c.GDPR_Submitted_Date__c}"/>
+                        
+                        
+                        <apex:outputLabel value="Note: After you confirm this request, Cvent will begin to process. Please work with your Cvent representative on how long it will take to fulfill. Generally, these requests take a minimum of 20 days to process. Any excessive requests may take longer." style="color:red" styleClass="labelCol vfLabelColTextWrap" ></apex:outputLabel>
+                        
+                        
+                        
+                        
+                        <apex:inputField id="prodPick"  label="*Select the products that this request is being made for" value="{!c.Products_Affected_Dev__c}" onchange="GetProducts()"/>
+                        
+                        <apex:outputPanel id="accInfo">
+                            
+                            
+                            <apex:repeat value="{!selectedProdMap}" var="prod">
+                                <apex:pageBlockSection columns="2">
+                                    
+                                    <apex:inputText id="f1" value="{!selectedProdMap[prod].value}" label="{!selectedProdMap[prod].label}" rendered="{!selectedProdMap[prod].isRendered}" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                </apex:pageBlockSection>
+                            </apex:repeat>
+                            
+                            
+                        </apex:outputPanel>
+                        
+                        <apex:actionRegion >
+                            <div class="col-left">
+                                <b style="color:#4a4a55;font-size:91%;">*Any special notes for this Privacy request?</b>
+                            </div>
+                            <div class="col-right">
+                                <apex:selectRadio value="{!showDescription}">
+                                    <apex:actionSupport event="onchange" reRender="description"/>
+                                    <apex:selectOption itemLabel="Yes" itemValue="Yes"></apex:selectOption>
+                                    <apex:selectOption itemLabel="No" itemValue="No"></apex:selectOption>
+                                </apex:selectRadio>
+                            </div>
+                            
+                        </apex:actionRegion>
+                        
+                        <apex:outputPanel id="description">
+                            <apex:outputLabel rendered="{!IF(showDescription=='Yes',true,false)}" value="*Please list details here"/><br/>
+                            <apex:inputTextarea style="width:45%" rendered="{!IF(showDescription=='Yes',true,false)}" value="{!c.Description}"/>
+                        </apex:outputPanel>  
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2">
+                        <td style="text-align: right; width: 50%; padding-right: 30px;">
+                            <b style="color:#4a4a55;font-size:91%">Please select the checkbox to confirm
+                                <br/>
+                                <br/>
+                                A.  You are authorized on behalf of the controller to make this request<br/>
+                                B.  The data is accurate and ready to be processed
+                            </b>
+                        </td>
+                        <apex:inputcheckbox required="true" value="{!agree}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    
+                    
+                </apex:pageBlock>
+                <div class="pp"><p><a style="" href="//www.cvent.com/en/privacy-policy">Privacy Policy</a></p></div>
+            </apex:form>  
+            
+            
+        </div>
+    </div>
+</apex:page>

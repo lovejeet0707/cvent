@@ -1,0 +1,13 @@
+<apex:page sidebar="false">
+    <script>
+        function calc_height() {
+           document.getElementById('advocacy_window').height = {!IF($User.UITheme == 'Theme3', 'window.innerHeight - 220', 'window.innerHeight')};
+        }
+   </script>
+   <style>
+        html body.sfdcBody,
+       .bodyDiv .outerNoSidebar,
+       .bodyDiv .outerNoSidebar .noSidebarCell { padding: 0; }
+   </style>
+   <iframe style="border: 0; outline: 0; width: 100%;" id="advocacy_window" onload="calc_height();" src="https://board.oktopost.com/login-salesforce?orgID={!$Organization.Id}&userID={!$User.Id}&sessionID={!$API.Session_ID}&entURL={!$API.Enterprise_Server_URL_430}&theme={!$User.UITheme}"></iframe>
+</apex:page>

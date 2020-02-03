@@ -1,0 +1,56 @@
+<apex:page standardController="Quality_Checks__c" extensions="qualityCheckController" >
+    <apex:pageMessages id="msgs">
+        </apex:pageMessages>
+    <apex:form >
+        <apex:pageBlock title="Spot Checks for CC" id="thePageBlock" > 
+            
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!qcDone.Mobile_App__c}"/>
+                <!--  <apex:inputField value="{!qcDone.QC_Done_By__c}"/>-->
+                <apex:inputField value="{!qcDone.QC_Done_For__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1">
+            <apex:outputText value="Select the Task Type"></apex:outputText>
+            <apex:selectRadio value="{!quesType}" >
+               <apex:actionSupport event="onchange" reRender="API"/>
+               <apex:selectoptions value="{!types}"></apex:selectoptions>
+            </apex:selectRadio>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="pageBlock2" columns="1">
+            <apex:outputPanel id="API" >
+            <apex:dataList value="{!quesType}" var="c">
+                <h1 align="center"><apex:outputText value="-------------------------------{!c} Questions--------------------------------------------"></apex:outputText><br></br><br></br></h1>
+                <apex:repeat value="{!allQuestions}" var="qPreview" id="ques">
+                         <div style="width:100%">
+                             <apex:outputText value="{!qPreview.question}" id="theValue" rendered="{!qPreview.questionType=c}" style="float:left;width:100%"/>
+                         </div>
+                         <div>
+                             <div style="width:50%;float:left;">
+                                 <apex:selectRadio layout="pageDirection" value="{!qPreview.selectedOption}" id="theRadio" rendered="{!qPreview.questionType=c}" style="width:100%;float:left;">
+                                        <apex:selectOptions value="{!qPreview.singleOptions}"/>
+                                 </apex:selectRadio>
+                             </div>
+                             <div style="width:50%;float:left;">
+                                 <apex:inputTextarea value="{!qPreview.comments}" id="theComment" rendered="{!qPreview.questionType=c}" style="float:left;width:100%;"/>
+                             </div>
+                         </div>
+                </apex:repeat>
+                <apex:outputText value="---------------------------------------------------------------------------"></apex:outputText><br></br>
+            </apex:dataList>
+            </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!submitValues}" value="Save" reRender="msgs" status="actionStatus"/>
+        </apex:pageBlock>
+        <apex:outputpanel >
+        <apex:actionstatus id="actionStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;">
+                    <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" > <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." /> <span class="waitingDescription">Loading...</span> </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputpanel>
+    </apex:form> 
+</apex:page>

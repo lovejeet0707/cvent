@@ -1,0 +1,28 @@
+<apex:component controller="CRM_EmailComponentController" access="global">
+    <!-- Attribute Definitions -->
+    <apex:attribute name="releaseId" description="Id for the CRM Release Record"
+                    type="String" required="true" access="global" assignTo="{!releaseIdCtrl}"/>
+    <apex:attribute name="requestorId" description="Requestor User"
+                    type="String" access="global" assignTo="{!requestorIdCtrl}"/>
+    <apex:attribute name="readyForUAT" description="Filter by projects ready for UAT"
+                    type="Boolean" access="global" assignTo="{!readyForUATCtrl}"/>
+    <apex:attribute name="projectStatus" description="Filter by status"
+                    type="String" access="global" assignTo="{!projectStatusCtrl}"/>
+    <!-- Component Definition -->
+    <table id="cases">
+        <tr> 
+            <th>Project #</th>
+            <th>Description</th>
+            <th>Estimated Effort (in Hours)</th>
+            <th>Requestor</th>
+        </tr>
+        <apex:repeat var="cx" value="{!projects}">
+            <tr>
+                <td><a href="https://cvent.my.salesforce.com/{!cx.id}">{!cx.Project_Name__c}</a></td>
+                <td><apex:outputField value="{!cx.Description__c}"/></td>
+                <td>{!cx.Estimated_Effort_Hours__c}</td>
+                <td>{!cx.Requestor__r.FirstName}&nbsp;{!cx.Requestor__r.LastName}</td>
+            </tr>
+        </apex:repeat>                 
+    </table>
+</apex:component>

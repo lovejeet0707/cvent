@@ -1,0 +1,36 @@
+<apex:page showHeader="false" sidebar="false">
+ <html lang="en">
+  <head>
+   <c:ro_header />
+  </head>
+  <body>
+   <c:ro_navbar activeTab="home"/>
+    <!-- src="/{!$CurrentPage.parameters.kaid}" -->
+    {!URLFOR($Action.KnowledgeArticle.View, $CurrentPage.parameters.kaid)}<br/>
+    
+    <!-- <iframe id="iframeKnowledgeArticle" scrolling="yes" 
+            src="{!URLFOR($Action.KnowledgeArticle.View, $CurrentPage.parameters.kaid,['popup' = 'false'])}"
+            onload="iFrameUIFix();"   
+            style="width:100%;border:none;height:800px;"></iframe> -->
+            
+    <c:ro_footer /> 
+  </body> 
+  <script>
+   function iFrameUIFix(){
+    var cStyle = '.site-header{display:none;}';
+    cStyle += ' .site-footer {display: none;}';
+    cStyle += ' body.hasMotif{margin: 0;}';
+    cStyle += ' body #AppBodyHeader{display:none;}';
+    cStyle += ' #sidebarCell{display:none;}';
+    
+    j$('#iframeKnowledgeArticle').contents().find("head").append(j$("<style type='text/css'>" + cStyle + "</style>"));
+    resizeIframe();
+   }
+   
+   function resizeIframe() {
+    var iFrame = document.getElementById('iframeKnowledgeArticle'); 
+    iFrame.style.height = iFrame.contentWindow.document.body.scrollHeight + 'px';
+   }
+  </script>
+ </html> 
+</apex:page>

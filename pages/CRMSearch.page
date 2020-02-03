@@ -1,0 +1,545 @@
+<apex:page controller="CRMHelpClass"  showHeader="false" sidebar="false">
+
+
+    <head>
+    <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>  <!-- added by Harshit Johar for Client issue fix (1/14/20)-->
+        <!-- <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->                <!-- CDN chages: Commented by Harshit Johar, Github Urls which should not be used (1/14/20) -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>
+         <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+            <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                        
+        <style>
+            .result-body .questions p span.resolved {
+                background: url({!URLFOR($Resource.CommunityAssets2, '/assets/images/resolve.png')}) no-repeat 15px 0 !important;
+            }
+            .product-ctas ul li {list-style-type:none; float:left; margin: 0;}
+            .product-ctas ul li a {padding: 2px 8px 2px 8px !important; display: inline-block;  margin: 0 10px 15px 0 !important; border-radius: 2px !important; line-height: 23px !important; background: #dddee1; color: #000; font-size: 14px !important;}
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+          
+        </style>  
+        
+        <style>
+        
+          
+           body{background:url('https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N000004qZyr') top center no-repeat; background-size:cover; color:#fff !important; }
+       
+        
+        .main-div{width:80%; padding:60px 0; margin:0 auto;}
+        .form-group{width:100%; margin:0 auto;}
+        .crm-logo{text-align:left; width:100%; margin:0 auto; padding:0px 0 20px 0;}
+        .header-content{text-align:center; width:100%; padding:2% 0 40px 0;}
+        .header-content h1{color:#fff; font-size:42px; font-weight:600; line-height:1.4;}
+        .header-content p.lead{color:#fff; font-size:22px; font-weight:300; }
+        .content-title{color:#fff; text-align:left; font-size:20px; margin-bottom:20px; width:auto; display: inline-block;}
+        .glyphicon {padding-right:10px;}
+        .table{background:#fff; width:80%; margin:0 auto; box-shadow:0px 21px 42px -8px #bababa; }
+        
+        .table tr:nth-child(odd) {background: #0d6fb4;}
+          .table tr:nth-child(event) {background: #FFF}
+         .table tr td {font-size:15px; padding:15px !important;}
+          
+       .main-div a {color:#fff !important;}
+       
+       .main-div p{color:#fff !important;}
+       
+       .search{    
+   border: 1px solid #ccc !important;
+background: #fff;
+font-size: 1.25em;
+color: #444;
+width: 58%;
+padding: 11px 11px 11px 27px !important;
+height: 51px;
+box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+border-radius: 28px !important;   
+        }
+        
+   .submit{        
+       background: #d45508 !important;
+border: 0 !important;
+color: #ffffff !important;
+padding: 11px 55px !important;
+text-transform: uppercase !important;
+border-radius: 26px !important;
+
+text-align: center;
+font-size:16px !important;
+font-weight: bold !important;
+margin-left: -51px !important;
+height: 52px;
+        }
+        
+        #search-form{text-align:right; }
+        #filter-popup ul {margin:0; padding:0; list-style:none;}
+        .product-ctas ul {margin:0; padding:0; list-style:none;}
+        .result-container a{color:#ef955f; padding-bottom:10px;}
+        .result-container a:hover{color:#ef955f;}
+        </style>  
+        
+       
+
+        <script type='text/javascript'>
+        function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+            function closeAndRefresh(){
+                var value =  $("#search").val();
+                if(value ==''){
+                    //alert('Please Enter Some Text To Search');
+                }else{
+                    //var url = 'https://cventhelp.force.com/';//location.href;
+                    //url = url +'apex/CommunitysearchResultPage?searchFor='+value;
+                    var caseId = getUrlParameter('id'); 
+                    var url = '/apex/CRMSearch?searchFor='+value+'&id='+caseId;
+                    window.location.href = url ;
+                    return false;
+                }
+            }
+            
+            
+            function highlightAgain(){
+                
+
+            }
+
+        </script>
+<!-- Site Catalyst Code-->
+        <script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function()
+                          {
+var resBox = document.getElementsByClassName("ng-binding");
+var resBoxText = resBox[0].textContent;
+console.log(resBoxText);
+if (resBoxText == "0 results")
+{
+s.linkTrackVars='prop3,eVar12,events';
+s.linkTrackEvents='event251';
+s.events = 'event251';
+//console.log(s.eVar12 + " - " + s.prop3);
+var keyTerm = ("No Result: " +s.eVar12);
+//console.log(keyTerm);
+s.tl(true,'o',keyTerm);
+}
+});
+</script>
+<!--Ends Here-->
+       
+
+        <!-- Angular -->
+
+        <script>
+
+            var app = angular.module('MyForm', ['ui.bootstrap', 'ngResource']);
+
+            app.controller('myCtrl', function ($scope) { 
+
+                //FOR KAV
+
+                $scope.predicate = 'name'; 
+
+                $scope.reverse = true; 
+
+                $scope.currentPage = 1; 
+
+                $scope.order = function (predicate){ 
+
+                    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false; 
+
+                    $scope.predicate = predicate; 
+
+                };
+
+                $scope.KAVS;    
+                $scope.totalItems;
+                $scope.numPerPage;
+                $scope.prodCat = '{!productSel}'; 
+                $scope.ArtType;
+                $scope.Lang;
+                
+                //alert($scope.prodCat);
+                //For spliting the string
+
+                $scope.mySplit = function(string){
+
+                    var array = string.split(';');
+
+                    //alert('Array');
+
+                    //alert(array);
+
+                    return array;
+
+                }
+
+                //For spliting the string
+                
+                $scope.applyfilters =  function(){
+                    $scope.KAVS = [];
+                    $scope.TempKAVS = {!lstSearchResultKAAllStr};
+                    $scope.prodCatTEMP = [];
+                    //alert('prodCat*******'+$scope.prodCat);
+                    if($scope.prodCat)
+                        $scope.prodCatTEMP = $scope.mySplit($scope.prodCat);
+                    //alert('prodCatLength*******'+$scope.prodCatTEMP.length);
+                    angular.forEach($scope.TempKAVS, function(value, key){
+                        if($scope.prodCatTEMP.length == 0){
+                            var counterArt=0;
+                                angular.forEach($scope.prodCatTEMP, function(items, key){
+                                   if(items != null && value.category!= null){
+                                        if(value.category.match(items)){
+                                            counterArt++;
+                                        }
+                                    }
+                                });
+                                if(counterArt > 0)
+                                    $scope.KAVS.push(value);
+                        }else if($scope.prodCatTEMP.length > 0){ 
+                            var counterProd=0;
+                            angular.forEach($scope.prodCatTEMP, function(items, key){
+                               if(items != null && value.category!= null){
+                                    if(value.category.match(items)){
+                                        counterProd++;
+                                    }
+                                } 
+                            });
+                            if(counterProd > 0){
+                                $scope.KAVS.push(value);
+                            }
+                        }
+                    });
+                    //FOR KAV
+                    $scope.predicate = 'name'; 
+                    $scope.reverse = true; 
+                    $scope.currentPage = 1; 
+                    $scope.order = function (predicate){ 
+                        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false; 
+                        $scope.predicate = predicate; 
+                    };
+                    //$scope.KAVS = {!lstSearchResultKAAllStr};     
+                    $scope.totalItems = $scope.KAVS.length; 
+                    $scope.numPerPage = 10;
+                    $scope.paginate = function (value){ 
+                        var begin, end, index; 
+                        begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+                        end = begin + $scope.numPerPage; 
+                        index = $scope.KAVS.indexOf(value); 
+                        return (begin <= index && index < end); 
+                    };
+                    //FOR KAV
+                    //FOR QUES
+                    $scope.predicateQ = 'name'; 
+                    $scope.reverseQ = true; 
+                    $scope.currentPageQ = 1; 
+                    $scope.orderQ = function (predicateQ){ 
+                        $scope.reverseQ = ($scope.predicateQ === predicateQ) ? !$scope.reverseQ : false; 
+                        $scope.predicateQ = predicateQ; 
+                    };
+                    $scope.numPerPageQ = 10;
+                    $scope.paginateQ = function (value){ 
+                        var begin, end, index; 
+                        begin = ($scope.currentPageQ - 1) * $scope.numPerPageQ; 
+                        end = begin + $scope.numPerPageQ; 
+                        index = $scope.QUES.indexOf(value); 
+                        return (begin <= index && index < end); 
+                    };
+                    //FOR QUES
+                    //FOR COUNT
+                    $scope.totalResults = $scope.KAVS.length;//$scope.QUES.length + 
+                    $scope.articleSize = $scope.KAVS.length;
+                    //$scope.quesSize = $scope.QUES.length;
+                    //FOR COUNT
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+                }
+                if($scope.prodCat){
+                    $scope.applyfilters($scope.prodCat);
+                }else{
+                    $scope.KAVS = {!lstSearchResultKAAllStr};
+                    $scope.totalItems = $scope.KAVS.length; 
+                    $scope.numPerPage = 10;
+                    $scope.paginate = function (value){ 
+                        var begin, end, index; 
+                        begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+                        end = begin + $scope.numPerPage; 
+                        index = $scope.KAVS.indexOf(value); 
+                        return (begin <= index && index < end); 
+                    };
+                    //FOR KAV
+                    //FOR QUES
+                    $scope.predicateQ = 'name'; 
+                    $scope.reverseQ = true; 
+                    $scope.currentPageQ = 1; 
+                    $scope.orderQ = function (predicateQ){ 
+                        $scope.reverseQ = ($scope.predicateQ === predicateQ) ? !$scope.reverseQ : false; 
+                        $scope.predicateQ = predicateQ; 
+                    };
+                    //$scope.QUES = {!lstSearchResultQuesStr};     
+                    //$scope.totalItemsQ = $scope.QUES.length; 
+                    //alert($scope.totalItemsQ);
+                    $scope.numPerPageQ = 10;
+                    $scope.paginateQ = function (value){ 
+                        var begin, end, index; 
+                        begin = ($scope.currentPageQ - 1) * $scope.numPerPageQ; 
+                        end = begin + $scope.numPerPageQ; 
+                        index = $scope.QUES.indexOf(value); 
+                        return (begin <= index && index < end); 
+                    };
+                    //FOR QUES
+                    //For Highlighting
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+                    //For Highlighting
+                    //FOR COUNT
+                    $scope.totalResults = $scope.KAVS.length;//$scope.QUES.length +
+                    $scope.articleSize = $scope.KAVS.length;
+                    //$scope.quesSize = $scope.QUES.length;
+                    //FOR COUNT
+                }
+                $scope.$watch('currentPageQ', function(newValue, oldValue) {
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+                });
+                $scope.$watch('currentPage', function(newValue, oldValue) {
+                    //setTimeout(function(){ highlightAgain(); }, 1000);
+                });
+                $scope.updateWithProdCat = function(filterValue){
+                    //alert('prodCategory********'+$scope.prodCat);
+                    //alert('filterValue.target.id********'+filterValue.target.id);
+                    if($('#'+filterValue.target.id).is(":checked")){
+                        //alert('Inside If'+$scope.prodCat);
+                        if($scope.prodCat){
+                            $scope.prodCat = $scope.prodCat + ';' + filterValue.target.id;
+                        }else{
+                            $scope.prodCat = filterValue.target.id;
+                        }
+                    }else{                  
+                        //alert('Inside Else');
+                        var tempVar = $scope.prodCat;
+                        //alert('Inside Else'+tempVar);
+                        var array = $scope.mySplit(tempVar);
+                        $scope.prodCat ='';
+                        for(var i=0; i < array.length; i++){
+                            if(array[i] != filterValue.target.id){
+                                if($scope.prodCat){
+                                    $scope.prodCat = $scope.prodCat + ';' + array[i];   
+                                }else{
+                                    $scope.prodCat = array[i];       
+                                }
+                            }
+                        }
+                    }
+                    //alert($scope.prodCat);
+                    $scope.applyfilters();
+                }
+                $scope.updateWithArtType = function(filterValue){
+                    //alert(filterValue.target.id);
+                    //alert($scope.ArtType);
+                    if($('#'+filterValue.target.id).is(":checked")){                   
+                        if($scope.ArtType){
+                            $scope.ArtType = $scope.ArtType + ';' + filterValue.target.id;
+                        }else{
+                            $scope.ArtType = filterValue.target.id;
+                        }
+                        //$('#'+filterValue.target.id+'div' ).addClass( "productClass" );
+                    }else{
+                        //$('#'+filterValue.target.id+'div' ).removeClass( "productClass" );
+                        var tempVar = $scope.ArtType;
+                        //alert(tempVar);
+                        var array = $scope.mySplit(tempVar);
+                        $scope.ArtType = '';
+                        for(var i=0; i < array.length; i++){
+                            if(array[i] != filterValue.target.id){
+                                if($scope.ArtType){
+                                    $scope.ArtType = $scope.ArtType + ';' + array[i];   
+                                }else{
+                                    $scope.ArtType = array[i];       
+                                }
+                            }
+                        }
+                    }
+                    //alert($scope.ArtType);
+                    $scope.applyfilters();
+                }
+                $scope.updateWithLang = function(filterValue){
+                    if($('#'+filterValue.target.id).is(":checked")){
+                        if($scope.Lang){
+                            $scope.Lang = $scope.Lang + ';' + filterValue.target.id;
+                        }else{
+                            $scope.Lang = filterValue.target.id;
+                        }
+                        //$('#'+filterValue.target.id+'div' ).addClass( "productClass" );
+                    }else{
+                        //$('#'+filterValue.target.id+'div' ).removeClass( "productClass" );
+                        var tempVar = $scope.Lang;
+                       var array = $scope.mySplit(tempVar);
+                        $scope.Lang = '';
+                        for(var i=0; i < array.length; i++){
+                            if(array[i] != filterValue.target.id){
+                                if($scope.Lang){
+                                    $scope.Lang = $scope.Lang + ';' + array[i];   
+                                }else{
+                                    $scope.Lang = array[i];       
+                                }
+                            }
+                        }
+                    }
+                   $scope.applyfilters();
+                }
+            });
+
+        </script>
+
+        <!-- Angular -->
+        
+
+    </head>
+
+<div class="main-div">
+        
+        
+
+    <header>
+        <section class="header pad-topbot-twentyfive">
+            <div class="container">
+                <div class="row col-md-4 reposition">
+                <div class="crm-logo"><img src="https://cvent--sit--c.cs78.content.force.com/servlet/servlet.FileDownload?file=0151k000000584w" alt="crm-logo"/></div>
+                </div>
+                <div class="row col-md-8">
+                    <form id="search-form">
+                        <input type="text" class="search" placeholder="Search the Cvent Community" required="true" id="search" value="" />
+                        <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                    </form>
+                </div>
+            </div>
+        </section>  
+    </header>
+
+   </div>
+
+    <!--<apex:form html-ng-non-bindable="true" id="form">-->
+    <main>
+        <body ng-app="MyForm">
+            <div ng-controller="myCtrl">
+                <section id="article">
+                    <div class="container">
+                        <div class="row">
+                            <div id="filter-popup" class="col-md-3 col-sm-4 filter-col hide-for-mobile">
+                                <div class="side-filter filter-product">
+                                    <p><strong>Filter By Category</strong></p>
+                                    <ul>
+                                        <apex:variable value="{!1}" var="rowNum"/>
+                                        <apex:repeat value="{!lstProdCatCount}" var="instOfCSRP">
+                                            <li>
+                                                <apex:variable var="rowNum" value="{!instOfCSRP.ApiName}"/>
+                                                <input type="checkbox" name="" ng-checked="{!instOfCSRP.show}" value="CSN Planner" id="{!rowNum}" ng-click="updateWithProdCat($event);" />
+                                                <label for="product-planner">{!instOfCSRP.Name}</label>
+                                                <span>({!instOfCSRP.Count})</span>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                </div>
+                                <!--<div class="side-filter filter-article">
+                                    <p><strong>Filter By Team</strong></p>
+                                    <ul>
+                                        <apex:variable value="{!2}" var="rowNumSec"/>
+                                        <apex:repeat value="{!lstarticleTypeCount}" var="instOfArtType">
+                                            <li>
+                                                <apex:variable var="rowNumSec" value="{!instOfArtType.apiName}"/>
+                                                <script>
+                                                    var iiiii;
+                                                    var iiiii = "{!instOfArtType.apiName}"+'div';
+                                                </script>
+                                                <input type="checkbox" name="" value="{!instOfArtType.show}" id="{!rowNumSec}" ng-click="updateWithArtType($event);" />
+                                                <label for="product-planner">{!instOfArtType.Name}</label>
+                                                <span>({!instOfArtType.Count})</span>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                </div>-->
+                                <!--
+                                <div class="side-filter filter-languagee">
+                                    <p><strong>Filter By Language</strong></p>
+                                    <ul>
+                                        <apex:repeat value="{!lstLangCount}" var="instOflang">
+                                            <apex:variable var="rowNumThir" value="{!instOflang.isoLang}"/>
+                                            <li>
+                                                <input type="checkbox" id="{!rowNumThir}" ng-click="updateWithLang($event);" value="{!instOflang.show}"/>
+                                                <label for="language-english">{!instOflang.lang}</label>
+                                                <span>({!instOflang.Count})</span>
+                                            </li>
+                                        </apex:repeat> 
+                                    </ul>
+                                </div>-->
+                            </div>
+                            <div class="col-md-9 col-sm-8 result-body ng-cloak">
+                                <div class="show-on-mobile">
+                                    <p class="filter-btn">Filter</p>
+                                </div>
+                                <div class="results-box">
+                                    <p><strong>{{totalResults}} results</strong> for '{!searchfor}'</p>
+                                </div>
+                                <div class="result-container" style="margin-top:20px;">
+                                    <div class="head">
+                                        <h1>Articles ({{articleSize}})</h1>
+                                    </div>
+                                    <div class="frame" ng-repeat="kav in KAVS | filter:paginate"  ng-bind-html-unsafe="kav.problemStatement">
+                                        <h3><a style="cursor: pointer;" ng-href="/apex/CRMHelpDetail?Id={{kav.recordid}}&searchTerm={!searchfor}&caseId={!caseId}">{{kav.issue}}</a></h3>
+                                        <div class="product-ctas clearfix" style="margin-top:10px;">
+                                            <ul style="list-style-type:none;">
+                                                <!--<li><a class="grey-cta" href="#">{{kav.problemStatement}}</a></li>-->
+                                                <!--<li><a class="grey-cta" href="#">{{kav.product}}</a></li>-->
+                                                <!--<div ng-repeat="n in kav.category">-->
+                                                    <li><a class="grey-cta" href="#">{{kav.categoryName}}</a></li>
+                                                <!--</div>-->
+                                            </ul>
+                                        </div>
+                                        <div style="clear:both;"></div>
+                                        <!--<p>{{kav.resolution}}</p>-->
+                                        
+                                        
+                                        <!--<p class="views">Views : {{kav.doubKAVs}}</p>-->
+                                    </div>
+                                    <pagination total-items="totalItems" ng-model="currentPage" 
+                                        max-size="5" boundary-links="true" 
+                                        items-per-page="numPerPage" class="pagination-sm" ng-click="highlightAgain();"> 
+                                    </pagination>
+                                    <!--<div class="head">
+                                        <p>Questions ({{quesSize}})</p>
+                                    </div>
+                                    <div class="questions" ng-repeat="que in QUES | filter:paginateQ">
+                                        <p><a style="cursor: pointer;" ng-href="/{{que.recordid }}" >{{que.Name}}</a><span class="resolved">Resolved</span></p>
+                                        <p>Is there a way to insert the "yes" and "no" buttons back into my email invitation? <span class="unresolved">Unresolved</span></p>
+                                    </div>
+                                    <pagination total-items="totalItemsQ" ng-model="currentPageQ" 
+                                        max-size="5" boundary-links="true" 
+                                        items-per-page="numPerPageQ" class="pagination-sm" ng-click="highlightAgain();"> 
+                                    </pagination>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </section>
+            </div>
+           
+        </body>
+    </main>
+    
+        
+       
+
+</apex:page>

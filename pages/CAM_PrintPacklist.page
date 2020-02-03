@@ -1,0 +1,116 @@
+<apex:page standardController="Packlist__c" extensions="CAM_PrintPacklist_Extension" lightningStyleSheets="true" standardStylesheets="false" docType="html-5.0" showHeader="false" sidebar="false" title="Packlist: {! thePacklist.Name }">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<apex:slds />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script></script>
+<apex:form >
+    <div class="slds-grid">
+        <div class="slds-col slds-size_3-of-4 slds-box">
+                <apex:outputPanel id="theRequest1">
+                    <div class="slds-text-heading--label slds-m-bottom--small slds-m-left--large slds-m-top--large">Packlist</div>
+                    <div class="slds-text-heading--large slds-m-vertical--large slds-m-left--large">
+                        <apex:outputText >{! thePacklist.Name }</apex:outputText>
+                    </div>
+                </apex:outputPanel>
+        </div>
+        <div class="slds-col slds-size_1-of-4 slds-box">
+            <apex:outputPanel id="theRequest2">
+                <div class="slds-text-heading--label slds-m-bottom--small slds-m-left--large slds-m-top--large">Shipment Date</div>
+                <div class="slds-text-heading--large slds-m-vertical--large slds-m-left--large">
+                    <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                        <apex:param value="{! thePacklist.Date_Shipment__c }" /> 
+                    </apex:outputText>
+                </div>
+            </apex:outputPanel>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-4 slds-box">
+            <apex:outputPanel >
+                <div class="slds-text-heading--label slds-m-left--large slds-m-top--small">Shipped From</div>
+                <div class="slds-text-heading--small slds-m-vertical--x-small slds-m-left--large">
+                    <apex:outputText >{! thePacklist.Cvent_Warehouse__r.Name }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Cvent_Warehouse__r.Address_Line_1__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Cvent_Warehouse__r.Address_Line_2__c }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Cvent_Warehouse__r.City__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Cvent_Warehouse__r.State__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Cvent_Warehouse__r.Zip_Code__c }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Cvent_Warehouse__r.Country__c }</apex:outputText>
+                </div>
+            </apex:outputPanel>
+        </div>
+        <div class="slds-col slds-size_1-of-4 slds-box">
+            <apex:outputPanel >
+                <div class="slds-text-heading--label slds-m-left--large slds-m-top--small">Event Name</div>
+                <div class="slds-text-heading--small slds-m-vertical--x-small slds-m-left--large">
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Event_Name__r.Event_Name__c }</apex:outputText>
+                </div>
+                <div class="slds-text-heading--label slds-m-left--large slds-m-top--small">Cvent Project Manager</div>
+                <div class="slds-text-heading--small slds-m-vertical--x-small slds-m-left--large">
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Event_Name__r.Project_Manager__c }</apex:outputText>
+                </div>
+            </apex:outputPanel>
+        </div>
+        <div class="slds-col slds-size_1-of-4 slds-box">
+            <apex:outputPanel >
+                <div class="slds-text-heading--label slds-m-left--large slds-m-top--small">Attn</div>
+                <div class="slds-text-heading--small slds-m-vertical--x-small slds-m-left--large">
+                        <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Attn__c }</apex:outputText><br/>
+                        <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.C_O__c }</apex:outputText>
+                    </div>
+            </apex:outputPanel>
+        </div>
+        <div class="slds-col slds-size_1-of-4 slds-box">
+            <apex:outputPanel >
+                <div class="slds-text-heading--label slds-m-left--large slds-m-top--small">Shipped To</div>
+                <div class="slds-text-heading--small slds-m-vertical--x-small slds-m-left--large">
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Venue_Name__c }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Address_Line_1__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Address_Line_2__c }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.City__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.State__c }</apex:outputText>&nbsp;<apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Zip_Code__c }</apex:outputText><br/>
+                    <apex:outputText >{! thePacklist.Onsite_Hardware_Request__r.Country__c }</apex:outputText>
+                </div>
+            </apex:outputPanel>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-1">
+            <apex:outputPanel >
+                <apex:pageBlock >
+                    <apex:pageblockSection id="packlist" collapsible="false" columns="1" >
+                        <div class="slds-text-heading--label slds-m-bottom--small slds-m-left--large slds-m-top--large">Items in the Packlist</div>
+                        <!-- outer table to list Asset Types -->
+                        <apex:pageBlockTable value="{! listofAssetTypes }" var="at" id="RequestTable-Outer" styleClass="slds-table slds-table_bordered "  style="table-layout:auto;" width="25%">
+                            <apex:column headerValue="Device" value="{! at }" styleClass="slds-text-heading_medium"/>
+
+                            <!-- inner table to list Items -->
+                            <apex:column >
+                                <apex:pageBlockTable value="{! thePacklist.Onsite_Hardware_Request_Items__r }" var="item" title="Items in this Packlist" id="packlistTable" styleClass="slds-table slds-table_col-bordered"  style="table-layout:auto;">
+                                    <!--apex:repeat var="header" value="{!innerTableHeaders}">
+                                        <apex:column headerValue="{!header}" styleClass="empty-column-content" style="display: none;"/>
+                                    </apex:repeat-->
+                                    <!-- Defining inner-table columns here. Since we show/hide rows based on their values below, the headers keep disaapearing. This way, we add one more set of headers-->
+                                    <apex:column headerValue="Bundle"               width="35%" style="display: none;" headerClass=""/>
+                                    <apex:column headerValue="Group"                width="35%" style="display: none;" headerClass=""/>
+                                    <apex:column headerValue="Packlist Quantity"    width="15%" style="display: none;" headerClass="slds-text-align_right"/>
+                                    <apex:column headerValue="Shipped Quantity"     width="15%" style="display: none;" headerClass="slds-text-align_right"/>
+                                    <!-- using the BreakBefore, we ensure that the dynamic row content aligns with the headers above -->
+    
+                                    <!--apex:column headerValue="Device" 		value="{!item.Cvent_Asset_Type__c }" rendered="{! if(at == item.Cvent_Asset_Type__c , TRUE, FALSE) }"/-->
+                                    <apex:column width="35%" value="{!item.Onsite_Hardware_Request_Bundle__r.Cvent_Asset_Bundle__c }" rendered="{! if(at == item.Cvent_Asset_Type__r.Name , TRUE, FALSE) }" />
+                                    <apex:column width="35%" value="{!item.Cvent_Asset_Group__c} > {!item.Cvent_Asset_Subgroup__c}" rendered="{! if(at == item.Cvent_Asset_Type__r.Name , TRUE, FALSE) }"/>
+                                    <apex:column width="15%" value="{!item.Quantity_to_be_Packed__c }" rendered="{! if(at == item.Cvent_Asset_Type__r.Name , TRUE, FALSE) }" styleClass="slds-text-align_right"/>
+                                    <apex:column width="15%" value="{!item.Shipped_Quantity__c }" rendered="{! if(at == item.Cvent_Asset_Type__r.Name , TRUE, FALSE) }" styleClass="slds-text-align_right"/>
+                                </apex:pageBlockTable>
+                            </apex:column>
+                            
+                        </apex:pageBlockTable>
+                    </apex:pageblockSection>
+                </apex:pageBlock>
+            </apex:outputPanel>          
+        </div>
+    </div>
+    <!--div class="slds-grid">
+        <div class="slds-col slds-size_1-of-1 slds-m-left--large">
+            <apex:image url="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={! URLFOR($Action.Packlist__c.View, thePacklist.id ) }" width="100px" height="100px" title="Scan the code to view the Packlist in Salesforce" />
+        </div>
+    </div-->
+    </apex:form>
+</html>
+</apex:page>

@@ -1,0 +1,251 @@
+<apex:page standardController="Proposal__c" extensions="ProposalDetailAltCls">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+         //alert("{!instOfProp.Product__c}");
+         var oldproductval = "{!instOfProp.Product__c}";
+         if( "{!instOfProp.Product__c}" !== 'Event & Crowd Compass'){
+             $( "#sectionIdSecHeader" ).hide();
+             $( "#sectionIdSec" ).hide();
+             $( "#sectionIdHeader" ).hide();
+         }
+         if(oldproductval.indexOf("Crowd Compass") > -1){
+            if(oldproductval.indexOf("Crowd Compass") > 0){
+                document.getElementById("headerRowVarSec").innerHTML = "Annual Events/Yr";
+                document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+            }else{
+                document.getElementById("headerRowVar").innerHTML = "Annual Events/Yr"; 
+            }
+         }else{
+             document.getElementById("headerRowVarSec").innerHTML = "Annual Registrants/Yr";
+             document.getElementById("headerRowVar").innerHTML = "Annual Registrants/Yr";
+         }
+     });
+    </script>
+    <apex:form >
+        <apex:sectionHeader title="Proposal" subtitle="{!if(instOfProp.Id==null,'New Proposal',instOfProp.Name)}"/>
+        <apex:pageBlock title="Proposal">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" action="{!editNow}"/>
+                <apex:commandButton value="Delete" action="{!deleteNow}"/>
+                <apex:commandButton value="Send Proposal" action="{!sendPropNow}"/>
+            </apex:pageBlockButtons>
+            <apex:PageBlockSection title="Proposal Detail" columns="2">
+                <apex:outputfield value="{!instOfProp.Name}"/>
+                <apex:outputfield value="{!instOfProp.Contact_Name__c}"/>
+                <apex:outputfield value="{!instOfProp.Opportunity_Name__c}"/>
+                <apex:outputfield value="{!instOfProp.Product__c}"/>
+                <apex:outputfield value="{!instOfProp.Account__c}"/>
+            </apex:PageBlockSection>
+            <apex:PageBlockSection title="Fee Strurcture" columns="2">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!$ObjectType.Proposal__c.Fields.Maintenance_Fee__c.label}" />
+                    <apex:outputpanel >   
+                        <apex:outputText value="{!instOfwrapperFS[0].maintenanceFee}"/>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!$ObjectType.Proposal__c.Fields.Usage_Package_Fee__c.label}" />
+                    <apex:outputpanel >   
+                        <apex:outputText value="{!instOfwrapperFS[0].usagePackageFee}"/>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!$ObjectType.Proposal__c.Fields.Maintenance_Fee_Rack__c.label}" />
+                    <apex:outputpanel >   
+                        <apex:outputText value="{!instOfwrapperFS[0].maintenanceFeeRack}"/>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!$ObjectType.Proposal__c.Fields.Usage_Package_Fee_Rack__c.label}" />
+                    <apex:outputpanel >   
+                        <apex:outputText value="{!instOfwrapperFS[0].usagePackageFeeRack}"/>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!$ObjectType.Proposal__c.Fields.Feature_Total_Roll_UP__c.label}" />
+                    <apex:outputpanel >   
+                        <apex:outputText value="{!instOfwrapperFS[0].featureTotalRollUP}"/>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+            </apex:PageBlockSection>
+            <apex:PageBlockSection title="Usage Fee" columns="4">
+                <div id="sectionIdHeader"><b>Event</b></div>
+                <div class="pbBody" id="sectionId">
+                    <table class="list" border="0" cellpadding="00" cellspacing="00">
+                        <thead>
+                            <tr class="headerRow">
+                                <th class="headerRowEmpty" scope="col"> </th>
+                                <th class="headerRowVar" id="headerRowVar" scope="col">Annual Registrants/Yr</th>
+                                <th class="headerRow" scope="col">2nd Year Term</th>
+                                <th class="headerRow" scope="col">3rd Year Term</th>
+                                <th class="headerRow" scope="col">4th Year Term</th>
+                                <!--
+                                    <th class="headerRow" scope="col"></th>
+                                -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].aR1One}" id="aR1One" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].secYearOne}" id="secYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].thirYearOne}" id="thirYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].foryearOne}" id="foryearOne" type="number"></input></span></td>
+                                <!--
+                                <td id="tdFirst" class="dataCell"><span><a onclick="showTr();" href="">Add</a></span></td>
+                                -->
+                            </tr>
+                            <tr>
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].aR1OneSec}" id="aR1OneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].secYearOneSec}" id="secYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].thirYearOneSec}" id="thirYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[0].foryearOneSec}" id="foryearOneSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row1">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].aR1One}" id="aR1Sec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].secYearOne}" id="secYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].thirYearOne}" id="thirYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].foryearOne}" id="foryearSec" type="number"></input></span></td>
+                                <!--<td id="tdSec" class="dataCell"><span><a onclick="showTr();" href="">Add</a><b>/</b><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row1Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].aR1OneSec}" id="aR1SecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].secYearOneSec}" id="secYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].thirYearOneSec}" id="thirYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[1].foryearOneSec}" id="foryearSecSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row2">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].aR1One}" id="aR1Thir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].secYearOne}" id="secYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].thirYearOne}" id="thirYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].foryearOne}" id="foryearThir" type="number"></input></span></td>
+                                <!--
+                                <td id="tdSecThir" class="dataCell"><span><a onclick="showTr();" href="">Add</a><b>/</b><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row2Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].aR1OneSec}" id="aR1ThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].secYearOneSec}" id="secYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].thirYearOneSec}" id="thirYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[2].foryearOneSec}" id="foryearThirSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row3">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].aR1One}" id="aR1For" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].secYearOne}" id="secYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].thirYearOne}" id="thirYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].foryearOne}" id="foryearFor" type="number"></input></span></td>
+                                <!--<td class="dataCell"><span><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row3Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].aR1OneSec}" id="aR1ForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].secYearOneSec}" id="secYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].thirYearOneSec}" id="thirYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[3].foryearOneSec}" id="foryearForSec" type="number"></input></span></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="sectionIdSecHeader"><b>Crowd Compass</b></div>
+                <div class="pbBody" id="sectionIdSec">
+                    <table class="list" border="0" cellpadding="00" cellspacing="00">
+                        <thead>
+                            <tr class="headerRow">
+                                <th class="headerRowEmpty" scope="col"> </th>
+                                <th class="headerRowVarSec" id="headerRowVarSec" scope="col">Annual Registrants/Yr</th>
+                                <th class="headerRow" scope="col">2nd Year Term</th>
+                                <th class="headerRow" scope="col">3rd Year Term</th>
+                                <th class="headerRow" scope="col">4th Year Term</th>
+                                <!--
+                                    <th class="headerRow" scope="col"></th>
+                                -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].aR1One}" id="aR1One" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].secYearOne}" id="secYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].thirYearOne}" id="thirYearOne" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].foryearOne}" id="foryearOne" type="number"></input></span></td>
+                                <!--
+                                <td id="tdFirst" class="dataCell"><span><a onclick="showTr();" href="">Add</a></span></td>
+                                -->
+                            </tr>
+                            <tr>
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].aR1OneSec}" id="aR1OneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].secYearOneSec}" id="secYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].thirYearOneSec}" id="thirYearOneSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[4].foryearOneSec}" id="foryearOneSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row1">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].aR1One}" id="aR1Sec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].secYearOne}" id="secYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].thirYearOne}" id="thirYearSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].foryearOne}" id="foryearSec" type="number"></input></span></td>
+                                <!--<td id="tdSec" class="dataCell"><span><a onclick="showTr();" href="">Add</a><b>/</b><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row1Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].aR1OneSec}" id="aR1SecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].secYearOneSec}" id="secYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].thirYearOneSec}" id="thirYearSecSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[5].foryearOneSec}" id="foryearSecSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row2">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].aR1One}" id="aR1Thir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].secYearOne}" id="secYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].thirYearOne}" id="thirYearThir" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].foryearOne}" id="foryearThir" type="number"></input></span></td>
+                                <!--
+                                <td id="tdSecThir" class="dataCell"><span><a onclick="showTr();" href="">Add</a><b>/</b><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row2Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].aR1OneSec}" id="aR1ThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].secYearOneSec}" id="secYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].thirYearOneSec}" id="thirYearThirSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[6].foryearOneSec}" id="foryearThirSec" type="number"></input></span></td>
+                            </tr>
+                            <tr id="Row3">
+                                <td>Pricing</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].aR1One}" id="aR1For" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].secYearOne}" id="secYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].thirYearOne}" id="thirYearFor" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].foryearOne}" id="foryearFor" type="number"></input></span></td>
+                                <!--<td class="dataCell"><span><a onclick="removeTr();" href="">Remove</a></span></td>
+                                -->
+                            </tr>
+                            <tr id="Row3Sec">
+                                <td>Rack</td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].aR1OneSec}" id="aR1ForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].secYearOneSec}" id="secYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].thirYearOneSec}" id="thirYearForSec" type="number"></input></span></td>
+                                <td class="dataCell"><span><input disabled="disabled" value="{!instOfWrpPF[7].foryearOneSec}" id="foryearForSec" type="number"></input></span></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+                
+            </apex:PageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList list="activityhistories" subject="{!$CurrentPage.parameters.id}" />
+    <apex:relatedList list="CombinedAttachments" subject="{!$CurrentPage.parameters.id}" />
+    <apex:relatedList list="Contract_Years__r" subject="{!$CurrentPage.parameters.id}" />
+</apex:page>

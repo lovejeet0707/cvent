@@ -1,0 +1,21 @@
+<apex:page showHeader="false" sidebar="false" standardController="SBQQ__QuoteLine__c" extensions="CventMyd_QuoteLineJsonController">
+
+    <script>
+
+        var jsonString;
+
+        window.onload = setTimeout(function(){loadJson();}, 100);
+
+        function loadJson() {
+
+            var quoteLineObject = JSON.parse('{!quoteLine.jsonString__c}');
+
+            document.getElementById("preId").innerText = JSON.stringify(quoteLineObject,null,2);
+
+        }
+
+    </script>
+
+    <pre style="font-size:10px;" id="preId">{!quoteLine.jsonString__c}</pre>
+    
+</apex:page>

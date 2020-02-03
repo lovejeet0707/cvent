@@ -1,0 +1,10 @@
+<apex:page showHeader="false" sidebar="false">
+ <html lang="en">
+  <head>
+   <c:ro_header />
+  </head>
+  <body>
+   <c:ro_navbar activeTab="{!IF($CurrentPage.parameters.activeTab!=null,$CurrentPage.parameters.activeTab,'')}"/>
+  </body> 
+	</html> 
+</apex:page>

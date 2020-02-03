@@ -1,0 +1,636 @@
+<apex:page showHeader="true" sidebar="false" controller="CventMyd_ContractAmendmentController">
+
+    <script>
+
+        Visualforce.remoting.timeout = 120000; 
+
+        var amendmentCreationStarted = ('{!amendmentCreationStarted}' == 'true');
+
+        console.log('DEBUG: ' + amendmentCreationStarted);
+
+        var quoteIdString = '';
+
+        var contractApiCallMade = false;
+
+        var secondsBeforeForceRerouting = parseInt('{!secondsBeforeForceReroutingAmendment}');
+
+        var secondsBetweenChecks = 15;
+
+        var statusCheckCount = 0;
+
+        var statusChecksBeforeForceRedirect = Math.floor(secondsBeforeForceRerouting / secondsBetweenChecks);
+
+        window.onload = setTimeout(function(){onLoad();}, 100);
+
+        function onLoad() {
+
+            if(amendmentCreationStarted && !contractApiCallMade) {
+
+                callApexRemotingAction();
+
+            }
+
+        }
+
+        function callApexRemotingAction() {
+
+            try {
+
+                var opportunityIdString = ('{!opportunity.Id}' != '') ? '{!opportunity.Id}': null ;
+
+                console.log('DEBUG: opportunityIdString: ' + opportunityIdString);
+
+                var contractIdString = '{!contractId}';
+
+                console.log('javascript remoting function called');
+
+                console.log('statusCheckCount: ' + statusCheckCount);
+
+                quoteIdString = (typeof quoteIdString === 'undefined') ? '' : quoteIdString;
+
+                console.log('quoteIdString0: ' + quoteIdString);
+
+                console.log('DEBUG: statusChecksBeforeForceRedirect: ' + statusChecksBeforeForceRedirect);
+
+                var sessionIdString = '{!sessionIdString}';
+
+                var lineCount = parseInt('{!lineCount}');
+
+                var maxLineCount = parseInt('{!maxLineCount}');
+
+                console.log('sessionIdString: ' + sessionIdString);
+                
+                Visualforce.remoting.Manager.invokeAction(
+
+                    '{!$RemoteAction.CventMyd_ContractAmendmentController.amendOrCheckAmendmentStatus}',
+
+                    !contractApiCallMade,contractIdString,opportunityIdString,quoteIdString,sessionIdString,lineCount,statusCheckCount,
+
+                    function(result,event) {
+
+                        if(event.status) {
+
+                            console.log('this happened X');
+
+                            console.log('amendmentPageStatus: ' + JSON.stringify(result));
+
+                            contractApiCallMade = true;
+
+                            quoteIdString = (result != null) ? result.quoteIdString : null;
+
+                            console.log('quoteIdString1: ' + quoteIdString);
+
+                            if(quoteIdString != null) {
+
+                                var amendmentQuoteLink = document.getElementById("amendmentQuoteLinkId");
+
+                                var amendmentQuoteLinkP = document.getElementById("amendmentQuoteLinkP");
+
+                                document.getElementById("amendmentQuoteLinkId").href = "/" + quoteIdString;
+
+                                document.getElementById("amendmentQuoteLinkP").style.display = "inline";
+
+                            }
+
+                            if(result != null) {
+
+                                updatePageStatusElements(result);
+
+                            }
+
+                            statusCheckCount++;
+
+                            // console.log('DEBUG: result.outyearLineCount: ' + result.outyearLineCount);
+
+                            console.log('lineCount: ' + lineCount);
+
+                            console.log('DEBUG: {!maxLineCount}: ' + '{!maxLineCount}');
+
+                            if(lineCount > maxLineCount) {
+
+                                statusChecksBeforeForceRedirect = 40;
+
+                                document.getElementById("exceptionMessageDivId").innerText = '{!largeQuoteWarningString}';
+
+                                document.getElementById("exceptionMessageDivId").style.backgroundColor = 'rgb(255, 255, 179)';                              
+
+                            }
+
+                            if(statusCheckCount < statusChecksBeforeForceRedirect ) {
+
+                                console.log('redirect should be occurring: ');
+
+                                if(result != null && result.redirectUrl != null && result.redirectUrl.includes('sb?')) {
+
+                                    document.getElementById("gifId").style.visibility = "hidden";
+
+                                    var redirectUrl = result.redirectUrl.replace('amp;','');
+
+                                    window.location.href = redirectUrl;
+
+                                }
+
+                                else {
+
+                                    console.log('DEBUG: checking amendmentPageStatus');
+
+                                    setTimeout(function(){callApexRemotingAction();}, 5000);
+
+                                }
+
+                            }
+
+                            else if(statusCheckCount >= statusChecksBeforeForceRedirect && !result.redirectUrl.includes('sb?') && quoteIdString != null && quoteIdString != '') {
+
+                                document.getElementById("gifId").style.visibility = "hidden";
+
+                                document.getElementById("exceptionMessageDivId").innerText = '{!recalculationMessageString}';
+
+                                document.getElementById("exceptionMessageDivId").style.backgroundColor = 'rgb(255, 255, 179)';
+
+                                setTimeout(function() {window.location.href = result.redirectUrl;},7000,);
+
+                            }
+
+                            else {
+
+                                setTimeout(function(){callApexRemotingAction();}, 5000);
+
+                            }                
+                    
+                        }
+
+                        else if(event.type === 'exception') {
+
+                            document.getElementById("exceptionMessageDivId").innerText = '{!exceptionMessageString}' + event.message + ' CLASS: ' + event.action + ' METHOD: ' + event.method;
+
+                            document.getElementById("exceptionMessageDivId").style.backgroundColor = 'rgb(245, 251, 58)';
+
+                            document.getElementById("gifId").style.visibility = "hidden";
+
+                            //setTimeout(function(){callApexRemotingAction();}, 5000);
+
+                        }
+
+                        else {
+
+                            document.getElementById("exceptionMessageDivId").innerText = event.message;
+
+                            console.log("this happened Z");
+
+                        }
+
+                    },
+
+                    {escape: true}
+
+                );
+
+            }
+
+            catch(err) {
+
+                document.getElementById("exceptionMessageDivId").innerHTML = '{!exceptionMessageString}' + err.message;
+
+                document.getElementById("exceptionMessageDivId").style.backgroundColor = 'rgb(245, 251, 58)';
+
+            }           
+
+        }
+
+        function updatePageStatusElements(result) {
+
+            var divElementIds = [
+
+                "quoteCreationStatus",
+
+                "currentYearCalculationStatus",
+
+                "outyearCalculationStatus"
+
+            ];
+
+            var quoteObject = result.quoteObject;
+
+            if(result.outyearStatuses != null) {
+
+                result.outyearStatuses.forEach(function(oys) {divElementIds.push(oys.year);});
+
+            }
+
+            divElementIds.forEach(function(divId) {
+
+                console.log('divId: ' + divId);
+
+                var originalText = document.getElementById(divId).innerText;
+
+                console.log('originalText: ' + originalText);
+
+                var originalColor = document.getElementById(divId).style.backgroundColor;
+
+                var isOutyearStatus = (typeof divId == 'number');
+
+                var resultValue;
+
+                console.log('resultValue: ' + resultValue);
+
+                console.log('JSON.stringify(resultValue): ' + JSON.stringify(resultValue));
+
+                if(!isOutyearStatus) {
+
+                  console.log('this happened 0');
+
+                  resultValue = result[divId];
+
+                }
+
+                else {
+
+                  console.log('this happened 1');
+
+                  resultValue = result["outyearStatusMap"][divId]["status"];
+
+                }
+
+                console.log('resultValue: ' + resultValue);     
+
+                if(resultValue != null && originalText != resultValue) {
+
+                    var divElement = document.getElementById(divId);
+
+                    document.getElementById(divId).innerText = resultValue;
+
+                    document.getElementById(divId).style.fontWeight = 900;
+
+                    document.getElementById(divId).style.backgroundColor = updateDivColor(originalColor,resultValue);
+
+                    document.getElementById(divId).style.fontStyle = (divElement.style.fontStyle != "italic") ? "italic" : "normal";
+                  
+                }
+            
+            });
+
+        }
+
+        function updateDivColor(originalColor, resultValue) {
+
+          var greenRgbString = 'rgb(179, 255, 179)';
+
+          var redRgbString = 'rgb(255, 153, 153)';
+
+          if(resultValue.includes('omplete') || resultValue.includes('ot Needed')) {
+
+            return greenRgbString;
+            
+          }
+
+          else {
+
+            return redRgbString;
+            
+          }
+
+        }
+    
+    </script>
+
+    <apex:slds />
+
+    <body>
+
+        <apex:variable value="foo" var="foo" rendered="{!NOT(ISNULL(opportunity))}" id="varId4">
+
+            <p style="font-weight:bold; text-decoration:underline;" class="slds-text-body_small slds-line-height_reset"><a target="_blank" href="/{!opportunity.Id}">Link to Amendment Opportunity</a></p>
+
+        </apex:variable>   
+        
+        <apex:variable value="foo" var="foo" rendered="{!NOT(ISNULL(cannotAmendString))}" id="varId5">
+
+            <p style="font-weight:bold; text-decoration:underline;" class="slds-text-body_small slds-line-height_reset"><a target="_blank" href="/{!amendedContract.Id}">Link to Child Contract</a></p>
+
+            <div style="width: 50%; margin: 0px auto;" id="gifId1">
+                
+                {!cannotAmendString}
+
+                <br/>
+
+                <img src="https://media.giphy.com/media/iN1aMj0XwhsNq/giphy.gif" title="datSlowpokeDoa" />
+
+            </div>            
+
+        </apex:variable>
+
+        <apex:variable value="foo" var="foo" rendered="{!AND(NOT(amendmentCreationStarted),ISNULL(cannotAmendString))}" id="varId0">       
+
+            <div class="slds-scope">
+            
+                <apex:form id="formId">
+
+                    <div class="slds-media">
+                       
+                      <div class="slds-media__body">
+
+                        <br/>
+                          
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="name">{!opportunity.Name} - Amend Child Contracts</h1>
+                          
+                      </div>
+                       
+                    </div>          
+                
+                    <table class="slds-table slds-table_bordered" style="table-layout:fixed;">
+                    
+                      <thead>
+
+                        <tr class="slds-text-title_caps">
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="isSelected">Opportunity Name</div>
+
+                          </th>
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="File">Contract Type</div>
+
+                          </th>               
+
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="File">Contract Number</div>
+
+                          </th>
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="Created Date">Start Date</div>
+
+                          </th>
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="Created Date">End Date</div>
+
+                          </th>
+
+                          <th scope="col">
+
+                            <div class="slds-truncate" title="Created Date"></div>
+
+                          </th>                                       
+
+                        </tr>
+
+                      </thead>          
+                      
+                      <tbody>
+
+                        <apex:repeat value="{!childContracts}" var="cc">
+
+                          <tr>
+
+                            <td data-label="oppName">
+
+                                <div class="slds-truncate" title="{!cc.SBQQ__Opportunity__r.Name}">{!cc.SBQQ__Opportunity__r.Name}</div>
+
+                            </td>
+
+                            <td data-label="File">
+
+                              <div class="slds-truncate" title="{!cc.Name}">{!cc.RecordType.Name}</div>
+
+                            </td>
+
+                            <td data-label="File">
+
+                              <div class="slds-truncate" title="{!cc.Name}">{!cc.ContractNumber}</div>
+
+                            </td>
+
+                            <td data-label="File">
+
+                              <div class="slds-truncate" title="{!cc.Name}"><apex:outputText value="{0, date, MMMM d','  yyyy}"><apex:param value="{!cc.StartDate}"/> </apex:outputText></div>
+
+                            </td>
+
+                            <td data-label="File">
+
+                              <div class="slds-truncate" title="{!cc.Name}"><apex:outputText value="{0, date, MMMM d','  yyyy}"><apex:param value="{!cc.EndDate}"/></apex:outputText></div>
+
+                            </td>   
+
+                            <td data-label="File">
+
+                              <div class="slds-truncate" title="{!cc.Name}">
+                                
+                                <apex:commandLink action="{!clickAmendContract}" value="Amend this Contract">
+
+                                    <apex:param name="contractIdString" value="{!cc.Id}"/>
+
+                                </apex:commandLink>
+
+                              </div>
+
+                            </td>                                                           
+
+                          </tr>
+
+                        </apex:repeat>
+
+                      </tbody>
+
+                    </table>  
+
+                </apex:form>
+
+            </div>
+
+        </apex:variable>
+
+        <apex:variable value="foo" var="foo" rendered="{!amendmentCreationStarted}" id="varId1">
+
+            <div style="width: 600px;">
+
+                <div id="exceptionMessageDivId" style="color:red; font-weight:bold; text-decoration: underline; text-align:left;" class="slds-scope"></div>
+
+                <div class="slds-scope">
+
+                    <p style="font-weight:bold; text-decoration:underline;" class="slds-text-body_small slds-line-height_reset">
+
+                        <a target="_blank" href="/{!contractId}">Link to Child Contract</a>
+
+                    </p>        
+
+                    <p style="font-weight:bold; text-decoration:underline; display:none;" id="amendmentQuoteLinkP" class="slds-text-body_small slds-line-height_reset">
+
+                        <a target="_blank" id = "amendmentQuoteLinkId" href="/{!contractId}">Link to Amendment Quote</a>
+
+                        <br/>
+
+                    </p>    
+
+                </div>  
+
+                <br/>           
+
+                <div style="text-align:center;">
+
+                    Your amendment quote is being generated and processed. Please wait. Thanks for your patience.
+
+                </div>
+
+                <div style="text-align:center;">
+
+                    Stay on this page to be redirected automatically. A link to your quote will appear above.
+
+                </div>              
+
+                <br/>
+
+                <table class="slds-table slds-table_bordered" style="table-layout:fixed;">
+                
+                    <thead>
+
+                        <tr align="center" class="slds-text-title_caps">
+
+                            <th style="font-weight:bold; background-color:rgb(0, 17, 51); color:white; text-align:center;" align="center" colspan="2">
+
+                                Amendment Quote Creation
+
+                            </th>
+
+                        </tr>
+
+                        <tr class="slds-text-title_caps">
+
+                          <th style="text-align:center; font-weight:900;" scope="col">
+
+                            <div class="slds-truncate" title="isSelected">Job</div>
+
+                          </th>
+
+                          <th style="text-align:center; font-weight:900;" scope="col">
+
+                            <div class="slds-truncate" title="File">Status</div>
+
+                          </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody> 
+
+                        <tr>
+
+                            <td style="text-align:center; font-weight:bold;" data-label="oppName">
+
+                                <div class="slds-truncate" title="blah">Quote Creation</div>
+
+                            </td>
+
+                            <td style="text-align:center;" data-label="File">
+
+                                <div style="background-color:rgb(255, 153, 153); font-weight:bold;" id="quoteCreationStatus" class="slds-truncate" title="asdf">In Progress</div>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="text-align:center; font-weight:bold;" data-label="oppName">
+
+                                <div class="slds-truncate" title="blah">Current Year Calculations</div>
+
+                            </td>
+
+                            <td style="text-align:center;" data-label="File">
+
+                                <div style="background-color:rgb(255, 153, 153); font-weight:bold;" id="currentYearCalculationStatus" class="slds-truncate" title="asdfd">In Progress</div>
+
+                            </td>
+
+                        </tr>                   
+
+                    </tbody>
+
+                </table>
+
+                <table class="slds-table slds-table_bordered" style="table-layout:fixed;">
+
+                    <tr><td class="slds-text-title_caps" style="font-weight:bold; background-color:rgb(0, 17, 51); color:white; text-align:center;" align="center" colspan="2">Outyear Calculations</td></tr>
+                    
+                    <tr class="slds-text-title_caps">
+
+                      <td style="text-align:center; font-weight:bold;" scope="col">
+
+                        <div class="slds-truncate" title="isSelected">Item</div>
+
+                      </td>
+
+                      <td style="text-align:center; font-weight:bold;" scope="col">
+
+                        <div class="slds-truncate" title="File">Status</div>
+
+                      </td>
+
+                    </tr>
+                
+                    <tr>
+
+                        <td style="text-align:center; font-weight:bold;" data-label="oppName">
+
+                            <div class="slds-truncate" title="blah">Overall Status</div>
+
+                        </td>
+
+                        <td style="text-align:center;" data-label="File">
+
+                            <div style="background-color:rgb(255, 153, 153); font-weight:bold;" id="outyearCalculationStatus" class="slds-truncate" title="asdf">In Progress</div>
+
+                        </td>
+
+                    </tr>
+
+                    <apex:repeat value="{!outyearStatuses}" var="oys">
+
+                        <tr>
+
+                            <td style="text-align:center; font-weight:bold;" data-label="oppName">
+
+                                <div class="slds-truncate" title="blah">{!oys.outyearName}</div>
+
+                            </td>
+
+                            <td style="text-align:center;" data-label="File">
+
+                                <div style="background-color:rgb(255, 153, 153); font-weight:bold;" id="{!oys.year}" class="slds-truncate" title="asdf">Not Yet Started</div>
+
+                            </td>
+
+                        </tr>   
+
+                    </apex:repeat>
+
+                </table>                
+
+                <br/>
+
+                <div style="width: 50%; margin: 0px auto;" id="gifId">                         
+
+                    <img src="https://zippy.gfycat.com/SkinnySeveralAsianlion.gif" title="datSlowpokeDoe" />
+
+                </div>
+
+                <br/>   
+
+            </div>      
+
+        </apex:variable>
+
+    </body>
+
+</apex:page>

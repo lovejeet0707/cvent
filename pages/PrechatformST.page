@@ -1,0 +1,470 @@
+<apex:page showHeader="false" id="newcventlogo">
+    <!-- <apex:composition template="CventCommunityHeader"></apex:composition> -->
+    <style type="text/css">
+        .boldify {
+            font-weight: bolder;
+        }
+
+        .apexp .bPageBlock p {
+            width: 150px;
+            float: left
+        }
+
+        .apexp {
+            width: 460px;
+        }
+
+        input {
+            border: 1px solid #CCCCCC;
+            border-radius: 5px 5px 5px 5px;
+            padding: 5px;
+            width: 256px;
+        }
+
+        select {
+            margin: 0px 0 0;
+            padding: 10px 0;
+            width: 252px;
+        }
+
+        select {
+            height: 32px;
+        }
+
+        textarea {
+            padding: 5px;
+        }
+
+        .pbBody {
+            margin-top: 0;
+        }
+
+        body .bPageBlock {
+            border-top-width: 1px;
+            border-color: #eeeeee;
+            margin: 10px 20px 20px;
+            padding: 10px 0;
+            width: 445px;
+            font-size: 12px !important;
+            background: #f8f8f8 !important;
+            border-radius: 4px 4px 4px 4px !important;
+        }
+
+        select {
+            padding: 2px 1px 2px 4px;
+            border: 1px solid #CCCCCC;
+            border-radius: 5px 5px 5px 5px;
+
+        }
+
+        img {
+            border: 0 none;
+            margin: 10px 0 0 20px;
+        }
+
+        div.label {
+            color: #2485b3;
+            float: left;
+            font-size: 12px !important;
+            font-weight: bold;
+            padding: 9px 0 0;
+            width: 135px;
+        }
+
+        div.input-box {
+            float: left;
+        }
+
+        .field-box {
+            margin-bottom: 20px;
+        }
+
+        p.intro {
+            clear: both;
+            color: #666666;
+            font-size: 12px !important;
+            font-style: italic;
+            line-height: 130%;
+            margin-top: 0;
+            width: 410px !important;
+        }
+
+        form {
+            clear: both;
+            padding: 10px 0 0 !important;
+        }
+
+        input.desc {
+            height: 200px !important;
+            width: 400px !important;
+        }
+
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "\0020";
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            zoom: 1;
+            clear: both;
+        }
+
+        #tooltip {
+            position: absolute;
+            z-index: 3000;
+            border: 1px solid #FFA603;
+            background-color: #FEFDB9;
+            padding: 5px;
+            opacity: 0.85;
+            width: 200px;
+        }
+
+        #tooltip h3,
+        #tooltip div {
+            font-family: verdana, Helvetica, sans-serif;
+            color: black;
+            margin: 0;
+            font-size: 75%;
+            font-weight: normal;
+        }
+
+
+        span.spnCustomTool {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            position: relative;
+        }
+
+        .spnCustomTool .tooltip {
+            display: none;
+            position: absolute;
+            width: 200px;
+            height: auto;
+            background: #fefdb9;
+            border: 1px solid #fda401;
+            padding: 10px;
+            top: 30px;
+            right: 0px;
+        }
+
+        .spnCustomTool:hover .tooltip {
+            display: block !important;
+        }
+
+        img#newcventlogo:theImage {
+            margin: 20px auto;
+            display: none;
+        }
+
+        .apexp {
+            margin: 0 auto;
+        }
+
+        div.label {
+            color: #333;
+            font-family: verdana, sans-serif;;
+        }
+
+        font {
+            font-family: verdana, sans-serif;;
+            font-size: 13px;
+        }
+
+        input#prechat_submit {
+            color: #fff;
+            padding: 10px 0px;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-family: verdana, sans-serif;;
+            background-color: #0183eb;
+            font-size: 15px;
+            margin: 10px 20px 0px;
+            width: 135px;
+            pointer: cursor;
+            float: right;
+
+        }
+
+        .support-header {
+            background: #ECEFF8;
+        }
+
+        .support-header .container {
+            background: #ECEFF8;
+            padding: 34px 0px 34px 10px
+        }
+
+        .support-header h2 {
+            font-size: 36px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-style: normal;
+            text-rendering: optimizeLegibility;
+            color: #0183EB !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: BrandonTextWeb-Regular, verdana, sans-serif;
+        }
+
+        .button {
+            margin-top: 15px;
+            background-color: #0183EB;
+            border-color: transparent;
+            color: #fff;
+            transition: 0.2s;
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.428571429;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            font-family: verdana, sans-serif;
+        }
+
+        input#prechat_submit {
+            color: rgb(255, 255, 255);
+            padding: 6px 12px;
+            font-weight: bold;
+            text-transform: none;
+            font-family: verdana;
+            background-color: #0183eb;
+            font-size: 14px;
+            margin: 15px 20px 0px;
+            width: 115px;
+            pointer: cursor;
+            float: left;
+        }
+
+
+        #communitysupport {
+            background: #fff !important;
+        }
+
+        div.label {
+            text-align: left;
+        }
+
+        .support-header {
+            margin-top: 55px;
+        }
+
+        @media (max-width:767px) {
+            .support-header {
+                margin-top: 0px;
+            }
+        }
+
+        .form-group {
+            margin-top: 15px;
+        }
+
+        .hl-footer-styles img {
+            margin: 0 !important;
+        }
+
+        .navbar-brand>img {
+            margin: 0 !important;
+        }
+
+        .btn-outline {
+            background-color: #fff !important;
+            border: 1.5px solid #0183EB !important;
+            color: #0183EB !important;
+            transition: 0.2s !important;
+            font-weight: bold !important;
+            font-family: verdana !important;
+            padding: 6px 12px !important;
+            background: transparent !important;
+        }
+
+        .btn-outline:hover {
+            color: #fff !important;
+            background-color: #0183EB !important;
+            border: 1.5px solid #0183EB !important;
+            font-family: verdana !important;
+        }
+        
+        #communitysupport {padding:15px; max-width: 411px;}
+        #communitysupport input#prechat_submit {background:#B5226E !important; border-radius: 4px; width:100%; margin:0px; border-bottom:0px; padding:10px 12px; font-family:verdana}
+        #communitysupport .btn-outline {border:1.5px solid #B5226E !important; color:#B5226E !important ; border-radius: 0px;}
+        #communitysupport input {border:0px; border-radius: 0px; border-bottom:1px solid #000; background:none !important; font-family: verdana !important}
+        #communitysupport input:disabled {background-color:none !important; background:none !important}
+        #communitysupport .field-box {margin:0px;}
+        #communitysupport Form#Form {margin-left:0px !important; }
+        #communitysupport div.input-box {margin-bottom:15px;}
+        #communitysupport .col-md-12 {margin-left:0px !important;}
+        #communitysupport font {margin-bottom:5px; display:block; font-size:15px; font-family: verdana}
+        #newcventlogo:theImage, #newcventlogo {display:none !important}
+        .ques {font-size:16px; text-align:center; color:#70777d; font-weight: bold; font-family: verdana}
+        #communitysupport div.label {width:100%}
+        
+    </style>
+    <!-- <html> 
+<img src="/resource/1384853615000/newcventlogo"> </img>
+</html> -->
+    <apex:image id="theImage" value="{!$Resource.LiveSTChat}" />
+
+    <script type="text/javascript">
+        (function () {
+            function handlePageLoad() {
+                var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+                console.log(endpointMatcher);
+                document.getElementById('Form').setAttribute('action',
+                    decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+            } if (window.addEventListener) {
+                window.addEventListener('load', handlePageLoad, false);
+            } else {
+                window.attachEvent('onload', handlePageLoad, false);
+            }
+        })();
+        window.resizeTo(490, 680); 
+    </script>
+    <script type='text/javascript'
+    src='https://c.la2-c2cs-ph2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
+    <script type='text/javascript' src='https://c.la2-c2cs-ph2.salesforceliveagent.com/content/g/js/46.0/prechat.js'></script>
+    <script type='text/javascript'>
+       liveagent.init('https://d.la2-c2-ph2.salesforceliveagent.com/chat', '5722G000000fxSQ', '00D00000000hXfW');
+    </script>
+
+    <script type="text/javascript">
+
+        function setRecordType() {
+            if (document.getElementById('productType').value == '5732G000000k9bc') {
+                document.getElementById('productType123').value = 'Event Management';
+            }
+            else {
+                document.getElementById('productType123').value = 'Supplier Network';
+            }
+        }
+
+        var detailCallback = function (details){
+            var firstName = "";
+            var lastName = "";
+            var email = "";
+
+            for (var i = 0; i < details.customDetails.length; i++) {
+                if(details.customDetails[i].label == 'First Name'){
+                    firstName = details.customDetails[i].value;
+                }
+                if(details.customDetails[i].label == 'Last Name'){
+                    lastName = details.customDetails[i].value;
+                }
+                if(details.customDetails[i].label == 'Email'){
+                email = details.customDetails[i].value;
+                }
+            }
+
+            var name = firstName + " " + lastName;
+            
+            document.getElementById('nameField').value = name.trim();
+            document.getElementById('emailField').value = email.trim();
+        };
+        
+        liveagent.details.preChatInit('https://d.la2-c2-ph2.salesforceliveagent.com/chat','detailCallback');
+
+    </script>
+
+    <body id="help" class="inner">
+        <main>
+            <section id="communitysupport">
+                <div>
+
+                    <div class="container">
+                        <div class="row">
+                            <!--<div class="col-md-8 col-md-offset-2" style="margin-left: 0px; background: #ccc; padding: 20px; margin: 0 auto; text-align: center; margin: 20px; margin-bottom: 40px;" id="showoffline">
+ <h3><strong>No agents available</strong></h3>
+ <p>Please try again during supported hours.</p>
+ </div>-->
+                            <div class="col-md-12" style="margin-left: -39px;" id="showform">
+                                <!--<apex:pageBlock > -->
+                                <form method="post" id="Form" style="background: white;margin-left: 37px;">
+                                    
+                                    <div class="ques">Questions? We're here to help!</div>
+
+                                    <div class="field-box clearfix">
+                                        <div class="label">
+                                            <font face="Verdana"> <span
+                                                    style="color:red; margin:-4px 0 0 0">*</span>Name: </font>
+                                        </div>
+                                        <div class="input-box"><input type="text" required='True'
+                                                name="liveagent.prechat:Name" id="nameField" style="width: 403px;"
+                                                /></div>
+                                    </div>
+
+                                    <div class="field-box clearfix">
+                                        <div class="label">
+                                            <font face="Verdana"> <span
+                                                    style="color:red; margin:-4px 0 0 0">*</span>Email Address: </font>
+                                        </div>
+                                        <div class="input-box"> <input type="email" required='True'
+                                                name="liveagent.prechat:EmailAddress" style="width: 403px;" id="emailField"
+                                                value='{!$User.Email}' disabled="true" /></div>
+                                    </div>
+
+                                    <div class="field-box clearfix">
+                                       
+                                        <br clear="all" />
+                                        <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
+                                        <input type="hidden" name="liveagent.prechat.save:EmailAddress" value="Visitor_s_Email__c" />
+                                    </div>
+
+                                    <!-- Updated code: now for transcript
+        liveagent.addCustomDetail("First Name", "");
+        liveagent.addCustomDetail("Last Name", "");
+        liveagent.addCustomDetail("Phone Number", "");
+        liveagent.addCustomDetail("Case Subject", "");
+        liveagent.addCustomDetail("Case Status", "New", false);
+        liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false,true).saveToTranscript("contactId").showOnCreate().linkToEntity("Case", "ContactId");
+        -->
+
+                                    <!--  <input class="button button-blue" id="prechat_submit" type="submit" value="Initiate Chat" onclick="liveagent.startChat('5732G000000k9bc')" /> -->
+                                    <input class="button button-blue" id="prechat_submit" type="submit"
+                                        value="Click here to start chatting" />
+
+                                <!--    <button type="button" class="button btn-outline"
+                                        onclick="location.href='/apex/ContactSupport';">See Other Support
+                                        Options</button> --> <br /><br />
+
+
+                                </form>
+                                <div>
+
+                                </div>
+
+                                <!--</apex:pageBlock>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <!-- <apex:composition template="CventCommunityFooter"></apex:composition>  -->
+</apex:page>

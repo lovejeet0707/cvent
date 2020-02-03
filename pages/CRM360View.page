@@ -1,0 +1,165 @@
+<apex:page controller="CRMProjectViewController">
+
+ <apex:sectionHeader title="CRM Project 360 View"/>
+
+ <apex:form >
+ 
+  
+    
+    
+    
+    
+
+     <apex:pageBlock id="mainPgBlock" tabStyle="User" >
+             
+            <font size="3" color="green"><b>Search by :</b> </font>
+            <br/><br/>
+             <apex:actionFunction name="refAction" action="{!RefereshProjects}" reRender="ProjectDetails,WorkItems,Notes" />
+             
+             <hr/> 
+             <div style="margin-left:50px">
+             <table width="100%">
+                    <tr>
+                        <td>
+                            <b>CRM Release</b>&nbsp;&nbsp;
+                            <apex:selectList value="{!releaseId}" size="1" onchange="refereshProj()" style="margin-top:-2px">
+                                 <apex:selectOptions value="{!Releases}"/>
+                                 <apex:actionFunction name="refereshProj" action="{!RefereshProjects}" reRender="date1,date2,date3,ProjectDetails" />
+                            </apex:selectList> 
+                            <apex:commandLink target="_blank" value="View Release" action="/{!releaseId}"/>&nbsp;&nbsp; 
+                            <apex:commandLink target="_blank" value="New Project" action="/apex/CRMProjectCreator?releaseid={!releaseId}"/>
+                        </td>
+                        
+                        
+                        <td>
+                            <b>Ready for UAT</b>&nbsp;&nbsp; 
+                            <apex:outputText id="date1" value="{0,date,dd' 'MMMMM' 'yyyy}">
+                                <apex:param value="{!releaseMap[releaseId].UAT_Start_Date__c}" /> 
+                            </apex:outputText><br/>
+                            
+                            <b>UAT Sign off</b>&nbsp;&nbsp; 
+                            <apex:outputText id="date2" value="{0,date,dd' 'MMMMM' 'yyyy}">
+                                <apex:param value="{!releaseMap[releaseId].UAT_Sign_Off_Date__c}" /> 
+                            </apex:outputText><br/>
+                            
+                            <b>Deployment</b>&nbsp;&nbsp; 
+                            <apex:outputText id="date3" value="{0,date,dd' 'MMMMM' 'yyyy}">
+                                <apex:param value="{!releaseMap[releaseId].Deployment_Date__c}" /> 
+                            </apex:outputText>
+                            
+                        </td>
+                        
+                       
+                       
+                       
+                        <td>
+                            <b>Status</b>&nbsp;&nbsp; 
+                            <apex:selectList style="width:125px" id="status" value="{!statusSelected}" size="1" onchange="refAction();">
+                                 <apex:selectOptions value="{!ProjStatuses}"/>
+                            </apex:selectList>
+                        </td>
+                        
+                        
+                        <td>
+                            <b>Assigned to</b>&nbsp;&nbsp; 
+                            <apex:selectList id="assignees" value="{!assigneeName}" size="1" label="Assigned To" style="margin-top:-2px" onchange="refAction();">
+                           
+                                 <apex:selectOption itemLabel="---All---" itemValue="---All---"/>
+                                 <apex:selectOption itemLabel="Hemant Rana (Sops)" itemValue="Hemant Rana (Sops)"/>
+                                 <apex:selectOption itemLabel="Udita Dwivedi (Sops)" itemValue="Udita Dwivedi (Sops)"/>
+                                 <apex:selectOption itemLabel="Mohsin Siddiqui (SOPS)" itemValue="Mohsin Siddiqui (SOPS)"/>
+                                 <apex:selectOption itemLabel="Namit Rustagi (Sops)" itemValue="Namit Rustagi (Sops)"/>
+                                 <apex:selectOption itemLabel="Dishank Jain (Sops)" itemValue="Dishank Jain (Sops)"/>                              
+                                 <apex:selectOption itemLabel="Aparna Barthwal (Sops)" itemValue="Aparna Barthwal (Sops)"/>
+                                 <apex:selectOption itemLabel="Lovejeet Singh (Sops)" itemValue="Lovejeet Singh (Sops)"/>
+                                 <apex:selectOption itemLabel="Rishi Ojha (Sops)" itemValue="Rishi Ojha (Sops)"/>
+                                 <apex:selectOption itemLabel="Vaibhav Jain (Sops)" itemValue="Vaibhav Jain (Sops)"/>
+                                 <apex:selectOption itemLabel="Brent Maloney" itemValue="Brent Maloney"/>
+                            </apex:selectList>
+                        </td>
+                        
+                        
+                    </tr>
+                    
+                </table>
+                </div>
+                 <hr/> 
+                <br/>
+               
+             
+                           
+              <apex:pageBlockSection columns="1" id="ProjectDetails" title="Project Details">
+               
+                   <apex:pageBlockTable value="{!projectList}" var="proj">            
+                           <apex:column headerValue="Project #">
+                             <apex:outputLink target="_blank" value="/{!proj.Id}" >
+                                
+                             {!proj.Name}
+                             </apex:outputLink>
+                           </apex:column>
+                            
+                           <apex:column headerValue="Project Name">
+                                <apex:commandLink value="{!proj.Project_Name__c}" reRender="WorkItems,Notes">
+                                   <apex:param name="nickName" value="{!proj.Id}" assignTo="{!projectId}"/>
+                                </apex:commandLink>
+                           </apex:column>
+                          
+                           <apex:column headerValue="Estimated Effort (Hours)" value="{!proj.Estimated_Effort_Hours__c}"/>
+                           <apex:column headerValue="Actual Effort (Hours)" value="{!proj.Actual_Effort_Hours__c}"/>
+                           <apex:column headerValue="Created Date" value="{!proj.CreatedDate}"/>
+                           <apex:column headerValue="Status" value="{!proj.Status__c}"/>
+                           <apex:column headerValue="Project Team" value="{!proj.Project_Team__c  }"/>
+                           <apex:column headerValue="Project Category" value="{!proj.Reporting_Process_Improvement_Automation__c}"/>
+                           <apex:column headerValue="Requestor" value="{!proj.Requestor__c}"/>
+                           <apex:column headerValue="Requestor Department" value="{!proj.Requester_Department__c}"/>
+                            
+                   </apex:pageBlockTable>    
+                   
+               </apex:pageBlockSection>
+               
+               
+               <apex:pageBlockSection columns="1" id="WorkItems" title="Project Work Items">
+               
+                   <apex:pageBlockTable value="{!workItemsList}" var="wItem">            
+                           <apex:column headerValue="Work Item #">
+                             <apex:outputLink target="_blank"  value="/{!wItem.Id}" >{!wItem.Name}</apex:outputLink>
+                           </apex:column>
+                           
+                           <apex:column headerValue="Subject" value="{!wItem.Subject__c}"/>
+                           <apex:column headerValue="Status" value="{!wItem.Status__c}"/>
+                           <apex:column headerValue="Description" value="{!wItem.Description__c}"/>
+                           <apex:column headerValue="Assigned To" value="{!wItem.Assigned_To__c}"/> 
+                           <apex:column headerValue="Project Owner" value="{!wItem.Project_Owner__c}"/>
+                           <apex:column headerValue="Estimated Effort (Hours)" value="{!wItem.Estimated_Effort_Hours__c}"/>
+                           <apex:column headerValue="Actual Effort (Hours)" value="{!wItem.Actual_Effort_Hours__c}"/>
+                           <apex:column headerValue="Created Date" value="{!wItem.CreatedDate}"/>
+                             
+                   </apex:pageBlockTable>    
+                   
+                  
+                   
+               </apex:pageBlockSection>
+               
+             
+               <apex:pageBlockSection columns="1" id="Notes" title="Notes & Attachments">
+           
+                   <apex:pageBlockTable value="{!notesAttachments}" var="note">            
+                           <apex:column headerValue="Title">
+                             <apex:outputLink target="_blank"  value="/{!note.Id}" >{!note.Title}</apex:outputLink>
+                           </apex:column>
+                           
+                          <apex:column headerValue="Body">
+                            <apex:outputField value="{!note.body}"/>
+                           </apex:column>
+                                
+                   </apex:pageBlockTable>    
+               
+               
+               </apex:pageBlockSection>
+                   
+                   
+    
+     </apex:pageBlock>
+ </apex:form> 
+ 
+</apex:page>

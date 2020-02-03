@@ -1,0 +1,19 @@
+<apex:page showHeader="false" 
+           sidebar="false" 
+           standardStylesheets="false" 
+           applyHtmlTag="false" 
+           applyBodyTag="false" >
+<html lang="en">
+ <head>
+  <c:ro_header />
+ </head>
+ <body>
+  <c:ro_navbar activeTab="articles"/>
+  <c:ro_Article View="Articles" 
+                CategoryGroup="{!$CurrentPage.parameters.catgroup}" 
+                Category="{!$CurrentPage.parameters.cat}" 
+                Search="{!$CurrentPage.parameters.searchText}"/> 
+  <c:ro_footer />
+ </body>
+</html>  
+</apex:page>

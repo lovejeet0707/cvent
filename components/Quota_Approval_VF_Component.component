@@ -1,0 +1,18 @@
+<apex:component controller="Quota_Approval_VF_Component_Controller" access="global">  
+
+  <apex:attribute name="objID" description="Obj ID" type="Id" assignTo="{!recID}"/>  
+  <apex:attribute name="type" description="Status of Approval" type="String"  />  
+
+     <apex:outputPanel rendered="{!IF(type== 'Pending',true, false)}"> 
+         <a href="{!urlStr}">Please approve the request using this link:</a> 
+     </apex:outputPanel>
+     
+     <apex:outputPanel rendered="{!IF(type== 'Approved',true, false)}"> 
+         <b>Approval Comments: </b> &nbsp;&nbsp; {!ApprovalComment}
+     </apex:outputPanel>
+     
+     <apex:outputPanel rendered="{!IF(type== 'Rejected',true, false)}"> 
+         <b>Rejection Comments : </b> &nbsp;&nbsp;{!ApprovalComment}
+     </apex:outputPanel>
+      
+</apex:component>

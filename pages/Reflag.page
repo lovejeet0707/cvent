@@ -1,0 +1,122 @@
+<apex:page standardController="Rebrand_Reflag__c"  extensions="ReflagController" cache="false" showHeader="false">
+ <script type="text/javascript">
+        //Below function is used to make all child checkbox checked to true when Master Checkbox is ticked as true.....
+        function selectAllCheckboxes(obj,receivedInputID){   // Obj = Obj of Master and Id=MasterId
+            var inputCheckBox = document.getElementsByTagName("input");                  
+            for(var i=0; i<inputCheckBox.length; i++){          
+                //alert('Inside If'+inputCheckBox[i].id.indexOf(receivedInputID));
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){   
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+        //Below function to uncheck MasterCheckbox if even one child checkbox is unchecked.....
+        function uncheckMaster(){
+            document.getElementById("masterId").checked = false;
+        }
+        
+    </script>
+    <apex:form id="myform">
+
+        <apex:pagemessages ></apex:pagemessages>
+
+        <apex:pageBlock title="Reflag Opportunities" rendered="{!IF(Opportunities.size>0,true,false)}">
+        
+            <apex:pageBlockButtons location="top">
+                
+                <apex:actionstatus id="status">
+                    <apex:facet name="start">
+                        <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                               height: 100%;opacity:0.65;width:100%;"> 
+                            <div class="waitingHolder" style="top: 120px; width: 91px;">
+                                <img class="waitingImage" src="/img/loading.gif" title="Validating...." />
+                                <span class="waitingDescription">Processing....</span>
+                            </div>
+                        </div>
+                    </apex:facet>
+                 </apex:actionstatus>
+                
+                <!--<apex:commandButton value="Validate All" action="{!ValidateAll}" rerender="myform" status="status" />-->
+                <apex:commandButton value="Reflag Opportunity" action="{!ReflagOpportunity}" rerender="myform" status="status" />
+                <!--<apex:commandButton value="Reflag All Opportunity" action="{!ReflagAllOpportunity}" rerender="myform" status="status" />-->
+                <!--<apex:commandButton value="Validate Selected" action="{!ValidateSelected}" rerender="myform" status="status"/>-->
+            
+            </apex:pageBlockButtons>
+        
+            
+            <apex:pageBlockTable value="{!Opportunities}" var="cWrapper">
+                        
+                <apex:column ><!-- headerValue="Select"-->
+                    <apex:facet name="header">
+                        <input type="checkbox" onclick="selectAllCheckboxes(this,'inputId')" id="masterId"/>
+                    </apex:facet>
+                    <!-- This is our selected Boolean property in our wrapper class -->
+                    <apex:inputCheckbox value="{!cWrapper.isSelected}"  id="inputId" onclick="uncheckMaster()" />
+                </apex:column>
+                                
+                <apex:column value="{!cWrapper.oppRec.Name}"/>
+                <apex:column value="{!cWrapper.oppRec.StageName}"/>
+                <apex:column value="{!cWrapper.oppRec.Contribution_Type__c}"/>
+                <apex:column value="{!cWrapper.oppRec.Owner.Name}"/>
+                <apex:column value="{!cWrapper.oppRec.Product__c}"/>
+                <apex:column value="{!cWrapper.oppRec.New_Type__c}"/>
+                <!--
+                <apex:column headerValue="Contact Name">
+                    <apex:outputLink target="_blank" value="/{!cWrapper.oppRec.Id}">{!cWrapper.oppRec.Id}</apex:outputLink>
+                </apex:column>
+                
+                <apex:column value="{!cWrapper.oppRec.Id}"/>-->
+                <!--<apex:column value="{!cWrapper.conRole.Contact__r.Phone}"/>
+                
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingCity}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingState}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingPostalCode}"/>
+                <apex:column value="{!cWrapper.conRole.Contact__r.MailingCountry}"/>-->
+                
+                
+                
+                <!---Only For Buyer Role-->
+                <!--<apex:column rendered="{!showBuyer}" value="{!cWrapper.conRole.Executive_Sponsor__c}"/>-->
+                <!--<apex:column rendered="{!showBuyer}"  value="{!cWrapper.conRole.Decision_Maker__c}"/>
+                <apex:column rendered="{!showBuyer}"  value="{!cWrapper.conRole.Influencer__c}"/>-->
+                
+                
+                <!---Only For Customer Role-->
+                <!--<apex:column rendered="{!showCustomer}" value="{!cWrapper.conRole.Primary_POC__c}"/>
+                <apex:column rendered="{!showCustomer}"  value="{!cWrapper.conRole.Advocate__c}"/>
+                <apex:column rendered="{!showCustomer}"  value="{!cWrapper.conRole.Billing__c}"/>-->
+                
+                
+                
+                <!--<apex:column Value="{!cWrapper.conRole.Contact_Validated_Date__c}"/>
+                
+                <apex:column Value="{!cWrapper.conRole.Contract_Validated_By__c}"/>-->
+                <!--<apex:column headerValue="Validated ?" Value="{!cWrapper.conRole.Contact_Validated__c}"/>-->
+                <!--
+                <apex:column headerValue="Contact Role">
+                    <apex:outputLink target="_blank" value="/{!cWrapper.oppRec.Id}">Click To View</apex:outputLink>
+                </apex:column>
+                -->
+            
+            </apex:pageBlockTable>
+            
+            
+            <apex:pageBlockButtons location="Bottom">
+
+                <apex:commandButton value="First" action="{!Setcon.First}" disabled="{!!setcon.hasPrevious}" reRender="myform" status="status"/>
+                <apex:commandButton value="Previous" action="{!Setcon.Previous}" disabled="{!!setcon.hasPrevious}" reRender="myform" status="status"/>
+                <apex:commandButton value="Next" action="{!Setcon.Next}" disabled="{!!setcon.hasNext}" reRender="myform" status="status"/>
+                <apex:commandButton value="Last" action="{!Setcon.Last}" disabled="{!!setcon.hasNext}" reRender="myform" status="status"/>
+
+            </apex:pageBlockButtons>
+            <p/>
+           <apex:outputText ><b>Total Opportunities </b>{!noOfRecords}</apex:outputText><p/>
+            
+            <apex:outputText ><b>Page Number</b> {!pageNumber} <b>out of</b> {!NumberOfPages} </apex:outputText>
+        
+        </apex:pageBlock>
+    
+    
+    </apex:form>
+
+</apex:page>

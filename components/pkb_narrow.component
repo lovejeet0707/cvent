@@ -1,0 +1,43 @@
+<apex:component allowDML="true">
+<apex:attribute name="pkbCon" type="pkb_Controller" required="true" description="handle to the pkb controller" />
+<apex:form >
+   <apex:outputPanel layout="block" styleClass="narrowSearch" rendered="{!pkbCon.displayNarrow}" id="narrowSearch">
+     <h2 class="section">{!$Label.PKB2_Narrow_Search}</h2>
+    
+    <!-----------------------------------------------------------
+        EDIT: declare catGroupValue referring to the controller
+        3-13-2013 [MarkCarloMempin]
+    ------------------------------------------------------------->
+     <apex:outputPanel layout="block" styleClass="searchDrill" rendered="{!pkbCon.displayCategory1}">
+       <c:pkb_categoryselect catNum="1" 
+         catGroup="{!pkbCon.categoryGroup1}" 
+         catGroupLabel="{!pkbCon.categoryLabel1}" 
+         rootCat="{!pkbCon.rootCategory1}" 
+         catGroupValue="{!pkbCon.catgroupValue}"
+         catGroupValues="{!pkbCon.CatGroupValueList}" 
+         
+         />
+     </apex:outputPanel>
+<!-- commented by kishore AN 07/11
+     <apex:outputPanel layout="block" styleClass="searchDrill" rendered="{!pkbCon.displayCategory2}">
+       <c:pkb_categoryselect catNum="2" 
+         catGroup="{!pkbCon.categoryGroup2}" 
+         catGroupLabel="{!pkbCon.categoryLabel2}" 
+         rootCat="{!pkbCon.rootCategory2}" 
+         catGroupValue=""
+         />
+     </apex:outputPanel>
+
+     <apex:outputPanel layout="block" styleClass="searchDrill" rendered="{!pkbCon.displayCategory3}">
+       <c:pkb_categoryselect catNum="3" 
+         catGroup="{!pkbCon.categoryGroup3}" 
+         catGroupLabel="{!pkbCon.categoryLabel3}" 
+         rootCat="{!pkbCon.rootCategory3}" 
+         catGroupValue=""
+         />
+     </apex:outputPanel>
+-->
+   </apex:outputPanel>
+</apex:form>
+<script type="text/javascript">setCurrCategories();</script>
+</apex:component>

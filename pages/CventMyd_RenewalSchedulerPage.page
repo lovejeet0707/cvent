@@ -1,0 +1,205 @@
+<apex:page showHeader="true" sidebar="true" controller="CventMyd_RenewalSchedulerController">
+    
+    <apex:slds />
+
+    <style>
+
+        th {
+
+            width:120px;
+
+            text-align:center;
+
+        }
+    
+    </style>
+
+    <body>
+
+        <apex:form id="formId" style="text-align:center;">
+
+            <apex:variable value="foo" var="foo" rendered="{!NOT(renewalChainScheduled)}" id="varId0">
+
+                <table style="width:440px;" border="1" align="center">
+
+                    <caption style="background-color:#1C4178; color:white; width:440px; text-align:center;">
+
+                        Contract Renewal Scheduler
+
+                    </caption>
+
+                    <tr>
+
+                        <th>Start Time</th>
+
+                        <td>
+
+                            <apex:inputField value="{!account.First_Response_Date__c}"/>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>Finish Time</th>
+
+                        <td>
+
+                            <apex:inputField value="{!account.Last_Response_Date__c}"/>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td align="center" style="text-align:center;" colspan="4"></td>
+
+                    </tr>               
+
+                    <tr>
+
+                        <td align="center" style="text-align:center;" colspan="4">
+
+                            <apex:commandButton value="Start Job" action="{!scheduleJob}" reRender="formId"/><br/>
+
+                            Do Amendments?&nbsp;<apex:inputCheckbox value="{!doAmendments}"/>
+
+                        </td>
+
+                    </tr>               
+
+                </table>
+
+                <br/>
+
+                <table style="width:850px;" border="1" align="center">
+
+                    <caption style="background-color:#996633; color:white; text-align:center;">
+
+                        Chain Masters
+
+                    </caption>  
+
+                    <tr>
+
+                        <th style="text-align:center;">Record</th>
+
+                        <th style="text-align:center;">First Run</th>
+
+                        <th style="text-align:center;">Contracts Processed</th>
+
+                        <th style="text-align:center;">Last Run</th>
+
+                    </tr>
+
+                    <apex:repeat value="{!chainMasters}" var="cm">                                      
+
+                        <tr>
+
+                            <td>
+
+                                <a href="/{!cm.auditRecord.Id}" target="_blank">{!cm.auditRecord.Name}</a>
+
+                            </td>
+
+                            <td>
+
+                                {!cm.createdDateString}
+
+                            </td>
+
+                            <td style="text-align:center;">
+
+                                {!cm.auditRecord.jobsInChain__c}
+
+                            </td>
+
+                            <td>
+
+                                {!cm.lastModifiedDateString}
+
+                            </td>
+
+                        </tr>
+
+                    </apex:repeat>
+
+                </table>
+
+            </apex:variable>
+
+            <apex:variable value="foo" var="foo" rendered="{!renewalChainScheduled}" id="varId1">
+
+                <table style="width:750px;" border="1" align="center">
+
+                    <caption style="background-color:#1C4178; color:white; width:750px; text-align:center;">
+
+                        Renewal Job Audit Records
+
+                    </caption>
+
+                    <tr>
+
+                        <td align="center" style="text-align:center;" colspan="5">
+
+                            <apex:commandButton value="Refresh Audit Records" action="{!refreshAuditRecords}" reRender="formId"/>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>Record</th>
+
+                        <th>Created Date</th>
+
+                        <th>Contract</th>
+
+                        <th>Quote</th>
+
+                        <th>Last Modified Date</th>
+
+                    </tr>                                   
+
+                    <apex:repeat value="{!auditRecords}" var="arw">
+
+                        <tr>
+
+                            <td>
+
+                                <a href="/{!arw.auditRecord.Id}" target="_blank">{!arw.auditRecord.Name}</a>
+
+                            </td>
+
+                            <td>{!arw.createdDateString}</td>
+
+                            <td>
+
+                                <a href="/{!arw.auditRecord.contract__c}" target="_blank">{!arw.auditRecord.contract__r.ContractNumber}</a>
+
+                            </td>
+
+                            <td>
+
+                                <a href="/{!arw.auditRecord.quote__c}" target="_blank">{!arw.auditRecord.quote__r.Name}</a>
+
+                            </td>
+
+                            <td>{!arw.lastModifiedDateString}</td>
+
+                        </tr>
+
+                    </apex:repeat>
+
+                </table>
+
+            </apex:variable>            
+
+        </apex:form>
+
+    </body>
+
+</apex:page>

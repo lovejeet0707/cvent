@@ -1,0 +1,8 @@
+<apex:page >
+  
+ <knowledge:articleList articleVar="article"
+                                        sortBy="mostViewed" categories="products:CrowdCompass"
+                                        pageSize="10" >
+                                        <li><p style="font-size:18px"><a href="{!URLFOR($Action.KnowledgeArticle.View, article.id)}">{!article.title}</a></p></li>
+                                    </knowledge:articleList>
+</apex:page>

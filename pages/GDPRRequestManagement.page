@@ -1,0 +1,35 @@
+<apex:page showHeader="false" sidebar="false" action="{!checkExpiration}" controller="GDPRRequestManagementController" cache="false">
+<!--<div id="content" style="background-color:#ffffff;width: 850px; margin: 0px auto 0;"> -->
+<!--<style>
+
+body .bPageTitle .ptBody h1.noSecondHeader {
+    margin-top: 55px;
+    margin-bottom: 1px;
+    color: #000;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+body .bPageTitle .ptBody .pageType, body .bPageTitle .ptBody .pageDescription {
+    margin-left: 2px;
+
+}
+
+</style>-->
+<script>
+    function showApprovalMess(){
+        
+    }
+</script>
+ <apex:form >
+ <apex:sectionHeader title="Personal data requests" rendered="{!if((caseID != null),true,false)}"/>
+ <apex:pageMessages ></apex:pageMessages>
+ <apex:pageBlock tabStyle="user" rendered="{!if(((showApproved ==false|| showIgnored = false) && showButton==true && caseID != null),true,false)}" >
+     <apex:pageBlockSection columns="2" Title="Please provide confirmation of your request by clicking on Approve." rendered="{! if(showButton==true,true,false)}" collapsible="false">
+          <apex:commandButton action="{!approveRequest}" onClick="showApprovalMess();" value="Approve" rendered="{!if(showButton==true,true,false)}" id="GDPRApprovedId"/>
+          <apex:commandButton action="{!ignoreRequest}" onClick="showDeclineMess();" value="Decline" rendered="{! if(showButton==true,true,false)}" id="GDPRIgnoreId"/> 
+      </apex:pageBlockSection>  
+    </apex:pageBlock>   
+ </apex:form>
+ <!--</div>-->
+</apex:page>

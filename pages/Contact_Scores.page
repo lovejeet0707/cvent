@@ -1,0 +1,52 @@
+<apex:page standardController="Contact" tabStyle="Contact"> 
+ 
+ <style>
+    .uberScore{
+       align:left;
+       font-size:22px;
+       color:darkgreen;
+       font-weight:bold;
+    }
+    .scoreColumn{
+       float:  left;
+       width:  25%;
+       padding:  10px;
+       font-size:15px;
+       font-weight:bold;
+    }     
+    .table-header{
+       text-align:center;
+    }
+    .table-column{
+       text-align:center;   
+    }
+ </style>
+
+       
+   <apex:pageBlock >
+
+      <div class ="uberScore">
+         <apex:outputlabel value="Uber Score: " />
+         <apex:outputText value="{!Floor(contact.Uber_Score__c)}" />
+      </div>
+      
+      <div class="scoreColumn" >
+         <apex:outputlabel value="Behavior Score: " />
+         <apex:outputText value="{!Floor(contact.Behavior_Score__c)}"  />
+      </div>    
+      
+      <div class="scoreColumn" >
+         <apex:outputlabel value="Demographic Score: " />
+         <apex:outputText value="{!Floor(contact.Demographic_Score__c)}"  />
+      </div>    
+
+      <div class="scoreColumn" >
+         <apex:outputlabel value="Firmographic Score: " />
+         <apex:outputText value="{!Floor(contact.Firmographic_Score__c)}"  />
+      </div>    
+
+
+         
+   </apex:pageBlock>             
+   
+</apex:page>

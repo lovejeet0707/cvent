@@ -1,0 +1,184 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="QuoteDocumentGenerationHelper">
+
+    <!-- here is the crowd compass markup -->
+
+    <apex:variable value="foo" var="foo" rendered="{!IF(quote.CrowdCompass_Logo_Conditional_Print__c == "true",true,false)}" id="CrowdCompassCoverPage">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-30px" font-family="Arial">
+
+            <external-graphic content-width="620px" src="https://preview.ibb.co/k2ZSHc/cover_Page1_page_001.jpg" keep-together="always"/>
+
+            <block absolute-position="absolute" margin-top="-190px" color="black" keep-together="always" font-size="16px" wrap-option="wrap" font-family="Arial"></block>
+
+        </block>    
+            
+        <table margin-left="200px">
+            <table-column column-width="135mm"/>
+            <table-body>
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="black" font-size="16px">Proposal for</block>
+                </table-cell>
+              </table-row>
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="#54AEC4" font-size="16px">{!quote.SBQQ__Account__r.Name}</block>
+                </table-cell>
+              </table-row>        
+            </table-body>
+        </table>            
+
+    </apex:variable>
+
+    <!-- here is the onsite solutions markup -->
+
+    <apex:variable value="foo" var="foo" rendered="{!quote.onlyOnsiteSolutionsProducts__c}" id="CrowdCompassCovesdfgbPage">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-30px" font-family="Arial">
+
+            <external-graphic content-width="620px" src="https://image.ibb.co/mi3O1S/proposal_Cover_Page.png" keep-together="always"/>
+
+            <block absolute-position="absolute" margin-top="-190px" color="black" keep-together="always" font-size="16px" wrap-option="wrap" font-family="Arial"></block>
+
+        </block>    
+                    
+
+        <block margin-top="-55px" margin-left="40px" font-weight="bold" keep-together="always" color="white" font-size="22px">PROPOSAL FOR:</block>
+
+        <block margin-left="40px" font-weight="bold" keep-together="always" color="white" font-size="32px">{!quote.SBQQ__Account__r.Name}</block>
+
+        <block>&#0160;</block>
+
+        <block margin-left="40px" font-weight="bold" keep-together="always" color="white" font-size="22px">PREPARED BY:</block>
+
+        <block font-weight="bold" margin-left="40px" keep-together="always" color="white" font-size="22px">{!quote.SBQQ__Opportunity2__r.Owner.Name} | {!quote.SBQQ__Opportunity2__r.Owner.Email}</block>
+
+    </apex:variable>
+
+    <!-- here is the event management markup -->    
+
+    <apex:variable value="foo" var="foo" rendered="{!useEventManagementCoverPage}" id="EventCloudCoverPage">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-40px" font-family="Arial">
+
+            <external-graphic content-width="650px" src="https://image.ibb.co/nQi6Lx/cover_Page1.png" keep-together="always"/>
+
+            <block absolute-position="absolute" margin-top="-244px" color="black" keep-together="always" font-size="16px" wrap-option="wrap" font-family="Arial"></block>
+
+        </block>
+
+        <table margin-left="0px">
+            <table-column column-width="150mm"/>
+            <table-body>
+
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="white" font-family="Arial" font-size="20px">PROPOSAL FOR:</block>
+                </table-cell>
+              </table-row>
+
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="white" font-family="Arial" font-size="24px">{!quote.SBQQ__Account__r.Name}</block>
+                </table-cell>
+              </table-row>      
+
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block text-align="right" >&#0160;</block>
+                </table-cell>
+              </table-row>            
+
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="white" font-family="Arial" font-size="20px">PREPARED BY:</block>
+                </table-cell>
+              </table-row>
+
+              <table-row>
+                <table-cell wrap-option="wrap">
+                  <block font-weight="bold" color="white" font-family="Arial" font-size="20px">{!quote.SBQQ__Opportunity2__r.Owner.Name} | {!quote.SBQQ__Opportunity2__r.Owner.Email}</block>
+                </table-cell>
+              </table-row>            
+
+            </table-body>
+        </table>        
+
+    </apex:variable>       
+
+    <!-- here is the contract markup -->    
+
+    <apex:variable value="foo" var="foo" rendered="{!useContractRenewalCoverPage}" id="EventCladsfudCoverPage">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-40px" font-family="Arial">
+
+            <!-- page-break-after="{!IF(quote.showProposalCoverPage__c && NOT(quote.showMarketingContent__c), 'always','avoid')}" !-->
+
+            <!--<external-graphic content-width="650px" src="https://image.ibb.co/mi3O1S/proposal_Cover_Page.png" keep-together="always"/>!-->
+
+            <external-graphic content-width="650px" src="https://image.ibb.co/f257JH/cover_Page1.jpg" keep-together="always"/>
+
+            <block margin-top="-225px" margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="22px">PROPOSAL FOR:</block>
+
+            <block margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="32px">{!quote.SBQQ__Account__r.Name}</block>
+
+            <block>&#0160;</block>
+
+            <block margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="22px">PREPARED BY:</block>
+
+            <block font-weight="bold" margin-left="50px" keep-together="always" color="white" font-size="22px">{!quote.SBQQ__Opportunity2__r.Owner.Name} | {!quote.SBQQ__Opportunity2__r.Owner.Email}</block>
+            
+        </block>
+
+    </apex:variable>    
+
+    <apex:variable value="foo" var="foo" rendered="{!quote.onlyCsnPlannerProducts__c}" id="Venueblah">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-40px" font-family="Arial">
+
+            <!-- page-break-after="{!IF(quote.showProposalCoverPage__c && NOT(quote.showMarketingContent__c), 'always','avoid')}" !-->
+
+            <!--<external-graphic content-width="650px" src="https://image.ibb.co/mi3O1S/proposal_Cover_Page.png" keep-together="always"/>!-->
+
+            <external-graphic content-width="650px" src="https://image.ibb.co/nCd9Sx/cover_Page_page_001.jpg" keep-together="always"/>
+
+            <block text-align="right" margin-top="-175px" margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="18px">Proposal for:</block>
+
+            <block text-align="right" margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="24px">{!quote.SBQQ__Account__r.Name}</block>
+
+            <block text-align="right" >&#0160;</block>
+
+            <block text-align="right" margin-left="50px" font-weight="bold" keep-together="always" color="white" font-size="18px">Prepared by:</block>
+
+            <block text-align="right" font-weight="bold" margin-left="50px" keep-together="always" color="white" font-size="18px">{!quote.SBQQ__Opportunity2__r.Owner.Name} | {!quote.SBQQ__Opportunity2__r.Owner.Email}</block>
+            
+        </block>
+
+    </apex:variable>    
+
+    <apex:variable value="foo" var="foo" rendered="{!quote.onlyInquisiumProducts__c}" id="EventCladsfudCsoverPage">
+
+        <block absolute-position="absolute" keep-together="always" margin-left="-36px" margin-top="-40px" font-family="Arial">
+
+            <!-- page-break-after="{!IF(quote.showProposalCoverPage__c && NOT(quote.showMarketingContent__c), 'always','avoid')}" !-->
+
+            <!--<external-graphic content-width="650px" src="https://image.ibb.co/mi3O1S/proposal_Cover_Page.png" keep-together="always"/>!-->
+
+            <external-graphic content-width="650px" src="https://image.ibb.co/nf9rPc/cover_Page_page_001.jpg" keep-together="always"/>
+
+            <block margin-top="-195px" margin-left="37px" font-weight="bold" keep-together="always" color="white" font-size="13px">PROPOSAL FOR:</block>
+
+            <block margin-left="37px" font-weight="bold" keep-together="always" color="white" font-size="17px">{!quote.SBQQ__Account__r.Name}</block>
+
+            <block>&#0160;</block>
+
+            <block margin-left="37px" font-weight="bold" keep-together="always" color="white" font-size="13px">PREPARED BY:</block>
+
+            <block font-weight="bold" margin-left="37px" keep-together="always" color="white" font-size="13px">{!quote.SBQQ__Opportunity2__r.Owner.Name} | {!quote.SBQQ__Opportunity2__r.Owner.Email}</block>
+            
+        </block>
+
+    </apex:variable>    
+    
+
+</apex:page>

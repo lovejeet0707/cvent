@@ -1,0 +1,96 @@
+<apex:page showHeader="false" 
+           sidebar="false"
+           standardStylesheets="false" 
+           applyHtmlTag="false" 
+           applyBodyTag="false" 
+           standardController="Article__kav">
+<html lang="en">
+ <head>
+  <c:ro_header /> 
+ </head>
+ <body>
+  <c:ro_navbar activeTab="articles"/> 
+  <apex:outputPanel id="pnlMain">
+   <div >
+    
+    <div class="col-lg-12">
+     <div class="" style="padding: 8px;margin-bottom: 0px;border-radius: 8px;">
+     <div class="col-sm-12 mt10" >
+     
+         <!-- <span style="float:right;padding-right: 8px;">
+           &nbsp;|&nbsp; <a href="javascript:void(0);" onclick="window.print();">Print</a>
+         </span>
+         <span style="float:right;padding-right: 8px;">
+           <c:ro_Vote knowledgeArticleId="{!Article__kav.KnowledgeArticleId}" knowledgeArticleNumber="{!Article__kav.ArticleNumber}" />
+         </span> -->
+         
+      <div style="text-align:right;" class="col-xs-12 nopadding">
+        <a href="javascript:void(0);" onclick="window.print();">Print</a>
+      </div>
+      
+      <div style="text-align:right;" class="col-xs-12 nopadding">
+               <c:ro_Vote knowledgeArticleId="{!Article__kav.KnowledgeArticleId}" knowledgeArticleNumber="{!Article__kav.ArticleNumber}" knowledgeArticleTitle="{!Article__kav.Title}" />
+        </div>
+     </div>
+     <div class="clearfix"></div>
+
+     <div style="padding-bottom:8px;">
+          <!-- <div class="col-sm-2">
+           <span style="font-weight: bold; font-size: 18px; display: inline-block;white-space: nowrap;color:#000;padding-top: 6px;">Articles</span>
+          </div> 
+          <div class="clearfix"></div>
+           -->
+          <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Article Number</label>
+                    <div class="col-sm-10 cText">{!Article__kav.ArticleNumber}</div>
+                   </div>
+                   
+          <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Title</label>
+                    <div class="col-sm-10 cText">{!Article__kav.Title}</div>
+                   </div>
+                   
+                   <!-- <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Url Name</label>
+                    <div class="col-sm-10 cText">{!Article__kav.UrlName}</div>
+                   </div> -->
+                   
+                   <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Issue</label>
+                    <div class="col-sm-10 cText">
+                    <apex:outputText value="{!Article__kav.Issue__c}" escape="false"/>
+                    </div>
+                   </div>
+                   <!--
+                   <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Product</label>
+                    <div class="col-sm-10 cText">
+                    <apex:outputText value="{!Article__kav.Product__c}" escape="false"/>
+                    </div>
+                   </div>-->
+                   
+                   <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Solution</label>
+                    <div class="col-sm-10 cText">
+                    <apex:outputText value="{!Article__kav.Solution__c}" escape="false"/>
+                    </div>
+                   </div>
+                   
+                   <div class="col-sm-12 mt10">
+           <label  class="control-label col-sm-2" style="text-align:right;">Related</label>
+                    <div class="col-sm-10 cText">
+                    <apex:outputText value="{!Article__kav.Related_Details__c}" escape="false"/>
+                    </div>
+                   </div>
+
+      </div>
+      <div class="clearfix"></div> 
+     </div>
+    </div>
+   </div>  
+  </apex:outputPanel>
+  <div class="clearfix"></div> 
+  <c:ro_footer />
+ </body> 
+</html> 
+</apex:page>

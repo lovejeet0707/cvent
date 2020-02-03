@@ -1,0 +1,243 @@
+<apex:page showHeader="false" 
+           sidebar="false"
+           standardStylesheets="false" 
+           applyHtmlTag="false" 
+           applyBodyTag="false"
+           controller="ro_SupportController">
+<html lang="en">
+ <head>
+  <c:ro_header />
+  <script>
+  var bSearchDone = false;
+  var bButtonClicked = false;
+  
+  function createCaseHandler(str1,str2){
+   window.open('{!$Site.prefix}/apex/ro_CreateNewCase?Subject='+escape(str1)+'&Desc='+escape(str2),"_self");
+  }
+  
+ function feedbackDeflectionHandler(sEvnt){
+   createNewDeflection(getSubject(),getDescription(),sEvnt);
+ }
+  
+ function getSelectedViewName(){
+   return j$('[data-bind="label"]','#caseViews').attr('viewName');
+ }
+  
+  function selectViewDropDownValue(oItem){
+    oItem.closest('.btn-group')
+         .find('[data-bind="label"]').text(oItem.text())
+         .attr('viewName',oItem.attr('viewName'))
+         .end()
+         .children('.dropdown-toggle').dropdown('toggle');
+  
+  loadView(getSelectedViewName());
+ }
+  
+ j$(window).on('beforeunload', function(){
+  if(bSearchDone && !bButtonClicked){
+      feedbackDeflectionHandler('Page Unload');
+  }
+ });
+  </script>
+  
+ </head>
+ <body>
+  <c:ro_navbar activeTab="support"/> 
+  <apex:outputPanel id="pnlMain">
+  <apex:outputPanel rendered="{!!bNewCase}">
+  <div class="container">
+  
+  <div style="text-align: center; padding-bottom: 10px; height: 30px; padding-top: 6px;">
+      <apex:actionstatus id="loadStatus">
+       <apex:facet name="start">
+        <span style="font-weight:bold;">Loading...</span>
+        <span style="font-size: 18px;" class="fa fa-spinner fa-pulse"></span>
+       </apex:facet>
+      </apex:actionstatus>
+      
+      <apex:actionstatus id="caseSortStatus">
+       <apex:facet name="start">
+        <span style="font-weight:bold;">Sorting...</span>
+        <span style="font-size: 18px;" class="fa fa-spinner fa-pulse"></span>
+       </apex:facet>
+      </apex:actionstatus>
+     </div>
+     
+  <apex:outputPanel id="pnlCaseMessages">
+      <apex:outputPanel rendered="{!errMessage != ''}" styleclass="col-sm-12" style="margin-left: 2px;">
+       <span style="font-weight:bold;color:#cc0000;padding-right:4px">Error:</span>
+       <span style="color:#cc0000;">{!errMessage}</span>
+      </apex:outputPanel>
+     </apex:outputPanel>
+     
+     <div class="clearfix"></div>
+  <div class="col-lg-12 cases">
+      <div class="jumbotron" style="padding: 20px 20px 10px;margin-bottom: 0px">
+      <div style="padding-bottom:8px;">
+      <div class="col-sm-1">
+       <span style="font-weight: bold; font-size: 18px; display: inline-block;white-space: nowrap;color:#000;padding-top: 6px;">Cases</span>
+      </div>
+      <div class="col-sm-8">
+          <div style="text-align:center;">
+           <button type="button" class="btn btn-default" onclick="newCase();">New Case</button>
+          </div>
+      </div>
+      <div class="col-sm-3" style="white-space: nowrap;">
+       <span style="font-size: 14px; font-weight: bold;" class="">View</span>
+       <div class="dropdown" id="caseViews" style="display:inline-block;padding-left:4px;">
+        <div class="btn-group">
+         <button type="button" class="dropdown-toggle form-control" data-toggle="dropdown">
+          <span data-bind="label" viewName="{!selectedCaseView.ViewName__c}">{!selectedCaseView.ViewLabel__c}</span>&nbsp;<span class="caret"></span>
+         </button>
+         
+         <ul role="menu" class="dropdown-menu">      
+          <apex:repeat value="{!lstCaseView}" var="cv">
+          <li onclick="selectViewDropDownValue(j$(this).find('span'));">
+           <a href="javascript:void(0);">
+            <span style="padding-left:16px;" 
+                  viewName="{!cv.ViewName__c}">
+                  {!cv.ViewLabel__c}
+            </span>
+           </a> 
+          </li>
+          </apex:repeat>
+         </ul>
+        </div>
+       </div>
+      </div>
+      
+      <div class="clearfix"></div>    
+      </div>
+      
+      <apex:outputPanel id="pnlCases"> 
+      <div class="table-responsive">
+       <table class="table table-hover table-bordered">
+        <tr>
+         <th class="col-md-1">
+          <span style="white-space:nowrap;cursor: pointer;" onclick="doCaseSort('CaseNumber');">Case Number <i class="fa {!IF(sortField = 'CaseNumber',IF(isAsc = true,'fa-caret-down','fa-caret-up'),'')}"></i></span>
+         </th>
+         <th>
+          <span style="white-space:nowrap;cursor: pointer;" onclick="doCaseSort('Subject');">Subject <i class="fa {!IF(sortField = 'Subject',IF(isAsc = true,'fa-caret-down','fa-caret-up'),'')}"></i></span>
+         </th>
+         <th style="width: 150px;">
+          <span style="white-space:nowrap;cursor: pointer;" onclick="doCaseSort('Status');">Status <i class="fa {!IF(sortField = 'Status',IF(isAsc = true,'fa-caret-down','fa-caret-up'),'')}"></i></span>
+         </th>
+         <th style="width: 150px;">
+          <span style="white-space:nowrap;cursor: pointer;" onclick="doCaseSort('createdDate');">Date/Time Opened <i class="fa {!IF(sortField = 'createdDate',IF(isAsc = true,'fa-caret-down','fa-caret-up'),'')}"></i></span>
+         </th>
+     
+        </tr>
+        <apex:repeat value="{!caseCurrentRecordSet}" var="c">
+        <tr>
+         <td>{!c.CaseNumber}</td>
+         <td>
+          <a href="{!$Site.prefix}/apex/ro_caseDetail?id={!c.Id}">{!c.Subject}</a>      
+         </td>
+         <td>{!c.Status}</td>
+         <td><apex:outputField value="{!c.createdDate}"/></td>     
+        </tr>
+        </apex:repeat>
+        <apex:outputPanel layout="none" rendered="{!caseRecordSet.size=0}">
+        <tr>
+         <td colspan="3">
+          <div style="font-size: 14px; font-weight: bold;">No search results found</div>           
+         </td>
+        </tr>
+        </apex:outputPanel>
+       </table>
+      </div>
+      </apex:outputPanel>       
+     </div>
+     
+     <apex:outputPanel id="pnlCaseNavigation">
+     <apex:outputPanel rendered="{!caseRecordSet.size>0}">
+     <div class="col-sm-12">
+     
+     <div class="col-sm-3">
+      <span class="recordCounter">
+       {!casePaginator.showingFrom} - {!casePaginator.showingTo} of {!casePaginator.totalResults}
+       <apex:outputPanel rendered="{!casePaginator.moreThan1000}">+</apex:outputPanel>
+      </span>
+     </div>
+                  
+      <div class="col-sm-6">
+       <ul class="pager">
+         <li class="{!IF(casePaginator.hasFirstPage,'','disabled')}">
+          <a style="border-radius: 15px 0 0 15px;" href="javascript:void(0);" onclick="if(!j$(this).parent().hasClass('disabled')) caseFirstPage();">First</a>
+         </li>
+         <li class="{!IF(casePaginator.hasPrevPage,'','disabled')}">
+          <a style="border-radius: 0px;" href="javascript:void(0);" onclick="if(!j$(this).parent().hasClass('disabled')) casePrevPage();">Previous</a>
+         </li>
+         <li class="{!IF(casePaginator.hasNextPage,'','disabled')}">
+          <a style="border-radius: 0px;" href="javascript:void(0);" onclick="if(!j$(this).parent().hasClass('disabled')) caseNextPage();">Next</a>
+         </li>
+         <li class="{!IF(casePaginator.hasLastPage,'','disabled')}">
+          <a style="border-radius: 0px 15px 15px 0px;" href="javascript:void(0);" onclick="if(!j$(this).parent().hasClass('disabled')) caseLastPage();">Last</a>
+         </li>
+       </ul>
+      </div>
+      <div class="col-sm-12" style="text-align: center;height:24px;">
+       <apex:actionstatus id="caseNavigationStatus">
+        <apex:facet name="start">
+         <span style="font-weight:bold;">Navigating...</span>
+         <span style="font-size: 18px;" class="fa fa-spinner fa-pulse"></span>
+         </apex:facet>
+        </apex:actionstatus>
+       </div>
+      </div>
+      </apex:outputPanel>
+      </apex:outputPanel>
+     </div>
+     </div>
+     </apex:outputPanel>
+     <apex:outputPanel rendered="{!if($Site.Prefix=='/06PKYx1amp4ZuYor2G',true,false)}">
+         <b style="font-size:30px;margin-left: 6%;">Passkey Support</b>
+     </apex:outputPanel>
+     <apex:outputPanel rendered="{!bNewCase}">
+      <c:ro_Article View="Support" 
+                CategoryGroup="{!$CurrentPage.parameters.catgroup}" 
+                Category="{!$CurrentPage.parameters.cat}" 
+                Search=""/> 
+     </apex:outputPanel>   
+        
+  </apex:outputPanel>
+  
+  <apex:outputPanel id="pnlScript">
+   <script>
+    var sEvent = '{!event}';
+    if(sEvent == 'Button Click'){
+     bButtonClicked = true;
+     fNavigate('articles','{!$Site.prefix}/apex/ro_Articles?catgroup={!$CurrentPage.parameters.catgroup}&cat={!$CurrentPage.parameters.cat}&searchText='+getSubject());
+    }
+   </script>
+  </apex:outputPanel>
+  <c:ro_footer />
+ </body> 
+</html>  
+
+<apex:form >
+  
+  <apex:actionFunction action="{!newCase}" name="newCase" rerender="pnlMain" status="loadStatus"/>
+  
+  <apex:actionFunction action="{!createNewDeflection}" name="createNewDeflection" rerender="pnlCaseMessages,pnlScript" status="deflectionStatus">
+   <apex:param assignTo="{!subject}" name="subject" value="" />
+   <apex:param assignTo="{!description}" name="description" value="" />
+   <apex:param assignTo="{!event}" name="event" value="" />
+  </apex:actionFunction>
+  
+  <apex:actionFunction action="{!loadView}" name="loadView" rerender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="loadStatus">
+   <apex:param assignTo="{!selectedCaseViewName}" name="selectedCaseViewName" value="" />
+  </apex:actionFunction> 
+  
+  <apex:actionFunction action="{!doSort}" name="doCaseSort" rerender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseSortStatus">
+   <apex:param assignTo="{!sortField}" name="sortField" value="" />
+  </apex:actionFunction>  
+  
+  <apex:actionFunction action="{!casePaginator.prevPage}" name="casePrevPage" reRender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseNavigationStatus"/>
+  <apex:actionFunction action="{!casePaginator.nextPage}" name="caseNextPage" reRender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseNavigationStatus"/>
+  <apex:actionFunction action="{!casePaginator.firstPage}" name="caseFirstPage" reRender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseNavigationStatus"/>
+  <apex:actionFunction action="{!casePaginator.lastPage}" name="caseLastPage" reRender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseNavigationStatus"/>
+  
+  <apex:actionFunction action="{!casePaginator.goToPage}" name="caseGoToPage" reRender="pnlCaseMessages,pnlCases,pnlCaseNavigation" status="caseNavigationStatus"/>    
+ </apex:form> 
+</apex:page>

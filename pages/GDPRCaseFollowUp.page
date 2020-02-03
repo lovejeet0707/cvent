@@ -1,0 +1,80 @@
+<apex:page standardController="Case" extensions="GDPRCaseFollowUpClass" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
+    <apex:slds />
+    <apex:form >
+        
+        <body class="slds-scope">
+         <div >
+            <div class="slds-align_absolute-center slds-p-bottom_small">
+            <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!editGDPRRecords}" value="Edit" />
+            <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!saveGDPRRecords}" value="Save" />
+            <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!Cancel}" value="Cancel"/>
+            </div>
+           
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered  slds-table_striped">
+             <thead>
+               <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps" scope="col">
+                        <b>Vendor Name</b>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <b>Action</b>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                    <b>Email Sent</b>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                    <b>Response Received</b>
+                    </th>            
+              </tr>
+           </thead>
+        <tbody>
+        <apex:outputPanel rendered="{!IF(isEdit,TRUE,FALSE)}">
+            <apex:repeat value="{!gdprFollowUpList}" var="gdprRec">
+                <tr class="slds-hint-parent">
+                    <th data-label="Vendor Name" scope="row">
+                        <div class="slds-truncate" title="Vendor Name">
+                            <apex:outputField value="{!gdprRec.Vendor__c}"/>
+                        </div>
+                    </th>
+                    <td data-label="Action">
+                        <div class="slds-truncate" title="Action">
+                            <apex:inputField value="{!gdprRec.Action__c}" />
+                           <!-- <apex:outputField value="{!gdprRec.Action__c}"/>-->
+                        </div>
+                    </td>
+                    <td data-label="Email Sent">
+                    <div class="slds-truncate" title="Email Sent">
+                    <apex:inputField value="{!gdprRec.Email_Sent__c}"/>
+                    </div>
+                    </td>
+                    <td data-label="Response Received">
+                    <div class="slds-truncate" title="Response Received"><apex:inputField value="{!gdprRec.Response_Received__c}" style="width:100%;"/></div>
+                    </td>                  
+                </tr>
+            </apex:repeat>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!IF(isEdit,FALSE,TRUE)}">
+            <apex:repeat value="{!gdprFollowUpList}" var="gdprRec">
+                <tr class="slds-hint-parent">
+                <th data-label="Vendor Name" scope="row">
+                <div class="slds-truncate" title="Vendor Name"><apex:outputField value="{!gdprRec.Vendor__c}"/></div>
+                </th>
+                <td data-label="Action">
+                <div class="slds-truncate" title="Action"><apex:outputField value="{!gdprRec.Action__c}"/></div>
+                </td>
+                <td data-label="Email Sent">
+                <div class="slds-truncate" title="Email Sent"><apex:outputField value="{!gdprRec.Email_Sent__c}"/></div>
+                </td>
+                <td data-label="Response Received">
+                <div class="slds-truncate" title="Response Received"><apex:outputField value="{!gdprRec.Response_Received__c}"/></div>
+                </td>       
+                </tr>
+            </apex:repeat>
+        </apex:outputPanel>
+    </tbody>
+</table>
+            </div>
+        </body>
+        
+    </apex:form>
+</apex:page>

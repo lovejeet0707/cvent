@@ -1,0 +1,396 @@
+<apex:page Controller="RegOnlineDataMigrationClass" sidebar="false" showheader="false" applyBodyTag="false" Id="PG">
+    <!--Code From Community Header-->
+    <apex:composition template="CventCommunityHeader"></apex:composition>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <apex:form styleClass="" Id="FRM">
+            <style>
+            .loader1 {
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid #3498db;
+                width: 82px;
+                height: 82px;
+                -webkit-animation: spin 2s linear infinite; /* Safari */
+                animation: spin 2s linear infinite;
+            }
+            
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    #spinner{
+    display: none;
+    width:200px;
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+    }
+    #opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    background-color: gray;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+    -moz-opacity:0.3;
+    -khtml-opacity:0.3;
+    }
+    * html #opaque {
+    position: absolute;
+    }
+    </style>
+    <style>
+        .requiredBlock {
+            background-color: #c00;
+            position: absolute;
+            left: -4px;
+            width: 3px;
+            top: 1px;
+            bottom: 1px;
+        }
+    .requiredInput {
+        position: relative;
+        height: 100%;
+    }
+    .errorMsg{
+        color: Red;
+    }
+    
+    /* GB STYLES */
+    
+    .pad-md {
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+    
+    .button {
+        display: inline-block !important;
+        padding: 6px 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.42857143 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer !important;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; !important
+        background-image: none !important;
+        border: 2px solid transparent !important;
+        border-radius: 4px !important;
+    }
+    .button-blue, .button-blue:visited {
+        color: #fff !important;
+        background: none !important;
+        background-color: #0183EB !important;
+        border-color: transparent !important;
+    }
+    .button-blue:hover, .button-blue:focus {
+        color: #fff !important;
+        background-color: #0183EB !important;
+        border-color: transparent !important;
+    }
+    
+    .button-lightblue, .button-lightblue:visited {
+        color: #1C2C43 !important;
+        background: none !important;
+        background-color: #64D2FF !important;
+        border-color: transparent !important;
+    }
+    .button-lightblue:hover, .button-lightblue:focus {
+        color: #1C2C43 !important;
+        background-color: #56b6dd !important;
+        border-color: transparent !important;
+    }
+    
+    .button-outline, .button-outline:visited {
+        color: #fff !important;
+        background: none !important;
+        background-color: none !important;
+        border: 2px solid #fff !important;
+    }
+    .button-outline:hover, .button-outline:focus {
+        color: #286090 !important;
+        background-color: #fff !important;
+        border-color: #fff !important;
+    }
+    
+    body .container .apexDefaultPageBlock {
+        background: none !important;
+        border: 0 !important;
+    }
+    
+    .pbSubheader {
+        display: none !important;
+    }
+    
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+        margin: 0 !important;
+    }
+    
+    .bPageBlock .requiredInput .requiredBlock {
+        background-color: #c00;
+        position: absolute;
+        left: 1px;
+        width: 4px !important;
+        top: 1px;
+        bottom: 1px;
+        border-radius: 4px 0 0px 4px !important;
+    }
+    
+    .content-header {
+        padding-top: 3em;
+        padding-bottom: 1em;
+    }
+    
+    </style>
+    
+    
+    
+    
+    <script type="text/javascript" >
+        
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+    }   
+    
+    </script>
+    <script>
+    window.onload=function(){
+        if('{!pageReload}' == 'true'){
+            document.getElementById('PG:FRM:PBLOCK:IH2').value='false';
+             
+        }
+    };
+    
+    function OpenAccountSelection(){
+        //window.open("/apex/ro_AccountSelectionPage","","toolbar=no, scrollbars=yes, resizable=no, top=500, left=500, width=600, height=600");
+        var obj = [{"name":"Select Account","url":"/apex/ro_AccountSelectionPage"}]
+        var dialogWin = window.showModalDialog('/apex/ro_AccountSelectionPage', obj, "dialogwidth: 500; dialogheight: 300; resizable: no; dialogtop: 300; dialogleft: 500;");
+    }
+    
+    function appendEmailTemplateOptedLookupWindow(AccountName,AccountId){
+        //document.getElementById('PG:FRM:PBLOCK:AccountId').innerHTML=AccountName;
+        document.getElementById('PG:FRM:PBLOCK:IH').value=AccountId;
+        //document.getElementById('PG:FRM:PBLOCK:IH2').value='false';
+        //document.getElementById('PG:FRM:PBLOCK:AccountId').innerHTML=AccountId;
+        AF1();
+    }
+    
+    function validForSave(){
+        
+        var result = true;
+        
+    if($(document.getElementById('PG:FRM:PBLOCK:ROLOrderNumber')).val() == ''){
+        alert('Please enter RegOnline Account Number.');
+        result = false;
+    }
+
+    else if($(document.getElementById('PG:FRM:PBLOCK:description')).val() == ''){
+        alert('Please enter Fields To Be Migrated.');
+        result = false;
+    }
+    else if($(document.getElementById('PG:FRM:PBLOCK:startDate')).val() == ''){
+        alert('Please enter Start Date for Data Extraction (Maximum 5 Years).');
+        result = false;
+    }
+    if(result == true){
+        showSpinner();
+    }
+    
+    return result;
+}
+    
+    function callAction(){
+        <!--var prodValue = $('#type :selected').text();-->
+        <!--var prodAPI =  $('#type :selected').val();-->
+        <!--callSave(prodValue,prodAPI);-->
+        callSave();
+    }
+    
+    </script>
+    <html lang="en">
+        <head Id="Hd">
+            <!--<c:ro_header />-->
+            <!--<c:ro_Resources/>-->
+            <title>Create New Case</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        </head>
+        
+        <body Id="BD" style="margin-top: 7%;">
+            <!--<c:ro_navbar activeTab="support"/>-->
+            <center><apex:pageMessages /></center>
+            <div class="container" Id="div1">
+                <div class="content-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2>Create a New Case</h2>
+                        </div>
+                    </div>
+                </div>
+                <apex:pageBlock Id="PBLOCK" html-class="wrapper">
+                    <apex:inputHidden value="{!pageReload}" Id="IH2"/>
+                    <apex:inputHidden value="{!newAccountId}" Id="IH"/>
+                    
+                    <apex:pageBlockSection title="Case Detail"/>
+                    
+                    <!--<table class="table table-hover" style="width:100%;" Id="Table1">
+                        <apex:outputpanel layout="none" rendered="{!!isSite}">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <hr />
+                                </div>
+                            </div>
+                            
+                        </apex:outputpanel> 
+                    </table>-->   
+                    <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <apex:outputLabel >Contact Name:</apex:outputLabel>
+                                        <apex:outputText id="ContactId" label="Contact Name" value="{!sContact}" style="display: block; font-size: 18px;" />
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <apex:outputLabel ><label>Product Source for data:</label></apex:outputLabel>
+                            </div>
+                            <div class="col-sm-12">
+                                <apex:outputField id="ProductSourceData" value="{!c.SU4_Parent_Case_Number__c}" styleclass="form-control"/>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <apex:outputLabel ><label>Subject:</label></apex:outputLabel>
+                            </div>
+                            <div class="col-sm-12">
+                                <apex:outputField id="Subject" value="{!c.Subject}" styleclass="form-control"/>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <apex:outputLabel ><label>RegOnline Account Number:</label></apex:outputLabel>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                    <apex:inputField id="ROLOrderNumber" value="{!c.Order_Number__c}" styleclass="form-control"/>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <apex:outputLabel ><label>Fields To Be Migrated:</label></apex:outputLabel>
+                            </div>
+                            <div class="col-sm-12">
+                            <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                <apex:inputField id="description" value="{!c.Description}" styleclass="form-control"/>
+                            </div>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <apex:outputLabel ><label>How far back?</label></apex:outputLabel>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+
+                                <apex:inputField id="startDate" value="{!c.SU4_Agreement_to_Apollo__c}"/><!-- styleclass="form-control"-->
+                            </div>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    
+                </apex:pageBlock>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <apex:outputLabel style="font-size: 20px;"></apex:outputLabel> &nbsp;&nbsp;&nbsp;<apex:outputLabel style="font-size: 25px;"></apex:outputLabel>
+                    </div>
+                    <div class="col-sm-12">
+                        <apex:commandButton onclick="if(!validForSave()){ return false;}else{callAction();}" rerender="xyz" value="Submit" styleclass="button button-blue" /> 
+                        <apex:commandButton value="     Cancel     " styleclass="button button-lightblue" onclick="window.open('/','_self');return false;" /> 
+                    </div>
+                </div>
+                
+            </div> 
+            
+            <footer>
+                <apex:composition template="CventCommunityFooter"></apex:composition>
+        </footer> 
+        </body>
+    </html>
+    <apex:actionFunction action="{!save}" name="callSave" rerender="test">
+        <!--<apex:param value="" name="productValue"/>
+        <apex:param value="" name="productAPI"/>-->
+    </apex:actionFunction>
+    <div id="opaque"/>
+    <div class="loader1" id="loaderId" style="display:none;">
+        <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'></p>
+    </div>
+    <script>
+    function showSpinner()
+    {
+        document.getElementById('opaque').style.display='block';
+        var popUp = document.getElementById('loaderId');
+        popUp.style.display = 'block';
+    } 
+    function hideSpinner()
+    {
+        document.getElementById('opaque').style.display='none';
+        var popUp = document.getElementById('loaderId');
+        popUp.style.display = 'none';
+    }
+    </script>
+</apex:form>
+</apex:page>

@@ -1,0 +1,38 @@
+<apex:page title="CC Team Performance Dashboard" sidebar="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <div class="page-header">
+        <h2>Event Core Dashboards</h2>      
+    </div>
+    <apex:form >
+        <apex:pageBlock title="CC Team Performance Dashboard">
+            <apex:pageBlockSection columns="4">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="CC NBB Closed this Month">
+                        <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N000001DtRl&ruid=005o0000002FfMJ&did=01Z1N000001Hqwi&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Opportunity+Owner&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N0000063MUL%3Fdbw%3D1&sd=1&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=-1&vt2=0&vl0=Record+Count&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.0&gc1=-4013484&gm1=2.0&gc2=-11222444&gm2=3.0&sona=0&refreshts=1515594770000" height="320px" width="420px" frameborder="false"/>
+                    </apex:outputLabel>      
+                </apex:pageBlockSectionItem>    
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Deals CC SDR Team is marked as influencing">
+                        <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N000001DtRl&ruid=005o0000002FfMJ&did=01Z1N000001Hqwi&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Opportunity+Owner&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N0000063MUL%3Fdbw%3D1&sd=1&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=-1&vt2=0&vl0=Record+Count&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.0&gc1=-4013484&gm1=2.0&gc2=-11222444&gm2=3.0&sona=0&refreshts=1515659021000" height="320px" width="420px" frameborder="false"/>
+                    </apex:outputLabel>
+                </apex:pageBlockSectionItem>    
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="CC Current Quarterly Funnel">
+                        <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N000001DtXP&ruid=005o0000002FfMJ&did=01Z1N000001Hqwi&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Opportunity+Owner&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N0000063McF%3Fdbw%3D1&sd=1&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=-1&vt2=0&vl0=Record+Count&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515594770000" height="320px" width="420px" frameborder="false"/>
+                    </apex:outputLabel>
+                </apex:pageBlockSectionItem>    
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="CC Quarterly Funnel for Next Q">
+                        <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N000001DtXP&ruid=005o0000002FfMJ&did=01Z1N000001Hqwi&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Opportunity+Owner&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N0000063McF%3Fdbw%3D1&sd=1&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=-1&vt2=0&vl0=Record+Count&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515659021000" height="320px" width="420px" frameborder="false"/>
+                    </apex:outputLabel>
+                </apex:pageBlockSectionItem>    
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

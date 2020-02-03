@@ -1,0 +1,55 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false" standardStylesheets="true"  extensions="CaseStatusExtension">
+  <!-- <script src="/soap/ajax/36.0/connection.js" type="text/javascript"></script>  -->
+  <link rel="stylesheet" href="css/msc-style.css"/>
+
+ <style>
+.customPopup{
+        border-style: solid;
+        border-width: 1px;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        z-index: 9999;
+        /* These are the 3 css properties you will need to tweak so the pop 
+        up displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can also add 
+        the height property for a fixed size pop up.*/
+        width: 500px;
+        margin-left: -250px;
+        top:100px;
+         background-color : whitesmoke;
+         font-family : cursive;
+         text-align: center;
+         border-bottom-left-radius:10px;
+         border-bottom-right-radius:10px;
+         border-top-left-radius:10px;
+         border-top-right-radius:10px;
+    }
+
+
+ </style>
+  <script>
+   if({!flag}){
+     alert('Case is already closed');
+   }
+  </script>
+  <apex:form id="formId" >
+  <apex:pageMessages />
+  <apex:outputPanel id="popup">
+            <apex:outputPanel styleClass="customPopup" layout="block" rendered="{!!isclosePopUp}">
+              Are you sure to close this case <br/><br/><br/>
+                <apex:commandButton value="Close Case" action="{!updateCase}" rerender="formId"/>  
+                 <apex:commandButton value="Cancel" action="{!cancel}" rerender="popup"/> 
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+  <apex:pageBlock title="Case Close" id="Pblock"  rendered="{!isShow}">
+   Your case # {!CaseObj.caseNumber}  has been successfully closed !!
+   
+   Thanks 
+ 
+  
+  </apex:pageBlock>
+ </apex:form> 
+ 
+</apex:page>

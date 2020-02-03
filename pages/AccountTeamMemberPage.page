@@ -1,0 +1,57 @@
+<apex:page standardController="Account" extensions="AccountTeamMemberExtension" showChat="false" showHeader="false" sidebar="false"> 
+
+    <style>
+    a:link {
+        color: #007acc;
+    }
+
+    </style>
+    
+    <script>
+    function openWin() {
+        AddTeamJS();
+        window.open("/opp/salesteaminsert.jsp?retURL=%2F{!Account.Id}&id={!Account.Id}&saveURL=/apex/AMAlert&cancelURL=/apex/AMAlert?newid={!Account.Id}","_parent" );
+    }
+    </script>
+
+
+    <apex:form >
+    <div align="center" style="color:Red">
+                <b><i>{!IF(accMembersWrapperList.size == 0, 'Team Members not found under this Account', '')}</i></b>
+    </div> 
+    
+    <apex:actionFunction name="AddTeamJS" action="{!AddTeam}"/>    
+    <apex:pageBlock title="Account Team Member Information">   
+   
+    <apex:pageBlockButtons location="top">
+        <input type="button" value="Add Team" onclick="openWin()" class="btn"/>
+        <!--<apex:commandButton value="Add Team" action="{!AddTeam}" onClick="window.open('/opp/salesteaminsert.jsp?retURL=%2F{!Account.Id}&id={!Account.Id}&saveURL=/apex/AMAlert','mywindow');"/> -->   
+    </apex:pageBlockButtons>
+    
+            <apex:pageBlockSection rendered="{!IF(accMembersWrapperList.size > 0, true, false)}">
+
+                <apex:pageBlockTable style="width:250%; font-color:blue;" value="{!accMembersWrapperList}" var="accMember" styleclass="floatingHeaderTable" >
+                    
+                    <apex:column headerValue="Action">
+                     
+                     <a href="/acc/salesteamedit.jsp?retURL=%2F{!Account.Id}&id={!accMember.memberId}" target="_parent">Edit</a>
+                     &nbsp;|
+                     <a href="/setup/own/deleteredirect.jsp?delID={!accMember.memberId}&retURL=%2F{!Account.Id}" target="_parent" >Del</a>
+                     
+                    </apex:column>
+                    
+                    
+                    <apex:column headerValue="Team Member" value="{!accMember.MemberName}"/>
+                    <apex:column headerValue="Team Role" value="{!accMember.Role}"/>
+                    <apex:column headerValue="Products" value="{!accMember.Products}"/>
+                
+                </apex:pageBlockTable>
+        
+            </apex:pageBlockSection>
+            
+            
+     </apex:pageBlock>
+    </apex:form>
+    
+
+</apex:page>

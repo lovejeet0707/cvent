@@ -1,0 +1,589 @@
+<apex:page standardController="Onsite_Hardware_Request_Item__c" extensions="CAM_PrepareShipment_Extension" sidebar="false" lightningStyleSheets="true" standardStylesheets="false" docType="html-5.0" title="Pack Assets for {! theRequestedItem.Name } - {! theRequestedItem.Cvent_Asset_Type__r.Name }">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:slds />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <apex:form >
+
+            <div class="slds-grid slds-gutters_small">
+                <!-- header -->
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-page-header slds-page-header_record-home">
+                        <div class="slds-page-header__row">
+                            <div class="slds-page-header__col-title">
+                                <div class="slds-media">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-standard-fulfillment-order">
+                                            <svg aria-hidden="true" class="slds-icon">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#fulfillment_order')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </span>                                                
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-page-header__name">
+                                            <div class="slds-page-header__name-title">
+                                                <h1><span>Prepare Shipment</span>
+                                                    <span class="slds-page-header__title slds-truncate">{! theRequestedItem.Cvent_Asset_Type__r.Name }</span>
+                                                </h1>
+                                            </div>
+                                            <!--div class="slds-page-header__name-switcher">
+                                                <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                                    <button class="slds-button slds-button_icon slds-button_icon-small" aria-haspopup="true" title="Other Items to Pack">
+                                                        <svg class="slds-button__icon slds-icon_x-small" aria-hidden="true">
+                                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#down')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-page-header__col-actions">
+                                <div class="slds-page-header__controls">
+                                    <div class="slds-page-header__control">
+                                        <apex:commandLink value="Switch Mode" onclick="javascript: toggleMainDivs();" styleClass="slds-button slds-button_neutral" reRender="none"/>
+                                        <ul class="slds-button-group-list">
+                                            <li>
+                                                <apex:commandLink value="Other Items In the Packlist" onclick="javascript: toggleModal();" styleClass="slds-button slds-button_neutral" reRender="none"/>
+                                            </li>
+                                            <li>
+                                                <apex:commandButton value="Back to the Item" action="{!cancel}" styleClass="slds-button slds-button_neutral" />
+                                            </li>
+                                            <li>
+                                                <apex:commandButton value="Back to the Packlist" action="{! URLFOR($Action.Packlist__c.View, theRequestedItem.Packlist__c) }"  styleClass="slds-button slds-button_neutral" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__row">
+                            <div class="slds-page-header__col-meta">{! theRequestedItem.Name }
+                            </div>
+                        </div>
+                        <div class="slds-page-header__row slds-page-header__row_gutters">
+                            <div class="slds-page-header__col-details">
+                                <ul class="slds-page-header__detail-row">
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">ID</div>
+                                        <div class="slds-truncate">
+                                            <apex:outputText value="{! theRequestedItem.Name }"/>
+                                        </div>
+                                    </li>
+                                    <!--li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Bundle</div>
+                                        <div class="slds-truncate">
+                                            <apex:outputText value="{! theRequestedItem.Onsite_Hardware_Request_Bundle__r.Cvent_Asset_Bundle__c }"/>
+                                        </div>
+                                    </li-->
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Group</div>
+                                        <apex:outputText value="{! theRequestedItem.Cvent_Asset_Group__c} > {!theRequestedItem.Cvent_Asset_Subgroup__c }"/>
+                                    </li>
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Shipment Date</div>
+                                        <div class="slds-truncate">
+                                            <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                                <apex:param value="{! theRequestedItem.Packlist__r.Date_Shipment__c }" /> 
+                                            </apex:outputText>
+                                        </div>
+                                    </li>
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Project Manager</div>
+                                        <apex:outputText value="{! theRequestedItem.Onsite_Hardware_Request__r.Event_Name__r.Project_Manager__c }"/>
+                                    </li>
+                                    <!--li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Packlist</div>
+                                        <apex:commandLink value="{! theRequestedItem.Packlist__r.Name }" action="{! URLFOR($Action.Packlist__c.View, theRequestedItem.Packlist__c) }"/>
+                                    </li-->
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Hardware Request</div>
+                                        <apex:commandLink value="{! theRequestedItem.Onsite_Hardware_Request__r.Name }" action="{! URLFOR($Action.Onsite_Hardware_Request__c.View, theRequestedItem.Onsite_Hardware_Request__c) }"/>
+                                    </li>
+                                    <li class="slds-page-header__detail-block">
+                                        <div class="slds-text-title slds-truncate">Event</div>
+                                        <apex:commandLink value="{! theRequestedItem.Onsite_Hardware_Request__r.Event_Name__r.Event_Name__c }" action="{! URLFOR($Action.Event_Data__c.View, theRequestedItem.Onsite_Hardware_Request__r.Event_Name__c) }"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-scope">
+                <div class="slds-col slds-size_1-of-1"><br/></div>
+            </div>    
+
+
+    <!-- List of scanned unique assets and quantity boxes-->
+    <div class="slds-grid slds-scope slds-gutters_small" style="display: {! if(uniqueAssetMode, '', 'none') }" id="uniqueAssetScanningDiv1">
+        <div class="slds-col slds-size_6-of-12">
+
+            <apex:outputPanel id="packed">
+                <apex:pageBlock tabStyle="Onsite_Hardware_Request__c">
+                    <apex:pageblockSection title="Packed Assets" collapsible="false" columns="1">
+                        <!-- download link -->
+                        <apex:commandLink action="{! '/apex/CAM_ExportData?pid=' +  theRequestedItem.id }" title="Download Info About These Devices" rendered="{! if (theRequestedItem.Packlist_Items__r.size > 0, TRUE, FALSE)  }">
+                            <span class="slds-button slds-button_icon">
+                                <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                    <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#download')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg>
+                            </span>
+                        </apex:commandLink>
+
+                        <!-- List of scanned unique assets -->
+                        <apex:pageBlockTable value="{! theRequestedItem.Packlist_Items__r }" var="asset" title="Packed Assets" id="packedTable" styleClass="slds-table slds-table_striped" style="table-layout:auto;">
+                            <apex:column >
+                                <apex:commandLink action="{! removeAsset }" title="Remove this Asset from the Packlist" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="remove-status">
+                                    <apex:param name="packlistItemIDtobeDeleted" value="{! asset.Id}" />
+                                    <apex:param name="assetIDtobeUpdated" value="{! asset.Cvent_Asset__c }" />
+                                    <span class="slds-button slds-button_icon">
+                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#delete')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </apex:commandLink>
+                                <apex:actionStatus id="remove-status" startText="Removing Asset from the Packlist..." stopText="">
+                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                </apex:actionStatus>
+                            </apex:column>
+                            <apex:column headerValue="Tag">
+                                <apex:commandLink value="{! asset.Cvent_Asset__r.Asset_Tag__c }" action="{! URLFOR($Action.Cvent_Asset__c.View, asset.Cvent_Asset__c) }"/>
+                            </apex:column>
+                            <apex:column headerValue="" headerClass="slds-text-align_center" styleClass="slds-text-align_center" >
+                                <apex:commandLink onclick="javascript: togglePopover('{! asset.Id }', true);" reRender="none">
+                                    <span class="slds-button slds-button_icon" style="display: {! if(asset.Validate_Asset_Types_Match__c, 'none', '') }" title="Click to resolve this error">
+                                        <svg aria-hidden="true" class="slds-icon slds-icon_xx-small slds-icon-text-error">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+
+                                    <!-- hidden popover to help resolve the incorrect Asset Type -->
+                                    <section id="popover-{! asset.Id }" aria-describedby="dialog-body-id-98" aria-label="Dialog Title" style="display: none;" title="" class="slds-popover slds-nubbin_left-top slds-popover_error slds-popover_large " role="dialog">
+                                        <a href="#" onclick="javascript: togglePopover('{! asset.Id }', false);" class="slds-button slds-button_icon slds-button_icon-large slds-button_icon-inverse slds-float_right slds-popover__close" title="Close">
+                                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </a>
+                                        <header class="slds-popover__header">
+                                            <div class="slds-media slds-media_center slds-has-flexi-truncate ">
+                                                <div class="slds-media__figure">
+                                                    <span class="slds-icon_container slds-icon-utility-error">
+                                                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="slds-media__body">
+                                                    <h2 class="slds-truncate slds-text-heading_medium" >Resolve Error</h2>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="slds-popover__body slds-media_center" style="white-space: normal;">
+                                            The requested device type is <b>{! theRequestedItem.Cvent_Asset_Type__r.Name }</b> but the asset scanned is <b>{! asset.Cvent_Asset__r.Asset_Name__c }</b> type.<br/>
+                                            To resolve this, you can either remove this asset or add it to the packlist as a new item.
+                                        </div>
+                                        <footer class="slds-popover__footer">
+                                            <div class="slds-media_center slds-text-align_center" style="text-align:center" >
+                                                <apex:commandLink action="{! removeAsset }" value="Remove" title="Remove this Asset from the Packlist" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="remove-status2" styleClass="slds-button slds-button_neutral">
+                                                    <apex:param name="packlistItemIDtobeDeleted" value="{! asset.Id }" />
+                                                    <apex:param name="assetIDtobeUpdated" value="{! asset.Cvent_Asset__c }" />
+                                                </apex:commandLink>
+                                                <apex:actionStatus id="remove-status2" stopText="">
+                                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                                </apex:actionStatus> &nbsp;
+                                                <apex:commandLink value="Add to Packlist as a New Item" action="{! createNewItem }" styleClass="slds-button slds-button_neutral">
+                                                    <apex:param name="packlistItemID" value="{! asset.Id }" />
+                                                    <apex:param name="assetIDtobeUpdated" value="{! asset.Cvent_Asset__c }" />
+                                                </apex:commandLink>
+                                            </div>
+                                        </footer>
+                                    </section>
+
+                                    <span class="slds-button slds-button_icon" style="display: {! if(asset.Validate_Asset_Types_Match__c, '', 'none') }">
+                                        <svg aria-hidden="true" class="slds-icon slds-icon_xx-small slds-icon-text-success">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </apex:commandLink>
+                            </apex:column>
+                            <apex:column headerValue="Asset Name" value="{! asset.Cvent_Asset__r.Asset_Name__c }"/>
+                            <apex:column headerValue="Date Packed" title="{! asset.CreatedDate }">
+                                <apex:outputText value="{0, date, h:mma (MMM d)}">
+                                    <apex:param value="{! asset.CreatedDate }" /> 
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Box" title="{! asset.Cvent_Box__r.Cvent_Box_Type__r.Name }">
+                                <apex:selectList value="{! asset.Cvent_Box__c }" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{! (boxes) }"/>
+                                </apex:selectList>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageblockSection>
+                        <!-- bulk update boxes -->
+                        <div style="text-align:right; display: {! if(theRequestedItem.Packlist_Items__r.size == 0, 'none', '') }">
+                            <apex:selectList value="{! activeBulkBox }" size="1" multiselect="false" >
+                                <apex:selectOptions value="{! (boxes) }"/>
+                            </apex:selectList>&nbsp;
+                            <apex:commandButton action="{! bulkUpdateBox }" value="Update All Boxes" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="bulkUpdate-status" styleClass="slds-button slds-button--neutral"/>
+                            <apex:actionStatus id="bulkUpdate-status" stopText="">
+                                <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                            </apex:actionStatus>
+                        </div>
+
+                </apex:pageBlock>
+            </apex:outputPanel> 
+
+        </div>
+
+        <!-- quantity boxes scan asset input field-->
+        <div class="slds-col slds-size_6-of-12">
+            <div  class="slds-grid slds-scope slds-gutters_small slds-wrap">
+
+                <div  class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                    <div  class="slds-grid slds-scope slds-gutters_small">
+
+                        <div class="slds-col slds-size_1-of-3" >
+                            <apex:outputPanel id="requestedQuantityDiv">
+                                <article class="slds-card" style="background: #16325c">
+                                    <div class="slds-card__header slds-grid">
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-heading--large slds-text-align_center slds-text-color_inverse" >
+                                                Requested <br/> Quantity
+                                            </div>
+                                        </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-card__body_inner slds-text-heading--large slds-text-align_center slds-text-color_inverse">
+                                        <apex:outputText value="{0, number, ###,##0}">
+                                            <apex:param value="{! theRequestedItem.Quantity_to_be_Packed__c }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </article>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3" >
+                            <apex:outputPanel id="packedQuantityDiv" >
+                                <article class="slds-card" style="background: #16325c">
+                                    <div class="slds-card__header slds-grid">
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-heading--large slds-text-align_center slds-text-color_inverse" >
+                                                Scanned <br/> Quantity
+                                            </div>
+                                        </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-card__body_inner slds-text-heading--large slds-text-align_center slds-text-color_inverse">
+                                        <apex:outputText value="{0, number, ###,##0}">
+                                            <apex:param value="{! packedQuantity }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </article>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3" >
+                            <apex:outputPanel id="remainingQuantityDiv">
+                                <article class="slds-card" style="background:{! if( (theRequestedItem.Quantity_to_be_Packed__c - packedQuantity)<>0, '#c23934','#027e46')}">
+                                    <div class="slds-card__header slds-grid">
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-heading--large slds-text-align_center slds-text-color_inverse" >
+                                                Remaining <br/> Quantity
+                                            </div>
+                                        </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-card__body_inner slds-text-heading--large slds-text-align_center slds-text-color_inverse">
+                                        <apex:outputText value="{0, number, ###,##0}">
+                                            <apex:param value="{! theRequestedItem.Quantity_to_be_Packed__c - packedQuantity }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </article>
+                            </apex:outputPanel>
+                        </div>                
+                    </div>
+
+                </div>
+                <!-- info about the last scanned item and input fields  -->
+                <div  class="slds-col slds-size_1-of-1 slds-text-align_center"  id="scanningForm" onkeypress="if (event.keyCode == 13 && !bulkScanMode) { ScanAssetbyJS(); return false;}">
+                    
+                    <apex:pageMessages id="pageMessages" showDetail="false"/>
+
+                    <a onclick="javascript: toggleBulkScanMode();" href="#">
+                        <span class="slds-button slds-button_icon" id="iconPanel1">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                                <use xlink:href="{! URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#expand_alt') }" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                            </svg>
+                        </span>
+                        <span class="slds-button slds-button_icon" id="iconPanel2" style="display: none;">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                                <use xlink:href="{! URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#contract_alt') }" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <div id="scanPanel1">
+                        <span class="slds-icon_container slds-icon-standard-search">
+                            <svg aria-hidden="true" class="slds-icon">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#search')}"></use>
+                            </svg>
+                        </span>&nbsp;            
+                        <apex:inputText id="scannedAssetId" value="{! scannedAssetId }" styleClass="scannedAssetIdClassUniqueName" />&nbsp;
+                        <apex:selectList value="{! activeBoxSingle }" size="1" multiselect="false" >
+                            <apex:selectOptions value="{! (boxes) }"/>
+                        </apex:selectList>
+                        <apex:commandButton value="Scan Asset" action="{! scanAsset }" title="Add this Asset to the Packlist" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="scanning-status" styleClass="slds-button slds-button--neutral scandAssetButtonClassUniqueName"/>&nbsp;
+                        <apex:actionFunction name="ScanAssetbyJS" action="{!scanAsset}" focus="scannedAssetId" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="scanning-status" />    
+                        <apex:actionStatus id="scanning-status" stopText="">
+                            <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                        </apex:actionStatus>
+                    </div>
+
+                    <div id="scanPanel2" style="display: none;" class="slds-align_absolute-center">
+                        <apex:inputTextarea value="{! bulkIDList }" cols="10" rows="2" />&nbsp;
+                        <apex:selectList value="{! activeBoxBulk }" size="1" multiselect="false" >
+                            <apex:selectOptions value="{! (boxes) }"/>
+                        </apex:selectList>
+                        <apex:commandButton action="{! bulkScanAssets }" value="Scan Multiple Assets" reRender="pageMessages,packedQuantityDiv,remainingQuantityDiv,scanningForm,packed,packlist,otherItems" status="nonuniqueAddition-status2" styleClass="slds-button slds-button--neutral"/>
+                        <apex:actionStatus id="nonuniqueAddition-status2" stopText="">
+                            <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                        </apex:actionStatus>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="slds-grid slds-scope slds-gutters_small" style="display: {! if(uniqueAssetMode, '', 'none') }" id="uniqueAssetScanningDiv2">
+        <div class="slds-col slds-size_1-of-2">
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-m-vertical--large slds-text-align_center">
+        </div>
+        
+    </div>
+
+    <!-- hidden section to show quantity field to enter for non-unique assets -->
+    <div class="slds-grid slds-scope slds-gutters_small" style="display: {! if(uniqueAssetMode, 'none', '') }" id="non-uniqueAssetScanningDiv">
+        <div class="slds-col slds-size_2-of-3">
+            
+            <apex:pageMessages id="pageMessagesNonUnique" showDetail="false"/>
+
+            <apex:outputPanel id="nonuniqueAssetTable">
+                <apex:pageBlock tabStyle="Cvent_Asset_Type__c">
+                    <apex:pageblockSection title="Enter Shipping Quantity" collapsible="false" columns="1">
+                        <apex:pageBlockTable value="{! theRequestedItem }" var="item" styleClass="slds-table slds-table_striped" style="table-layout:auto;">
+                            <apex:column value="{! item.Cvent_Asset_Type__r.Name }" headerValue="Device / Consumable" styleClass="slds-cell-edit"/>
+                            <apex:column value="{! item.Quantity_to_be_Packed__c }" headerValue="Requested Quantity" styleClass="slds-cell-edit slds-text-align_right" headerClass="slds-text-align_right" />
+                            <apex:column styleClass="slds-text-align_center">
+                                <apex:commandLink action="{! splitItem }" title="Split this item into two. Useful for shipping in multiple boxes." reRender="nonuniqueAssetTable,pageMessagesNonUnique,otherItems" status="split-status">
+                                    <span class="slds-button slds-button_icon">
+                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#cut')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </apex:commandLink>
+                                <apex:actionStatus id="split-status" stopText="">
+                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                </apex:actionStatus>
+                            </apex:column>
+                            <apex:column styleClass="slds-text-align_center">
+                                <apex:commandLink action="{! populateShippingQuantity }" title="Copy Requested Quantity to Shipping Quantity" reRender="nonuniqueAssetTable" status="nonuniqueQuantity-status">
+                                    <span class="slds-button slds-button_icon">
+                                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#forward')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>
+                                </apex:commandLink>
+                                <apex:actionStatus id="nonuniqueQuantity-status" startText="Confirming Shipping Quantity..." stopText="">
+                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                </apex:actionStatus>
+                            </apex:column>
+                            <apex:column headerValue="Shipping Quantity" styleClass="slds-text-align_right" headerClass="slds-text-align_right">
+                                <apex:inputField type="number" value="{! item.Shipped_Quantity_Others__c }"/>
+                            </apex:column>
+                            <apex:column >
+                                <apex:selectList value="{! item.Cvent_Box__c }" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{! (boxes) }"/>
+                                </apex:selectList>                                
+                            </apex:column>
+                            <apex:column >
+                                <apex:commandButton action="{! confirmShippingQuantity }" value="Confirm" reRender="pageMessagesNonUnique,packlist,otherItems" status="nonuniqueAddition-status" styleClass="slds-button slds-button--neutral scandAssetButtonClassUniqueName"/>
+                                <apex:actionStatus id="nonuniqueAddition-status" stopText="">
+                                    <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                                </apex:actionStatus>
+                                <!--apex:commandLink onclick="javascript: toggleModal();" value="Next Item in the Packlist" styleClass="slds-button slds-button--neutral" reRender="none" rendered="{! if(item.Shipped_Quantity_Others__c <> null, 'true', 'false') }"/-->
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageblockSection>
+                    <div style="text-align: right;">
+                        <apex:outputLink rendered="{! if(splitItemNewId <> null, TRUE, FALSE) }" styleClass="slds-button slds-button--neutral" value="{! URLFOR( '/apex/CAM_PrepareShipment', null, [id=splitItemNewId, activeBoxSingleParam=activeBoxSingle, activeBoxBulkParam=activeBoxBulk] ) }">View the New Item</apex:outputLink>
+                    </div>
+            </apex:pageBlock>
+            </apex:outputPanel>
+
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+        </div>
+    </div>
+
+    <!-- the hidden modal for displaying the other items in the packlist -->
+    <section id="otherItemsModal" role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" style="display: none;" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <a href="#" onclick="javascript: toggleModal();"  class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" >
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                    </svg>
+                </a>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Other Items in the Packlist</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <apex:outputPanel id="otherItems">
+                    <apex:pageBlock tabStyle="Cvent_Asset_Type__c">
+                        <apex:pageBlockTable value="{! otherItems }" var="item" title="Other Items in this Packlist" id="packlistTable" styleClass="slds-table slds-table_striped"  style="table-layout:auto;">
+                            <apex:column headerValue="ID" 					value="{!item.reqItem.Name }"/>
+                            <apex:column headerValue="Device" 				value="{!item.reqItem.Cvent_Asset_Type__r.Name }"/>
+                            <apex:column headerValue="Group" 				value="{!item.reqItem.Cvent_Asset_Group__c} > {!item.reqItem.Cvent_Asset_Subgroup__c}"/>
+                            <apex:column headerValue="Remaining" title="Requested: {! item.reqItem.Quantity_to_be_Packed__c } {! newLine }Packed:  {! item.reqItem.Shipped_Quantity__c }" styleClass="slds-text-align_right" headerClass="slds-text-align_right">
+                                <span class="slds-button slds-button_icon" style="display: {! if(AND(item.reqItem.Shipped_Quantity_Unique_Assets__c > 0, item.reqItem.Shipped_Quantity_Correct_Unique_Assets__c <> item.reqItem.Shipped_Quantity_Unique_Assets__c), '', 'none') }" title="Incorrect assets have been scanned into this item. Please check.">
+                                    <svg aria-hidden="true" class="slds-icon slds-icon_xx-small slds-icon-text-error">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                    </svg>
+                                </span>
+                                <apex:outputText value="{0, number, ###,##0}">
+                                    <apex:param value="{! (item.reqItem.Quantity_to_be_Packed__c) - (item.reqItem.Shipped_Quantity__c) }" /> 
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column title="Requested: {! item.reqItem.Quantity_to_be_Packed__c } {! newLine }Packed:  {! item.reqItem.Shipped_Quantity__c }">
+                                <div class="slds-progress-ring {! if (item.progress < 1, 'slds-progress-ring_warning', '') } {! if( item.progress == 1, 'slds-progress-ring_complete', '') } ">
+                                    <div class="slds-progress-ring__progress" role="progressbar" style="transform: scaleX(1) rotate(-90deg);" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{! item.progress * 100 }">
+                                        <svg viewBox="-1 -1 2 2">
+                                            <path class="slds-progress-ring__path" d="{! item.progress_s }"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="slds-progress-ring__content">
+                                        <span class="slds-icon_container slds-icon-utility-check" style="display: {! if( item.progress == 1, '', 'none') }">
+                                            <svg class="slds-icon" aria-hidden="true">
+                                              <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#check')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="slds-icon_container slds-icon-utility-warning" style="display: {! if( item.progress <> 1, '', 'none') }">
+                                            <svg class="slds-icon" aria-hidden="true">
+                                              <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#warning')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </apex:column>
+                            <apex:column rendered="{! if(theRequestedItem.ID <> item.reqItem.ID, TRUE, FALSE) }">
+                                <apex:outputLink value="{! URLFOR( '/apex/CAM_PrepareShipment', null, [id=item.reqItem.Id, activeBoxSingleParam=activeBoxSingle, activeBoxBulkParam=activeBoxBulk] ) }">Pack Assets for This Item</apex:outputLink>
+                            </apex:column>
+                            <apex:column rendered="{! if(theRequestedItem.ID == item.reqItem.ID, TRUE, FALSE) }">
+                                <i>(curent item)</i>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </apex:outputPanel>    
+            </div>
+            <footer class="slds-modal__footer">
+                <a href="#" onclick="javascript: toggleModal();"  class="slds-button slds-button_neutral" title="Close" >Close</a>
+            </footer>
+        </div>
+    </section>
+    <div id="modalBackdrop" style="display: none;" class="slds-backdrop slds-backdrop_open"></div>
+
+
+    <script>
+
+        var modalOpen = true; 
+        var bulkScanMode = false;
+        var uniquAssetMode = {! uniqueAssetMode };
+    
+        $(document).ready(function() { 
+            toggleModal();
+        });
+    
+        function toggleMainDivs(){
+            d11 = document.getElementById('uniqueAssetScanningDiv1');
+            d12 = document.getElementById('uniqueAssetScanningDiv2');
+            d2 = document.getElementById('non-uniqueAssetScanningDiv');
+    
+            if (uniquAssetMode){
+                d11.setAttribute("style", "display: none;");
+                d12.setAttribute("style", "display: none;");
+                d2.setAttribute("style", "");
+                uniquAssetMode = false;
+            } else {
+                d11.setAttribute("style", "");
+                d12.setAttribute("style", "");
+                d2.setAttribute("style", "display: none;");
+                uniquAssetMode = true;
+            }
+            
+    
+            return false;
+        }//toggleMainDivs
+    
+        function toggleModal(){
+            m = document.getElementById('otherItemsModal');
+            b = document.getElementById('modalBackdrop');
+            if (modalOpen == true ){
+                m.setAttribute("style", "display: none;");
+                b.setAttribute("style", "display: none;");
+                modalOpen = false;
+            } else {
+                m.setAttribute("style", "");
+                b.setAttribute("style", "");
+                modalOpen = true;
+            }
+    
+            return false;
+        }//toggleModal
+
+        function togglePopover(i, openIt) {
+            p = document.getElementById('popover-' + i);
+            if (openIt == true ){
+                p.setAttribute("style", "display: ");
+                p.setAttribute("style", "position: absolute; top: -10px;");
+            } else {
+                p.setAttribute("style", "display: none;");
+            }
+
+        }//togglePopover
+
+        function toggleBulkScanMode(){
+            //console.log("toggleBulkScanMode called");
+
+            p1 = document.getElementById("scanPanel1");
+            p2 = document.getElementById("scanPanel2");
+            i1 = document.getElementById("iconPanel1");
+            i2 = document.getElementById("iconPanel2");
+
+            if (!bulkScanMode){
+                p1.setAttribute("style", "display: none;");
+                i1.setAttribute("style", "display: none;");
+                p2.setAttribute("style", "display: ");
+                i2.setAttribute("style", "display: ");
+                bulkScanMode = true;
+            } else {
+                p1.setAttribute("style", "display: ");
+                i1.setAttribute("style", "display: ");
+                p2.setAttribute("style", "display: none;");
+                i2.setAttribute("style", "display: none;");
+                bulkScanMode = false;
+            }
+        }//toggleBulkScanMode
+
+    </script>    
+
+                
+    </apex:form>
+</html>
+</apex:page>

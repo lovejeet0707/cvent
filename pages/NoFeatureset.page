@@ -1,0 +1,14 @@
+<apex:page showHeader="false" sidebar="false">
+<apex:outputPanel >
+ <table border="0" width="100%" id="table1" cellpadding="6">
+    <tr>
+        <td bgcolor="#008080" height="31" colspan="2"><font color="#FFFFFF"><h3><b>AM Featureset is not available for this account
+        </b></h3></font> </td>
+    </tr>
+    <tr>
+        <td width="4%">&nbsp;</td>
+        <td width="93%" height="18"><h4>Please contact <a href="mailto:asehgal@cvent.com?subject=Please enable AM Feature Set for - ">Anuj Sehgal</a> for enabling this Feature </h4>
+</td>
+    </tr>
+</table></apex:outputPanel>
+</apex:page>

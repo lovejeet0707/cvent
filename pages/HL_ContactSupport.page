@@ -1,0 +1,276 @@
+<apex:page standardController="Case" showHeader="true" sidebar="false" extensions="ContactSupportCls">
+    <apex:form >
+        <apex:actionRegion >
+            <apex:actionFunction name="insertDataNew" reRender="#" action="{!search}">  
+                <apex:param name="param1" assignTo="{!searchTerm}" value=""/> 
+                <apex:param name="param2" assignTo="{!productSel}" value=""/>
+            </apex:actionFunction>
+        </apex:actionRegion>
+        <head>
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <!--<title>Help &amp; Training - Community Portal</title>-->
+            <title>Cvent Community | Get Help Now</title>   
+            <meta name="description" content="Have questions about a Cvent product or feature? Need a hand with something that just isn’t working right? There are several ways to get the guidance you need."/>
+            <apex:composition template="CventCommunityHeader"></apex:composition>
+            <style>
+                /* GB STYLES */
+                .section--search { background: #0183EB !important; padding: 2em 0 2em; }
+                .header .search {
+                border: 1px solid #ccc !important;
+                background: #fff;
+                font-size: 1.25em;
+                color: #444;
+                width: 90% !important;
+                box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+                border-radius: 3px 0px 0px 3px !important;
+                }
+                .header .search::placeholder {
+                color: #aaa;
+                }
+                .header .submit {
+                border-radius: 0px 3px 3px 0px !important;
+                padding: 13px 0 13px 0 !important;
+                font-size: 15px !important;
+                box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+                }
+                .left-top img.logo {
+                padding: 0 !important;
+                }
+                .top-band {
+                background: #fff !important;
+                }
+                .left-top div#navigation ul li a {
+                color: #0183EB !important;
+                }
+                .left-top div#navigation ul li.active a {
+                background: #eee;
+                }
+                .left-top div#navigation ul li.btn-login a, .left-top div#navigation ul li.btn-login a:hover {
+                color: #fff !important;
+                }
+                .left-top div#navigation ul li a:hover {
+                color: #0183EB !important;
+                text-decoration: underline;
+                }
+                li.btn-login {
+                float: right;
+                }
+                li.btn-login a {
+                background: #0183EB;
+                color: #fff;
+                padding: 8px 12px;
+                font-size: 14px;
+                display: inline-block;
+                }
+                li.btn-login a:hover {
+                backround:#0069bd !important;
+                color: #fff !important;
+                }
+                h2{
+                color: dodgerblue;
+                }
+                .container {
+                background: white;
+                }
+                /* Waleed Styles */
+                h1, h2, h3, h4, h5, h6 {
+                font-family: Brandontextweb-regular, Arial, sans-serif;
+                }
+                p, ul, li, span {
+                font-family: "Open Sans", Arial, sans-serif;
+                }
+                #communitysupport{
+                padding-top: 75px;
+                background: #fff !important;
+                } 
+                @media (max-width:767px) {
+                #communitysupport{
+                padding-top: 0px;
+                background: #fff !important;
+                } 
+                }
+                form {
+                display: block;
+                background: #fff;
+                }
+                .support-header{
+                background:#ECEFF8;
+                }
+                .support-header .container {
+                background: #ECEFF8;
+                padding: 34px 0px 34px 10px
+                }
+                .support-header h2 {
+                font-size: 36px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                font-style: normal;
+                text-rendering: optimizeLegibility;
+                color: #0183EB !important;
+                }
+                .support-body-content {
+                padding: 35px 0;
+                }
+                .button {
+                margin-top: 15px;
+                background-color: #0183EB;
+                border-color: transparent;
+                color: #fff;
+                transition: 0.2s;
+                display: inline-block;
+                padding: 6px 12px;
+                margin-bottom: 0;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 1.428571429;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+                font-family: "Brandon Text", Arial, sans-serif;
+                }
+                .disabled {
+                cursor: not-allowed !important;
+                filter: alpha(opacity=65);
+                opacity: .65;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                color: #fff !important;
+                background-color: #777777;
+                }
+                .disabled:hover {
+                font-family: "Brandon Text", Arial, sans-serif;
+                color: #fff;
+                background-color: #777777 !important;
+                }
+                .button:hover{
+                font-family: "Brandon Text", Arial, sans-serif;
+                color: #fff;
+                background-color: #044981;
+                border-color: transparent;
+                }
+                .bPageFooter.noTableFooter {
+                display: none;
+                }
+            </style>
+        </head>
+        <body id="help" class="inner">
+            <main>
+                <section id="communitysupport">
+                    <div class="support-header">
+                        <div class="container">
+                            <h2 >Contact Support</h2>
+                        </div>
+                    </div>
+                    <div class="container support-body-content">
+                        <div class="col-md-8">
+                            <div class="form-group"> 
+                                <h3>Choose the Right Resource for You</h3>
+                                <br /><br />
+                                <p style="font-size: 1.125em;">Select from several Cvent Support options based on the nature and timelines of your goal or issue.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-sm-10 ">
+                                    <p class="cta-ask-community" >     <i style="font-size: 40px; font-weight: 300; padding: 5px; position: relative; top: 10px; left: -10px; color: #f66f6f;" aria-hidden="true" class="fas fa-user-friends"></i>
+                                        <h4 style="color: black;">1.  Ask The Community</h4>
+                                    <p style="margin-left: 73px;font-size: 16px;">Post a question online to the seasoned planners and hoteliers of our Cvent customer community. Whatever your need, chances are someone&#39;s already solved it.<br/>
+                                        <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum';">Go to Open Forum</button>  <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage';">Search Discussions</button></p>
+                                      
+                                </p>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10 "  style="cursor: pointer;">
+                                
+                                <!--NEW BUTTON-->
+                                <p class="cta-chat">
+                                    <script type="text/javascript">
+                                    window.name = 'Livechat'
+                                    </script>
+                                    <script type='text/javascript' src='https://c.la2-c2-ia2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
+                                    <script type='text/javascript'>
+                                        liveagent.init('https://d.la2-c2-ia2.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+                                    </script>
+                                    <i style="font-size: 40px; font-weight: 300; padding: 5px; position: relative; top: 10px; left: -10px; color: #f66f6f;" aria-hidden="true" class="fas fa-comments"></i>
+                                    <h4 style="color: black;">2.  Chat With Us Online</h4>
+                                <p style="margin-left: 73px;font-size: 16px;">Got a quick question? Start a conversation with a live representative online. <b>Available 9:00pm Sunday -  9:00pm Friday ET</b>.<br/>
+                                    <!--<button type="button" class="button button-blue disabled">We're Sorry! Chat is Currently Unavailable.</button>-->
+                                    <button type="button" class="button button-blue" id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChatWithWindow('573000000008OVF','_self')">Start a Chat</button>
+                                
+                                    <button type="button" class="button button-blue disabled" id="liveagent_button_offline_573000000008OVF">We're Sorry! Chat is Currently Unavailable.</button>
+                                
+                                
+                                </p>
+                                <script type="text/javascript">
+                                if (!window._laq) { window._laq = []; }
+                                window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+                                                            liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+                                                           });
+                                </script>
+                            </p>
+                        </div>
+                    </div>     
+                    <div class="row">
+                        <div class="col-md-10 col-sm-10 ">
+                            <p class="cta-open-case"><i style="font-size: 40px; font-weight: 300; padding: 5px; position: relative; top: 10px; left: -10px; color: #f66f6f;" aria-hidden="true" class="fas fa-folder-open"></i>
+                                <h4 style="color: black;">3. Open A Support Case</h4>
+                            <p style="margin-left: 73px;font-size: 16px;">Got a complex question? Complete a short form,add screenshots and a Product Consultant will contact you within 24 hours.<br/>
+                                <button type="button" class="button button-blue" onclick="location.href='https://support.cvent.com/apex/FindHelp';">Open a Case</button>   <button type="button" class="button button-blue" onclick="location.href='https://support.cvent.com/apex/SupportPage';">Review your Cases</button> </p>
+                        </p>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-10 col-sm-10 ">
+                        <p class="cta-call-us" >
+                            <i style="font-size: 40px; font-weight: 300; padding: 5px; position: relative; top: 10px; left: -10px; color: #f66f6f;" aria-hidden="true" class="fas fa-headset"></i>
+                            <h4 style="color: black;">4.  Request a Phone Call</h4>
+                        <p style="margin-left: 73px;font-size: 16px;">Need help now? Get someone on the phone right away. Have your account information ready to expedite the process.<br/> 
+                            <button type="button" class="button button-blue" onclick="location.href='https://support.cvent.com/apex/RequestaCall';">Request a Call</button></p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center" style="margin-top: 60px; border: 1px solid #CBCBCB;"><br/>
+            <p>Have you tried searching the</p><h3><b>Knowledge Base?</b></h3><br/><br/><p>Explore the same resources used by<br />Cvent Support experts.</p>
+            <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase';">Search Here</button>  <br/><br/>                
+        </div>
+    </div>
+</section>
+<style>
+    .cta-ask-community,.cta-chat,.cta-open-case,.cta-call-us {display:inline-block; margin: 25px 0 0 0;}
+    .cta-ask-community img,.cta-chat img,.cta-open-case img,.cta-call-us img {margin: 0 0 10px 0;}
+    .cta-ask-community h2,.cta-chat h2,.cta-open-case h2,.cta-call-us h2 {font-size: 16px; font-weight: bold; color: #0c71b7;}
+    .cta-ask-community p,.cta-chat p,.cta-open-case p,.cta-call-us p {color: #323232; font-size: 16px; margin: 15px 0 20px 0; line-height: 22px;}
+    .announcement {background: #bce4f4; border: 2px solid #35b4e2; padding: 20px 0 20px 12%;}
+    .announcement span.alert-icon {float: left;}
+    .announcement span.alert-icon img {margin: 0 20px 0 0;}
+    .announcement p {margin: 6px 0 4px 0;}
+    .announcement span.cross-icon-btn {position: absolute; right: 25px; top: 5px; cursor: pointer;}
+</style>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    function closeAndRefresh(){
+    var value =  $("#search").val();
+    var product= '';
+    if(value ==''){
+    }else{
+        insertDataNew(value,product);
+    }
+}
+</script>
+</body>
+<!-- Community Footer code added here-->
+<apex:composition template="CventCommunityFooter"></apex:composition>
+</apex:form>
+</apex:page>

@@ -1,0 +1,231 @@
+<apex:page standardController="CRM_Timecard__c" extensions="CRM_MyTimeCardController" sidebar="false" tabStyle="My_Timecard__tab">
+
+<script>
+function calculateEntryTotal(day1Id, day2Id, day3Id, day4Id, day5Id, day6Id, day7Id, totalId) {
+    var d1 = Number(document.getElementById(day1Id).value);
+    var d2 = Number(document.getElementById(day2Id).value);  
+    var d3 = Number(document.getElementById(day3Id).value);     
+    var d4 = Number(document.getElementById(day4Id).value);     
+    var d5 = Number(document.getElementById(day5Id).value);     
+    var d6 = Number(document.getElementById(day6Id).value);     
+    var d7 = Number(document.getElementById(day7Id).value);     
+    var t = d1.valueOf() + d2.valueOf()+ d3.valueOf()+ d4.valueOf() + d5.valueOf() + d6.valueOf() + d7.valueOf();
+    document.getElementById(totalId).innerHTML = t.toFixed(1);
+}
+</script>
+
+<apex:form id="mainForm">
+<apex:pageblock id="mainPB">
+<apex:pageblockSection rendered="{!NOT(managerView)}">
+<apex:pageBlockSectionItem >
+<apex:outputLabel value="Please Select a Timecard:"></apex:outputLabel>
+<apex:selectList value="{!selectedTimecardId}" multiselect="false" size="1">
+    <apex:selectOptions value="{!timecardsOptions }"></apex:selectOptions>
+    <apex:actionSupport event="onchange" action="{!selectTimecardAction}" status="status0" rerender="mainForm"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+</apex:pageblockSection>
+<apex:actionStatus id="status0">                  
+    <apex:facet name="start">
+    <div class="waitingSearchDiv waitingSearchDivOpacity" style="width: 100%; height: 100%; display: block; opacity: 0.5"/>
+    <div id="00B80000007AEEH_loading" class="waitingSearchDiv" style="width: 100%; height: 100%; display: block; opacity: 0.5">
+    <div class="waitingHolder" style="top: 150px; width: 88px;">
+    <img class="waitingImage" src="/img/loading.gif"/>
+    <span class="waitingDescription">Processing...</span>
+    </div>
+    </div>
+   
+    </apex:facet>
+    <apex:facet name="stop"></apex:facet>
+</apex:actionStatus>
+</apex:pageblock>
+
+<apex:sectionHeader subtitle="{!selectedTimecard.Description__c}" title="Status: {!selectedTimecard.Status__c}" rendered="{!isValidTimecard}"/>
+<!-- <apex:pageBlock id="headerPB" rendered="{!isValidTimecard}">
+<apex:pageblockSection title="Summary" >
+    <apex:pageblockSectionItem >
+         <apex:outputLabel value="Total Hours This Week"/>
+        <apex:outputField value="{!selectedTimecard.Total_Hours_Week__c}"/>
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem >
+         <apex:outputLabel value="Non Work Hours"/>
+        <apex:outputField value="{!selectedTimecard.Off_Hours_Week__c}"/>
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem >
+         <apex:outputLabel value="Approver"/>
+        <apex:outputField value="{!selectedTimecard.Approver__c}"/>
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem >
+         <apex:outputLabel value="Status"/>
+        <apex:outputField value="{!selectedTimecard.Status__c}"/>
+    </apex:pageblockSectionItem>
+
+</apex:pageblockSection>
+</apex:pageBlock> -->
+
+<apex:pageBlock id="enteriesPB" rendered="{!isValidTimecard}">
+
+<apex:pageblockButtons location="top">
+<!--    <apex:commandButton action="{!autoGenerateEntriesAction}" value="Auto Generate Entries" rerender="enteriesTable" status="status0"/>-->
+    <apex:commandButton action="{!refreshAutoEntriesAction}" value="Refresh" rerender="enteriesTable" status="status0" rendered="{!OR(selectedTimecard.Status__c = 'Draft', selectedTimecard.Status__c = 'Rejected')}"/>
+    <apex:commandButton action="{!saveAction}" value="Save" rerender="enteriesTable" status="status0" rendered="{!OR(selectedTimecard.Status__c = 'Draft', selectedTimecard.Status__c = 'Rejected')}"/>
+    <apex:commandButton action="{!submitApprovalAction}" value="Submit For Approval" rerender="mainPB, enteriesPB, enteriesTable" status="status0" rendered="{!AND($User.Id = selectedTimecard.Team_Member__c, OR(selectedTimecard.Status__c = 'Draft', selectedTimecard.Status__c = 'Rejected'))}"/>
+    <apex:commandButton action="{!approveAction}" value="Approve" rerender="mainPB, enteriesPB, enteriesTable" status="status0" rendered="{!AND(selectedTimecard.Status__c = 'Pending Approval', $User.Email = selectedTimecard.Approver_Email__c)}"/>
+    <apex:commandButton action="{!rejectAction}" value="Reject" rerender="mainPB, enteriesPB, enteriesTable" status="status0" rendered="{!AND(selectedTimecard.Status__c = 'Pending Approval', $User.Email = selectedTimecard.Approver_Email__c)}"/>
+</apex:pageblockButtons>
+
+
+<apex:pageBlockTable id="enteriesTable" value="{!timecardEntries}" var="entry">
+    <apex:facet name="header">
+        <apex:outputLabel style="padding: 15px; " rendered="{!recordCount > 0}"> 
+            <center> 
+                This Week: <span style="font-size: 18px; color: {!IF(selectedTimecard.Total_Hours_Week__c > 40, 'green', 'red')}">{!selectedTimecard.Total_Hours_Week__c}</span> Hours
+                 <span style="padding-left: 40px;">Status: </span><span style="font-size: 14px;color: {!IF(selectedTimecard.Status__c != 'Rejected', 'green', 'red')}">{!selectedTimecard.Status__c} </span>
+            </center>
+        </apex:outputLabel>
+    </apex:facet>
+    
+    <apex:facet name="footer">
+        <apex:outputLabel rendered="{!recordCount = 0}">No entries found.</apex:outputLabel>
+    </apex:facet>
+
+<apex:column headerValue="" style="width: 30px;">
+    <apex:commandLink action="{!deleteAction}" value="Del" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" rerender="enteriesTable" status="status0">
+        <apex:param assignTo="{!selectedEntryId}" value="{!timecardEntries[entry].Id}" name="selectedEntryId"/>
+    </apex:commandLink>
+</apex:column>
+
+<apex:column headerValue="Entry Type" style="width: 150px;">
+    <!--<apex:inputField value="{!timecardEntries[entry].Type__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 150px;">
+            <apex:actionSupport event="onchange" action="{!selectEntryTypeAction}" status="status0" rerender="enteriesTable">
+                    <apex:param assignTo="{!selectedEntryId}" value="{!timecardEntries[entry].Id}" name="selectedEntryId"/>
+            </apex:actionSupport>
+    </apex:inputField> -->
+    
+   <apex:selectList value="{!timecardEntries[entry].Type__c}" multiselect="false" size="1" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 150px;">
+        <apex:selectOptions value="{!entryTypeOptions}"></apex:selectOptions>
+
+        <apex:actionSupport event="onchange" action="{!selectEntryTypeAction}" status="status0" rerender="enteriesTable">
+                <apex:param assignTo="{!selectedEntryId}" value="{!timecardEntries[entry].Id}" name="selectedEntryId"/>
+        </apex:actionSupport>
+        
+    </apex:selectList>
+
+   
+    <apex:outputField value="{!timecardEntries[entry].Type__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 150px;"/> 
+</apex:column>
+
+<apex:column headerValue="Project Work/Comments" style="width: 350px;">
+    <apex:selectList value="{!timecardEntries[entry].CRM_Project_Work_Item__c}" multiselect="false" size="1" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c),timecardEntries[entry].Type__c == 'Projects')}" id="projectsDropDown">
+        <apex:selectOptions value="{!projectWorkOptions}"></apex:selectOptions>
+    </apex:selectList>
+
+    <apex:outputText rendered="{!AND(timecardEntries[entry].Type__c == 'Projects', selectedTimecard.Locked__c)}">
+        {!timecardEntries[entry].CRM_Project_Work_Item__r.CRM_Project__r.Project_Name__c} - {!timecardEntries[entry].CRM_Project_Work_Item__r.Subject__c}
+    </apex:outputText> 
+    
+    <apex:inputField value="{!timecardEntries[entry].Comments__c}" style="width: 350px;" rendered="{!AND(NOT(timecardEntries[entry].Type__c == 'Projects'), NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" id="comments"/>
+    <apex:outputField value="{!timecardEntries[entry].Comments__c}" rendered="{!AND(NOT(timecardEntries[entry].Type__c == 'Projects'), OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c))}" id="commentsRO"/>
+        
+</apex:column>
+
+<apex:column headerValue="# Cases" style="width: 40px;">
+    <apex:outputField value="{!timecardEntries[entry].of_Closed_Cases_Week__c}" style="width: 60px;"/> 
+</apex:column>
+    
+<apex:column style="width: 60px; background-color: #ececec;" >
+    <apex:facet name="header">
+        <apex:outputText value="Sun {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_1__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day1Elm"
+                                onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+
+    <apex:outputField value="{!timecardEntries[entry].Day_1__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px;">
+    <apex:facet name="header" >
+        <apex:outputText value="Mon {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c + 1}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_2__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day2Elm"
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+    
+    <apex:outputField value="{!timecardEntries[entry].Day_2__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px;">
+    <apex:facet name="header" >
+        <apex:outputText value="Tue {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c + 2}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_3__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day3Elm"
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+
+    <apex:outputField value="{!timecardEntries[entry].Day_3__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px;">
+    <apex:facet name="header">
+        <apex:outputText value="Wed {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c + 3}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_4__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day4Elm"
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+
+    <apex:outputField value="{!timecardEntries[entry].Day_4__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px;">
+    <apex:facet name="header" >
+        <apex:outputText value="Thu {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c + 4}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_5__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day5Elm"
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+
+    <apex:outputField value="{!timecardEntries[entry].Day_5__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px;" >
+    <apex:facet name="header" >
+        <apex:outputText value="Fri {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.Start_Date__c + 5}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_6__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day6Elm"
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+    <apex:outputField value="{!timecardEntries[entry].Day_6__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px; background-color: #ececec;">
+    <apex:facet name="header" >
+        <apex:outputText value="Sat {0,date,dd'/'MM'/'yy}"> 
+            <apex:param value="{!selectedTimecard.End_Date__c}" /> 
+        </apex:outputText>
+    </apex:facet>
+    <apex:inputField value="{!timecardEntries[entry].Day_7__c}" rendered="{!AND(NOT(timecardEntries[entry].Auto__c), NOT(selectedTimecard.Locked__c))}" style="width: 60px;" id="day7Elm" 
+                            onchange="calculateEntryTotal('{!$Component.day1Elm}', '{!$Component.day2Elm}', '{!$Component.day3Elm}', '{!$Component.day4Elm}', '{!$Component.day5Elm}', '{!$Component.day6Elm}', '{!$Component.day7Elm}', '{!$Component.totalElm}')"/> 
+    <apex:outputField value="{!timecardEntries[entry].Day_7__c}" rendered="{!OR(timecardEntries[entry].Auto__c, selectedTimecard.Locked__c)}" style="width: 60px;"/> 
+</apex:column>
+
+<apex:column style="width: 60px; background-color: grey; color: white;" headerValue="Total" >
+    <apex:outputText value="{0,number,##0.0}" style="width: 60px;" id="totalElm"> 
+        <apex:param value="{!timecardEntries[entry].Day_1__c + timecardEntries[entry].Day_2__c + timecardEntries[entry].Day_3__c + timecardEntries[entry].Day_4__c + timecardEntries[entry].Day_5__c + timecardEntries[entry].Day_6__c + timecardEntries[entry].Day_7__c}"/> 
+    </apex:outputText>
+</apex:column> 
+
+
+</apex:pageBlockTable>
+ <apex:commandButton action="{!addEntryAction}" value="Add Entry" rerender="enteriesTable" status="status0" rendered="{!NOT(selectedTimecard.Locked__c)}"/>
+
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

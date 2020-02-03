@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>36.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>This Vf page is called from a button &quot;HODI&quot; on the Account Detail Page. It will send the approval and then increase or decrease the level of service and decrease the count of the HODI pool.</description>
+    <label>AccountHODIPage</label>
+</ApexPage>

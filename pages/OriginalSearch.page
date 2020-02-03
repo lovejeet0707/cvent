@@ -1,0 +1,25 @@
+<apex:page >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        .searchTextBox{
+            width: 111px;
+            
+        }
+    </style>
+    <script>
+        $( document ).ready(function() {
+            $("#00N00000008lVdy_chkbox").hide();
+            $("#00No000000A5X9n_ileinner").hide();
+            
+            $( "#btnTest" ).click(function() {
+                //alert('Test');
+                //window.location(" /search/SearchResults?searchType=1&amp;sen=0&amp;setLast=1 ");
+                var temp =$( ".searchTextBox" ).val();
+                //alert(temp);
+                window.parent.location.href = "/search/SearchResults?searchType=1&sbstr="+temp+"&search=Search";
+            });
+        });
+        
+    </script>
+    <input class="searchTextBox" maxlength="80" size="18" name="sbstr" /> <input class="btn" id="btnTest" value=" Go! " type="submit" />
+</apex:page>

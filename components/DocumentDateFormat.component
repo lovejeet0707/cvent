@@ -1,0 +1,8 @@
+<!--
+ - Created by stevelohrenz on 8/31/17.
+ -->
+
+<apex:component access="global" controller="DocumentDateFormatController">{!DocumentDateFormat}
+    <apex:attribute assignTo="{!valueToFormat}" description="The Date value to be rendered" name="dateValue" type="Date"></apex:attribute>
+    <apex:attribute assignTo="{!formatSelector}" description="The currencySymbol to use for the Date value to be rendered" name="currencySymbol" type="String"></apex:attribute>
+</apex:component>

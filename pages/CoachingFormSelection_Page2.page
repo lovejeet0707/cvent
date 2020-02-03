@@ -1,0 +1,30 @@
+<apex:page standardController="Coaching_Form_2_0__c" extensions="CoachingFormSelection_Controller" sidebar="true" tabStyle="Coaching_Form_2_0__c" title="New Coaching Form" recordSetVar="">
+    <apex:sectionHeader title="Select Coaching Form Record Type" subtitle="New Coaching Form" />     
+    <apex:form >
+        <apex:pageBlock title="Select Coaching Form Record Type">
+            <apex:pageBlockSection >
+                <apex:selectList label="Record Type of new record" value="{!selectedRecordType}" size="1">
+                    <apex:selectOptions value="{!recTypeOptions}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton value="Continue" action="{!redirectUserToEditPage}"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>                
+        </apex:pageBlock>
+        <br/>        
+        <b>Available Coaching Form Record Types</b> (Includes both old and new coaching forms.)
+        <br/><br/>
+        <table class="infoTable recordTypeInfo" style="border: 1px solid #e0e3e5;border-collapse: separate;">
+            <tr>                        
+                <th class="recordTypeName" scope="row">Record Type Name</th><th class="recordTypeName">Description</th>
+            </tr> 
+            <apex:repeat value="{!coachingFormRecTypeList}" var="recType">
+                <tr>                        
+                    <td scope="row">{!recType.Name}</td>
+                    <td>{!recType.Description}</td>
+                </tr>
+            </apex:repeat>
+        </table>       
+    </apex:form>
+</apex:page>

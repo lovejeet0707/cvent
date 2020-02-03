@@ -1,0 +1,23 @@
+<apex:page standardController="Contact">
+    <style>
+        .hasMotif{ margin:0;}
+    </style>
+    <apex:form >
+            <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                
+               <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>  
+               <apex:outputField value="{!contact.account.Named_Acct__c}"/>
+               
+               <!-- Hide the Marketing Projects information for Sales. Request from Brian Ludwig on May 11, 2017. Case # 08902605  -->
+                <apex:pageBlockSectionItem rendered="{!IF(NOT(CONTAINS($Profile.Name, 'Sales')), true, false)}"/>               
+                <apex:outputField value="{!contact.account.Mktg_Project__c}" rendered="{!IF(NOT(CONTAINS($Profile.Name, 'Sales')), true, false)}"/>               
+               
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:outputField value="{!contact.account.Top_Accounts__c}"/>                
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:outputField value="{!contact.Active_RegOnline_User__c}"/>                
+                            </apex:pageBlockSection>
+           </apex:pageBlock> 
+    </apex:form>
+</apex:page>

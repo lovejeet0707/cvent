@@ -1,0 +1,103 @@
+<apex:page controller="contractCreationController">
+     <style type="text/css">
+        .p { font-weight: bold; }
+  </style>
+  <apex:form >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+      function popup(){
+          alert('If any of the below conditions are TRUE, please select "Yes" in Special Payment Terms:\n\n1. If the ACV is $50k or more, and the payment terms are deferred 31 or more days (Net 45, etc.). \n2. If ACV is ANY VALUE, and the payment terms are deferred 61 or more days (Net 75, 90, etc.). \n3. If the payments are anything other than quarterly/ semi-annual / annual paid up front. \n4. If the payment method is Credit Card: Payment method is by upfront / credit card with total contract value – \n\ta.  $0-$7,500: No approvals required, could be freely given \n\tb.  $7,501 - $15,000: No approvals required if we are charging 3% processing charge (approx. as it varies for different merchants) on the entire contract value (not just the incremental above $7,500) \n\tc.  >$15,000: Finance Approval Required even if you are collecting 3% processing charge on the entire contract value ');
+      }
+      function require(test){
+        if($(".fRevReq").val()=="Yes"){
+        $("#div1").addClass("requiredInput");  
+        $("#div2").addClass("requiredBlock");  
+        }else{
+            $("#div1").removeClass("requiredInput");  
+        $("#div2").removeClass("requiredBlock"); 
+        }
+      }
+      function require1(test){
+        if($(".fRevReq1").val()=="Yes"){
+        $("#div3").addClass("requiredInput");  
+        $("#div4").addClass("requiredBlock");  
+        }else{
+            $("#div3").removeClass("requiredInput");  
+        $("#div4").removeClass("requiredBlock"); 
+        }
+      }
+      $( document ).ready(function() {
+          //alert($(".fRevReq").val());
+        if($(".fRevReq").val()=="Yes"){
+        $("#div1").addClass("requiredInput");  
+        $("#div2").addClass("requiredBlock");  
+        }
+      });
+  </script>
+    <apex:outputPanel id="panel101">
+        <script>
+            function requireagain(){
+                alert("{!contractRec.Finance_Review_Required__c}");
+            }
+        </script>
+    </apex:outputPanel>
+ <apex:pageBlock title="Create Contract">
+      <apex:pagemessages >
+      </apex:pagemessages>
+      <apex:pageBlockButtons >
+          <apex:commandButton action="{!SubmitSec}" value="Save Contract" id="theButton"/>
+          <apex:commandButton action="{!test}" onclick="popup();" rerender="#" value="Finance Review Terms" id="popupBtn" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection >
+            <apex:pageblockSectionItem >
+                Document Type
+                <apex:inputField value="{!contractRec.Document_Type__c}" required="true"/>
+            </apex:pageblockSectionItem>
+                <apex:inputField value="{!contractRec.Legal_Review_Comments__c}" />
+                
+                <apex:inputField value="{!contractRec.Is_there_an_information_security_review__c}"  required="true"/>
+                <apex:inputField value="{!contractRec.Security_Review_Comments__c}" />
+                    
+                <apex:inputField value="{!contractRec.SLA_Type__c}" required="true"/>
+                <apex:inputField value="{!contractRec.SLA_Tech_Review_Comments__c}"  />    
+                <apex:pageblockSectionItem helptext="{!$ObjectType.Contract.fields.Finance_Review_Required__c.inlineHelpText}">
+                    Special Payment Terms?
+                    <apex:inputField styleClass="fRevReq" value="{!contractRec.Finance_Review_Required__c}" onchange="require(this.value);" label="Special Payment Terms?" required="true"/>
+                </apex:pageblockSectionItem>
+                <!--<apex:inputField  id="fcomments" value="{!contractRec.Finance_Review_Comments__c}" />-->
+            <apex:pageBlockSectionItem >
+                Finance Review Comments
+                <apex:outputPanel >
+                    <div id="div1" >
+                        <div id="div2"></div>
+                        <apex:inputTextArea value="{!contractRec.Finance_Review_Comments__c}" rows="3" />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            <apex:pageblockSectionItem helptext="{!$ObjectType.Contract.fields.Product_Enhancement__c.inlineHelpText}">
+                Product Enhancement?
+                <apex:inputField styleClass="fRevReq1" value="{!contractRec.Product_Enhancement__c}" onchange="require1(this.value);" label="Product Enhancement Comments" required="true"/>
+            </apex:pageblockSectionItem>
+            <apex:pageBlockSectionItem helptext="{!$ObjectType.Contract.fields.Product_Enhancement_Comments__c.inlineHelpText}">
+                Product Enhancement Comments
+                <apex:outputPanel >
+                    <div id="div3" >
+                        <div id="div4"></div>
+                        <apex:inputTextArea value="{!contractRec.Product_Enhancement_Comments__c}" rows="3"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                Customer Expected Date
+                <apex:inputField value="{!contractRec.Customer_Expected_Date__c}" />
+            </apex:pageBlockSectionItem>
+      </apex:pageblockSection>
+  </apex:pageBlock>
+  
+  </apex:form>
+ <!-- <apex:pageBlock >
+      <apex:relatedList subject="{!opportunity}" list="CombinedAttachments"/>
+  </apex:pageBlock>-->
+</apex:page>

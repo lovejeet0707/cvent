@@ -1,0 +1,1225 @@
+<apex:page standardController="OpportunityLineItem" extensions="ViewOpportunityProductsExtension">
+<style>
+.opportunityLineItemTab .tertiaryPalette, .individualPalette .opportunityLineItemBlock .tertiaryPalette, .layoutEdit .individualPalette .opportunityLineItemBlock .tertiaryPalette{
+   background-color: rgba(212, 192, 63, 0.88);
+}
+</style>
+    <apex:form >
+     <apex:sectionHeader title="Opportunity Product" subtitle="{!OpportunityLineItem.Product2.Name}"/> 
+      <apex:pageBlock title="Opportunity Product Detail" mode="inlineEdit">  <!--mode="maindetail" -->
+
+      <!-- EVENT Layout START -->
+          <apex:pageBlockSection rendered="{!OR(OpportunityLineItem.Product2.Family == 'Event',OpportunityLineItem.Product2.Family == 'Cvent Connect')}">
+              <!--<apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Event}" var="f">
+                  <apex:outputField value="{!OpportunityLineItem[f.fieldPath]}"/>
+              </apex:repeat> -->
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>          
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}"/>
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}"/>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+          <!-- CrowdCompass Layout START -->
+        <apex:pageBlockSection title="Total Fee" rendered="{!OpportunityLineItem.Product2.Family == 'CrowdCompass'}">
+        <apex:outputField value="{!OpportunityLineItem.of_Items__c}" >
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+            hideOnEdit="editButton,deleteButton" event="ondblclick" 
+            changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+        </apex:outputField>
+        <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+            hideOnEdit="editButton,deleteButton" event="ondblclick" 
+            changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+        </apex:outputField>
+        <apex:outputField value="{!OpportunityLineItem.Details_of_Other__c}">
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+            hideOnEdit="editButton,deleteButton" event="ondblclick" 
+            changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+        </apex:outputField>
+        <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+            hideOnEdit="editButton,deleteButton" event="ondblclick" 
+            changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+        </apex:outputField>
+                                <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+        <apex:pageblockSectionItem >
+        <apex:outputLabel >Total fee</apex:outputLabel>
+        <apex:outputText >
+          <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+          <apex:outputText value="{0, number, ###,##0.00}">
+              <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+          </apex:outputText>
+        </apex:outputText>
+        </apex:pageblockSectionItem>
+        <apex:pageblockSectionItem >
+        <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+        <apex:outputText >
+          <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+          <apex:outputText value="{0, number, ###,##0.00}">
+              <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+          </apex:outputText>
+        </apex:outputText> 
+        </apex:pageblockSectionItem>
+
+        <apex:pageblockSectionItem >
+        <apex:outputLabel >Created By</apex:outputLabel>
+        <apex:outputText >
+          <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+          <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+        </apex:outputText>
+        </apex:pageblockSectionItem>
+
+        <apex:pageblockSectionItem >
+        <apex:outputLabel >Last Modified By</apex:outputLabel>
+        <apex:outputText >
+          <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+          <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+        </apex:outputText>
+        </apex:pageblockSectionItem>
+        </apex:pageBlockSection>
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OR(OpportunityLineItem.Product2.Family == 'Event',OpportunityLineItem.Product2.Family == 'Cvent Connect')}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Total Fee" rendered="{!OR(OpportunityLineItem.Product2.Family == 'Event',OpportunityLineItem.Product2.Family == 'Cvent Connect')}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText> 
+              </apex:pageblockSectionItem>
+                  
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          
+     <!-- EVENT Layout ENDS -->
+     
+     
+     <!-- ONSITE SOLUTIONS Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'Onsite Solutions'}">
+              <apex:outputField value="{!OpportunityLineItem.Close_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+                            
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}"/>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  &nbsp;
+              </apex:pageblockSectionItem>
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                 <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Onsite Solutions" rendered="{!OpportunityLineItem.Product2.Family == 'Onsite Solutions'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >License Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.License_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.License_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:outputField value="{!OpportunityLineItem.Event_Name_Location__c}">              
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Equipment Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Equipment_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Equipment_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:outputField value="{!OpportunityLineItem.City__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Supplies Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Supplies_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Supplies_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:outputField value="{!OpportunityLineItem.State__c}">              
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+                      <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Diem</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Diem__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Diem__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:outputField value="{!OpportunityLineItem.Country__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+
+
+                          <apex:pageblockSectionItem >
+                  <apex:outputLabel >Shipping</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Shipping__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Shipping__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+
+              <apex:outputField value="{!OpportunityLineItem.Zip__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>            
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Travel Expense</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Travel_Expense__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Travel_Expense__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+                    <apex:outputField value="{!OpportunityLineItem.County__c}">
+        <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+        </apex:outputField> 
+
+
+                          <apex:pageblockSectionItem >
+                  <apex:outputLabel >Project Management Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Project_Management_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Project_Management_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+                            <apex:pageblockSectionItem >
+                  <apex:outputLabel >Support Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Support_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Support_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+                            <apex:pageblockSectionItem >
+                  <apex:outputLabel >Reporting Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Reporting_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Reporting_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+              
+              <apex:pageblockSectionItem >
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Professional Configuration Fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Professional_Configuration_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Professional_Configuration_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+                                  <apex:pageblockSectionItem >
+              </apex:pageblockSectionItem>
+              
+
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+     <!-- ONSITE SOLUTIONS Layout ENDS -->
+     
+
+     <!-- PSG Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'PSG'}">
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:outputField value="{!OpportunityLineItem.Tickets_Sold__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+
+              <apex:outputField value="{!OpportunityLineItem.Part_Of_Promotion__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+              <apex:outputField value="{!OpportunityLineItem.Event_Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                                <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                                <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+                            
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+      </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="PSG - Feature Pricing/Details" rendered="{!OpportunityLineItem.Product2.Family == 'PSG'}">
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>             
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Details_of_Other__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}" >
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr (Rack)fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          
+     <!-- PSG Layout ENDS -->
+     
+      <!-- SignUp4 Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'SignUp4'}">
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Partner_Name__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_OnArrival_Badges__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Event_Name_Location__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.EB_Type__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+              <apex:outputField value="{!OpportunityLineItem.Tickets_Sold__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Feature_Type__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Part_Of_Promotion__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                 <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OpportunityLineItem.Product2.Family == 'SignUp4'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Total Fee" rendered="{!OpportunityLineItem.Product2.Family == 'SignUp4'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText> 
+              </apex:pageblockSectionItem>
+                                                  <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          
+     <!-- SignUp4 Layout ENDS -->
+          
+      <!-- CSN Supplier Layout START -->
+          <apex:pageBlockSection rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI',OpportunityLineItem.Product2.Family == 'EMI/SRFP', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))}">
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.US_State__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:outputField value="{!OpportunityLineItem.Part_Of_Promotion__c}"/>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+
+              <apex:outputField value="{!OpportunityLineItem.Contractor_s_Name__c}" >
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                 <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI',OpportunityLineItem.Product2.Family == 'EMI/SRFP', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Total Fee" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'EMI/SRFP', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                         <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText> 
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="CSN Supplier - Feature Pricing/Details" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI',OpportunityLineItem.Product2.Family == 'EMI/SRFP', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))}">
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Details_of_Other__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+              <apex:outputField value="{!OpportunityLineItem.Advertisement_Tab__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+           </apex:pageBlockSection>
+          
+
+          <apex:pageBlockSection title="Additional Details" rendered="{!AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'EMI/SRFP', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))}">
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Original_Feature_Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.City__c}">              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Ad_Listing_To_Page__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Please_specify_Other_City__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Region__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Country__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Subregion__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Other_Country_Name__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Other_Region__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.City_Neighborhood__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.State__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+           </apex:pageBlockSection>
+     <!-- CSN Supplier Layout ENDS -->
+     
+
+      <!-- CSN-Planner Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'}">
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}" >
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Badge_Types__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Details_of_Other__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_OnArrival_Badges__c}" >
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.EB_Type__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Partner_Name__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Feature_Type__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Event_Name_Location__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              
+              <apex:outputField value="{!OpportunityLineItem.Tickets_Sold__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Part_Of_Promotion__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                 <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                         <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Total Fee" rendered="{!OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText> 
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          
+     <!-- CSN-Planner Layout ENDS -->
+
+      <!-- Survey Layout START -->
+          <apex:pageBlockSection rendered="{!OpportunityLineItem.Product2.Family == 'Survey'}">
+              <apex:outputField value="{!OpportunityLineItem.Product_Family__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.OpportunityId}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Product2Id}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Total_of_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Details_of_Other__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Items__c}" >
+                           <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Tickets_Sold__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.of_Comp_Items_Hrs__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Part_Of_Promotion__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.EB_Type__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:outputField value="{!OpportunityLineItem.Notes__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+              <apex:outputField value="{!OpportunityLineItem.Start_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+
+              <apex:pageblockSectionItem > &nbsp; </apex:pageblockSectionItem>
+              <apex:outputField value="{!OpportunityLineItem.End_Date__c}">
+                            <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField>
+                                                  <apex:outputField value="{!OpportunityLineItem.Feature_Set_Name__c}"/>
+                                                                                                 <apex:outputField value="{!OpportunityLineItem.Previous_feature_set_number__c}">
+              <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton,deleteButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+              </apex:outputField> 
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Per Item Fee" rendered="{!OpportunityLineItem.Product2.Family == 'Survey'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Fee__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Fee__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Per Item/Hr fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Per_Item_Hr_Fee_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Per_Item_Hr_Fee_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+
+          <apex:pageBlockSection title="Total Fee" rendered="{!OpportunityLineItem.Product2.Family == 'Survey'}">
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees__c}" />
+                      </apex:outputText>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Total fee (Rack)</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputText rendered="{!NOT(ISNULL(OpportunityLineItem.Total_Fees_Rack__c))}" value="{!OpportunityLineItem.CurrencyIsoCode}"/>
+                      <apex:outputText value="{0, number, ###,##0.00}">
+                          <apex:param value="{!OpportunityLineItem.Total_Fees_Rack__c}" />
+                      </apex:outputText>
+                  </apex:outputText> 
+              </apex:pageblockSectionItem>
+                  
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Created By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.createdbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.createdDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+              
+              <apex:pageblockSectionItem >
+                  <apex:outputLabel >Last Modified By</apex:outputLabel>
+                  <apex:outputText >
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedbyId}"/> &nbsp;
+                      <apex:outputField value="{!OpportunityLineItem.lastmodifiedDate}"/>
+                  </apex:outputText>
+              </apex:pageblockSectionItem>
+          </apex:pageBlockSection>
+          
+     <!-- Survey Layout ENDS -->
+     
+        <apex:pageblockButtons >
+          <apex:commandButton action="{!edit}" value="Edit" id="editButton"/>
+          <apex:commandButton action="{!save}" id="saveButton" value="Save" style="display: none;"/>
+          <apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel" style="display: none;"/>
+          <apex:commandButton action="{!deleteOpportunityLineItem}" value="Delete" id="deleteButton"/>
+          <apex:commandButton action="{!clonePageRedirect}" value="Clone" id="cloneButton"/>
+      </apex:pageblockButtons>
+
+    </apex:pageBlock>
+<!--        <apex:relatedList list="" rendered="{!NOT(OR(OpportunityLineItem.Product2.Family == 'Event', OpportunityLineItem.Product2.Family == 'Survey', AND(OR(Contains(OpportunityLineItem.Product2.Family, 'CSN'), OpportunityLineItem.Product2.Family == 'EMI', OpportunityLineItem.Product2.Family == 'Decision Street', OpportunityLineItem.Product2.Family == 'Lead Scoring'), NOT(OpportunityLineItem.Product2.Family == 'CSN-Planner Feature'))))}"/>
+        -->
+
+    </apex:form>  
+</apex:page>

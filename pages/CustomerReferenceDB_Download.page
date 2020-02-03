@@ -1,0 +1,44 @@
+<apex:page controller="CustomerReferenceDB_Controller" contenttype="application/vnd.ms-excel#CustomerRefDBExport_{!TODAY()}.xls" readOnly="true"><div>
+   	<apex:dataTable value="{!lstDataDumpDownload}" var="accs">
+        <apex:column headerValue="Company">
+            <a target="_blank" href="https://cvent--uat.cs12.my.salesforce.com/{!accs.Id}" > {!accs.Name}</a>                          
+        </apex:column>
+        <apex:column headerValue="Vertical">
+            {!accs.Segment}
+        </apex:column>
+        <apex:column headerValue="City">
+            {!accs.City}
+        </apex:column>
+        <apex:column headerValue="State">
+            {!accs.State}
+        </apex:column>
+        <apex:column headerValue="Event AM">
+            {!accs.AmEvent}
+        </apex:column>
+        <apex:column headerValue="Is Advocate?">
+            {!accs.IsAdvocate}
+        </apex:column>
+        <apex:column headerValue="Advocates Count">
+            {!accs.advCount}
+        </apex:column>
+        <apex:column headerValue="Revenue">
+            {!accs.Rev}
+        </apex:column>
+        <apex:column headerValue="Employees">
+            {!accs.Employees}
+        </apex:column>
+        <apex:column headerValue="Industry">
+            {!accs.Industry}
+        </apex:column>
+        <apex:column headerValue="Sub-Segment">
+            {!accs.SubSegment}
+        </apex:column>
+        <apex:column headerValue="Tier">
+            {!accs.Tier}
+        </apex:column>
+        <apex:column headerValue="Purchased License For">
+            {!accs.Product}
+        </apex:column>
+    </apex:dataTable> 
+</div> 
+</apex:page>

@@ -1,0 +1,48 @@
+<apex:page sidebar="false" showHeader="false" extensions="validateBuyerRoleOnContact" standardController="contact">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<style>
+
+.form-control {
+    display: block;
+    width: 82%;
+    height: 34px;
+    padding: 7px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #231196;
+    background-color: #fff;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    }
+    </style>     
+  <apex:form styleClass="form" id="frm">
+  <apex:pageMessages id="msgs"></apex:pageMessages>
+  <apex:outputPanel rendered="{!IF(currentRecordConRole.size > 0, true, false)}"> 
+  <!-- <apex:outputText value=" A Buyer Role record for this contact needs to be validated. Please choose one of the options below to validate the Buyer Role. Reminder: Buyer Roles must be validated every 365 days/1 year." styleClass="form-control">  </apex:outputText>-->
+  <h2 style="font-size:13px;color:brown;"> <b>Buyer Role record(s) for this contact need to be validated. Please choose one of the options below to validate the Buyer Role(s). Reminder: Buyer Roles must be validated every 365 days/1 year.</b> </h2><br/>
+  <!--<apex:outputLink value="{!URLFOR($Action.Contact_Role__c.Edit, currentRecordConRole[0].id, ['retURL'='/home/home.jsp'])}" target="_blank" style="margin-left: 262px;" > 
+                     <b style="font-size:13px;text-decoration-line: underline;"> Edit and Validate Buyer Role</b>
+  </apex:outputLink>-->
+  <apex:commandLink action="{!editBuyerRole}" target="_blank" style="margin-left: 262px;" > 
+                     <b style="font-size:13px;text-decoration-line: underline;"> Edit and Validate Buyer Role(s) </b>
+  </apex:commandLink>
+  <b><apex:commandLink value="Validate Buyer Role(s) As Is"   reRender="frm" action="{!validateContact}" style="margin-left: 76px;font-size:13px;text-decoration-line: underline;"></apex:commandLink></b>
+  </apex:outputPanel> 
+   
+  
+  <!----- Code to create new buyer role ----->
+  <apex:outputPanel rendered="{!IF(showConList == TRUE, true, false)}"> 
+    <apex:outputPanel rendered="{!conRoleList.size == 0}">
+     <h2 style="font-size:13px;color:brown;"> <b>There is no Buyer Role record created for this contact. Do you want to create a Buyer Role record? Reminder: We will ask you this only once every 6 months for this contact.</b> </h2><br/>
+       <apex:commandButton immediate="true" oncomplete="abc();" value="Yes" style="margin-right: 31px;font-size: 13px;"/>
+       <apex:commandButton action="{!callNo}" value="No"  oncomplete="window.top.location.reload()"  style="font-size: 13px;"/>
+    </apex:outputPanel>   
+  </apex:outputPanel> 
+  <script>
+      function abc() {
+        window.open("/a09/e?CF00No000000Dxuos={!accountName}&CF00No000000Dxuos_lkid={!AccId}&retURL=%2F{!AccId}&RecordType=012o00000012XyW&ent=01I000000000GCO&CF00N000000071h6R={!accountName}&CF00N000000071h6R_lkid={!contactId}", "_blank");
+      }
+  </script>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,227 @@
+<apex:page showHeader="false" id="newcventlogo" > 
+
+ <style type="text/css">
+    .boldify { font-weight: bolder; }
+    .apexp .bPageBlock p {width:150px;float:left}
+
+.apexp {
+    width: 460px; 
+}
+
+input {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+    width: 240px;
+}
+select {
+    margin:0px 0 0;
+    padding:10px 0;
+    width:252px;
+}
+.pbBody {
+    margin-top: 0;  
+}
+body .bPageBlock {
+    border-top-width:1px;
+    border-color: #eeeeee;
+    margin: 10px 20px 20px;
+    padding:10px 0;
+    width: 445px; 
+    font-size:12px !important;
+    background:#f8f8f8 !important;
+    border-radius: 4px 4px 4px 4px !important;
+}
+select {
+    padding: 2px 1px 2px 4px;  
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+
+}
+img {
+    border: 0 none;
+    margin: 10px 0 0 20px;
+}
+div.label {
+    color: #2485b3;
+    float: left;
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 9px 0 0;
+    width: 135px;
+}
+
+div.input-box {
+    float:left;
+    }
+    
+.field-box {
+    margin-bottom: 20px;
+}
+
+p.intro {
+    clear:both;
+    color:#666666;
+    font-size:12px !important;
+    font-style:italic;
+    line-height:130%;
+    margin-top:0;
+    width:410px !important;
+}
+form {
+clear: both;
+    padding: 10px 0 0 !important;}
+    
+    input.desc { height:200px !important; width:400px !important;}
+    
+    
+.clearfix:before, 
+.clearfix:after { 
+    content:"\0020"; 
+    display:block; 
+    height:0; 
+    visibility:hidden; } 
+
+.clearfix:after { clear:both; }
+
+.clearfix { zoom:1; clear:both; }
+
+#tooltip {
+    position: absolute;
+    z-index: 3000;
+    border: 1px solid #FFA603;
+    background-color: #FEFDB9;
+    padding: 5px;
+    opacity: 0.85;
+    width:200px;
+}
+#tooltip h3, #tooltip div { 
+font-family: Arial,Helvetica,sans-serif;
+color: black;
+margin: 0; 
+font-size: 75%;
+font-weight:normal;
+}
+.helpButton_cust, .helpButtonOn_cust {
+position: relative; 
+width: 16px;
+height: 15px;
+background-position:0px 0px;
+vertical-align:text-bottom;
+}
+.helpButtonOn_cust{
+background-position:20px 0px;
+}
+
+span.spnCustomTool{   display:inline-block; width:16px; height:16px; position:relative;}
+.spnCustomTool .tooltip { display:none; position:absolute; width:200px; height:auto; background:#fefdb9; border:1px solid #fda401; padding:10px; top:30px; right:0px; }
+.spnCustomTool:hover .tooltip { display:block !important;}
+</style>
+<!-- <html> 
+<img src="/resource/1384853615000/newcventlogo"> </img>
+</html> -->
+
+<apex:image id="theImage" value="{!$Resource.CventLogoNew}"/> 
+
+<script type="text/javascript">
+     (function() { 
+     function handlePageLoad() {
+       var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+       document.getElementById('prechatForm').setAttribute('action',
+       decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+     } if (window.addEventListener) {
+              window.addEventListener('load', handlePageLoad, false);
+   } else { window.attachEvent('onload', handlePageLoad, false);
+              }})();
+    window.resizeTo(490,680); 
+</script>
+ 
+ 
+ 
+
+ <apex:pageBlock > 
+<p class="intro">Please fill out your information below and a representative will be with you shortly. You will see "connecting" until connected to the next available agent.</p>
+<form method="post" id="prechatForm" > 
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Name : </font></div>
+    <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Name" id="prechat_field"/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Email Address : </font></div>
+    <div class="input-box"> <input type="text" required='True' name="liveagent.prechat:Email" /></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> &nbsp;&nbsp;Account Number : </font></div>
+    <div class="input-box"><input type="text"  name="liveagent.prechat:Account Number"/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Product Type : </font></div>
+    <div class="input-box">
+    <select name="liveagent.prechat.buttons" required='True'>
+        <option></option> 
+        <option value="573000000008OV0">Event Management</option> 
+        <option value="573000000008OV5">Surveys</option>
+        <option value="573000000008OVA">CSN</option>
+        <option value="573o0000000L5WS">eMarketing</option>
+    </select>
+    </div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Subject : </font></div>
+    <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Subject" id="prechat_field"/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Description : </font></div>
+    <div class="input-box"><textarea rows="4" cols="42" type="text" required='True' name="liveagent.prechat:Description" id="prechat_field" /></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0"></span>Priority : </font></div>
+    <div class="input-box"> 
+            <select name="liveagent.prechat:Priority" required='False'>
+                <option value='Select One' selected='selected'>Select One:</option> 
+                <option value='High'>High</option> 
+                <option value='Medium'>Medium</option>
+                <option value='Low'>Low</option>                
+            </select><span class="spnCustomTool"> 
+            <img src="https://cvent.my.salesforce.com/img/alohaSkin/help_orange.png" class="helpButton_cust" width="16" height="16" /><span class="tooltip">High: Cvent is down or data security is at risk.<br/>
+Medium: The system is slow, but you can still get things done.<br/>
+Low: Anything that can be answered within the Support Community. This includes questions about setting up and troubleshooting common errors.
+</span></span>
+          </div>
+          
+             <br clear="all"/>
+      <input type="hidden" value="Contact,Contact.Email" name="liveagent.prechat.query:Email"/> 
+      <input type="hidden" value="Email__c" name="liveagent.prechat.save:Email"/>
+      <input type="hidden" value="Account,Account.Cvent_Account_ID__c" name="liveagent.prechat.query:Account Number"/> 
+      <input type="hidden" value="Cvent_Account_ID__c" name="liveagent.prechat.save:Account Number"/> 
+     
+      <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
+      <input type="hidden" name="liveagent.prechat.save:Email" value="Visitor_s_Email__c" />
+      <input type="hidden" name="liveagent.prechat.save:Account Number" value="Visitor_s_Account_ID__c" />
+      <input type="hidden" name="liveagent.prechat.save:Subject" value="Subject__c" />
+      <input type="hidden" name="liveagent.prechat.save:Priority" value="Severity__c" />
+      <input type="hidden" name="liveagent.prechat.save:Description" value="Description__c" />
+</div>
+
+       <!-- Updated code: now for transcript
+        liveagent.addCustomDetail("First Name", "");
+        liveagent.addCustomDetail("Last Name", "");
+        liveagent.addCustomDetail("Phone Number", "");
+        liveagent.addCustomDetail("Case Subject", "");
+        liveagent.addCustomDetail("Case Status", "New", false);
+        liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false,true).saveToTranscript("contactId").showOnCreate().linkToEntity("Case", "ContactId");
+        -->
+      
+         <input id="prechat_submit" type="submit" value="Initiate Chat" style="color: rgb(255, 255, 255); padding: 10px 0px; font-weight: bold; text-transform:capitalize; font-family: arial; background-color: #008AC1; font-size:15px; margin: 10px 20px 0px; width: 135px; pointer:cursor; float:right"/><br clear="all"/></form>
+           
+
+</apex:pageBlock>
+  
+</apex:page>

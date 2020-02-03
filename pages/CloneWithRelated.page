@@ -1,0 +1,6 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="cloneRelated" action="{!cloneQuote}">
+
+<H1> Please wait while we convert your Quotes </h1>
+{!newQuote }
+
+</apex:page>

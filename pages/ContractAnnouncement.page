@@ -1,0 +1,36 @@
+<apex:page standardController="Contract" extensions="ContractAnnouncementCls">
+    <!--
+    <style>
+        
+        .message{
+            background-color: Red !important;
+            font-size: x-large !important;
+        }
+        
+    </style>
+    <apex:pageMessages >
+    </apex:pageMessages>
+    -->
+    <apex:outputPanel rendered="{!warning}">
+        <div style="width:100%;background-color: red;height: 100%;position:absolute;overflow: auto;">
+            <p style="margin: 0 0 0 0;font-size: x-large;position:absolute">Warning:</p>&nbsp;
+            <div style="position:relative;margin: 15px 0 0 0;" >
+                <p style="margin: 0 0 0 0;float: left;font-size: larger;">{!errorMSG}</p>&nbsp;
+                <p style="margin: 0 0 0 0;float: left;font-size: larger;">{!errorMSGSec}</p>&nbsp;
+                <p style="margin: 0 0 0 0;float: left;font-size: larger;">{!errorMSGThir}</p>&nbsp;
+                <p style="margin: 0 0 0 0;float: left;font-size: larger;">{!errorMSGFor}</p>&nbsp;
+                <p style="margin: 0 0 0 0;float: left;font-size: larger;">{!errorMSGFif}</p>&nbsp;
+            </div>
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!notNeeded}">
+        <div style="width:100%;background-color: lightBlue;height: 100%;">
+            <p style="margin: 0 0 0 0;font-size: x-large;">Info:</p>&nbsp;<p style="float: left;font-size: larger;">No document Needed.</p>
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!success}">
+        <div style="width:100%;background-color: green;height: 100%;">
+            <p style="margin: 0 0 0 0;font-size: x-large;">Success:</p>&nbsp;<p style="float: left;font-size: larger;">Thanks for attaching the document.</p>
+        </div>
+    </apex:outputPanel>
+</apex:page>

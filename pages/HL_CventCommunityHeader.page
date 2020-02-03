@@ -1,0 +1,237 @@
+<apex:page showHeader="false" standardStyleSheets="false" cache="false" controller="CventCommunityHeaderClass">
+    <!-- Adding Community Header vf code over here -->
+    <html lang="en">
+        <head>
+            <script src="https://cdn.optimizely.com/js/96642877.js"></script>
+            <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+                <meta charset="utf-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                            <meta name="google-site-verification" content="SaiRo4g_r8N6B6nIvyVD3dLXbib1aGhE9I6PO1oRR8Q"/>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"></script>
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />
+            <link href='https://higherlogiccloudfront.s3.amazonaws.com/HigherLogic/Font-Awesome/5.3.1-pro/css/fontawesome.all.min.css' type='text/css' rel='stylesheet' />
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
+            <link href="https://higherlogicdownload.s3.amazonaws.com/CVENT/0b2bbc5a-587b-4721-8167-fc1d59709a33/UploadedFiles/t7vPRGwPTI6txGT5i9qL_BrandonTextSF.css" rel="stylesheet" />
+            
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/jquery.validate.min.js')}"></script>
+            <apex:composition template="CventCommunityHeaderStyleSheet"></apex:composition>
+            </head>
+            <body id="articles" class="inner">
+                
+                <!--<header>
+                <section id="top-header" class="top-band pad-topbot-ten">
+                    <div class="container">
+                        <div class="row col-md-12">
+                            <div class="left-top">
+                                <a href="/"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/cvent-logo.png')}" alt="logo" class="logo"/></a>
+                                <!--<div id="navigation" class="top-nav">
+                                    <ul>
+                                    <li ><a href="/apex/helphome">KNOWLEDGE BASE</a></li>
+                                        <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <li class="cta-forums active"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">Forums</a></li>
+                                                <li class="cta-success-groups"><a href="/apex/Groups" class="last">Success Groups</a></li>
+                                                    </apex:actionRegion>
+                                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                                    <li class="cta-forums active"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS" class="tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Forums</a></li>
+                                                        <li class="cta-success-groups"><a href="/apex/Groups" class="last tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Success Groups</a></li>
+                                                            </apex:actionRegion>
+                                                        <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                                            <li class="txt btn-login"><a style="text-decoration: none;color: white;margin-left: 319%;" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E">Login</a></li>
+                                                                </apex:actionRegion>
+                                                            <apex:actionRegion rendered="{!usr.ShowLitmosTab__c}">
+                                                                <li class="cta-success-groups" ><a href="/apex/Litmos__Dashboard?sfdc.tabName=01r1k00000008UX" class="last">Training</a></li>
+                                                                    </apex:actionRegion>
+                                                                </ul>
+                                                                </div>-->
+                                                                <!--My Cases and Photo Section-->
+                                                                   <!-- <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                                                        <div class="mycases">
+                                                                            <ul class="one">
+                                                                                <li class="txt"><a style="text-decoration: none; color: #0183EB; margin-top: 4px; font-weight: bold;" href="/apex/SupportPage">My Cases</a></li>
+                                                                                    <li class="img">
+                                                                                        <img src="{!usr.smallphotoUrl}" alt="User" type="button" class="btn btn-default dropdown-toggle" style="border-radius: 50%;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                                                                                            <ul class="dropdown-menu">
+                                                                                                <li><a style="text-decoration: none;" href="/{!usr.id}">My Profile</a><br/></li>
+                                                                                                <apex:actionRegion rendered="{!!isPublicSite}">
+                                                                                                    <li><a id="logoutId" style="text-decoration: none;" href="/myLogOut">Logout</a></li>                                    
+                                                                                                        </apex:actionRegion>
+                                                                                                    </ul>
+                                                                                                    </li>
+                                                                                                    </ul>
+                                                                                                    </div>
+                                                                                                    </apex:actionRegion>
+                                                                                                    <div class="clearfix"></div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </section>
+                                                                                                    <section id="side-sticky-bar" style="display:none;">
+                                                                                                        <div class="side-sticky-bar">
+                                                                                                            <div class="chat-us-bar">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            </section>
+                                                                                                            <style>
+                                                                                                                #side-sticky-bar {position: fixed; top: 37%; right: 0; z-index: 3;}
+                                                                                                            .open-case-bar,.chat-us-bar,.call-us-bar {width:77px; margin: 0px 0 10px 0px; -webkit-transition: all ease 300ms; -o-transition: all ease 300ms; transition: all ease 300ms;}
+            .open-case-bar:hover,.chat-us-bar:hover,.call-us-bar:hover {Margin-left:-250px;}
+            </style>
+            </header>
+            
+            <!--NEW HEADER STARTS HERE : Waleed-->
+                <header class="hl-styles">
+                <!-- Fixed navbar -->
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo.png')}" width="250"/></a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <div class="hidden-xs" style="position: relative; top: -10px;">        
+                                            <!--<form class="navbar-form" role="search">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="search" name="srch-term" id="srch-term"/>
+                                                        </div>
+                                                    </form>-->
+                                                    <div id="google_translate_element"></div><script type="text/javascript">function googleTranslateElementInit(){
+                                                    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'zh-CN,zh-TW,en,fr,de,it,ja,pt,tr,es'}, 'google_translate_element');
+            }    
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                <li class="txt btn-login"><a style="text-decoration: none;color: white;"
+                class="btn login btn-lg"                                            href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome">LOG IN</a></li>
+                    </apex:actionRegion>
+               <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}"> <a href="https://community.cvent.com/home" class="btn login btn-lg">LOG IN</a></apex:actionRegion> 
+                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> <div class="my-cases hidden-sm hidden-xs"><a href="/apex/HL_SupportPage">My Cases</a></div>
+                <div class="my-profile hidden-sm hidden-xs"><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fnetwork%2Fmembers%2Fprofile">My Profile</a></div></apex:actionRegion> 
+                </div>
+                </div>  
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="first"><a class="first" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum">OPEN FORUM</a></li>
+                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fproductnews">PRODUCT NEWS</a></li></apex:actionRegion>
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fideas">IDEAS</a></li></apex:actionRegion>            
+                                    <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase">KNOWLEDGE BASE</a></li>
+                                        <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhelpful-links">HELPFUL LINKS</a></li>
+                                        <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage">SEARCH</a></li>
+                                            <!--<li class="visible-xs"><a href="https://community.cvent.com/home">LOG IN</a></li>-->
+                                            <li class="visible-xs"><a href="/apex/HL_SupportPage">My CASES</a></li>
+                                            <li class="visible-xs"><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fnetwork%2Fmembers%2Fprofile">MY PROFILE</a></li>
+                                                </ul>
+                                            </div><!--/.nav-collapse -->
+                                                </div>
+                                            </nav>
+                                            
+                                            
+                                            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://support.cvent.com/resource/1541738298000/CommunityAssets2/assets/js/bootstrap.min.js"></script>-->
+            
+            
+            
+            </header>
+            <!--NEW HEADER ENDS HERE : Waleed-->
+                
+                <div id="load_scrl" class="loadingBox loader" style="display:none" /> 
+                    <apex:outputpanel >
+                        <apex:actionstatus id="actionStatus">
+                            <apex:facet name="start">
+                                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                                    <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                                            <span class="waitingDescription">Loading...</span>
+                                            </div>
+                                            </div>
+                                            </apex:facet>
+                                            </apex:actionstatus>
+                                            </apex:outputpanel>
+                                            </body>
+                                            <script>      
+                                                $(document).ready(function() {      
+                                                /* Nav slection logic */                
+                                                jQuery('#navigation ul li').removeClass('active');          
+                                                var baseUrl = window.location.toString();                   
+                                                if(baseUrl.toLowerCase().indexOf("chatteranswersui") >= 0){     
+                                                    jQuery('#navigation ul li').eq(1).addClass('active');       
+                                                }else if(baseUrl.toLowerCase().indexOf("groups") >= 0){     
+                                                    jQuery('#navigation ul li').eq(2).addClass('active');      
+                                                }else if(baseUrl.toLowerCase().indexOf("helphome") >= 0 ){                         
+                                                    jQuery('#navigation ul li').eq(0).addClass('active');              
+                                                }else if (baseUrl.toLowerCase().indexOf("contactsupport") >= 0 || baseUrl.toLowerCase().indexOf("searchfor") >= 0 || baseUrl.toLowerCase().indexOf("500") >= 0 || baseUrl.toLowerCase().indexOf("communityarticle") >= 0){
+                                                    jQuery('#navigation ul li').removeClass('active');
+                                                }
+                                                    else{      
+                                                        jQuery('#navigation ul li').removeClass('active');               
+                                                    }       
+                                            });     
+            </script> 
+            <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function () {  
+                var counterSec = 0;
+                var tempName;
+                var tempBool = false;
+                if(jQuery("#home-slider").length) {
+                    tempBool = true;
+                }
+                //To control side stickys
+                var tempUrl= window.location.href;
+                if(tempBool || tempUrl.indexOf('helphome') > -1 || tempUrl.indexOf('ContactSupport') > -1){
+                    console.log("Test");
+                    jQuery('#side-sticky-bar').show();
+                }  
+                //To hide attach buttom from closed cases
+                var tempValStatus = jQuery('#cas7_ileinner').text();
+                console.log('tempValStatus'+tempValStatus);
+                var attachFileName = 'attachFile';
+                if(tempValStatus == 'Closed')
+                    jQuery('[name="' + attachFileName + '"]').hide();
+                //To hide attach buttom from closed cases
+                tempName  = 'save_close' ;
+                jQuery('[name="' + tempName + '"]').hide();
+                tempName = 'save_new' ;
+                jQuery('[name="' + tempName + '"]').hide();
+                tempName = 'spell' ;
+                jQuery('[name="' + tempName + '"]').hide();
+                setTimeout(function(){ tempName = 'csmrgp__csmrglistbtn' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000);
+                
+                tempName = 'mass_edit' ;
+                jQuery('[name="' + tempName + '"]').hide();
+                setTimeout(function(){ tempName = 'mass_edit' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+                
+                tempName = 'new_conference_case' ;
+                jQuery('[name="' + tempName + '"]').hide();
+                setTimeout(function(){ tempName = 'new_conference_case' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+                jQuery('body').click(function(evt){ 
+                    var url= window.location.href;
+                    console.log('url++'+url);
+                    if( (url.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( url.indexOf( '&id=kA' ) != -1 ) ){
+                        jQuery(".loader").show();
+                        var res = url.split("id=");
+                        console.log('res++'+res);
+                        console.log('res.length;++'+res.length);
+                        CommunityHeaderCls.returnId(res[res.length-1],
+                                                    function(result, event){ 
+                                                        window.location = '/apex/HL_CommunityArticle?id='+result;
+                                                    }, {escape:true}
+                                                   );
+                        setTimeout(function(){ jQuery(".loader").hide(); }, 5000);
+                    }
+                });
+                var urll= window.location.href;
+                if( (urll.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( urll.indexOf( '&id=kA' ) != -1 ) ){
+                    window.location = '/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS'; 
+                }
+            });
+            </script>
+        </html>
+    </apex:page>

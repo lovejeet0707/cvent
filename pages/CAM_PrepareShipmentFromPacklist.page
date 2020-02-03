@@ -1,0 +1,9 @@
+<apex:page standardController="Packlist__c" extensions="CAM_PrepareShipmentFromPacklist_E" action="{! redirectMe }">
+
+Please wait while we redirect you.
+
+<apex:form >
+    <apex:commandLink action="{! redirectMe }">Click here</apex:commandLink> if you have not been redirected for 5 seconds.
+</apex:form>
+
+</apex:page>

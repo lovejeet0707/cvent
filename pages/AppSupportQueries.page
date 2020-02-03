@@ -1,0 +1,89 @@
+<apex:page StandardController="Case" extensions="AppSupportQueriesClass" standardStylesheets="false" showHeader="false">
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+        .selectedTopic{
+            border: 1px solid #ccc !important;
+            background: #fff;
+            font-size: 1.25em;
+            color: #444;
+            width: 54%;
+            padding: 10px 11px 11px 27px !important;
+            height: 43px;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+            border-radius: 28px !important;
+            outline:none;
+        }
+        </style>
+        <script type="text/javascript">
+            function CreateCase(){
+                var url = '/500/e?retURL=%2F{!caseObj.Id}&def_parent_id={!caseObj.Id}&cas4_lkid={!caseObj.AccountId}&00No000000CBPet={!caseObj.Event_Type_New__c}&RecordType={!appSupportRecordId}&ent=Case';
+                window.open(url , '_self');
+            }
+            function GoBack(){
+                var url = '/{!caseObj.Id}';
+                window.open(url , '_self');
+            }
+            function openAppSupportToolBox(){
+                var url = 'https://goo.gl/TVVdhc';//{!caseObj.RecordTypeId}
+                window.open(url , '_blank');
+            }
+        </script>
+    </head>
+    
+    <apex:form >
+        <body>
+            <div class="container">
+                <center><h1 style="margin-top: 3%;">App Support Escalation</h1></center>
+                <p style="font-size: 15.1px;margin-top: 3%;">Have you reviewed App Support Tool Box? You can run customized reports and take different account, event level actions without escalating to App Support.</p>
+                <p style="font-size: 15.1px;"> Click on the button below to access App Support Tool Box.</p>
+                
+                <center style="margin-top: 3%;"><button type="button" class="btn btn-primary" onClick="openAppSupportToolBox();">App Support Tool Box</button></center>
+                <h3 style="margin-top: 3%;">Escalation Guidelines</h3>
+                <p style="font-size: 15.1px;">Please select the Topic to review the guidelines. <b>NOTE: Please copy the guidelines and paste into the description box on the next page.</b></p>
+                <form class="form-inline" >
+                    <div class="form-group" style="margin-top: 2%;">
+                        <label for="escalatedTopics" style="padding-right: 2%;">Escalated Topics:</label>
+                        <!--<div style="width:10%;"/>-->
+                        <apex:selectList value="{!selectedname}" multiselect="false" size="1" styleClass="selectedTopic">
+                            <apex:selectOptions value="{!SelectedEscalatedTopic}"/>
+                            <apex:actionSupport event="onchange" rerender="out1" status="counterStatus"/>
+                        </apex:selectList>
+                    </div>
+                </form>
+                <apex:actionStatus id="counterStatus">
+                    <apex:facet name="start">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                SEARCHING DATABASE......
+                            </div>
+                        </div>
+                    </apex:facet> 
+                </apex:actionStatus>
+                <apex:outputPanel id="out1">
+                    <div class="panel-group">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Case Submission GuideLines</div>
+                            <div class="panel-body">
+                                <apex:outputText value="{!escalatedTopicVsGuildelines[selectedname]}" escape="false"></apex:outputText>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </apex:outputPanel>
+                <center>
+                <div>
+                    <button type="button" class="btn btn-primary" onClick="CreateCase();">Create Case</button>
+                    <button type="button" class="btn btn-primary" onClick="GoBack();">Cancel</button>
+                </div>
+                </center>
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

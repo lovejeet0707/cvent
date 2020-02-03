@@ -1,0 +1,45 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="QuoteLineTemplateContentController">
+    
+    <!-- Overages table -->
+    <apex:repeat value="{!showOveragesTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="0px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid" >
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white" background-color="rgb({!quote.Dynamic_Quote_Template_Color__c})" border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" width="450px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Overage Fees"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" width="90px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!overagesTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9" background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" padding-right="3" width="450px" border="1px white solid">
+                                    <block text-align="left">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" padding-right="3" width="90px" border="1px white solid">
+                                    <block text-align="right">
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}" >
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+</apex:page>

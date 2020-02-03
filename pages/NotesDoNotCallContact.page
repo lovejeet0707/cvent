@@ -1,0 +1,25 @@
+<apex:page standardController="Contact" showheader="False">
+    <style>
+        .apexp, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock
+        {
+            background-color:#ff0000;
+            color:#ffffff;
+        }
+        body .bPageBlock .pbBody .labelCol {
+            color: #ffffff;
+            width:17%;
+            font-size:13px;
+        }
+       
+
+     </style>
+     <apex:form styleClass="form" rendered="{!if(contact.DoNotCall==true && (Contact.MailingCountryCode=='US' || Contact.MailingCountryCode=='GB' || Contact.MailingCountryCode=='ENGLAND' || Contact.MailingCountryCode=='WALES' || Contact.MailingCountryCode=='SCOTLAND' || Contact.MailingCountryCode=='NORTHERNI' ),true,false)}">
+         <apex:pageBlock > 
+             <apex:pageBlockSection columns="1">        
+                
+                 <div align="center" style="color: #ffffff;font-size:14px;font-weight:bolder;">This contact has added the phone numbers listed on this page to the Do Not Call list, meaning it is illegal to make unsolicited calls to the phone number(s). If we recently engaged in two-way conversation with the contact OR the contact has requested that we reach out to them, you are ok to call/email them. Please refer to attached 
+                 <a id="theLink" name="theLink" href="https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N0000041AUA">document</a> for exceptions and details.</div>
+             </apex:pageBlockSection>             
+         </apex:pageBlock> 
+     </apex:form>
+</apex:page>

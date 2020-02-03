@@ -1,0 +1,31 @@
+<apex:page title="Event Core L3 & L4 Dashboard" sidebar="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <div class="page-header">
+        <h2>Event Core Dashboards</h2>      
+    </div>
+    <apex:form >
+        <apex:pageBlock title="Event Core L3 & L4 Dashboard">
+            <div>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000138kM&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=donut&cs=0&title=Quarterly+Funnel+Contribution+Influenced&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Pre-sales+Rep%28s%29+Influenced+Deal&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbOd%3Fdbw%3D1&sd=4&scv=yes&sct=yes&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=3&vt2=3&vl0=Sum+of+Weighted+Contract+Total+%28converted%29&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638264000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000138kO&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=pie&cs=0&title=Cold+Sets+This+Month&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Created+By&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbOs%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Record+Count&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638263000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000138kP&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=QDs+This+Month&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Created+By&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbPH%3Fdbw%3D1&sd=4&scv=yes&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Record+Count&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638261000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000138kP&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=QDs+Needed+to+Hit+Level+Quota&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Created+By&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbPH%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Record+Count&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=42.0&gc1=-4013484&gm1=84.0&gc2=-11222444&gm2=126.0&sona=0&refreshts=1515638261000" height="320px" width="420px" frameborder="false"/>
+            </div>
+            <div>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000139oL&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=Projected+QDs+This+Month&eh=yes&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Created+By&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wdbj%3Fdbw%3D1&sd=4&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Record+Count&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638261000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N00000139oo&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=pie&cs=0&title=Top+Accounts+Set+This+Month&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Created+By&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wdbo%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Record+Count&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.0&gc1=-4013484&gm1=2.0&gc2=-11222444&gm2=3.0&sona=0&refreshts=1515638261000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N0000013AD5&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Assigned&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wdbt%3Fdbw%3D1&sd=4&scv=yes&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=PowerScore&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638264000" height="320px" width="420px" frameborder="false"/>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N0000013CJK&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=donut&cs=0&title=Quarterly+Closed+Won+Influenced&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Pre-sales+Rep%28s%29+Influenced+Deal&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbOx%3Fdbw%3D1&sd=4&scv=yes&sct=yes&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=3&vl0=Sum+of+Net+Amount+%28Opp%29+%28converted%29&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638264000" height="320px" width="420px" frameborder="false"/>
+            </div>
+            <div>
+                <apex:iframe src="https://cvent.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL1N0000013KI0&ruid=00500000007RuxP&did=01Z1N000000iuDC&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=DS+Funnel+This+Quarter&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Opportunity+Owner&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O1N000005wbPW%3Fdbw%3D1&sd=4&scv=no&sct=no&spt=no&bd=yes&cu=USD&ab=X&u=0&vt=0&ab2=Y&u2=3&vt2=3&vl0=Sum+of+Net+Amount+%28Opp%29+%28converted%29&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&refreshts=1515638261000" height="320px" width="420px" frameborder="false"/>
+            </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

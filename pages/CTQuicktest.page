@@ -1,0 +1,17 @@
+<apex:page >
+  <html>
+<body>
+<img id="liveagent_button_online_573o0000000L6Ek" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('573o0000000L6Ek')" src="https://cvent.secure.force.com/resource/1388040737000/ChatOnFrank" /><img id="liveagent_button_offline_573o0000000L6Ek" style="display: none; border: 0px none; " src="https://cvent.secure.force.com/resource/1388040769000/ChatOffFrank" />
+<script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('573o0000000L6Ek', document.getElementById('liveagent_button_online_573o0000000L6Ek'));
+liveagent.showWhenOffline('573o0000000L6Ek', document.getElementById('liveagent_button_offline_573o0000000L6Ek'));
+});</script>
+<script type='text/javascript' src='https://c.la3-c1-was.salesforceliveagent.com/content/g/js/33.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la3-c1-was.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+</script>
+</body>
+</html>
+
+</apex:page>

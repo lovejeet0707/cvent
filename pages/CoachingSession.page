@@ -1,0 +1,110 @@
+<apex:page standardController="Coaching_Session__c" extensions="coachingSessionQuestionClass" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
+    <apex:slds />
+    <apex:pageMessages id="pageMessageId"/>
+    <apex:form >
+        <body class="slds-scope">
+            <div>
+                <div class="slds-align_absolute-center slds-p-bottom_small">
+                    <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!editcoachingSessionQuestion}" value="Edit" rendered="{!!isEdit}"/>
+                    <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!savecoachingSessionQuestion}" value="Save" rendered="{!isEdit}" reRender="pageMessageId,redirectPanel"/>
+                </div>
+                <apex:outputPanel id="redirectPanel" >
+                    <apex:outputText rendered="{!shouldRedirect}">
+                        <script type="text/javascript">
+                        window.top.location.href = '{!redirectUrl}';
+                        </script>
+                    </apex:outputText>
+                </apex:outputPanel>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <b>Question Category</b>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <b>Question</b>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <b>Response</b>
+                            </th>
+                            
+                            <th class="slds-text-title_caps" scope="col">
+                                <b>Comments</b>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col" style="display:{!IF(isEdit,'none','block')}">
+                                <b>Score</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:outputPanel rendered="{!IF(isEdit,TRUE,FALSE)}">
+                            <apex:repeat value="{!coachingSessionQuestionMap}" var="key">
+                                <apex:variable value="{!coachingSessionQuestionMap[key]}" var="myMap"/>
+                                <tr>
+                                    <td data-label="Question Category" rowspan="{!myMap.size+1}">
+                                        <div class="slds-truncate" title="Question Category">{!key}</div>
+                                    </td>
+                                    <apex:repeat value="{!coachingSessionQuestionMap[key]}" var="CSQues">
+                                        <tr>
+                                            <td data-label="Question" scope="row">
+                                                <div class="slds-truncate" title="Question">
+                                                    <apex:outputField Value="{!CSQues.Coaching_Question__c}"/>
+                                                </div>
+                                            </td>
+                                            <td data-label="Response">
+                                                <div class="slds-truncate" title="Response">
+                                                    <apex:inputField styleClass="questionCategoryClass" id="QuestionCategory" value="{!CSQues.Coaching_Question_Category__c}" html-disabled="true" style="display:none;"/>
+                                                    <apex:outputPanel style="display:none;">
+                                                        <apex:inputField styleClass="responseScaleClass" id="ResponseScale" value="{!CSQues.Response_Scale__c}" html-disabled="true" style="display:none;"/>
+                                                    </apex:outputPanel>
+                                                    <apex:inputField value="{!CSQues.Response__c}" required="true"/>
+                                                </div>
+                                            </td>
+                                            <td data-label="Comments">
+                                                <div class="slds-truncate" title="Comments" style="white-space: initial;">
+                                                    <apex:inputField value="{!CSQues.Comment__c}" style="width:100%;"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tr>
+                            </apex:repeat>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(isEdit,FALSE,TRUE)}">
+                            <apex:repeat value="{!coachingSessionQuestionMap}" var="key">
+                                <apex:variable value="{!coachingSessionQuestionMap[key]}"  var="myMap"/>
+                                <tr>
+                                    <td data-label="Question Category" rowspan="{!myMap.size+1}">
+                                        <div class="slds-truncate" title="Question Category">{!key}</div>
+                                    </td>
+                                    <apex:repeat value="{!coachingSessionQuestionMap[key]}" var="CSQues">
+                                        <tr>
+                                            <td data-label="Question" scope="row">
+                                                <div class="slds-truncate" title="Question">{!CSQues.Coaching_Question__c}</div>
+                                            </td>
+                                            <td data-label="Response">
+                                                <div class="slds-truncate" title="Response">{!CSQues.Response__c}</div>
+                                            </td>
+                                            <td data-label="Comments">
+                                               <div class="slds-truncate" title="Comments" style="white-space: initial;">{!CSQues.Comment__c}</div>
+                                            </td>
+                                            <td data-label="Score">
+                                             <div class="slds-truncate" title="Score">{!CSQues.Score__c}</div>
+                                                
+                                            </td>
+                                            
+                                        </tr>
+                                    </apex:repeat>
+                                </tr>
+                            </apex:repeat>
+                        </apex:outputPanel>
+                    </tbody>
+                </table>
+                    <div class="slds-align_absolute-center slds-p-bottom_small">
+                    <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!editcoachingSessionQuestion}" value="Edit" rendered="{!!isEdit}"/>
+                    <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!savecoachingSessionQuestion}" value="Save" rendered="{!isEdit}" reRender="pageMessageId,redirectPanel"/>
+                </div>
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

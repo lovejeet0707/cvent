@@ -1,0 +1,123 @@
+<apex:component access="global">
+
+	<apex:attribute name="proposalTable" description="proposal table" type="ProposalTable"/>
+
+	<block>&#0160;</block>
+
+	<block font-size="10" font-weight="bold" text-align="left">{!proposalTable.sectionTitle}</block>
+
+	<block font-size="10" text-align="left">
+
+		<apex:variable value="foo" var="foo" rendered="{!AND(proposalTable.isCrowdCompass,NOT(proposalTable.staticPagesShown))}" id="crowdCompassLink">
+			
+			<basic-link show-destination="new" external-destination="url('https://www.crowdcompass.com/')" color="blue">Watch how a client used our mobile event app platform to improve their meetings and events.</basic-link>	
+
+		</apex:variable>
+
+		{!proposalTable.sectionDescriptionText}
+
+	</block>
+
+	<block>&#0160;</block>
+
+	<block padding-top="10px" padding-bottom="10px" text-align="center" background-image="https://image.ibb.co/gZ6Dox/table_Header_Image.png" font-weight="bold" color="white">{!proposalTable.tableName}</block>
+	
+	<block text-align="center">
+
+		<table text-align="center" table-layout="fixed" border="solid 0.1mm black">
+
+			<apex:repeat value="{!proposalTable.columnNames}" var="cn">
+				
+				<table-column/>
+				
+			</apex:repeat>
+
+			<table-header>
+
+				<table-row>
+					
+					<apex:repeat value="{!proposalTable.columnNames}" var="cn">
+						
+						<table-cell background-color="gray" padding-bottom="4px" padding-top="4px" padding-left="4px" padding-right="4px" border="1px white solid">
+
+							<block font-size="10" font-weight="bold" color="white">{!cn}</block>
+
+						</table-cell>						
+						
+					</apex:repeat>
+					
+				</table-row>
+
+			</table-header>
+
+			<table-body>
+
+				<apex:repeat value="{!proposalTable.rows}" var="r">
+
+					<table-row font-size="10" background-color="{!IF(MOD(r.rowIndex,2)==0, 'white', 'rgb(221, 222, 225)')}">
+
+						<apex:repeat value="{!r.cells}" var="c">
+							
+							<table-cell padding-top="2px" padding-bottom="2px" padding-left="2px" padding-right="2px" border="1px white solid">
+
+								<apex:variable value="foo" var="foo" rendered="{!c.volume != null}" id="priceCellId0">
+								
+									<block>{!c.volume}</block>
+
+								</apex:variable>
+
+								<apex:variable value="foo" var="foo" rendered="{!c.RackRate != null && c.price != null}" id="priceCellId1">
+
+									<block>
+
+										<apex:variable value="foo" var="foo" rendered="{!AND(proposalTable.showRackRate,c.showRackRate)}" id="priceCellId1">
+
+										<inline text-decoration="line-through">
+											
+											<apex:outputText value="{!proposalTable.proposalProduct.currencySign}"/>
+
+	                                        <apex:outputText value="{0, number,###,###,##0.00}" >
+
+	                                            <apex:param value="{!c.rackRate}"/>
+
+	                                        </apex:outputText>
+
+										</inline>
+
+										<leader/>
+
+										</apex:variable>
+
+										<inline>
+
+											<apex:outputText value="{!proposalTable.proposalProduct.currencySign}"/>
+											
+	                                        <apex:outputText value="{0, number,###,###,##0.00}" >
+
+	                                            <apex:param value="{!c.price}"/>
+	                                            
+	                                        </apex:outputText>
+
+	                                        <apex:outputText value="/event" rendered="{!proposalTable.isCrowdCompass}"/>
+
+										</inline>
+
+									</block>
+
+								</apex:variable>
+
+							</table-cell>
+							
+						</apex:repeat>
+
+					</table-row>
+					
+				</apex:repeat>
+
+			</table-body>
+
+		</table>
+
+	</block>
+
+</apex:component>

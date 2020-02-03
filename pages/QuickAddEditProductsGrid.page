@@ -1,0 +1,154 @@
+<apex:page standardController="Opportunity" extensions="AddOpportunityProductMultiExtension" sidebar="false" tabstyle="Opportunity">
+    <style type="text/css">
+        .numberCol {
+            max-width: 50px;
+            color: green;        
+        }
+        
+        .textCol {
+            max-width: 100px;
+            color: red;
+        }
+        
+    </style>
+    
+    <apex:form >
+
+      <apex:sectionHeader subtitle="{!IF(isEditMode, 'Quick Edit All Product(s)', 'Add Opportunity Product(s) - Step 2')}" title="{!opty.Name}"/>
+
+      <apex:pageBlock title="Product Details" id="mainPB"> 
+        <apex:pageMessages />      
+
+          <apex:pageblockButtons location="both">
+              <apex:commandButton action="{!saveAction}" value="Save" status="status0" rerender="mainPB"/>
+              <apex:commandButton action="{!cancel}" value="Cancel" status="status0" reRender="mainPB"/>
+          </apex:pageblockButtons>
+ 
+      <apex:actionStatus id="status0">
+            <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.65; z-index: 1000; background-color: black;">
+                &nbsp;
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 30% 50%">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/e/ed/Cursor_Windows_Vista.gif" />
+            </div>
+            </apex:facet>
+        </apex:actionStatus>
+         
+      <div> <!--style="max-width:1200px;" -->
+      <apex:repeat value="{!productMap}" var="prodFamily">
+          <apex:pageBlock rendered="{!OR(prodFamily== 'Event', prodFamily == 'Cvent Connect')}" title="{!prodFamily} Products" >
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Event_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                        
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>
+          
+          <apex:pageBlock rendered="{!prodFamily == 'Onsite Solutions'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Onsite_Solutions_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}" style="width: 5%;">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                      <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                      <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>
+          <apex:pageBlock rendered="{!prodFamily == 'SignUp4'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Signup4_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>
+          
+          <apex:pageBlock rendered="{!prodFamily == 'PSG'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.PSG_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}"  required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>
+
+          <apex:pageBlock rendered="{!prodFamily == 'Survey'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.Survey_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>
+
+          <apex:pageBlock rendered="{!prodFamily == 'CSN-Planner Feature'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.CSNP_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>   
+          <apex:pageBlock rendered="{!prodFamily == 'CSN-Supplier Bundles'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.CSNSB_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>           
+
+
+          <apex:pageBlock rendered="{!AND(OR(Contains(prodFamily, 'CSN'), prodFamily == 'EMI',prodFamily =='EMI/SRFP', prodFamily == 'Decision Street', prodFamily == 'Lead Scoring'), NOT(prodFamily == 'CSN-Planner Feature'),NOT(prodFamily == 'CSN-Supplier Bundles'))}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.CSNS_QuickAdd}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double' , f.type == 'integer'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock> 
+
+          <apex:pageBlock rendered="{!prodFamily == 'CrowdCompass'}" title="{!prodFamily} Products">
+              <apex:pageblockTable value="{!productMap[prodFamily]}" var="p">
+                 <apex:repeat value="{!$ObjectType.OpportunityLineItem.FieldSets.CrowdCompass}" var="f">
+                     <apex:column headerValue="{!f.Label}">
+                       <apex:inputField value="{!p.product[f.fieldPath]}" rendered="{!f.Label != 'Product Name'}" required="{!OR(f.required, f.dbrequired)}" style="width: {!IF(OR(f.type == 'currency', f.type == 'double'), '50px', '120px')} !important;"/>
+                       <!--<apex:outputField value="{!p.pbe.Name}" rendered="{!f.Label == 'Product Name'}"/>-->
+                       <apex:outputText value="{!If(p.pbe.Name==null,p.product[f.fieldPath],p.pbe.Name)}" rendered="{!f.Label == 'Product Name'}"/>
+                      </apex:column>
+                  </apex:repeat>              
+              </apex:pageblockTable>
+          </apex:pageBlock>     
+
+               
+
+     </apex:repeat>
+     </div>
+      </apex:pageBlock>
+    </apex:form>  
+</apex:page>

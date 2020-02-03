@@ -1,0 +1,41 @@
+<apex:page standardController="Coaching_Appeal__c" >
+    
+    
+    <html lang="en">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <title></title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+            <link rel="stylesheet" href="/resources/demos/style.css"/>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"/>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
+                <script>
+                $( function() {
+                    $( "#dialog-confirm" ).dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                            "Yes": function() {
+                                $( this ).dialog( "close" );
+                                window.location.href = '/aB3/e?CF00No000000DmQbi=CF-000007&CF00No000000DmQbi_lkid={!$CurrentPage.parameters.relatedId}&retURL=%2F{!$CurrentPage.parameters.relatedId}&nooverride=1';
+                            },
+                            No: function() {
+                                $( this ).dialog( "close" );
+                                window.location.href = '/a1Lo0000001nKBQ';
+                            }
+                        }
+                    });
+                } );
+            </script>
+        </head>
+        <body>
+            <div id="dialog-confirm" title="Coaching Appeal Discussed?">
+                <p><span class="ui-icon ui-icon-alert" ></span> Has the coaching appeal been discussed with the QA Evaluator?</p>
+            </div>
+        </body>
+    </html>
+    
+</apex:page>

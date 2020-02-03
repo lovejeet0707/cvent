@@ -1,0 +1,49 @@
+<apex:page controller="LeadMgmtNEscalationFormChooser_Ctrl" sidebar="false" showHeader="false" action="{!redirectDirect}"> 
+    
+    <div id="content" style="background-color:#ffffff;width: 935px; margin: 80px auto 0;">
+        
+        <style>
+            body
+            {
+            background-color: #F0F0F0;
+            }
+            .bPageBlock
+            {
+            border-top: 4px solid #236;
+            }
+            .pbSubheader
+            {
+            background-color: #236;
+            }
+        </style>
+        <apex:form >
+            <script type="text/javascript">
+            function redirectToForm()
+            {
+                var selectedElement = document.querySelector('[id$=":forms"]').selectedIndex;
+                var selectedValue = document.querySelector('[id$=":forms"]').value;
+                debugger;
+                if(document.getElementsByTagName("option")[selectedElement].label.toString() != '--None--')
+                {
+                    window.location = selectedValue;
+                    window.resizeTo(screen.width, screen.height);
+                    debugger;
+                }
+            }
+            </script>
+            <apex:pageBlock title="Lead Management & Escalation Form" id="formSelectionBlock">
+                
+                <apex:pageBlockSection title="Form Selection" id="formSelection" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Select A Form">
+                        </apex:outputLabel>
+                        <apex:selectList id="forms" size="1" value="{!selectedname}" onchange="redirectToForm();"> 
+                            <apex:selectOptions value="{!forms}"/>  
+                        </apex:selectList>
+                        
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+    </div>  
+</apex:page>

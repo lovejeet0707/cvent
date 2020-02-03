@@ -1,0 +1,38 @@
+<apex:page standardController="Onsite_Hardware_Request_Item__c" extensions="CAM_ExportData_Extension" contentType="application/vnd.ms-excel#AssetInfo.xls" showHeader="false" sidebar="false" standardStylesheets="false" cache="true">
+<!--apex:page standardController="Onsite_Hardware_Request_Item__c" extensions="CAM_ExportData_Extension" showHeader="false" sidebar="false" standardStylesheets="false" cache="true"-->
+
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{! packedAssets }" var="a" styleClass="slds-table slds-table_bordered "  style="table-layout:auto;">
+            <apex:column value="{! a.Cvent_Box__r.Number_Label__c }" headerValue="Box"/>
+            <apex:column value="{! a.Cvent_Box__r.Dimensions_in__c }" headerValue="Box Dimensions (in)"/>
+            <apex:column value="{! a.Cvent_Box__r.Dimensions_cm__c }" headerValue="Box Dimensions (cm)"/>
+            <apex:column value="{! a.Cvent_Asset__r.Asset_Tag__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Asset_Name__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Cvent_Asset_Type__r.Name }"/>
+            <apex:column value="{! a.Cvent_Asset__r.IMEI__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Serial_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Manufacturer__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Model_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Phone_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.SIM_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Customs_Value__c }"/>
+            <apex:column headerValue="Asset Type Correct?">
+                <apex:outputText >{! if(a.Validate_Asset_Types_Match__c, 'True', 'False') }</apex:outputText>
+            </apex:column>
+            <apex:column value="{! a.Onsite_Hardware_Request_Item__r.Cvent_Asset_Group__c }"/>
+            <apex:column value="{! a.Onsite_Hardware_Request_Item__r.Cvent_Asset_Subgroup__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Asset_Tag__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Asset_Name__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Cvent_Asset_Type__r.Name }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.IMEI__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Serial_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Manufacturer__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Model_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Phone_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.SIM_Number__c }"/>
+            <apex:column value="{! a.Cvent_Asset__r.Kit_Asset_Tag__r.Customs_Value__c }"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+        
+
+</apex:page>

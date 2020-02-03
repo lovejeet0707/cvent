@@ -1,0 +1,3 @@
+<apex:page standardController="Address__c" extensions="AddressCustomStateCountryISO_Controller" sidebar="false"> 
+    <div style="margin-left:-6%"><apex:outputField value="{!acc.BillingCountryCode}"/></div> 
+</apex:page>

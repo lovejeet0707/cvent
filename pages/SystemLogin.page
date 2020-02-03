@@ -1,0 +1,24 @@
+<!-- Instance login VF page -------------
+   Salesforce to Salesforce instance Login Protocol --> 
+
+<apex:page standardController="Account" extensions="AutoLogin" showHeader="false" showChat="false">
+    <script type='text/javascript' src="//code.jquery.com/jquery-1.11.0.js"></script>
+    <script>
+        function myFunction() {
+            var sessionId = '{!SESSION_ID}';
+            if(sessionId !='')
+                window.open('{!endPointURL}/secur/frontdoor.jsp?retURL=/{!Id}&sid={!SESSION_ID}','newwindow','width=900,height=700'); 
+            else{
+                alert('Account data is not available. Please contact with Account manager or write an email to Lead Management (Sops).');
+            }           
+        }
+    </script>
+    <apex:form >
+        <apex:outputPanel rendered="{!if(Id!=null,true,false)}">
+            <a onclick="myFunction();">Click Here</a>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!if(Id!=null,false,true)}">
+            Account data is not available. Please contact with Account manager or write an email to Lead Management (Sops). 
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

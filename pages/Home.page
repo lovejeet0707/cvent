@@ -1,0 +1,684 @@
+<apex:page showheader="false">
+      
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cvent Client Service Customer Portal</title>
+    <style type="text/css">
+    a, ul {
+        text-decoration: none;
+        list-style: none;
+    }
+    #portal {
+        color: #333333;
+        font-family: arial;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #portal .actual.button.blue, .actual.button.green, a.btn.blue, a.button.blue, .button.blue input[type="submit"], .button.blue input[type="reset"], .button.blue input[type="button"] {
+        background-color: #0bade9;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        border-color: #15a9e0;
+        color: #FFFFFF;
+        margin: 15px 10px 0 0;
+        padding: 7px 25px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    }
+    #portal .blue a {
+        color: #FFFFFF;
+        font-style: normal;
+        margin: -2px 0 0;
+        text-decoration: none;
+    }
+    #portal .actual.button, a.btn, a.btn:visited, a.button, a.button:visited, .button input[type="submit"], .button input[type="reset"], .button input[type="button"] {
+        background-color: #EEEEEE;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 0 rgba(255, 255, 255, 0.1) inset;
+        color: #333333;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+        padding: 6px 13px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+        transition: all 0.2s ease-in-out 0s;
+        vertical-align: middle;
+    }
+    #portal .actual.button.blue:hover, a.btn.blue:hover, a.button.blue:hover, .button.blue:hover input[type="submit"], .button.blue:hover input[type="reset"], .button.blue:hover input[type="button"] {
+        background-color: #008AC1;
+        border-color: #0787BA;
+    }
+    #portal .actual.button.green, a.btn.green, a.button.green, .button.green input[type="submit"], .button.green input[type="reset"], .button.green input[type="button"] {
+        background-color: #84C528;
+        border-color: #70B70D;
+        color: #FFFFFF;
+        margin: 15px 10px 0 0;
+        padding: 7px 25px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    }
+    #portal .green a {
+        color: #FFFFFF;
+        font-style: normal;
+        margin: -2px 0 0;
+        text-decoration: none;
+    }
+    #portal .actual.button.green:hover, a.btn.green:hover, a.button.green:hover, .button.green:hover input[type="submit"], .button.green:hover input[type="reset"], .button.green:hover input[type="button"] {
+        background-color: #69A01C;
+        border-color: #70B70D;
+    }
+    #portal .green {
+        margin: 0 !important;
+    }
+    #portal #content {
+        background-color: #FFFFFF;
+        border: 1px solid #B9B9B9;
+        width: 790px;
+        float: left;
+    }
+    #portal h1 {
+        color: #2D4D70;
+        font-family: "Soho Std";
+        font-size: 25px;
+    }
+    #portal h2 {
+        color: #2b4d73;
+        font-family: "Soho Std";
+        font-size: 25px;
+        font-weight: normal;
+    }
+    #portal .announcement {
+        padding: 20px;
+    }
+    .announcement-cont {
+        width: 728px;
+        background: #f7f7f7;
+        border: 1px solid #d6d6d6;
+        padding: 10px;
+        min-height: 106px;
+    }
+    #portal .basics {
+        width: 750px;
+        background: #3399cc;
+        padding: 20px;
+        float: left;
+    }
+    #portal .basics h2 {
+        text-align: center;
+        color: #fff;
+        font-family: "Soho Std";
+        font-weight: normal;
+        font-size: 24px;
+    }
+    #portal .basics p {
+        text-align: center;
+        font-size: 15px;
+        color: #fff;
+    }
+    .products {
+        width: 748px;
+        background: #fff;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        padding: 1px;
+        float: left;
+    }
+    #article-section {
+        width: 750px;
+        padding: 20px;
+        float: left;
+    }
+    #article-section .article-cont {
+        width: 400px;
+        position: relative;
+        float: left;
+    }
+    #article-section .article-cont h2 {
+        color: #333;
+        font-size: 24px;
+        font-family: "Soho Std";
+        font-weight: normal;
+        margin-top: 0;
+    }
+    #article-section .article-cont ul {
+        list-style: none;
+    }
+    /* Accordion */
+    .accordion {
+        width: 100%;
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+    .accordion li {
+        margin-top: 1px;
+    }
+    .accordion li ul li {
+        border-bottom: 1px dotted #9b9b9b;
+        color: #757575;
+        padding: 3px;
+    }
+    .accordion li ul li a {
+        text-decoration: none;
+        color: #757575;
+        font-size: 13px;
+    }
+    .accordion li ul li a:hover {
+        color: #333;
+    }
+    .accordion li h3 a {
+        background: #e8e8e8 url(http://www.cvent.com/en/support-center/images/icon-arrow-right.png) no-repeat 375px 8px;
+        color: #696969;
+        display: block;
+        font-style: normal;
+        font-size: 15px;
+        /*font-family:"Soho Std";*/
+        font-weight: normal;
+        margin: 0;
+        padding: 7px 10px;
+        text-decoration: none;
+    }
+    .accordion li.active h3 a {
+        background: #165783 url(http://www.cvent.com/en/support-center/images/icon-arrow-down.png) no-repeat 370px 12px;
+        color: #fff;
+    }
+    .accordion li.locked h3 a {
+        background: #963;
+    }
+    .accordion li h3 {
+        margin: 0;
+        padding: 0;
+    }
+    .accordion .panel {
+        background: #f4f4f4;
+        padding: 5px;
+        margin: 0;
+    }
+    #blog-container {
+        width: 310px;
+        float: right;
+    }
+    #blog-container h2 {
+        color: #333;
+        font-size: 24px;
+        font-family: "Soho Std";
+        font-weight: normal;
+        margin-top: 0;
+    }
+    #blog-container ul {
+        margin: 0;
+        padding: 0;
+    }
+    #blog-container ul li {
+        background: #f4f3f3;
+        float: left;
+        width: 296px;
+        padding: 6px;
+        margin-bottom: 5px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        border: 1px solid #eaeaea;
+    }
+    #blog-container ul li:hover {
+        background: #fbfbfb;
+    }
+    #blog-container ul li .icon {
+        float: left;
+        width: 62px;
+        margin: 2px 0 0 3px;
+    }
+    #blog-container ul li .blog-text {
+        float: left;
+        width: 231px;
+    }
+    #blog-container ul li .blog-text h3 {
+        margin: 5px 0;
+        color: #494949;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    #blog-container ul li .blog-text p {
+        color: #757575;
+        font-size: 12px;
+        margin: 5px 0;
+        line-height: 18px;
+    }
+    #blog-container ul li .blog-text a {
+        background: url(http://www.cvent.com/en/support-center/images/arrows.png) no-repeat right;
+        color: #165783;
+        font-size: 12px;
+        float: right;
+        padding-right: 12px;
+        margin-right: 4px;
+    }
+    #get-help {
+        float: left;
+        width: 750px;
+        text-align: center;
+        background: url(http://www.cvent.com/en/support-center/images/get-help-bg.jpg) no-repeat center top;
+        padding: 20px;
+    }
+    #get-help p {
+        color: #333;
+        font-size: 15px;
+    }
+    #cvent-exp {
+        float: left;
+        background: url(http://www.cvent.com/en/support-center/images/cvent-exp.jpg) no-repeat;
+        width: 790px;
+        height:300px;
+        *height:310px;
+    }
+    #cvent-exp .info {
+        float: right;
+        width: 360px;
+        margin: 70px 20px 0 0;
+    }
+    #cvent-exp .info h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    #cvent-exp .info p {
+        color: #484848;
+        font-size: 12px;
+        margin: 5px 0 20px 0;
+    }
+    #team-section {
+        float: left;
+        width: 790px;
+        margin-bottom: 15px;
+    }
+    #team-section h2 {
+        text-align: center;
+    }
+    #team-section .text-cont {
+        float: left;
+        width: 350px;
+        margin: 15px 20px;
+        *margin-top:30px;
+    }
+    #team-section .text-cont h3 {
+        font-size: 595959;
+        font-size: 14px;
+    }
+    #team-section .text-cont p {
+        color: #949494;
+    }
+    #team-section .text-cont a {
+        color: #0D97D4;
+    }
+    #team-section .text-cont a:hover {
+        color: #0774A4;
+        text-decoration: underline;
+    }
+    #team-section .cont-blue {
+        background: #e8f8ff;
+        float: left;
+        width: 760px;
+        margin-top: 5px;
+        padding: 15px;
+    }
+    #team-section .cont-blue img{
+        float:left;
+        }
+    #team-section .cont-blue .text-slide{
+        background: none;
+        position: relative;
+        float: left;
+        width: 480px;
+        padding: 35px 10px 20px 20px;
+        *padding-top:50px;
+        }   
+    
+    #team-section .cont-blue .text-slide p {
+        color: #535353;
+        font-style: italic;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    #team-section .cont-blue .text-slide .name {
+        color: #4f4f4f;
+    }
+    #team-section .cont-blue .text-slide .name span {
+        display: block;
+    }
+    #awards {
+        float: left;
+        width: 750px;
+        background: #fbfbfb;
+        padding: 20px;
+        text-align: center;
+    }
+    #awards h2 {
+        color: #333;
+        *margin-top:35px;
+    }
+    #awards img {
+        margin: 10px 0;
+    }
+    /* Tabs */
+    ul.tabs {
+        margin: 0;
+        padding: 0;
+        float: left;
+        width: 270px;
+        background: #f5f5f5;/*border-right:1px solid #e9e9e9;*/
+    }
+    ul.tabs li {
+        float: left;
+        margin: 0;
+        cursor: pointer;
+        padding: 12px 15px;
+        background: #EEEEEE url(http://www.cvent.com/en/support-center/images/bg-bottom.jpg) repeat-x bottom;
+        overflow: hidden;
+        width: 240px;
+        position: relative;
+        color: #494949;
+    }
+    ul.tabs li span {
+        float: left;
+        margin: -2px 5px 0 0;
+    }
+    ul.tabs li:hover {
+        background: #e0e0e0;
+    }
+    ul.tabs li.active {
+        background: #f5f5f5 url(http://www.cvent.com/en/support-center/images/bg-arrow.png) no-repeat center right;
+        border-bottom: 1px solid #FFFFFF;
+    }
+    .tab_container {
+        float: left;
+        width: 460px;
+        background: #FFFFFF;
+    }
+    .tab_container ul {
+        margin: 0;
+        padding: 0;
+    }
+    .tab_container ul li {
+        float: left;
+        margin-bottom: 9px;
+        width: 450px;
+    }
+    .tab_container ul li a {
+        background: url(http://www.cvent.com/en/support-center/images/bullet.png) no-repeat 0 8px;
+        color: #848484;
+        font-size: 12px;
+        float: left;
+        padding-left: 10px;
+    }
+    .tab_container ul li a:hover {
+        color: #333;
+    }
+    .tab_container p {
+        color: #333!important;
+        text-align: left!important;
+    }
+    .tab_content {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        display: none;
+    }
+    </style>
+    </head>
+    
+    <body>
+    <div id="portal">
+      <div id="content"> 
+        <!-- Announcement Section -->
+        <div class="announcement">
+          <h1>What’s Happening at Cvent </h1>
+          <!--<div class="announcement-cont"></div>-->
+        </div>
+        <!-- End Announcement Section --> 
+        
+        <!-- Get the Basics Section -->
+        <div class="basics">
+          <h2>Get the Basics on Our Products</h2>
+          <!--<p>We offer training resources across all of our products. You can be a part of our live training / courses, or if you would prefer to move at your own pace, check our pre-recorded training sessions.</p>-->
+          <div class="products"> 
+            <!-- tabs -->
+            <ul class="tabs">
+              <li class="active" rel="tab1"> <span><img src="http://www.cvent.com/en/support-center/images/event-management-icon.png" alt="Event Management" /></span>Event Management</li>
+              <li rel="tab2"> <span><img src="http://www.cvent.com/en/support-center/images/smm-icon.png" alt="Strategic Meeting Management" /></span> Strategic Meetings Management</li>
+              <li rel="tab3"><span><img src="http://www.cvent.com/en/support-center/images/web-surveys-icon.png" alt="Strategic Meeting Management" /></span> Web Survey</li>
+              <li rel="tab4"><span><img src="http://www.cvent.com/en/support-center/images/SNP-icon.png" alt="Strategic Meeting Management" /></span> Supplier Network for Planners</li>
+              <li rel="tab5"><span><img src="http://www.cvent.com/en/support-center/images/SNS-icon.png" alt="Strategic Meeting Management" /></span> Supplier Network for Suppliers</li>
+            </ul>
+            <div class="tab_container">
+              <div id="tab1" class="tab_content">
+                <ul>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001653">Getting Started Checklist</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001472">Register for Event Training</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001514">Understanding the Registration Process (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001092">About Emails</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001026">Launching Your Event</a></li>
+                </ul>
+              </div>
+              <!-- #tab1 -->
+              <div id="tab2" class="tab_content">
+                <ul>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001784">Introduction to Meetings Management (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001786">Understanding Workflow (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001791">Creating an RFP (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001764">Understanding the Registrant s Perspective (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001795">Managing an Event s Budget (Video)</a></li>
+                </ul>
+              </div>
+              <!-- #tab2 -->
+              <div id="tab3" class="tab_content">
+                <ul>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001652">Register for Survey Training</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001431">Designing Your Survey</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001299">Importing Contacts</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001196">Manually Sending Emails</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001372">Reporting on Your Survey</a></li>
+                </ul>
+              </div>
+              <!-- #tab3 -->
+              <div id="tab4" class="tab_content">
+                <ul>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001722">Supplier Network Training for Planners</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001533">RFP Creation Training (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001103">RFP Creation Training Guide</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001216">Best Practices for Searching the Supplier Network</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001315">RFP Sourcing Best Practices </a></li>
+                </ul>
+              </div>
+              <!-- #tab4 -->
+              <div id="tab5" class="tab_content">
+                <ul>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001374">Managing Users</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001113">Adding Lead Catchers</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000002092">Editing your Cvent Supplier Profile (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000002092">Creating a Proposal</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001095">Automating Proposal Costs, Info, and Answers</a></li>
+                </ul>
+              </div>
+              <!-- #tab4 --> 
+              
+            </div>
+            <!-- tab_container --> 
+            <!-- End Tabs --> 
+          </div>
+        </div>
+        <!-- End Get the Basics Section --> 
+        
+        <!-- Article Blog Section -->
+        <div id="article-section"> 
+          <!-- Article Accordion -->
+          <div class="article-cont">
+            <h2>Popular  Articles</h2>
+            <ul id="example1" class="accordion">
+              <li>
+                <h3>Event Management</h3>
+                <ul class="panel loading">
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001217">Adding Fees</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001072">Manually Sending Emails</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001060">Refunding a Transaction</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001059">Managing Contact Types</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001094">Reactivating Your Event</a></li>
+                </ul>
+              </li>
+              <li>
+                <h3>Strategic Meetings Management</h3>
+                <ul class="panel loading">
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001788">Creating Cross Event Reports (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001129">Parking Reports</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001063">Concur Travel Integration Guide</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000002051">PNR User Guide for nuTravel</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001142">Meeting Estimator Quick Start Guide</a></li>
+                </ul>
+              </li>
+              <li>
+                <h3>Web Surveys</h3>
+                <ul class="panel loading">
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001043">Importing Answers</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001742">Launching Your Survey</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001201">Adding Targeted Lists</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001570">Removing Surveys</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001196">Manually Sending Emails</a></li>
+                </ul>
+              </li>
+              <li>
+                <h3>Supplier Network For Planners</h3>
+                <ul class="panel loading">
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001376">Managing Users</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001096">Cancelling an RFP</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001546">Editing and Resending an RFP (Video)</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001021">Awarding an RFP</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001039">Adding Venues and Sending an RFP</a></li>
+                </ul>
+              </li>
+              <li>
+                <h3>Supplier Network For Suppliers</h3>
+                <ul class="panel loading">
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001374">Managing Users</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001113">Adding Lead Catchers</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001132">Requesting a Username</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001284">Adding Promotions</a></li>
+                  <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=000001088">Editing and Resending a Proposal</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- End Article Accordion --> 
+          <!-- Blog Section -->
+          <div id="blog-container">
+            <h2>Cvent Blog</h2>
+            <ul>
+              <li>
+                <div class="icon"><img src="http://www.cvent.com/en/support-center/images/icon-event-management.png" alt="Event Management Blog" /></div>
+                <div class="blog-text">
+                  <h3>Event Planning Blog</h3>
+                  <p>Our Event Planning blog is the perfect resource for those seeking tips...</p>
+                  <a href="http://blog.cvent.com/">Read More</a></div>
+              </li>
+              <li>
+                <div class="icon"><img src="http://www.cvent.com/en/support-center/images/icon-web-survey.png" alt="Web Surveys Blog" /></div>
+                <div class="blog-text">
+                  <h3>Web Survey Blog</h3>
+                  <p>Executing a successful survey program is not easy: surveyors need to ask the right..</p>
+                  <a href="http://survey.cvent.com/">Read More</a></div>
+              </li>
+              <li>
+                <div class="icon"><img src="http://www.cvent.com/en/support-center/images/icon-hospitality-marketing.png" alt="Event Management Blog" /></div>
+                <div class="blog-text">
+                  <h3>Hospitality Marketing Blog</h3>
+                  <p>Do you work in the hospitality industry? Cvent understands meetings and events..</p>
+                  <a href="http://hospitality.cvent.com/">Read More</a></div>
+              </li>
+            </ul>
+          </div>
+          <!-- End Blog Section --> 
+        </div>
+        <!-- End Article Blog Section --> 
+        
+        <!-- Get Help Section -->
+        <div id="get-help">
+          <h2>Get Help</h2>
+          <p>Have questions?  Submit a case to get in touch with Customer Care.</p>
+          <a href="" class="actual button blue">Submit a Case</a> </div>
+        <!-- End Get Help Section --> 
+        
+        <!-- Cvent Experience -->
+        <div id="cvent-exp">
+          <div class="info">
+            <h2>Cvent Experience Guide</h2>
+            <p>Venture through this visual guide and learn how Cvent supports the success of every client!</p>
+            <a href="" class="actual button green">View infographics</a> </div>
+        </div>
+        <!-- End Cvent Experience --> 
+        
+        <!-- Meet the Team Section -->
+        <div id="team-section">
+          <h2>Meet the Team</h2>
+          <!-- Container Blue -->
+          <div class="cont-blue">
+            
+                   <img src="http://www.cvent.com/en/support-center/images/shelley-casey.png" alt="Shelley Casey" />
+                    <div class="text-slide">
+                      <p>“Cvent has expanded my business skill set in ways I never would have thought possible at this point in my career.”</p>
+                      <div class="name"><strong>Shelley Casey</strong> <span>Client Relationship Lead, Client Services</span> </div>
+                    </div>
+          </div>
+          <!-- Container Blue -->
+          <div class="text-cont">
+            <h3>What’s your role in Client Services?</h3>
+            <p>As a Client Relationship Lead, my core responsibilities are to manage relationships with strategic Partners and ensure our team is constantly elevating the level of service that we provide on a daily basis through client-focused initiatives.</p>
+          </div>
+          <div class="text-cont">
+            <h3>What’s a best practice that you recently shared with a client?</h3>
+            <p>One tip that I always love to share is how to <a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&articlePath=sfdc.tabName=01rP00000008lRl&q=mapping-suppliers)">Map Suppliers</a> in the Supplier Network and distribute that information to the event decision maker. Cvent allows for users to create their own points-of-interest on the map, so that not only the hotels are listed in relation to the airport, but offsite dinners and other social activities can be incorporated, as well!</p>
+          </div>
+        </div>
+        <!-- End Meet the Team Section --> 
+        
+        <!-- Awards Section -->
+        <div id="awards">
+          <h2>Our Customer Service Awards</h2>
+          <img src="http://www.cvent.com/en/support-center/images/awards.jpg" alt="Awards All" /> <a href="" class="actual button blue">View all awards</a> </div>
+        <!-- End Awards Section --> 
+        
+      </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.accordion.2.0.js" charset="utf-8"></script> 
+    <script type="text/javascript">
+                $('#example1, #example3').accordion();
+                $('#example2').accordion({
+                    canToggle: true
+                });
+                $('#example4').accordion({
+                    canToggle: true,
+                    canOpenMultiple: true
+                });
+                $(".loading").removeClass("loading");
+            </script> 
+            
+    <script type="text/javascript">
+    $(document).ready(function() {
+    
+        $(".tab_content").hide();
+        $(".tab_content:first").show(); 
+    
+        $("ul.tabs li").click(function() {
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+            $(".tab_content").hide();
+            var activeTab = $(this).attr("rel"); 
+            $("#"+activeTab).fadeIn(); 
+        });
+    });
+    </script>
+    </body>
+    </html>
+    
+      
+    </apex:page>

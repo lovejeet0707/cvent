@@ -1,0 +1,38 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="ProposalTemplateContentController">
+
+    <!--
+
+        <block margin-left="-36px" margin-top="-19px">
+
+            <external-graphic content-height="100px" content-width="650px" src="https://image.ibb.co/jU5BQc/proposal_Page_Top_Header_Image.jpg"/>
+
+        </block>
+
+        <block text-align="left">
+
+            <external-graphic src="https://image.ibb.co/ejXUwH/cvent_Event_Management_Logo.jpg"/>
+
+        </block> 
+
+    !-->   
+
+    <block margin-top="0px" padding-top="10px" padding-bottom="10px" text-align="center" background-color="{!colorString}" font-weight="bold" color="white" font-size="16px">{!title}</block>
+
+    
+    <c:QuoteLineTable quoteLineRecords="{!additionalQuoteLines}" hasMatrixedProducts="{!hasMatrixedProducts}" rendered="{!additionalQuoteLines.size > 0 && NOT(onlyCrowdCompass)}"/>
+
+    <apex:repeat value="{!proposalTables}" var="pt">
+
+        <c:ProposalTable proposalTable="{!pt}"/>
+
+    </apex:repeat>      
+
+    <c:QuoteLineTable quoteLineRecords="{!additionalQuoteLines}" hasMatrixedProducts="{!hasMatrixedProducts}" rendered="{!additionalQuoteLines.size > 0 && onlyCrowdCompass}"/>    
+
+    <!--
+
+        Here is a quick catasrophic comment
+    
+    !-->
+
+</apex:page>

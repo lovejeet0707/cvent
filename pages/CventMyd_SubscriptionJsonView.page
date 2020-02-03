@@ -1,0 +1,21 @@
+<apex:page showHeader="false" sidebar="false" standardController="SBQQ__Subscription__c" extensions="CventMyd_SubscriptionJsonController">
+
+    <script>
+
+        var jsonString;
+
+        window.onload = setTimeout(function(){loadJson();}, 100);
+
+        function loadJson() {
+
+            var subscriptionObject = JSON.parse('{!subscription.jsonString__c}');
+
+            document.getElementById("preId").innerText = JSON.stringify(subscriptionObject,null,2);
+
+        }
+
+    </script>
+
+    <pre style="font-size:10px;" id="preId">{!subscription.jsonString__c}</pre>
+    
+</apex:page>

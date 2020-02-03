@@ -1,0 +1,2571 @@
+<apex:page controller="CommunityArticleCls" sidebar="false" showheader="false" applyHtmlTag="false">
+    <!--Code From Community Header-->
+    <apex:composition template="CventCommunityHeader"></apex:composition>
+    <html lang="en">
+        <head>
+            <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <title>{!instOfKAV.title}</title>
+            <meta name="description" content="{!instOfKAV.Summary}"/>
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"></script>
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+                <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />
+                    <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/jquery.validate.min')}"></script>
+            <script src="/resource/1436510303000/Sitecatalyst/Sitecatalyst/cp_2015.js" type="text/javascript"></script>
+            <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' />
+                <!-- added style to fix community url hanging issue -->
+                <style> 
+                #articles .article-body a 
+                    { display: inline; }
+
+                @media only screen and (max-width: 480px) { width: 83%;} 
+@media only screen and (max-width: 320px) { width: 75%;} 
+
+                .search{
+         width: 85%;
+    height: 34px;
+    padding: 5px;
+    font-style: italic;
+    margin-bottom: 20px;
+ }
+ .submit{
+     border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #0183EB;
+    border-color: transparent;
+    color: #fff;
+    transition: 0.2s;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    margin-left: -5px;
+    margin-top: -3px;
+ }
+                .h1, .h2, .h3, h1, h2, h3 {
+                font-family: BrandonTextWeb-Regular !important;
+                }
+                
+                .article-body .note-area {
+    border: 2px solid #ECEFF8 !important;
+    border-left: 10px solid #ECEFF8 !important;
+}
+                
+                .product-ctas .grey-cta{text-decoration: none;}
+                .popular-article .help-footer-link {min-height:280px;}
+            .loader{
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999999;
+                background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+            }
+            
+            .bPageHeader{
+                display: none;
+            }
+            .header .filter{display:block !important; }
+            .header .filter ul li {margin: 0 10px 0 0;}
+            #side-sticky .chat-us a {
+            background : #126fb7 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -53px 0 !important;
+            }        
+            #side-sticky .open-case a{
+            background : #173d66 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat 15px 0 !important;
+            }
+            #side-sticky .call-us a {
+            background : #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -123px 0 !important;
+            }
+            .left-top .mycases ul.one li.txt {margin: 6px 15px 0 0 !important;}
+            #contentWrapper {min-width: 320px !important;}
+            
+            body#articles #auraElement-1, body#articles #auraErrorMessage {display:none !important;}
+            
+            .threecolumn .leftContent {width: 225px !important;}
+            
+            .left-top .top-nav {padding-top: 6px !important; padding-left: 30px;}
+            
+            #articles #userGroups-regional ul li h4, #userGroups-vertical ul li h4 {width: 130px !important;}
+            #top-header ul li, #top-header ol li {margin-left:0px !important;}
+            .left-top .top-nav ul li {padding: 0 30px 0 10px !important;}
+            .left-top .top-nav ul li a { text-transform: uppercase; font-weight: 500;}
+            .header .search {padding: 10px 0 10px 15px !important;}
+            #body-content .cards p {margin: 10px 0 20px 0 !important; font-size: 16px !important;}
+            
+            #articles .col-md-9 {width: 73% !important; float: right !important;}
+            
+            .article-body .product-ctas ul li a {padding: 0px 5px 0px 5px !important; margin: 0 10px 15px 0 !important; border-radius: 2px !important; font-size: 12px !important; line-height: 23px !important;}
+            .article-body ul li { margin: 0;}
+            .article-body .related-headline ul li ul li {color: #222 !important; list-style-type: disc; margin: 0 0 0px 20px; color: #0d96d4;}
+            .article-body .related-headline ul li {color: #222 !important; font-weight:400 !important; list-style-type: none;}
+            .article-body .related-headline ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul li ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul {color: #222 !important; margin-top: 10px;}
+            .article-body ul {margin-left:30px;}
+                                                .article-body .related-headline ul {margin-left:0px;}
+                                                .article-body .related-headline ul li ul {margin-left:10px;}
+                                                .article-body .related-headline ul li {font-size: 14px; font-weight: 500;font-family: arial;line-height: 30px;}
+                                                .article-body .product-ctas ul {margin-left:0px;}
+                                                
+                                                #communitysupport {margin-top: 15px;}
+                                                
+                                                #announcement-box > div > p {padding-top: 9px; margin-left: 45px; margin-bottom: 0px;}
+                                                
+                                                #body-content .knowledge, #body-content .community {min-height: 300px !important;}
+                                                
+                                                .alert-area-Yes {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+                                                .alert-area-No {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+                                                .alert-area-right-side textarea {width:100%;}
+                                                                .alert-area-No button {background: #126fb7; color: #ffffff; border-radius: 3px; border: none; padding: 7px 15px;}
+                                                                .alert-area-left-side {text-align: left !important;}
+                                                                                       .alert-area-left-side input {margin-right:5px;}
+                                                                                       
+                                                                                       div.bodyDiv.brdPalette.brandPrimaryBrd table.outer {width:100%;max-width:1170px;}
+                                                                                       
+                                                                                       .force-disable {pointer-events: none !important;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-trigger {height: 25px;}
+                                                                                       #bodyTable > tbody > tr > td > div.userProfilePage > div > div > div.mainContent > div > div.centerContent.zen > div > div > div.publishercontainer.zen.defaultState.cxchattertextareacontainer.chattertextareacontainer > ul > li:nth-child(4) > div > ul > li:nth-child(1) {display:none;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-options li {overflow: hidden;height: 32px;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-options .publisherFeedItemTypeChoice {padding-top: 16px;padding-bottom: 16px;}
+                                                                                       .zen .publisherTypeOverflow.zen-select {margin-top: 0;top: 0;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul {color:#337ab7;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li {color: #222;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li span {color: #222;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li a {color: #337ab7;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li a span {color: #337ab7;font-weight: normal;}
+                                                                                       
+                                                                                       .userProfilePage .vfButtonBar a.editLink img {padding: 0 !important; border: 0 !important;}
+                                                                                       
+                                                                                       .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel {padding: 0px; width: 480px !important; border-radius: 10px 10px 10px 10px;}     
+                                                                                       .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {width: 479px !important; margin: 0; padding: 0; border-radius: 10px 10px 0 0;}     
+                                                                                       .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {width: 479px !important; margin: 0 0 0 5px; padding: 5px; height: 40px;}       
+                                                                                       .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost a.cxpostquestion.button {height: auto;}     
+                                                                                       .centerContent .tbsearchAskForm #cs\3A searchAskContainer .type li {width: 465px;}      
+                                                                                       #cs\3A titleInput {width: 100%;}        
+                                                                                       #cs\3a allPostButtons > a.cxaskpublic.cxpostButton.button {height:auto !important;}     
+                                                                                       #cs\3A askDetailsWithTB.overlayDialog {height: 448px;}      
+                                                                                       #cs\3A askOverlayContent.innerContent {height: 394px;}      
+                                                                                       .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}      
+                                                                                       .publishercontainer .bottomBar {height:50px;}       
+                                                                                       div.influenceBoxHeader {height: auto;}      
+                                                                                       .result-body .show-on-mobile p {background: url({!URLFOR($Resource.CommunityAssets2, '/assets/images/filter-icon.png')}) no-repeat 1px 6px;}
+                                                                                       #help-training .widget-area { margin: 30px 15px 50px 15px !important;}
+                                                                                       #communitysupport {padding-top:25px !important; margin-top: 0px;}
+                                                                                       #home-slider {padding-bottom: 35px !important;}
+                                                                                       .zen .zen-tabMenu a {display:none !important;}
+                                                                                       
+                                                                                       .datacategorylinks.csoptimizequestion > ul > li:nth-child(12),.datacategorylinks.csoptimizequestion > ul > li:nth-child(13),.datacategorylinks.csoptimizequestion > ul > li:nth-child(14),.datacategorylinks.csoptimizequestion > ul > li:nth-child(15), .datacategorylinks.csoptimizequestion > ul > li:nth-child(16),.datacategorylinks.csoptimizequestion > ul > li:nth-child(17),.datacategorylinks.csoptimizequestion > ul > li:nth-child(18),.datacategorylinks.csoptimizequestion > ul > li:nth-child(19),.datacategorylinks.csoptimizequestion > ul > li:nth-child(20),.datacategorylinks.csoptimizequestion > ul > li:nth-child(21),.datacategorylinks.csoptimizequestion > ul > li:nth-child(22),.datacategorylinks.csoptimizequestion > ul > li:nth-child(23),.datacategorylinks.csoptimizequestion > ul > li:nth-child(24),.datacategorylinks.csoptimizequestion > ul > li:nth-child(25),.datacategorylinks.csoptimizequestion > ul > li:nth-child(26),.datacategorylinks.csoptimizequestion > ul > li:nth-child(27),.datacategorylinks.csoptimizequestion > ul > li:nth-child(28),.datacategorylinks.csoptimizequestion > ul > li:nth-child(29),.datacategorylinks.csoptimizequestion > ul > li:nth-child(30),.datacategorylinks.csoptimizequestion > ul > li:nth-child(31),.datacategorylinks.csoptimizequestion > ul > li:nth-child(32),.datacategorylinks.csoptimizequestion > ul > li:nth-child(33) {display:none;}
+                                                                                       #cs\3a dataCategories > option:nth-child(12),#cs\3a dataCategories > option:nth-child(13),#cs\3a dataCategories > option:nth-child(14),#cs\3a dataCategories > option:nth-child(15),#cs\3a dataCategories > option:nth-child(16),#cs\3a dataCategories > option:nth-child(17),#cs\3a dataCategories > option:nth-child(18),#cs\3a dataCategories > option:nth-child(19),#cs\3a dataCategories > option:nth-child(20),#cs\3a dataCategories > option:nth-child(21),#cs\3a dataCategories > option:nth-child(22),#cs\3a dataCategories > option:nth-child(23),#cs\3a dataCategories > option:nth-child(24),#cs\3a dataCategories > option:nth-child(25),#cs\3a dataCategories > option:nth-child(26),#cs\3a dataCategories > option:nth-child(27),#cs\3a dataCategories > option:nth-child(28),#cs\3a dataCategories > option:nth-child(29),#cs\3a dataCategories > option:nth-child(30),#cs\3a dataCategories > option:nth-child(31),#cs\3a dataCategories > option:nth-child(32),#cs\3a dataCategories > option:nth-child(33) {display:none;}
+                                                                                       
+                                                                                       @media only screen and (max-width: 1024px) {
+                                                                                           .popular-article .help-footer-link {min-height:332px;}
+                                                                                       }
+                                                                                       
+                                                                                       @media only screen and (max-width: 992px) {
+                                                                                           #articles .col-md-9 {width: 66% !important; float: left !important;}
+                                                                                           #side-sticky-bar {display:none !important;}
+                                                                                       }
+                                                                                       @media only screen and (max-width: 991px) {
+                                                                                           #side-sticky-bar {display:none !important;}
+                                                                                       }
+                                                                                       @media only screen and (max-width: 767px) {
+                                                                                           .header .submit {
+                                                                                               background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 24px 9px !important;
+                                                                                               text-indent: -999999px;
+                                                                                           }
+                                                                                           #horizontal-filter {display:none !important;}
+                                                                                           .popular-article .help-footer-link {min-height:inherit;}
+                                                                                       }
+                                                                                       
+                                                                                       @media only screen and (max-width: 740px) {
+                                                                                           .header .submit {
+                                                                                               background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 16px 9px !important;
+                                                                                           }
+                                                                                       }
+                                                                                       .label{
+                                                                                           color: #777;
+                                                                                       }
+                                                                                       </style>
+                                                                                       <script>
+                                                                                           jQuery(document).ready(function ($) {
+                                                                                           //alert("{!instOfKAV.ArticleType}");
+                                                                                           if("{!instOfKAV.ArticleType}"=='Instructions__kav'){
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                               //alert({!instOfKAV.ArticleType});
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='FAQ__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='Marketing_Materials__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='Release_Notes__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='Video__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='Download__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Topic_Hub__kav").remove();
+                                                                                           }
+                                                                                           if("{!instOfKAV.ArticleType}"=='Topic_Hub__kav'){
+                                                                                               $("#Instructions__kav").remove();
+                                                                                               $("#FAQ__kav").remove();
+                                                                                               $("#Marketing_Materials__kav").remove();
+                                                                                               $("#Release_Notes__kav").remove();
+                                                                                               $("#Video__kav").remove();
+                                                                                               $("#Download__kav").remove();
+                                                                                           }
+                                                                                       });
+                                                                                       </script>
+        </head>
+        
+        
+        
+        <div id="load_scrl" class="loadingBox loader" style="display:none" /> 
+        <apex:outputpanel >
+            <apex:actionstatus id="actionStatus">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                        <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionstatus>
+        </apex:outputpanel>
+        <script>      
+        $(document).ready(function() {  
+
+  
+        
+            //Adding active class to highlight Navigation on Current page       
+            /*setTimeout(function() {           
+    alert("enter");     
+    if (window.location.href.indexOf("helphome") > -1) {        
+    alert("true");      
+    $(".cta-help-training").addClass("active");     
+    }if (window.location.href.indexOf("chatter") > -1) {        
+    alert("two");       
+    $(".cta-forums").addClass("active");        
+    }if (window.location.href.indexOf("Groups") > -1) {     
+    alert("three");     
+    $(".cta-success-groups").addClass("active");        
+    }       
+    }, 3000); */        
+            
+            /* Nav slection logic */                
+            jQuery('#navigation ul li').removeClass('active');          
+            var baseUrl = window.location.toString();                   
+            if(baseUrl.toLowerCase().indexOf("chatteranswersui") >= 0){     
+                //alert('hello');       
+                jQuery('#navigation ul li').eq(1).addClass('active');       
+            }else if(baseUrl.toLowerCase().indexOf("groups") >= 0){     
+                jQuery('#navigation ul li').eq(2).addClass('active');      
+            }else if(baseUrl.toLowerCase().indexOf("helphome") >= 0 ){                         
+                jQuery('#navigation ul li').eq(0).addClass('active');              
+            }else if (baseUrl.toLowerCase().indexOf("contactsupport") >= 0 || baseUrl.toLowerCase().indexOf("searchfor") >= 0 || baseUrl.toLowerCase().indexOf("500") >= 0 || baseUrl.toLowerCase().indexOf("communityarticle") >= 0){
+                jQuery('#navigation ul li').removeClass('active');
+                //alert('Inside Contact Support');
+                //jQuery(".chat-us-bar").hide();
+            }
+                else{      
+                    //jQuery('#header .logo').addClass('active');   
+                    jQuery('#navigation ul li').removeClass('active');               
+                }       
+        });     
+        </script> 
+        <script>
+        jQuery.noConflict();
+        jQuery(document).ready(function () {  
+            var counterSec = 0;
+            //alert('Test');
+            var tempName;
+            
+            var tempBool = false;
+            //alert($("#home-slider").length);
+            if(jQuery("#home-slider").length) {
+                tempBool = true;
+                //alert("Test");
+            }
+            //To control side stickys
+            var tempUrl= window.location.href;
+            if(tempBool || tempUrl.indexOf('helphome') > -1 || tempUrl.indexOf('ContactSupport') > -1){
+                console.log("Test");
+                jQuery('#side-sticky-bar').show();
+            }  
+            
+            
+            //To hide attach buttom from closed cases
+            var tempValStatus = jQuery('#cas7_ileinner').text();
+            console.log('tempValStatus'+tempValStatus);
+            var attachFileName = 'attachFile';
+            if(tempValStatus == 'Closed')
+                jQuery('[name="' + attachFileName + '"]').hide();
+            //To hide attach buttom from closed cases
+            
+            tempName  = 'save_close' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            tempName = 'save_new' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            tempName = 'spell' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'csmrgp__csmrglistbtn' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000);
+            
+            tempName = 'mass_edit' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'mass_edit' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+            
+            tempName = 'new_conference_case' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'new_conference_case' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+            
+            //alert('tESTQ');
+            jQuery('body').click(function(evt){ 
+                //jQuery('body').addClass( "waitingSearchDiv" );
+                var url= window.location.href;
+                console.log('url++'+url);
+                //alert('tESTQ');
+                if( (url.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( url.indexOf( '&id=kA' ) != -1 ) ){
+                    jQuery(".loader").show();
+                    var res = url.split("id=");
+                    console.log('res++'+res);
+                    console.log('res.length;++'+res.length);
+                    CommunityHeaderCls.returnId(res[res.length-1],
+                                                function(result, event){ 
+                                                    window.location = '/apex/CommunityArticle?id='+result;
+                                                }, {escape:true}
+                                               );
+                    setTimeout(function(){ jQuery(".loader").hide(); }, 5000);
+                }
+            });
+            var urll= window.location.href;
+            if( (urll.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( urll.indexOf( '&id=kA' ) != -1 ) ){
+                window.location = '/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS'; 
+            }
+        });
+        </script>
+        
+        <style>
+            .individualPalette.listViewportWrapper {margin:auto;}
+            .zen .chatterListViewContainer{margin:0 auto}
+            .chatterpeoplelistpage .peopleListView{float:none}
+            .zen .zen-page{padding:0}
+            .zen .zen-bodyZen{border-top:1px solid #ccc;float:left}
+            .chatterpeoplelistpage {
+            width: 941px;
+            }
+            .helpBubbleCommon,.zen-mlm,.helpLink,.prompt,.visibilityicon,.iconParent {display:none !important}
+            .toggleButton,.triggerTitleText,#publisherAttachLinkPost,.feedSearchClosedButton,.zen-smlineSep,.listHoverLinks,.feedrightbar{display:none !important}
+            
+            .cxSearchOrPost .button {
+            text-decoration: none !important;
+            color: #fff;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            background:#88c540;
+            border:1px solid #88c540;
+            padding:5px;
+            box-shadow:none;
+            }
+            .chatterFollowUnfollowAction {display:none !important}
+            .x-grid3-col-ACTION_COLUMN{color:#fff !important}          
+            .cxSearchOrPost .button:hover{ color: #FFFFFF !important; background: #88c540!important;}
+            
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+            position: absolute;
+            right: 55px;
+            }
+            
+            .cxsearchTip {
+            background: url({!$Resource.ChatPic}) no-repeat scroll 1px 0 transparent !important;
+            }
+            .canoprofile .threecolumn .mainContent, .canoprofile .mainContent .lowerMainContent {
+            width: 650px;
+            }
+            .centerContent #cs\:searchAskContainer {
+            width: 452px;
+            }
+            #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+            border: 0px solid white !important;
+            box-shadow: 0 !important
+            font-size: 0;
+            right: 20px;
+            top: 30px;
+            }
+            
+            #cs\:theFeed {
+            border-top: 1px solid #d4dadc;
+            margin-top: 15px;
+            padding: 25px 0 0;
+            width: 580px;
+            }
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer {
+            padding: 7px 35px 7px 7px;
+            width: 490px;
+            }
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer input {    
+            width: 490px;
+            }
+            .centerContent #cs\:searchAskForm.tbsearchAskForm {
+            background: none repeat scroll 0 0 #199cd6;
+            padding: 25px;
+            width: 535px;
+            }
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel,
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {
+            width: 465px;
+            }
+            .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {
+            width: 458px;
+            }
+            #cs\:searchAskContainer h3 {
+            color: #fff;
+            display: block;
+            font-size: 1em;
+            margin: 0 0 17px;
+            }
+            
+            #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton span,#cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton span {
+            background: url("/resource/1428392477000/MagnifierFinal") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+            background-size: 24px 24px;
+            border: 0 none !important;
+            cursor: pointer;
+            height: 30px;  
+            overflow: hidden;
+            position: absolute;
+            text-indent: -9999px;
+            width: 30px;
+            opacity: 0.4;
+            outline:none;
+            }
+            #cs\:searchAskInputContainer {box-shadow: none !important;}
+            .reset {
+            background: none !important;
+            display: none;
+            right: 6px;
+            top: 6px;
+            }
+            
+            #header{width:941px;margin:0 auto}
+            #header .logo{float:left;margin-right:25px;margin-top:12px}
+            #header .logout {float:right;margin-right:-200px;margin-top:21px}
+            #header .nav ul li{list-style-type:none;float:left}
+            #header .nav{float:left;margin-right:20px}
+            #header .user-profile {float:right;margin-top:17px;display: block !important;}
+            #header .nav li{padding:10px}
+            #header .nav li a{display:block;color:#000;text-decoration:none;font-size: 14px;}
+            #header .nav li a:hover{clor:#000;text-decoration:none}
+            #header .nav ul li.active{border-bottom:3px solid #199cd6}
+            #header .logo.active{border-bottom:3px solid #199cd6;height:36px}
+            body #AppBodyHeader, #auraElement-1 .serviceCommunityZoneswitcher,.canoprofile .threecolumn .leftContent .calogo,.cxfooter {display: none;} 
+            .canoprofile .datacategorylinks {
+            padding: 10px 0 0;
+            } 
+            img{outline:0;border:0}  
+            .canoprofile .datacategorylinks h3{font-weight:bold}
+            
+            html .brandQuaternaryBgr {background: none repeat scroll 0 0 #fff !important;}
+            .hasMotif{margin:0 !important}
+            ul li, ol li {
+            margin-left: 1.5em;
+            padding-left: 0;
+            }
+            #header .nav {
+            float: left;
+            margin-right: 20px;
+            margin-top:11px;
+            }
+            ul{
+            margin: 0px 0 0 0 ;
+            padding: 0px 0 0 0 ;
+            }
+            .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+            }
+            .cxfield{
+            display:none !important;
+            }
+            .threecolumn, .userProfilePage, .chatterFilesTabPage .chatterFilesTabPageHeader {
+            /* margin-top: 2px; */
+            margin: 10px auto 0 auto !important;
+            width: 941px !important;
+            }
+            #sidebarCell, #sidebarDiv .sidebarModule, #sidebarDiv .nestedModule {
+            border: 0 none;
+            background-color: transparent;
+            display: none !important;
+            }
+            .cssingleitemcomponent .csfeedcontainer {
+            max-width: 941px !important; 
+            margin: 20px auto 0 auto !important;
+            width: 941px !important;
+            }
+            
+            .Links{
+            background-color: #f6f6f6;
+            }
+            .chatterPublisherFileActionContainerLeft{
+            display:none !important;
+            }
+            
+            
+            .userProfilePage .headerContent {
+            width: 941px !important;
+            }
+            .profileTabSetContainer .profileTabSetHeader.zen-header {
+            width: 723px !important;
+            }
+            html .brandPrimaryBrd {
+            border-top-color: #ccc!important;
+            }
+            .bodyDiv{border-top:1px solid}
+            .threecolumn .centerContent, .userProfilePage .centerContent {
+            
+            width: 510px !important;
+            }
+            .publishercontainer{padding-top:0 !important}
+            .x-grid3-row,.x-panel x-grid-panel,.individualPalette {width:941px!important}
+            body .bodyDiv #bodyTable {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            margin: 0 auto;
+            
+            }
+            a.btn-new {
+            text-decoration: none !important;
+            color: #fff;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            background:#199cd6;
+            }
+            a.btn-new:hover{ color: #FFFFFF !important; background: #07a3e8!important;}
+            
+            .btn-new {
+            text-decoration: none;
+            background: #199cd6;
+            padding: 12px 35px;
+            border-radius: 4px;
+            float: right;
+            
+            }
+            .profileHeader{display:none}
+            .listViewportWrapper .listViewport .subNav .linkBar{width: 929px !important;}
+            .header-wrap{background:#fafafa;width:100%;float:left}
+            .bodyDiv{box-shadow:none !important;border-bottom-right-radius: 0px !important; border-bottom-left-radius: 0px !important;-moz-box-shadow: none !important; -webkit-box-shadow:none !important;-o-box-shadow:none !important;-ms-box-shadow:none !important}
+            
+            
+            /* GB STYLES */
+            .section--search { background: #126fb7 !important; padding: 2em 0 2em; }
+            .header .search {
+            border: 1px solid #ccc !important;
+            background: #fff;
+            font-size: 1.25em;
+            color: #444;
+            width: 90% !important;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+            
+            border-radius: 3px 0px 0px 3px !important;
+            }
+            .header .search::placeholder {
+            color: #aaa;
+            }
+            .header .submit {
+            border-radius: 0px 3px 3px 0px !important;
+            padding: 13px 0 13px 0 !important;
+            font-size: 15px !important;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+            }
+            
+            .left-top img.logo {
+            padding: 0 !important;
+            }
+            
+            .top-band {
+            background: #fff !important;
+            }
+            .left-top div#navigation ul li a {
+            color: #0183EB !important;
+            }
+            .left-top div#navigation ul li.active a {
+            background: #eee;
+            }
+            .left-top div#navigation ul li.btn-login a, .left-top div#navigation ul li.btn-login a:hover {
+            color: #fff !important;
+            }
+            .left-top div#navigation ul li a:hover {
+            color: #0183EB !important;
+            text-decoration: underline;
+            }
+            
+            li.btn-login {
+            float: right;
+            }
+            li.btn-login a {
+            background: #0183EB;
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 14px;
+            display: inline-block;
+            }
+            li.btn-login a:hover {
+            backround:#0069bd !important;
+            color: #fff !important;
+            }
+            
+            
+            
+            
+            @media only screen and (max-width: 992px) {
+            .main-article {
+            width: 100% !important;
+            }
+            
+            /*.related-articles {
+            width: 100% !important;
+            float: none !important;
+            }*/
+            }
+            
+        </style>
+        <!--Ends Here-->
+        
+        <apex:form >
+            <apex:actionRegion >
+                <apex:actionFunction name="insertDataNew" reRender="#" action="{!search}">  
+                    <apex:param name="param1" assignTo="{!searchTerm}" value="" /> 
+                    <apex:param name="param2" assignTo="{!productSel}" value="" /> 
+                </apex:actionFunction>
+            </apex:actionRegion>
+            
+            
+            <!--      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+    
+  
+    
+    
+    
+    
+    if( '{!$CurrentPage.parameters.searchTerm}' =='')
+        $('.move-back').hide();              
+    var rating =  '{!ratingAlready}';
+    //alert(rating);
+    var iNum = parseInt(rating);
+    if(iNum != 0){
+        $(".star-rating").hide();
+        //console.log(iNum);
+        //for(var i=1; i<=iNum; i++){
+        //console.log(i);
+        //tempId = '#'+i+'Rating';
+        //console.log(tempId);
+        //$(tempId).addClass("activate-star");
+        //}
+    }
+    /*var comments='';
+    var checkedValue='None';
+    $("#FAQ__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#FAQ__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#FAQ__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });
+    $("#Instructions__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#Instructions__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#Instructions__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });
+    $("#Video__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#Video__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#Video__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });
+    $("#Release_Notes__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#Release_Notes__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#Release_Notes__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });
+    $("#Marketing_Materials__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#Marketing_Materials__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#Marketing_Materials__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });
+    $("#Download__kavYesC").click(function(){
+    $(".alert-area").hide();
+    $("#Download__kavNo").hide();
+    $(".loader").show();
+    Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.CommunityArticleCls.save}',
+    '{!instOfKAV.Id}','{!instOfKAV.Title}','{!instOfKAV.ArticleNumber}','No',comments,checkedValue,
+    function(result, event){
+    if (event.status){
+    $("#Download__kavYes").show();
+    $(".loader").hide();
+    } else if (event.type === 'exception') {
+    alert('Please try again');
+    $(".alert-area").show();
+    $(".loader").hide();
+    } 
+    }, 
+    {escape: true}
+    );
+    });*/
+    
+    
+    $("#FAQ__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="FAQrecaptchaNo_callback"></div>';
+        $("#FAQRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript...... 
+        $(".alert-area").hide();
+        $("#FAQ__kavNo").show();
+        $("#FAQ__kavYes").hide();
+    });
+    $("#FAQ__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="FAQrecaptcha_callback"></div>';
+        $("#FAQRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript...... 
+        $(".alert-area").hide();
+        $("#FAQ__kavNo").hide();
+        $("#FAQ__kavYes").show();
+    });
+    $("#Instructions__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1" style="margin-left:30%;" class="g-recaptcha" data-callback="recaptcha_callback"></div>';
+        $("#InstructionRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Instructions__kavNo").show();
+        $("#Instructions__kavYes").hide();
+    });
+    $("#Instructions__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1" style="margin-left:30%;" class="g-recaptcha" data-callback="recaptcha_callback"></div>';
+        $("#InstructionRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript...... 
+        $(".alert-area").hide();
+        $("#Instructions__kavNo").hide();
+        $("#Instructions__kavYes").show();
+    });
+    $("#Video__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="VideorecaptchaNo_callback"></div>';
+        $("#VideoRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Video__kavNo").show();
+        $("#Video__kavYes").hide();
+    });
+    $("#Video__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="Videorecaptcha_callback"></div>';
+        $("#VideoRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript...... 
+        $(".alert-area").hide();
+        $("#Video__kavNo").hide();
+        $("#Video__kavYes").show();
+    });
+    $("#Release_Notes__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="ReleaserecaptchaNo_callback"></div>';
+        $("#ReleaseRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Release_Notes__kavNo").show();
+        $("#Release_Notes__kavYes").hide();
+    });
+    $("#Release_Notes__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="Releaserecaptcha_callback"></div>';
+        $("#ReleaseRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Release_Notes__kavNo").hide();
+        $("#Release_Notes__kavYes").show();
+    });
+    $("#Marketing_Materials__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="MMcaptchaNo_callback"></div>';
+        $("#MMRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Marketing_Materials__kavNo").show();
+        $("#Marketing_Materials__kavYes").hide();
+    });
+    $("#Marketing_Materials__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="MMcaptcha_callback"></div>';
+        $("#MMRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Marketing_Materials__kavNo").hide();
+        $("#Marketing_Materials__kavYes").show();
+    });
+    $("#Download__kavNoC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="DownloadcaptchaNo_callback"></div>';
+        $("#DownloadRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Download__kavNo").show();
+        $("#Download__kavYes").hide();
+    });
+    $("#Download__kavYesC").click(function(){
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="Downloadcaptcha_callback"></div>';
+        $("#DownloadRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Download__kavNo").hide();
+        $("#Download__kavYes").show();
+    });
+    $("#Topic_Hub__kavNoC").click(function(){ //Topic_Hub__kavYesC Topic_Hub__kavNoC
+        //Creating Recaptcha............
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="TopiccaptchaNo_callback"></div>';
+        $("#TopicRecaptchaNoId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Topic_Hub__kavNo").show();
+        $("#Topic_Hub__kavYes").hide();
+    });
+    $("#Topic_Hub__kavYesC").click(function(){ //Topic_Hub__kavYesC Topic_Hub__kavNoC
+        //Creating Recaptcha............
+        $("#TopicRecaptchaNoId").remove();
+        var recaptchaString = '<div id="widgetId1"  style="margin-left:30%;" class="g-recaptcha" data-callback="Topiccaptcha_callback"></div>';
+        $("#TopicRecaptchaId").append(recaptchaString);
+        grecaptcha.render('widgetId1', {
+            'sitekey' : '6LfWuXIUAAAAALGRUOjV_g_0L2WjZMWhn2a9LjWe', 
+            'data-size' : 'compact',
+            'data-theme' : 'light'
+        });
+        //Code removed from here and added to other javascript......
+        $(".alert-area").hide();
+        $("#Topic_Hub__kavNo").hide();
+        $("#Topic_Hub__kavYes").show();
+    });
+});
+//Below function will be called when Customer is selecting NO to save their Feedbacks.....
+function savefeedback(value){
+    //alert(value);
+    var myRadio = $('input[name=Test]');
+    //var checkedValue = myRadio.filter(':checked').val();
+    //alert(checkedValue);
+    var comments;
+    if(value == 'SubmitFAQSub'){
+        //$(".alert-area").show();
+        comments = $("#FAQTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoFAQMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitINKavSub'){
+        //$(".alert-area").show();
+        comments = $("#INKavTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoInstMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitDKavSub'){
+        //$(".alert-area").show();
+        comments = $("#DKavTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoDKavMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitRNSub'){
+        //$(".alert-area").show();
+        comments = $("#RNTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoRelMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitTHubSub'){
+        //$(".alert-area").show();
+        comments = $("#THubTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoTopMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitVidKSub'){
+        //$(".alert-area").show();
+        comments = $("#VidKTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoVidMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitMMSub'){
+        //$(".alert-area").show();
+        comments = $("#MMTextNo").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','No',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-No").hide();
+                    $("#ShowNoMarMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+}
+//Below function will be called when Customer is selecting YES to save their feedbacks.....
+function saveYesfeedback(value){
+    //alert(value);
+    var myRadio = $('input[name=Test]');
+    //var checkedValue = myRadio.filter(':checked').val();
+    //alert(checkedValue);
+    var comments;
+    if(value == 'SubmitFAQSub'){
+        //$(".alert-area").show();
+        comments = $("#FAQText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowFAQMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again11');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitINKavSub'){
+        //$(".alert-area").show();
+        comments = $("#INKavText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowInstMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitDKavSub'){
+        //$(".alert-area").show();
+        comments = $("#DKavText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowDKavMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitRNSub'){
+        //$(".alert-area").show();
+        comments = $("#RNText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowRelMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitTHubSub'){
+        //$(".alert-area").show();
+        comments = $("#THubText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowTopMessage").show();
+                    //$("#ShowMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitVidKSub'){
+        //$(".alert-area").show();
+        comments = $("#VidKText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowVidMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+    if(value == 'SubmitMMSub'){
+        //$(".alert-area").show();
+        comments = $("#MMText").val();
+        $(".loader").show();
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.CommunityArticleCls.save}',
+            '{!instOfKAV.Id}','{!articleTitle}','{!instOfKAV.ArticleNumber}','Yes',comments,//checkedValue,
+            function(result, event){
+                if (event.status){
+                    $(".loader").hide();
+                    $(".alert-area-Yes").hide();
+                    $("#ShowMarMessage").show();
+                } else if (event.type === 'exception') {
+                    alert('Please try again');
+                    $(".loader").hide();
+                } 
+            }, 
+            {escape: true}
+        );
+    }
+}
+function cancelfeedback(value){
+    //alert(value);
+    if(value == 'SubmitFAQCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitDKavCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitINKavCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitRNCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitTHubCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitVidKCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitMMCan'){
+        $(".alert-area-No").hide();
+        $(".alert-area").show();
+    }
+}
+function cancelYesfeedback(value){
+    //alert(value);
+    if(value == 'SubmitFAQCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitDKavCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitINKavCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitRNCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitTHubCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitVidKCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+    if(value == 'SubmitMMCan'){
+        $(".alert-area-Yes").hide();
+        $(".alert-area").show();
+    }
+}
+function upadateRating(num){
+    //alert('{!kavParentId}');
+    Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.CommunityArticleCls.updateRatings}',
+        num,'{!kavParentId}', 
+        function(result, event){
+            if(event.status){
+                //alert('Thanks for your time');
+                //Disabling the functionality of Rating..........
+                $(".star-rating ul li").addClass( "force-disable" );
+                
+            }else{
+                //alert(event.message);
+                var message = String(event.message);
+                if( String(event.message).indexOf("duplicates") >=0)
+                    alert('You have already rated this article');
+            }
+        },
+        {escape: true}
+    );
+}
+function closeAndRefresh(){
+    var value =  $("#search").val();
+    //alert();
+    //alert(value);
+    var product;
+    /*if($("#Abstract_Managements").attr("class").indexOf("highlight") >=0 )
+        product = 'Abstract_Managements';
+    if($("#Appointment").attr("class").indexOf("highlight") >=0 )
+        product = 'Appointment';
+    if($("#CSN_Planner").attr("class").indexOf("highlight") >=0 )
+        product = 'CSN_Planner';
+    if($("#CSN_Supplier").attr("class").indexOf("highlight") >=0 )
+        product = 'CSN_Supplier';
+    if($("#CrowdCompass").attr("class").indexOf("highlight") >=0 )
+        product = 'CrowdCompass';
+    if($("#Event").attr("class").indexOf("highlight") >=0 )
+        product = 'Event';
+    if($("#Survey").attr("class").indexOf("highlight") >=0 )
+        product = 'Survey';
+    if($("#CrowdTorch_Ticketing").attr("class").indexOf("highlight") >=0 )
+        product = 'CrowdTorch_Ticketing';*/
+    //if($("#Meetings_Management").attr("class").indexOf("highlight") >=0 )
+    //product = 'Meetings_Management';
+    /*if($("#OnArrival").attr("class").indexOf("highlight") >=0 )
+        product = 'OnArrival';*/
+    //if($("#SocialWall").attr("class").indexOf("highlight") >=0 )
+    //product = 'SocialWall';
+    //if($("#eMarketing").attr("class").indexOf("highlight") >=0 )
+    //product = 'eMarketing';
+    
+    if(value ==''){
+        //alert('Please Enter Some Text To Search');
+    }else{
+        if(product == null || product =='' || product=='undefined')
+            product = '';
+        var url = 'CommunitysearchResultPage?searchFor='+value+'&productSel='+product;
+        window.location.href = url ;
+        return false;
+    }
+    
+}
+</script>
+<body id="articles" class="inner">
+<!-- Top Banner & Navigation -->
+            <!--<header>
+                <style>
+                    .article-body .stars ul li {background : url({!URLFOR($Resource.CommunityAssets2, '/assets/images/stars.png')}) no-repeat -30px 0 !important;}  
+                    .article-body .stars ul li.active-star, .article-body .stars ul li.activate-star {background : url({!URLFOR($Resource.CommunityAssets2, '/assets/images/stars.png')}) no-repeat 1px 0 !important;}
+                    .article-body .active-star, .article-body .activate-star {background : url({!URLFOR($Resource.CommunityAssets2, '/assets/images/stars.png')}) no-repeat 1px 0 !important;}
+                    .article-body .stars ul {list-style-type: none; padding: 0 !important;}
+                    .prod-filter.highlight {color: #173d66 !important; background: #ffffff !important;}
+                </style>
+                <section class="header section--search">
+                    <div class="container">
+                        <div class="row col-md-12 reposition">
+                        </div>
+                        <div class="row col-md-12">
+                            <form id="search-form">
+                                <input type="text" class="search" placeholder="Search the Cvent Community" required="true" id="search" value="" />
+                                <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </header>-->
+            
+            <main>
+                <section id="results">
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-md-12 article-body" style="padding-top: 145px;">
+                                <div class="move-back" style="padding-bottom:10px;">
+                                    <a href="/apex/CommunitysearchResultPage?searchFor={!$CurrentPage.parameters.searchTerm}" >&lt; Back to all articles</a>
+                                </div>
+                                <!--SEARCH BAR-->
+                                <div class="head">
+                                    <form>
+                                        <input type="text" class="search" placeholder="Search the Knowledge Base" required="true" id="search" value="" />
+                                        <input type="submit" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                                    </form>
+                                </div> 
+                                <!-- ENDS HERE-->
+                                <h2>{!instOfKAV.title}</h2>
+                                <div class="custom-show clearfix"></div>
+                                
+                                <!--{!lstStrDataCatName}=={!strArtType}-->
+                                <!--=====================================FAQ==============================-->
+                                <div id="FAQ__kav" rendered="{!if(instOfKAV.ArticleType=='FAQ__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div id="pagination">
+                                        <apex:outputText value="{!body}" escape="false"/>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="FAQ__kavYesC">Yes</div>
+                                            <div class="no-btn" id="FAQ__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert-area-Yes" id="FAQ__kavYes">
+                                        <p><strong>What can we do to make this article better?</strong></p>
+                                        
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" rows="4" cols="50" placeholder="" id="FAQText">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <!--FAQ Recaptcha Div-->
+                                        <div class="FAQRecaptchaClass" id="FAQRecaptchaId"/>
+                                        <button type="submit" value="SubmitFAQSub" onclick = "saveYesfeedback(this.value);" disabled="disabled" class="FAQSubmitClass" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitFAQCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="FAQ__kavNo">
+                                        <p><strong>What can we do to make this article better?</strong></p>
+                                        
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" rows="4" cols="50" placeholder="" id="FAQTextNo">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="FAQRecaptchaClass" id="FAQRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitFAQSub" onclick = "savefeedback(this.value);" disabled="disabled" class="FAQSubmitNoClass" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitFAQCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowFAQMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoFAQMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                </div>
+                                <!--====================================ENDS HERE==================================-->
+                                <!--====================================Instruction================================-->
+                                <div id="Instructions__kav" rendered="{!if(instOfKAV.ArticleType=='Instructions__kav',true,false)}">
+                                    <div class="main-article" style="float:left;width:80%;">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div>
+                                        <apex:outputText id="Render2" value="{!body}" escape="false"/>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Instructions__kavYesC">Yes</div>
+                                            <div class="no-btn" id="Instructions__kavNoC" >No</div>
+                                        </div>
+                                    </div>
+                                    <div class="alert-area-Yes" id="Instructions__kavYes">
+                                    <div style="padding: 16px 0;">
+                                        <h4><strong>What can we do to make this article better?</strong></h4>
+                                        </div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" rows="4" cols="50" placeholder="" id="INKavText">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <!--Instruction Recaptcha Div-->
+                                        <div class="InstructionRecaptchaClass" id="InstructionRecaptchaId"/>
+                                        <button type="submit" value="SubmitINKavSub" onclick = "saveYesfeedback(this.value);" disabled="disabled" class="InstructionClass" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitINKavCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Instructions__kavNo">
+                                        <div style="padding: 16px 0;">
+                                        <h4><strong>What can we do to make this article better?</strong></h4>
+                                        </div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" rows="4" cols="50" placeholder="" id="INKavTextNo">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="InstructionRecaptchaNoClass" id="InstructionRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitINKavSub" onclick = "savefeedback(this.value);" disabled="disabled" class="InstructionSubmitNoClass" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitINKavCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowInstMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoInstMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-12 related-articles">
+                                    <div class="related-headline">
+                                            <h3>Related Articles</h3>
+                                            <ul>
+                                                <li><apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false"></apex:outputText></li>
+                                            </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!--================================ENDS HERE===================================-->
+                                <!--================================Video===================================-->
+                                <div id="Video__kav" rendered="{!if(instOfKAV.ArticleType=='Video__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div id="pagination">
+                                        <apex:outputText value="{!body}" escape="false"/>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Video__kavYesC">Yes</div>
+                                            <div class="no-btn" id="Video__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="alert-area-Yes" id="Video__kavYes">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="VidKText">
+                                            </textarea>
+                                        </div><div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="VideoRecaptchaClass" id="VideoRecaptchaId"/>
+                                        <button type="submit" value="SubmitVidKSub" onclick = "saveYesfeedback(this.value);" disabled="disabled" class="VideoSubmitClass" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitVidKCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Video__kavNo">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="VidKTextNo">
+                                            </textarea>
+                                        </div><div style="clear:both; padding-bottom: 15px;"></div>
+                                        <!--Video Recaptcha Div-->
+                                        <div class="VideoRecaptchaNoClass" id="VideoRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitVidKSub" onclick = "savefeedback(this.value);" class="VideoSubmitNoClass"  disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitVidKCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowVidMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoVidMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                    <div class="related-headline">
+                                        <h3>Related Articles</h3>
+                                        <ul>
+                                            <li><apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false"></apex:outputText></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <!--======================ENDS HERE==============================-->
+                                <div id="Release_Notes__kav" rendered="{!if(instOfKAV.ArticleType=='Release_Notes__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <apex:variable value="" var="foo" rendered="{!IF(products!='Customer-Facing',TRUE,FALSE)}" >
+                                                    <li><a href="#" class="grey-cta">{!products}</a></li>
+                                                </apex:variable>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div id="pagination">
+                                        <apex:outputText value="{!body}" escape="false"/>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Release_Notes__kavYesC">Yes</div>
+                                            <div class="no-btn" id="Release_Notes__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="alert-area-Yes" id="Release_Notes__kavYes">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<br/>
+<p>Excellent! Thank you for your feedback</p>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="RNText">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <!--Release Notes Recaptcha Div-->
+                                        <div class="ReleaseRecaptchaClass" id="ReleaseRecaptchaId"/>
+                                        <button type="submit" value="SubmitRNSub" onclick = "saveYesfeedback(this.value);" class="ReleaseSubmitClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitRNCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Release_Notes__kavNo">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<div class="alert-area-left-side col-md-6" style="float:left;">
+<apex:repeat value="{!lstRes}" var="instOfRes">
+<input type="radio" name="Test" value="{!instOfRes.values}"/>{!instOfRes.values}<br/>
+</apex:repeat>
+</div>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="RNTextNo">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="ReleaseRecaptchaNoClass" id="ReleaseRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitRNSub" onclick = "savefeedback(this.value);"  class="ReleaseSubmitNoClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitRNCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowRelMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoRelMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                    <!--<div class="related-headline">
+<h3>Related Articles</h3>
+<ul>
+<li><apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false"></apex:outputText></li>
+</ul>
+</div>-->  
+                                </div>
+                                
+                                <div id="Marketing_Materials__kav" rendered="{!if(instOfKAV.ArticleType=='Marketing_Materials__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div id="pagination">
+                                        <apex:outputText value="{!body}" escape="false"/>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Marketing_Materials__kavYesC">Yes</div>
+                                            <div class="no-btn" id="Marketing_Materials__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    <!--Marketing Material Recaptcha Div-->
+                                    
+                                    
+                                    <div class="alert-area-Yes" id="Marketing_Materials__kavYes">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<br/>
+<p>Excellent! Thank you for your feedback</p>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="MMText">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="MMRecaptchaClass" id="MMRecaptchaId"/>
+                                        <button type="submit" value="SubmitMMSub" onclick = "saveYesfeedback(this.value);" class="MMSubmitClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitMMCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Marketing_Materials__kavNo">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<div class="alert-area-left-side col-md-6" style="float:left;">
+<apex:repeat value="{!lstRes}" var="instOfRes">
+<input type="radio" name="Test" value="{!instOfRes.values}"/>{!instOfRes.values}<br/>
+</apex:repeat>
+</div>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="MMTextNo">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="MMRecaptchaNoClass" id="MMRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitMMSub" onclick = "savefeedback(this.value);" class="MMSubmitNoClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitMMCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowMarMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoMarMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                    <div class="related-headline">
+                                        <h3>Related Articles</h3>
+                                        <ul>
+                                            <li><apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false"></apex:outputText></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <div id="Download__kav" rendered="{!if(instOfKAV.ArticleType=='Download__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div>
+                                        <apex:pageBlock >
+                                            <apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Download__kav',true,false)}" columns="1">
+                                                <apex:pageblockSectionItem >
+                                                    <apex:outputLabel for="Render7" >Download File</apex:outputLabel>
+                                                    <apex:outputLink id="Render7" styleclass="download-button" target="_blank" value="{!URLFOR($Action.Download__kav.FileFieldDownload, instOfKAV.id, ['field'=$ObjectType.Download__kav.fields.Download_File__Body__s.name])}">Download</apex:outputLink><!--{!relatedArticle}-->
+                                                </apex:pageblockSectionItem>
+                                                <apex:pageblockSectionItem >
+                                                    <apex:outputLabel >Content</apex:outputLabel>
+                                                    <apex:outputText style="width:100% !important" value="{!body}" escape="false">
+                                                    </apex:outputText>
+                                                </apex:pageblockSectionItem>
+                                                
+                                            </apex:pageBlockSection>
+                                        </apex:pageBlock>
+                                    </div>
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Download__kavYesC">Yes</div>
+                                            <div class="no-btn" id="Download__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    <!--Download Recaptcha Div-->
+                                    
+                                    
+                                    <div class="alert-area-Yes" id="Download__kavYes">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<br/>
+<p>Excellent! Thank you for your feedback</p>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+<div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder=""  rows="4" cols="50" id="DKavText">
+                                            </textarea>
+                                        </div><div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="DownloadRecaptchaClass" id="DownloadRecaptchaId"/>
+                                        <button type="submit" value="SubmitDKavSub" onclick = "saveYesfeedback(this.value);" class="DownloadSubmitClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitDKavCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Download__kavNo">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<div class="alert-area-left-side col-md-6" style="float:left;">
+<apex:repeat value="{!lstRes}" var="instOfRes">
+<input type="radio" name="Test" value="{!instOfRes.values}"/>{!instOfRes.values}<br/>
+</apex:repeat>
+</div>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder="" rows="4" cols="50" id="DKavTextNo">
+                                            </textarea>
+                                        </div><div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="DownloadRecaptchaNoClass" id="DownloadRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitDKavSub" onclick = "savefeedback(this.value);" class="DownloadSubmitNoClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitDKavCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                    </div>  
+                                    <div class="alert-area-Yes" id="ShowDKavMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoDKavMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>                              
+                                </div>
+                                <div id="Topic_Hub__kav" rendered="{!if(instOfKAV.ArticleType=='Topic_Hub__kav',true,false)}">
+                                    <div class="product-ctas clearfix" style="margin-top:10px; float:left;">
+                                        <ul>
+                                            <apex:repeat value="{!lstStrDataCatName}" var="products">
+                                                <li><a href="#" class="grey-cta">{!products}</a></li>
+                                            </apex:repeat>
+                                            <li><a href="#" class="grey-cta">{!strArtType}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="star-rating stars clearfix">
+                                        <ul>
+                                            <li id="1Rating" onclick="upadateRating(this.value)" value="1" class="one-star rating_star">1</li>
+                                            <li id="2Rating" onclick="upadateRating(this.value)" value="2" class="two-star rating_star">2</li>
+                                            <li id="3Rating" onclick="upadateRating(this.value)" value="3" class="three-star rating_star">3</li>
+                                            <li id="4Rating" onclick="upadateRating(this.value)" value="4" class="four-star rating_star">4</li>
+                                            <li id="5Rating" onclick="upadateRating(this.value)" value="5" class="five-star rating_star">5</li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    
+                                    <!-- Chandan to work on this Div for Community Header Overlap Jira#TICCM-1173 -->
+                                    <div id="pagination">
+                                       <apex:outputText value="{!body}" escape="false"/>
+                                    </div>
+                                    <!-- Chandan to work on this Div for Community Header Overlap Jira#TICCM-1173 -->
+                                    <div class="alert-area">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <div class="yes-no-btn clearfix">
+                                            <div class="yes-btn" id="Topic_Hub__kavYesC">Yes</div> 
+                                            <div class="no-btn" id="Topic_Hub__kavNoC">No</div>
+                                        </div>
+                                    </div>
+                                    <!--Topic Hub Recaptcha Div-->
+                                    
+                                    
+                                    <div class="alert-area-Yes text-center" id="Topic_Hub__kavYes">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<br/>
+<p>Excellent! Thank you for your feedback</p>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12">
+                                            <textarea class="form-control" placeholder=""  rows="4" cols="50" id="THubText">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="TopicRecaptchaClass" id="TopicRecaptchaId"/>
+                                        <button type="submit" value="SubmitTHubSub" onclick = "saveYesfeedback(this.value);"  class="TopicSubmitClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitTHubCan" onclick = "cancelYesfeedback(this.value);">Cancel</button>-->
+                                        
+                                    </div>
+                                    <div class="alert-area-No text-center" id="Topic_Hub__kavNo" >
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <!--<div class="alert-area-left-side col-md-6" style="float:left;">
+<apex:repeat value="{!lstRes}" var="instOfRes">
+<input type="radio" name="Test" value="{!instOfRes.values}"/>{!instOfRes.values}<br/>
+</apex:repeat>
+</div>-->
+                                        <div style="padding: 16px 0;">
+<h4><strong>What can we do to make this article better?</strong></h4>
+</div>
+                                        
+                                        <div class="alert-area-right-side col-md-12"><!-- style="float:right;"-->
+                                            <textarea class="form-control" placeholder=""  rows="4" cols="50" id="THubTextNo">
+                                            </textarea>
+                                        </div>
+                                        <div style="clear:both; padding-bottom: 15px;"></div>
+                                        <div class="TopicRecaptchaNoClass" id="TopicRecaptchaNoId"/>
+                                        <button type="submit" value="SubmitTHubSub" onclick = "savefeedback(this.value);" class="TopicSubmitNoClass" disabled="disabled" style="opacity: 0.5;!important">Submit</button>
+                                        <!--<button type="cancel" value="SubmitTHubCan" onclick = "cancelfeedback(this.value);">Cancel</button>-->
+                                        
+                                    </div>
+                                    <div class="alert-area-Yes" id="ShowTopMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p>Excellent! Thank you for your feedback</p>
+                                    </div>
+                                    <div class="alert-area-No" id="ShowNoTopMessage">
+                                        <p><strong>Did this article resolve your issue?</strong></p>
+                                        <br/>
+                                        <p style="width: 100%;">We are sorry to hear that! &nbsp;For more assistance, <a href="/apex/FindHelp?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+                                    </div>
+                                    <!--<div class="related-headline">
+<h3>Related Articles</h3>
+<ul>
+<li><apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false"></apex:outputText></li>
+</ul>
+</div>-->    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+            <style>
+                #side-sticky .chat-us a {
+                background : #126fb7 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -53px 0 !important;
+                }        
+                #side-sticky .open-case a{
+                background : #173d66 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat 15px 0 !important;
+                }
+                #side-sticky .call-us a {
+                background : #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -123px 0 !important;
+                }
+                .alert-area-Yes{
+                display:none;
+                }
+                .alert-area-No{
+                display:none;
+                }
+                .alert-area-Yes button {background: #126fb7;
+                color: #ffffff;
+                border-radius: 3px;
+                border: none;
+                padding: 7px 15px;} 
+                
+            </style> 
+        </body>
+    </apex:form>
+    
+    <!--
+<style>
+
+.btn-new {
+text-decoration: none;
+background: #199cd6;
+padding: 12px 35px;
+border-radius: 4px;
+float:left;
+}
+a.btn-new {
+/* text-decoration: none !important; */
+color: #FFFFFF;
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+transition: all 0.3s ease;
+font-weight: bold;
+font-size: 12px;
+display: inline-block;
+}
+.bPageBlock .detailList .labelCol {
+width: 9% !important;
+}
+img{max-width:810px}
+.pbHeader{display:none}        
+body .bPageBlock, body #bodyCell .bResource .secondaryPalette, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock, body .bodyDiv .genericTable, body .genericPageBlockTable, body .bodyDiv .bSubBlock, body .bComponentBlock .bPageBlock, body .bMyDashboard .bPageBlock, body.rlHoverFrame .bPageBlock, body.subjectSelectionPopup div.choicesBox, body.lookupTab .secondaryPalette.bPageBlock, body.popupTab .secondaryPalette.bPageBlock, body.UserTagStatsPage .secondaryPalette.bPageBlock{background:#fff}
+</style>
+
+<div style="width: 941px; margin: 20px auto 0;">
+
+<div id="ttt" style="font-size: 26px;">
+{!instOfKAV.title}
+</div>
+
+<apex:pageBlock >
+<apex:facet name="header">
+<apex:panelGrid columns="2">
+<div class="pbTitle" style="padding-left:5px;padding-top:5px;">
+<img src="/img/knowledge/knowledge32.png" class="relatedListIcon" style="width:24px;display:block;margin-left:0;" />
+<h3 class="mainTitle">&nbsp;Article</h3>
+</div>
+</apex:panelGrid>
+</apex:facet>
+
+
+
+<apex:pageBlockSection >
+
+</apex:pageBlockSection>
+<br/>
+<apex:pageBlockSection id="Render1" rendered="{!if(instOfKAV.ArticleType=='FAQ__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel >Question</apex:outputLabel>
+<apex:outputText style="width:100% !important" id="Render2" value="{!body}" escape="false"/>
+</apex:pageblockSectionItem>
+<br/>
+<apex:pageblockSectionItem >
+<apex:outputLabel >Answer</apex:outputLabel>
+<apex:outputText style="width:100% !important" id="Render3" value="{!relatedArticle}" escape="false"/>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Instructions__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel >Instruction:</apex:outputLabel>
+<apex:outputText style="width:100% !important" id="Render4" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+<br/>
+<apex:pageblockSectionItem >
+<apex:outputLabel >Related Articles:</apex:outputLabel>
+<apex:outputText style="width:100% !important" id="Render5" value="{!relatedArticle}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Topic_Hub__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel for="Render6" >Content</apex:outputLabel>
+<apex:outputText style="width:100% !important" id="Render6" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Download__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+
+<apex:outputLabel for="Render7" >Download File</apex:outputLabel>
+<apex:outputLink id="Render7" value="{!URLFOR($Action.Download__kav.FileFieldDownload, instOfKAV.id, ['field'=$ObjectType.Download__kav.fields.Download_File__Body__s.name])}">{!relatedArticle}</apex:outputLink>
+
+
+</apex:pageblockSectionItem>
+<apex:pageblockSectionItem >
+<apex:outputLabel >Content</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Video__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel >Intro</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+<br/>
+<apex:pageblockSectionItem >
+<apex:outputLabel >Content</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+
+
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Marketing_Materials__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel >Content:</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+<br/>
+<apex:pageblockSectionItem >
+<apex:outputLabel >Related Articles:</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!relatedArticle}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(instOfKAV.ArticleType=='Release_Notes__kav',true,false)}" columns="1">
+<apex:pageblockSectionItem >
+<apex:outputLabel >Content:</apex:outputLabel>
+<apex:outputText style="width:100% !important" value="{!body}" escape="false">
+</apex:outputText>
+</apex:pageblockSectionItem>
+<br/>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+<apex:form >
+<div style="margin: 20px auto 0;">
+<apex:pageBlock id="page">
+<apex:pageblockButtons id="buttonsId" rendered="{!if((yesNo='Yes' || yesNo='No')&& flag=false,true,false)}" location="bottom">
+<apex:commandButton reRender="page" action="{!save}" value="Submit" status="actionStatus"></apex:commandbutton>
+</apex:pageblockButtons>
+
+<apex:pageBlockSection id="questions" columns="1" rendered="{!if(flag=false,true,false)}">
+<apex:pageblocksectionitem >
+<apex:outputlabel style="width:200px !important;float:left" value="Did this article resolve your issue?" />
+<apex:outputpanel >
+<apex:selectRadio onclick="yesNo(this.value);" value="{!yesNo}">
+<apex:selectOptions value="{!items}"/>
+</apex:selectRadio>
+</apex:outputpanel> 
+</apex:pageblocksectionitem>
+<apex:pageblocksectionitem rendered="{!if(yesNo='Yes' || yesNo='No',true,false)}" >
+<apex:outputlabel style="width:200px !important" value="What can we do to make it better?" />
+<apex:inputfield id="commentId"  style="width: 684px;" value="{!instPAFD.Comments__c}" />
+</apex:pageblocksectionitem>
+</apex:pageBlockSection>
+<apex:outputpanel rendered="{!if(flag=true,true,false)}" id="note">
+<apex:pageBlockSection rendered="{!if(yesNo='Yes',true,false)}">
+<p>Thanks for your feedback!</p>
+
+</apex:pageBlockSection>
+<apex:pageBlockSection rendered="{!if(yesNo='No',true,false)}">
+<p style="width: 800px;">We are sorry to hear that! &nbsp;For more assistance, <a href="/500/e?retURL=/apex/CommunityArticle?id={!$CurrentPage.parameters.Id}" id="mfa40">open a case </a> and a Product Consultant will contact you directly.</p>
+</apex:pageBlockSection>
+</apex:outputpanel>
+
+</apex:pageBlock>
+</div>
+
+<apex:actionRegion >
+<apex:actionFunction name="yesNo" reRender="page" action="{!yesNo}" status="actionStatus">  
+<apex:param name="param1" assignTo="{!yesNo}" value="" /> 
+</apex:actionFunction>
+</apex:actionRegion>
+
+</apex:form>
+</div>
+<apex:outputpanel >
+<apex:actionstatus id="actionStatus">
+<apex:facet name="start">
+<div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+<div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+<img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+<span class="waitingDescription">Loading...</span>
+</div>
+</div>
+</apex:facet>
+</apex:actionstatus>
+</apex:outputpanel>
+
+<script>
+
+</script>-->
+    <!--Code from Footer Page-->
+    
+    
+    <body id="articles" class="inner">
+        <div style="clear:both;"></div>
+        <footer>
+            <!--<section id="footer" class="pad-topbot-ten">
+                <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                    
+                    <div class="row col-md-12 footer pad-topbot-ten">
+                        <div class="col-md-3 left-side">
+                            <p>Copyright © Cvent <span class="year">2016</span></p>
+                        </div>
+                        <div class="col-md-5 right-side"  style="width:50%;">
+                            <p>
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a href="/apex/CommunityGuidelines" target="_blank" class="blue-link" id="guildeLinesId">Community Guidelines</a> | </apex:actionRegion> 
+                                
+                                <a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank" class="blue-link">Privacy Policy</a> 
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml" target="_blank" class="blue-link">GDPR Sub-Processors</a></apex:actionRegion>
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="/apex/ContactSupport?lang=en_US" target="_blank" class="blue-link" id="helpNowId">Get Help Now</a></apex:actionRegion>
+                                
+                                
+                            </p>
+                        </div>                
+                    </div>
+                </div>
+            </section>-->
+                <apex:composition template="CventCommunityFooter"></apex:composition>
+        </footer>
+        <style>
+            .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}
+        </style>  
+        <!-- Site Catalyst (Chandan Singh 6/15/2015) -->
+        <script type="text/javascript">
+        
+    $("#pagination a").on('click',function(){
+    
+        var target = $(this).attr('href');
+        var str = target.substring(1);
+        console.log($(this).find('#'+str).parent('span'));
+        $(this).find('#'+str).parent('span').css({'padding-top':'300px','display':'block'});
+        $('#A').parent('span').css({'padding-top':'300px','display':'block'});
+    });
+        
+        
+        function recaptcha_callback() {
+            //$(".InstructionRecaptchaClass").hide();
+            //$(".InstructionRecaptchaNoClass").hide();
+            //Instruction Div.............
+            //$("#Instructions__kavNo").hide();
+            //$("#Instructions__kavYes").show();
+            $(".InstructionClass").removeAttr('disabled');
+            $(".InstructionClass").removeAttr('style');
+            $(".InstructionSubmitNoClass").removeAttr('disabled');
+            $(".InstructionSubmitNoClass").removeAttr('style');
+        }
+        
+        function Videorecaptcha_callback() {
+            $(".VideoSubmitClass").removeAttr('disabled');
+            $(".VideoSubmitClass").removeAttr('style');
+            
+        }
+        
+        function FAQrecaptcha_callback() {
+            $(".FAQSubmitClass").removeAttr('disabled');
+            $(".FAQSubmitClass").removeAttr('style');
+        }
+        
+        function Releaserecaptcha_callback() {
+            $(".ReleaseSubmitClass").removeAttr('disabled');
+            $(".ReleaseSubmitClass").removeAttr('style');
+        }
+        
+        function MMcaptcha_callback() {
+            $(".MMSubmitClass").removeAttr('disabled');
+            $(".MMSubmitClass").removeAttr('style');
+        }
+        
+        function Downloadcaptcha_callback() {
+            $(".DownloadSubmitClass").removeAttr('disabled');
+            $(".DownloadSubmitClass").removeAttr('style');
+        }
+        
+        function Topiccaptcha_callback() {
+            $(".TopicSubmitClass").removeAttr('disabled');
+            $(".TopicSubmitClass").removeAttr('style');
+        }
+        function recaptchaNo_callback() {
+            $(".InstructionSubmitNoClass").removeAttr('disabled');
+            $(".InstructionSubmitNoClass").removeAttr('style');
+        }
+        function VideorecaptchaNo_callback() {
+            $(".VideoSubmitNoClass").removeAttr('disabled');
+            $(".VideoSubmitNoClass").removeAttr('style');
+        }
+        
+        function FAQrecaptchaNo_callback() {
+            $(".FAQSubmitNoClass").removeAttr('disabled');
+            $(".FAQSubmitNoClass").removeAttr('style');
+        }
+        
+        function ReleaserecaptchaNo_callback() {
+            $(".ReleaseSubmitNoClass").removeAttr('disabled');
+            $(".ReleaseSubmitNoClass").removeAttr('style');
+        }
+        function MMcaptchaNo_callback() {
+            $(".MMSubmitNoClass").removeAttr('disabled');
+            $(".MMSubmitNoClass").removeAttr('style');
+        }
+        
+        function DownloadcaptchaNo_callback() {
+            $(".DownloadSubmitNoClass").removeAttr('disabled');
+            $(".DownloadSubmitNoClass").removeAttr('style');
+        }
+        
+        function TopiccaptchaNo_callback() {
+            $(".TopicSubmitNoClass").removeAttr('disabled');
+            $(".TopicSubmitNoClass").removeAttr('style');
+        }
+        
+        var url = window.location, baseUrl = url.toString().toLowerCase(),sectionName, sectionName2 ;
+        
+        if(baseUrl.indexOf("helphome") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "";
+            queryString = " : Help & Training Homepage";
+        }else if(baseUrl.indexOf("chatteranswersui") >= 0){     
+            sectionName = "Forums"; 
+            sectionName2 = "";
+            queryString = " : Forums Homepage";     
+        }else if(baseUrl.indexOf("groups") >= 0){
+            if(baseUrl.indexOf("groupprofilepage") >= 0){
+                sectionName = "User Groups";
+                sectionName2 = "Cvent US : Customer Portal : User Groups : Group Profile";
+                if( location.search !==''){
+                    pathName = baseUrl.split('?')
+                    articleId = pathName[1].split('='); 
+                }
+                queryString = " : Group Profile - " + articleId[1];
+                
+            }else{
+                sectionName = "User Groups";
+                sectionName2 = "";
+                queryString = " : User Groups Homepage";
+            }
+        }else if(baseUrl.indexOf("userprofile") >= 0){
+            sectionName = "Forums";
+            sectionName2 = "Cvent US : Customer Portal : Forums : My Profile";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : User Profile - " + articleId[1];
+        }else if(baseUrl.indexOf("topicpage") >= 0){
+            sectionName = "User Groups";
+            sectionName2 = "Cvent US : Customer Portal : User Groups : Topics";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                topicId = articleId[1].split('&')
+            }
+            queryString = " : Topic - " + topicId[0];
+        }else if(baseUrl.indexOf("communityarticle") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "Cvent US : Customer Portal : Help & Training : Community Article";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : Community Article - " +articleId[1];
+        }else if(baseUrl.indexOf("500") >= 0){  
+            if(baseUrl.indexOf("returl") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "";
+                queryString = " : New Case"; //+caseId ;
+            }else if(baseUrl.indexOf("fcf") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : My Cases";
+                if( location.search !==''){
+                    pathName = baseUrl.split('?')
+                    articleId = pathName[1].split('='); 
+                }
+                queryString = " : My Cases - " +articleId[1] ; //+caseId ;
+            }else{          
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : Case Details";
+                queryString = " : Case - " + document.getElementById('cas2_ileinner').innerHTML; //+caseId ;
+            }
+        }else if(baseUrl.indexOf("contactsupport") >= 0){   
+            sectionName = "Help & Training";
+            sectionName2 = "";
+            queryString = " : Help & Training : Contact Support"; //+caseId ;
+        }else if(baseUrl.indexOf("communityhomepage") >= 0){
+            sectionName = "Community Home";
+            sectionName2 = "";
+            queryString = " : Community Homepage";
+        }else if(baseUrl.indexOf("communitysearchresultpage") >= 0){
+            sectionName = "Community Search Result Page";
+            sectionName2 = "";
+            queryString ="";
+            if( $('ul#search-article li')[0] || $('.QuesDiv')[0] ){
+                s.linkTrackEvents='event151'; 
+                s.events = "event151";
+            }else{
+                s.linkTrackEvents='event33'; 
+                s.events = "event33";
+            }
+        }else{
+            sectionName = '';
+            queryString ='';
+            sectionName2 = "";
+        }
+        if( sectionName !==''){
+            sectionName = ' : ' +sectionName;
+        }   
+        var userName= "{!usr.Name}";
+        if( userName =='Cvent Community Site Guest User'){
+            s.eVar25 = s.prop32 = 'Not Logged in';
+        }else{  
+            s.eVar25 = s.prop32 = 'Logged in'
+        }    
+        s.channel="Marketing";  
+        s.server="Cvent US";
+        s.prop1="Customer Portal";
+        s.pageType="";
+        s.eVar21=s.prop28="Cvent US";
+        s.eVar22=s.prop15="Cvent US : Customer Portal";
+        s.prop26=s.eVar24=sectionName2;
+        s.eVar23=s.prop16="Cvent US : Customer Portal" + sectionName;
+        s.prop38=s.eVar10 = s.server +' : ' + s.prop1 + queryString; //Pages by Name
+        s.eVar40=s.prop14="en-US";
+        s.prop48=s.eVar46=String(document.location); // Pages by URL
+        //s.t();
+        </script>
+        <!-- End Site Catalyst -->
+    </body> 
+    
+    <div class="bb_body"/>    
+</html>
+<!--Ends Here-->
+</apex:page>

@@ -1,0 +1,971 @@
+<apex:page showHeader="true" sidebar="false" controller="OpportunitySplitsController" docType="html-5.0">
+    <apex:slds />
+
+    <style>
+        /* Popup container */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 560px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+            font-weight:normal;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -225px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;} 
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+        }
+
+    </style>
+
+    <script>
+
+        console.log('the page is loading...');
+        Visualforce.remoting.timeout = 120000;
+        var elementUpdateTimeOut = 300;
+        window.onload = setTimeout(function(){updateFormElements();},elementUpdateTimeOut);
+        var splitRowMap = JSON.parse('{!splitRowMapJson}');  
+        var splitTypeToBcFieldName = JSON.parse('{!splitTypeToBcFieldName}');
+        var tryingSave = false;
+        var disableSave = false;
+        var showingOverlay = false;
+        var splittingBy = '{!splittingBy}';
+        var showPopup = false;
+
+        function togglePopup() {
+            showPopup = !showPopup;
+            var popup = document.getElementById("myPopup");
+            document.getElementById("creditTypeColumnId").classList.add('popup');
+            popup.classList.toggle("show");            
+            if(showPopup) {
+                popup.style.display = 'inline';
+            }
+            else {
+                document.getElementById("creditTypeColumnId").classList = [];
+                popup.style.display = 'none';
+            }
+        }        
+
+        function setInputAndOutput(switchInputType) {
+            console.log('setting input and output columns....');
+            var selectElement = document.getElementById("inputTypeSelectId");
+            if(switchInputType) {
+                splittingBy = (splittingBy == 'Amount') ? 'Percent' : 'Amount';
+            }
+            selectElement.value = (splittingBy == 'Amount') ? 'USD' : '%';
+            selectElement.blur();
+            var inputColumnHeaderElement = document.getElementById("inputColumnHeaderId");
+            var outpoutColumnHeaderElement = document.getElementById("outputColumnHeaderId");
+            inputColumnHeaderElement.innerHTML = (splittingBy == 'Amount') ? 'Amount (USD)' : 'Percent (%)';
+            outpoutColumnHeaderElement.innerHTML = (splittingBy == 'Amount') ? 'Percent (%)' : 'Amount (USD)';
+            Object.keys(splitRowMap).forEach(function(splitRowId) {
+                var splitRow = splitRowMap[splitRowId];
+                setAmount(splitRow,splitRow.amount);
+            });
+            setOutputElements();
+        }
+
+        function getTopOfTable() {
+            var tableHtml = "<table>";
+            tableHtml += "<tr>";
+            tableHtml += "<td style=\"font-weight:bold;\">Name</td>";
+            tableHtml += "<td style=\"font-weight:bold;\">Amt.</td>";
+            tableHtml += "<td style=\"font-weight:bold;\">%</td>";
+            tableHtml += "</tr>";
+            return tableHtml;
+        }
+
+        function updateBreakLinesOnErrorMessage() {
+            var errorMessageElement = document.getElementById("errorMessageId");
+            var errorMessage = errorMessageElement.innerHTML;
+            if(errorMessage != null && errorMessage.includes(';')) {
+                var strings = errorMessage.split(';');
+                errorMessage = strings.join('<br/>');    
+            }
+            document.getElementById("errorMessageId").innerHTML = errorMessage;
+        }
+
+        function getBottomOfTable(bcCell) {
+            var tableHtml = "<tr bgcolor=\"white\">";
+            tableHtml += "<td style=\"font-weight:bold; text-align:center;\">Totals:</td>";
+            tableHtml += "<td style=\"font-weight:bold;\">" + (bcCell.amount).toFixed(2) + "</td>";
+            tableHtml += "<td style=\"font-weight:bold;\">"+ (bcCell.percent).toFixed(2) + "</td>";
+            tableHtml += "</tr>";
+            tableHtml += "</table>";
+            return tableHtml;
+        }
+
+        function updateBcTable(showOverlay) {
+            console.log('toggling overlay....');
+            var sortedRowIds = getSortedObjectKeys(splitRowMap,'index');
+            var columnsToCenter = ["MYDcol","Renewalcol","Othercol","NBBcol"];
+            if(!showOverlay) {
+                columnsToCenter.forEach(function(colId) {
+                    document.getElementById(colId).style.textAlign = "left";
+                });  
+                sortedRowIds.forEach(function(splitRowId) {
+                    var splitRow = splitRowMap[splitRowId];
+                    var nbbElementId = splitRow.splitRecord.Booking_Classification_ID__c;
+                    nbbElementId += "-" + splitRow.splitRecord.Booking_Classification__c;
+                    var amount = (splitRow.splitRecord.Amount__c).toFixed(2);
+                    document.getElementById(nbbElementId).innerHTML = amount; 
+                }); 
+                showingOverlay = false;                             
+            }
+            else if(showOverlay) {
+                var elementIdToBcCell = {};
+                columnsToCenter.forEach(function(colId) {
+                    document.getElementById(colId).style.textAlign = "center";
+                });
+                sortedRowIds.forEach(function(splitRowId) {
+                    var splitRow = splitRowMap[splitRowId];
+                    if(!splitRow.remove) {
+                        var elementId = splitRow.splitRecord.Booking_Classification_ID__c;
+                        elementId += "-" + splitRow.splitRecord.Booking_Classification__c;
+                        var bcCell = elementIdToBcCell[elementId];
+                        bcCell = (bcCell) ? bcCell : {};
+                        bcCell.amount = (bcCell.amount) ? bcCell.amount : 0 ;
+                        bcCell.percent = (bcCell.percent) ? bcCell.percent : 0 ;
+                        bcCell.amount += Number(parseFloat(splitRow.amount).toFixed(3));
+                        bcCell.percent += (splitRow.amount / getBcAmount(splitRow)) * 100;
+                        var tableHtml = bcCell.tableHtml;
+                        tableHtml = (tableHtml) ? tableHtml : getTopOfTable();
+                        tableHtml += "<tr>";
+                        tableHtml += "<td>";
+                        console.log('row index: ' + splitRow.index);
+                        console.log('row member name: ' + splitRow.memberName);
+                        tableHtml += splitRow.memberName;
+                        tableHtml += "</td>";
+                        tableHtml += "<td>";
+                        tableHtml += parseFloat(splitRow.amount).toFixed(2);
+                        tableHtml += "</td>";                         
+                        tableHtml += "<td>";
+                        var percentage = (splitRow.amount / splitRow.splitRecord.Amount__c) * 100;
+                        percentage = percentage.toFixed(2);  
+                        tableHtml += percentage;
+                        tableHtml += "</td>";                    
+                        tableHtml += "</tr>";
+                        bcCell.tableHtml = tableHtml;
+                        elementIdToBcCell[elementId] = bcCell;
+                    }
+                });
+                Object.keys(elementIdToBcCell).forEach(function(elementId) {
+                    var bcCell = elementIdToBcCell[elementId];
+                    var tableHtml = bcCell.tableHtml;
+                    tableHtml += getBottomOfTable(bcCell);
+                    console.log('%%%%%%%%%%%%%%%table html: ');
+                    console.log(tableHtml);
+                    document.getElementById(elementId).innerHTML = tableHtml;
+                });
+                showingOverlay = true;
+            }
+
+        }
+
+        function checkReload() {
+            var opportunityIdString = '{!opportunityId}';
+            var reloadPage;
+            var indexToAmount = {};
+            Object.keys(splitRowMap).forEach(function(splitRowId) {
+                var splitRow = splitRowMap[splitRowId]; 
+                if(splitRow.amount > 0) {
+                    indexToAmount[splitRow.index] = splitRow.amount;
+                }
+            });
+            var errorMessage;
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.OpportunitySplitsController.checkSaveSuccess}',
+                opportunityIdString,indexToAmount,
+                function(result,event) {
+                    if(event.status) {
+                        tryingSave = false;
+                        if(result == null) {
+                            var newLocation = "?opportunityIdString=" + opportunityIdString + "&justSaved=true";
+                            newLocation += '&splittingBy=' + splittingBy;
+                            window.location.href = newLocation;
+                        }
+                        else {
+                            errorMessage = result;
+                        }
+                    }
+                    else if(event.type === 'exception') {
+                        errorMessage = '{!errorMessageStart}';
+                        errorMessage += 'MESSAGE: ' + event.message;
+                        errorMessage += '<br/>';
+                        errorMessage += 'CLASS: ' + event.action;
+                        errorMessage += '<br/>';
+                        errorMessage += ' METHOD: ' + event.method;
+                    }
+                    if(errorMessage != null) {
+                        disableSave = true;
+                        try {
+                            updateFormElements();
+                        }
+                        catch(err) {
+                            console.log('could not update form elements: ' + err.message);
+                        }
+                        var strings = errorMessage.split(';');
+                        errorMessage = strings.join('<br/>');                     
+                        document.getElementById("errorMessageId").innerHTML = errorMessage;
+                        document.getElementById("successMessageId").innerHTML = null;
+                    }
+                },
+                {escape: true}
+            );
+        }
+        
+        function updateFormElements() {
+            if(tryingSave) {
+                hideUserSelectTypesFromLookups();
+                var errorMessageHtml = document.getElementById("errorMessageId").innerHTML;
+                console.log('checking input lookups for errors**********');
+                var incorrectTeamMember = false;
+                var rowIds = Object.keys(splitRowMap);
+                for(var i = 0; i < rowIds.length; i++) {
+                    var rowId = rowIds[i];
+                    var lookupTdId = splitRowMap[rowId].lookupTdId;
+                    var lookupTdElement = document.getElementById(lookupTdId);
+                    if(lookupTdElement != null && lookupTdElement.innerHTML.includes("No matching users found")) {
+                        incorrectTeamMember = true;
+                        break;
+                    }
+                }
+                if(!errorMessageHtml.includes("Validation Error") && !incorrectTeamMember) {
+                    setTimeout(function(){checkReload();},5500);
+                }
+                else if(errorMessageHtml.includes("Validation Error")) {
+                    console.log('validation error occurred...');
+                    if(!errorMessageHtml.includes('team member')) {
+                        console.log('disabling save..');
+                        errorMessageHtml += '<br/>Disabling save for this session...';
+                        document.getElementById("errorMessageId").innerHTML = errorMessageHtml;
+                        disableSave = true;
+                    }
+                }
+            }
+            else {
+                hideUserSelectTypesFromLookups();
+                setInputAndOutput(false);
+                showRowsToDelete();
+            }
+        }        
+        
+        function hideUserSelectTypesFromLookups() {
+            console.log('hiding user select types from lookups...');
+            var selectIdStart = 'j_id0:formId:j_id';
+            var idNumbers1 = [31,24,25,26,27,22,23,21,20,19,6,5,4,7,8];
+            var selectIdEnd = ':inputFieldId_mlktp';         
+            var i = 0;
+            var hideSuccessCount = 0;
+            while(i < Object.keys(splitRowMap).length) {
+                for(var j = 0; j < idNumbers1.length; j++) {
+                    var selectId = selectIdStart + idNumbers1[j] + ':' + i + selectIdEnd;
+                    //console.log('selectId: ' + selectId);
+                    var lookupTdElement = document.getElementById(selectId);
+                    if(lookupTdElement != null) {
+                        var lookupTdOuterHtml = lookupTdElement.outerHTML;
+                        if(lookupTdOuterHtml.includes('CustomerSuccessUserLookup')) {
+                            lookupTdElement.hidden = true;
+                            hideSuccessCount++;
+                            break;
+                        }
+                    }
+                }
+                i++;
+            }
+            Object.keys(splitRowMap).forEach(function(splitRowId) {
+                var lookupTdId = splitRowMap[splitRowId].lookupTdId;
+                var lookupTdElement = document.getElementById(lookupTdId);
+                if(lookupTdElement != null) {
+                    lookupTdElement.innerHTML = lookupTdElement.innerHTML.replace("width:49.7px; visibility:hidden;","width:49.7px;");
+                    console.log('=======lookupTdElement.innerHTML: ' + lookupTdElement.innerHTML);
+                }
+            });            
+            if(hideSuccessCount < Object.keys(splitRowMap).length) {
+                console.log('hideSuccessCount is unexpectedly ' + hideSuccessCount + '....');
+                Object.keys(splitRowMap).forEach(function(splitRowId) {
+                    var lookupTdId = splitRowMap[splitRowId].lookupTdId;
+                    //console.log('********lookupTdId: ' + lookupTdId);
+                    var lookupTdElement = document.getElementById(lookupTdId);
+                    if(lookupTdElement != null) {
+                        console.log('lookupTdElement.innerHTML: ' + lookupTdElement.innerHTML);
+                    }
+                    else {
+                        //console.log('could not find lookup td element for row with index: ' + splitRowMap[splitRowId].index);
+                    }
+                });
+            }
+        }
+
+        function decimalOnly(e){
+            e.value = e.value.replace(/[^0-9\.]/g,'');
+            if(e.value.split('.').length>2) e.value = e.value.replace(/\.+$/,"");
+        }
+
+        function getBcAmount(splitRow) {
+            var bcFieldName = splitTypeToBcFieldName[splitRow.splitRecord.Booking_Classification__c];
+            var bcRecord = splitRow.splitRecord.Booking_Classification_ID__r;
+            var bcAmount = bcRecord[bcFieldName];
+            console.log('bcAmount: ' + bcAmount);
+            return bcAmount;
+        }
+
+        function handleSplitTypeChange(rowId,newValue) {
+            console.log('*************handling split type change*************');
+            var bcFieldName = splitTypeToBcFieldName[newValue];
+            console.log('bcFieldNAme: ' + bcFieldName);
+            var splitRow = splitRowMap[rowId];
+            var bcRecord = splitRow.splitRecord.Booking_Classification_ID__r;
+            console.log('bcRecord: ' + JSON.stringify(bcRecord));
+            var bcAmount = bcRecord[bcFieldName];
+            console.log('bcAmount: ' + bcAmount);
+            splitRow.splitRecord.Amount__c = bcAmount;
+            var amount = splitRow.amount;
+            splitRow["remove"] = true;
+            handleAmountChange(rowId,0);
+            splitRow["remove"] = null;
+            splitRow.amount = amount;
+            splitRow.splitRecord.Booking_Classification__c = newValue;
+            handleAmountChange(rowId,amount);
+        }
+
+        function handleUserChange(rowId,newValue) {
+            console.log('handling user change... ');
+            var splitRow = splitRowMap[rowId];
+            splitRow.memberName = (newValue) ? newValue : splitRow.memberName;
+            console.log('splitRow.index: ' + splitRow.index);
+            console.log('newValue: ' + newValue);
+            evaluateSaveCriteria(rowId);
+        }
+
+        function handleAmountChange(rowId,newValue) {
+            console.log('*************handling amount change*************');
+            var changedSplitRow = splitRowMap[rowId];
+            console.log('rowIndex: ' + changedSplitRow.index);
+            console.log('newValue: ' + newValue);
+            var changedSplitType = changedSplitRow.splitRecord.Booking_Classification__c;
+            var bcFieldName = splitTypeToBcFieldName[changedSplitType];
+            var changedBc = changedSplitRow.splitRecord.Booking_Classification_ID__r;
+            var bcAmount = changedBc[bcFieldName];
+            var inputId = changedSplitRow.inputId;
+            var amountInputElement = document.getElementById(inputId);
+            var outputId = changedSplitRow.outputId;
+            var percentOutputElement = document.getElementById(outputId);
+            var changedAmountSum;
+            var numberValue = (typeof newValue == 'string') ? Number(parseFloat(newValue).toFixed(4)) : newValue ;
+            if(splittingBy == 'Amount') {
+                changedAmountSum = numberValue;
+            }
+            else if(splittingBy == 'Percent') {
+                changedAmountSum = (numberValue/100)*bcAmount;
+                changedAmountSum = Number(changedAmountSum.toFixed(2));
+            }
+            //console.log('parseFloat(newValue): ' + Number(parseFloat(newValue).toFixed(4)));
+            console.log('changedAmountSum0: ' + changedAmountSum);
+            //console.log('bcAmount: ' + bcAmount);
+            changedSplitRow.msAtLastChange = Date.now();
+            if( changedAmountSum > bcAmount || changedAmountSum < .01 && changedAmountSum != 0 || newValue == null || newValue === "" || newValue === "." ) {
+                var previousAmount = changedSplitRow.amount;
+                //console.log('previousAmount: ' + previousAmount);
+                //console.log('typeof previousAmount: ' + typeof previousAmount);
+                if(typeof previousAmount == 'number' && !String(previousAmount).includes('.')) {
+                    previousAmount = previousAmount + '.00';
+                }
+                //console.log('changedSplitRow.inputId: ' + changedSplitRow.inputId);
+                setAmount(changedSplitRow,previousAmount);
+            }
+            else {
+                changedSplitRow.amount = changedAmountSum;
+                var relevantRows = [];
+                if(!changedSplitRow.remove) {
+                    relevantRows.push(changedSplitRow);
+                }
+                var sortedRowIds = getSortedObjectKeys(splitRowMap,'msAtLastChange');
+                sortedRowIds.forEach(function(splitRowId) {
+                    var splitRow = splitRowMap[splitRowId];
+                    //console.log('splitRow.amount: ' + splitRow.amount);
+                    if(splitRowId != changedSplitRow.rowId) {
+                        //console.log('got here 0: ');
+                        //console.log('splitRow.rowId: ' + splitRow.rowId);
+                        var bcRecord = splitRow.splitRecord.Booking_Classification_ID__r;
+                        //console.log('bcRecord.Id (bottom): ' + bcRecord.Id);
+                        var sameBcRecord = (bcRecord.Id == changedBc.Id);
+                        //console.log('changedSplitType: ' + changedSplitType);
+                        //console.log('splitRow.splitRecord.splitType__c: ' + splitRow.splitRecord.splitType__c);
+                        var sameSplitType = (changedSplitType == splitRow.splitRecord.Booking_Classification__c);
+                        if(sameBcRecord && sameSplitType) {
+                            var amount = splitRow.amount;
+                            amount = (typeof amount == 'string') ? Number(parseFloat(amount).toFixed(4)) : amount ;
+                            //console.log('typeof amount: ' + typeof amount);
+                            //console.log('typeof changedAmountSum: ' + typeof changedAmountSum);
+                            changedAmountSum = changedAmountSum + amount;
+                            if(amount > 0 || splitRow.splitRecord.Id != null) {
+                                relevantRows.push(splitRow);
+                            }
+                        }
+                    }
+                });
+                //console.log('changedAmountSum1: ' + changedAmountSum);
+                //console.log('bcAmount: ' + bcAmount);
+                var nonZeroRowCount = 0;
+                relevantRows.forEach(function(relevantRow) {
+                    nonZeroRowCount += (relevantRow.amount > 0) ? 1 : 0 ;
+                });                
+                if(bcAmount != changedAmountSum) {
+                    console.log('typeof changedAmountSum: ' + typeof changedAmountSum);
+                    console.log('typeof bcAmount: ' + typeof bcAmount);
+                    var difference = changedAmountSum - bcAmount;
+                    console.log('difference: ' + difference);
+                    console.log('relevantRows.length: ' + relevantRows.length);
+                    var resolved = false;
+                    var sameRowChangedAgain = sortedRowIds[sortedRowIds.length -1].rowId = changedSplitRow.rowId;
+                    for(var i = 0; i < relevantRows.length; i++) {
+                        var splitRow = relevantRows[i];
+                        //console.log('amount of this row (before): ' + splitRow.amount);
+                        var sameRowChanged = (splitRow.rowId == changedSplitRow.rowId);
+                        //console.log('sameRowChanged: ' + sameRowChanged);
+                        var newAmount = (splitRow.amount - difference).toFixed(6);
+                        console.log('newAmount: ' + newAmount);
+                        var onlyOneRow = (newAmount == bcAmount && relevantRows.length == 1);
+                        onlyOneRow = (onlyOneRow || (newAmount == bcAmount && nonZeroRowCount == 1));
+                        if(newAmount >= 0 && (newAmount < bcAmount || onlyOneRow) && !(sameRowChanged && relevantRows.length > 1)) {
+                            if(!(relevantRows.length > 2 && newAmount == 0 && sameRowChangedAgain)) {
+                                setAmount(splitRow,newAmount);
+                                resolved = true;                  
+                                break;
+                            }
+                        }
+                        //console.log('amount of this row (after): ' + splitRow.amount);
+                    }
+                    if(!resolved) {
+                        console.log('splitting the remainder..... ');
+                        var changedRowAmount = changedSplitRow.amount;
+                        console.log('remainder: ' + (bcAmount - changedRowAmount));
+                        var rowsLeft = (changedSplitRow.remove) ? relevantRows.length : (relevantRows.length - 1) ;
+                        console.log('rowsLeft: ' + rowsLeft);
+                        var remainderSplit = ( (bcAmount - changedRowAmount) / (rowsLeft)).toFixed(3);
+                        console.log('remainderSplit: ' + remainderSplit);
+                        for(var i = 0; i < relevantRows.length; i++) {
+                            var splitRow = relevantRows[i];
+                            var sameRowChanged = (splitRow.rowId == changedSplitRow.rowId);    
+                            if(!sameRowChanged) {
+                                setAmount(splitRow,remainderSplit);
+                            }                    
+                        }
+                    }
+                }
+            }
+            setOutputElements();
+            if(showingOverlay) {
+                updateBcTable(true);
+            }
+            showRowsToDelete();
+            evaluateSaveCriteria(null);
+            document.getElementById("successMessageId").innerHTML = null;
+        }
+
+        function setOutputElements() {
+            console.log('setting percent output elements...');
+            Object.keys(splitRowMap).forEach(function(splitRowId) {
+                var splitRow = splitRowMap[splitRowId];
+                var outputId = splitRow.outputId;
+                var outputElement = document.getElementById(outputId);
+                var bcRecord = splitRow.splitRecord.Booking_Classification_ID__r;
+                //bcRecord[splitTypeToBcFieldName[splitRow.splitRecord.Booking_Classification__c]];
+                var bcAmount = bcRecord.Total_Price_Total__c;
+                var output;
+                if(splittingBy == 'Amount') {
+                    output = (splitRow.amount / splitRow.splitRecord.Amount__c) * 100;
+                    output = output.toFixed(2);
+                }
+                else if(splittingBy == 'Percent') {
+                    output = splitRow.amount;
+                    console.log('typeof output: ' + typeof output);
+                    output = (typeof output === 'string') ? parseFloat(output).toFixed(2) : output.toFixed(2) ;
+                }
+                console.log('output: ' + output);
+                if(outputElement == null) {
+                    //console.log('cannot set percent output element for following split row: ');
+                    //console.log(JSON.stringify(splitRow));
+                }
+                else if(outputElement != null){
+                    outputElement.innerHTML = output;
+                }
+            });
+        }
+
+        function setAmount(splitRow,amount) {
+            console.log('*****setting amount of row at index: ' + splitRow.index);
+            console.log('changing from : ' + splitRow.amount);
+            splitRow.amount = amount;
+            console.log('setting to : ' + splitRow.amount);
+            var amountInputTd = document.getElementById(splitRow.inputId);
+            var innerHtml = amountInputTd.innerHTML;
+            var valueInHtml = innerHtml.split('value="')[1].split('"')[0];
+            var targetSubstring = 'value="' + valueInHtml + '"';
+            var input;
+            if(splittingBy == 'Amount') {
+                input = amount;
+                console.log('typeof input: ' + typeof input);
+                input = (typeof amount === 'string') ? parseFloat(input).toFixed(2) : input.toFixed(2) ;
+            }
+            else if(splittingBy == 'Percent') {
+                input = (splitRow.amount / splitRow.splitRecord.Amount__c) * 100;
+                input = input.toFixed(2);
+            }
+            console.log('amount after: ' + input);
+            var replacementSubstring = 'value="' + input + '"';
+            var newInnerHtml = innerHtml.replace(targetSubstring,replacementSubstring);
+            document.getElementById(splitRow.inputId).innerHTML = newInnerHtml;   
+            splitRowMap[splitRow.rowId] = splitRow;          
+        }
+
+        function getSortedObjectKeys(objectMap,keyName) {
+            var sortedObjectKeys = [];
+            Object.keys(objectMap).forEach(function(objectKey) {
+                var index = 0;
+                var obj = objectMap[objectKey];
+                var numberValue = obj[keyName];
+                for(var i = 0; i < sortedObjectKeys.length; i++) {
+                    var rowId = sortedObjectKeys[i];
+                    var numberValue0 = objectMap[rowId][keyName];
+                    var isLower =  (numberValue < numberValue0);
+                    var isSame = (numberValue == numberValue0);
+                    var isHigher = (numberValue > numberValue0);
+                    if(isLower || isSame) {
+                        index = i;
+                        break;
+                    }
+                    else if(isHigher) {
+                        index = i + 1;
+                        for(var j = i + 1; j < sortedObjectKeys.length; j++) {
+                            index = j;
+                            rowId = sortedObjectKeys[j];
+                            var numberValue1 = objectMap[rowId].numberValue;
+                            isLower =  (numberValue < numberValue1);
+                            isSame = (numberValue == numberValue1);
+                            if(isLower || isSame) {
+                                break;
+                            }
+                            else if(j == sortedObjectKeys.length) {
+                                index = j + 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+                sortedObjectKeys.splice(index,0,objectKey);
+            });  
+            return sortedObjectKeys;   
+        }
+
+        function addSplitRow(bcIdString) {
+            console.log('************Adding splitRow************');
+            var newSplitRow;
+            var sortedRowIds = getSortedObjectKeys(splitRowMap,'index');
+            sortedRowIds.reverse();
+            for(var i = 0; i < sortedRowIds.length; i++) {
+                var splitRow = splitRowMap[sortedRowIds[i]];
+                //console.log('splitRow.msAtLastChange: ' + splitRow.msAtLastChange);
+                if(splitRow.splitRecord.Booking_Classification_ID__c == bcIdString) {
+                    //console.log('match found...: ');
+                    //console.log('bcIdString length: ' + bcIdString.length);
+                    newSplitRow = JSON.parse(JSON.stringify(splitRow));
+                    //console.log('copied from index: ' + splitRow.index);
+                    //console.log('new index: ' + (splitRow.index + 1));
+                    newSplitRow.index = splitRow.index + 1;
+                    break;
+                }
+            }
+            Object.keys(splitRowMap).forEach(function(rowId) {
+                var splitRow = splitRowMap[rowId];
+                splitRow.index += (splitRow.index >= newSplitRow.index) ? 1 : 0 ;
+            });
+            newSplitRow.rowId = getQleId();
+            newSplitRow.splitRecord.Id = null;
+            newSplitRow.amount = 0.00;
+            newSplitRow.splitRecord.Team_Member__r = null;
+            newSplitRow.splitRecord.Credit_Type__c = null;
+            newSplitRow.splitRecord.Split_Percent__c = 0;
+            newSplitRow.inputId = newSplitRow.rowId + '-Amount';
+            newSplitRow.toBeDeletedId = newSplitRow.rowId + '-toBeDeletedId';
+            newSplitRow.deleteThisRowId = newSplitRow.rowId + '-deleteThisRowId';
+            newSplitRow.outputId = newSplitRow.rowId + '-Percent';
+            newSplitRow.lookupTdId = newSplitRow.rowId + '-lookupTdId';
+            newSplitRow.splitRecord.Team_Member__c = null;
+            splitRowMap[newSplitRow.rowId] = newSplitRow;
+            console.log('splittingBy: ' + splittingBy);
+            passSplitRowMap(JSON.stringify(splitRowMap),false,splittingBy);
+        }
+
+        function removeSplitRow(rowId) {
+            console.log('************Removing splitRow************');
+            //console.log('removing split row with rowId: ' + rowId);
+            //console.log('Object.keys(splitRowMap).length (before): ' + Object.keys(splitRowMap).length);
+            var splitRow = splitRowMap[rowId];
+            setAmount(splitRow,0);
+            splitRow["remove"] = true;
+            handleAmountChange(rowId,0);
+            if(rowId.includes('_')) {
+                delete splitRowMap[rowId];
+                var sortedRowIds = getSortedObjectKeys(splitRowMap,'index');
+                for(var i = 0; i < sortedRowIds.length; i++) {
+                    var rowId = sortedRowIds[i];
+                    splitRowMap[rowId].index = i;
+                }
+                passSplitRowMap(JSON.stringify(splitRowMap),false,splittingBy);
+            }
+            //console.log('Object.keys(splitRowMap).length (after): ' + Object.keys(splitRowMap).length);
+        }
+
+        function showRowsToDelete() {
+            console.log('****showing rows to delete....');
+            var sortedRowIds = getSortedObjectKeys(splitRowMap,'index');
+            for(var i = 0; i < sortedRowIds.length; i++) {
+                var splitRow = splitRowMap[sortedRowIds[i]];
+                var toBeDeletedId = splitRow.toBeDeletedId;
+                var deleteThisRowId = splitRow.deleteThisRowId;
+                //console.log('########## checking row index: ' + splitRow.index);
+                //console.log('toBeDeletedId: ' + toBeDeletedId);
+                //console.log('split record Id: ' + splitRow.splitRecord.Id);
+                //console.log('amount: ' + splitRow.amount);
+                var show = (splitRow.splitRecord.Id != null && splitRow.amount == 0);
+                //console.log('show to be deleted: ' + show);
+                if(show) {
+                    //console.log('showing....');
+                    document.getElementById(toBeDeletedId).style.display = "inline";
+                    document.getElementById(deleteThisRowId).style.display = "none";
+                }
+                else {
+                    //console.log('hiding....');
+                    document.getElementById(toBeDeletedId).style.display = "none";
+                    var deleteThisRowElement = document.getElementById(deleteThisRowId);
+                    if(deleteThisRowElement) {
+                        deleteThisRowElement.style.display = "inline";
+                    }
+                }
+            }
+        }        
+
+        function saveRecords() {
+            console.log('attempting to save records....');
+            tryingSave = true;
+            document.getElementById("saveButtonId").style.display = "none";
+            var successMessageElement = document.getElementById("successMessageId");
+            successMessageElement.style.color = "blue";
+            successMessageElement.innerHTML = "Attempting save... Please wait...";
+            passSplitRowMap(JSON.stringify(splitRowMap),true,splittingBy);
+        }
+
+        function evaluateSaveCriteria(updatedRowId) {
+            //console.log('evaluating save criteria....');
+            if(!disableSave) {
+                showRowsToDelete();
+                var teamMembersExist = true;
+                var nonZeroForNewRows = true;
+                var sortedRowIds = getSortedObjectKeys(splitRowMap,'index');
+                for(var i = 0; i < sortedRowIds.length; i++) {
+                    var rowId = sortedRowIds[i];           
+                    var splitRow = splitRowMap[rowId];
+                    if(!splitRow.remove) {
+                        //console.log('$$$$$$$ row index: ' + splitRow.index);
+                        var memberJustPopulated = (updatedRowId == rowId);
+                        if(memberJustPopulated) {
+                            splitRow.splitRecord.Team_Member__c = 'not null (controller will hold the user Id)';
+                        }
+                        teamMembersExist = (!splitRow.splitRecord.Team_Member__c) ? false : teamMembersExist;
+                        var recordNew = (splitRow.splitRecord.Id == null);
+                        var positiveAmount = (splitRow.amount > 0);
+                        //console.log('recordNew: ' + recordNew);
+                        //console.log('positiveAmount: ' + positiveAmount);
+                        nonZeroForNewRows = (recordNew && !positiveAmount) ? false : nonZeroForNewRows;
+                    }
+                }
+                if(teamMembersExist && nonZeroForNewRows) {
+                    //console.log('showing save button...');
+                    document.getElementById("saveButtonId").style.display = "inline";
+                    document.getElementById("errorMessageId").innerHTML = null;
+                }
+                else {
+                    //console.log('hiding save button...');
+                    document.getElementById("saveButtonId").style.display = "none";
+                    var userMessage = 'To be able to save:'
+                    userMessage += (!teamMembersExist) ? '<br/>• There must be a team member for each split row' : '' ;
+                    userMessage += (!nonZeroForNewRows) ? '<br/>• Each new row must have an amount' : '' ;
+                    document.getElementById("errorMessageId").innerHTML = userMessage;
+                }
+            }
+        }
+
+        function passSplitRowMap(splitRowMapJson,trySave,splittingBy) {}
+
+        function getQleId() { 
+            var qleId = ''; 
+            qleId += getRandomString('0123456789',5); 
+            qleId += '_'; 
+            qleId += getRandomString('abcdefghijklmnopqrstuvwxyz',3); 
+            qleId += '_'; 
+            qleId += getRandomString('0123456789',5); 
+            return qleId; 
+        } 
+
+        function getRandomString(characterString,lengthOfString) { 
+            var randomString = ''; 
+            for (var i = 0; i < lengthOfString; i++) { 
+                randomString += characterString.charAt(Math.floor(Math.random()*characterString.length)); 
+            } 
+            return randomString; 
+        } 
+
+    </script>   
+     
+    <div style="margin: auto; width:1000px;">
+        <table class="slds-table slds-table_bordered" width="800px" cellspacing="0" cellpadding="0" align="center">
+            <thead> 
+                <tr align="center" class="slds-text-title_caps">
+                    <th style="font-weight:bold; background-color:rgb(0, 17, 51); color:white; text-align:center;" align="center" colspan="7">
+                        Booking Classification Summary
+                    </th>
+                </tr>               
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="isSelected">BC Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="isSelected">Product Family</div>
+                    </th>                        
+                    <th id="NBBcol" scope="col">
+                        <div class="slds-truncate" title="isSelected">NBB</div>
+                    </th>
+                    <th id="MYDcol" scope="col">
+                        <div class="slds-truncate" title="isSelected">MYD</div>
+                    </th>
+                    <th id="Renewalcol" scope="col">
+                        <div class="slds-truncate" title="File">Renewal</div>
+                    </th>                                            
+                    <th id="Othercol" scope="col">
+                        <div class="slds-truncate" title="File">Other</div>
+                    </th>  
+                    <th scope="col">
+                        <div class="slds-truncate" title="File">UFR</div>
+                    </th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <apex:variable var="index" value="{!0}"/> 
+                <apex:repeat value="{!bcRecords}" var="bcRecord">
+                    <tr bgcolor = "{!IF(MOD(index,2)==0,'#e6f0ff','#ffffe6')}">
+                        <td data-label="oppName">
+                            <apex:outputText value="{!bcRecord.Name}"/>
+                        </td>
+                        <td data-label="oppName">
+                            <apex:outputText value="{!bcRecord.Product_Family__c}"/>
+                        </td>                            
+                        <td data-label="oppName">
+                            <div id="{!(bcRecord.Id & '-NBB')}">
+                                <apex:outputText value="{!bcRecord.Total_NBB_USD__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="oppName">
+                            <div id="{!(bcRecord.Id & '-MYD')}">
+                                <apex:outputText value="{!bcRecord.MYD_USD__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="oppName">
+                            <div id="{!(bcRecord.Id & '-Renewal')}">
+                                <apex:outputText value="{!bcRecord.Renewal_Value_USD__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="oppName">
+                            <div id="{!(bcRecord.Id & '-Other')}">
+                                <apex:outputText value="{!bcRecord.Others_USD__c}"/>
+                            </div>
+                        </td>
+                        <td data-label="oppName">
+                            <apex:outputText value="{!bcRecord.UFR_Total__c}"/>
+                        </td>                        
+                    </tr>
+                    <apex:variable var="index" value="{!index+1}"/>
+                </apex:repeat> 
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <div style="text-align:center;">
+        <input id="toggleOverlayButtonId" class="slds-button slds-button_text-destructive" type="button" value="Toggle Summary View" onclick="updateBcTable(!showingOverlay);"/>
+    </div>    
+    <br/>
+    <div style="text-align:center; font-weight:bold; color:blue;">
+        Split by:&nbsp;
+        <select id="inputTypeSelectId" style="color:black;" onclick="setInputAndOutput(true);">
+            <option value="USD">USD</option>
+            <option value="%">%</option>
+        </select>        
+    </div>    
+    <div>       
+        <apex:form id="formId">  
+            <apex:actionFunction action="{!receiveSplitRowMap}" name="passSplitRowMap" rerender="formId" oncomplete="updateBreakLinesOnErrorMessage();setTimeout(function(){updateFormElements();},elementUpdateTimeOut);">
+                <apex:param name="splitRowMapJson" value=""/>
+                <apex:param name="trySave" value=""/>
+                <apex:param name="splittingBy" value=""/>
+            </apex:actionFunction>
+            <table class="slds-table slds-table_bordered" style="table-layout:fixed;">               
+                <thead>
+                    <tr align="center" class="slds-text-title_caps">
+                        <th style="font-weight:bold; background-color:rgb(0, 17, 51); color:white; text-align:center;" align="center" colspan="7">
+                            Edit Opportunity Splits
+                        </th>
+                    </tr>                     
+                    <tr style="height:20px;">
+                        <th scope="col">
+                            <div class="slds-truncate" title="isSelected">Product Family</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="File">Booking Classification</div>
+                        </th>
+                        <th scope="col">
+                            <div id="creditTypeColumnId" style="color:blue; cursor:pointer" onclick="togglePopup();">
+                                Credit Type (Click for Help)
+                                <span class="popuptext" id="myPopup" style="display:none;text-align:left;">
+                                    <div style="text-align:center; font-weight:bold;">
+                                        Below are the definitions of the credit types...
+                                        <br/>
+                                        Click the link again to hide the popup...
+                                        <br/>
+                                    </div>
+                                    <br/>
+                                    •<b>Influence</b>: This is an Overlay for Event AM Influence Credit.
+                                    <br/>
+                                    •<b>VST</b>: This is an Overlay for VST team.
+                                    <br/>
+                                    •<b>Presales</b>: This is an Overlay for Presales team.
+                                    <br/>
+                                    •<b>Property</b>: This is for HC Property Contribution.
+                                    <br/>
+                                    •<b>Brand</b>: This is for HC Brand Contribution.
+                                    <br/>
+                                    •<b>Ownership Group</b>: This is for HC Ownership Group Contribution.
+                                    <br/>
+                                    •<b>Management Company</b>: This is for HC Management Company Contribution.
+                                    <br/>
+                                    •<b>Ad Agency</b>: This is for HC Ad Agency Contribution.
+                                </span>                                
+                            </div>
+                        </th>                                                                    
+                        <th scope="col">
+                            <div class="slds-truncate" title="File">Team Member</div>
+                        </th>                    
+                        <th scope="col">
+                            <div class="slds-truncate" id="inputColumnHeaderId" title="File">
+                                <apex:outputText value="{!IF(splittingBy=='Amount','Amount (USD)','Percent (%)')}"/>
+                            </div>
+                        </th>   
+                        <th scope="col">
+                            <div class="slds-truncate" id="outputColumnHeaderId" title="File">
+                                <apex:outputText value="{!IF(splittingBy=='Amount','Percent (%)','Amount (USD)')}"/>
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="File">Action/Note</div>
+                        </th>
+                    </tr>                       
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!splitRows}" var="sr">
+                        <tr bgcolor="{!sr.rowColor}">
+                            <apex:variable value="foo" var="foo" rendered="{!sr.renderMergedCells}" id="varId0">
+                                <td data-label="oppName" rowspan="{!sr.rowSpan}">
+                                    <div class="slds-truncate">{!sr.splitRecord.Booking_Classification_ID__r.Product_Family__c}</div>           
+                                    <input class="slds-button slds-button_outline-brand" type="button" value="Add Split Row" onclick="addSplitRow('{!sr.splitRecord.Booking_Classification_ID__c}'); return false;"/>
+                                </td>
+                            </apex:variable> 
+                            <td data-label="oppName">
+                                <apex:selectList styleClass="slds-select" size="1" value="{!sr.splitRecord.Booking_Classification__c}" style="width:100px;" rendered="{!CONTAINS(sr.rowId,'_')}" onchange="handleSplitTypeChange('{!sr.rowId}',this.value);"> 
+                                    <apex:selectOptions value="{!sr.revenueTypes}"/>
+                                </apex:selectList>
+                                <apex:outputText value="{!sr.splitRecord.Booking_Classification__c}" rendered="{!NOT(CONTAINS(sr.rowId,'_'))}"/>
+                            </td>
+                            <td data-label="oppName">
+                                <apex:inputField id="creditTypeId" value="{!sr.splitRecord.Credit_Type__c}" onchange="console.log('setting value...');splitRowMap['{!sr.rowId}'].splitRecord.Credit_Type__c = this.value;"/>
+                            </td>                                                                           
+                            <td data-label="oppName" id="{!sr.lookupTdId}">
+                                <apex:inputField id="inputFieldId" style="width:49.7px; visibility:hidden;" value="{!sr.splitRecord.Team_Member__c}" onchange="handleUserChange('{!sr.rowId}',this.value);"/>
+                            </td>                               
+                            <td data-label="oppName" id="{!sr.inputId}">
+                                <apex:inputText styleClass="slds-input" html-autocomplete="off" value="{!sr.input}" onkeyup="decimalOnly(this);" onchange="handleAmountChange('{!sr.rowId}',this.value);"/>
+                            </td>
+                            <td data-label="oppName" id="{!sr.outputId}">
+                                <apex:outputText value="{!sr.output}"/>
+                            </td>
+                            <td data-label="oppName">
+                                <div id="{!sr.toBeDeletedId}" style="font-weight:bold; display:none; color:red;">
+                                    To be Deleted
+                                </div>
+                                <apex:variable value="foo" rendered="{!NOT(sr.splitRecord.Split_Percent__c == 100)}" var="foo" id="varId1">
+                                    <input id="{!sr.deleteThisRowId}" class="slds-button slds-button_destructive" type="button" value="{!IF(CONTAINS(sr.rowId,'_'),'Remove this Row','Delete this Row')}" onclick="removeSplitRow('{!sr.rowId}'); return false;"/>
+                                </apex:variable>
+                            </td>                                                                                                        
+                        </tr>
+                    </apex:repeat>              
+                </tbody>                   
+            </table>
+            <div id="errorMessageId" style="text-align:center; font-weight:bold; color:red;">
+                <apex:outputText value="{!errorMessage}" escape="false"/>
+            </div>
+            <div id="successMessageId" style="text-align:center; font-weight:bold; color:green;">
+                <apex:outputText value="{!successMessage}"/>
+            </div>            
+        </apex:form>
+    </div>
+    <div style="text-align:center;">
+        <br/>
+        <input id="saveButtonId" class="slds-button slds-button_brand" style="margin:auto;display:none;" type="button" value="Save Split Records" onclick="saveRecords();"/>
+    </div>
+    <br/>
+    <a href="/{!pageLoadUrlEnd}">Start Over</a> • 
+    <a href="/{!opportunityId}">Go Back to Opportunity</a> •
+    <a target="_blank" href="/{!opportunityId}">Link to Opportunity (New Tab)</a> • 
+    <apex:variable value="foo" var="foo" rendered="{!NOT(ISNULL(quoteId))}" id="varId0">
+        <a target="_blank" href="/{!quoteId}">Link to Quote</a>
+    </apex:variable>
+</apex:page>

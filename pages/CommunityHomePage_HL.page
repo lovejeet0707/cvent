@@ -1,0 +1,1490 @@
+<apex:page controller="CommunityHomePageCls" sidebar="false" readOnly="true" action="{!pageDirect}" showHeader="false" standardStylesheets="false"
+           applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <!-- Adding Community Header vf code over here -->
+    <html lang="en">
+        <head>
+            <script src="https://cdn.optimizely.com/js/96642877.js"></script>
+            <link rel="icon shortcut" href="https://cvent.my.salesforce.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+                <meta charset="utf-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                            <meta name="google-site-verification" content="SaiRo4g_r8N6B6nIvyVD3dLXbib1aGhE9I6PO1oRR8Q"/>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"></script>
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/jquery.validate.min.js')}"></script>
+            <style>
+                .popular-article .help-footer-link {min-height:280px;}
+            .loader{
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999999;
+                background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+            }
+            
+            .bPageHeader{
+                display: none;
+            }
+            .header .filter{display:block !important; }
+            .header .filter ul li {margin: 0 10px 0 0;}
+            #side-sticky .chat-us a {
+            background : #126fb7 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -53px 0 !important;
+            }        
+            #side-sticky .open-case a{
+            background : #173d66 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat 15px 0 !important;
+            }
+            #side-sticky .call-us a {
+            background : #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -123px 0 !important;
+            }
+            .left-top .mycases ul.one li.txt {margin: 6px 15px 0 0 !important;}
+            #contentWrapper {min-width: 320px !important;}
+            
+            body#articles #auraElement-1, body#articles #auraErrorMessage {display:none !important;}
+            
+            .threecolumn .leftContent {width: 225px !important;}
+            
+            .left-top .top-nav {padding-top: 6px !important; padding-left: 30px;}
+            
+            #articles #userGroups-regional ul li h4, #userGroups-vertical ul li h4 {width: 130px !important;}
+            #top-header ul li, #top-header ol li {margin-left:0px !important;}
+            .left-top .top-nav ul li {padding: 0 30px 0 10px !important;}
+            .left-top .top-nav ul li a { text-transform: uppercase; font-weight: 500;}
+            .header .search {padding: 10px 0 10px 15px !important;}
+            #body-content .cards p {margin: 10px 0 20px 0 !important; font-size: 16px !important;}
+            #body-content .cards {min-height: 245px; max-width: 420px !important;}
+            
+            #articles .col-md-9 {width: 73% !important; float: right !important;}
+            
+            .article-body .product-ctas ul li a {padding: 0px 5px 0px 5px !important; margin: 0 10px 15px 0 !important; border-radius: 2px !important; font-size: 12px !important; line-height: 23px !important;}
+            .article-body ul li { margin: 0;}
+            .article-body .related-headline ul li ul li {color: #222 !important; list-style-type: disc; margin: 0 0 0px 20px; color: #0d96d4;}
+            .article-body .related-headline ul li {color: #222 !important; font-weight:400 !important; list-style-type: none;}
+            .article-body .related-headline ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul li ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul {color: #222 !important; margin-top: 10px;}
+            .article-body ul {margin-left:30px;}
+                                                .article-body .related-headline ul {margin-left:0px;}
+                                                .article-body .related-headline ul li ul {margin-left:10px;}
+                                                .article-body .related-headline ul li {font-size: 14px; font-weight: 500;font-family: arial;line-height: 30px;}
+                                                .article-body .product-ctas ul {margin-left:0px;}
+                                                
+                                                #communitysupport {margin-top: 0px; background: #ebebeb !important;}
+                                                #announcement-box { padding: 20px 0; }
+                                                
+                                                
+                                                #announcement-box > div > p {padding-top: 9px; margin-left: 45px; margin-bottom: 0px;}
+                                                
+                                                #body-content .knowledge, #body-content .community {min-height: 300px !important;}
+                                                
+                                                .alert-area-Yes {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+                                                .alert-area-No {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+                                                .alert-area-right-side textarea {width:100%;}
+                                                                .alert-area-No button {background: #126fb7; color: #ffffff; border-radius: 3px; border: none; padding: 7px 15px;}
+                                                                .alert-area-left-side {text-align: left !important;}
+                                                                                       .alert-area-left-side input {margin-right:5px;}
+                                                                                       
+                                                                                       div.bodyDiv.brdPalette.brandPrimaryBrd table.outer {width:100%;max-width:1170px;}
+                                                                                       
+                                                                                       .force-disable {pointer-events: none !important;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-trigger {height: 25px;}
+                                                                                       #bodyTable > tbody > tr > td > div.userProfilePage > div > div > div.mainContent > div > div.centerContent.zen > div > div > div.publishercontainer.zen.defaultState.cxchattertextareacontainer.chattertextareacontainer > ul > li:nth-child(4) > div > ul > li:nth-child(1) {display:none;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-options li {overflow: hidden;height: 32px;}
+                                                                                       .zen .publisherTypeOverflow.zen-open .zen-options .publisherFeedItemTypeChoice {padding-top: 16px;padding-bottom: 16px;}
+                                                                                       .zen .publisherTypeOverflow.zen-select {margin-top: 0;top: 0;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul {color:#337ab7;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li {color: #222;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li span {color: #222;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li a {color: #337ab7;font-weight: normal;}
+                                                                                       #FAQ__kav > div:nth-child(4) > ul li a span {color: #337ab7;font-weight: normal;}
+                                                                                       
+                                                                                       .userProfilePage .vfButtonBar a.editLink img {padding: 0 !important; border: 0 !important;}
+                                                                                       
+                                                                                       .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel {padding: 0px; width: 480px !important; border-radius: 10px 10px 10px 10px;}     
+                                                                                       .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {width: 479px !important; margin: 0; padding: 0; border-radius: 10px 10px 0 0;}     
+                                                                                       .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {width: 479px !important; margin: 0 0 0 5px; padding: 5px; height: 40px;}       
+                                                                                       .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost a.cxpostquestion.button {height: auto;}     
+                                                                                       .centerContent .tbsearchAskForm #cs\3A searchAskContainer .type li {width: 465px;}      
+                                                                                       #cs\3A titleInput {width: 100%;}        
+                                                                                       #cs\3a allPostButtons > a.cxaskpublic.cxpostButton.button {height:auto !important;}     
+                                                                                       #cs\3A askDetailsWithTB.overlayDialog {height: 448px;}      
+                                                                                       #cs\3A askOverlayContent.innerContent {height: 394px;}      
+                                                                                       .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}      
+                                                                                       .publishercontainer .bottomBar {height:50px;}       
+                                                                                       div.influenceBoxHeader {height: auto;}      
+                                                                                       .result-body .show-on-mobile p {background: url({!URLFOR($Resource.CommunityAssets2, '/assets/images/filter-icon.png')}) no-repeat 1px 6px;}
+                                                                                       #help-training .widget-area { margin: 30px 15px 50px 15px !important;}
+                                                                                       #communitysupport {padding-top:0px; !important;
+                                                                                       padding-bottom: 0px !important; margin-top: 0px;}
+                                                                #home-slider {padding-bottom: 0px !important; position: relative;}
+                                                                .container-carousel { padding: 0; background: #ebebeb;}
+                                                                .container-carousel .row { padding: 0; text-align: center; color: #fff;}
+                                                                .container-carousel .row > div { padding: 0; margin: 0; }
+                                                                                          .container-carousel .col-md-12 { margin: 0; }
+                                                                                          
+                                                                                          .container-carousel h2 { font-size: 2.75em; }
+                                                                                          .container-carousel p { font-size: 1.25em; }
+                                                                                          
+                                                                                          .container-carousel .btn-outline { padding: 8px 12px background: none; border: 2px solid #fff; color: #fff; }
+                                                                                          .container-carousel .btn-outline:hover { background: #fff; color: #044981; }
+                                                                                          
+                                                                                          .container-carousel .item { padding: 70px 15px 60px; }
+                                                                                                                                  
+                                                                                                                                  .zen .zen-tabMenu a {display:none !important;}
+                                                                                                                                  
+                                                                                                                                  .datacategorylinks.csoptimizequestion > ul > li:nth-child(12),.datacategorylinks.csoptimizequestion > ul > li:nth-child(13),.datacategorylinks.csoptimizequestion > ul > li:nth-child(14),.datacategorylinks.csoptimizequestion > ul > li:nth-child(15), .datacategorylinks.csoptimizequestion > ul > li:nth-child(16),.datacategorylinks.csoptimizequestion > ul > li:nth-child(17),.datacategorylinks.csoptimizequestion > ul > li:nth-child(18),.datacategorylinks.csoptimizequestion > ul > li:nth-child(19),.datacategorylinks.csoptimizequestion > ul > li:nth-child(20),.datacategorylinks.csoptimizequestion > ul > li:nth-child(21),.datacategorylinks.csoptimizequestion > ul > li:nth-child(22),.datacategorylinks.csoptimizequestion > ul > li:nth-child(23),.datacategorylinks.csoptimizequestion > ul > li:nth-child(24),.datacategorylinks.csoptimizequestion > ul > li:nth-child(25),.datacategorylinks.csoptimizequestion > ul > li:nth-child(26),.datacategorylinks.csoptimizequestion > ul > li:nth-child(27),.datacategorylinks.csoptimizequestion > ul > li:nth-child(28),.datacategorylinks.csoptimizequestion > ul > li:nth-child(29),.datacategorylinks.csoptimizequestion > ul > li:nth-child(30),.datacategorylinks.csoptimizequestion > ul > li:nth-child(31),.datacategorylinks.csoptimizequestion > ul > li:nth-child(32),.datacategorylinks.csoptimizequestion > ul > li:nth-child(33) {display:none;}
+                                                                                                                                  #cs\3a dataCategories > option:nth-child(12),#cs\3a dataCategories > option:nth-child(13),#cs\3a dataCategories > option:nth-child(14),#cs\3a dataCategories > option:nth-child(15),#cs\3a dataCategories > option:nth-child(16),#cs\3a dataCategories > option:nth-child(17),#cs\3a dataCategories > option:nth-child(18),#cs\3a dataCategories > option:nth-child(19),#cs\3a dataCategories > option:nth-child(20),#cs\3a dataCategories > option:nth-child(21),#cs\3a dataCategories > option:nth-child(22),#cs\3a dataCategories > option:nth-child(23),#cs\3a dataCategories > option:nth-child(24),#cs\3a dataCategories > option:nth-child(25),#cs\3a dataCategories > option:nth-child(26),#cs\3a dataCategories > option:nth-child(27),#cs\3a dataCategories > option:nth-child(28),#cs\3a dataCategories > option:nth-child(29),#cs\3a dataCategories > option:nth-child(30),#cs\3a dataCategories > option:nth-child(31),#cs\3a dataCategories > option:nth-child(32),#cs\3a dataCategories > option:nth-child(33) {display:none;}
+                                                                                                                                  
+                                                                                                                                  @media only screen and (max-width: 1024px) {
+                                                                                                                                      .popular-article .help-footer-link {min-height:332px;}
+                                                                                                                                  }
+                                                                                                                                  
+                                                                                                                                  @media only screen and (max-width: 992px) {
+                                                                                                                                      #articles .col-md-9 {width: 66% !important; float: left !important;}
+                                                                                                                                      #side-sticky-bar {display:none !important;}
+                                                                                                                                  }
+                                                                                                                                  @media only screen and (max-width: 991px) {
+                                                                                                                                      #side-sticky-bar {display:none !important;}
+                                                                                                                                  }
+                                                                                                                                  @media only screen and (max-width: 767px) {
+                                                                                                                                      .header .submit {
+                                                                                                                                          background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 24px 9px !important;
+                                                                                                                                          text-indent: -999999px;
+                                                                                                                                      }
+                                                                                                                                      #horizontal-filter {display:none !important;}
+                                                                                                                                      .popular-article .help-footer-link {min-height:inherit;}
+                                                                                                                                  }
+                                                                                                                                  
+                                                                                                                                  @media only screen and (max-width: 740px) {
+                                                                                                                                      .header .submit {
+                                                                                                                                          background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 16px 9px !important;
+                                                                                                                                      }
+                                                                                                                                  }
+                                                                                                                                  .label{
+                                                                                                                                      color: #777;
+                                                                                                                                  }
+                                                                                                                                  
+                                                                                                                                  #body-content h2 {
+                                                                                                                                  font-size: 24px !important;
+                                                                                                                                 }
+                                                                                                                            
+                                                                                                                            #body-content .knowledge, #body-content .community {
+                                                                                                                            /*padding-left: 15px !important;
+                                                                                        padding-right: 15px !important;*/
+                                                                                                                            margin-bottom: 30px !important;
+                                                                                                                           }
+                                                                                          
+                                                                                          .top-band {
+                                                                                              background: #fff !important;
+                                                                                          }
+                                                                                          .left-top div#navigation ul li a {
+                                                                                          color: #0183EB !important;
+                                                                                         }
+                                                                                     .left-top div#navigation ul li.active a {
+                                                                                     background: #eee;
+                                                                                    }
+                                                                .left-top div#navigation ul li.btn-login a, .left-top div#navigation ul li.btn-login a:hover {
+                                                                color: #fff !important;
+                                                               }
+                                                                 .left-top div#navigation ul li a:hover {
+                                                                 color: #0183EB !important;
+                                                                 text-decoration: underline;
+                                                                }
+                                                
+                                                li.btn-login {
+                                                    float: right;
+                                                }
+                                                li.btn-login a {
+                                                    background: #0183EB;
+                                                    color: #fff;
+                                                    padding: 8px 12px;
+                                                    font-size: 14px;
+                                                    display: inline-block;
+                                                }
+                                                li.btn-login a:hover {
+                                                    backround:#0069bd !important;
+                                                    color: #fff !important;
+                                                }
+                                                </style>
+                                                </head>
+                                                <body id="articles" class="inner">
+                                                    <header>
+                                                    <section id="top-header" class="top-band pad-topbot-ten">
+                                                        <div class="container">
+                                                            <div class="row col-md-12">
+                                                                <div class="left-top">
+                                                                    <a href="/"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/cvent-logo.png')}" alt="logo" class="logo"/></a>
+                                                                    <div id="navigation" class="top-nav">
+                                                                        <ul>
+                                                                        
+                                                                        <li ><a href="/apex/helphome">KNOWLEDGE BASE</a></li>
+                                                                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                                                                <li class="cta-forums active"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">Forums</a></li>
+                                                                                    <li class="cta-success-groups"><a href="/apex/Groups" class="last">Success Groups</a></li>
+                                                                                        
+                                                                                        </apex:actionRegion>
+                                                                                    
+                                                                                    
+                                                                                    <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                                                                        <li class="cta-forums active"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS" class="tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Forums</a></li>
+                                                                                            <li class="cta-success-groups"><a href="/apex/Groups" class="last tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Success Groups</a></li>
+                                                                                                </apex:actionRegion>
+                                                                                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                                                                                <li class="txt btn-login"><a style="text-decoration: none;color: white;margin-left: 319%;" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E">Login</a></li>
+                                                                                                    </apex:actionRegion>
+                                                                                                <apex:actionRegion rendered="{!usr.ShowLitmosTab__c}">
+                                                                                                    <li class="cta-success-groups" ><a href="/apex/Litmos__Dashboard?sfdc.tabName=01r1k00000008UX" class="last">Training</a></li>
+                                                                                                        </apex:actionRegion>
+                                                                                                    </ul>
+                                                                                                    </div>
+                                                                                                    <!--My Cases and Photo Section-->
+                                                                                                        <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                                                                                            <div class="mycases">
+                                                                                                                <ul class="one">
+                                                                                                                    <li class="txt"><a style="text-decoration: none; color: #0183EB; margin-top: 4px; font-weight: bold;" href="/apex/SupportPage">My Cases</a></li>
+                                                                                                                        <li class="img">
+                                                                                                                            <img src="{!usr.smallphotoUrl}" alt="User" type="button" class="btn btn-default dropdown-toggle" style="border-radius: 50%;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                                                                                                                                <!--<span class="caret"></span>-->
+                                                                                                                                <ul class="dropdown-menu">
+                                                                                                                                    <li><a style="text-decoration: none;" href="/{!usr.id}">My Profile</a><br/></li>
+                                                                                                                                    <!--<li><a style="text-decoration: none;" href="/500?fcf=00B000000097v9y">My Cases</a><br/></li>-->
+                                                                                                                                    <apex:actionRegion rendered="{!!isPublicSite}">
+                                                                                                                                        <li><a id="logoutId" style="text-decoration: none;" href="/myLogOut">Logout</a></li>                                    
+                                                                                                                                            </apex:actionRegion>
+                                                                                                                                        </ul>
+                                                                                                                                        </li>
+                                                                                                                                        </ul>
+                                                                                                                                        </div>
+                                                                                                                                        </apex:actionRegion>
+                                                                                                                                        <div class="clearfix"></div>
+                                                                                                                                        </div>
+                                                                                                                                        </div>
+                                                                                                                                        
+                                                                                                                                        </div>
+                                                                                                                                        </section>
+                                                                                                                                        <section id="side-sticky-bar" style="display:none;">
+                                                                                                                                            <div class="side-sticky-bar">
+                                                                                                                                                <!--<div class="open-case-bar">
+                                                                                                                                                    <a href="/500/e?retURL=%2F500%3Ffcf%3D00B000000097v9y" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-open-case.png')}" /></a>
+                                                                                                                                                    </div>-->
+                                                                                                                                                    <div class="chat-us-bar">
+                                                                                                                                                        <!--<script type='text/javascript' src='https://c.la3-c1-was.salesforceliveagent.com/content/g/js/34.0/deployment.js'></script>
+            <script type='text/javascript'>
+            liveagent.init('https://d.la3-c1-was.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+            </script>
+            <img id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChat('573000000008OVF')" src="/resource/CommunityAssets/images/chat-on.png" width="126" height="126"  />
+            <img id="liveagent_button_offline_573000000008OVF" src="/resource/CommunityAssets/images/chat-off.png" width="126" height="126" />
+            <script type="text/javascript">
+            if (!window._laq) { window._laq = []; }
+            window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+                                        liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+                                       });
+            </script>-->
+        </div>
+        <!--<div class="call-us-bar">
+<a href="http://www.cvent.com/en/contact/support-hours-and-numbers.shtml" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-call-us.png')}" /></a>
+</div>-->
+    </div>
+</section>
+<style>
+    #side-sticky-bar {position: fixed; top: 37%; right: 0; z-index: 3;}
+    .open-case-bar,.chat-us-bar,.call-us-bar {width:77px; margin: 0px 0 10px 0px; -webkit-transition: all ease 300ms; -o-transition: all ease 300ms; transition: all ease 300ms;}
+    .open-case-bar:hover,.chat-us-bar:hover,.call-us-bar:hover {Margin-left:-250px;}
+</style>
+</header>
+</body>
+</html>
+<html lang="en">
+    <div id="load_scrl" class="loadingBox loader" style="display:none" /> 
+    <apex:outputpanel >
+        <apex:actionstatus id="actionStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                    <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputpanel>
+    <script>      
+    $(document).ready(function() {      
+        //Adding active class to highlight Navigation on Current page       
+        /*setTimeout(function() {           
+alert("enter");     
+if (window.location.href.indexOf("helphome") > -1) {        
+alert("true");      
+$(".cta-help-training").addClass("active");     
+}if (window.location.href.indexOf("chatter") > -1) {        
+alert("two");       
+$(".cta-forums").addClass("active");        
+}if (window.location.href.indexOf("Groups") > -1) {     
+alert("three");     
+$(".cta-success-groups").addClass("active");        
+}       
+}, 3000); */        
+        
+        /* Nav slection logic */                
+        jQuery('#navigation ul li').removeClass('active');          
+        var baseUrl = window.location.toString();                   
+        if(baseUrl.toLowerCase().indexOf("chatteranswersui") >= 0){     
+            //alert('hello');       
+            jQuery('#navigation ul li').eq(1).addClass('active');       
+        }else if(baseUrl.toLowerCase().indexOf("groups") >= 0){     
+            jQuery('#navigation ul li').eq(2).addClass('active');      
+        }else if(baseUrl.toLowerCase().indexOf("helphome") >= 0 ){                         
+            jQuery('#navigation ul li').eq(0).addClass('active');              
+        }else if (baseUrl.toLowerCase().indexOf("contactsupport") >= 0 || baseUrl.toLowerCase().indexOf("searchfor") >= 0 || baseUrl.toLowerCase().indexOf("500") >= 0 || baseUrl.toLowerCase().indexOf("communityarticle") >= 0){
+            jQuery('#navigation ul li').removeClass('active');
+            //alert('Inside Contact Support');
+            //jQuery(".chat-us-bar").hide();
+        }
+            else{      
+                //jQuery('#header .logo').addClass('active');   
+                jQuery('#navigation ul li').removeClass('active');               
+            }       
+    });     
+    </script> 
+    <script>
+    jQuery.noConflict();
+    jQuery(document).ready(function () {  
+        var counterSec = 0;
+        //alert('Test');
+        var tempName;
+        
+        var tempBool = false;
+        //alert($("#home-slider").length);
+        if(jQuery("#home-slider").length) {
+            tempBool = true;
+            //alert("Test");
+        }
+        //To control side stickys
+        var tempUrl= window.location.href;
+        if(tempBool || tempUrl.indexOf('helphome') > -1 || tempUrl.indexOf('ContactSupport') > -1){
+            console.log("Test");
+            jQuery('#side-sticky-bar').show();
+        }  
+        
+        
+        //To hide attach buttom from closed cases
+        var tempValStatus = jQuery('#cas7_ileinner').text();
+        console.log('tempValStatus'+tempValStatus);
+        var attachFileName = 'attachFile';
+        if(tempValStatus == 'Closed')
+            jQuery('[name="' + attachFileName + '"]').hide();
+        //To hide attach buttom from closed cases
+        
+        tempName  = 'save_close' ;
+        jQuery('[name="' + tempName + '"]').hide();
+        tempName = 'save_new' ;
+        jQuery('[name="' + tempName + '"]').hide();
+        tempName = 'spell' ;
+        jQuery('[name="' + tempName + '"]').hide();
+        setTimeout(function(){ tempName = 'csmrgp__csmrglistbtn' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000);
+        
+        tempName = 'mass_edit' ;
+        jQuery('[name="' + tempName + '"]').hide();
+        setTimeout(function(){ tempName = 'mass_edit' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+        
+        tempName = 'new_conference_case' ;
+        jQuery('[name="' + tempName + '"]').hide();
+        setTimeout(function(){ tempName = 'new_conference_case' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000); 
+        
+        //alert('tESTQ');
+        jQuery('body').click(function(evt){ 
+            //jQuery('body').addClass( "waitingSearchDiv" );
+            var url= window.location.href;
+            console.log('url++'+url);
+            //alert('tESTQ');
+            if( (url.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( url.indexOf( '&id=kA' ) != -1 ) ){
+                jQuery(".loader").show();
+                var res = url.split("id=");
+                console.log('res++'+res);
+                console.log('res.length;++'+res.length);
+                CommunityHeaderCls.returnId(res[res.length-1],
+                                            function(result, event){ 
+                                                window.location = '/apex/CommunityArticle?id='+result;
+                                            }, {escape:true}
+                                           );
+                setTimeout(function(){ jQuery(".loader").hide(); }, 5000);
+            }
+        });
+        var urll= window.location.href;
+        if( (urll.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( urll.indexOf( '&id=kA' ) != -1 ) ){
+            window.location = '/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS'; 
+        }
+    });
+    </script>
+    
+    <style>
+        .individualPalette.listViewportWrapper {margin:auto;}
+        .zen .chatterListViewContainer{margin:0 auto}
+        .chatterpeoplelistpage .peopleListView{float:none}
+        .zen .zen-page{padding:0}
+        .zen .zen-bodyZen{border-top:1px solid #ccc;float:left}
+        .chatterpeoplelistpage {
+        width: 941px;
+        }
+        .helpBubbleCommon,.zen-mlm,.helpLink,.prompt,.visibilityicon,.iconParent {display:none !important}
+        .toggleButton,.triggerTitleText,#publisherAttachLinkPost,.feedSearchClosedButton,.zen-smlineSep,.listHoverLinks,.feedrightbar{display:none !important}
+        
+        .cxSearchOrPost .button {
+        text-decoration: none !important;
+        color: #fff;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-block;
+        background:#88c540;
+        border:1px solid #88c540;
+        padding:5px;
+        box-shadow:none;
+        }
+        .chatterFollowUnfollowAction {display:none !important}
+        .x-grid3-col-ACTION_COLUMN{color:#fff !important}          
+        .cxSearchOrPost .button:hover{ color: #FFFFFF !important; background: #88c540!important;}
+        
+        .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+        position: absolute;
+        right: 55px;
+        }
+        
+        .cxsearchTip {
+        background: url({!$Resource.ChatPic}) no-repeat scroll 1px 0 transparent !important;
+        }
+        .canoprofile .threecolumn .mainContent, .canoprofile .mainContent .lowerMainContent {
+        width: 650px;
+        }
+        .centerContent #cs\:searchAskContainer {
+        width: 452px;
+        }
+        #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+        border: 0px solid white !important;
+        box-shadow: 0 !important
+        font-size: 0;
+        right: 20px;
+        top: 30px;
+        }
+        
+        #cs\:theFeed {
+        border-top: 1px solid #d4dadc;
+        margin-top: 15px;
+        padding: 25px 0 0;
+        width: 580px;
+        }
+        .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer {
+        padding: 7px 35px 7px 7px;
+        width: 490px;
+        }
+        .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer input {    
+        width: 490px;
+        }
+        .centerContent #cs\:searchAskForm.tbsearchAskForm {
+        background: none repeat scroll 0 0 #199cd6;
+        padding: 25px;
+        width: 535px;
+        }
+        .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel,
+        .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {
+        width: 465px;
+        }
+        .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {
+        width: 458px;
+        }
+        #cs\:searchAskContainer h3 {
+        color: #fff;
+        display: block;
+        font-size: 1em;
+        margin: 0 0 17px;
+        }
+        
+        #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton span,#cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton span {
+        background: url("/resource/1428392477000/MagnifierFinal") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+        background-size: 24px 24px;
+        border: 0 none !important;
+        cursor: pointer;
+        height: 30px;  
+        overflow: hidden;
+        position: absolute;
+        text-indent: -9999px;
+        width: 30px;
+        opacity: 0.4;
+        outline:none;
+        }
+        #cs\:searchAskInputContainer {box-shadow: none !important;}
+        .reset {
+        background: none !important;
+        display: none;
+        right: 6px;
+        top: 6px;
+        }
+        
+        #header{width:941px;margin:0 auto}
+        #header .logo{float:left;margin-right:25px;margin-top:12px}
+        #header .logout {float:right;margin-right:-200px;margin-top:21px}
+        #header .nav ul li{list-style-type:none;float:left}
+        #header .nav{float:left;margin-right:20px}
+        #header .user-profile {float:right;margin-top:17px;display: block !important;}
+        #header .nav li{padding:10px}
+        #header .nav li a{display:block;color:#000;text-decoration:none;font-size: 14px;}
+        #header .nav li a:hover{clor:#000;text-decoration:none}
+        #header .nav ul li.active{border-bottom:3px solid #199cd6}
+        #header .logo.active{border-bottom:3px solid #199cd6;height:36px}
+        body #AppBodyHeader, #auraElement-1 .serviceCommunityZoneswitcher,.canoprofile .threecolumn .leftContent .calogo,.cxfooter {display: none;} 
+        .canoprofile .datacategorylinks {
+        padding: 10px 0 0;
+        } 
+        img{outline:0;border:0}  
+        .canoprofile .datacategorylinks h3{font-weight:bold}
+        
+        html .brandQuaternaryBgr {background: none repeat scroll 0 0 #fff !important;}
+        .hasMotif{margin:0 !important}
+        ul li, ol li {
+        margin-left: 1.5em;
+        padding-left: 0;
+        }
+        #header .nav {
+        float: left;
+        margin-right: 20px;
+        margin-top:11px;
+        }
+        ul{
+        margin: 0px 0 0 0 ;
+        padding: 0px 0 0 0 ;
+        }
+        .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+        }
+        .cxfield{
+        display:none !important;
+        }
+        .threecolumn, .userProfilePage, .chatterFilesTabPage .chatterFilesTabPageHeader {
+        /* margin-top: 2px; */
+        margin: 10px auto 0 auto !important;
+        width: 941px !important;
+        }
+        #sidebarCell, #sidebarDiv .sidebarModule, #sidebarDiv .nestedModule {
+        border: 0 none;
+        background-color: transparent;
+        display: none !important;
+        }
+        .cssingleitemcomponent .csfeedcontainer {
+        max-width: 941px !important; 
+        margin: 20px auto 0 auto !important;
+        width: 941px !important;
+        }
+        
+        .Links{
+        background-color: #f6f6f6;
+        }
+        .chatterPublisherFileActionContainerLeft{
+        display:none !important;
+        }
+        
+        
+        .userProfilePage .headerContent {
+        width: 941px !important;
+        }
+        .profileTabSetContainer .profileTabSetHeader.zen-header {
+        width: 723px !important;
+        }
+        html .brandPrimaryBrd {
+        border-top-color: #ccc!important;
+        }
+        .bodyDiv{border-top:1px solid}
+        .threecolumn .centerContent, .userProfilePage .centerContent {
+        
+        width: 510px !important;
+        }
+        .publishercontainer{padding-top:0 !important}
+        .x-grid3-row,.x-panel x-grid-panel,.individualPalette {width:941px!important}
+        body .bodyDiv #bodyTable {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin: 0 auto;
+        
+        }
+        a.btn-new {
+        text-decoration: none !important;
+        color: #fff;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-block;
+        background:#199cd6;
+        }
+        a.btn-new:hover{ color: #FFFFFF !important; background: #07a3e8!important;}
+        
+        .btn-new {
+        text-decoration: none;
+        background: #199cd6;
+        padding: 12px 35px;
+        border-radius: 4px;
+        float: right;
+        
+        }
+        .profileHeader{display:none}
+        .listViewportWrapper .listViewport .subNav .linkBar{width: 929px !important;}
+        .header-wrap{background:#fafafa;width:100%;float:left}
+        .bodyDiv{box-shadow:none !important;border-bottom-right-radius: 0px !important; border-bottom-left-radius: 0px !important;-moz-box-shadow: none !important; -webkit-box-shadow:none !important;-o-box-shadow:none !important;-ms-box-shadow:none !important}
+        
+        .section--search { background: #ebebeb !important; padding: 3em 0 2em; }
+        .header .search {
+        border: 1px solid #ccc !important;
+        background: #fff;
+        font-size: 1.25em;
+        color: #444;
+        width: 90% !important;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+        
+        border-radius: 3px 0px 0px 3px !important;
+        }
+        .header .search::placeholder {
+        color: #aaa;
+        }
+        .header .submit {
+        border-radius: 0px 3px 3px 0px !important;
+        padding: 13px 0 13px 0 !important;
+        font-size: 15px !important;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+        }
+        
+        .left-top img.logo {
+        padding: 0 !important;
+        }
+        @media (min-width: 768px) and (max-width: 1040px) {
+        .left-top div#navigation ul li a {
+        font-size: 15px !important;
+        padding-left: 0.5em !important;
+        padding-right: 0.5em !important;
+        }
+        }
+    </style>
+    <!-- Ends here-->
+    <script type = "text/javascript">
+    function captureFilters()
+    {
+        var getUl =  document.getElementById("getFilters");
+        console.log('getUl******'+getUl);
+        getUl.onclick = function (event)
+        {
+            var target = event.target;
+            var filterSelected = event.target.innerHTML;
+            var sc_customlink = (s.prop38 + " : Filter : " + filterSelected);
+            s.linkTrackVars='prop73,events';
+            s.linkTrackEvents='event250';
+            s.prop73 = sc_customlink;
+            s.events='event250';
+            s.tl(true,'o',sc_customlink);
+        }
+    }
+    </script>
+    <apex:form >               
+        <apex:actionRegion >
+            <apex:actionFunction name="insertDataNew" reRender="home-page" action="{!search}">  
+                <apex:param name="param1" assignTo="{!searchTerm}" value="" /> 
+                <apex:param name="param2" assignTo="{!productSel}" value="" /> 
+            </apex:actionFunction>
+        </apex:actionRegion>
+        <body id="home-page" class="home">
+            <apex:outputPanel rendered="{!!isPublicSite}">
+                <section id="side-sticky-bar">
+                    <div class="side-sticky-bar">
+                        <div class="open-case-bar"><!--/500/e?retURL=%2F500%3Ffcf%3D00B000000097v9y-->
+                            <a href="/apex/FindHelp" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-open-case.png')}" /></a>
+                        </div>
+                       <div class="chat-us-bar">
+                            <script type='text/javascript' src='https://c.la1-c1-ord.salesforceliveagent.com/content/g/js/42.0/deployment.js'></script>
+                            <script type='text/javascript'>
+                                liveagent.init('https://d.la1-c1-ord.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+                            </script>
+                            <img id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChat('573000000008OVF')" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-chat-with-us-enable.png')}"/>
+                            <img id="liveagent_button_offline_573000000008OVF" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-chat-with-us-disabled.png')}"/>
+                            <script type="text/javascript">
+                            if (!window._laq) { window._laq = []; }
+                            window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+                                                        liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+                                                       });
+                            </script>
+                        </div>
+                        <!--<div class="call-us-bar">
+<a href="{!callUsURL}" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-call-us.png')}" /></a>
+</div>-->
+                        <div class="call-us-bar">
+                            <a name="request-a-call" data-target="#myModal" data-toggle="modal" onclick="reload();">
+                                <img src="/resource/1539784401000/CommunityAssets2/assets/images/side-nav-request-a-call.png"/>
+                            </a>
+                        </div>
+                        <!-- Give FeedBack-->
+                        <div class="call-us-bar">
+                            <a name="give-feedback" onclick="openFeedback();">
+                                <img src="/resource/1539784401000/CommunityAssets2/assets/images/side-nav-give-feedback-v2.png"/>
+                            </a>
+                        </div>               
+                        <!-- Ends Here-->        
+                    </div>
+                </section>
+                <div>
+                    <style>
+                        .form-group select[size] {
+                        height: 34px !important;
+                        }        
+                    </style>
+                    <!----MODAL BODY STARTS--->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" onclick="reload()" id="myReset">&times;</button>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h3 class="modal-title text-center">Request a Call</h3>
+                                        </div>
+                                    </div>
+                                    
+                                    {!$Label.Community_Call_Us_Back}&nbsp;<a href="{!callUsURL}" target="_blank">Look up our toll-free numbers.</a>
+                                    
+                                    
+                                </div>
+                                
+                                
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class='form-group'>
+                                                
+                                                <div class="required"></div>  
+                                                <apex:outputlabel value="Phone Number:"></apex:outputlabel>
+                                                <apex:inputText value="{!phoneNumber}" html-placeholder="Do not enter your country code, we will do that for you…" styleClass="form-control phnNum" maxlength="14" id="phnumber" onkeypress="restrictToMobileNumber(event,this)" />
+                                                <span class="errorMessagePhn" style="color: red;" id="phoneSpan"></span>
+                                            </div>
+                                            <div class='form-group'>
+                                                
+                                                <div class="required"></div><apex:outputlabel value="Country:"></apex:outputlabel> 
+                                                <apex:selectList size="1" value="{!selectedname}" styleClass="form-control countryCode" id="country"> 
+                                                    <apex:selectOptions value="{!CountryCode}" />  
+                                                </apex:selectList>
+                                                <span class="errorMessageCountry hide" style="color: red;" id="countrySpan"></span>
+                                            </div>
+                                            <div class='form-group'>
+                                                
+                                                <div class="required"></div> <apex:outputlabel value="Language:"></apex:outputlabel>
+                                                <apex:selectList size="1" value="{!selectedLanguage}" styleClass="form-control language" id="language" required="true"> 
+                                                    <apex:selectOption itemValue="English" itemLabel="English"/>
+                                                    <apex:selectOption itemValue="German" itemLabel="German"/>  
+                                                </apex:selectList>   
+                                            </div>
+                                        </div>                               
+                                    </div>
+                                </div>
+                                <div class="modal-footer text-center">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-left">
+                                            <Apex:commandButton onclick="if(checkValidation()){return true;}else{return false;}"  value="Submit" styleClass="form-control, zen-btn zen-highlightBtn btn-success btn btn-primary btn-lg"/>
+                                            <apex:actionFunction name="saveForm"  reRender="theForm" action="{!requestCall}"></apex:actionFunction>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>                          
+                </div>
+                <!----MODAL BODY STARTS--->
+            </apex:outputPanel>
+            <header>
+                
+            </header>
+            
+            <main>
+                
+                <section id="home-slider">
+                    
+                    <div class="container-fluid container-carousel">
+                        
+                        <div class="row col-md-12">
+                            
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                   <!-- <div class="item active" style="background-image: url('{!$Resource.CommunityAdConnect}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Cvent CONNECT 2019 Registration is Now Open</h2>
+                                        <p>Connecting over 4,000 meetings, events, and hospitality professionals to innovative technology and each other.</p>
+                                        <a class="btn btn-outline" href="https://cvent.me/l2mba?RefId=COMM1&r_CID=7011N000001IfiBQAS"  target="_blank">Register Now</a>
+                                    </div> commented by udita -->
+                                     <!-- Added for HL Launch : Udita -->
+                                        <div class="item active" style="background-image: url('{!$Resource.NewCommunityBanner}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                            <h2>Coming Soon: A NEW Cvent Community!</h2>
+                                            <p>A place to connect, learn, and stay in the know. </p>
+                                            <a class="btn btn-outline" style="padding: 8px 12px; background: none!important; border: 2px solid #fff; color: #fff;" href="https://blog.cvent.com/industry/customer-success/sneak-peek-new-community/"  target="_blank">Get a Sneak Peek </a>
+                                        </div>
+                                        <!--Ends-->
+                                    <!--<div class="item active" style="background: url(https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/39cebebcbbde4673af8f44500d6c29ac.jpg) 50% 50% no-repeat / cover;">-->
+                                    <!-- <div class="item" style="background-image: url('{!$Resource.SurveyCommunityCvent}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Tell Us What You Think!</h2>
+                                        <p>2019 Cvent Customer Satisfaction Survey</p>
+                                        <a class="btn btn-outline" href="https://www.cvent.com/d/56q0vq?cid=7011N000000rJoAQAU&refid=Community"  target="_blank">GET STARTED</a>
+                                        
+                                    </div>commented by udita -->
+                                    <!--ENDS HERE-->
+                                  <!--  <div class="item" style="background-image: url('https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/39cebebcbbde4673af8f44500d6c29ac.jpg') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Welcome to the Cvent Community</h2>
+                                        <p>Get answers to critical questions from Cvent experts, fellow customers, self-help tools, and more.</p>
+                                        <a class="btn btn-outline" style="visibility: hidden; opacity: 0;" href="#">&nbsp;</a>
+                                        
+                                    </div>commented by udita -->
+                                   <!-- <div class="item" style="background-image: url('{!$Resource.HeroCommunityCvent}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Over 100 Session Titles Just Announced!</h2>
+                                        <p>Start building a conference agenda that achieves your unique success goals.</p>
+                                        <a class="btn btn-outline" href="https://cvent.me/zle5l?RefId=COMM1&r_CID=7011N000001IfiBQAS"  target="_blank">View Agenda</a>
+                                    </div> commented by udita -->
+                                    <!--<div class="item" style="background: url(https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/1d51b4da001749f9b0e3b73974960b36.jpg) 50% 50% no-repeat / cover;">-->
+                                    <!--<div class="item" style="background-image: url('https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/1d51b4da001749f9b0e3b73974960b36.jpg') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+<h2>Experience Cvent CONNECT 2018</h2>
+<p>Discover the Power of Live with over 3,500 fellow meeting and event professionals.</p>
+<a class="btn btn-outline" href="http://www.cventconnect.com/">See dates and details</a>
+</div>-->
+                                    <!--<div class="item" style="background-image: url('{!$Resource.RegistrationReimagined}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Registration Reimagined Is Now Available!</h2>
+                                        <p>The power and flexibility to create any event you can imagine.</p>
+                                        <a class="btn btn-outline" href="https://www.cvent.com/flex?i_cid=7011N000001IhZmQAK"  target="_blank">Learn more</a>
+                                    </div>commented by udita -->
+                                    <!--<div class="item" style="background-image: url('https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/1d51b4da001749f9b0e3b73974960b36.jpg') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+<h2>Join Cvent’s Customer Education Day</h2>
+<p>3rd October at Cvent CONNECT Europe 2018, London.</p>
+<a class="btn btn-outline" href="http://www.cventconnect.com/events/cvent-connect-europe-2018/custom-20-e09829f64e3d4890af5f9ea378fbf529.aspx"  target="_blank">See event details inside</a>
+</div>-->
+                                    <div class="item" style="background-image: url('{!$Resource.CventCelebrityImage}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Become a Cvent Celebrity</h2>
+                                        <p>Earn rewards, points, and prizes in Cvent's exclusive loyalty program.</p>
+                                        <a class="btn btn-outline" href="https://www.cvent.com/en/we-heart-cvent-advocates"  target="_blank">Get Started Now</a>
+                                    </div>
+                                   <!-- <div class="item" style="background-image: url('{!$Resource.SearchMemberPanel}') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Become a Research Panel Member</h2>
+                                        <p>Give Feedback. Be Heard.</p>
+                                        <a class="btn btn-outline" href="https://ux.cvent.com/c/a/6qu04qFtEpx5EXMxbNZ058"  target="_blank">Learn More</a>
+                                    </div>commented till here by udita -->
+                                    <!--<div class="item" style="background: url(https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/5ed07ffdcf014727b1acf08ff6961ed9.jpg) 50% 50% no-repeat / cover;">-->
+                                    <!--<div class="item" style="background-image: url('https://custom.cvent.com/1821B66774B44496B086C9EBE21D619A/pix/5ed07ffdcf014727b1acf08ff6961ed9.jpg') !important; background-position: 50% 50% !important; background-repeat: no-repeat !important; background-size: cover !important;">
+                                        <h2>Search ... and you will find </h2>
+                                        <p>Query the Cvent knowledge base from your favorite search engine. No login required.</p>
+                                        <a class="btn btn-outline" style="visibility: hidden; opacity: 0;" href="#">&nbsp;</a>
+                                    </div> commented by udita -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="wrapper-announcement" id="communitysupport">
+                    <div class="container">    
+                        <div class="row col-md-8 col-md-offset-2" id="announcement-box">
+                            <div class="announcement">
+                                <span class="alert-icon"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/announcement-icon.png')}" alt=""/></span><p><a style="cursor:pointer" href="/apex/CommunityAnnouncement"><strong>Announcement</strong>&nbsp;&nbsp;{!primeString}</a></p><span class="cross-icon-btn"><img class="cross-btn-img" src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/cross-button.png')}" /></span>
+                            </div>
+                            <!--<div class="alert alert-danger text-center">
+                            Our ticketing and chat systems will be down for maintenance from March 8th 6pm ET to March 11th 8 am ET. <br/>During this time, we encourage you to use the knowledge base and forums or call us directly.
+                        </div>-->
+                        </div>
+                    </div>
+                </div>
+                
+                <section class="header section--search">
+                    <div class="container">
+                        <div class="row">
+<div class="col-xs-12 col-md-8 col-md-offset-2" style="padding-bottom: 35px;">
+<div style="background: #F45F5F; padding: 20px 20px 15px 20px;">
+<p class="text-center" style="font-size 12px; line-height: 17px; color: #fff">The Cvent Community will be down for scheduled maintenance on June 15th, from 12:30 am to 3:30 am ET. During this time, our help articles and forums may be inaccessible.</p>
+</div>
+</div>
+</div>
+                        <div class="row col-md-12 reposition">
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-12">
+                                <form id="search-form">
+                                    <input type="text" class="search" placeholder="Search the Cvent Community" required="true" id="search" value="{!searchTerm}" />
+                                    <input type="submit" id="submitButtonId" class="submit" value="search" onclick="return closeAndRefresh();"/>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <!--<br/>
+<marquee behavior="scroll" direction="left">
+<b style="color: white;font-size: 155%;">
+Chat is unavailable at this moment. We will be back online soon.</b>
+</marquee>-->
+                    </div>
+                    <style>
+                        .header .filter{display:block !important; }
+                        .header .filter ul li {margin: 0 10px 0 0;}
+                        .prod-filter.highlight {color: #173d66 !important; background: #ffffff !important;}
+                    </style>
+                </section>
+                
+                <section id="body-content" class="pad-topbot-twentyfive">
+                    <div class="container" style="background: -webkit-linear-gradient(top,#ebebeb,#ebebeb 5%,#ebebeb 100%) !important;">
+                        
+                        <div class="row col-md-12" style="background: -webkit-linear-gradient(top,#ebebeb,#ebebeb 5%,#ebebeb 100%) !important;">
+                            <!--Browse Knowledge Base Section-->
+                            <div class="col-md-6 col-sm-6"  style="height: 0px;">
+                                <div class="text-center knowledge">
+                                    <div class="cards">
+                                        <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/book-icon.png')}" alt="Knowledge Base"/>
+                                        <div style="clear:both;"></div>
+                                        <h2>Search our Knowledge Base</h2>
+                                        <p>Browse a library of how-to articles, interactive guides, videos, and more.</p>
+                                        <a class="cta-blue" href="/apex/helphome">BROWSE OUR CONTENT</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Ends Here-->
+                            <!--Browse Forums Section-->
+                            <div class="col-md-6 col-sm-6">
+                                <div class="text-center community">
+                                    <div class="cards">
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/comment-icon.png')}" alt="Login Required"/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/comment-icon.png')}" alt="Ask the Community"/>
+                                        </apex:outputPanel>
+                                        <div style="clear:both;"></div>
+                                        <h2>Ask the Community</h2>
+                                        <p>Post questions and get answers from fellow customers and Cvent experts.</p>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <a class="cta-blue" title="Login Required." href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">VIEW FORUMS</a>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <a class="cta-blue" href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">VIEW FORUMS</a>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Ends Here-->
+                            <!--Browse Success Group Section-->
+                            <div class="col-md-6 col-sm-6">
+                                <div class="text-center community">
+                                    <div class="cards">
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/icon-chat-with-customers.png')}" alt="Login Required"/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/icon-chat-with-customers.png')}" alt="SEE OUR SUCCESS GROUPS"/>
+                                        </apex:outputPanel>
+                                        <div style="clear:both;"></div>
+                                        <h2>Connect with Fellow Customers</h2>
+                                        <p>Participate in targeted group discussions with Cvent experts and fellow event and hospitality professionals.</p>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <a class="cta-blue" title="Login Required." href="/apex/Groups">SEE OUR SUCCESS GROUPS</a>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <a class="cta-blue" href="/apex/Groups">SEE OUR SUCCESS GROUPS</a>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Ends Here-->
+                            <!--Cvent Support Section-->
+                            <div class="col-md-6 col-sm-6">
+                                <div class="text-center community">
+                                    <div class="cards">
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/icon-chat-support.png')}" alt="Login Required"/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/icon-chat-support.png')}" alt="START A CHAT"/>
+                                        </apex:outputPanel>
+                                        <div style="clear:both;"></div>
+                                        <h2>Contact Cvent Support</h2>
+                                        <p>Engage the Cvent Support team for personal assistance with critical issues.</p>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <a class="cta-blue" title="Login Required." href="/apex/ContactSupport" target="_blank">GET HELP NOW</a>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <a class="cta-blue" href="/apex/ContactSupport" target="_blank">GET HELP NOW</a>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Ends Here-->
+                            <!--Support Case Section-->
+                            <!--<div class="col-md-6 col-sm-6 text-center community">
+<div class="cards">
+<apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+<img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/comment-icon.png')}" alt="Login Required"/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+<img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/comment-icon.png')}" alt="SUBMIT A TICKET"/>
+</apex:outputPanel>
+<div style="clear:both;"></div>
+<h2>Open a Support Case</h2>
+<p>Submit a detailed request for Cvent Support assistance.</p>
+<a class="cta-blue" href="/500/e?retURL=%2F500%3Ffcf%3D00B000000097v9y" target="_blank">SUBMIT A TICKET</a>
+</div>
+</div>-->
+                            <!--Ends Here-->
+                        </div>
+                    </div>
+                </section>
+                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                    <section id="members" class="pad-topbot-thirty">
+                        <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                            <div class="row col-md-12 text-center">
+                                <h2>It's not a community without our members!</h2>
+                                <p style="margin-top: 7px;">We’d like to take a minute to recognize our top community members.</p>
+                            </div>
+                            <div class="row col-md-12 text-center" id="dynamictable">
+                            </div>
+                        </div>
+                    </section>
+                </apex:actionRegion>
+            </main>
+        </body>
+        <head>
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />
+                <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/jquery.validate.min.js')}"></script>
+            <title>Cvent Community</title>
+            <meta name="description" content="The Cvent Community gives you 24/7 access to documentation, training courses, and forums to help you get the most out of Cvent."/>
+        </head>
+        <style>
+            #members .edit-profile .left-side .progress {
+            background-color: white !important;
+            }
+            #members ul.members li img {
+            padding-bottom: 0px !important; 
+            }
+            .announcement {
+            background: #bce4f4;
+            border: 2px solid #35b4e2;
+            padding: 20px 0 20px 12%;
+            }
+            .announcement span.alert-icon {
+            float: left;
+            }
+            .announcement span.cross-icon-btn {
+            position: absolute;
+            right: 25px;
+            top: 39px;
+            cursor: pointer;
+            }
+        </style>
+        <script>
+        var input = document.getElementById("search");
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("submitButtonId").click();
+            }
+        });
+        //Function to hide announcement once User closes that
+        function getRemoteAccount() {
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.CommunityHomePageCls.updateAnnouncement}', 
+                function(result, event){
+                    if (event.status) {
+                        //alert('Done*******');
+                        //document.getElementById('acctId').innerHTML = result.Id
+                        //document.getElementById('acctName').innerHTML = result.Name;
+                    } else if (event.type === 'exception') {
+                        //alert('exception*******');
+                        //document.getElementById("responseErrors").innerHTML = event.message;
+                    } else {
+                        //alert('other exception*******');
+                        //document.getElementById("responseErrors").innerHTML = event.message;
+                    }
+                }, 
+                {escape: true}
+            );
+        }
+        jQuery(document).ready(function ($) {
+            var announcCheck = '{!announcementCheck}';
+            //alert('announcCheck********'+announcCheck);
+            if(announcCheck == 'true')
+            {
+                //alert('Inside ');
+                //$("#announcement-box").hide();
+                $(".announcement").hide();
+            }
+            $(".cross-btn-img" ).click(function() {
+                //$("#announcement-box").hide();
+                $(".announcement").hide();
+                getRemoteAccount();
+            });
+            var div;
+            //alert(div);
+            $('#dynamictable').append('<div></div>');
+            div = $('#dynamictable').children(); 
+            
+            var counter=0;
+            var tempStr='';
+            <apex:repeat value="{!lstNetMem}" var="netMem" rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                //console.log('counter++'+counter==0);
+                //console.log('counter++'+counter===4);
+                if(counter==0){
+                    console.log('counter++'+counter);
+                    console.log('Tesssssssssssssssssssssss0');
+                    tempStr = '<ul class="members"><li><a href="/{!netMem.UserId}"><img style="height: 100px;width: 100px;border-radius: 50%;" src="{!IF(isPublicSite,'/profilephoto/005/T',netMem.sphoto)}" alt="Community Member"/><p class="name">{!netMem.uname}</p></a></li>';
+                    //div.append('<ul class="members"><li><img src={!netMem.sphoto} alt="Community Member"/><p class="name">{!netMem.uname}</p></li>');
+                }else if(counter > 0 && counter < 5){
+                    console.log('counter++'+counter);
+                    console.log('Tesssssssssssssssssssssss14');
+                    tempStr = tempStr + '<li><a href="/{!netMem.UserId}"><img style="height: 100px;width: 100px;border-radius: 50%;" src="{!IF(isPublicSite,'/profilephoto/005/T',netMem.sphoto)}" alt="Community Member"/><p class="name">{!netMem.uname}</p></a></li>';
+                    //div.append('<li><img src={!netMem.sphoto} alt="Community Member"/><p class="name">{!netMem.uname}</p></li>');
+                }else if(counter==5){
+                    console.log('counter++'+counter);
+                    console.log('Tesssssssssssssssssssssss4');
+                    //alert('Test');
+                    tempStr = tempStr + '</ul><ul class="members compress-area"><li><a href="/{!netMem.UserId}"><img style="height: 100px;width: 100px;border-radius: 50%;" src="{!IF(isPublicSite,'/profilephoto/005/T',netMem.sphoto)}" alt="Community Member"/><p class="name">{!netMem.uname}</p></a></li>';
+                    //console.log(div.append('</ul><ul class="members compress-area"><li><img src={!netMem.sphoto} alt="Community Member"/><p class="name">{!netMem.uname}</p></li>'));
+                }else if(counter > 5 && counter < 9){
+                    console.log('counter++'+counter);
+                    console.log('Tesssssssssssssssssssssss69');
+                    tempStr = tempStr + '<li><a href="/{!netMem.UserId}"><img style="height: 100px;width: 100px;border-radius: 50%;" src="{!IF(isPublicSite,'/profilephoto/005/T',netMem.sphoto)}"alt="Community Member"/><p class="name">{!netMem.uname}</p></a></li>';
+                    //div.append('<li><img src={!netMem.sphoto} alt="Community Member"/><p class="name">{!netMem.uname}</p></li>');
+                }else if(counter==9){
+                    console.log('counter++'+counter);
+                    console.log('Tesssssssssssssssssssssss9');
+                    tempStr = tempStr + '</ul>'; 
+                    //div.append('</ul>');
+                }
+            counter++;
+            
+            //alert(div);
+            </apex:repeat>
+            div.append(tempStr);
+        });
+        
+        
+        function closeAndRefresh()
+        {                       
+            var value =  $("#search").val();
+            
+            var product;
+            /*if($("#Abstract_Managements").attr("class").indexOf("highlight") >=0 )
+                product = 'Abstract_Managements';
+            if($("#Appointment").attr("class").indexOf("highlight") >=0 )
+                product = 'Appointment';
+            if($("#CSN_Planner").attr("class").indexOf("highlight") >=0 )
+                product = 'CSN_Planner';
+            if($("#CSN_Supplier").attr("class").indexOf("highlight") >=0 )
+                product = 'CSN_Supplier';
+            if($("#CrowdCompass").attr("class").indexOf("highlight") >=0 )
+                product = 'CrowdCompass';
+            if($("#Event").attr("class").indexOf("highlight") >=0 )
+                product = 'Event';
+            if($("#Survey").attr("class").indexOf("highlight") >=0 )
+                product = 'Survey';
+            if($("#CrowdTorch_Ticketing").attr("class").indexOf("highlight") >=0 )
+                product = 'CrowdTorch_Ticketing';*/
+            //if($("#Meetings_Management").attr("class").indexOf("highlight") >=0 )
+            //product = 'Meetings_Management';
+            /*if($("#OnArrival").attr("class").indexOf("highlight") >=0 )
+                product = 'OnArrival';*/
+            //if($("#SocialWall").attr("class").indexOf("highlight") >=0 )
+            //product = 'SocialWall';
+            //if($("#eMarketing").attr("class").indexOf("highlight") >=0 )
+            //product = 'eMarketing';
+            
+            if(value ==''){
+                alert('Please Enter Some Text To Search');
+            }else{
+                //var url = 'https://data-cventhelp.cs78.force.com/';//location.href;
+                if(product == null || product =='' || product=='undefined')
+                    product = '';
+                var url ='/apex/CommunitysearchResultPage?searchFor='+value+'&productSel='+product;
+                window.location.href = url ;
+                return false;
+            }
+            
+        }
+        </script>
+        
+    </apex:form>
+</html>
+<!-- Community Footer code added here-->
+<html lang="en">
+    <head>      
+        <meta charset="utf-8"/>     
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>      
+        <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="/resource/1436510303000/Sitecatalyst/Sitecatalyst/cp_2015.js" type="text/javascript"></script>         
+    </head>     
+    <body id="articles" class="inner">
+        <div style="clear:both;"></div>
+        <footer>
+            <section id="footer" class="pad-topbot-ten">
+                <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                    
+                    <div class="row col-md-12 footer pad-topbot-ten">
+                        <div class="col-md-3 left-side">
+                            <p>Copyright © Cvent <span class="year">2016</span></p>
+                        </div>
+                        <div class="col-md-5 right-side" style="width:50%;">
+                            <p>
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a href="/apex/CommunityGuidelines" target="_blank" class="blue-link">Community Guidelines</a> |</apex:actionRegion>  
+                                
+                                <a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank" class="blue-link">Privacy Policy</a>  
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml" target="_blank" class="blue-link">GDPR Sub-Processors</a></apex:actionRegion>
+                                
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="/apex/ContactSupport?lang=en_US" target="_blank" class="blue-link">Get Help Now</a></apex:actionRegion>
+                                
+                            </p>
+                        </div>                
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <style>
+            .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}
+        </style>  
+        <!-- Site Catalyst (Chandan Singh 6/15/2015) -->
+        <script type="text/javascript">
+        var url = window.location, baseUrl = url.toString().toLowerCase(),sectionName, sectionName2 ;
+        
+        if(baseUrl.indexOf("helphome") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "";
+            queryString = " : Help & Training Homepage";
+        }else if(baseUrl.indexOf("chatteranswersui") >= 0){     
+            sectionName = "Forums"; 
+            sectionName2 = "";
+            queryString = " : Forums Homepage";     
+        }else if(baseUrl.indexOf("groups") >= 0){
+            if(baseUrl.indexOf("groupprofilepage") >= 0){
+                sectionName = "User Groups";
+                sectionName2 = "Cvent US : Customer Portal : User Groups : Group Profile";
+                if( location.search !==''){
+                    pathName = baseUrl.split('?')
+                    articleId = pathName[1].split('='); 
+                }
+                queryString = " : Group Profile - " + articleId[1];
+                
+            }else{
+                sectionName = "User Groups";
+                sectionName2 = "";
+                queryString = " : User Groups Homepage";
+            }
+        }else if(baseUrl.indexOf("userprofile") >= 0){
+            sectionName = "Forums";
+            sectionName2 = "Cvent US : Customer Portal : Forums : My Profile";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : User Profile - " + articleId[1];
+        }else if(baseUrl.indexOf("topicpage") >= 0){
+            sectionName = "User Groups";
+            sectionName2 = "Cvent US : Customer Portal : User Groups : Topics";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                topicId = articleId[1].split('&')
+            }
+            queryString = " : Topic - " + topicId[0];
+        }else if(baseUrl.indexOf("communityarticle") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "Cvent US : Customer Portal : Help & Training : Community Article";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : Community Article - " +articleId[1];
+        }else if(baseUrl.indexOf("500") >= 0){  
+            if(baseUrl.indexOf("returl") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "";
+                queryString = " : New Case"; //+caseId ;
+            }else if(baseUrl.indexOf("fcf") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : My Cases";
+                if( location.search !==''){
+                    pathName = baseUrl.split('?')
+                    articleId = pathName[1].split('='); 
+                }
+                queryString = " : My Cases - " +articleId[1] ; //+caseId ;
+            }else{          
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : Case Details";
+                queryString = " : Case - " + document.getElementById('cas2_ileinner').innerHTML; //+caseId ;
+            }
+        }else if(baseUrl.indexOf("contactsupport") >= 0){   
+            sectionName = "Help & Training";
+            sectionName2 = "";
+            queryString = " : Help & Training : Contact Support"; //+caseId ;
+        }else if(baseUrl.indexOf("communityhomepage") >= 0){
+            sectionName = "Community Home";
+            sectionName2 = "";
+            queryString = " : Community Homepage";
+        }else if(baseUrl.indexOf("communitysearchresultpage") >= 0){
+            sectionName = "Community Search Result Page";
+            sectionName2 = "";
+            queryString ="";
+            if( $('ul#search-article li')[0] || $('.QuesDiv')[0] ){
+                s.linkTrackEvents='event151'; 
+                s.events = "event151";
+            }else{
+                s.linkTrackEvents='event33'; 
+                s.events = "event33";
+            }
+        }else{
+            sectionName = '';
+            queryString ='';
+            sectionName2 = "";
+        }
+        if( sectionName !==''){
+            sectionName = ' : ' +sectionName;
+        }   
+        var userName= "{!usr.Name}";
+        if( userName =='Cvent Community Site Guest User'){
+            s.eVar25 = s.prop32 = 'Not Logged in';
+        }else{  
+            s.eVar25 = s.prop32 = 'Logged in'
+        }    
+        s.channel="Marketing";  
+        s.server="Cvent US";
+        s.prop1="Customer Portal";
+        s.pageType="";
+        s.eVar21=s.prop28="Cvent US";
+        s.eVar22=s.prop15="Cvent US : Customer Portal";
+        s.prop26=s.eVar24=sectionName2;
+        s.eVar23=s.prop16="Cvent US : Customer Portal" + sectionName;
+        s.prop38=s.eVar10 = s.server +' : ' + s.prop1 + queryString; //Pages by Name
+        s.eVar40=s.prop14="en-US";
+        s.prop48=s.eVar46=String(document.location); // Pages by URL
+        s.t();
+        </script>
+        <!-- End Site Catalyst -->
+    </body> 
+    <!--Request a Call Script-->
+    <style type='text/css'>
+        .customPopup{
+        background-color: lightgrey;
+        border-style: solid;
+        border-radius: 10px;
+        border-width: 1px;
+        left: 55%;
+        position: relative;
+        padding: 5px;
+        box-shadow: 0px 3px 7px rgba(1, 1, 1, 5);
+        background: #fff;
+        width: 600px;
+        margin-left: -200px;
+        top: 10px;
+        max-width: 700px;
+        }
+        .customPopup .close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transition: all 200ms;
+        font-size: 20px;
+        text-decoration: none;
+        color: #333;
+        }
+        .customPopup .close:hover{
+        color: red;
+        }
+        .modal {
+        position: fixed;
+        top: 263px;}
+    </style> 
+    <style>
+        .required{
+        border-left: 2px solid red;
+        position: absolute;
+        padding-top: 29px;
+        margin-top: 26px;
+        } 
+        
+        .hide{display:none;}             
+    </style>
+    
+    <script> 
+    function openFeedback(){
+        var url = '/apex/Feedback';
+        window.open(url);
+    }        
+    function reload() {
+        debugger;
+        $('.phnNum').val('');
+        $('.countryCode').val('');
+        $('.countryCode').val('USA');
+        $('.language').val('English');
+        
+        $("#phoneSpan").addClass("hide");
+        $("#countrySpan").addClass("hide");
+    }   myReset.onclick = reload;
+    
+    function restrictToMobileNumber(event,control){   
+        $(control).val($(control).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57) || $(control).val().length>13) {
+            event.preventDefault();
+        }
+    }
+    function checkValidation(){
+        var isError = false;
+        debugger;
+        
+        if (!validatePage()) {
+            isError = true;
+            return false;
+        } else {
+            saveForm();
+        }
+    }
+    
+    function validatePage(){
+        var status = false;
+        var errorfound = 'FALSE' ;
+        if($('.phnNum').val() == ''){
+            errorfound = 'TRUE';
+            $("#phoneSpan").removeClass("hide");
+            $('span.errorMessagePhn').text('Please fill phone number.');
+            status = true;
+        }else {
+            $("#phoneSpan").addClass("hide");
+            
+        }
+        
+        if($('.countryCode').val() == ''){
+            errorfound = 'TRUE';
+            $("#countrySpan").removeClass("hide");
+            $('span.errorMessageCountry').text('Please fill country code.');
+            status = true;
+        } else { 
+            $("#countrySpan").addClass("hide");
+        }
+        return !status;    
+    }
+    </script>
+    <!--Ends Here-->    
+</html>
+<!--Ends here-->
+</apex:page>

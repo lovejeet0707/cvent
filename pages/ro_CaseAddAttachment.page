@@ -1,0 +1,107 @@
+<apex:page Controller="ro_CaseAddAttachmentController" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" title="Add Attachment" cache="false">
+<html lang="en">
+ <head>
+  <c:ro_header />
+  <style>
+   .requiredBlock {
+       background-color: #c00;
+       position: absolute;
+       left: -4px;
+       width: 3px;
+       top: 1px;
+       bottom: 1px;
+   }
+   .requiredInput {
+       position: relative;
+       height: 100%;
+   }
+  </style>
+ </head>  
+ <body> 
+  <c:ro_navbar activeTab="support"/>
+  
+  <div class="col-lg-12 container mt30">
+   
+   <apex:outputPanel id="pnlCaseMessages">
+   <apex:outputPanel rendered="{!errMessage != ''}" styleclass="col-sm-12" style="margin-left: 2px;">
+    <span style="font-weight:bold;color:#cc0000;padding-right:4px">Error:</span>
+    <span style="color:#cc0000;">{!errMessage}</span>
+   </apex:outputPanel>
+  </apex:outputPanel>
+  
+  <div class="clearfix"></div>
+  
+   <div style="height:24px;">
+       <div id="uploadStatus" style="display:none;text-align:center">
+        <span style="font-weight:bold;">Uploading...</span>
+        <span style="font-size: 18px;" class="fa fa-spinner fa-pulse"></span>
+       </div>
+   </div>
+   
+   <div style="padding: 20px 20px 10px;margin-bottom: 0px" class="jumbotron">
+    <apex:form >
+    <apex:actionFunction action="{!done}" name="done" />
+    
+    <div style="padding-bottom:8px;">
+     <div style="" class="col-sm-3">
+      <span style="font-weight: bold; font-size: 18px; display: inline-block;white-space: nowrap;color:#000;padding-top: 6px;">Attach File to Case {!oCase.CaseNumber}</span>
+     </div>
+     <div style="" class="col-sm-9 nopadding">
+                  <div class="col-sm-3">&nbsp;</div>
+                    <div class="col-sm-6">
+                     <input type="button" onclick="done();" value="Done" style="color:#000;"/>
+     </div>    
+    </div>
+   </div>
+   
+   <div class="clearfix"></div>
+   
+   <div class="col-sm-12 mt30" style="padding-left:0px;">
+       <label for="txtFile" class="control-label col-sm-3" style="text-align:right;">Select File</label>
+    <div class="col-sm-6">
+     <div class="requiredInput">
+      <div class="requiredBlock"></div>
+       <apex:inputFile value="{!Attachment.Body}" fileName="{!Attachment.Name}" filesize="{!Attachment.BodyLength}"/> 
+       <apex:outputLabel value="(Maximum attachment size allowed 5 MB)" />
+     </div>
+    </div>   
+    <div class="col-sm-3">
+     <apex:commandButton onclick="j$('#uploadStatus').show();" action="{!upload}" value="Upload"  style="color:#000;"/>
+    </div>  
+      </div>  
+      
+      <div class="clearfix"></div>
+      <div class="mt10">&nbsp;</div>
+       
+      <apex:outputPanel id="pnlAttachments"> 
+    <div class="table-responsive">
+     <table class="table table-hover table-bordered">
+      <tr>
+       <th class="col-md-1">Attachments</th>    
+      </tr>
+      <apex:repeat value="{!lstAttachment}" var="att">
+      <tr>
+       <td><a href="{!URLFOR($Action.Attachment.Download, att.Id)}" >{!att.Name}</a></td>
+      </tr>
+      </apex:repeat>
+      <apex:outputPanel layout="none" rendered="{!lstAttachment.size=0}">
+      <tr>
+       <td colspan="3">
+        <div style="font-size: 14px; font-weight: bold;">No Attachement found</div>           
+       </td>
+      </tr>
+      </apex:outputPanel>
+     </table>
+    </div>
+   </apex:outputPanel>
+        
+      <div class="clearfix"></div>
+      <div class="mt10">&nbsp;</div> 
+   </apex:form>
+  </div>
+ </div> 
+
+ <c:ro_footer />
+ </body>
+</html> 
+</apex:page>

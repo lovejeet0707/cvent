@@ -1,0 +1,11 @@
+<apex:page standardController="Account">
+
+    
+    
+    
+    <apex:iframe id="theFrame" scrolling="yes" height="900px" src="https://tableau.cvent.net/views/Test/Dashboard?AccountID={!Account.Id}:embed=y&:showAppBanner=false&:display_count=no&:toolbar=no&:showVizHome=no"/>
+    <script>
+        document.getElementById('theFrame').height = 1000;
+        document.getElementById('theFrame').width = 1800;
+    </script> 
+</apex:page>

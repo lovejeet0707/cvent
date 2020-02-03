@@ -1,0 +1,16 @@
+<apex:page standardController="Contract" extensions="contractRelatedProj">
+  <style type="text/css">
+        .p { font-weight: bold; }
+  </style>
+  <apex:pageBlock >
+      <apex:pageBlockSection >
+            <apex:outputField value="{!relatedProj.Vendor_Name__c}"/>
+            <apex:outputField value="{!relatedProj.Product_Name__c}"/>
+            <apex:outputField value="{!relatedProj.Product_Type__c}"/>
+            <apex:outputField value="{!relatedProj.Vendor_Website__c}"/>
+            <apex:outputField value="{!relatedProj.Vendor_Contact_Name__c}"/>
+            <apex:outputField value="{!relatedProj.Vendor_Contact_Phone__c}"/>
+            <apex:outputField value="{!relatedProj.Vendor_Contact_Email__c}"/>
+      </apex:pageblockSection>   
+  </apex:pageBlock>
+</apex:page>

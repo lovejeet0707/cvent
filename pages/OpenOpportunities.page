@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="AccountRelateOpp">
+ <apex:pageBlock title="Opportunities">
+ <apex:pageMessages ></apex:pageMessages>
+ <apex:pageBlockTable id="OppTable" value="{!ListOpp}" var="opp" rendered="{!checklist}" >
+ <apex:column value="{!opp.Name}"/>
+ <apex:column value="{!opp.StageName}"/>
+ <apex:column value="{!opp.New_Type__c}"/>
+ <apex:column value="{!opp.Product__c}"/>
+ <apex:column value="{!opp.CloseDate}"/>
+ <apex:column value="{!opp.Owner.Name}"/>
+ 
+ </apex:pageBlockTable>
+ </apex:pageBlock>
+</apex:page>

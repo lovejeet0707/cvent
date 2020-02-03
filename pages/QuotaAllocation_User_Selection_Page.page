@@ -1,0 +1,173 @@
+<apex:page standardController="Quota_Allocation__c" extensions="QuotaAllocation_Bulk_Update_Extension" sidebar="false" tabStyle="Quota_Management__tab" action="{!CheckPermission}">
+    
+    
+    <apex:outputPanel rendered="{!NOT(isAuthorizedUser)}">
+        <font size="4px" color="black"><b><i>You are not authorized to view this page.</i></b></font>
+    </apex:outputPanel>
+    
+    
+    <apex:form rendered="{!isAuthorizedUser}">
+    
+        <apex:actionstatus id="selecteStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                       height: 100%;opacity:0.65;width:100%;"> 
+                    <div class="waitingHolder" style="top: 120px; width: 91px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+        
+        
+    <apex:pageBlock id="pgBlockMain" title="Quota Management - User Selection" >
+      
+      
+        <apex:actionstatus id="status">
+                
+                <apex:facet name="start">
+                
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                           height: 100%;opacity:0.65;width:100%;"> 
+                        <div class="waitingHolder" style="top: 120px; width: 91px;">
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Please Wait...</span>
+                        </div>
+                    </div>
+                    
+                </apex:facet>
+                
+            </apex:actionstatus>
+            
+        <apex:actionStatus id="loading" onstart="loading(true)" onstop="loading(false)" />
+        
+        <apex:actionFunction name="doSearch"  reRender="pbTable" status="loading"  action="{!FetchUserData}"/>
+        
+        <div>
+        <b> Search by : </b><br/><br/>
+        <apex:outputLabel >Name</apex:outputLabel> &nbsp;&nbsp;
+        <apex:inputText value="{!nameSearchTxt}" onkeyup="doSearch()"/> &nbsp;&nbsp;
+       
+        <apex:outputLabel >Product</apex:outputLabel> &nbsp;&nbsp;
+        <apex:inputText value="{!productSearchTxt}" onkeyup="doSearch()"/> &nbsp;&nbsp;
+        <apex:outputLabel >Role</apex:outputLabel> &nbsp;&nbsp;
+        <apex:inputText value="{!roleSearchTxt}" onkeyup="doSearch()"/> &nbsp;&nbsp;
+       
+        
+        <!--<apex:commandButton value="Search" action="{!searchAction}" reRender="panel1" />-->
+        
+        </div>
+        <br/>
+        
+        <div>
+        <apex:outputPanel id="searchPicklist" rendered="{!searchPicklist}">
+            <apex:outputLabel ><b>Search By</b></apex:outputLabel> &nbsp;&nbsp;
+            <apex:selectList size="1" value="{!TeamOrUsers}" > 
+            <apex:actionSupport event="onchange" reRender="panel1" action="{!FetchUserData}" status="selecteStatus"/>
+            <apex:selectOption itemLabel="My Team" itemValue="My Team" />
+            
+            <!-- Since July 2016 This line used to display users to Finance-->
+            <!--<apex:selectOption rendered="{!IF($Profile.Name == 'Finance - Management' && $UserRole.Name == 'Finance' , true, false )}" itemLabel="All Users" itemValue="All Users" />-->
+                
+            <apex:selectOption itemLabel="All Users" itemValue="All Users" />
+                
+            </apex:selectList>
+        </apex:outputPanel>
+        </div>
+        
+        <apex:pageBlockButtons location="top">
+        <apex:commandButton value="Setup Quota for New Users" action="{!RedirectToAllocation}"/>
+        </apex:pageBlockButtons>
+        
+        
+    </apex:pageBlock>
+    
+    <apex:outputPanel Id="panel1">
+    
+    <apex:pageBlock Id="pgBlockSearchResults1" title="Search Results" rendered="{!IF(showResults, true, false)}">
+        
+        
+        
+        <apex:pageblockButtons >
+            <apex:commandButton value="Select All"   rendered="{!NOT(isSelectedAll)}" action="{!SelectAll}" reRender="pgBlockSearchResults1" status="selecteStatus"/>
+            <apex:commandButton value="De-Select All" rendered="{!isSelectedAll}" action="{!cancel}" reRender="pgBlockSearchResults1" status="selecteStatus"/>
+            <apex:commandButton value="Manage Allocations" action="{!ManageAllocations}" status="selecteStatus" />
+            <!--
+            <apex:commandButton value="First Page" rerender="pgBlockSearchResults1" action="{!FirstPage}" disabled="{!prev}"/>
+            <apex:commandButton value="Previous" rerender="pgBlockSearchResults1" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value="Next" rerender="pgBlockSearchResults1" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value="Last Page" rerender="pgBlockSearchResults1" action="{!LastPage}" disabled="{!nxt}" />
+            -->
+            
+        </apex:pageblockButtons>
+            
+     <apex:outputPanel id="pbTable" >
+         <apex:outputPanel rendered="{!searchPicklist}"> 
+          <!-- next, previous and page info -->
+            <apex:commandLink action="{!doPrevious}" rendered="{!hasPrevious}" value="Previous" reRender="pgBlockSearchResults1" status="selecteStatus"/>
+            <apex:outputLabel rendered="{!NOT(hasPrevious)}" value="Previous" />
+            
+            <apex:outputLabel value=" (page {!pageNo} of {!totalPages}) | showing {!startIdx} to {!endIdx} of {!totalRecords} " />
+            
+            <apex:commandLink action="{!doNext}" rendered="{!hasNext}" value="Next" reRender="pgBlockSearchResults1" status="selecteStatus"/>
+            <apex:outputLabel rendered="{!NOT(hasNext)}" value="Next" />
+          </apex:outputPanel>  
+          <apex:outputLabel style="color:red" rendered="{!NOT(searchPicklist)}" value="There are more than 25 rows. Only the first 25 are displayed. Please refine search criteria." />
+         <br/>
+            
+         <!-- table of data -->
+     <apex:pageblockTable value="{!userWrappers}" var="u">
+        <apex:column headerValue="Select">
+            <apex:inputcheckbox value="{!u.isSelected}"/>
+        </apex:column>
+        <apex:column headerValue="Name">
+           <apex:commandLink target="_self" value="{!u.usr.FirstName } {!u.usr.LastName }" action="{!RedirectToQuota}" >
+               <apex:param assignTo="{!qUserId}" name="qUserId" value="{!u.usr.Id}"/>
+           </apex:commandLink>
+        </apex:column>
+        <apex:column headerValue="Employee Number">
+            {!u.usr.EmployeeNumber } 
+        </apex:column>
+        <apex:column headerValue="Product">
+            {!u.product}
+        </apex:column>
+        <apex:column headerValue="Role">
+            {!u.Role}
+        </apex:column>            
+        <apex:column headerValue="Tier">
+            {!u.usr.Sales_Rep_Tier__c } 
+        </apex:column>            
+        <apex:column headerValue="Office">
+            {!u.usr.Office_Location__c } 
+        </apex:column>            
+                
+        <apex:column headerValue="Manager">
+            {!u.usr.Manager.Name}
+        </apex:column>            
+    
+    </apex:pageblockTable>
+         
+         <br/>
+    <apex:outputPanel rendered="{!searchPicklist}">    
+             <!-- next, previous and page info -->
+            <apex:commandLink action="{!doPrevious}" rendered="{!hasPrevious}" value="Previous" reRender="pgBlockSearchResults1" status="selecteStatus" />
+            <apex:outputLabel rendered="{!NOT(hasPrevious)}" value="Previous" />
+            
+            <apex:outputLabel value=" (page {!pageNo} of {!totalPages}) | showing {!startIdx} to {!endIdx} of {!totalRecords} " />
+            
+            <apex:commandLink action="{!doNext}" rendered="{!hasNext}" value="Next" reRender="pgBlockSearchResults1" status="selecteStatus"/>
+            <apex:outputLabel rendered="{!NOT(hasNext)}" value="Next" />
+    </apex:outputPanel>   
+    </apex:outputPanel>   
+    </apex:pageBlock>   
+    </apex:outputPanel>
+    
+    </apex:form>
+
+    <apex:outputPanel rendered="{!isAuthorizedUser}">
+        <apex:relatedList list="CombinedAttachments"/>
+        <apex:relatedlist list="OpportunityHistories" rendered="{!IF(showResults, true, false)}"/>
+    </apex:outputPanel>
+    
+</apex:page>

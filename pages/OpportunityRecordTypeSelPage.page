@@ -1,0 +1,63 @@
+<!-- 
+//////////////////////////////////////
+//		@author Abhishek Pandey		//
+/////////////////////////////////////
+Version :	1.0
+Date : 23th June 2014
+Description : Replica of record type selection for New Opportunity Custom Button On Contact Detail Page layout.
+ -->
+<apex:page standardController="Opportunity" extensions="OpportunityRecordTypeSelCls">
+	
+	<style>
+		.buttonClass{
+		    left: 28% !important;
+    		position: relative !important;		   
+		}
+	</style>
+	<apex:form >
+	
+		<apex:sectionHeader title="New Opportunity" subtitle="Select Opportunity Record Type"/>
+		<p class="bDescription">Select a record type for the new opportunity. To skip this page in the future, change your record type settings on your personal setup page.</p>
+		<apex:pageBlock title="Select Opportunity Record Type">
+			
+			<apex:pageBlockSection columns="1">
+				
+				<apex:pageblockSectionItem >
+					<apex:outputLabel value="Record Type of new record" for="idrecTypeIdSelected" />	
+					<apex:outputPanel >
+						<apex:outputPanel styleClass="requiredInput" layout="block">
+	                    	<apex:outputPanel styleClass="requiredBlock" layout="block"/>				 		
+							<apex:selectList value="{!recTypeId}" size="1" styleClass="recTypeIdSelected" id="idrecTypeIdSelected">
+								<apex:selectOptions value="{!lstSelectOpt}"/>
+							</apex:selectList>
+						</apex:outputPanel>
+					</apex:outputPanel>					
+				</apex:pageblockSectionItem>
+					
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel styleclass="buttonClass"> 				 				 			
+						<apex:commandButton value="Continue" action="{!continueMeth}"/>
+						<apex:commandButton value="Cancel" action="{!cancel}"/>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+				
+			</apex:pageBlockSection>
+				
+		</apex:pageBlock>
+		<p><b>Available Opportunity Record Types</b></p>
+		
+		<apex:dataTable styleClass="recordTypeInfo infoTable" value="{!lstRecordType}" var="item" border="0" cellspacing="0" cellpadding="0">
+			
+			<apex:column value="{!item.name}" styleClass="recordTypeName">
+				<apex:facet name="header">Record Type Name</apex:facet>		
+			</apex:column>	
+			
+			<apex:column value="{!item.Description}" styleClass="recordTypeDescription">
+				<apex:facet name="header">Description</apex:facet>
+			</apex:column>
+			 
+		</apex:dataTable>
+	
+	</apex:form>
+	
+</apex:page>

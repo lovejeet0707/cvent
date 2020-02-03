@@ -1,0 +1,49 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" controller="ro_TrainingController">
+	<apex:form >
+	<style>
+	 .cImg{
+	  border: 2px solid transparent;
+	  cursor: pointer;
+	 }
+		.cImg:hover { 
+			border: 2px solid #c8c6c7; 
+		} 
+	</style>
+	<html lang="en">
+		<head>
+ 		<c:ro_header />
+ 	</head>
+ 	<body>
+  	<c:ro_navbar activeTab="training"/>
+  		<div class="col-sm-12">
+     <center>         
+      <apex:repeat value="{!WP_List}" var="wp" rendered="{!WP_List!=Null && WP_List.size>0}">     
+       <apex:outputPanel styleclass="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group"  rendered="{!!wp.isFooter}">
+        <apex:image url="{!URLFOR($Resource.ro_VideoImage)}" 
+                    onclick="openLink('{!wp.URL}')" 
+                    title="{!wp.Title}" 
+                    styleclass="cImg"/>
+         <div style="color:black;padding-top:10px;min-height: 60px;">{!wp.Title}</div>
+       </apex:outputPanel>
+       
+       <apex:outputPanel styleclass="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group" rendered="{!wp.isFooter}">
+        <apex:outputText value="{!wp.URL}" style="cursor:default;color:black;" escape="false"/>
+       </apex:outputPanel>
+      </apex:repeat>
+     </center>      
+    </div> 
+    <div class="clearfix"></div>		
+  	</body>
+  </html>
+  	
+  <script>
+  	function openLink(str){
+  		var printWindow = window.open(str, "Print");
+		   j$("link, style, script").each(function() {
+		    j$(printWindow.document.head).append(j$(this).clone())
+		   });
+  	}
+  </script>
+	 <c:ro_footer />
+	</apex:form>
+</apex:page>

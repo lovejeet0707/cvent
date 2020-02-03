@@ -1,0 +1,14 @@
+<apex:component controller="CRM_EmailComponentController" access="global">
+    <!-- Attribute Definitions -->
+    <apex:attribute name="releaseId" description="Id for the CRM Release Record"
+                    type="String" required="true" access="global" assignTo="{!releaseIdCtrl}"/>
+
+    <!-- Component Definition -->
+    <p>
+    The build has been deployed on the <b>UAT Sandbox</b> and is now available for your testing. 
+        <br/>
+    Kindly note that we would need the formal UAT Sign Off by <b><apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> <apex:param value="{!cRMRelease.UAT_Sign_Off_Date__c}"/> </apex:outputText></b> to be
+    able to prepare for a Go Live on <b><apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> <apex:param value="{!cRMRelease.Deployment_Date__c}"/> </apex:outputText></b>.                                      
+        
+    </p>
+</apex:component>

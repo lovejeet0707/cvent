@@ -1,0 +1,155 @@
+<apex:page controller="SyndicatedKnowledgeSetupController" sidebar="true" showHeader="true">
+  <apex:sectionHeader title="Syndicated Knowledge" subtitle="Setup"/>
+  
+<apex:form id="theform">
+  
+  <apex:pageBlock title="1 Public Knowledgebase">
+    Ensure that your salesforce.com public knowledgebase is up and running.  Consider leveraging the
+    <a href="http://sites.force.com/appexchange/listingDetail?listingId=a0N30000001gFH9EAM">
+    Sample Public Knowledge Base for Salesforce Knowledge</a> to get up and running quickly.   
+  </apex:pageBlock>
+    
+  <apex:pageBlock title="2 Site Visibility">
+    Next, you need to ensure this app's components are shared with your <i>Site</i>:
+    <ol><li>Navigate to <a href="/0DM/o" target="sk_settings">Sites</a> in Setup;</li>
+        <li>Make a note of the Site URL for the site that runs your public knowledgebase, you'll need it in the next step</li>
+        <li>Click on the name of the site you setup for your public knowledgebase;</li>
+        <li>Find the <i>Site Visualforce Pages</i> section and click the <b>Edit</b> button;</li>
+        <li>Move the <b>SyndicatedKnowledgeJSONP</b> entry to the right column to enable it;</li>
+        <li>Click the <b>Save</b> button</li>
+        <li>At the top of the page, click the <b>Public Access Settings</b> button;</li>
+        <li>Find the <i>Enabled Apex Class Access</i> section and click the <b>Edit</b> button;</li>
+        <li>Move the <b>SyndicatedKnowledgeController</b> entry to the right column to enable it;</li>
+        <li>Click the <b>Save</b> button.</li></ol>
+  </apex:pageBlock>
+  
+  <apex:pageBlock title="3 Custom Settings">
+    Once you public knowledgebase is ready, copy two key pieces of information into a <i>Custom Setting</i>:
+    <ol><li>Navigate to <a href="/setup/ui/listCustomSettings.apexp" target="sk_settings">Custom Settings</a> in Setup;</li>
+        <li>Click the <b>Manage</b> link next to <i>Syndicated Knowledge</i>;</li>
+        <li>Click the <b>New</b> button towards the top of that screen;</li>
+        <li>Copy the URL of your Site and paste it into the first box;</li>
+        <li>Copy the name of your most common <a href="/setup/ui/articletypes.jsp" target="sk_settings">Article Types</a> 
+            and paste it into the second box (be sure to use the <i>Object Name</i>, not the Label);</li>
+        <li>Click the <b>Save</b> button.</li></ol> 
+  </apex:pageBlock>
+    
+  <apex:pageBlock title="4 Choose your Options">
+    Now, tweak a few settings to really make it your own:
+      <ol><li>Do you want to include a search box with list of articles? &nbsp; <apex:inputCheckbox value="{!includeSearch}"/></li>
+          <li>How many articles will you show (maximum)? &nbsp; <apex:inputText size="2" value="{!maxArticles}"/></li>
+          <li>What search phrase should generate the initial list of articles? &nbsp; <apex:inputText value="{!initialSearchText}"/><br/>
+              (<i>hint: leave blank to show all the top articles</i>)</li></ol>
+      <apex:outputPanel layout="block" style="text-align:center">
+        <apex:commandButton action="{!showMeTheCode}" value="Show Me The Code!" reRender="theform"/>
+      	</apex:outputPanel>
+  </apex:pageBlock>
+
+  <apex:pageBlock title="5 Add it to your Website" id="code" rendered="{!showCode}">
+    The text below is javascript.  Copy it and paste into the HTML source of the website that will host the Knowledge articles.
+    It should go towards the top of the HTML page, somewhere between the &lt;HEAD&gt; and &lt;/HEAD&gt; tags.<br/><br/>
+    <div style="text-align:center;"><textarea rows="15" cols="100" readonly="readonly">
+&lt;script&gt; 
+&lt;!--
+/**
+ * Builds an unordered list from the JSON feed entries of articles.
+ * Adapted from Google Code: http://code.google.com/apis/gdata/samples/base_sample.html
+ **/
+function listEntries(feed) {
+  // Clear any information displayed under the "syndicatedknowledge" div.
+  removeOldResults()
+ 
+  // Transform the JSON results: each article becomes an element in an unordered list of links.
+  if (feed.Articles == 0) {
+    var ul = document.createElement("p");
+    var txt = document.createTextNode("Search returned no articles");
+    ul.appendChild(txt);
+  } 
+  var ul = document.createElement("ul");
+  for (var i = 0; i &lt; feed.Articles.length; ++i) {
+    var article = feed.Articles[i];
+    var li = document.createElement("li");
+    var txt = document.createTextNode(article.Title);
+    var a = document.createElement("a");
+    a.href = feed.kbBaseURL + article.URLName;
+    a.appendChild(txt);
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+  document.getElementById("syndicatedknowledge").appendChild(ul);
+}
+ 
+/**
+ * Adds a JSON script element which queries the public Knoweldgebase and calls the call-back function.
+ **/
+function search(query) {
+  removeOldJSONScriptNodes();
+  removeOldResults()
+ 
+  // Show a "Searching..." indicator.
+  var div = document.getElementById('syndicatedknowledge');
+  var p = document.createElement('p');
+  p.appendChild(document.createTextNode('Searching Knowledgebase...'));
+  div.appendChild(p);
+ 
+  // Add a script element with the src as the knowledge JSON query. 
+  // The callback funtion is specified as a URI argument.
+  var scriptElement = document.createElement("script");
+  scriptElement.setAttribute("type", "text/javascript");
+  scriptElement.setAttribute("src", "{!siteBaseURL}SyndicatedKnowledgeJSONP?s=" + escape(query.s.value) + "&amp;n=" + {!maxArticles} + "&amp;callback=listEntries");
+  
+  document.documentElement.firstChild.appendChild(scriptElement);
+}
+ 
+/**
+ * Similar JSON loading function, but for the initial search on load
+ **/
+function initialSearch(initialText) {
+  var scriptElement = document.createElement("script");
+  scriptElement.setAttribute("type", "text/javascript");
+  scriptElement.setAttribute("src", "{!siteBaseURL}SyndicatedKnowledgeJSONP?s=" + initialText + "&amp;n=" + {!maxArticles} + "&amp;callback=listEntries");  
+  document.documentElement.firstChild.appendChild(scriptElement);
+}
+ 
+/**
+ * Deletes any old script elements which have been created by previous calls to search().
+ **/
+function removeOldJSONScriptNodes() {
+  var jsonScript = document.getElementById("jsonScript");
+  if (jsonScript) { jsonScript.parentNode.removeChild(jsonScript); }
+}
+ 
+/**
+ * Deletes pre-existing children of the syndicatedknowledge div from the page. 
+ * This may contain a "Searching..." message, or previous results.
+ **/
+function removeOldResults() {
+  var div = document.getElementById("syndicatedknowledge");
+  if (div.firstChild) { div.removeChild(div.firstChild); }
+}
+//--&gt;
+&lt;/script&gt; 
+    </textarea></div>
+      
+    <p/>
+    The text below is HTML.  Copy it and paste into the HTML source of the host website.
+    It should be placed in the layout where you want article links and a search box displayed.<br/><br/>
+    <div style="text-align:center;"><textarea rows="6" cols="100" readonly="readonly">
+<apex:outputPanel rendered="{!includeSearch}">&lt;form onSubmit="return false"&gt; 
+  &lt;input type="text" name="s"&gt; 
+  &lt;button id="search_button" onClick="search(this.form)"&gt;Search&lt;/button&gt;&lt;/p&gt;
+&lt;/form&gt;</apex:outputPanel>
+&lt;div id="syndicatedknowledge"&gt;&lt;/div&gt;
+&lt;script type="text/javascript">initialSearch('{!initialSearchText}');&lt;/script&gt;
+    </textarea></div>
+  </apex:pageBlock>
+  
+<apex:pageBlock title="5 Add it to your Website" id="settingsError" rendered="{!showSettingsError}">
+    <b>Oops!</b>  You're not quite ready to get the code yet.  Please ensure that you have completed
+    Step 2 above and successfully updated the <i>syndicated knowledge</i> custom setting.<br/><br/>
+    When you have completed that, refresh this page and try again. 
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

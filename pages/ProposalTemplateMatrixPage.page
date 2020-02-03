@@ -1,0 +1,1879 @@
+<!--
+ - Created by CrutchfieldJody on 7/14/2017.
+ -->
+
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml"
+           controller="ProposalMasterController">
+
+    <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+        <apex:outputText value=""></apex:outputText>
+    </block>
+    <block text-align="center" font-weight="bold">
+        <apex:outputText value="Proposal Option: 1"></apex:outputText>
+    </block>
+    <!-- event table with prices -->
+    <apex:repeat value="{!showEventTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Annual Fees and Usage:"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Unit Rate"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Discount Unit Rate"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!eventTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.quoteLine.SBQQ__Product__r.ProductCode}"></apex:outputText>
+                                        </inline>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="75px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{0, number, 0}">
+                                            <apex:param value="{!wrapper.quantity}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right"
+                                           text-decoration="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'line-through', '')}">
+                                        <!-- rm modified on 6.13.17 -->
+                                        <apex:outputText value="{!IF(wrapper.rackRate <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0,number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.rackRate}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right">
+                                        <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                value="{!IF(wrapper.discountUnitRate <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.discountUnitRate}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right" font-weight="bold">
+                                        <!--rm modified on 6.13.17 -->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                        <!-- summary -->
+                        <table-row border="1px white solid" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="240px">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value="TOTAL ANNUAL PRICE in {!currencySymbol}"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px solid white">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="right" font-weight="bold">
+                                    <!--Rm modified on 6.13.17-->
+                                    <apex:outputText value="{!IF(table.linesTotal <> NULL, currencySign, '' )}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.linesTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:repeat>
+
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- apps matrix table -->
+    <apex:repeat value="{!showAppsMatrix}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="1 Year"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="2 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="3 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="4 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="5 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+
+                    <apex:variable value="{!0}" var="rnum"/>
+                    <apex:repeat value="{!appsMatrix}" var="table">
+                        <table-row border="1px white solid" font-size="9"
+                                   background-color="{!IF(MOD(rnum,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="240px"
+                                        border="1px white solid">
+                                <block text-align="left">
+                                    <apex:outputText value="{0, number, 0}">
+                                        <apex:param value="{!table.unitCount}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term1Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term2Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term3Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term4Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term5Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                        <apex:variable var="rnum" value="{!rnum + 1}"/>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- reg matrix table -->
+    <apex:repeat value="{!showRegMatrix}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="1 Year"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="2 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="3 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="4 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="5 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+
+                    <apex:variable value="{!0}" var="rnum"/>
+                    <apex:repeat value="{!regMatrix}" var="table">
+                        <table-row border="1px white solid" font-size="9"
+                                   background-color="{!IF(MOD(rnum,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="240px"
+                                        border="1px white solid">
+                                <block text-align="left">
+                                    <apex:outputText value="{0, number, 0}">
+                                        <apex:param value="{!table.unitCount}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term1Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term2Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term3Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term4Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term5Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                        <apex:variable var="rnum" value="{!rnum + 1}"/>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- user matrix table -->
+    <apex:repeat value="{!showUserMatrix}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="1 Year"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="2 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="3 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="4 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="5 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+
+                    <apex:variable value="{!0}" var="rnum"/>
+                    <apex:repeat value="{!userMatrix}" var="table">
+                        <table-row border="1px white solid" font-size="9"
+                                   background-color="{!IF(MOD(rnum,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="240px"
+                                        border="1px white solid">
+                                <block text-align="left">
+                                    <apex:outputText value="{0, number, 0}">
+                                        <apex:param value="{!table.unitCount}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term1Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term2Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term3Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term4Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term5Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                        <apex:variable var="rnum" value="{!rnum + 1}"/>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- event matrix table -->
+    <apex:repeat value="{!showEventMatrix}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="1 Year"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="2 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="3 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="4 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="5 Years"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+
+                    <apex:variable value="{!0}" var="rnum"/>
+                    <apex:repeat value="{!eventMatrix}" var="table">
+                        <table-row border="1px white solid" font-size="9"
+                                   background-color="{!IF(MOD(rnum,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="240px"
+                                        border="1px white solid">
+                                <block text-align="left">
+                                    <apex:outputText value="{0, number, 0}">
+                                        <apex:param value="{!table.unitCount}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term1Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term2Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" width="75px" padding-right="3"
+                                        border="1px white solid">
+                                <block text-align="center">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term3Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term4Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                        padding-left="3" padding-right="3" width="75px"
+                                        border="1px white solid">
+                                <block text-align="right">
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.term5Price}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                        <apex:variable var="rnum" value="{!rnum + 1}"/>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- event table without prices -->
+    <apex:repeat value="{!showEventNoPriceTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="420px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Annual Fees and Usage:"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value=""></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!eventTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="420px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{0, number, 0}">
+                                            <apex:param value="{!wrapper.quantity}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value=""/>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                        <!-- summary -->
+                        <table-row border="1px white solid" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="480px" number-columns-spanned="2">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value="TOTAL ANNUAL PRICE in {!currencySymbol}"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="60px" border="1px white solid">
+                                <block text-align="right" font-weight="bold">
+                                    <!--Rm Modified on 6.13.17-->
+                                    <apex:outputText value="{!IF(table.linesTotal <> NULL, currencySign, '')}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.linesTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:repeat>
+                    <!-- footer -->
+                    <table-row border="1px white solid" background-color="rgb(221, 222, 225)">
+                        <table-cell display-align="center"
+                                    padding-top="{!IF(eventTable.linesSavings>0,'3', '0')}"
+                                    padding-bottom="{!IF(eventTable.linesSavings>0,'3', '0')}"
+                                    padding-left="3"
+                                    padding-right="3" width="540px" number-columns-spanned="5">
+                            <block text-align="right" font-weight="normal" color="red">
+                                <apex:outputText rendered="{!IF(eventTable.linesSavings>0,'true', 'false')}"
+                                        value="Total{!IF(eventTable.years == 1, ' annual', '')} savings of "/>
+                                <!--Rm Modified on 6.13.17-->
+                                <apex:outputText rendered="{!IF(eventTable.linesSavings>0,'true', 'false')}"
+                                        value="{0}{1,number,###,###,##0.##}">
+                                    <apex:param value="{!currencySign}"/>
+                                    <apex:param value="{!eventTable.linesSavings}"/>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!IF(eventTable.linesSavings>0 && primaryQuote.SBQQ__ExpirationDate__c <> NULL,'true', 'false')}"
+                                        value=" if agreement is signed by {!primaryQuote.SBQQ__ExpirationDate__c}"/>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- HC Summary -->
+    <apex:repeat value="{!showHcSummaryTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white" background-color="rgb(0, 160, 221)" border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="540px" number-columns-spanned="2">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Software, Enhanced RFP Services, Paid Advertising, Analytics, Fees and Usage Totals"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!hcSummaryTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="300px"
+                                            border="1px white solid">
+                                    <block text-align="left">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           text-decoration="{!IF(wrapper.strikethrough, 'line-through', '')}">
+                                        <!--Rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Listing Advertisement -->
+    <apex:repeat value="{!showListingAdsTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white" background-color="rgb(0, 160, 221)" border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="300px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Listing Advertisement(s), Software, Services and CONNECT"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="120px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="120px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Fee"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!listingAdsTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="300px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="120px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="120px"
+                                            border="1px white solid">
+                                    <block text-align="right">
+                                        <!--Rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Bundled Ads -->
+    <apex:repeat value="{!showBundleAdsTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Bundle Advertisement(s)"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Linked To"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Ad Location"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!bundleAdsTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.text1 <> NULL, wrapper.text1, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.text2 <> NULL, wrapper.text2, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                        <!-- summary -->
+                        <table-row border="1px silver" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="340px" number-columns-spanned="2">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="100px" border="1px silver">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Net Total Price"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="100px" border="1px silver">
+                                <block text-align="right" font-weight="bold">
+                                    <!-- rm Modified on 6.13.17-->
+                                    <apex:outputText value="{!IF(table.linesTotal <> NULL, currencySign, '')}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.linesTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Suggested Ads -->
+    <apex:repeat value="{!showSuggestedAdsTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Suggested Advertisement(s)"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="50px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="# of RFP Units"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Non-Native MMA(s)"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Comp Set Venue Codes"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!suggestedAdsTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="50px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.numberOfRfps <> NULL, wrapper.numberOfRfps, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="75px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.text1 <> NULL, wrapper.text1, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75x" border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.venueCodes <> NULL, wrapper.venueCodes, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                        <!-- summary -->
+                        <table-row border="1px white silver" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="365px" number-columns-spanned="3">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px silver">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Net Total Price"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="100px" border="1px silver">
+                                <block text-align="right" font-weight="bold">
+                                    <!--rm Modified on 6.13.17-->
+                                    <apex:outputText value="{!IF(table.linesTotal <> NULL, currencySign, '')}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!table.linesTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Video Retargeting -->
+    <apex:repeat value="{!showVideoRetargetingTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Video Retargeting"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="# of Views"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Net Total Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!videoRetargetingTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!wrapper.text1}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <!--rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Elite Magazines -->
+    <apex:repeat value="{!showEmiTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Elite Meetings Alliance"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Location"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Net Total Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!emiTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!wrapper.text1}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <!--rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Reporting  -->
+    <apex:repeat value="{!showReportingTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Reporting and Analytics"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Comp Set Venue Codes"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Net Total Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!reportingTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!IF(wrapper.text1 <> NULL, wrapper.text1, 'N/A')}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="100px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <!--rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Passkey  -->
+    <apex:repeat value="{!showPasskeyTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Cvent Passkey, Transient and Lanyon Group"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Product Line"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="License Metric"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Service Term"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="60px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Net Total Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!passkeyTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!wrapper.text1}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{!wrapper.text2}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{0, number, 0}">
+                                            <apex:param value="{!wrapper.quantity}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="60px"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <c:DocumentDateFormat dateValue="{!wrapper.startDate}" currencySymbol="{!currencySymbol}"/>
+                                        <apex:outputText rendered="{!IF(wrapper.startDate != NULL, 'true', 'false')}"
+                                                value=" - "></apex:outputText>
+                                        <apex:outputText value=" "></apex:outputText>
+                                        <c:DocumentDateFormat dateValue="{!wrapper.endDate}" currencySymbol="{!currencySymbol}"/>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="60px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <!--rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Merchant -->
+    <apex:repeat value="{!showMerchantTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Merchant Account Processing"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="200px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Minimum Annual Transaction Volume"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="100px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Unit Rate"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!merchantTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="200px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{0, number, 0}">
+                                            <apex:param value="{!wrapper.quantity}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="100px"
+                                            border="1px white solid">
+                                    <block text-align="right">
+                                        <!-- rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                    <!-- summary -->
+                    <table-row border="1px white solid" background-color="silver" font-size="9">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="TOTAL Initial Term Merchant Account Fee(s) in {!currencySymbol}"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="200px" border="1px white solid">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value=""></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="100px" border="1px white solid">
+                            <block text-align="right" font-weight="bold">
+                                <!--rm Modified on 6.13.17-->
+                                <apex:outputText value="{!IF(merchantTable.netTotal <> NULL, currencySign, '')}"></apex:outputText>
+                                <apex:outputText value="{0, number,###,###,##0.00}">
+                                    <apex:param value="{!merchantTable.netTotal}"/>
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- On Demand -->
+    <apex:repeat value="{!showOnDemandTable}" var="x">
+        <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+            <table table-layout="fixed" width="100%" border="1px white solid">
+                <table-body border="1px white solid">
+                    <!-- headers -->
+                    <table-row color="white"
+                               background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                               border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="On Demand Services"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Quantity"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Unit Rate"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Discount Unit Rate"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <!-- body -->
+                    <apex:repeat value="{!onDemandTable.QLTables}" var="table">
+                        <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                            <table-row border="1px white solid" font-size="9"
+                                       background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="240px"
+                                            border="1px white solid">
+                                    <block text-align="left"
+                                           linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                        <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                        <inline font-size="8" font-style="italic">
+                                            <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                        </inline>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" width="75px" padding-right="3"
+                                            border="1px white solid">
+                                    <block text-align="center">
+                                        <apex:outputText value="{0, number, 0}">
+                                            <apex:param value="{!wrapper.quantity}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right"
+                                           text-decoration="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'line-through', '')}">
+                                        <!-- rm modified on 6.13.17 -->
+                                        <apex:outputText value="{!IF(wrapper.rackRate <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0,number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.rackRate}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right">
+                                        <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                value="{!IF(wrapper.discountUnitRate <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.discountUnitRate}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                                <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                            padding-left="3" padding-right="3" width="75px"
+                                            border="1px white solid">
+                                    <block text-align="right" font-weight="bold">
+                                        <!--rm Modified on 6.13.17-->
+                                        <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySign, '')}"></apex:outputText>
+                                        <apex:outputText value="{0, number,###,###,##0.00}">
+                                            <apex:param value="{!wrapper.netTotalPrice}"/>
+                                        </apex:outputText>
+                                    </block>
+                                </table-cell>
+                            </table-row>
+                        </apex:repeat>
+                    </apex:repeat>
+                    <!-- summary -->
+                    <table-row border="1px white solid" background-color="silver">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="240px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="TOTAL Initial Term On Demand Fee(s)in {!currencySymbol}"></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="75px" border="1px white solid">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value=""></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="75px" border="1px solid white">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value=""></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="75px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value=""></apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                    padding-right="3" width="75px" border="1px white solid">
+                            <block text-align="right" font-weight="bold">
+                                <!--Rm Modified on 6.13.17-->
+                                <apex:outputText value="{!IF(onDemandTable.netTotal <> NULL, currencySign, '')}"></apex:outputText>
+                                <apex:outputText value="{0, number,###,###,##0.00}">
+                                    <apex:param value="{!onDemandTable.netTotal}"/>
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                </table-body>
+            </table>
+        </block>
+    </apex:repeat>
+
+    <!-- Professional Services -->
+    <!--
+        <apex:repeat value="{!showProfessionalServicesMap}" var="x">
+            <block font-size="10" font-family="droid sans,sans-serif" margin-bottom="15px" margin-top="10px">
+                <table table-layout="fixed" width="100%" border="1px white solid">
+                    <table-body border="1px white solid">
+-->
+    <!-- headers -->
+    <!--
+                        <table-row color="white" background-color="rgb({!primaryQuote.Dynamic_Quote_Template_Color__c})"
+                                   border="1px white solid">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        width="240px">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value="Professional Services"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Quantity"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        width="75px" border="1px solid white">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Unit Rate"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Discount Unit Rate"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value="Price"></apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+-->
+    <!-- body -->
+    <!--
+                        <apex:repeat value="{!professionalServicesMap.QLTables}" var="table">
+                            <apex:repeat value="{!table.quoteLines}" var="wrapper">
+                                <table-row border="1px white solid" font-size="9"
+                                           background-color="{!IF(MOD(wrapper.rowNumber,2)==0, 'white', 'rgb(221, 222, 225)')}">
+                                    <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                                padding-left="3" padding-right="3" width="240px"
+                                                border="1px white solid">
+                                        <block text-align="left"
+                                               linefeed-treatment="{!IF(wrapper.notes <> NULL,'preserve','ignore')}">
+                                            <apex:outputText value="{!wrapper.name}"></apex:outputText>
+                                            <inline font-size="8" font-style="italic">
+                                                <apex:outputText value="{!wrapper.notes}"></apex:outputText>
+                                            </inline>
+                                        </block>
+                                    </table-cell>
+                                    <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                                padding-left="3" width="75px" padding-right="3"
+                                                border="1px white solid">
+                                        <block text-align="center">
+                                            <apex:outputText value="{0, number, 0}">
+                                                <apex:param value="{!wrapper.quantity}"/>
+                                            </apex:outputText>
+                                        </block>
+                                    </table-cell>
+                                    <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                                padding-left="3" padding-right="3" width="75px"
+                                                border="1px white solid">
+                                        <block text-align="right"
+                                               text-decoration="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'line-through', '')}">
+-->
+    <!-- rm modified on 6.13.17 -->
+    <!--
+                                            <apex:outputText value="{!IF(wrapper.rackRate <> NULL, currencySignMap, '')}"></apex:outputText>
+                                            <apex:outputText value="{0,number,###,###,##0.00}">
+                                                <apex:param value="{!wrapper.rackRate}"/>
+                                            </apex:outputText>
+                                        </block>
+                                    </table-cell>
+                                    <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                                padding-left="3" padding-right="3" width="75px"
+                                                border="1px white solid">
+                                        <block text-align="right">
+                                            <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                    value="{!IF(wrapper.discountUnitRate <> NULL, currencySignMap, '')}"></apex:outputText>
+                                            <apex:outputText rendered="{!IF(wrapper.discountUnitRate != wrapper.rackRate, 'true', 'false')}"
+                                                    value="{0, number,###,###,##0.00}">
+                                                <apex:param value="{!wrapper.discountUnitRate}"/>
+                                            </apex:outputText>
+                                        </block>
+                                    </table-cell>
+                                    <table-cell display-align="center" padding-top="3" padding-bottom="3"
+                                                padding-left="3" padding-right="3" width="75px"
+                                                border="1px white solid">
+                                        <block text-align="right" font-weight="bold">
+-->
+    <!--Rm Modified on 6.13.17-->
+    <!--
+                                            <apex:outputText value="{!IF(wrapper.netTotalPrice <> NULL, currencySignMap, '')}"></apex:outputText>
+                                            <apex:outputText value="{0, number,###,###,##0.00}">
+                                                <apex:param value="{!wrapper.netTotalPrice}"/>
+                                            </apex:outputText>
+                                        </block>
+                                    </table-cell>
+                                </table-row>
+                            </apex:repeat>
+                        </apex:repeat>
+-->
+    <!-- summary -->
+    <!--
+                        <table-row border="1px white solid" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="240px">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value="TOTAL Minimum Initial Professional Services Fees in {!currencySymbolMap}"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px solid white">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="right" font-weight="bold">
+-->
+    <!--Rm Modified on 6.13.17-->
+    <!--
+                                    <apex:outputText value="{!IF(professionalServicesMap[qouteCount].netTotal <> NULL, currencySignMap, '')}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!professionalServicesMap.netTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                        <table-row border="1px white solid" background-color="silver">
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="240px">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value="TOTAL Minimum Initial Fees in {!currencySymbolMap}"></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="left" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px solid white">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="center" font-weight="bold">
+                                    <apex:outputText value=""></apex:outputText>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3"
+                                        padding-right="3" width="75px" border="1px white solid">
+                                <block text-align="right" font-weight="bold">
+-->
+    <!--Rm Modified on 6.13.17-->
+    <!--
+                                    <apex:outputText value="{!IF(onDemandMap.netTotal + merchantMap.netTotal + professionalServicesMap.netTotal <> NULL, currencySignMap, '')}"></apex:outputText>
+                                    <apex:outputText value="{0, number,###,###,##0.00}">
+                                        <apex:param value="{!onDemandMap.netTotal + merchantMap.netTotal + professionalServicesMap.netTotal}"/>
+                                    </apex:outputText>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </table-body>
+                </table>
+            </block>
+        </apex:repeat>
+-->
+    <block page-break-before="always"></block>
+</apex:page>

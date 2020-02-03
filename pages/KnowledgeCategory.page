@@ -1,0 +1,45 @@
+<apex:page sidebar="false" controller="BrowseKnowledgeController" showheader="false">
+<!-- Including Jquery Script files -->
+    <link rel="stylesheet" href="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.css')}"/>
+    <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.js')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.cookie.js')}" type="text/javascript"></script>
+   <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.js')}" type="text/javascript"></script>
+
+   
+<!-- End of Javascript files -->
+<script type="text/javascript">
+        $(function() {
+            $("#tree").treeview({
+                collapsed: true,
+                animated: "medium",
+                control:"#sidetreecontrol",
+                persist: "location"
+            });
+        })
+</script>
+<br/>
+<!-- Tree Structure-->
+<div class="treeheader" style="height:0px;">&nbsp;</div>
+<div id="sidetreecontrol"><a href="?#"><font style="color:black;">Collapse All</font></a> | <a href="?#"><font style="color:black;">Expand All</font></a></div>
+<ul id="tree">
+<!--------Code starts--------------->
+
+<apex:repeat value="{!mainnodes}" var="parent">  
+  <li><strong><apex:outputtext style="color:blue;" escape="false" value="{!parent.gparent}"/></strong>             
+  <ul>   
+  <ul>                 
+      <apex:repeat value="{!parent.parent}" var="child"> 
+        <li class="open"><span class="formattextcon"><apex:outputLink target="_top" value="/{!child.linkvalue}" id="theLink">{!child.linkname}</apex:outputLink></span>                        
+        <ul>  
+        </ul>                           
+        </li>  
+      </apex:repeat>               
+  </ul>  
+  </ul>          
+  </li>            
+</apex:repeat>
+
+<!--------End of Code-------------->  
+</ul>
+<!-- End of Tree -->       
+</apex:page>

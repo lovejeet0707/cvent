@@ -1,0 +1,242 @@
+<apex:page id="footerPageID" controller="FooterPageController" showHeader="false" sidebar="false" standardStylesheets="false">
+ <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />  
+ 
+
+<style>
+    #footer{width:941px;margin:0 auto}
+    #footer .footer{float:left;width:941px; margin-bottom: 10px;}
+    #footer .footer .logo{float:left;margin-right:20px;margin-top:15px;width:100%;margin-bottom: 15px;}
+    #footer .footer .footer-cvent-logo{float:left;margin-left:118px;;margin-top:0px;height: auto;}
+    #footer .footer .listed-logo{float:left;margin-top:15px,}
+    .btn-new {
+        text-decoration: none;
+        background: #199cd6;
+        padding: 12px 35px;
+        border-radius: 4px;
+        float:left;
+    }
+    #footer .footer p a{color:#b8b8b8;text-decoration:none;}
+    #footer .footer p a:hover{color:#fff;text-decoration:none;}
+    a.btn-new {
+        /* text-decoration: none !important; */
+        color: #fff !important;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        font-size: 12px;
+        display: inline-block;
+    }
+.footer-wrap{width:100%;float:left;background:#3d3d3d}  
+#footer .footer p.footer-section-heading{color: #5ed5fd;font-size: 1.1em;font-weight: bold;}
+#footer .footer{margin-top:20px}
+body .bodyDiv #bodyTable{ width:100%;}
+.outer td.oRight {
+    padding: 0px;
+}
+.noSidebarCell, .sidebarCell .fixed{ padding:0px;}
+.header-wrap{ float:inherit;}
+</style>
+
+ <script>
+        $( document ).ready(function() { 
+             if('{!lang}'!='de'){
+                 
+                   jQuery("#forId").show(); 
+                    jQuery("#SuccessId").show();
+                   
+              }
+              
+              $("#helAncid").prop("href", function () {
+                    return this.href +='{!lang}';
+              });
+        });  
+</script> 
+
+<!-- <script src="../../soap/ajax/37.0/connection.js"
+          type="text/javascript"></script>
+<script>
+      
+       $( document ).ready(function() {
+            sforce.connection.sessionId='{!GETSESSIONID()}';
+           alert(sforce.connection.sessionId);
+         // var users = sforce.connection.query("SELECT LanguageLocaleKey  from user where id ='{!$User.Id}' limit 1");
+          result = sforce.connection.query("Select Name, Id from User");
+
+          alert(users );
+          records = result.getArray("records"); 
+          var lang;
+          var lang = records[0].LanguageLocaleKey; 
+          alert(lang);
+          if(lang!='de'){
+             
+               jQuery("#forId").show(); 
+                jQuery("#SuccessId").show();
+          }
+           
+            
+    });
+ </script>   -->
+<div class="footer-wrap">
+<div id="footer">
+    <div class="footer">
+        <div class="none" style="width:25%;float:left;">
+            <p class="footer-section-heading">{!$Label.Sections}</p>
+            <p><a href="/apex/helphome?lang=" target="_parent" id="helAncid">{!$Label.HelpTraininglabel}</a></p>
+        <!--    <p><a href="/500?fcf=00B000000097v9y" target="_parent">Cases</a></p> -->
+            <p><a href="/_ui/chatter/service/ChatterAnswersUi" target="_parent" id="forId" style="display:none;">{!$Label.Forums}</a></p>
+            <p><a href="/apex/Groups" target="_parent" id="SuccessId" style="display:none;">{!$Label.Success}</a></p>
+        </div>
+
+        <div class="footer-cvent-logo">
+            <p class="footer-section-heading">{!$Label.AboutCommunity}</p>
+            <!--&copy; 2000-2015 -->
+            <!--
+            <p style="margin:4px 0 0 0;">Cvent, Inc.</p> <p style="margin:4px 0 0 0;">1765 Greensboro Station Place,</p> 
+            <p style="margin:4px 0 4px 0;">7<sup>th</sup>Floor. Tysons Corner, VA 22102. </p> 
+            |-->
+            <p><a href="/apex/CommunityGuidelines" target="_blank">{!$Label.CommunityGuidelines}</a></p>
+            <p><a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank">{!$Label.PrivacyPolicy}</a></p>
+            
+            
+        </div>
+        <div style="margin-left:260px;float:left;">
+            <p class="footer-section-heading">{!$Label.ContactSupport}</p>
+            <!--<p>To log a case, chat with live agents,ask a question to community. </p>-->
+            <div>
+            <a class="btn-new" href="{!hrefVal}" id="mfa40">{!$Label.GetHelpNow}</a>
+              <!--  <a class="btn-new" href="/apex/ContactSupport?lang={!lang}" id="mfa40">{!$Label.GetHelpNow}</a>-->
+            </div>
+        </div>
+        <!--
+        <div style="float:left;margin-left: 60px;margin-top: 20px;">
+                <img src="http://www.cvent.com/en/images/cvent-listed-logo.jpg">
+        </div>
+        -->
+        
+    </div>
+</div>
+</div>
+<script src="/resource/1436510303000/Sitecatalyst/Sitecatalyst/cp_2015.js" type="text/javascript"></script>
+
+<!-- Site Catalyst (Chandan Singh 6/15/2015) -->
+
+<script type="text/javascript">
+   
+   
+   
+   
+   
+    var url = window.location, baseUrl = url.toString().toLowerCase(),sectionName, sectionName2 ;
+    
+    if(baseUrl.indexOf("helphome") >= 0){
+        sectionName = "Help & Training";
+        sectionName2 = "";
+        queryString = " : Help & Training Homepage";
+    }else if(baseUrl.indexOf("chatteranswersui") >= 0){     
+        sectionName = "Forums"; 
+        sectionName2 = "";
+        queryString = " : Forums Homepage";     
+    }else if(baseUrl.indexOf("groups") >= 0){
+        if(baseUrl.indexOf("groupprofilepage") >= 0){
+            sectionName = "User Groups";
+            sectionName2 = "Cvent US : Customer Portal : User Groups : Group Profile";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : Group Profile - " + articleId[1];
+
+        }else{
+            sectionName = "User Groups";
+            sectionName2 = "";
+            queryString = " : User Groups Homepage";
+        }
+    }else if(baseUrl.indexOf("userprofile") >= 0){
+        sectionName = "Forums";
+        sectionName2 = "Cvent US : Customer Portal : Forums : My Profile";
+        if( location.search !==''){
+            pathName = baseUrl.split('?')
+            articleId = pathName[1].split('='); 
+        }
+        queryString = " : User Profile - " + articleId[1];
+    }else if(baseUrl.indexOf("topicpage") >= 0){
+        sectionName = "User Groups";
+        sectionName2 = "Cvent US : Customer Portal : User Groups : Topics";
+        if( location.search !==''){
+            pathName = baseUrl.split('?')
+            articleId = pathName[1].split('='); 
+            topicId = articleId[1].split('&')
+        }
+        queryString = " : Topic - " + topicId[0];
+    }else if(baseUrl.indexOf("communityarticle") >= 0){
+        sectionName = "Help & Training";
+        sectionName2 = "Cvent US : Customer Portal : Help & Training : Community Article";
+        if( location.search !==''){
+            pathName = baseUrl.split('?')
+            articleId = pathName[1].split('='); 
+        }
+        queryString = " : Community Article - " +articleId[1];
+    }else if(baseUrl.indexOf("500") >= 0){  
+        if(baseUrl.indexOf("returl") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "";
+            queryString = " : New Case"; //+caseId ;
+        }else if(baseUrl.indexOf("fcf") >= 0){
+            sectionName = "Help & Training";
+            sectionName2 = "Cvent US : Customer Portal : Help & Training : My Cases";
+            if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+            }
+            queryString = " : My Cases - " +articleId[1] ; //+caseId ;
+        }else{          
+            sectionName = "Help & Training";
+            sectionName2 = "Cvent US : Customer Portal : Help & Training : Case Details";
+            queryString = " : Case - " + document.getElementById('cas2_ileinner').innerHTML; //+caseId ;
+        }
+    }else if(baseUrl.indexOf("contactsupport") >= 0){   
+        sectionName = "Help & Training";
+        sectionName2 = "";
+        queryString = " : Help & Training : Contact Support"; //+caseId ;
+    }else if(baseUrl.indexOf("communityhomepage") >= 0){
+        sectionName = "Community Home";
+        sectionName2 = "";
+        queryString = " : Community Homepage";
+    }else if(baseUrl.indexOf("communitysearchresultpage") >= 0){
+        sectionName = "Community Search Result Page";
+        sectionName2 = "";
+        queryString ="";
+        if( $('ul#search-article li')[0] || $('.QuesDiv')[0] ){
+            s.linkTrackEvents='event151'; 
+            s.events = "event151";
+        }else{
+            s.linkTrackEvents='event33'; 
+            s.events = "event33";
+        }
+    }else{
+        sectionName = '';
+        queryString ='';
+        sectionName2 = "";
+    }
+    if( sectionName !==''){
+        sectionName = ' : ' +sectionName;
+    }   
+        
+    s.channel="Marketing";  
+    s.server="Cvent US";
+    s.prop1="Customer Portal";
+    s.pageType="";
+    s.eVar21=s.prop28="Cvent US";
+    s.eVar22=s.prop15="Cvent US : Customer Portal";
+    s.prop26=s.eVar24=sectionName2;
+    s.eVar23=s.prop16="Cvent US : Customer Portal" + sectionName;
+    s.prop38=s.eVar10 = s.server +' : ' + s.prop1 + queryString; //Pages by Name
+    s.eVar40=s.prop14="en-US";
+    s.prop48=s.eVar46=String(document.location); // Pages by URL
+    s.t();
+</script>    
+<!-- End Site Catalyst -->
+ 
+</apex:page>

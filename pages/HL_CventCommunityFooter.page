@@ -1,0 +1,287 @@
+<apex:page showHeader="false">
+    <html>
+        <script src="/resource/1436510303000/Sitecatalyst/Sitecatalyst/cp_2015.js" type="text/javascript"></script>         
+        <body id="articles" class="inner">
+            <div style="clear:both;"></div>
+            <!--<footer>
+                <section id="footer" class="pad-topbot-ten">
+                    <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                        <div class="row col-md-12 footer pad-topbot-ten">
+                            <div class="col-md-3 left-side">
+                                <p>Copyright © Cvent <span class="year">2016</span></p>
+                            </div>
+                            <div class="col-md-5 right-side" style="width:50%;">
+                                <p>
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a href="/apex/CommunityGuidelines" target="_blank" class="blue-link">Community Guidelines</a> |</apex:actionRegion>  
+                                <a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank" class="blue-link">Privacy Policy</a>  
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml" target="_blank" class="blue-link">GDPR Sub-Processors</a></apex:actionRegion>
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="/apex/ContactSupport?lang=en_US" target="_blank" class="blue-link">Get Help Now</a></apex:actionRegion>
+                                </p>
+                            </div>                
+                        </div>
+                    </div>
+                </section>
+            </footer>-->
+            
+            <div class="hl-footer-styles">
+            <footer>
+        <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome">
+                        <img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo-white.png')}" width="200"/>
+                    </a>
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.facebook.com/Cvent/" class="facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/cvent" class="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/company/cvent/" class="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/user/CventVideo" class="youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+               
+               
+                    <div class="links col-md-2 col-md-offset-2 col-sm-12">
+                    <ul>
+                        <li><a href="https://www.cvent.com/">Cvent.com</a></li>
+                        <li><a href="https://blog.cvent.com/">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <ul>
+                        <li><a href="https://community.cvent.com/participate/faq">FAQs</a></li>
+                        <li><a href="https://www.cvent.com/en/live-events-calendar">Event Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-12 text-right contact">
+                    <a href="/apex/HL_ContactSupport" class="btn btn-md btn-primary outline">Contact Support</a>
+                </div>
+           </div>
+        </div>
+        <div class="footer-copyright">
+          <!--<apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">--> <p> <a class="border-right" href="https://www.cvent.com/en/privacy-policy">Privacy Policy</a> <a href="https://community.cvent.com/termsofuse">Community Terms of Use</a> <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a class="border-left" target="_blank" href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml">GDPR Sub-Processors</a></apex:actionRegion> </p> 
+        </div>
+    </footer>
+    </div>
+            <!-- Site Catalyst (Chandan Singh 6/15/2015) -->
+            <script type="text/javascript">
+                var url = window.location, baseUrl = url.toString().toLowerCase(),sectionName, sectionName2 ;
+                if(baseUrl.indexOf("helphome") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "";
+                queryString = " : Help & Training Homepage";
+                }else if(baseUrl.indexOf("chatteranswersui") >= 0){     
+                sectionName = "Forums"; 
+                sectionName2 = "";
+                queryString = " : Forums Homepage";     
+                }else if(baseUrl.indexOf("groups") >= 0){
+                if(baseUrl.indexOf("groupprofilepage") >= 0){
+                sectionName = "User Groups";
+                sectionName2 = "Cvent US : Customer Portal : User Groups : Group Profile";
+                if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                }
+                queryString = " : Group Profile - " + articleId[1];
+
+                }else{
+                sectionName = "User Groups";
+                sectionName2 = "";
+                queryString = " : User Groups Homepage";
+                }
+                }else if(baseUrl.indexOf("userprofile") >= 0){
+                sectionName = "Forums";
+                sectionName2 = "Cvent US : Customer Portal : Forums : My Profile";
+                if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                }
+                queryString = " : User Profile - " + articleId[1];
+                }else if(baseUrl.indexOf("topicpage") >= 0){
+                sectionName = "User Groups";
+                sectionName2 = "Cvent US : Customer Portal : User Groups : Topics";
+                if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                topicId = articleId[1].split('&')
+                }
+                queryString = " : Topic - " + topicId[0];
+                }else if(baseUrl.indexOf("communityarticle") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : Community Article";
+                if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                }
+                queryString = " : Community Article - " +articleId[1];
+                }else if(baseUrl.indexOf("500") >= 0){  
+                if(baseUrl.indexOf("returl") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "";
+                queryString = " : New Case"; //+caseId ;
+                }else if(baseUrl.indexOf("fcf") >= 0){
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : My Cases";
+                if( location.search !==''){
+                pathName = baseUrl.split('?')
+                articleId = pathName[1].split('='); 
+                }
+                queryString = " : My Cases - " +articleId[1] ; //+caseId ;
+                }else{          
+                sectionName = "Help & Training";
+                sectionName2 = "Cvent US : Customer Portal : Help & Training : Case Details";
+                queryString = " : Case - " + document.getElementById('cas2_ileinner').innerHTML; //+caseId ;
+                }
+                }else if(baseUrl.indexOf("contactsupport") >= 0){   
+                sectionName = "Help & Training";
+                sectionName2 = "";
+                queryString = " : Help & Training : Contact Support"; //+caseId ;
+                }else if(baseUrl.indexOf("communityhomepage") >= 0){
+                sectionName = "Community Home";
+                sectionName2 = "";
+                queryString = " : Community Homepage";
+                }else if(baseUrl.indexOf("communitysearchresultpage") >= 0){
+                sectionName = "Community Search Result Page";
+                sectionName2 = "";
+                queryString ="";
+                if( $('ul#search-article li')[0] || $('.QuesDiv')[0] ){
+                s.linkTrackEvents='event151'; 
+                s.events = "event151";
+                }else{
+                s.linkTrackEvents='event33'; 
+                s.events = "event33";
+                }
+                }else{
+                sectionName = '';
+                queryString ='';
+                sectionName2 = "";
+                }
+                if( sectionName !==''){
+                sectionName = ' : ' +sectionName;
+                }   
+                var userName = "{!$User.FirstName}" + ' '+"{!$User.LastName}";
+                if( userName =='Cvent Community Site Guest User'){
+                s.eVar25 = s.prop32 = 'Not Logged in';
+                }else{  
+                s.eVar25 = s.prop32 = 'Logged in'
+                }    
+                s.channel="Marketing";  
+                s.server="Cvent US";
+                s.prop1="Customer Portal";
+                s.pageType="";
+                s.eVar21=s.prop28="Cvent US";
+                s.eVar22=s.prop15="Cvent US : Customer Portal";
+                s.prop26=s.eVar24=sectionName2;
+                s.eVar23=s.prop16="Cvent US : Customer Portal" + sectionName;
+                s.prop38=s.eVar10 = s.server +' : ' + s.prop1 + queryString; //Pages by Name
+                s.eVar40=s.prop14="en-US";
+                s.prop48=s.eVar46=String(document.location); // Pages by URL
+                s.t();
+            </script>
+            <!-- End Site Catalyst -->
+        </body> 
+        <!--Request a Call Script-->
+        <style type='text/css'>
+            .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}
+            .customPopup{
+                background-color: lightgrey;
+                border-style: solid;
+                border-radius: 10px;
+                border-width: 1px;
+                left: 55%;
+                position: relative;
+                padding: 5px;
+                box-shadow: 0px 3px 7px rgba(1, 1, 1, 5);
+                background: #fff;
+                width: 600px;
+                margin-left: -200px;
+                top: 10px;
+                max-width: 700px;
+            }
+            .customPopup .close{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                transition: all 200ms;
+                font-size: 20px;
+                text-decoration: none;
+                color: #333;
+            }
+            .customPopup .close:hover{
+                color: red;
+            }
+            .modal {
+                position: fixed;
+                top: 263px;
+            }
+            .required{
+                border-left: 2px solid red;
+                position: absolute;
+                padding-top: 29px;
+                margin-top: 26px;
+            } 
+            .hide{display:none;}             
+        </style>
+        <script> 
+            function openFeedback(){
+                var url = '/apex/HL_Feedback';
+                window.open(url);
+            }        
+            function reload() {
+                debugger;
+                $('.phnNum').val('');
+                $('.countryCode').val('');
+                $('.countryCode').val('USA');
+                $('.language').val('English');
+                $("#phoneSpan").addClass("hide");
+                $("#countrySpan").addClass("hide");
+            }   
+            
+            //myReset.onclick = reload;
+            function restrictToMobileNumber(event,control){   
+                $(control).val($(control).val().replace(/[^\d].+/, ""));
+                if ((event.which < 48 || event.which > 57) || $(control).val().length>13) {
+                    event.preventDefault();
+                }
+            }
+            function checkValidation(){
+                var isError = false;
+                debugger;
+                if (!validatePage()) {
+                    isError = true;
+                    return false;
+                } else {
+                    saveForm();
+                }
+            }
+            function validatePage(){
+                var status = false;
+                var errorfound = 'FALSE' ;
+                if($('.phnNum').val() == ''){
+                    errorfound = 'TRUE';
+                    $("#phoneSpan").removeClass("hide");
+                    $('span.errorMessagePhn').text('Please fill phone number.');
+                    status = true;
+                }else {
+                    $("#phoneSpan").addClass("hide");
+                }
+                if($('.countryCode').val() == ''){
+                    errorfound = 'TRUE';
+                    $("#countrySpan").removeClass("hide");
+                    $('span.errorMessageCountry').text('Please fill country code.');
+                    status = true;
+                } else { 
+                    $("#countrySpan").addClass("hide");
+                }
+                return !status;    
+            }
+        </script>
+    </html>
+</apex:page>

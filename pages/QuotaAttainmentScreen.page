@@ -1,0 +1,351 @@
+<apex:page controller="QuotaAttainmentScreenCls" readOnly="true" showHeader="false">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--<script>
+        $(function() {
+            $('#fitin div').css('font-size', '1em');
+            
+            while( $('#fitin div').height() > $('#fitin').height() ) {
+                $('#fitin div').css('font-size', (parseInt($('#fitin div').css('font-size')) - 1) + "px" );
+            }
+            
+        });
+        $(function() {
+            $('#fitin').css('font-size', '1em');
+            
+            while( $('#fitin').height() > $('#fitin').height() ) {
+                $('#fitin').css('font-size', (parseInt($('#fitin').css('font-size')) - 1) + "px" );
+            }
+            
+        });
+    </script>-->
+  <style>
+.chart_box { clear: both; width: 100%; float: left; overflow: hidden; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fff; top: 1px; position: relative }
+.mComponent { width: 100%; margin:0 auto; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 0; -moz-border-radius-bottomleft: 0; -webkit-border-radius: 5px 5px 0 0; border-radius: 5px 5px 0 0; border: 1px solid #ccc; padding-bottom: 5px; padding-top: 5px; background-color: #dedede; font-size:15px;}
+.moduleTitle { font-size:15px;}
+.cHeader { padding:0 5px;}
+.mComponent  {
+    margin: 0 auto;
+}
+   
+.chartleft {
+    padding: 0 2%;
+    width: 12%;
+    float: left;
+}
+
+.chartleftImg {
+    padding: 0 0%;
+    width: 20%;
+    float: left;
+}
+
+.chartright {
+    height: 460px;
+    padding: 0 0 1% 0;
+    width: 64%;
+    float: left;
+}
+.imagebox {position:relative; margin:0 1% 7px 0; height:40px;}
+.numberCircle {
+    width:36px;
+    width:36px;
+    background: #ff7600;
+    border: 2px solid #666;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.imgClass {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    width: auto\9; /* ie8 */
+}
+#fitin {
+     height: 40px;
+    line-height: 40px;
+    padding: 0 0 0 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.testtest {
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    font-style: italic;
+    margin: 6px 12px 0 0;
+    text-align: right;
+    font-weight:bold;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+body {
+font-size:100%;
+}
+.circle{
+    border: 2px solid #666;
+    border-radius: 50%;
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+    width: 30px;
+    }
+.clsName{ margin-top: 10px;}
+.mComponent{border:1px solid #666;margin:0px auto 13px} 
+table.clsRight{margin-left:0px} 
+table.list > th{background:#2485b3;padding:5px;color:#fff}
+table.list > tbody > td{verticle-align:middle}    
+table.list > tbody > tr.even{background:#e1e1e1}
+.clsAccount {
+    white-space: nowrap;
+    width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+}
+table.list >th.headerRowFirst{padding-left:10px !important}
+</style>
+  
+    <div>
+        <a style="float:right;position:absolute;top:0px" id="report" href="/home/home.jsp">Exit Reporting</a>
+        <a style="float:right;position:absolute;top:0px"  href="/apex/ReportsLandingPage">Back</a> 
+    </div>
+    <div class="chart_box">
+        <div class="mComponent doesNotContainAChart">
+            <div class="cHeader brandSecondaryBrd">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="title"><h2 class="moduleTitle">Top 20 DS for Quota Attainment</h2></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="chartarea" style="width:100%;" >
+            <div id="dynamicPics" class="square chartleft"> </div>
+            <div id="dynamicPicsSec" class="square chartleftImg"> </div>
+            <div id="chartBlock" class="chartright" />
+        </div>
+    </div>
+  
+    
+    <div class="chart_box">
+   
+        <div class="mComponent doesNotContainAChart" >
+            <div class="cHeader brandSecondaryBrd">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="title"><h2 class="moduleTitle">Top 20 DS/AM for NBB Deals in Last 7 Days</h2></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div style="width:50%;height:49%;float:left;">
+            <!--<div style="float:left;width:100%;">-->
+                <div id="dynamictable" class="cContent" ></div>  
+            <!--</div>-->
+        </div>
+        
+        
+        <div  style="width:49%;float:left;">
+            <div id="dynamictableSec" class="cContent" ></div>  
+        </div>
+        <!--
+        <div class="chartarea">
+            <div id="dynamicPicsSec" class="square chartleft"> </div>
+            <div id="chartBlockSec" class="chartright" />
+        </div>-->
+    </div>
+  
+    <apex:includeScript id="a" value="https://www.google.com/jsapi" />
+    <apex:form >
+        <apex:actionPoller status="actionStatus" reRender="#" oncomplete="test();" interval="60"/>
+    </apex:form>
+    
+    <apex:outputpanel >
+        <apex:actionstatus id="actionStatus">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;">
+                    <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" > <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." /> <span class="waitingDescription">Loading...</span> </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputpanel>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script type="text/javascript">
+    
+    
+        google.load('visualization', '1.0', {'packages':['corechart']});
+        google.setOnLoadCallback(initCharts);
+        
+        var visualization; 
+        var data;
+        function test(){
+            initCharts();
+            initChartsSec();
+        }
+        function initCharts() {
+            //Month Validation
+            QuotaAttainmentScreenCls.loadOpps( 
+                function(result, event){  
+                    // load Column chart
+                    //alert('Test');
+                    visualization = new google.visualization.BarChart(document.getElementById('chartBlock'));                     
+                    // Prepare table model for chart with columns
+                    data = new google.visualization.DataTable();
+                    
+                    data.addColumn('string', ' Month');
+                    
+                    data.addColumn('number', 'Quota Attained');                     
+                    data.addColumn({type: 'string', role: 'style'});
+                    //data.addColumn({'type': 'string', 'role': 'tooltip', p: {html: true}});
+                    data.addColumn({id:'i0',type: 'string', role: 'annotation', p : {html: true}});                    
+                    // add rows from the remoting results
+                    //var table;
+                    //$('#dynamictable').empty();
+                    //if(result.length>0){
+                    //    $('#dynamictable').empty();
+                    //    $('#dynamictable').append('<table border=1px cellpadding=0px  cellspacing=0px width=100%></table>');
+                    //    table = $('#dynamictable').children(); 
+                    //    table.append("<tr><td>Name</td>") ;
+                    //} 
+                    $('#dynamicPics').empty();
+                    $('#dynamicPicsSec').empty();
+                    //var rowcount=0; 
+                    var counterr = 0;
+                    for(var i =0; i<result.length;i++){
+                        var r = result[i];
+                        var delta;
+                        if(r.data2>r.data3){
+                            delta = r.data2 - r.data3;
+                        }else if(r.data3>r.data2){
+                            delta = r.data3 - r.data2;
+                        }
+                        data.addRow([r.userName, r.data1,'color: #0d8fc9',r.data1+'%']);
+                        //table.append("<td> <img style=width:30px;height:30px src="+r.linkPhoto+">&nbsp;"+r.userName+"</td>");
+                        
+                        if(counterr <10){
+                            var temp = Number(counterr) + 1;
+                            $('#dynamicPics').append("<div class=testtest>"+temp+"</div><div class=imagebox><div class=numberCircle style=float:left;>  <img class=imgClass src=" + r.linkPhoto + "> </div><div id=fitin style=float:left;>"+r.userName+"</div>");
+                            $('#dynamicPics').append("");
+                            counterr++; 
+                        }else{
+                            var temp = Number(counterr) + 1;
+                            $('#dynamicPicsSec').append("<div class=testtest>"+temp+"</div><div class=imagebox><div class=numberCircle style=float:left;>  <img class=imgClass src=" + r.linkPhoto + "> </div><div id=fitin style=float:left;>"+r.userName+"</div></div>");
+                            $('#dynamicPicsSec').append("");
+                            counterr++;
+                        }
+                    }
+                    //table.append("</tr>") ;
+                    // all done, lets draw the chart with some options to make it look nice.
+                    google.visualization.events.addListener(visualization, 'select', selectHandler);                                    
+                    google.visualization.events.addListener(visualization, 'select', selectHandler);                                    
+                    visualization.draw(data,{bar:{groupWidth:'6'},colors:['#3399FF','#FF7D5C'],annotations:{'i0':  {style: 'line'},'i1': {textStyle: {opacity: 0.3}},'i1':  {style: 'line'},transform :"rotate(-91 83 318)"+"!important"},
+                    legend:{position: 'top', textStyle: {color: '#B82E00', fontSize: 16}},title:"Quota Vs Actual - Current Quarter",titlePosition:"out",titleTextStyle:{ color: '#B82E00',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},tooltip: { isHtml: true },
+                    chartArea:{backgroundColor:'#F4F4F8',width:'60%',height:'60%'},width: '100%', height: '100%', min: 0,backgroundColor: {stroke:'#B82E00', fill:'#C6C6C9',strokeSize: 5,strokeWidth:5},vAxis: {title: 'Reps', titleTextStyle: 
+                    {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false},gridlines:{color: '#333', count: 11}},hAxis: {title: 'Quota%', titleTextStyle: {color: 'black',fontName: 'Monaco',fontSize: 20,bold: true,italic: false}}});
+                                                      
+                },  {escape:true}
+            );
+        }
+        google.load('visualization', '2.0', {'packages':['corechart']});
+        google.setOnLoadCallback(initChartsSec);
+        function initChartsSec() {
+            //Month Validation
+            QuotaAttainmentScreenCls.loadOppsSec( 
+                function(result, event){  
+                    
+                    // add rows from the remoting results
+                    var table;
+                    var tableSec;
+                    $('#dynamictable').empty();
+                    
+                    if(result.length>0){
+                        $('#dynamictable').empty();
+                        $('#dynamictable').append('<table class="list" border=0px cellpadding=0px  cellspacing=0px width=100%></table>');
+                        table = $('#dynamictable').children(); 
+                        table.append("<th class=headerRowFirst>Rep</th><th class=headerRow>Team</th><th class=headerRow>Amount</th><th class=headerRow>Account</th>") ;
+                    }
+                    $('#dynamictableSec').empty();
+                    if(result.length>0){
+                        $('#dynamictableSec').empty();
+                        $('#dynamictableSec').append('<table class="list clsRight" border=0px cellpadding=0px  cellspacing=0px width=100%></table>');
+                        tableSec = $('#dynamictableSec').children(); 
+                        tableSec.append("<th class=headerRowFirst>Rep</th><th class=headerRow>Team</th><th class=headerRow>Amount</th><th class=headerRow>Account</th>") ;
+                    } 
+                    
+                    
+                    var rowcount=0; 
+                    //$('#dynamicPicsSec').empty();
+                    for(var i =0; i<result.length;i++){
+                        var r = result[i];
+                        r.data1 = Number(r.data1);
+                        r.data1 = Math.ceil(r.data1);
+                        var  data11 = r.data1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        
+                        if(rowcount<10){
+                            if(rowcount % 2 === 0){
+                                //alert(r.data3);
+                                table.append("<tr class=even><td><img class=circle src="+r.linkPhoto+"><div class=clsName>"+r.userName+"</div></td><td><div class=clsName>"+r.userTeam+"</div></td><td><div class=clsName>$"+data11+"</div></td><td style=width:35%;><div class=clsAccount>"+r.data2+"</div></td></tr>");
+                                rowcount++;
+                            }else{
+                                table.append("<tr class=odd><td><img class=circle src="+r.linkPhoto+"><div class=clsName>"+r.userName+"</div></td><td><div class=clsName>"+r.userTeam+"</div></td><td><div class=clsName>$"+data11+"</div></td><td style=width:35%;><div class=clsAccount>"+r.data2+"</di></td></tr>");
+                                rowcount++;
+                            }
+                        }else{
+                            if(rowcount % 2 === 0){
+                                //alert(r.data3);
+                                tableSec.append("<tr class=even><td><img class=circle src="+r.linkPhoto+"><div class=clsName>"+r.userName+"</div></td><td><div class=clsName>"+r.userTeam+"</div></td><td><div class=clsName>$"+data11+"</div></td><td style=width:35%;><div class=clsAccount>"+r.data2+"</div></td></tr>");
+                                rowcount++;
+                            }else{
+                                tableSec.append("<tr class=odd><td><img class=circle src="+r.linkPhoto+"><div class=clsName>"+r.userName+"</div></td><td><div class=clsName>"+r.userTeam+"</div></td><td><div class=clsName>$"+data11+"</div></td><td style=width:35%;><div class=clsAccount>"+r.data2+"</di></td></tr>");
+                                rowcount++;
+                            }
+                        }
+                        
+                    }
+                                                      
+                },  {escape:true}
+            );
+        }
+        var message;
+        function selectHandler() {
+            
+            var selectedItem = visualization.getSelection()[0];
+            
+            var selection = visualization.getSelection();
+            for (var i = 0; i < selection.length; i++) {
+                var item = selection[i];
+                //alert(item.row);
+                //alert(item.column);
+                if (item.row != null && item.column != null) {
+                    //message += '{row:' + item.row + ',column:' + item.column + '}';
+                    message += 'The Selected Value is' + data.getValue(selectedItem.row, item.column);  
+                } else if (item.row != null) {
+                    //message += '{row:' + item.row + '}';
+                } else if (item.column != null) {
+                    //message += '{column:' + item.column + '}';
+                }
+            }
+            if (message == '') {
+                message = 'nothing';
+            }
+            //alert('You selected ' + message);
+            message = '';
+        }
+    
+    </script> 
+</apex:page>

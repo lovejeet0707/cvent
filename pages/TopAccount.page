@@ -1,0 +1,399 @@
+<apex:page standardController="Account" extensions="TopAccountExtension" tabStyle="Current_Status__c" showHeader="false" sidebar="false" title="AM Feature Set - View Mode">
+    <apex:form >
+        <apex:actionFunction name="callfind" action="{!save}" reRender="a" />
+        <style>
+        .activeTab {background-color: #236FBD; color:white; background-image:none}
+        .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+        </style>
+        <style>
+        TD, TH
+        {
+        FONT-SIZE: 8pt;
+        COLOR: #2A3E64;
+        font-family: Verdana
+        }
+        TR.bgcolor1{
+        border-bottom: 1px solid #9FD0FF;
+        background-color: White;
+        }
+        INPUT
+        {
+        FONT-SIZE: 9px;
+        COLOR: #365187;
+        font-family: Verdana, Helvetica, sans-serif;
+        }
+        SELECT
+        {
+        FONT-SIZE: 8pt;
+        COLOR: #365187;
+        }
+        TEXTAREA
+        {
+        FONT-SIZE: 8pt;
+        COLOR: #365187;
+        border: 1px solid #6382BD;
+        }
+        .info1 {
+            padding: 20px;
+            
+            color: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            color: #e04343;
+            width: 39%;
+        font-size: x-large;
+        margin-left: 34%;
+        margin-top: 16%;
+         }
+        
+        </style>
+
+        <html>
+        <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+
+        j$(document).ready(function() {
+            if('{!showSection}'=='true')
+            {
+                //alert('Inside If'+'{!showSection}');
+                j$('#tableEdit').hide();
+                j$('#tableEdit2').hide();
+                j$('#table11').show();
+                j$('#divId1').hide();
+            
+            }
+            else{
+                //alert('else part');
+                                j$('#tableEdit').hide();
+                                j$('#tableEdit2').hide();
+                //alert('Inside Else');
+                j$('#table11').hide();
+                
+                j$('#divId1').show();
+            }
+        
+        });
+        
+        function showEditSection()
+        {
+            j$('#table11').hide();
+            j$('#divId1').hide();
+            j$('#tableEdit').show();
+        }
+        function showDetailPage()
+        {
+            //window.reload();
+            j$('#table11').show();
+            j$('#divId1').hide();
+            j$('#tableEdit').hide();
+           
+        }
+        
+        
+        function showEditSection2()
+        {
+            j$('#table11').hide();
+            j$('#divId1').hide();
+            j$('#tableEdit2').show();
+        }
+        function showDetailPage2()
+        {
+            //window.reload();
+            j$('#table11').show();
+            j$('#divId1').hide();
+            j$('#tableEdit2').hide();
+           
+        }
+        
+        function jsfind()
+        {
+            callfind();
+        }
+    </script>
+        </head>
+        <body>
+        <div class="info1" id="divId1">No related Account Exist</div>
+        <table border="0" width="80%" id="table11" height="50" align = "Center">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr/>
+            <tr>
+                <td>
+                    <table border="0" width="100%" id="table2" height="50">
+                    <tr>
+                    <td><div class="bPageTitle"><div class="ptBody secondaryPalette"><div class="content"><h2 class="pageDescription"> Parent Account :&nbsp;&nbsp;&nbsp;{!accountRec.Parent_Account__r.Name}</h2></div></div> </div></td>
+                    </tr>
+                    </table>  
+                    <table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+                        <tr>
+                        <td align="center">
+                        <!--apex:commandButton value="Edit" onClick="showEditSection();return false;"/--> 
+                        <input type="button" class="button"  onClick="showEditSection();" value="Edit"/>
+                        </td>
+                        </tr>
+                    </table>
+                    <apex:pageBlock title="Status">
+                        <table border="0" width="100%" id="table3" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left"><b>Event Core Account Progress</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                
+                                <td align="left"><apex:outputText value="{!accountProgress}"/> </td>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>        
+                            <tr>
+                                <td width="20%"  align="left"><b>Progress Details</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td align="left"><apex:outputField value="{!accountRec.BCP_Status__c}"/></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>    
+                            <tr>
+                            <apex:outputPanel >                            
+                                <td width="20%"  align="left"><b>Days Since Status Change</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td align="left"><apex:outputField value="{!accountRec.Days_Since_Status_Change__c}"/></td>                            
+                            </apex:outputPanel>
+                            </tr>
+                        </table>
+                    </apex:pageBlock> 
+                    
+                    
+                   
+                    <table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+                        <tr>
+                        <td align="center">
+                        <!--apex:commandButton value="Edit" onClick="showEditSection();return false;"/--> 
+                        <input type="button" class="button"  onClick="showEditSection2();" value="Edit"/>
+                        </td>
+                        </tr>
+                    </table>
+                    
+                    <apex:pageBlock title="CC Information" >
+                    
+                       <table border="0" width="100%" id="table3" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left"><b>Mobile Solutions Account Progress</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                
+                                <td align="left"><apex:outputText value="{!accountRec.CC_Acct_Status__c}"/> </td>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>        
+                               
+                            <tr>
+                            <apex:outputPanel >                            
+                                <td width="20%"  align="left"><b>CC Progress Details</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td align="left"><apex:outputField value="{!accountRec.CC_Progress_Details__c}"/></td>                            
+                            </apex:outputPanel>
+                            </tr>
+                            <tr>
+                                <td width="20%"  align="left">&nbsp;</td>
+                                <td   width="10" align="center">
+                                </td>
+                                <td align="left">&nbsp;</td>
+                            </tr>        
+                           
+                            <tr>
+                                <td width="20%"  align="left"><b>Days Since CC Acct Status Change</b></td>
+                                <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td align="left"><apex:outputField value="{!accountRec.Days_Since_CC_Acct_Status_Change__c}"/></td>
+                            </tr>
+                        </table>
+                    </apex:pageBlock> 
+                </td>
+            </tr>
+        </table>
+        
+        <!-- End Default Content REMOVE THIS -->
+        
+        
+        
+         <table border="0" width="80%" id="tableEdit" height="50" align = "Center">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr/>
+            <tr>
+            <td>
+            <table border="0" width="100%" id="table2" height="20">
+                <tr>
+                    <td><div class="bPageTitle"><div class="ptBody secondaryPalette"><div class="content"><h2 class="pageDescription"> Parent Account :&nbsp;&nbsp;&nbsp; {!accountRec.Parent_Account__r.Name}</h2></div></div></div></td>
+                </tr>
+            </table>  
+            <table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+                <tr>
+
+                    
+                    <td align="right">
+                    
+                        <input Type="submit" value="Save" onClick="jsfind();" /> 
+                        <!--apex:commandButton value="Save" action="{!save}" oncomplete="showDetailPage();return false;"/--> 
+                    </td>
+                    <td align="left">
+                        <!--apex:commandButton value="Cancel" onClick="showDetailPage();return false;"/-->
+                        <input Type="Button" value="Cancel" onClick="showDetailPage();"/>
+                    </td>  
+                    
+                </tr>
+            </table>
+            <apex:pageBlock title="Status">
+                <table border="0" width="100%" id="table3" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="20%"  align="left">&nbsp;</td>
+                        <td   width="10" align="center">
+                        </td>
+                        <td align="left">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="20%"  align="left"><b>Event Core Account Progress</b></td>
+                        <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="left">
+                        <!--<apex:selectList value="{!countries}" multiselect="False" size="1">
+                        <apex:selectOptions value="{!items}"/>
+                        </apex:selectList>-->
+                        <!--apex:outputLabel value="{!$ObjectType.Current_Status__c.fields.Account_Progress__c.label}"/-->
+                        <!--<apex:inputField value="{!accountRec.Account_Progress__c}"/>-->
+                        <apex:selectList value="{!accountProgress}" size="1">
+                            <apex:selectOptions value="{!accountProgressList}"/>
+                        </apex:selectList>
+                        <p/>
+                        <!--<apex:outputField value="{!account.BCP_Status__c}"/>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%"  align="left">&nbsp;</td>
+                        <td   width="10" align="center">
+                        </td>
+                        <td align="left">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="10%"  align="left"><b>Progress Details </b></td>
+                        <td   width="100" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="left">
+                            <apex:inputtextarea cols="100" rows="15" value="{!accountRec.BCP_Status__c}"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td width="20%"  align="left">&nbsp;</td>
+                        <td   width="10" align="center">
+                        </td>
+                        <td align="left">&nbsp;</td>
+                    </tr> 
+                    
+                </table>              
+            </apex:pageBlock>
+            </td>
+            </tr>
+        </table>
+        
+        <table border="0" width="80%" id="tableEdit2" height="50" align = "Center">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr/>
+            <tr>
+            <td>
+            <table border="0" width="100%" id="table2" height="20">
+                <tr>
+                    <td><div class="bPageTitle"><div class="ptBody secondaryPalette"><div class="content"><h2 class="pageDescription"> Parent Account :&nbsp;&nbsp;&nbsp; {!accountRec.Parent_Account__r.Name}</h2></div></div></div></td>
+                </tr>
+            </table>  
+            
+                
+            <table border="0" width="98%" id="table2" cellspacing="5" cellpadding="0">
+                    <tr>
+            
+                        
+                        <td align="right">
+                        
+                            <input Type="submit" value="Save" onClick="jsfind();" /> 
+                            <!--apex:commandButton value="Save" action="{!save}" oncomplete="showDetailPage();return false;"/--> 
+                        </td>
+                        <td align="left">
+                            <!--apex:commandButton value="Cancel" onClick="showDetailPage();return false;"/-->
+                            <input Type="Button" value="Cancel" onClick="showDetailPage2();"/>
+                        </td>  
+                        
+                    </tr>
+                </table>
+                <apex:pageBlock title="CC Information">
+                    <table border="0" width="100%" id="table3" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="20%"  align="left">&nbsp;</td>
+                            <td   width="10" align="center">
+                            </td>
+                            <td align="left">&nbsp;</td>
+                        </tr>
+                        
+                        <tr>
+                            <td width="20%"  align="left"><b>Mobile Solutions Account Progress</b></td>
+                            <td   width="10" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            
+                            <td align="left"><apex:InputField value="{!accountRec.CC_Acct_Status__c}"/> </td>
+                        </tr>
+                        <tr>
+                            <td width="20%"  align="left">&nbsp;</td>
+                            <td   width="10" align="center">
+                            </td>
+                            <td align="left">&nbsp;</td>
+                        </tr>        
+                           
+                        <tr>
+                            <td width="20%"  align="left"><b>CC Progress Details</b></td>
+                            <td   width="100" align="center">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td align="left"><apex:InputTextarea cols="100" rows="15" value="{!accountRec.CC_Progress_Details__c}"/></td>                            
+                        </tr>
+            
+                    </table>              
+                </apex:pageBlock>
+                </td>
+                </tr>
+        </table>
+        
+        
+        
+        </body>
+        </html>
+    </apex:form>
+</apex:page>

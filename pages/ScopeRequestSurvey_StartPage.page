@@ -1,0 +1,63 @@
+<apex:page controller="ScopeRequestSurvey_Cont" sidebar="false" showHeader="false" title="Scope Request - Start Page">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <style>            
+        .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+        }
+        </style>
+   </head>
+   <apex:form >
+       <body style="background-image: url('{!$Resource.ScopeReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;">
+                <div style="margin-top: 2%;">
+                  <img src="{!$Resource.ScopeReqHeaderImage}"/>
+                </div>
+                <div class="alert alert-info" style="margin-top: 1%;">
+                    <span><strong>Scope Request :</strong> Contact Information</span>
+                </div>
+                <span>Please enter the information below before answering the survey.</span>
+                <div style="margin-top: 3%;margin-left: 18%;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">First Name:</label>
+                            <div class="col-sm-10">
+                                <apex:inputText id="fName" required="true" value="{!respondentFirstName}" styleClass="form-control" style="width: 45%;" html-placeholder="Enter first name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pwd">Last Name:</label>
+                            <div class="col-sm-10"> 
+                                <apex:inputText id="lName" required="true" value="{!respondentLastName}" styleClass="form-control" style="width: 45%;" html-placeholder="Enter last name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pwd">Email Address:</label>
+                            <div class="col-sm-10"> 
+                                <apex:inputText id="emailAdd" required="true" value="{!respondentEmailAddress}" styleClass="form-control" style="width: 45%;" html-placeholder="Enter email address"/>
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox"/> Remember me</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <div class="col-sm-offset-2 col-sm-10"> 
+                                <apex:commandButton id="submit" action="{!scopeRequestStartPage}" styleClass="btn btn-primary" value="Continue"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="margin-top: 2%;margin-bottom: 2%">
+                    <img src="{!$Resource.ScopeReqFooterImage}" style="margin-top: 2%;"/>
+                </div>               
+            </div>
+        </body>
+    </apex:form>     
+</apex:page>

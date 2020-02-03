@@ -1,0 +1,96 @@
+<apex:page id="pageId" standardController="EB_SB_Builder__c" extensions="EBSurveyResponseInlineVF_ConExt" showHeader="false" sidebar="false" standardStylesheets="false" title="Event Builder Form">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"  />
+    <script type="text/javascript">
+    var url = location.href; 
+    var baseURL = url.substring(0, url.indexOf('/', 14));    
+    
+    function downloadSurveyResponse(){
+        var recId = document.getElementById("pageId:formId:pageBlockId:recId").value;       
+        var pageURL = baseURL+'/apex/EBSurveyResponseDownload_Page?id='+recId;
+        window.open(pageURL,'_blank');            
+    }
+    
+    function openSurveyInNewTab(){
+        var recId = document.getElementById("pageId:formId:pageBlockId:recId").value;        
+        var pageURL = baseURL+'/apex/EBSurveyResponseInlineVF_Page?id='+recId+'&hideButton=true';
+        window.open(pageURL,'_blank');
+    }
+    
+    function showSaveAsAttachmentMessage(){
+        alert('EB form has been saved as attachment at project level.');
+    }
+    </script> 
+    <style> 
+        .hidden { display: none;}        
+        .navbar-center{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        margin: auto;
+        height:100%;
+        }        
+    </style> 
+    <apex:form styleClass="form-horizontal" id="formId">     
+        <apex:pageBlock id="pageBlockId">
+            <apex:inputHidden id="recId" value="{!EB_SB_Builder__c.Id}"/>
+            <div class="panel-body" style="margin-left:10%;margin-right:10%">
+                <nav class="navbar navbar-default navbar-fixed-top alert alert-info" style="margin-left:10.8%;margin-right:10.8%;">
+                    <div class = "navbar-header" style="float:center;">
+                        <a class = "navbar-center navbar-brand"><strong>Customer Event Builder Form</strong></a>
+                    </div>                    
+                </nav>                
+                <div style="margin-top:2.7%">
+                    <apex:outputPanel rendered="{!!showSurveyResponse}">
+                        <div class="alert-body">
+                            <div class="alert alert-info" style="height:25%; width:82%;margin-left:10%;margin-right:10%;margin-top: 10%;">
+                                <strong>Event Builder form not submitted by Customer. Please use the "Send/Resend EB form" button to send an email to customer requesting feedback.</strong>
+                            </div>                
+                        </div>           
+                    </apex:outputPanel> 
+                    <apex:outputPanel rendered="{!showSurveyResponse}">
+                        <div>
+                            <apex:commandLink action="{!saveAsAttachment}" styleClass="btn-info btn-sm" style="float:right;" oncomplete="showSaveAsAttachmentMessage();">
+                                <span class="glyphicon glyphicon-export"></span> Save as Attachment
+                            </apex:commandLink>
+                            <apex:commandLink onclick="downloadSurveyResponse();" styleClass="btn-info btn-sm" style="float:right;">
+                                <span class="glyphicon glyphicon-download-alt"></span> Download form
+                            </apex:commandLink>
+                            <apex:commandLink onclick="openSurveyInNewTab();" styleClass="btn-info btn-sm" style="float:right;" rendered="{!IF(IF(showSurveyResponse,true,false) && IF(hideButtonFlag,true,false),true,false)}">
+                                <span class="glyphicon glyphicon-new-window"></span> Open form in new tab
+                            </apex:commandLink>
+                        </div>                        
+                    </apex:outputPanel>                    
+                    <apex:variable var="rowNumbertable1" value="{!0}"/>
+                    <apex:pageBlockTable styleClass="table table-hover table-bordered" value="{!WrapperSurveyList}" var="surveyRow" rendered="{!showSurveyResponse}" style="">
+                        <apex:column width="5%" style="text-align-last:center;">
+                            <apex:facet name="header"><center>Q. No</center></apex:facet>
+                            <apex:variable var="rowNumbertable1" value="{!rowNumbertable1+1}"/>
+                            <center><apex:outputText id="rowNumbertable1" value="{!rowNumbertable1}"/></center>                   
+                        </apex:column>
+                        <apex:column width="40%" style="text-align-last:left;">
+                            <apex:facet name="header"><center>Question</center></apex:facet>
+                            <apex:outputText value="{!surveyRow.surveyQuestion}"/>
+                        </apex:column>
+                        <apex:column width="35%" style="text-align-last:center;">
+                            <apex:facet name="header"><center>Answer</center></apex:facet>
+                            <center><apex:outputText value="{!surveyRow.surveyAnswer}"/></center>
+                        </apex:column>                
+                    </apex:pageBlockTable>
+                    <apex:pageBlockSection title="Attachments" rendered="{!showAttachmentSection}">
+                        <apex:variable var="rowNumbertable" value="{!0}" />
+                        <apex:repeat value="{!showSurveyAttachmentList}" var="attach">
+                            <apex:variable var="rowNumbertable" value="{!rowNumbertable+1}"/>
+                            <div> 
+                                {!rowNumbertable}.   <a href="{!attach.Body}" target="_blank">{!attach.Title}</a>
+                            </div>
+                        </apex:repeat>     
+                    </apex:pageBlockSection>                                    
+                </div>                   
+            </div>      
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

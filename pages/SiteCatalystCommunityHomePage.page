@@ -1,0 +1,736 @@
+<apex:page controller="CommunityHomePageCls" sidebar="false" readOnly="true" >
+    <!--
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.4/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" />
+    <apex:styleSheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
+    <html>
+        <head>
+            <title>Building a simple jQuery slideshow with a few lines of code</title>
+            <style>
+            .sidebar{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 250px;
+                
+                -webkit-transition: right 0.2s ease-out;
+                -moz-transition: right 0.2s ease-out;
+                transition: right 0.2s ease-out;
+                
+                cursor: pointer;
+                background-color: cornflowerblue;
+            }
+         
+           
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+            .displayNone { 
+                display:none; 
+            }
+            .displayBlock {
+                display:block;
+            }
+            .ui-autocomplete-loading { 
+                background: white url(/img/loading32.gif) right center no-repeat;
+                background-size:15px 15px; 
+            }
+            .placeHolder {
+                font-style: italic;
+            }
+            <!--
+            html {
+                border-top: 5px solid #fff;
+                background: #58DDAF;
+                color: #2a2a2a;
+            }
+            
+            html,body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans';
+            }
+            
+            -->
+            h1 {
+                color: #fff;
+                text-align: center;
+                font-weight: 300;
+            }
+            a,a:hover{text-decoration:none;}
+            #slider {
+                position: relative;
+                overflow: hidden;               
+                border-radius: 4px;
+                height: 380px;
+                width: 941px;
+            }
+         
+            
+            #slider ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                height: 320px;
+                list-style: none; margin-left:0px!important;
+            }
+            
+            #slider ul li {
+                position: relative;
+                display: block;
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: 941px;
+                height: 380px;
+                background: #ccc;
+                text-align: center;
+                line-height: 300px;
+            }
+            #slider ul li img{width:941px;height:380px;border:0}
+            
+            a.control_prev{
+                position: absolute;
+                top: 44%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 34px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.PrevExact}") no-repeat !important;
+            }
+            
+            a.control_next {
+                position: absolute;
+                top: 44%;
+                z-index: 999;
+                display: block;
+                //padding: 2% 1%;
+                //width: auto;
+                //height: auto;
+                //background: #2a2a2a;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 12px;
+                opacity: 0.8;
+                cursor: pointer;
+                border-radius: 64px !important;
+                
+                display: block;
+                width: 35px;
+                height: 35px;
+                text-align: center;
+                outline: 63;
+                background: url("{!$Resource.PrevExact}") no-repeat -33px 0 !important;
+            }
+            
+            a.control_prev:hover,a.control_next:hover {
+                opacity: 1;
+                -webkit-transition: all 0.2s ease;
+            }
+            
+            a.control_prev {
+                //border-radius: 0 2px 2px 0;
+                
+                background-position: left top;
+                margin-left: 20px;
+            }
+            
+            a.control_next {
+                right: 0;
+                //border-radius: 2px 0 0 2px;
+                
+                background-position: right top;
+                margin-right: 20px;
+            }
+            
+            .slider_option {
+                position: relative;
+                margin: 10px auto;
+                width: 160px;
+                font-size: 18px;
+            }
+            .verticalLine {
+                border-left: 1px solid grey;
+                height: 100%;
+                float: left;
+            }
+            
+
+            a.user-block {
+                margin: 0 11px 22px 11px;
+                width: 64px;
+                height: 64px;
+            }
+            
+            a.user-block .user-name {
+                position: absolute;
+                //top: 58px;
+                //left: 0;
+                font-size: 76.9%;
+                line-height: 100%;
+                padding: 1px;
+                text-align: center;
+                overflow: hidden;
+                width: 56px;
+                background: url(../img/p_ffffff_08.png) repeat center center;
+                //background:color:grey;
+                color: #000;
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+            }
+            .user-ranking {
+                //color: #000;
+                //position : absolute
+                text-shadow: 0 1px 0 rgba(255,255,255,1);
+                //background: url(../img/p_ffffff_08.png) repeat center center;
+                //top: 4px;
+                background-color:grey;
+                left: 1px;
+                padding: 1px 6px 1px 2px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                font-size: 92.3%;
+                line-spacing: 100%;
+                font-weight: bold;
+                border: 1px solid #bbb;
+                -moz-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                -webkit-box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+                box-shadow: 0 2px 3px -1px rgba(0,0,0,0.35);
+            }
+            
+            #content{
+                margin: 0 auto;
+                width: 941px;         
+            }
+            
+            .facebook_right{
+                width: 245px;
+                height: 60px;
+                position: fixed;
+                right: -245px;
+                top: 139px;
+                z-index: 99997;
+            }
+            .facebook_right #facebook_icon{
+                float: left;
+                height: 153px;
+                width: 35px;
+                left: -34px;
+                background: url("{!$Resource.AnnouncementOrg}") no-repeat;
+                position: relative;
+                z-index: 99998;
+                //padding:0 0 0 0;
+                //margin:0 0 0 0;
+            }
+            .knowledge-base{background: url("{!$Resource.questions}") 270px 0 no-repeat;}
+            .ask-community{background: url("{!$Resource.community}") right 0 no-repeat;}
+            .facebook_right .facebook_box {
+                float: right;
+                top: -151px;
+                height: 149px;
+                position: relative;
+                z-index: 99999;
+                overflow: hidden;
+                border-radius: 2px;
+                background-color: #199cd6;
+                border-radius: 2px;
+                padding: 0 40px 0px 15px;
+                width: 189px;
+            }
+               input#search {
+                width: 97%;
+                border: 1px solid #199cd6;               
+                color: #a3a3a3;
+                display: inline-block;
+                padding: 15px 13px;
+                font-size:18px;
+            }
+            .pure-u-4-5{width: 91%;display: inline-block;}
+            .pure-u-1-5{width: 79px;display: inline-block;vertical-align: top;border:1px solid #199cd6;}
+            .pure-button{width: 100%;height:51px;margin: 0;display: inline-block;vertical-align: baseline;border:1px solid #199cd6;background:#199cd6 url("{!$Resource.searchicon}") no-repeat scroll center center;}
+            
+            </style>
+        </head>
+        <body id="home">
+            <!--
+            <div style="position:absolute;">
+                <div style="position:relative">
+                    <p>Anouncements</p>
+                </div>
+                <div class="sidebar">
+                    Click to hide
+                </div>
+            </div>
+            -->
+            <div class="facebook_right">
+            
+                <div id="facebook_icon"></div>
+                
+                <div class="facebook_box">
+                    <a style="text-decoration: none !important;" href="/apex/CommunityAnnouncement">
+                        <div style="width:100%;height:69%;text-overflow: ellipsis;padding: 14% 0 2% 0px;overflow: hidden;font-family: georgia;">
+                            <apex:dataTable style="font-size: 1.5em;font-weight: normal;font-family: 'Soho W01 Light Italic'!important;" value="{!dataLst}" var="dataInst" id="theTable" rowClasses="odd,even" styleClass="tableClass">
+                                <apex:column >
+                                    <apex:outputText style="font-family: 'Soho W01 Light Italic'!important;color: rgb(24, 151, 212);font-weight: normal;color: #FFFFFF;" value="{!dataInst.Announcement}"/>
+                                </apex:column>
+                            </apex:dataTable>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            <!--
+            <a style="text-decoration:none;" href="/apex/CommunityAnnouncement">
+                <div style="width:941px;margin:20px auto 0;font-size: 1.3em !important;border: 1px solid black;padding: 4px 0px 4px 0px;color:#009ddc;border-radius: 5px;">
+                    <marquee behavior="alternate">Announcements!!</marquee>
+                </div>
+            </a>
+            -->
+            <div id="content">
+                <div>
+                    <div style="float:left;padding-bottom:10px"><apex:image style="float:left" rendered="{!showPrime}" width="48px" height="48px" value="{!$Resource.Announcement}" /></div><div style="float:left;padding: 15px 20px 1px 4px;"><apex:outputText style="Color:#000;float:left;  font-size: 16px; font-weight: 600;color: #105986;" rendered="{!showPrime}" value="{!primeString}"></apex:outputText></div>
+                </div>
+                <br/>
+                <div id="slider"> 
+                    <a href="#" class="control_next"><!--<img style="width:50%;height:50%;" src="{!$Resource.Next}" alt="photo1" />--></a> <a href="#" class="control_prev"><!--<img style="width:50%;height:50%;" src="{!$Resource.Prev}" alt="photo1" />--></a>
+                    <ul>
+                        <li><img src="{!$Resource.WelcomeFinal}" alt="Welcome" /></li> 
+           <!--      <li><img src="{!$Resource.Cconnect}" alt="Cvent Connect" /></li> -->
+                        <li><a href="/apex/Groups"><img src="{!$Resource.UserGroupFinal}" alt="User Group" /></a></li>                  
+                    </ul>
+                </div>
+            
+                <apex:form >
+                    <div style="width: 100%; margin: 20px auto;">
+                        <!--<input type="text" id="TextAreaClass" style="width: 814px;height:46px;font-size:20px;border:1px solid #999" placeholder="Search the Community..." value="{!searchTerm}"/>
+                        <input type="Button" id="myButton" style="margin: 0px ! important; float: right ! important; padding: 14px 34px;background: #F9F9F9;border-radius: 0px;" onclick="closeAndRefresh()" value="Search"/>
+                        -->
+                        <div class="pure-g">
+                          <div class="pure-u-4-5">
+                            <input type="text" placeholder="Search the Community..." class="pure-input-1 ui-autocomplete-input" name="q" id="search" value="{!searchTerm}" />
+                          </div>
+                          <div class="pure-u-1-5">
+                            <input type="Button"  value="" name="sa" class="pure-button pure-button-primary pure-input-1" id="gsc-search-button" onclick="closeAndRefresh()"/>                             
+                          </div>
+                        </div>
+                        <!--<input type="text" placeholder="Search the Community..." style="font-size:15pt;" size="31" name="q" id="search" value="{!searchTerm}" />
+                        <input type="Button"  value="" name="sa" id="gsc-search-button" onclick="closeAndRefresh()"/>-->
+                    </div>
+                    
+                    <apex:actionRegion >
+                        <apex:actionFunction name="insertDataNew" reRender="panelOut" action="{!search}">  
+                            <apex:param name="param1" assignTo="{!searchTerm}" value="" /> 
+                        </apex:actionFunction>
+                    </apex:actionRegion>
+                    
+                </apex:form>
+                <div style="width: 941px; margin: 25px auto 0;border-top: 1px solid #ccc;">&nbsp;</div>
+            
+            
+                <div id="Links" style="margin: 7px auto 0; width: 941px; height: 170px; top: 10px">
+                    <div style="width: 49%;padding-right: 1%;float: left;margin-right:2%;border-right:1px solid #ccc;" class="knowledge-base">
+                        <h2 style="font-size: 1.5em;color: #009ddc;text-transform: uppercase;font-family:sf-font-regular,Helvetica Neue,Helvetica,Arial;font-weight: normal;"><b>HAVE A QUESTION?</b></h2>
+                        <a style="display:block;font-size: 1.5em;text-decoration: none;padding-top:5px" href="/apex/helphome">Check out the Knowledge Base</a>
+                        <p style="font-size: 115.4%;font-family: Helvetica Neue,Helvetica,Arial;">Browse a library of official content that includes how-to articles, guides, and online training courses.</p>
+                        <div style="float: left;">
+                            <a class="btn-new" href="/apex/helphome" id="mfa40">Access Help &amp; Training</a>
+                        </div>
+                    </div>
+                    
+                    <div style="width: 47%;float: left" class="ask-community">
+                        <h2 style="font-size: 1.5em;color: #009ddc;text-transform: uppercase">&nbsp;</h2>
+                        <a style="font-size: 1.5em;text-decoration: none;padding-top:5px;display:block" href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">Ask the Community</a>
+                        <p style="font-size: 115.4%;font-family: Helvetica Neue,Helvetica,Arial;">Post your questions and get answers from fellow customers and Cvent experts.</p>
+                        <div style="float: left;">
+                            <a class="btn-new" href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS" id="mfa40">Access Forums</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+                <div id="leaders" style="margin: 20px auto 0; width: 941px; height: 116px; top: 10px;background-color:#EEEEEE;border: 1px solid #D6D6D6;padding: 0 0 12px 0px;">
+                        
+                    <div style="height:42%;width:100%;margin: 0 0 10px 0px;"> 
+                        <div style="background:url({!$Resource.LeaderCrownFinal}) no-repeat scroll 0 4px rgba(0, 0, 0, 0);background-size: 54px 34px;width:6%;height:100%;float: left;position:relative;left:0px"/> 
+                        <div style="font-family: Arial,Helvetica,sans-serif !important;color: rgb(24, 151, 212);font-weight: normal;font-size: 1.3em;width:92%;padding-left:1px;padding-top: 14px;">Community Leaders</div>
+                        <div style="width: 873px;margin:0 0 0 56px;">
+                            <div style="width: 870px;margin: 5px 0px 0px 0px;border-top:1px solid #ccc">&nbsp;</div>
+                        </div>
+                    </div>
+                    
+                    <div id="dynamictable" class="cContent" style="padding-left: 10px;"></div>
+                    
+                </div>
+           
+            </div>       
+            <script type="text/javascript">
+                
+                jQuery(document).ready(function ($) {
+                
+                    $(".facebook_right").hover(function(){
+                        $(".facebook_right").stop(true, false).animate({right: "0" }, 800, 'easeOutQuint' );
+                        //alert('Test');
+                    },
+                    function(){
+                        $(".facebook_right").stop(true, false).animate({right: "-245" }, 800, 'easeInQuint' );
+                    },1000);
+
+                    var div;
+                    
+                    $('#dynamictable').append('<div style=height:87%;> </div> ');
+                    div = $('#dynamictable').children(); 
+                    
+                    var counter =0;
+                    
+                    var userAgent = self.navigator.userAgent;
+                    var str = userAgent.search("Chrome");
+                    console.log(userAgent);
+                    console.log(str);
+                    
+                    var is_chrome = self.navigator.userAgent.indexOf('Chrome') > -1;
+                    var is_explorer = self.navigator.userAgent.indexOf('MSIE') > -1;
+                    var is_firefox = self.navigator.userAgent.indexOf('Firefox') > -1;
+                    var is_safari = self.navigator.userAgent.indexOf("Safari") > -1;
+                    var is_opera = self.navigator.userAgent.toLowerCase().indexOf("op") > -1;
+                    if ((is_chrome)&&(is_safari)) { is_safari=false;}
+                    if ((is_chrome)&&(is_opera)) { is_chrome=false;}
+                    
+                    console.log('is_chrome++'+is_chrome);
+                    console.log('is_firefox++'+is_firefox);
+                    console.log('is_safari++'+is_safari);
+                    
+                    <apex:repeat value="{!lstNetMem}" var="netMem" >
+                        counter++;
+                        if( is_firefox ==true ){
+                            if( counter !=10)
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:31px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:10px;overflow:hidden;top:-14px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:16%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-77px;>#'+counter+'</div></img> </a></div>');
+                            else
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:10px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:10px;overflow:hidden;top:-14px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:16%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-77px;>#'+counter+'</div></img> </a></div>');                            
+                        }else if(is_chrome == true ){
+                            if( counter !=10)
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:31px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:10px;overflow:hidden;top:-9px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:16%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');
+                            else
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:10px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:10px;overflow:hidden;top:-9px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:16%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');                            
+                        }else if(is_safari==true){
+                            if( counter !=10)
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:31px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:11px;overflow:hidden;top:-10px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:19%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');
+                            else
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:10px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:11px;overflow:hidden;top:-10px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:19%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');                            
+                        }else if(is_safari==false && is_chrome == false && is_firefox ==false){
+                            if( counter !=10)
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:31px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:11px;overflow:hidden;top:-10px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:19%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');
+                            else
+                            div.append('<div style=height:64px;width:64px;float:left;margin-right:10px;><a style=text-decoration:none !important; href=/{!netMem.UserId}> <img class=imgClass id=imgClass'+counter+' src={!netMem.sphoto} style=height:64px;width:64px;> <div class=user-name id=nameClass'+counter+' style=height:11px;overflow:hidden;top:-10px;font-size:79.5%;position:relative;background-Color:#FAFAFA;opacity:0;>{!netMem.uname}</div> <div class=user-ranking id=rankClass'+counter+' style=width:19%;opacity:0;background-Color:#EEEEEE;top:64px;font-size:76.5%;position:relative;top:-73px;>#'+counter+'</div></img> </a></div>');
+                        }
+                        
+                    </apex:repeat>
+                    
+                    
+                    ////////////////////////////////////////////////////////////////////////
+                    $("#imgClass1").on('mouseenter',function( e ) {
+                        $("#nameClass1").fadeTo(200, 1);
+                        $("#rankClass1").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass1").on('mouseleave',function( e ) {
+                        $("#nameClass1").fadeTo(200, 0);
+                        $("#rankClass1").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass2").on('mouseenter',function( e ) {
+                        $("#nameClass2").fadeTo(200, 1);
+                        $("#rankClass2").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass2").on('mouseleave',function( e ) {
+                        //alert('test');
+                        //$(".user-name", this).stop().fadeTo(300, e.type=="mouseenter"? 1 : 0.2 );
+                        //alert(e.type);
+                        $("#nameClass2").fadeTo(200, 0);
+                        $("#rankClass2").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass3").on('mouseenter',function( e ) {
+                        $("#nameClass3").fadeTo(200, 1);
+                        $("#rankClass3").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass3").on('mouseleave',function( e ) {
+                        $("#nameClass3").fadeTo(200, 0);
+                        $("#rankClass3").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass4").on('mouseenter',function( e ) {
+                        //alert('test');
+                        //$(".user-name", this).stop().fadeTo(300, e.type=="mouseenter"? 1 : 0.2 );
+                        //alert(e.type);
+                        $("#nameClass4").fadeTo(200, 1);
+                        $("#rankClass4").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass4").on('mouseleave',function( e ) {
+                        $("#nameClass4").fadeTo(200, 0);
+                        $("#rankClass4").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass5").on('mouseenter',function( e ) {
+                        $("#nameClass5").fadeTo(200, 1);
+                        $("#rankClass5").fadeTo(300, 1);
+                    });
+                    
+                    $("#imgClass5").on('mouseleave',function( e ) {
+                        $("#nameClass5").fadeTo(200, 0);
+                        $("#rankClass5").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass6").on('mouseenter',function( e ) {
+                        $("#nameClass6").fadeTo(200, 1);
+                        $("#rankClass6").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass6").on('mouseleave',function( e ) {
+                        //alert('test');
+                        //$(".user-name", this).stop().fadeTo(300, e.type=="mouseenter"? 1 : 0.2 );
+                        //alert(e.type);
+                        $("#nameClass6").fadeTo(200, 0);
+                        $("#rankClass6").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass7").on('mouseenter',function( e ) {
+                        $("#nameClass7").fadeTo(200, 1);
+                        $("#rankClass7").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass7").on('mouseleave',function( e ) {
+                        $("#nameClass7").fadeTo(200, 0);
+                        $("#rankClass7").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass8").on('mouseenter',function( e ) {
+                        $("#nameClass8").fadeTo(200, 1);
+                        $("#rankClass8").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass8").on('mouseleave',function( e ) {
+                        $("#nameClass8").fadeTo(200, 0);
+                        $("#rankClass8").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass9").on('mouseenter',function( e ) {
+                        $("#nameClass9").fadeTo(200, 1);
+                        $("#rankClass9").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass9").on('mouseleave',function( e ) {
+                        $("#nameClass9").fadeTo(200, 0);
+                        $("#rankClass9").fadeTo(200, 0);
+                    });
+                    
+                    $("#imgClass10").on('mouseenter',function( e ) {
+                        $("#nameClass10").fadeTo(200, 1);
+                        $("#rankClass10").fadeTo(200, 1);
+                    });
+                    
+                    $("#imgClass10").on('mouseleave',function( e ) {
+                        $("#nameClass10").fadeTo(200, 0);
+                        $("#rankClass10").fadeTo(200, 0);
+                    });
+
+                    ////////////////////////////////////////////////////////////////////////
+                    $("input").keypress(function(event) {
+                        if (event.which == 13) {
+                            event.preventDefault();
+                            document.getElementById("gsc-search-button").click();
+                            //$("form").submit();
+                        }
+                    });
+
+
+                    $('#checkbox').change(function(){
+                        setInterval(function () {
+                            moveRight();
+                        }, 1000);
+                    });
+                  
+                    var slideCount = $('#slider ul li').length;
+                    var slideWidth = $('#slider ul li').width();
+                    var slideHeight = $('#slider ul li').height();
+                    var sliderUlWidth = slideCount * slideWidth;
+                                       
+                    $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+                    
+                    $('#slider ul li:last-child').prependTo('#slider ul');
+                    
+                    var count=0;
+                    $('#slider')
+                    $("#slider").on('mouseenter',function( e ) {
+                        count = 1;
+                    });
+                    
+                    $("#slider").on('mouseleave',function( e ) {
+                        count = 0;
+                    });
+                    
+                    
+                    function moveLeft() {
+                        $('#slider ul').animate({
+                            left: + slideWidth
+                        }, 400, function () {
+                            $('#slider ul li:last-child').prependTo('#slider ul');
+                            $('#slider ul').css('left', '');
+                        });
+                    };
+                    
+                    function moveRight() {
+                        if( count != 1){
+                            $('#slider ul').animate({
+                            left: - slideWidth
+                            }, 400, function () {
+                                $('#slider ul li:first-child').appendTo('#slider ul');
+                                $('#slider ul').css('left', '');
+                            });
+                        }
+                    };
+                    
+                    function moveRightSec() {
+                        $('#slider ul').animate({
+                        left: - slideWidth
+                        }, 400, function () {
+                            $('#slider ul li:first-child').appendTo('#slider ul');
+                            $('#slider ul').css('left', '');
+                        });
+                    };
+                    
+                    var repeater;
+                    function repeatMoveRight() {
+                        moveRight();
+                        repeater = setTimeout(repeatMoveRight, 5000);
+                    }
+                    setTimeout(repeatMoveRight, 5000);
+                    
+                    $('a.control_prev').click(function () {
+                        moveLeft();
+                    });
+                
+                    $('a.control_next').click(function () {
+                        moveRightSec();
+                    });
+                    
+                    //alert('Test');
+                    console.log('Test');
+                    
+                    
+                });    
+                
+                function closeAndRefresh(){
+                    var value =  $("#search").val();
+                    //alert(value);
+                    if(value ==''){
+                        alert('Please Enter Some Text To Search');
+                    }else{
+                        insertDataNew(value);
+                    }
+                }
+            </script>
+            
+            <!--   Site Catalyst Code -->
+            
+            <!-- Site Catalyst (Santosh 7/23/14) -->
+<script type="text/javascript">
+
+    var url = document.URL;
+
+    var orgurl=url.split('?');
+
+    var urlarray = orgurl[0].split('/');
+
+    var titleString=urlarray[urlarray.length-1];
+
+    var sectionString=urlarray[urlarray.length-2];
+
+    sectionString=sectionString.toUpperCase().charAt(0)+sectionString.substring(1);
+
+    if (titleString === "") {
+
+            (urlarray.length)>=5 ? titleString = 'Overview' : titleString = 'Homepage';
+
+    }
+
+    titleString = titleString.replace(".shtml", "");
+
+    if (sectionString === "" || sectionString.toLowerCase() == "www.crowdtorch.com" || sectionString.toLowerCase() == "crowdtorch.com") {
+
+        s.pageName= titleString
+
+    }
+
+    else
+
+    {
+
+        s.pageName=sectionString + ' : ' + titleString;
+
+    }
+
+    s.channel="Marketing";
+    
+    s.server="Cvent US"
+
+    s.pageType="";
+
+    s.prop1="Customer Portal";
+    
+    s.eVar40=s.prop14="US-EN";
+    
+    s.eVar21=s.prop28="Cvent US"
+
+    s.eVar22=s.prop15="Cvent US : Customer Portal"
+
+    s.eVar23=s.prop16="Cvent US : Customer Portal" + ' : ' + THE SUBSECTION OF THE CUSTOMER PORTAL
+
+    s.eVar10=s.prop15 + ' : ' + s.pageName;
+    
+    s.prop38=s.eVar10; //Pages by Name
+    
+    s.prop48=String(document.location).split("?")[0]; // Pages by URL
+    
+    // Optimizely SiteCatalyst Integration
+    window.optimizely = window.optimizely || []; window.optimizely.push("sc_activate");
+ 
+s.events="event3"; 
+    
+
+    s.t();
+    </script>
+<!-- End Site Catalyst -->
+
+            
+            
+            
+            
+            
+            
+            
+            <!--   Site Catalyst Code -->
+            
+        </body>
+    </html>
+</apex:page>

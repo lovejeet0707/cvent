@@ -1,0 +1,363 @@
+<apex:page Controller="AddCaseComment"  sidebar="false" showheader="false" applyHtmlTag="false" title="Create New Case Comment" cache="false">
+<!--Code From Community Header-->
+    <apex:composition template="CventCommunityHeader"></apex:composition>
+<html lang="en">
+ <head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+   .requiredBlock {
+       background-color: #c00;
+       position: absolute;
+       left: -4px;
+       width: 3px;
+       top: 1px;
+       bottom: 1px;
+   }
+   .requiredInput {
+       position: relative;
+       height: 100%;
+   }
+  </style>
+  <style>
+        .loader1 {
+        margin-top:2%;
+        margin-left: 46%;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 82px;
+        height: 82px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        #opaque {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: none;
+        background-color: gray;
+        filter: alpha(opacity=30);
+        opacity: 0.3;
+        -moz-opacity:0.3;
+        -khtml-opacity:0.3
+        }
+        * html #opaque {
+        position: absolute;
+        }
+/* GB STYLES */
+h1, h2, h3, h4, h5 {
+    margin-bottom: 0.5em !important;
+    font-weight: bold;
+    display: inline-block;
+    color: #444;
+    margin-top: 0;
+}
+
+hr {
+    margin: 0.5em 0;
+}
+
+p {
+    font-size: 1.125em;
+}
+
+.pad-md {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.pad-lg {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+
+.card {
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.125);
+}
+
+.card-body {
+    padding: 1.25em;
+}
+
+@media (min-width: 768px) {
+    .card-body {
+        padding: 2em;
+    }
+}
+
+.button {
+  display: inline-block !important;
+  padding: 6px 12px !important;
+  margin-bottom: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.42857143 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; !important
+  background-image: none !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+}
+
+.button-blue, .button-blue:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+.button-blue:hover, .button-blue:focus {
+  color: #fff !important;
+  background-color: #0183EB !important;
+  border-color: transparent !important;
+}
+
+.button-lightblue, .button-lightblue:visited {
+  color: #1C2C43 !important;
+  background: none !important;
+  background-color: #64D2FF !important;
+  border-color: transparent !important;
+}
+.button-lightblue:hover, .button-lightblue:focus {
+  color: #1C2C43 !important;
+  background-color: #56b6dd !important;
+  border-color: transparent !important;
+}
+
+.button-outline, .button-outline:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: none !important;
+  border: 2px solid #fff !important;
+}
+.button-outline:hover, .button-outline:focus {
+  color: #286090 !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.button-outline-blue, .button-outline-blue:visited {
+  color: #0183EB !important;
+  background: none !important;
+  background-color: none !important;
+  border: 2px solid #0183EB !important;
+}
+.button-outline-blue:hover, .button-outline-blue:focus {
+  color: #fff !important;
+  background-color: #0183EB !important;
+  border-color: #0183EB !important;
+}
+
+
+.button-red, .button-red:visited {
+  color: #fff !important;
+  background: none !important;
+  background-color: #F45F5F !important;
+  border-color: transparent !important;
+}
+.button-red:hover, .button-red:focus {
+  color: #fff !important;
+  background-color: #d15151 !important;
+  border-color: transparent !important;
+}
+
+.col-centered {
+    margin: 0 auto;
+    float: none;
+}
+
+    </style>
+  <script>
+      function redirectCancel(){
+          var url ='/apex/CaseDetail?id={!ccId}';
+          window.location.href = url;
+          return false;
+      }
+      function submitComment(){
+          var  textComment= document.getElementById('txtComment').value;
+          showSpinner();
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.AddCaseComment.updaeComment}',
+            textComment,'{!ccId}', 
+            function(result, event){
+                if (event.status) {
+                    var url ='/apex/CaseDetail?id={!ccId}';
+                    window.location.href = url;
+                    return false;
+                }
+                hideSpinner();
+            }, 
+            {escape: true}
+        );
+      }
+  </script>
+ </head>  
+ <body> 
+  <apex:outputPanel id="pnlMain">
+  <apex:outputPanel id="pnlCaseMessages">
+   <apex:outputPanel rendered="{!errMessage != ''}" styleclass="col-sm-12" style="margin-left: 2px;">
+    <span style="font-weight:bold;color:#cc0000;padding-right:4px">Error:</span>
+    <span style="color:#cc0000;">{!errMessage}</span>
+   </apex:outputPanel>
+  </apex:outputPanel>
+<div class="container" style="margin-top:10%;">
+    <div class="row pad-md">
+        <div class="col-xs-12 col-md-8 col-centered">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>Case Comment</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="20%">
+                                    <apex:outputLabel >Created By</apex:outputLabel>
+                                </th>
+                                <th width="20">
+                                    <apex:outputLabel >Created Date</apex:outputLabel>
+                                </th>
+                                <th width="60%">
+                                    <apex:outputLabel >Description</apex:outputLabel> 
+                                </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <apex:repeat value="{!CaseComments}" var="cs">
+                                <tr>
+                                    <td>
+                                        <apex:outputField value="{!cs.CreatedBy.Name}"/>
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!cs.CreatedDate}"/>
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!cs.CommentBody}"/> 
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                             <label for="txtComment" class="control-label">Comments</label>
+       
+                             <div class="requiredInput">
+                              <div class="requiredBlock"></div>
+                              <textarea id="txtComment" class="form-control" rows="6" placeholder="Enter Comments">{!CommentBody}</textarea>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="row pad-md">
+                        <div class="col-xs-12">
+                                <input type="button" onclick="submitComment();" class="button button-blue" value="Submit"/>
+    <input type="button" onclick="redirectCancel();" class="button button-outline-blue" value="Cancel"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+   
+
+
+
+       
+<!-- <apex:form >
+  <apex:actionFunction action="{!submitComment}" name="submitCommentss" rerender="pnlMain">
+  <apex:param assignTo="{!CommentBody}" name="CommentBody" value="" />
+  </apex:actionFunction>
+ </apex:form>-->
+ </apex:outputPanel> 
+  <div id="opaque"/>
+    <div class="loader1" id="loaderId" style="display:none;"><!---->
+        <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'></p>
+    </div>
+    
+    
+    <!--Code from Footer Page-->
+    
+    
+    <body id="articles" class="inner">
+        <div style="clear:both;"></div>
+        <footer>
+            <!--<section id="footer" class="pad-topbot-ten">
+                <div class="container" style="background: -webkit-linear-gradient(top,white,white 5%,white 100%) !important;">
+                    
+                    <div class="row col-md-12 footer pad-topbot-ten">
+                        <div class="col-md-3 left-side">
+                            <p>Copyright © Cvent <span class="year">2016</span></p>
+                        </div>
+                        <div class="col-md-5 right-side"  style="width:50%;">
+                            <p>
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a href="/apex/CommunityGuidelines" target="_blank" class="blue-link" id="guildeLinesId">Community Guidelines</a> | </apex:actionRegion> 
+                                
+                                <a href="http://www.cvent.com/en/privacy-policy.shtml" target="_blank" class="blue-link">Privacy Policy</a> 
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml" target="_blank" class="blue-link">GDPR Sub-Processors</a></apex:actionRegion>
+                                
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> | <a href="/apex/ContactSupport?lang=en_US" target="_blank" class="blue-link" id="helpNowId">Get Help Now</a></apex:actionRegion>
+                                
+                                
+                            </p>
+                        </div>                
+                    </div>
+                </div>
+            </section>-->
+                <apex:composition template="CventCommunityFooter"></apex:composition>
+        </footer>
+        </body>
+ </body>
+
+    
+    <script>
+    function showSpinner()
+    {
+        document.getElementById('opaque').style.display='block';
+        var popUp = document.getElementById('loaderId');
+        popUp.style.display = 'block';
+    } 
+    function hideSpinner()
+    {
+        document.getElementById('opaque').style.display='none';
+        var popUp = document.getElementById('loaderId');
+        
+        popUp.style.display = 'none';
+    }
+    </script>
+</html> 
+</apex:page>

@@ -1,0 +1,128 @@
+<apex:page showHeader="false" id="newcventlogo" > 
+
+
+ <style type="text/css">
+    .boldify { font-weight: bolder; }
+    .apexp .bPageBlock p {width:150px;float:left}
+
+.apexp {
+    width: 460px;   
+}
+input {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+    width: 240px;
+}
+select {
+    margin:5px 0 0;
+    padding:10px 0;
+    width:252px;
+}
+.pbBody {
+    margin-top: 0;  
+}
+body .bPageBlock {
+    border-top-width:1px;
+    border-color: #eeeeee;
+    margin: 10px 20px 20px;
+    padding:10px 0;
+    width: 445px; 
+    font-size:12px !important;
+    background:#f8f8f8 !important;
+    border-radius: 4px 4px 4px 4px !important;
+}
+select {
+    padding: 2px 1px 2px 4px;  
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+
+}
+img {
+    border: 0 none;
+    margin: 10px 0 0 20px;
+}
+p.label {
+    color: #2485B3;
+    padding:4px 0 0;
+    font-weight: bold;
+    width: 120px;
+    font-size:12px !important
+}
+p.intro {
+    clear:both;
+    color:#666666;
+    font-size:12px !important;
+    font-style:italic;
+    line-height:130%;
+    margin-top:0;
+    width:410px !important;
+}
+form {
+clear: both;
+    padding: 10px 0 0 !important;}
+    </style>
+<!-- <html> 
+<img src="/resource/1384853615000/newcventlogo"> </img>
+</html> -->
+
+<apex:image id="theImage" value="{!$Resource.CventLogoNew}"/> 
+
+<script type="text/javascript">
+     (function() { 
+     function handlePageLoad() {
+       var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+       document.getElementById('prechatForm').setAttribute('action',
+       decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+     } if (window.addEventListener) {
+              window.addEventListener('load', handlePageLoad, false);
+   } else { window.attachEvent('onload', handlePageLoad, false);
+              }})(); 
+</script>
+
+ <apex:pageBlock > 
+<p class="intro">Please fill out your information below and a representative will be with you shortly. You will see "connecting" until connected to the next available Agent..</p>
+<form method="post" id="prechatForm" > 
+    
+
+
+<p class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Name : </font> </p><p><input type="text" required='True' name="liveagent.prechat:Name" id="prechat_field"  /><br/>   </p>
+<p class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Email Address : </font></p><p>  <input type="text" required='True' name="liveagent.prechat:Email" /><br/> </p>
+<p class="label"><font face="Verdana"> &nbsp;&nbsp;Account Number : </font> </p><p> <input type="text"  name="liveagent.prechat:Account Number"/><br/> </p>
+<p class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Product Type : </font></p><p>  <select name="liveagent.prechat.buttons" required='True'>
+          
+          <option>Select One:</option> 
+          <option value="573000000008OV0">Event Management</option> 
+          <option value="573000000008OV5">Surveys</option>
+          <option value="573000000008OVA">CSN</option>
+          </select><br/> </p> <p style="clear:both;height:15px"></p>
+        
+      <input type="hidden" value="Contact,Contact.Email" name="liveagent.prechat.query:Email"/> 
+      <input type="hidden" value="Email__c" name="liveagent.prechat.save:Email"/>
+      <input type="hidden" value="Account,Account.Cvent_Account_ID__c" name="liveagent.prechat.query:Account Number"/> 
+      <input type="hidden" value="Cvent_Account_ID__c" name="liveagent.prechat.save:Account Number"/> 
+     
+      <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
+      <input type="hidden" name="liveagent.prechat.save:Email" value="Visitor_s_Email__c" />
+      <input type="hidden" name="liveagent.prechat.save:Account Number" value="Visitor_s_Account_ID__c" />
+       
+      
+       <!-- Updated code: now for transcript
+       
+      
+        liveagent.addCustomDetail("First Name", "");
+        liveagent.addCustomDetail("Last Name", "");
+        liveagent.addCustomDetail("Phone Number", "");
+        liveagent.addCustomDetail("Case Subject", "");
+        liveagent.addCustomDetail("Case Status", "New", false);
+        liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false,true).saveToTranscript("contactId").showOnCreate().linkToEntity("Case", "ContactId");
+        -->
+        
+      
+      
+         <input id="prechat_submit" type="submit" value="Initiate Chat" style="color: rgb(255, 255, 255); padding: 10px 0px; font-weight: bold; text-transform:capitalize; font-family: arial; background-color: #008AC1; font-size:15px; margin: 10px 0px 0px; width: 135px;pointer:cursor"/><br clear="all"/></form>
+           
+
+</apex:pageBlock>
+  
+</apex:page>

@@ -1,0 +1,28 @@
+<apex:page >
+    <style>
+        #container {
+            padding: 5%;
+        }
+        #se {
+            width: 60%;
+            margin: 0 auto;
+            font-size: 185%;
+        }
+        #hide {
+            color: white;
+        }
+    </style>
+
+    <div id="container">
+        <span id="se">
+            <h2>Thank you for filling out the Sales Engineer request form! Your request has been submitted. You will hear from the assigned Sales Engineer shortly.</h2>
+            <br /><br />
+            <p id="hide">
+                Thy humble servants,<br />
+                The Sales Engineering Team
+            </p>
+        </span>
+    </div>
+    
+    
+</apex:page>

@@ -1,0 +1,632 @@
+<apex:page showHeader="false" standardStyleSheets="false" controller="CommunityHeaderCls" cache="false">
+
+    <html lang="en">
+        <head>
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <!--<meta name="google-site-verification" content="SaiRo4g_r8N6B6nIvyVD3dLXbib1aGhE9I6PO1oRR8Q"/>-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/bootstrap.min.js')}"></script>
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/new.js')}"></script>
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/bootstrap.min.css')}" rel="stylesheet" type="text/css" />
+            <link href="{!URLFOR($Resource.CommunityAssets2, '/assets/css/style.css')}" rel="stylesheet" type="text/css" />
+            <script src="{!URLFOR($Resource.CommunityAssets2, '/assets/js/jquery.validate.min')}"></script>
+            <style>
+            .cxdatacategory.cxInquisium {display : none;}
+            .popular-article .help-footer-link {min-height:280px;}
+            .loader{
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999999;
+                background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+            }
+
+            .bPageHeader{
+                display: none;
+            }
+            .header .filter{display:block !important; }
+            .header .filter ul li {margin: 0 10px 0 0;}
+            #side-sticky .chat-us a {
+               background : #126fb7 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -53px 0 !important;
+            } 
+            
+            #side-sticky .open-case a{
+                background : #173d66 url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat 15px 0 !important;
+            }
+            #side-sticky .call-us a {
+                background : #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/Sticky-icons.png')}) no-repeat -123px 0 !important;
+                }
+            .left-top .mycases ul.one li.txt {margin: 6px 15px 0 0 !important;}
+            #contentWrapper {min-width: 320px !important;}
+               
+            body#articles #auraElement-1, body#articles #auraErrorMessage {display:none !important;}
+            
+            .threecolumn .leftContent {width: 225px !important;}
+            
+            .left-top .top-nav {padding-top: 6px !important; padding-left: 30px;}
+            
+            #articles #userGroups-regional ul li h4, #userGroups-vertical ul li h4 {width: 130px !important;}
+            #top-header ul li, #top-header ol li {margin-left:0px !important;}
+            .left-top .top-nav ul li {padding: 0 30px 0 10px !important;}
+            .left-top .top-nav ul li a { text-transform: uppercase; font-weight: 500;}
+            .header .search {padding: 10px 0 10px 15px !important;}
+            #body-content .cards p {margin: 10px 0 20px 0 !important; font-size: 16px !important;}
+            
+            #articles .col-md-9 {width: 73% !important; float: right !important;}
+
+            .article-body .product-ctas ul li a {padding: 0px 5px 0px 5px !important; margin: 0 10px 15px 0 !important; border-radius: 2px !important; font-size: 12px !important; line-height: 23px !important;}
+            .article-body ul li { margin: 0;}
+            .article-body .related-headline ul li ul li {color: #222 !important; list-style-type: disc; margin: 0 0 0px 20px; color: #0d96d4;}
+            .article-body .related-headline ul li {color: #222 !important; font-weight:400 !important; list-style-type: none;}
+            .article-body .related-headline ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul li ul li a {color: #337ab7 !important; font-weight: normal;}
+            .article-body .related-headline ul {color: #222 !important; margin-top: 10px;}
+            .article-body ul {margin-left:30px;}
+            .article-body .related-headline ul {margin-left:0px;}
+            .article-body .related-headline ul li ul {margin-left:10px;}
+            .article-body .related-headline ul li {font-size: 14px; font-weight: 500;font-family: arial;line-height: 30px;}
+            .article-body .product-ctas ul {margin-left:0px;}
+            
+            #communitysupport {margin-top: 15px;}
+            
+            #announcement-box > div > p {padding-top: 9px; margin-left: 45px; margin-bottom: 0px;}
+            
+            #body-content .knowledge, #body-content .community {min-height: 300px !important;}
+            
+            .alert-area-Yes {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+            .alert-area-No {background: #e7f0f5; text-align: center; padding: 20px; margin: 50px;}
+            .alert-area-right-side textarea {width:100%;}
+            .alert-area-No button {background: #126fb7; color: #ffffff; border-radius: 3px; border: none; padding: 7px 15px;}
+            .alert-area-left-side {text-align: left !important;}
+            .alert-area-left-side input {margin-right:5px;}
+            
+            div.bodyDiv.brdPalette.brandPrimaryBrd table.outer {width:100%;max-width:1170px;}
+            
+            .force-disable {pointer-events: none !important;}
+            .zen .publisherTypeOverflow.zen-open .zen-trigger {height: 25px;}
+            #bodyTable > tbody > tr > td > div.userProfilePage > div > div > div.mainContent > div > div.centerContent.zen > div > div > div.publishercontainer.zen.defaultState.cxchattertextareacontainer.chattertextareacontainer > ul > li:nth-child(4) > div > ul > li:nth-child(1) {display:none;}
+            .zen .publisherTypeOverflow.zen-open .zen-options li {overflow: hidden;height: 32px;}
+            .zen .publisherTypeOverflow.zen-open .zen-options .publisherFeedItemTypeChoice {padding-top: 16px;padding-bottom: 16px;}
+            .zen .publisherTypeOverflow.zen-select {margin-top: 0;top: 0;}
+            #FAQ__kav > div:nth-child(4) > ul {color:#337ab7;font-weight: normal;}
+            #FAQ__kav > div:nth-child(4) > ul li {color: #222;font-weight: normal;}
+            #FAQ__kav > div:nth-child(4) > ul li span {color: #222;}
+            #FAQ__kav > div:nth-child(4) > ul li a {color: #337ab7;font-weight: normal;}
+            #FAQ__kav > div:nth-child(4) > ul li a span {color: #337ab7;font-weight: normal;}
+            
+            .userProfilePage .vfButtonBar a.editLink img {padding: 0 !important; border: 0 !important;}
+            
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel {padding: 0px; width: 480px !important; border-radius: 10px 10px 10px 10px;}     
+            .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {width: 479px !important; margin: 0; padding: 0; border-radius: 10px 10px 0 0;}     
+            .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {width: 479px !important; margin: 0 0 0 5px; padding: 5px; height: 40px;}       
+            .centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost a.cxpostquestion.button {height: auto;}     
+            .centerContent .tbsearchAskForm #cs\3A searchAskContainer .type li {width: 465px;}      
+            #cs\3A titleInput {width: 100%;}        
+            #cs\3a allPostButtons > a.cxaskpublic.cxpostButton.button {height:auto !important;}     
+            #cs\3A askDetailsWithTB.overlayDialog {height: 448px;}      
+            #cs\3A askOverlayContent.innerContent {height: 394px;}      
+            .listViewportWrapper .listViewport .subNav .linkBar {width: 941px !important;}      
+            .publishercontainer .bottomBar {height:50px;}       
+            div.influenceBoxHeader {height: auto;}      
+            .result-body .show-on-mobile p {background: url({!URLFOR($Resource.CommunityAssets2, '/assets/images/filter-icon.png')}) no-repeat 1px 6px;}
+            #help-training .widget-area { margin: 30px 15px 50px 15px !important;}
+            #communitysupport {padding-top:25px !important; margin-top: 0px;}
+            #home-slider {padding-bottom: 35px !important;}
+            .zen .zen-tabMenu a {display:none !important;}
+            
+.datacategorylinks.csoptimizequestion > ul > li:nth-child(13),.datacategorylinks.csoptimizequestion > ul > li:nth-child(14),.datacategorylinks.csoptimizequestion > ul > li:nth-child(15), .datacategorylinks.csoptimizequestion > ul > li:nth-child(16),.datacategorylinks.csoptimizequestion > ul > li:nth-child(17),.datacategorylinks.csoptimizequestion > ul > li:nth-child(18),.datacategorylinks.csoptimizequestion > ul > li:nth-child(19),.datacategorylinks.csoptimizequestion > ul > li:nth-child(20),.datacategorylinks.csoptimizequestion > ul > li:nth-child(21),.datacategorylinks.csoptimizequestion > ul > li:nth-child(22),.datacategorylinks.csoptimizequestion > ul > li:nth-child(23),.datacategorylinks.csoptimizequestion > ul > li:nth-child(24),.datacategorylinks.csoptimizequestion > ul > li:nth-child(25),.datacategorylinks.csoptimizequestion > ul > li:nth-child(26),.datacategorylinks.csoptimizequestion > ul > li:nth-child(27),.datacategorylinks.csoptimizequestion > ul > li:nth-child(28),.datacategorylinks.csoptimizequestion > ul > li:nth-child(29),.datacategorylinks.csoptimizequestion > ul > li:nth-child(30),.datacategorylinks.csoptimizequestion > ul > li:nth-child(31),.datacategorylinks.csoptimizequestion > ul > li:nth-child(32),.datacategorylinks.csoptimizequestion > ul > li:nth-child(33) {display:none;}
+            #cs\3a dataCategories > option:nth-child(12),#cs\3a dataCategories > option:nth-child(13),#cs\3a dataCategories > option:nth-child(14),#cs\3a dataCategories > option:nth-child(15),#cs\3a dataCategories > option:nth-child(16),#cs\3a dataCategories > option:nth-child(17),#cs\3a dataCategories > option:nth-child(18),#cs\3a dataCategories > option:nth-child(19),#cs\3a dataCategories > option:nth-child(20),#cs\3a dataCategories > option:nth-child(21),#cs\3a dataCategories > option:nth-child(22),#cs\3a dataCategories > option:nth-child(23),#cs\3a dataCategories > option:nth-child(24),#cs\3a dataCategories > option:nth-child(25),#cs\3a dataCategories > option:nth-child(26),#cs\3a dataCategories > option:nth-child(27),#cs\3a dataCategories > option:nth-child(28),#cs\3a dataCategories > option:nth-child(29),#cs\3a dataCategories > option:nth-child(30),#cs\3a dataCategories > option:nth-child(31),#cs\3a dataCategories > option:nth-child(32),#cs\3a dataCategories > option:nth-child(33),#cs\3a dataCategories > option:nth-child(34),#cs\3a dataCategories > option:nth-child(35),#cs\3a dataCategories > option:nth-child(36),#cs\3a dataCategories > option:nth-child(37),#cs\3a dataCategories > option:nth-child(38),#cs\3a dataCategories > option:nth-child(39),#cs\3a dataCategories > option:nth-child(40),#cs\3a dataCategories > option:nth-child(41),#cs\3a dataCategories > option:nth-child(42),#cs\3a dataCategories > option:nth-child(43),#cs\3a dataCategories > option:nth-child(44),#cs\3a dataCategories > option:nth-child(45) {display:none;}
+.cxdatacategory.cxLead_Capture {display:none;!important}
+.cxdatacategory.cxOnArrivals {display:none;!important}
+.cxdatacategory.cxPasskey  {display:none;!important}
+.cxdatacategory.cxSocial_Wall {display:none;!important}
+.cxdatacategory.cxSocial_Tables{display:none;!important}
+.cxdatacategory.cxCSN_Venue_Sourcing {display:none;!important} 
+@media only screen and (max-width: 1024px) {
+ .popular-article .help-footer-link {min-height:332px;}
+ }
+ 
+            @media only screen and (max-width: 992px) {
+                #articles .col-md-9 {width: 66% !important; float: left !important;}
+                #side-sticky-bar {display:none !important;}
+            }
+            @media only screen and (max-width: 991px) {
+              #side-sticky-bar {display:none !important;}
+            }
+            @media only screen and (max-width: 767px) {
+                .header .submit {
+                    background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 24px 9px !important;
+                    text-indent: -999999px;
+                }
+                #horizontal-filter {display:none !important;}
+                .popular-article .help-footer-link {min-height:inherit;}
+            }
+            
+            @media only screen and (max-width: 740px) {
+                .header .submit {
+                    background: #149fda url({!URLFOR($Resource.CommunityAssets2, '/assets/images/search.png')}) no-repeat 16px 9px !important;
+                }
+            }
+            .label{
+                color: #777;
+            }
+
+           .top-band {
+                background: #fff !important;
+                border-bottom: 1px solid #ebebeb !important;
+            }
+            .left-top div#navigation ul li a {
+                color: #0183EB !important;
+            }
+            .left-top div#navigation ul li.active a {
+                background: #eee;
+            }
+            .left-top div#navigation ul li.btn-login a, .left-top div#navigation ul li.btn-login a:hover {
+                color: #fff !important;
+            }
+            .left-top div#navigation ul li a:hover {
+                color: #0183EB !important;
+                text-decoration: underline;
+            }
+
+            li.btn-login {
+                float: right;
+            }
+            li.btn-login a {
+                background: #0183EB;
+                color: #fff;
+                padding: 8px 12px;
+                font-size: 14px;
+                display: inline-block;
+            }
+            li.btn-login a:hover {
+                backround:#0069bd !important;
+                color: #fff !important;
+            }
+            .left-top img.logo {
+            padding: 0 !important;
+        }
+@media (min-width: 768px) and (max-width: 1040px) {
+.left-top div#navigation ul li a {
+font-size: 15px !important;
+padding-left: 0.5em !important;
+padding-right: 0.5em !important;
+}
+}
+            </style>
+        </head>
+    
+        <body id="articles" class="inner">
+            <header>
+                <section id="top-header" class="top-band pad-topbot-ten">
+                    <div class="container" style="background: #fff;">
+                        <div class="row col-md-12">
+                            <div class="left-top">
+                               <a href="/"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/cvent-logo.png')}" alt="logo" class="logo"/></a>
+                                <div id="navigation" class="top-nav">
+                                    <ul>
+                                            <li class="cta-help-training"  id="helpId"><a href="/apex/helphome">KNOWLEDGE BASE</a></li>
+                                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                            <li class="cta-forums active" id="forumsId"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS">Forums</a></li>
+                                            <li class="cta-success-groups" id="groupsId"><a href="/apex/Groups" class="last">Success Groups</a></li>
+                                            </apex:actionRegion>
+                                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <li class="cta-forums active" id="forumsId"><a href="/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS" class="tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Forums</a></li>
+                                            <li class="cta-success-groups" id="groupsId"><a href="/apex/Groups" class="last tooltipClass" data-toggle="tooltip" data-placement="top" title="Login Required.">Success Groups</a></li>
+                                            </apex:actionRegion>
+                                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                            <li class="txt btn-login"><a style="text-decoration: none;color: white;margin-left: 319%;" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E">Login</a></li>
+                                            </apex:actionRegion>
+                                        <apex:actionRegion rendered="{!usr.ShowLitmosTab__c}">
+                                            <li class="cta-success-groups" ><a href="/apex/Litmos__Dashboard?sfdc.tabName=01r1k00000008UX" class="last">Training</a></li>
+                                        </apex:actionRegion>
+                                    </ul>
+                                </div>
+                                <!--My Cases and Photo Section-->
+                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                <div class="mycases">
+                                    <ul class="one">
+                                        <li class="txt"><a style="text-decoration: none; color: #0183EB; margin-top: 4px; font-weight: bold;" href="/apex/SupportPage">My Cases</a></li>
+                                        <li class="img">
+                                            <img src="{!usr.smallphotoUrl}" alt="User" type="button" class="btn btn-default dropdown-toggle" style="border-radius: 50%;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                                            <!--<span class="caret"></span>-->
+                                            <ul class="dropdown-menu">
+                                                <li><a style="text-decoration: none;" href="/{!usr.id}">My Profile</a><br/></li>
+                                                <!--<li><a style="text-decoration: none;" href="/{!if(usr.id=='005o0000001zagpAAA','',usr.id)}">My Profiile</a><br/></li>-->
+                                                <!--<li><a style="text-decoration: none;" href="/500?fcf=00B000000097v9y">My Cases</a><br/></li>-->
+                                                <li><a id="logoutId" style="text-decoration: none;" href="/myLogOut">Logout</a></li>                                        
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </apex:actionRegion>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="side-sticky-bar" style="display:none;">
+                    <div class="side-sticky-bar">
+                        <!--<div class="open-case-bar">
+                            <a href="/500/e?retURL=%2F500%3Ffcf%3D00B000000097v9y" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-open-case.png')}" /></a>
+                        </div>-->
+                        <div class="chat-us-bar">
+                            <!--<script type='text/javascript' src='https://c.la3-c1-was.salesforceliveagent.com/content/g/js/34.0/deployment.js'></script>
+                            <script type='text/javascript'>
+                            liveagent.init('https://d.la3-c1-was.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+                            </script>
+                            <img id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChat('573000000008OVF')" src="/resource/CommunityAssets/images/chat-on.png" width="126" height="126"  />
+                            <img id="liveagent_button_offline_573000000008OVF" src="/resource/CommunityAssets/images/chat-off.png" width="126" height="126" />
+                            <script type="text/javascript">
+                            if (!window._laq) { window._laq = []; }
+                            window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+                            liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+                            });
+                            </script>-->
+                        </div>
+                        <!--<div class="call-us-bar">
+                            <a href="http://www.cvent.com/en/contact/support-hours-and-numbers.shtml" target="_blank"><img src="{!URLFOR($Resource.CommunityAssets2, '/assets/images/side-nav-call-us.png')}" /></a>
+                        </div>-->
+                    </div>
+                </section>
+                <style>
+                    #side-sticky-bar {position: fixed; top: 37%; right: 0; z-index: 3;}
+                    .open-case-bar,.chat-us-bar,.call-us-bar {width:77px; margin: 0px 0 10px 0px; -webkit-transition: all ease 300ms; -o-transition: all ease 300ms; transition: all ease 300ms;}
+                    .open-case-bar:hover,.chat-us-bar:hover,.call-us-bar:hover {Margin-left:-250px;}
+                </style>
+            </header>
+        </body>
+    </html>
+    <div id="load_scrl" class="loadingBox loader" style="display:none" /> 
+    <apex:outputpanel >
+         <apex:actionstatus id="actionStatus">
+              <apex:facet name="start">
+                  <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.90;width:100%;"> 
+                      <div class="waitingHolder" style="position: fixed;left: 35%; right: 50%;" >
+                      <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                      <span class="waitingDescription">Loading...</span>
+                      </div>
+                  </div>
+              </apex:facet>
+         </apex:actionstatus>
+     </apex:outputpanel>
+      <script>      
+            $(document).ready(function() {      
+                //Adding active class to highlight Navigation on Current page       
+                /*setTimeout(function() {           
+                    alert("enter");     
+                    if (window.location.href.indexOf("helphome") > -1) {        
+                        alert("true");      
+                        $(".cta-help-training").addClass("active");     
+                    }if (window.location.href.indexOf("chatter") > -1) {        
+                        alert("two");       
+                        $(".cta-forums").addClass("active");        
+                    }if (window.location.href.indexOf("Groups") > -1) {     
+                        alert("three");     
+                        $(".cta-success-groups").addClass("active");        
+                    }       
+                }, 3000); */        
+                        
+                /* Nav slection logic */                
+            jQuery('#navigation ul li').removeClass('active');          
+            var baseUrl = window.location.toString();                   
+            if(baseUrl.toLowerCase().indexOf("chatteranswersui") >= 0){     
+            //alert('hello');       
+            jQuery('#navigation ul li').eq(1).addClass('active');       
+            }else if(baseUrl.toLowerCase().indexOf("groups") >= 0){     
+                 jQuery('#navigation ul li').eq(2).addClass('active');      
+            }else if(baseUrl.toLowerCase().indexOf("helphome") >= 0 ){                         
+                 jQuery('#navigation ul li').eq(0).addClass('active');              
+            }else if (baseUrl.toLowerCase().indexOf("contactsupport") >= 0 || baseUrl.toLowerCase().indexOf("searchfor") >= 0 || baseUrl.toLowerCase().indexOf("500") >= 0 || baseUrl.toLowerCase().indexOf("communityarticle") >= 0){
+                jQuery('#navigation ul li').removeClass('active');
+                //alert('Inside Contact Support');
+                //jQuery(".chat-us-bar").hide();
+            }
+            else{      
+                 //jQuery('#header .logo').addClass('active');   
+                jQuery('#navigation ul li').removeClass('active');               
+            }       
+            });     
+        </script> 
+    <script>
+        jQuery.noConflict();
+        jQuery(document).ready(function () {  
+            var counterSec = 0;
+            //alert('Test');
+            var tempName;
+            
+            var tempBool = false;
+            //alert($("#home-slider").length);
+            if(jQuery("#home-slider").length) {
+                tempBool = true;
+                //alert("Test");
+            }
+            //To control side stickys
+            var tempUrl= window.location.href;
+            if(tempBool || tempUrl.indexOf('helphome') > -1 || tempUrl.indexOf('ContactSupport') > -1){
+                console.log("Test");
+                jQuery('#side-sticky-bar').show();
+            }  
+            
+            
+            //To hide attach buttom from closed cases
+            var tempValStatus = jQuery('#cas7_ileinner').text();
+            console.log('tempValStatus'+tempValStatus);
+            var attachFileName = 'attachFile';
+            if(tempValStatus == 'Closed')
+            jQuery('[name="' + attachFileName + '"]').hide();
+            //To hide attach buttom from closed cases
+            
+            tempName  = 'save_close' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            tempName = 'save_new' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            tempName = 'spell' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'csmrgp__csmrglistbtn' ; jQuery('[name="' + tempName + '"]').hide(); }, 3000);
+            
+            tempName = 'mass_edit' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'mass_edit' ; jQuery('[name="' + tempName + '"]').hide(); }, 1000); 
+            
+            tempName = 'new_conference_case' ;
+            jQuery('[name="' + tempName + '"]').hide();
+            setTimeout(function(){ tempName = 'new_conference_case' ; jQuery('[name="' + tempName + '"]').hide(); }, 1000);
+            
+            //alert('tESTQ');
+            jQuery('body').click(function(evt){ 
+                //jQuery('body').addClass( "waitingSearchDiv" );
+                var url= window.location.href;
+                console.log('url++'+url);
+                //alert('tESTQ');
+                if( (url.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( url.indexOf( '&id=kA' ) != -1 ) ){
+                    jQuery(".loader").show();
+                    var res = url.split("id=");
+                    console.log('res++'+res);
+                    console.log('res.length;++'+res.length);
+                    CommunityHeaderCls.returnId(res[res.length-1],
+                    function(result, event){ 
+                        window.location = '/apex/CommunityArticle?id='+result;
+                        }, {escape:true}
+                    );
+                    setTimeout(function(){ jQuery(".loader").hide(); }, 5000);
+                }
+            });
+            var urll= window.location.href;
+            if( (urll.indexOf('/_ui/chatter/service/ChatterAnswersUi')) != -1  && ( urll.indexOf( '&id=kA' ) != -1 ) ){
+                window.location = '/_ui/chatter/service/ChatterAnswersUi#!/feedtype=POPULAR&dc=All&criteria=OPENQUESTIONS'; 
+            }
+        });
+    </script>
+    
+    <style>
+    .individualPalette.listViewportWrapper {margin:auto;}
+    .zen .chatterListViewContainer{margin:0 auto}
+.chatterpeoplelistpage .peopleListView{float:none}
+.zen .zen-page{padding:0}
+.zen .zen-bodyZen{border-top:1px solid #ccc;float:left}
+.chatterpeoplelistpage {
+  width: 941px;
+}
+.helpBubbleCommon,.zen-mlm,.helpLink,.prompt,.visibilityicon,.iconParent {display:none !important}
+.toggleButton,.triggerTitleText,#publisherAttachLinkPost,.feedSearchClosedButton,.zen-smlineSep,.listHoverLinks,.feedrightbar{display:none !important}
+
+.cxSearchOrPost .button {
+    text-decoration: none !important;
+                color: #fff;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                font-size: 14px;
+                display: inline-block;
+                background:#88c540;
+                border:1px solid #88c540;
+                padding:5px;
+                box-shadow:none;
+            }
+            .chatterFollowUnfollowAction {display:none !important}
+            .x-grid3-col-ACTION_COLUMN{color:#fff !important}          
+            .cxSearchOrPost .button:hover{ color: #FFFFFF !important; background: #88c540!important;}
+
+    .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, .centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+    position: absolute;
+    right: 55px;
+}
+
+.cxsearchTip {
+    background: url({!$Resource.ChatPic}) no-repeat scroll 1px 0 transparent !important;
+}
+.canoprofile .threecolumn .mainContent, .canoprofile .mainContent .lowerMainContent {
+    width: 650px;
+}
+.centerContent #cs\:searchAskContainer {
+    width: 452px;
+}
+#cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton, #cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton {
+    border: 0px solid white !important;
+    box-shadow: 0 !important
+    font-size: 0;
+    right: 20px;
+    top: 30px;
+}
+
+#cs\:theFeed {
+    border-top: 1px solid #d4dadc;
+    margin-top: 15px;
+    padding: 25px 0 0;
+    width: 580px;
+}
+.centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer {
+    padding: 7px 35px 7px 7px;
+    width: 490px;
+}
+.centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskInputContainer input {    
+    width: 490px;
+}
+.centerContent #cs\:searchAskForm.tbsearchAskForm {
+    background: none repeat scroll 0 0 #199cd6;
+    padding: 25px;
+    width: 535px;
+}
+.centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .cxsearchResultPanel,
+.centerContent #cs\:searchAskForm.tbsearchAskForm #cs\:searchAskContainer .type {
+    width: 465px;
+}
+.centerContent .tbsearchAskForm #cs\:searchAskContainer .cxSearchOrPost {
+    width: 458px;
+}
+#cs\:searchAskContainer h3 {
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    margin: 0 0 17px;
+}
+
+#cs\:searchAskForm.tbsearchAskForm #cs\:searchAskButton span,#cs\:searchAskForm.tbsearchAskForm #cs\:searchAgainButton span {
+   background: url("/resource/1428392477000/MagnifierFinal") no-repeat scroll 0 4px rgba(0, 0, 0, 0);
+  background-size: 24px 24px;
+  border: 0 none !important;
+  cursor: pointer;
+  height: 30px;  
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  width: 30px;
+  opacity: 0.4;
+  outline:none;
+}
+#cs\:searchAskInputContainer {box-shadow: none !important;}
+.reset {
+    background: none !important;
+    display: none;
+    right: 6px;
+    top: 6px;
+}
+
+    #header{width:941px;margin:0 auto}
+    #header .logo{float:left;margin-right:25px;margin-top:12px}
+    #header .logout {float:right;margin-right:-200px;margin-top:21px}
+    #header .nav ul li{list-style-type:none;float:left}
+    #header .nav{float:left;margin-right:20px}
+    #header .user-profile {float:right;margin-top:17px;display: block !important;}
+    #header .nav li{padding:10px}
+    #header .nav li a{display:block;color:#000;text-decoration:none;font-size: 14px;}
+    #header .nav li a:hover{clor:#000;text-decoration:none}
+    #header .nav ul li.active{border-bottom:3px solid #199cd6}
+    #header .logo.active{border-bottom:3px solid #199cd6;height:36px}
+    body #AppBodyHeader, #auraElement-1 .serviceCommunityZoneswitcher,.canoprofile .threecolumn .leftContent .calogo,.cxfooter {display: none;} 
+    .canoprofile .datacategorylinks {
+    padding: 10px 0 0;
+    } 
+    img{outline:0;border:0}  
+    .canoprofile .datacategorylinks h3{font-weight:bold}
+    
+    html .brandQuaternaryBgr {background: none repeat scroll 0 0 #fff !important;}
+    .hasMotif{margin:0 !important}
+    ul li, ol li {
+      margin-left: 1.5em;
+      padding-left: 0;
+    }
+    #header .nav {
+      float: left;
+      margin-right: 20px;
+      margin-top:11px;
+    }
+    ul{
+      margin: 0px 0 0 0 ;
+      padding: 0px 0 0 0 ;
+    }
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+    }
+    .cxfield{
+        display:none !important;
+    }
+    .threecolumn, .userProfilePage, .chatterFilesTabPage .chatterFilesTabPageHeader {
+        /* margin-top: 2px; */
+        margin: 10px auto 0 auto !important;
+        width: 941px !important;
+    }
+    #sidebarCell, #sidebarDiv .sidebarModule, #sidebarDiv .nestedModule {
+        border: 0 none;
+        background-color: transparent;
+        display: none !important;
+    }
+    .cssingleitemcomponent .csfeedcontainer {
+        max-width: 941px !important; 
+        margin: 20px auto 0 auto !important;
+        width: 941px !important;
+    }
+    
+    .Links{
+        background-color: #f6f6f6;
+    }
+    .chatterPublisherFileActionContainerLeft{
+        display:none !important;
+    }
+    
+    
+    .userProfilePage .headerContent {
+          width: 941px !important;
+    }
+    .profileTabSetContainer .profileTabSetHeader.zen-header {
+        width: 723px !important;
+    }
+    html .brandPrimaryBrd {
+      border-top-color: #ccc!important;
+    }
+    .bodyDiv{border-top:1px solid}
+    .threecolumn .centerContent, .userProfilePage .centerContent {
+
+  width: 510px !important;
+}
+.publishercontainer{padding-top:0 !important}
+.x-grid3-row,.x-panel x-grid-panel,.individualPalette {width:941px!important}
+body .bodyDiv #bodyTable {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin: 0 auto;
+
+}
+a.btn-new {
+                text-decoration: none !important;
+                color: #fff;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                font-size: 14px;
+                display: inline-block;
+                background:#199cd6;
+            }
+            a.btn-new:hover{ color: #FFFFFF !important; background: #07a3e8!important;}
+            
+            .btn-new {
+                text-decoration: none;
+                background: #199cd6;
+                padding: 12px 35px;
+                border-radius: 4px;
+                float: right;
+                
+            }
+           .profileHeader{display:none}
+.listViewportWrapper .listViewport .subNav .linkBar{width: 929px !important;}
+.header-wrap{background:#fafafa;width:100%;float:left}
+.bodyDiv{box-shadow:none !important;border-bottom-right-radius: 0px !important; border-bottom-left-radius: 0px !important;-moz-box-shadow: none !important; -webkit-box-shadow:none !important;-o-box-shadow:none !important;-ms-box-shadow:none !important}
+
+
+    </style>
+</apex:page>

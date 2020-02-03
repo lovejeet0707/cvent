@@ -1,0 +1,84 @@
+<apex:component access="global" controller="QuoteLineTableController">
+
+	<apex:attribute name="quoteLineRecords" description="quote lines" assignTo="{!quoteLines}" type="SBQQ__QuoteLine__c[]"/>
+
+	<apex:attribute name="hasMatrixedProducts" description="areMatrixedProducts" assignTo="{!isWithMatrixProducts}" type="Boolean"/>
+
+	<block>&#0160;</block>
+
+	<block font-size="10" text-align="left" font-weight="bold"><apex:outputText value="{!title}" rendered="{!isWithMatrixProducts}"/></block>
+
+	<block font-size="10" text-align="left">{!descriptionText}</block>
+
+	<block>&#0160;</block>
+
+	<block text-align="center">
+
+		<table text-align="center" table-layout="fixed" border="solid 0.1mm black">
+
+			<apex:repeat value="{!columns}" var="c">
+				
+				<table-column/>
+				
+			</apex:repeat>
+
+			<table-header>
+
+				<table-row color="white" width="100%" background-color="{!colorString}" border="1px white solid" font-size="10">
+					
+					<apex:repeat value="{!columns}" var="c">
+						
+						<table-cell width="{!IF(c.index == 0,'270px','auto')}" padding-top="10px" padding-bottom="10px" padding-left="10px" border="1px white solid">
+
+							<block font-size="10" font-weight="bold" color="white" text-align="{!IF(c.index == 0,'left','center')}">{!c.displayName}</block>
+
+						</table-cell>						
+						
+					</apex:repeat>
+					
+				</table-row>
+
+			</table-header>
+
+			<table-body>
+
+				<apex:repeat value="{!rows}" var="r">
+
+					<table-row background-color="{!IF(MOD(r.rowIndex,2)==0, 'white', 'rgb(221, 222, 225)')}">
+					
+						<apex:repeat value="{!r.cells}" var="c">
+							
+							<table-cell display-align="center" text-align="{!IF(c.textValue != null,'left','center')}" padding-top="2px" padding-bottom="2px" padding-left="2px" padding-right="2px" border="1px white solid" font-weight="{!c.fontWeight}">
+								
+								<block font-size="10">
+								
+									<apex:outputText value="{!c.textValue}" rendered="{!c.textValue != null}"/>
+
+									<apex:outputText value="1" rendered="{!c.integerValue != null && c.quantityOfOne}"/>
+									<apex:outputText value="{!c.integerValue}" rendered="{!c.integerValue != null && !c.quantityOfOne}"/>
+
+									<apex:outputText value="{!currencySign}" rendered="{!c.decimalValue != null}"/>
+
+									<apex:outputText value="{0, number,###,###,##0.00}" rendered="{!c.decimalValue != null}">
+
+										<apex:param value="{!c.decimalValue}"/>
+
+									</apex:outputText>
+
+								</block>
+								
+							</table-cell>
+							
+						</apex:repeat>
+
+					</table-row>
+					
+				</apex:repeat>
+
+			</table-body>
+
+		</table>
+
+	</block>
+
+</apex:component>

@@ -1,0 +1,370 @@
+<apex:page controller="CampaignAttribution_Controller" sidebar="false" id="pageId">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    var batchId='{!batchId}';
+    if(batchId!='')
+    {
+        $("#tableId *").attr('disabled', 'disabled');
+        $("[id$=buttonId]")
+            .attr("disabled", "disabled")
+            .removeClass("btn")
+            .addClass("btnDisabled");
+    }
+    else
+    {
+        $("#tableId *").attr('enable', 'enable');
+        $("[id$=buttonId]")
+    .removeAttr("disabled")
+    .removeClass("btnDisabled")
+    .addClass("btn");
+    }
+});
+</script>
+
+
+<style>
+    #el_loading{
+    background: rgba(169, 169, 169, 0.7);
+    position:fixed;
+    height:100%;
+    width:100%;
+    z-index: 99999;
+    top:0;
+    left:0;
+    }
+    
+    #el_loading img{
+    position:absolute;
+    
+    width:80px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+    }
+    
+    h3 {margin: 11px;}
+    input[id$="AgeConfirmId"]{    margin-left: 9.5em;}
+</style>
+<style>
+    .pbBody, .pbBody a, .pbBody td, .lbBody a, .lbBodyDescription, .list .headerRow .noRowsHeader {
+        //color: #B13A3A;
+        font-size: larger;
+    }
+    body button, body .x-btn, body .btn, body .btnDisabled, body .btnCancel, body .menuButton .menuButtonButton {
+        color: #00000;
+    }
+    .bEditBlock .pbHeader>table>tbody>tr>td, .bPageBlock .pbHeader>table>tbody>tr>td, .bLayoutBlock .pbHeader>table>tbody>tr>td, .bEditBlock .pbBottomButtons>table>tbody>tr>td, .bPageBlock .pbBottomButtons>table>tbody>tr>td, .bLayoutBlock .pbBottomButtons>table>tbody>tr>td {
+        text-align: center;
+    }
+
+
+    body .bEditBlock .pbBottomButtons, body .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons {
+       border-top:0px;
+       margin-top:0px;
+    }
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBody .pbSubheader
+    {
+        color : black;
+        width : 75%;
+    }
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBody  {
+        //text-align : center;
+        width : 100%;
+        padding: 6px 20px 4px 20px;
+    }
+    body .bEditBlock .pbBottomButtons>table, body .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons>table {
+        border-top: 0px;
+    }
+
+    .bPageBlock .detailList tr td, .bPageBlock .detailList tr th, .hoverDetail .bPageBlock .detailList tr td, .hoverDetail .bPageBlock .detailList tr th {
+        border-bottom: 1px;
+    }
+    .apexp .bPageBlock .detailList .list {
+        width: 195%;
+        text-align : center;
+    }
+    /*body .pbBody table.list tr.headerRow td, body .pbBody table.list tr.headerRow th {
+        text-align : center;
+            background-color: #3a5795;
+        border-color: #3a5795;
+       font-size : 20px;
+       color : #9daccb;
+       font-family: helvetica, arial, sans-serif;
+       border-top-right-radius:11px;
+       border-top-left-radius:11px;
+   }*/
+    body .bPageBlock, body #bodyCell .bResource .secondaryPalette, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock, body .bodyDiv .genericTable, body .genericPageBlockTable, body .bodyDiv .bSubBlock, body .bComponentBlock .bPageBlock, body .bMyDashboard .bPageBlock, body.rlHoverFrame .bPageBlock, body.subjectSelectionPopup div.choicesBox, body.lookupTab .secondaryPalette.bPageBlock, body.popupTab .secondaryPalette.bPageBlock, body.UserTagStatsPage .secondaryPalette.bPageBlock {
+        background-color: white;
+        border-bottom: 0px;
+         border-left: 0px;
+         border-right: 0px;
+         border-top: 0px;
+         margin : 0px;
+     }
+    body .bRelatedList .pbBody table.list, body .apexp .pbBody table.list {
+        width: 97%;
+        //position: inherit;
+        border-radius: 11px;
+        
+    }
+    .customPopup{
+        border-style: solid;
+        border-width: 1px;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        z-index: 9999;
+        /* These are the 3 css properties you will need to tweak so the pop 
+        up displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can also add 
+        the height property for a fixed size pop up.*/
+        width: 500px;
+        margin-left: -250px;
+        top:100px;
+         background-color : whitesmoke;
+         font-family : cursive;
+         text-align: center;
+         border-bottom-left-radius:10px;
+         border-bottom-right-radius:10px;
+         border-top-left-radius:10px;
+         border-top-right-radius:10px;
+    }
+    .body button, body .x-btn, body .btn, body .btnDisabled, body .btnCancel, body .menuButton .menuButtonButton {
+         background:none;
+         background-color : rgb(221, 221, 221);
+         }
+         td.tdNameClass
+         {
+             color:darkslategrey;
+             font-weight: bold;
+             font-size: 13px;
+             
+         }
+         .buttonClass{
+          color:black !important;
+          background:#FFFFFF !important;
+          font-size: 20px;
+   
+         }
+</style>
+    <apex:outputPanel >
+        <apex:actionstatus id="loadingStatus">
+            <apex:facet name="start">
+                <div   id="el_loading"> 
+                    <div  style="width: 31px;">
+                    <img  src="{!$Resource.StatusImage}" title="" />
+                    <span ></span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputPanel>
+    <apex:form id="formId">
+        <apex:outputPanel id="popup">
+            <apex:outputPanel styleClass="customPopup" layout="block" rendered="{!closePopUp}">
+                Attribution already going on Process, you have to stop till it finishes. <br/><br/><br/>
+                <apex:commandButton value="Close" action="{!closePopup}" rerender="popup" oncomplete="window.location.href='/apex/CampaignAttribution?sfdc.tabName=01rR00000000iM2'"/>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <table id="tableId" style="opacity:{!if(isBatchId,'.5','')}">
+        <caption style=" width : 50%     text-align : center;
+            background-color: #B19E44;
+        border-color: #3a5795;
+       font-size : 26px;
+       color : #000000;
+       font-family: helvetica, arial, sans-serif;
+       border-top-right-radius:11px;
+       border-top-left-radius:11px;">Campaign ROI Attribution</caption>
+            <tr>
+                <td style="width:40%;opacity:{!if(isBatchId,'.5','')}">
+                    <apex:pageBlock title="" tabStyle="Campaign">
+                        <!--<apex:pageBlockSection columns="2" collapsible="false"><!--title="Campaign Attribution Filter Fields" -->
+                        <!---    <apex:pageBlockTable value="{!wrapCampaignList}" var="waccl">
+                        <apex:column value="{!waccl.accn}">
+                        <apex:facet name="header">
+                        Campaign Attribution Filter Fields
+                        </apex:facet>
+                        </apex:column>
+                        <apex:column >
+                        <apex:inputCheckbox value="{!waccl.isSelected}" id="InputId"/>
+                        </apex:column>
+                        </apex:pageBlockTable>  --->
+                        <!-- </apex:pageBlockSection>-->
+                        <!--<apex:pageBlockSection columns="1" title="Campaign Attribution Filter Fields" collapsible="false">
+                        <br/>
+                        <apex:outputField value="{!campaignObj.Type}"/>
+                        <apex:inputField value="{!campaignObj.Project__c}"/>
+                        <apex:inputField value="{!campaignObj.Tactic__c}"/>
+                        <apex:inputField value="{!campaignObj.Source__c}"/>
+                        <apex:inputField value="{!campMemObj.Status}"/>
+                        </apex:pageBlockSection>-->
+                        <apex:pageBlockButtons location="bottom" styleClass="buttonClass">
+                            <apex:commandButton value="Attribute" action="{!CalculateAttribution}" onClick="if(!confirm('Are you sure? \n\nPlease ensure you have attributed correct values. Batch processing may take some time and you would not be able to run again utill it completes.')){return};" status="loadingStatus" rerender="pbId" oncomplete="window.location.href='/apex/CampaignAttribution?sfdc.tabName=01rR00000000iM2'" id="buttonId"/>
+                        </apex:pageBlockButtons>
+                        <!-- code for type picklist ----->
+                        <apex:outputPanel id="typeId">
+                            <table>
+                                <tr style="width: 100%;" >
+                                    <td width="12%;" class="tdNameClass">Type</td>
+                                    <td style="width: 50%;">
+                                        <apex:selectList value="{!lstSelectedAllValue}" size="5" multiselect="true" style="width:100%;height: 75px;" id="allValues" >
+                                        <apex:selectOptions value="{!TypeOption}"/>
+                                        </apex:selectList>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <apex:commandButton action="{!ValueMoveToSelected}" reRender="selectedValues" value=">>"   status="status1" style="font-weight: 900; font-size: small;" />
+                                        <apex:commandButton action="{!ValueMoveToUnselected}" value="<<" reRender="allValues,selectedValues" status="status1"  style="font-weight: 900; font-size: small;" />
+                                    </td>
+                                    <td style="width: 100%;" >
+                                        <apex:selectList value="{!lstSelectedAllSavedValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="selectedValues" >
+                                        <apex:selectOptions value="{!optionsAllSavedValue}" id="listValues" />
+                                        </apex:selectList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td> 
+                                </td>
+                                </tr>
+                            </table>
+                        </apex:outputPanel>
+                        <!--- type Picklist end --->
+                        <apex:outputPanel id="projectId">
+                        <table>
+                        <tr style="width: 100%;" >
+                        <td width="12%" class="tdNameClass">Project</td>
+                        <td style="width: 50%;">
+                        <apex:selectList Value="{!lstSelectedAllProjectValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="allProjectValues" >
+                        <apex:selectOptions Value="{!TypeProjectOption}"/>
+                        </apex:selectList>
+                        </td>
+                        <td style="vertical-align: middle;">
+                        <apex:commandButton action="{!ProjectValueMoveToSelected}" reRender="projectId" Value=">>"   status="status1" style="font-weight: 900; font-size: small;" />
+                        <apex:commandButton action="{!ProjectValueMoveToUnselected}" Value="<<" status="status1"  reRender="projectId"  style="font-weight: 900; font-size: small;" />
+                        </td>
+                        <td style="width: 100%;" >
+                        <apex:selectList Value="{!lstSelectedAllSavedProjectValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="selectedProjectValues" >
+                        <apex:selectOptions Value="{!optionsAllSavedProjectValue}" id="listProjectValues" />
+                        </apex:selectList>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td> 
+                        </td>
+                        </tr>
+                        </table>
+                        </apex:outputPanel>
+                        <!--- Project Picklist end --->
+                        <!--- code For tactic  ---->
+                        <apex:outputPanel id="TacticId">
+                        <table>
+                        <tr style="width: 100%;" >
+                        <td width="12%" class="tdNameClass">Tactic</td>
+                        <td style="width: 50%;">
+                        <apex:selectList Value="{!lstSelectedAllTacticValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="allTacticValues" >
+                        <apex:selectOptions Value="{!TypeTacticOption}"/>
+                        </apex:selectList>
+                        </td>
+                        <td style="vertical-align: middle;">
+                        <apex:commandButton action="{!TacticValueMoveToSelected}" reRender="TacticId" Value=">>"   status="status1" style="font-weight: 900; font-size: small;" />
+                        <apex:commandButton action="{!TacticValueMoveToUnselected}" Value="<<" status="status1"  reRender="TacticId"  style="font-weight: 900; font-size: small;" />
+                        </td>
+                        <td style="width: 100%;" >
+                        <apex:selectList Value="{!lstSelectedAllSavedTacticValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="selectedTacticValues" >
+                        <apex:selectOptions Value="{!optionsAllSavedTacticValue}" id="listTacticValues" />
+                        </apex:selectList>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td> 
+                        </td>
+                        </tr>
+                        </table>
+                        </apex:outputPanel>
+                        <!--- code End For tactic  ---->
+                        <!--- code For Source  ---->
+                        <apex:outputPanel id="SourceId">
+                            <table>
+                                <tr style="width: 100%;" >
+                                    <td width="12%" class="tdNameClass">Source</td>
+                                    <td style="width: 50%;">
+                                        <apex:selectList Value="{!lstSelectedAllSourceValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="allSourceValues" >
+                                        <apex:selectOptions Value="{!TypeSourceOption}"/>
+                                        </apex:selectList>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <apex:commandButton action="{!SourceValueMoveToSelected}" reRender="SourceId" Value=">>"   status="status1" style="font-weight: 900; font-size: small;" />
+                                        <apex:commandButton action="{!SourceValueMoveToUnselected}" Value="<<" status="status1"  reRender="SourceId"  style="font-weight: 900; font-size: small;" />
+                                    </td>
+                                    <td style="width: 100%;" >
+                                        <apex:selectList Value="{!lstSelectedAllSavedSourceValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="selectedSourceValues" >
+                                        <apex:selectOptions Value="{!optionsAllSavedSourceValue}" id="listSourceValues" />
+                                        </apex:selectList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </apex:outputPanel>
+                        <!--- code End For Source  ---->
+                        <!--- code For status  ---->
+                        <apex:outputPanel id="statusId">
+                            <table>
+                                <tr style="width: 100%;" >
+                                    <td width="12%" class="tdNameClass">Status</td>
+                                    <td style="width: 50%;">
+                                        <apex:selectList Value="{!lstSelectedAllstatusValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="allstatusValues" >
+                                        <apex:selectOptions Value="{!TypestatusOption}"/>
+                                        </apex:selectList>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <apex:commandButton action="{!statusValueMoveToSelected}" reRender="statusId" Value=">>"   status="status1" style="font-weight: 900; font-size: small;" />
+                                        <apex:commandButton action="{!statusValueMoveToUnselected}" Value="<<" status="status1"  reRender="statusId"  style="font-weight: 900; font-size: small;" />
+                                    </td>
+                                    <td style="width: 100%;">
+                                        <apex:selectList Value="{!lstSelectedAllSavedstatusValue}" size="10" multiselect="true" style="width:100%;height: 75px;" id="selectedstatusValues" >
+                                        <apex:selectOptions Value="{!optionsAllSavedstatusValue}" id="liststatusValues" />
+                                        </apex:selectList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td> 
+                                </td>
+                                </tr>
+                            </table>
+                        </apex:outputPanel>
+
+                        <!--- code End For status  ---->
+                    </apex:pageBlock>
+                </td>
+                <td style="width:5%">
+                </td>
+                <td style="width:40%;    font-size: medium; color: darkslategray;">
+                    The end goal of this Project is to track ROI for each Mktg. Campaign, in SFDC. For this, we are looking to achieve the following two processes via SF automation:<br/><br/>
+                    (a)  Associate all relevant Campaigns with an Opportunity (NBB) – meaning when an Opportunity is created under a Contact, all relevant Campaigns (criteria defined in ‘Project Scope’ below) within that account should get associated with the Opportunity (these Campaigns could be associated with any Contact (s) within that account and not just with the particular Contact where the Opportunity is created)<br/><br/>
+                    (b) Attribute (Divide) the Opportunity amount amongst all the Campaigns that have got associated with the Opportunity via point (a) above. This attribution needs to be done following the ‘Activities Based Time Decay’ attribution model.
+                </td>
+            </tr>
+        </table> 
+        <hr> </hr>
+        <h1> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; User Batch Logs</h1>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!UserHistories}" var="userHistory" width="100%">
+                <apex:column value="{!userHistory.User__r.name}" headerValue="User Name" style="width:15%"/>
+                <apex:column value="{!userHistory.Campaign_Type__c}" headerValue="Campaign Type" style="width:15%"/>
+                <apex:column value="{!userHistory.Campaign_Project__c}" headerValue="Campaign Project" style="width:15%"/>
+                <apex:column value="{!userHistory.Campaign_Tactic__c}" headerValue="Campaign Tactic" style="width:15%"/>
+                <apex:column value="{!userHistory.Campaign_Source__c}" headerValue="Campaign Source" style="width:15%"/>
+                <apex:column value="{!userHistory.Campaign_Member_Status__c}" headerValue="Campaign Member Status" style="width:15%"/>
+                <apex:column value="{!userHistory.Batch_Start_Date__c}" headerValue="Attribution Start Date" style="width:15%"/>
+                <apex:column value="{!userHistory.Batch_Completed_Date__c}" headerValue="Attribution Completed Date" style="width:15%"/>
+                <apex:column value="{!userHistory.Status__c}" headerValue="Attribution Status" style="width:15%"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

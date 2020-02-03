@@ -1,0 +1,153 @@
+<apex:page id="QuoteLinesRelatedList" standardController="SBQQ__Quote__c" extensions="QuoteLinesRelatedListController">
+    <style type = "text/css">
+        .colHeadr {text-align:center; }    
+    </style>   
+    <apex:form id="form">
+    <apex:pageBlock mode="detail" id="block1">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1">
+        <apex:dataTable value="{!QuoteLines}" var="a"  width="100%" cellpadding="3"  
+                            columns="9" border="2" rowClasses="odd,even" 
+                            styleClass="tableClass">
+            <apex:inputHidden value="{!a.QuoteLinerecord.CreatedById}" />
+            <apex:column headervalue="Line Name">
+                <apex:outputLink value="/{!a.QuoteLinerecord.id}" id="opplinelink" target="_parent" style="text-align:center;background-color:{'White'}" >{!a.QuoteLinerecord.name}</apex:outputLink>
+            </apex:column>
+            <apex:column headervalue="Product" headerClass="colHeadr" value="{!a.QuoteLinerecord.SBQQ__Product__c}" style="text-align: center" />
+            <apex:column headervalue="Year 1 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord.SBQQ__ListPrice__c}" style="text-align: center" />
+            <apex:column headervalue="Year 1 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord.SBQQ__Quantity__c}" style="text-align: center" />
+            <apex:column headervalue="Year 1 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord.Custom_Discount__c != NULL,a.QuoteLinerecord.CurrencyISOCode,'')} {!a.QuoteLinerecord.Custom_Discount__c}{!IF(a.QuoteLinerecord.Discount_Type__c == '%'&& a.QuoteLinerecord.Custom_Discount__c !=NULL,'%','')}" style="text-align: center" />
+            <apex:column headervalue="Year 1 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord.SBQQ__NetTotal__c}" style="text-align: center" />
+        </apex:dataTable>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    <apex:pageBlock mode="detail" id="block2" rendered="{!SBQQ__Quote__c.Contract_Remaining_Term__c>=2}">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1">  
+        <apex:dataTable value="{!QuoteLines2}" var="a"  width="100%" cellpadding="3"  
+                            columns="9" border="2" rowClasses="odd,even" 
+                            styleClass="tableClass">
+            <apex:inputHidden value="{!a.QuoteLinerecord2.CreatedById}" />                            
+            <apex:column headervalue="Line Name">
+                <apex:outputLink value="/{!a.QuoteLinerecord2.id}" id="opplinelink" target="_parent" style="text-align:center;background-color:{'White'}" >{!a.QuoteLinerecord2.name}</apex:outputLink>
+            </apex:column>
+            <apex:column headervalue="Product" headerClass="colHeadr" value="{!a.QuoteLinerecord2.SBQQ__Product__c}" style="text-align: center" />
+            
+            <!-- check MYD checkbox checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 2 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord2.Year_2_List_Price__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 2 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord2.Year_2_Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 2 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord2.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord2.Year_2_Discount__c != NULL,a.QuoteLinerecord2.CurrencyISOCode,'')} {!a.QuoteLinerecord2.Year_2_Discount__c}{!IF(a.QuoteLinerecord2.Discount_Type__c == '%'&& a.QuoteLinerecord2.Year_2_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 2 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord2.Year_2_Net_Amount__c}" style="text-align: center" />
+           <!--  </apex:outputPanel> -->
+
+            <!-- check MYD checkbox not checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 2 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord2.SBQQ__ListPrice__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 2 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord2.SBQQ__Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 2 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord2.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord2.Custom_Discount__c != NULL,a.QuoteLinerecord2.CurrencyISOCode,'')} {!a.QuoteLinerecord2.Custom_Discount__c}{!IF(a.QuoteLinerecord2.Discount_Type__c == '%'&& a.QuoteLinerecord2.Custom_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 2 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord2.SBQQ__NetTotal__c}" style="text-align: center" />
+            <!-- </apex:outputPanel> -->
+        </apex:dataTable>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    <apex:pageBlock mode="detail" id="block3" rendered="{!SBQQ__Quote__c.Contract_Remaining_Term__c>=3}">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1">
+        <apex:dataTable value="{!QuoteLines3}" var="a"  width="100%" cellpadding="3"  
+                            columns="9" border="2" rowClasses="odd,even" 
+                            styleClass="tableClass">
+            <apex:inputHidden value="{!a.QuoteLinerecord3.CreatedById}" />                            
+            <apex:column headervalue="Line Name">
+                <apex:outputLink value="/{!a.QuoteLinerecord3.id}" id="opplinelink" target="_parent" style="text-align:center;background-color:{'White'}" >{!a.QuoteLinerecord3.name}</apex:outputLink>
+            </apex:column>        
+            <apex:column headervalue="Product" headerClass="colHeadr" value="{!a.QuoteLinerecord3.SBQQ__Product__c}" style="text-align: center" />
+            
+            <!-- check MYD checkbox checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 3 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord3.Year_3_List_Price__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 3 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord3.Year_3_Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 3 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord3.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord3.Year_3_Discount__c != NULL,a.QuoteLinerecord3.CurrencyISOCode,'')} {!a.QuoteLinerecord3.Year_3_Discount__c}{!IF(a.QuoteLinerecord3.Discount_Type__c == '%'&& a.QuoteLinerecord3.Year_3_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 3 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord3.Year_3_Net_Amount__c}" style="text-align: center" />
+           <!--  </apex:outputPanel> -->
+
+            <!-- check MYD checkbox not checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 3 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord3.SBQQ__ListPrice__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 3 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord3.SBQQ__Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 3 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord3.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord3.Custom_Discount__c != NULL,a.QuoteLinerecord3.CurrencyISOCode,'')} {!a.QuoteLinerecord3.Custom_Discount__c}{!IF(a.QuoteLinerecord3.Discount_Type__c == '%'&& a.QuoteLinerecord3.Custom_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 3 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord3.SBQQ__NetTotal__c}" style="text-align: center" />
+            <!-- </apex:outputPanel> -->
+        </apex:dataTable>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    <apex:pageBlock mode="detail" id="block4" rendered="{!SBQQ__Quote__c.Contract_Remaining_Term__c>=4}">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1">
+        <apex:dataTable value="{!QuoteLines4}" var="a"  width="100%" cellpadding="3"  
+                            columns="9" border="2" rowClasses="odd,even" 
+                            styleClass="tableClass">
+            <apex:inputHidden value="{!a.QuoteLinerecord4.CreatedById}" />                            
+            <apex:column headervalue="Line Name">
+                <apex:outputLink value="/{!a.QuoteLinerecord4.id}" id="opplinelink" target="_parent" style="text-align:center;background-color:{'White'}" >{!a.QuoteLinerecord4.name}</apex:outputLink>
+            </apex:column>
+            <apex:column headervalue="Product" headerClass="colHeadr" value="{!a.QuoteLinerecord4.SBQQ__Product__c}" style="text-align: center" />
+
+             <!-- check MYD checkbox checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 4 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord4.Year_4_List_Price__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 4 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord4.Year_4_Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 4 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord4.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord4.Year_4_Discount__c != NULL,a.QuoteLinerecord4.CurrencyISOCode,'')} {!a.QuoteLinerecord4.Year_4_Discount__c}{!IF(a.QuoteLinerecord4.Discount_Type__c == '%'&& a.QuoteLinerecord4.Year_4_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 4 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord4.Year_4_Net_Amount__c}" style="text-align: center" />
+           <!--  </apex:outputPanel> -->
+
+            <!-- check MYD checkbox not checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 4 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord4.SBQQ__ListPrice__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 4 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord4.SBQQ__Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 4 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord4.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord4.Custom_Discount__c != NULL,a.QuoteLinerecord4.CurrencyISOCode,'')} {!a.QuoteLinerecord4.Custom_Discount__c}{!IF(a.QuoteLinerecord4.Discount_Type__c == '%'&& a.QuoteLinerecord4.Custom_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 4 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord4.SBQQ__NetTotal__c}" style="text-align: center" />
+            <!-- </apex:outputPanel> -->
+        </apex:dataTable>
+        </apex:pageBlockSection>
+
+           </apex:pageBlock>
+    <apex:pageBlock mode="detail" id="block5" rendered="{!SBQQ__Quote__c.Contract_Remaining_Term__c=5}">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1">
+        <apex:dataTable value="{!QuoteLines5}" var="a"  width="100%" cellpadding="3"  
+                            columns="9" border="2" rowClasses="odd,even" 
+                            styleClass="tableClass">
+            <apex:inputHidden value="{!a.QuoteLinerecord5.CreatedById}" />                            
+            <apex:column headervalue="Line Name">
+                <apex:outputLink value="/{!a.QuoteLinerecord5.id}" id="opplinelink" target="_parent" style="text-center:left;background-color:{'White'}" >{!a.QuoteLinerecord5.name}</apex:outputLink>
+            </apex:column>
+            <apex:column headervalue="Product" headerClass="colHeadr" value="{!a.QuoteLinerecord5.SBQQ__Product__c}" style="text-align: center" />
+
+            <!-- check MYD checkbox checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 5 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord5.Year_5_List_Price__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 5 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord5.Year_5_Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 5 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord5.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord5.Year_5_Discount__c != NULL,a.QuoteLinerecord5.CurrencyISOCode,'')} {!a.QuoteLinerecord5.Year_5_Discount__c}{!IF(a.QuoteLinerecord5.Discount_Type__c == '%'&& a.QuoteLinerecord5.Year_5_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c = true}" headervalue="Year 5 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord5.Year_5_Net_Amount__c}" style="text-align: center" />
+           <!--  </apex:outputPanel> -->
+
+            <!-- check MYD checkbox not checked -->
+            <!-- <apex:outputPanel style="display:none" rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}"> -->
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 5 List Unit Price" headerClass="colHeadr" value="{!a.QuoteLinerecord5.SBQQ__ListPrice__c}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 5 Quantity" headerClass="colHeadr" value="{!a.QuoteLinerecord5.SBQQ__Quantity__c}" style="text-align: center; number-format: ###,##0.00" />
+                 <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 5 Discount" headerClass="colHeadr" value="{!IF(a.QuoteLinerecord5.Discount_Type__c == 'Amt.'&& a.QuoteLinerecord5.Custom_Discount__c != NULL,a.QuoteLinerecord5.CurrencyISOCode,'')} {!a.QuoteLinerecord5.Custom_Discount__c}{!IF(a.QuoteLinerecord5.Discount_Type__c == '%'&& a.QuoteLinerecord5.Custom_Discount__c !=NULL,'%','')}" style="text-align: center" />
+                <apex:column rendered="{!SBQQ__Quote__c.Multiple_Years_Commitment__c != true}" headervalue="Year 5 Net Total" headerClass="colHeadr" value="{!a.QuoteLinerecord5.SBQQ__NetTotal__c}" style="text-align: center" />
+            <!-- </apex:outputPanel> -->
+        </apex:dataTable>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+
+    </apex:form>
+
+
+</apex:page>

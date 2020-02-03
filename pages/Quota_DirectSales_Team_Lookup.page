@@ -1,0 +1,123 @@
+<apex:page controller="Quota_DirectSales_Team_LookupController" showHeader="false" showChat="false">
+ 
+    <script type="text/javascript">
+ 
+        /*
+        *    function to handle checkbox selection
+        */
+        function doCheckboxChange(cb,itemId){
+ 
+            if(cb.checked==true){
+                aSelectItem(itemId);
+            }
+            else{
+                aDeselectItem(itemId);
+            }
+ 
+        }
+        
+       function fillIn2(data)
+       {
+          var winMain=window.opener;
+          if (null==winMain)
+          {
+             winMain=window.parent.opener;
+          }
+          var ele = winMain.document.getElementById('{!$CurrentPage.parameters.namefield}');   
+          ele.value=data;
+          
+          
+          CloseWindow();
+       }
+ 
+       function CloseWindow()
+       {
+          var winMain=window.opener;
+          if (null==winMain)
+          {
+             winMain=window.parent.opener;
+          }
+          winMain.closeLookupPopup();
+       }
+             
+ 
+    </script>
+    
+
+    
+       
+
+ 
+    <apex:form >
+ 
+        <!-- handle selected item -->
+            
+        <apex:actionstatus id="status">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                       height: 100%;opacity:0.65;width:100%;"> 
+                    <div class="waitingHolder" style="top: 120px; width: 91px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+       
+       <div id="contentLoaded">
+        <apex:actionFunction name="aSelectItem" action="{!doSelectItem}" rerender="mpb" status="status">
+            <apex:param name="contextItem" value="" assignTo="{!contextItem}"/>
+        </apex:actionFunction>
+ 
+        <!-- handle deselected item -->
+        <apex:actionFunction name="aDeselectItem" action="{!doDeselectItem}" rerender="mpb" status="status">
+            <apex:param name="contextItem" value="" assignTo="{!contextItem}"/>
+        </apex:actionFunction>
+
+        <apex:pageBlock title="Direct Sales Team Members" id="mpb">
+        <apex:actionStatus id="loading" onstart="loading(true)" onstop="loading(false)" />
+        
+        <!-- Searching Text Action -->
+        <apex:actionFunction action="{!search}" name="searchUsers" rerender="pgBlockTable"/>
+        <apex:pageBlockSection >
+        <apex:inputText label="Enter User's Name for Search" id="searchText" value="{!searchText}" onkeyup="searchUsers()"  />
+        </apex:pageBlockSection>
+        
+        
+            <!-- table of data -->
+            <apex:pageBlockTable title="Users" value="{!users}" var="c" id="pgBlockTable">
+                <apex:column >
+                    <apex:facet name="header">Action</apex:facet>
+                    <apex:inputCheckbox value="{!c.IsSelected}" onchange="doCheckboxChange(this,'{!c.tUser.Id}')"/>
+                </apex:column>
+                <apex:column value="{!c.tUser.FirstName}"/>
+                <apex:column value="{!c.tUser.LastName}"/>
+                <apex:column value="{!c.tUser.Title}"/>
+                <apex:column value="{!c.tUser.Phone}"/>
+                <apex:column value="{!c.tUser.Email}"/>
+                <apex:column style="width:15%" headerValue="Role" value="{!c.tUser.UserRole.Name}"/>
+            </apex:pageBlockTable>
+           
+            <!-- count of selected items -->
+            <apex:outputLabel value="[{!selectedCount} records selected]" />
+ 
+            <br/>
+ 
+            <!-- next, previous and page info -->
+            <apex:commandLink action="{!doPrevious}" rendered="{!hasPrevious}" value="Previous" />
+            <apex:outputLabel rendered="{!NOT(hasPrevious)}" value="Previous" />
+ 
+            <apex:outputLabel value=" (page {!pageNumber} of {!totalPages}) " />
+ 
+            <apex:commandLink action="{!doNext}" rendered="{!hasNext}" value="Next" />
+            <apex:outputLabel rendered="{!NOT(hasNext)}" value="Next" />
+ 
+           <div align="center">
+           <apex:commandButton value=" Select " action="{!go}" oncomplete="fillIn2('{!selectedUsers}')" />
+           </div>
+        
+        </apex:pageBlock>
+        </div>
+    </apex:form>
+ 
+</apex:page>

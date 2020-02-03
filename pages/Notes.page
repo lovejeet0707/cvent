@@ -1,0 +1,56 @@
+<!-- Original Code live-->
+
+<apex:page standardController="Account" showheader="False">
+    <style>
+        .apexp, body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock
+        {
+            background-color:#F76566;
+            color:#000;
+        }
+        body .bPageBlock .pbBody .labelCol {
+            color: #000;
+            width:17%;
+            font-size:14px;
+        }
+        .body 
+        {
+            font-size:14px;
+            font-weight:bolder;
+        }
+
+     </style>
+    <script>
+        function splitNote
+     </script>
+     <apex:form styleClass="form">
+    
+        
+         <apex:pageBlock rendered="{!if(account.ARA_Emergency_Notes__c!=null,true,false)}">
+         
+             <apex:pageBlockSection columns="1">  
+ 
+                 <apex:outputText styleclass="body" value="{!account.ARA_Emergency_Notes__C }" />   
+                 
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         
+         <apex:pageBlock rendered="{!if(account.Emergency_Notes__c!=null,true,false)}">
+         
+             <apex:pageBlockSection columns="1"> 
+                 <apex:outputText styleclass="body" value="{!account.Emergency_Notes__c}" />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         
+           <apex:pageBlock rendered="{!if(Account.Creation_Source_System_External_ID__c!=null,true,false)}" id="ROLAccount"> 
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="This is an ROL Account and we need to keep this as is for ROL integration & billing to work properly. We do not have an easy fix for this as of now. So, please do not MERGE or DELETE this account." />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         <apex:pageBlock rendered="{!if(Account.EBS_Account_ID__c !=null || Account.EBS_Account_Number__c !=null,true,false)}" id="EBSAccount"> 
+             <apex:pageBlockSection columns="1">        
+                 <apex:outputText styleclass="body" value="This is an EBS Account and we need to keep this as is for Billing to work properly. We do not have an easy fix for this as of now. So, please do not MERGE or DELETE this account." />
+             </apex:pageBlockSection> 
+         </apex:pageBlock> 
+         
+     </apex:form>
+</apex:page>

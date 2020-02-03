@@ -1,0 +1,30 @@
+<apex:page standardController="Account" extensions="OpenCasesOnAccountCtrl">
+    <style>
+        .fewerMore { display: none;}
+    </style>
+    <apex:form >
+        <apex:pageMessages />
+        <apex:pageblock id="CustomList">
+            <apex:pageBlockTable value="{!openCases}" var="case" rendered="{!NOT(ISNULL(openCases))}">
+                <apex:column headerValue="Action" style="width: 46px;">
+                    <apex:outputLink value="/{!case.Id}/e?retURL=%2F{!Account.Id}" target="_parent">Edit</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Contact Name">
+                    <apex:outputLink value="/{!case.ContactId}" target="_parent">{!case.Contact.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Case Number">
+                    <apex:outputLink value="/{!case.Id}" target="_parent">{!case.CaseNumber}</apex:outputLink>
+                </apex:column>
+                <apex:column value="{!case.Subject}"/>
+                <apex:column value="{!case.Product_Type__c}"/>
+                <apex:column value="{!case.Origin}"/>
+                <apex:column value="{!case.CreatedDate}"/>
+                <apex:column value="{!case.Status}"/>
+                <apex:column headerValue="Owner">
+                    <apex:outputLink value="/{!case.OwnerId}" target="_parent">{!case.Owner.Name}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:outputLabel value="No records to display" rendered="{!(ISNULL(openCases))}" styleClass="noRowsHeader"></apex:outputLabel>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

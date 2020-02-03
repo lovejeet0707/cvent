@@ -1,0 +1,45 @@
+<apex:page >
+<apex:composition template="CventCommunityHeader"></apex:composition>
+
+    <head>
+        <style>
+            .modal-header {
+                background-color: #199cd6;
+                color: white;
+                font-size: 162%;
+                padding: 23px 15px;
+            }
+            .modal-body{
+                padding : 2px 16px;
+            }
+            #content {
+                margin: 0 auto;
+                width: 941px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                console.log($( window ).height()+'Test');
+                console.log($( document ).height()+'Test');
+                var heightPage =  $( document ).height();
+                if(heightPage > 900){
+                    heightPage = heightPage - 265;
+                    $('.default').css('min-height',heightPage);
+                }
+            });
+        </script>
+    </head>
+    <html>
+        <div class = "default" style="width: 941px; margin: 20px auto 0;">
+            <div class="modal-header" style="margin-top: 170px;">
+                <h2>Feedback Submitted</h2>
+            </div>
+            <div class="modal-body">
+                <br/>
+                Thank you for sharing your thoughts with us.
+            </div>
+        </div>
+    </html>
+ <apex:composition template="CventCommunityFooter"></apex:composition>   
+</apex:page>

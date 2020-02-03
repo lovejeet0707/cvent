@@ -1,0 +1,277 @@
+<apex:page controller="CRMHelp_Controller" showHeader="false" sidebar="false" applyHtmlTag="false">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>  <!-- added by Harshit Johar for Client issue fix (1/14/20)-->
+        <!-- <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->                <!-- CDN chages: Commented by Harshit Johar, Github Urls which should not be used (1/14/20) -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>
+         <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+            <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+        .table-hover>tbody>tr:hover {
+            background-color: #f9fafc;
+        }
+        </style>
+                <style>
+        .loader1 {
+        margin-top:2%;
+        margin-left: 46%;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 82px;
+        height: 82px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }
+        /* CSS created By Salekeen*/
+        body{background:url('https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N000004qZyr') top center no-repeat; background-size:cover; }
+        .main-div{width:80%; margin:0 auto;}
+        .form-group{width:100%; margin:0 auto;}
+        .crm-logo{text-align:left; width:100%; margin:0 auto; padding:50px 0 20px 0;}
+        .header-content{text-align:center; width:100%; padding:10% 0 40px 0;}
+        .header-content h1{color:#fff; font-size:42px; font-weight:600; line-height:1.4;}
+        .header-content p.lead{color:#fff; font-size:22px; font-weight:300; }
+        .search-text{    
+   border: 1px solid #ccc !important;
+background: #fff;
+font-size: 1.25em;
+color: #444;
+width: 40%;
+padding: 11px 11px 11px 27px !important;
+height: 52px;
+box-shadow: 0px 3px 6px rgba(0,0,0,0.125);
+border-radius: 28px !important;   
+        }
+        
+   .search-btn{        
+       background: #d45508 !important;
+border: 0 !important;
+color: #ffffff !important;
+padding: 11px 55px !important;
+text-transform: uppercase !important;
+border-radius: 26px !important;
+
+text-align: center;
+font-size:16px !important;
+font-weight: bold !important;
+margin-left: -51px !important;
+height: 52px;
+        }
+        
+        /* CSS Ended */
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        #opaque {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: none;
+        background-color: gray;
+        filter: alpha(opacity=30);
+        opacity: 0.3;
+        -moz-opacity:0.3;
+        -khtml-opacity:0.3
+        }
+        * html #opaque {
+        position: absolute;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .header-content h1 {
+    font-size: 32px;
+}
+.header-content p.lead {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+        }
+        
+        
+    </style>
+     <script>
+     function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+    function searchKB(){
+        var caseId = getUrlParameter('id'); 
+        var searchValue = document.getElementById('search').value;
+        var url = '/apex/CRMSearch?searchFor='+searchValue+'&id='+caseId;
+        window.location.href = url ;
+        return false;
+    }
+    
+    function showSpinner()
+    {
+        document.getElementById('opaque').style.display='block';
+        var popUp = document.getElementById('loaderId');
+        
+        popUp.style.display = 'block';
+    } 
+    function hideSpinner()
+    {
+        document.getElementById('opaque').style.display='none';
+        var popUp = document.getElementById('loaderId');
+        
+        popUp.style.display = 'none';
+    }
+    </script>
+              <script type="text/javascript" >
+        var jQuery = $.noConflict();
+        jQuery(document).ready(function() {
+                        var subjectVal = '{!subject}';
+if(subjectVal!='')
+{
+    jQuery('#search').val(subjectVal);
+}
+            jQuery("#articleTableId").hide();//Hide section when the page is loaded
+            jQuery("#paginationId").hide();
+        });
+        </script>   
+        <script>
+        var app = angular.module('MyForm', ['ui.bootstrap', 'ngResource']);
+        app.controller('myCtrl', function ($scope, $window) {
+            $window.onload = function(){
+                
+                if(document.getElementById('search').value!=''){
+                showSpinner();
+                CRMHelp_Controller.searchArticle(document.getElementById('search').value,function(result,event){
+                    if (event.status){
+                        $scope.totalItems = [];
+                        $scope.numPerPage = [];
+                        $scope.KAVS =[];
+                        $scope.$apply();
+                        $scope.currentPage = 1; 
+                        $scope.KAVS = JSON.parse(result);
+                        $scope.totalItems = $scope.KAVS.length;
+                        $scope.numPerPage = 10;
+                        $scope.paginate = function (value){ 
+                            var begin, end, index; 
+                            begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+                            end = begin + $scope.numPerPage; 
+                            index = $scope.KAVS.indexOf(value); 
+                            return (begin <= index && index < end); 
+                        };
+                        
+                        $scope.$apply();
+                        jQuery("#articleTableId").show();
+                        jQuery("#paginationId").show();
+                        hideSpinner();
+                    }
+                    else{
+                        alert('error');
+                    }
+                }, {escape : false});}
+            }
+            //Javascript Remoting.............
+            $scope.letsset=function(){
+                showSpinner();
+               
+                CRMHelp_Controller.searchArticle(document.getElementById('search').value,function(result,event){
+                    if (event.status){
+                        $scope.totalItems = [];
+                        $scope.numPerPage = [];
+                        $scope.KAVS =[];
+                        $scope.$apply();
+                        $scope.currentPage = 1; 
+                        console.log('result******'+result);
+                        $scope.KAVS = JSON.parse(result);
+                        console.log('KAVS******'+$scope.KAVS);
+                        $scope.totalItems = $scope.KAVS.length;
+                        $scope.numPerPage = 10;
+                        $scope.paginate = function (value){ 
+                            var begin, end, index; 
+                            begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+                            end = begin + $scope.numPerPage; 
+                            index = $scope.KAVS.indexOf(value); 
+                            return (begin <= index && index < end); 
+                        };
+                        
+                        $scope.$apply();
+                        jQuery("#articleTableId").show();
+                        jQuery("#paginationId").show();
+                        hideSpinner();
+                    }
+                    else{
+                        alert('error');
+                    }
+                }, {escape : false});
+            }
+            //Ends HERE.............
+        });
+        
+        app.filter('trustAsHtml',['$sce', function($sce) {
+            return function(text) {
+                return $sce.trustAsHtml(text);
+            };
+        }]);
+        </script>
+        <!--...........SHOW/HIDE Section................-->
+        
+    </head>        
+    <body ng-app="MyForm"  id="mainController">
+        <!--<apex:image url="{!$Resource.CRMHelp}"/>-->
+        <!-- style="background: url(https://mms.businesswire.com/media/20131023006745/en/388820/5/Cvent1710SolutionsDriveFacade.jpg?download=1);background-size: cover;"-->
+        <div ng-controller="myCtrl" style="">
+        <div class="main-div">
+        <div class="crm-logo"><img src="https://cvent--c.na78.content.force.com/servlet/servlet.FileDownload?file=0151N000004qZzu" alt="crm-logo"/></div>
+        <div class="header-content">
+        <h1>Welcome to CRM Knowledge Base</h1>
+        <p class="lead">Get answers to your queries related to Salesforce</p>
+        </div>
+            <form class="form-inline" style="" >            
+                <div class="form-group" style="text-align: center">
+                
+                    <input type="text"   size="80" class="form-control search-text" placeholder="Type to search..." required="true" id="search" value=""/>  
+                    <input type="submit" class="btn search-btn" value="Search" onClick="searchKB();" style="padding: 7px 3px;" id="searchButtonId"/><!--ng-click="letsset()"-->
+                </div>
+            </form>
+            <!--<table  class="table table-hover table-bordered" id="articleTableId">
+                <tr>
+                    <th class="col-md-1"><span style="color: black;font-family: Georgia;">Category</span></th>
+                    <th><span style="color: black;font-family: Georgia;">Issue</span></th>
+                    <th style="color: black;font-family: Georgia;"><span style="white-space:nowrap;cursor: pointer;">Keyword</span></th>
+                    <th style="color: black;font-family: Georgia;"><span style="white-space:nowrap;cursor: pointer;">Process</span></th>
+                    <th style="color: black;font-family: Georgia;"><span style="white-space:nowrap;cursor: pointer;">Resolution</span></th>
+                </tr>
+                <tr ng-repeat="kav in KAVS | filter:paginate"  ng-bind-html-unsafe="kav.Resolution__c">
+                    <td style="color: black;font-family: Georgia;" >{{kav.category}}</td>
+                    <td style="color: black;font-family: Georgia;"><a style="cursor: pointer;" ng-href="/apex/CRMHelpDetail?Id={{kav.recordid}}">{{kav.issue}}</a></td>
+                    <td style="color: black;font-family: Georgia;">{{kav.keywords}}</td>
+                    <td style="color: black;font-family: Georgia;">{{kav.resolutions}}</td>
+                    <td style="color: black;font-family: Georgia;"><div ng-bind-html="kav.Resolution__c|trustAsHtml"/></td>
+                </tr>
+            </table>
+            <pagination total-items="totalItems" ng-model="currentPage" 
+                        max-size="5" boundary-links="true" 
+                        items-per-page="numPerPage" class="pagination-sm" ng-click="highlightAgain();" id="paginationId"> 
+                </pagination>-->
+        </div>
+        </div>
+        
+    </body>
+    <div id="opaque"/>
+    <div class="loader1" id="loaderId" style="margin-left: 50%;display:none;"><!---->
+        <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'></p>
+    </div>
+</apex:page>

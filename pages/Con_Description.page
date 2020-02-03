@@ -1,0 +1,20 @@
+<apex:page standardController="Contact" showChat="false" showHeader="false" sidebar="false">
+<div id="content" style="background-color:#ffffff;width: 850px; margin: 25px auto 0;">
+<apex:form >
+  <apex:pageblock >
+      <apex:pageblockButtons >
+        <!--  <apex:commandButton action="{!Edit}" value="Edit"/> -->
+         <apex:commandButton action="{!QuickSave}" value="Save" id="saveButton" oncomplete="parent.window.close();"/>
+         <apex:commandButton action="{!cancel}" value="Cancel" onclick="parent.window.close();"/> 
+      </apex:pageblockButtons>
+  <!--<apex:outputLabel >
+  
+  </apex:outputLabel> -->
+  
+  <apex:outputField id="desc" value="{!Contact.Description}"/>
+  <apex:inlineEditSupport event="ondblClick" />
+  
+  </apex:pageblock>
+  </apex:form>
+  </div>
+</apex:page>

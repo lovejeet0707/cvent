@@ -1,0 +1,222 @@
+<apex:page standardController="TM_Fee_Structure__c" showHeader="false" >
+<apex:sectionheader title="{!$ObjectType.TM_Fee_Structure__c.label} Edit" subtitle="{!IF(ISNULL(TM_Fee_Structure__c.name), 'New TM Fee Structure',TM_Fee_Structure__c.name)}"/>
+
+<apex:form >
+<apex:pageblock >
+            <apex:pageblockbuttons >
+                <apex:commandbutton value="Save" action="{!Save}"/>
+                <apex:commandbutton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockbuttons>
+<apex:outputpanel >
+<apex:pageblocksection title="Information" columns="2">
+                    <apex:inputfield value="{!TM_Fee_Structure__c.Name}" required="true"/>
+                    <apex:outputfield value="{!TM_Fee_Structure__c.OwnerId}"/>
+                    <apex:inputfield value="{!TM_Fee_Structure__c.Opportunity__c}" required="false"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Online" columns="1">
+<apex:dataTable value="{!TM_Fee_Structure__c}" var="TM">
+<apex:column headerValue="Ticket Price (Lower)" >
+<apex:inputField value="{!TM.Lower_Range_Online_1__c}" />
+<apex:inputField value="{!TM.Lower_Range_Online_2__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Online_3__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Online_4__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Price (Higher)">
+<apex:inputField value="{!TM.Higher_Range_Online_1__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Online_2__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Online_3__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Online_4__c}"/>
+</apex:column>
+<apex:column headerValue="Customer Service Fee">
+<apex:inputField value="{!TM.Service_Fee_Online_1__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Online_2__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Online_3__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Online_4__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Fee">
+<apex:inputField value="{!TM.Processing_Fee_Online_1__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Online_2__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Online_3__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Online_4__c}"/>
+</apex:column>
+<apex:column headerValue="Client Rebate" >
+<apex:inputField value="{!TM.Client_Rebate_Online_1__c}" />
+<apex:inputField value="{!TM.Client_Rebate_Online_2__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Online_3__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Online_4__c}"/>
+</apex:column>
+<apex:column headerValue="Total Fees">
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Online_1__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Online_2__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Online_3__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Online_4__c}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+<apex:pageBlockSection title="Mobile" columns="1">
+<apex:dataTable value="{!TM_Fee_Structure__c}" var="TM">
+<apex:column headerValue="Ticket Price (Lower)">
+<apex:inputField value="{!TM.Lower_Range_Mobile_5__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Mobile_8__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Price (Higher)">
+<apex:inputField value="{!TM.Higher_Range_Mobile_5__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Mobile_8__c}"/>
+</apex:column>
+<apex:column headerValue="Customer Service Fee">
+<apex:inputField value="{!TM.Service_Fee_Mobile_5__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Mobile_8__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Fee">
+<apex:inputField value="{!TM.Processing_Fee_Mobile_5__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Mobile_8__c}"/>
+</apex:column>
+<apex:column headerValue="Client Rebate" >
+<apex:inputField value="{!TM.Client_Rebate_Mobile_5__c}" />
+<apex:inputField value="{!TM.Client_Rebate_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Mobile_8__c}"/>
+</apex:column>
+<apex:column headerValue="Total Fees">
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Mobile_5__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Mobile_6__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Mobile_7__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Mobile_8__c}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+<apex:pageBlockSection title="Walk Up/Box Office" columns="1">
+<apex:dataTable value="{!TM_Fee_Structure__c}" var="TM">
+<apex:column headerValue="Ticket Price (Lower)">
+<apex:inputField value="{!TM.Lower_Range_WalkUp_9__c}"/>
+<apex:inputField value="{!TM.Lower_Range_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Lower_Range_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Lower_Range_WalkUp_12__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Price (Higher)">
+<apex:inputField value="{!TM.Higher_Range_WalkUp_9__c}"/>
+<apex:inputField value="{!TM.Higher_Range_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Higher_Range_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Higher_Range_WalkUp_12__c}"/>
+</apex:column>
+<apex:column headerValue="Customer Service Fee">
+<apex:inputField value="{!TM.Service_Fee_WalkUp_9__c}"/>
+<apex:inputField value="{!TM.Service_Fee_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Service_Fee_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Service_Fee_WalkUp_12__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Fee">
+<apex:inputField value="{!TM.Processing_Fee_WalkUp_9__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_WalkUp_12__c}"/>
+</apex:column>
+<apex:column headerValue="Client Rebate" >
+<apex:inputField value="{!TM.Client_Rebate_WalkUp_9__c}" />
+<apex:inputField value="{!TM.Client_Rebate_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_WalkUp_12__c}"/>
+</apex:column>
+<apex:column headerValue="Total Fees">
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_WalkUp_9__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_WalkUp_10__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_WalkUp_11__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_WalkUp_12__c}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+<apex:pageBlockSection title="Phone" columns="1">
+<apex:dataTable value="{!TM_Fee_Structure__c}" var="TM">
+<apex:column headerValue="Ticket Price (Lower)">
+<apex:inputField value="{!TM.Lower_Range_Phone_13__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Phone_14__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Phone_15__c}"/>
+<apex:inputField value="{!TM.Lower_Range_Phone_16__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Price (Higher)">
+<apex:inputField value="{!TM.Higher_Range_Phone_13__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Phone_14__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Phone_15__c}"/>
+<apex:inputField value="{!TM.Higher_Range_Phone_16__c}"/>
+</apex:column>
+<apex:column headerValue="Customer Service Fee">
+<apex:inputField value="{!TM.Service_Fee_Phone_13__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Phone_14__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Phone_15__c}"/>
+<apex:inputField value="{!TM.Service_Fee_Phone_16__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Fee">
+<apex:inputField value="{!TM.Processing_Fee_Phone_13__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Phone_14__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Phone_15__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_Phone_16__c}"/>
+</apex:column>
+<apex:column headerValue="Client Rebate" >
+<apex:inputField value="{!TM.Client_Rebate_Phone_13__c}" />
+<apex:inputField value="{!TM.Client_Rebate_Phone_14__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Phone_15__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_Phone_16__c}"/>
+</apex:column>
+<apex:column headerValue="Total Fees">
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Phone_13__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Phone_14__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Phone_15__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_Phone_16__c}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+<apex:pageBlockSection title="TM Site" columns="1">
+<apex:dataTable value="{!TM_Fee_Structure__c}" var="TM">
+<apex:column headerValue="Ticket Price (Lower)">
+<apex:inputField value="{!TM.Lower_Range_TMSite_17__c}"/>
+<apex:inputField value="{!TM.Lower_Range_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Lower_Range_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Lower_Range_TMSite_20__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Price (Higher)">
+<apex:inputField value="{!TM.Higher_Range_TMSite_17__c}"/>
+<apex:inputField value="{!TM.Higher_Range_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Higher_Range_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Higher_Range_TMSite_20__c}"/>
+</apex:column>
+<apex:column headerValue="Customer Service Fee">
+<apex:inputField value="{!TM.Service_Fee_TMSite_17__c}"/>
+<apex:inputField value="{!TM.Service_Fee_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Service_Fee_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Service_Fee_TMSite_20__c}"/>
+</apex:column>
+<apex:column headerValue="Ticket Fee">
+<apex:inputField value="{!TM.Processing_Fee_TMSite_17__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Processing_Fee_TMSite_20__c}"/>
+</apex:column>
+<apex:column headerValue="Client Rebate" >
+<apex:inputField value="{!TM.Client_Rebate_TMSite_17__c}" />
+<apex:inputField value="{!TM.Client_Rebate_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Client_Rebate_TMSite_20__c}"/>
+</apex:column>
+<apex:column headerValue="Total Fees">
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_TMSite_17__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_TMSite_18__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_TMSite_19__c}"/>
+<apex:inputField value="{!TM.Total_Fees_to_be_paid_TMSite_20__c}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+<apex:pageBlockSection title="Others" columns="1">
+<apex:inputField value="{!TM_Fee_Structure__c.Description__c}"/>
+</apex:pageBlockSection>
+</apex:outputpanel>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

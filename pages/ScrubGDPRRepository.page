@@ -1,0 +1,17 @@
+<apex:page controller="ScrubGDPRRepositoryClass" contentType="{!contentType}" cache="true" sidebar="false" readOnly="true">
+<apex:form rendered="{!contentType='text/html'}">
+   <apex:sectionHeader title="GDPR Scrubbing"/>
+    <apex:pageBlock tabStyle="user">
+      <apex:pageBlockSection columns="2" title="GDPR Scrubbing to filter out non GDPR records from the file. Please upload a CSV Format file with header as 'Email' " collapsible="false">
+        <apex:inputFile value="{!csvFileBody}"  filename="{!csvAsString}" id="inputFileId"/>        
+        <apex:commandButton value="Compare/Import GDPR Record" action="{!compareRecords}"/>
+      </apex:pageBlockSection>  <marquee direction = "right"  width="30%" style="font-size: 18px;"> Please upload a CSV Format file  with header as 'Email'</marquee>
+    </apex:pageBlock>  
+  </apex:form>
+  <apex:actionRegion rendered="{!contentType='application/vnd.ms-excel#GDPRRecords.csv'}">
+    Email
+    <apex:repeat value="{!emailSetV}" var="email">
+      {!email}
+    </apex:repeat>
+  </apex:actionRegion>
+</apex:page>

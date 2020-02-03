@@ -1,0 +1,191 @@
+<apex:page standardController="Onsite_Hardware_Request_Item__c" extensions="CAM_ReturnShipment_E" sidebar="false" showHeader="true" lightningStyleSheets="true" standardStylesheets="false" docType="html-5.0" title="Return Assets">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:slds />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <apex:form >
+        <div class="slds-grid slds-gutters_small slds-m-bottom_small">
+            <!-- header -->
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-page-header slds-page-header_record-home">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-fulfillment-order">
+                                        <svg aria-hidden="true" class="slds-icon">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#fulfillment_order')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                    </span>                                                
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1><span>Return Devices</span>
+                                                <span class="slds-page-header__title slds-truncate">{! if( anonMode, 'Scan The First Item', theItem.Cvent_Asset_Type__r.Name )}</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__col-actions">
+                            <div class="slds-page-header__controls">
+                                <!-- buttons -->
+                                <div class="slds-page-header__control">
+                                    <ul class="slds-button-group-list">
+                                        <li>
+                                            <apex:commandButton value="View Item" action="{!cancel}" styleClass="slds-button slds-button_neutral" rendered="{! !anonMode }"/>
+                                        </li>
+                                        <li>
+                                            <apex:commandButton value="View Packlist" action="{! URLFOR($Action.Packlist__c.View, theItem.Packlist__c) }"  styleClass="slds-button slds-button_neutral" rendered="{! !anonMode }"/>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="slds-button-group-list">
+                                        <li>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-meta">
+                        </div>
+                    </div>
+                    <div class="slds-page-header__row slds-page-header__row_gutters" style="display: {! if (anonMode, 'none', '')} ">
+                        <div class="slds-page-header__col-details">
+                            <ul class="slds-page-header__detail-row">
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">ID</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{! theItem.Name }"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Shipped Quantity</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{! theItem.Shipped_Quantity__c }"/>
+                                    </div>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Group</div>
+                                    <apex:outputText value="{! theItem.Cvent_Asset_Group__c} > {!theItem.Cvent_Asset_Subgroup__c }"/>
+                                </li>
+                                <!--li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Shipment Date</div>
+                                    <div class="slds-truncate">
+                                        <apex:outputText value="{0, date, MMMM d, YYYY}">
+                                            <apex:param value="{! theItem.Packlist__r.Date_Shipment__c }" /> 
+                                        </apex:outputText>
+                                    </div>
+                                </li-->
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Project Manager</div>
+                                    <apex:outputText value="{! theItem.Onsite_Hardware_Request__r.Event_Name__r.Project_Manager__c }"/>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Hardware Request</div>
+                                    <apex:commandLink value="{! theItem.Onsite_Hardware_Request__r.Name }" action="{! URLFOR($Action.Onsite_Hardware_Request__c.View, theItem.Onsite_Hardware_Request__c) }"/>
+                                </li>
+                                <li class="slds-page-header__detail-block">
+                                    <div class="slds-text-title slds-truncate">Event</div>
+                                    <apex:commandLink value="{! theItem.Onsite_Hardware_Request__r.Event_Name__r.Event_Name__c }" action="{! URLFOR($Action.Event_Data__c.View, theItem.Onsite_Hardware_Request__r.Event_Name__c) }"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-gutters_small slds-m-bottom_small" >
+            <!-- return form & list of all unique assets in this item -->
+            <div class="slds-col slds-size_1-of-2"  id="scanningForm" onkeypress="if (event.keyCode == 13) { ScanAssetbyJS(); return false;}" style="text-align:center" >
+                <apex:pageMessages id="pageMessages" showDetail="false"/>
+
+                <apex:pageBlock title="Return Devices" id="returnForm" tabStyle="Cvent_Asset_Type__c">
+                    <div class="slds-align_absolute-center">
+
+                        <apex:selectList value="{! warehouseId }" size="1" multiselect="false">
+                            <apex:selectOptions value="{! warehouses }"/>
+                        </apex:selectList>&nbsp;
+
+                        <!-- Unique assets  -->
+                        <apex:inputTextarea id="inputAssetTag" value="{! scannedIdList }" cols="10" rows="1" rendered="{! uniqueAssetMode }"/>
+                        &nbsp;
+                        <apex:commandButton action="{! returnAssets }" value="Return Assets" status="scan-status" styleClass="slds-button slds-button--neutral" rendered="{! uniqueAssetMode }"/>
+                        <apex:actionStatus id="scan-status" stopText="">
+                            <apex:facet name="start"><img src="/img/loading.gif"/></apex:facet>
+                        </apex:actionStatus>
+
+                        <!-- Non-Unique assets  -->
+                        <apex:inputText value="{! theItem.Returned_Quantity_Others__c }" rendered="{! !uniqueAssetMode }"/>
+                        <apex:commandButton action="{! confirmReturnedQuantity }" value="Return" status="nonuniqueReturn-status" styleClass="slds-button slds-button--neutral"  rendered="{! !uniqueAssetMode }"/>
+                        <apex:actionStatus id="nonuniqueReturn-status" stopText="">
+                            <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                        </apex:actionStatus>
+
+                    </div>
+
+                </apex:pageBlock>
+                <!-- list of other assets in the same item -->
+                <apex:pageBlock title="Assets to be Returned ({! packlistItems.size })" id="assetList" tabStyle="Cvent_Asset_Type__c" rendered="{! !anonMode }">
+                    <apex:pageBlockTable value="{! packlistItems }" var="asset" styleClass="slds-table slds-table_striped" style="table-layout:auto;">
+
+                        <apex:column >
+                            <apex:commandLink action="{! returnAsset }" title="Return this Asset to the Warehouse" status="return-status">
+                                <apex:param name="packlistItemIDtobeReturned" value="{! asset.Id}" />
+                                <apex:param name="assetIDtobeReturned" value="{! asset.Cvent_Asset__c }" />
+                                <span class="slds-button slds-button_icon">
+                                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_xx-small">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#archive')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                    </svg>
+                                </span>
+                            </apex:commandLink>
+                            <apex:actionStatus id="return-status" stopText="">
+                                <apex:facet name="start" ><img src="/img/loading.gif" /></apex:facet>
+                            </apex:actionStatus>
+                        </apex:column>
+
+                        <apex:column value="{! asset.Cvent_Asset__r.Asset_Tag__c }" headerValue="Asset Tag"></apex:column>
+                        <apex:column headerValue="Asset Name" value="{! asset.Cvent_Asset__r.Asset_Name__c }"/>
+                        <apex:column value="{! asset.Cvent_Box__r.Number_Label__c }" headerValue="Box" title="{! asset.Cvent_Box__r.Cvent_Box_Type__r.Name }"></apex:column>
+                    
+
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </div>
+
+            <!-- list of all items in the packlist -->
+            <div class="slds-col slds-size_1-of-2">
+                <apex:pageBlock title="Other Items in the Same Packlist " id="packlist" tabStyle="Cvent_Asset_Type__c"  rendered="{! !anonMode }">
+                    <apex:pageBlockTable value="{! thePacklist.Onsite_Hardware_Request_Items__r }" var="item" styleClass="slds-table slds-table_striped" style="table-layout:auto;">
+
+                        <apex:column headerValue="ID">
+                            <apex:outputLink value="{! URLFOR( '/apex/CAM_ReturnShipment', null, [id=item.id, warehouse=warehouseId] ) }" rendered="{! (item.id <> theItem.ID) }" title="Click here to return Assets for this Item">{! item.Name }</apex:outputLink>
+                            <apex:outputText value="{! item.Name }" rendered="{! (item.id == theItem.ID) }" title="This is the current item"/>
+                        </apex:column>
+                        <apex:column headerValue="Device" 		value="{!item.Cvent_Asset_Type__r.Name }"/>
+                        <apex:column headerValue="Group" 		value="{!item.Cvent_Asset_Group__c} > {!item.Cvent_Asset_Subgroup__c}"/>
+                        <apex:column headerValue="Returned"     styleClass="slds-text-align_right" headerClass="slds-text-align_right" title="Returned: {! item.Returned_Quantity__c }{! newLine }Shipped:  {! item.Shipped_Quantity__c}">
+                            {!item.Returned__c}%
+                            <span class="slds-button slds-button_icon" style="display: {! if(item.Returned__c < 100, '', 'none') }">
+                                <svg aria-hidden="true" class="slds-icon slds-icon_xx-small slds-icon-text-error">
+                                    <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#error')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg>
+                            </span>
+                            <span class="slds-button slds-button_icon" style="display: {! if(item.Returned__c >= 100, '', 'none') }">
+                                <svg aria-hidden="true" class="slds-icon slds-icon_xx-small slds-icon-text-success">
+                                    <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg>
+                            </span>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </div>
+        </div>
+    </apex:form>
+</html>
+</apex:page>

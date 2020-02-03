@@ -1,0 +1,584 @@
+<apex:page controller="FindHelp_Class" sidebar="false" standardStylesheets="false" ><!--showHeader="false"-->
+<apex:form >
+<head>
+    <apex:composition template="CventCommunityHeader"></apex:composition>
+    <link rel="icon shortcut" href="https://cvent--c.na78.content.force.com/servlet/servlet.ImageServer?id=0151N000004QTLu&oid=00D00000000hXfW&lastMod=1521738212000" />
+    <!--Including Angular and Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script> 
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> 
+
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>-->
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.loader1 {
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 82px;
+        height: 82px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+    }
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+<style>
+#spinner{
+    display: none;
+    width:200px;
+    height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    margin-left: -100px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+    border:1px solid #CCC;
+    background-color:white;
+    z-index:100;
+    padding:5px;
+    line-height:20px;
+}
+#opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    background-color: gray;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+    -moz-opacity:0.3;
+    -khtml-opacity:0.3
+}
+* html #opaque {
+    position: absolute;
+}
+
+/* GB STYLES */
+
+
+
+hr {
+    margin: 0.5em 0;
+}
+
+p {
+    font-size: 1.125em;
+}
+
+.pad-md {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.pad-lg {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+.label {
+    color: #333;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.125);
+}
+
+.card-body {
+    padding: 1.25em;
+}
+
+@media (min-width: 768px) {
+    .card-body {
+        padding: 2em;
+    }
+}
+
+.item-article {
+    border-top: 1px solid #eee;
+    margin: 0;
+}
+
+.item-article p {
+    margin-bottom: 0;
+}
+
+.item-article h3 {
+    margin-bottom: 8px;
+}
+
+.result-body .frame {
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.result-body .frame:last-child {
+  padding-bottom: 0;
+}
+
+.create-case {
+    background: #0183EB;
+    padding: 1.5em;
+    color: #fff;
+    border-radius: 3px;
+    margin-bottom: 1.5em;
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.button-blue, .button-blue:visited {
+    color: #fff !important;
+    background: none !important;
+    background-color: #0183EB !important;
+    border-color: transparent !important;
+}
+.button-blue:hover, .button-blue:focus {
+    color: #fff !important;
+    background-color: #0183EB !important;
+    border-color: transparent !important;
+}
+
+.button-outline, .button-outline:visited {
+    color: #fff !important;
+    background: none !important;
+    background-color: none !important;
+    border: 2px solid #fff !important;
+}
+.button-outline:hover, .button-outline:focus {
+    color: #286090 !important;
+    background-color: #fff !important;
+    border-color: #fff !important;
+}
+
+.content-header {
+    padding-top: 0em;
+    padding-bottom: 1em;
+}
+
+.content-body {
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+@media (min-width: 992px) {
+  .col-md-centered {
+  float: none;
+  margin: 0 auto;
+  }
+}
+.requiredBlock {
+  background-color: #c00;
+  position: absolute;
+  left: -1px;
+  width: 3px;
+  top: 25px;
+  bottom: 1px;
+}
+.requiredInput {
+  position: relative;
+  height: 100%;
+}
+
+body .bPageFooter a, body .bPageFooter {
+    border: none;
+    color: #fff;
+    display: none;
+}
+
+</style>
+<style>
+ .container {
+    background: white;
+    }
+.support-body-content {
+   padding: 35px 0;
+   }
+.v-align{
+    vertical-align: middle !important;
+}
+h1, h2, h3, h4, h5, h6 {
+   font-family: BrandonTextWeb-Regular, Arial, sans-serif;
+   }
+ #communitysupport{
+   padding-top: 75px;
+   background: #fff !important;
+   } 
+   
+   
+   
+   @media (max-width:767px){
+   #communitysupport{
+   padding-top: 0px;
+   
+   } 
+   }
+   
+.support-header{
+   background:#ECEFF8;
+   }
+   
+   .support-header .container {
+   background: #ECEFF8;
+   padding: 34px 0px 34px 10px
+   }
+   
+   .support-header h2 {
+   font-size: 36px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   font-style: normal;
+   text-rendering: optimizeLegibility;
+   color: #0183EB !important;
+   }
+   
+   .support-body-content {
+   padding: 35px 0;
+   }
+   
+   .button {
+    margin-top: 15px;
+    background-color: #0183EB;
+    border-color: transparent;
+    color: #fff;
+    transition: 0.2s;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-family: BrandonTextWeb-Regular, Arial, sans-serif;
+   } 
+   
+   .button:hover{
+    font-family: BrandonTextWeb-Regular, Arial, sans-serif;
+    color: #fff;
+    background-color: #044981;
+    border-color: transparent;
+   }
+   
+   .bPageFooter.noTableFooter {
+   display: none;
+   }
+   
+   .btn-outline {
+    background-color: #fff;
+    border: 1.5px solid #0183EB;
+    color: #0183EB;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.btn-outline:hover {
+    color: #fff;
+    background-color: #0183EB;
+    border: 1.5px solid #0183EB;
+}
+   
+   
+   
+</style>
+<script type="text/javascript" >
+    var jQuery = $.noConflict();
+    jQuery(document).ready(function() {
+        jQuery("#articleDivId").hide();
+        jQuery("#articleDivHeadingId").hide();
+
+        jQuery("#headId").hide();
+    });
+
+    /*function returnArticle(){
+        var searchText = document.getElementById('subjectId').value;
+        var url = 'https://data-cventhelp.cs79.force.com/';
+        window.location.href = url ;
+        return false;
+    }*/
+
+    function createCase(){
+        var value =  $("#subjectId").val();
+        var productType =  $("#type").val();
+        //var url = '/apex/CreateNewCase?Subject='+value+'&prod='+productType;
+        //window.location.href = url ;
+        //return false;
+        
+        updateTracker(value,productType);
+        
+    }
+</script> 
+
+<!--...................Case Search..................-->
+<section id="communitysupport">
+
+<div class="support-header">
+                             <div class="container">
+                                  <h2 >Contact Support</h2>
+                             </div>
+                          </div>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+    <div class="container" id="createCasePanelId">
+        <div class="row pad-lg">
+            <div class="col-xs-12">
+                <div>
+                    <div>
+                        
+                        <form class="container support-body-content">
+                            <div class="form-group"> 
+                                 <h3>Open a New Case</h3><br/><br/>
+                                  <p>Complete this short form, add screenshots and a Product Consultant will contact you within 24 hours.</p>
+                            </div>
+                            <div class="form-group">                
+                                <label for="type">Product</label>
+                                <select class="form-control" id="type" name="type" title="Product Type">
+                                    <!--<option value="None">--None--</option>-->
+                                    <option value="Event__c">Event Management</option>
+                                    <option value="Abstract_Managements__c">Abstract Management</option>
+                                    <option value="Appointment__c">Appointments</option>
+                                    <option value="CrowdCompass__c">CrowdCompass</option>
+                                    <option value="CSN_Planner__c">CSN Planner</option>
+                                    <option value="CSN_Supplier__c">CSN Supplier</option>
+                                    <option value="eMarketing__c">eMarketing</option>
+
+                                    <option value="Survey__c">Inquisium</option>
+                                    <option value="CrowdTorch_Ticketing__c">LeadCapture</option>
+                                    <option value="OnArrival__c">OnArrival</option>
+                                    <option value="SocialWall__c">SocialWall</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                             <div class="requiredInput">
+                                    <div class="requiredBlock"></div>
+                                <label for="name">Concise Description</label>
+                                <input class="form-control" required="true" placeholder="Describe your issue in as few words as possible." id="subjectId" maxlength="80" name="name" size="20" type="text" />
+                                <div class="errorDiv" style="color:#a94442;"></div>
+                               </div>
+                            </div>
+
+                            <button type="button" ng-click="letsset()" class="button button-blue">Continue</button>
+                        </form>
+                        <div class="form-group">
+                          <button type="button" class="button btn-outline" onclick="location.href='https://support.cvent.com/apex/HL_SupportPage';">Review Your Cases</button>
+                          <button type="button" class="button btn-outline" onclick="location.href='https://support.cvent.com/apex/HL_ContactSupport';">See Other Support Options</button>
+                        </div>
+                        
+                    </div><!-- .card-body -->
+                </div><!-- .card -->
+            </div>
+        </div>
+            <!--<form class="form-inline" style="margin-left:33%;">
+                
+            </form>-->
+        </div>
+        <!--..Ends Here..-->
+        <!--Section to display Articles-->
+        <div class="container result-body" id="articleDivHeadingId" style="display:none;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="result-container">
+                        <!--<div class="head" id="headId" style="display:none;">
+                            <h1><b>Articles (<span ng-bind="totalItems"/>)</b></h1>
+                        </div>-->
+
+                        <!--Pagination removed...<div class="frame" ng-repeat="kav in names | filter:paginate"  style="display:none;" id="articleDivId">
+                            <h3><b><a style="cursor: pointer;color:#337ab7;" ng-href="CommunityArticle?id={{kav.articleNum}}&Lang={{kav.Lang}}&searchTerm={!searchTerm}"><span ng-bind="kav.Name"/></a></b></h3>                    <div style="clear:both;"></div>
+                            <p><span ng-bind="kav.strSummary"/></p>
+                            <br/>
+                        </div>
+                        <pagination total-items="totalItems" ng-model="currentPage" 
+                                    max-size="5" boundary-links="true" 
+                                    items-per-page="numPerPage" class="pagination-sm" ng-click="highlightAgain();" id="paginationId"  style="display:none;"> 
+                        </pagination>
+                    -->
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="content-header">
+                                                    <h3>We've found some relevant Knowledge Base articles that may help you.</h3>
+                                                    <p>If your question isn't answered please continue with the case submission at the bottom of the page.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="frame item-article" ng-repeat="kav in names" >
+                                            <h4><a style="cursor: pointer;" target="_blank" ng-href="CommunityArticle?id={{kav.articleNum}}&Lang={{kav.Lang}}&searchTerm={!searchTerm}"><span ng-bind="kav.Name"/></a></h4>
+                                            <p><span ng-bind="kav.strSummary"/></p>
+                                        </div>
+                                    </div><!-- .card-body -->
+                                </div><!-- .card -->
+                            </div>
+                        </div>
+                    </div><!-- .content-body -->
+                </div>
+            </div>
+            <!--..Ends Here..-->
+        </div>
+        <div class="create-case" id="createCaseButtonId">
+            <form class="form-inline" style="text-align: center;">
+                <div class="row pad-md">
+                    <div class="col-sm-12">
+                        <h2>Do you still need to create a case?</h2>
+                    </div>
+                </div>
+                <button class="button button-outline" type="button" onclick="createCase();" >YES, CREATE A CASE</button><!--class="btn btn-default"-->
+                <apex:actionFunction action="{!updateTrackerCount}" name="updateTracker" reRender="">
+                    <apex:param value="" name="subject" />
+                    <apex:param value="" name="productType"/>
+                </apex:actionFunction>
+                <button class="button button-outline" type="button" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome';">NO, I FOUND MY ANSWER</button>
+                <apex:actionFunction action="{!updateNoTrackerCount}" name="returnArticle" reRender=""/>
+            </form> 
+        </div>  
+    </div>
+</div>
+<!--....................Ends Here.......................-->
+</section>
+<script>
+    function myfunc(){
+    }
+    function highlightAgain(){
+    }
+    var app = angular.module('myApp', ['ui.bootstrap', 'ngResource']);
+    app.controller('customersCtrl', function($scope,$window) {
+        $scope.names;
+        $scope.letsset=function(){
+            var trackId = '{!$CurrentPage.parameters.id}';
+            console.log('***'+trackId);
+            var productType = document.getElementById('type').value;
+            var searchText = document.getElementById('subjectId').value;
+            
+            if(searchText == ''){
+                $('.errorDiv').text('Please fill the subject');
+            }
+            else{
+                showSpinner();
+                FindHelp_Class.actfast(trackId,productType,searchText,function(result,event){
+                    if (event.status){
+                        $scope.names=JSON.parse(result);
+                        $scope.currentPage = 1; 
+                        $scope.totalItems = $scope.names.length;
+                        $scope.numPerPage = 20;
+                        $scope.paginate = function (value){ 
+                            var begin, end, index; 
+                            begin = ($scope.currentPage - 1) * $scope.numPerPage; 
+                            end = begin + $scope.numPerPage; 
+                            index = $scope.names.indexOf(value); 
+                            return (begin <= index && index < end); 
+                        };
+                        $scope.$apply();
+                        hideSpinner();
+                        jQuery("#articleDivId").show();
+                        jQuery("#articleDivHeadingId").show();
+    
+                        jQuery("#createCasePanelId").hide();
+                        jQuery("#headId").show();
+                        jQuery("#createCaseButtonId").show();
+    
+    
+                    }
+                    else{
+                        console.log(event.message);
+                    }
+                }, {escape:false});
+            }
+        }
+    });
+</script>
+
+
+<div id="opaque"/>
+<div class="loader1" id="loaderId" style="display:none;"><!---->
+    <p align="center" style='{font-family:"Arial", Helvetica, sans-serif; font-size:20px;}'></p>
+</div>
+
+<script>
+    function showSpinner()
+    {
+        document.getElementById('opaque').style.display='block';
+        var popUp = document.getElementById('loaderId');
+
+        popUp.style.display = 'block';
+    } 
+    function hideSpinner()
+    {
+        document.getElementById('opaque').style.display='none';
+        var popUp = document.getElementById('loaderId');
+
+        popUp.style.display = 'none';
+    }
+</script>
+<!-- Community Footer code added here-->
+    <apex:composition template="CventCommunityFooter"></apex:composition>
+</apex:form>
+</apex:page>

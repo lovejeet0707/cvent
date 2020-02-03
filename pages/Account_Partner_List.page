@@ -1,0 +1,179 @@
+<apex:page standardController="Account" showHeader="false" tabStyle="Account" extensions="Account_Partner_ListController" >
+
+   <style>
+      .activeTab {background-color: #236FBD; color:white; background-image:none}
+      .inactiveTab {background-color: white; color:black; background-image:none}
+   </style>
+
+<apex:form id="formCanvas">
+    <apex:messages />
+  
+    <apex:tabPanel id="PartnersTab" 
+                   tabClass="activeTab" 
+                   inactiveTabClass="inactiveTab" 
+                   value="{!TabInFocus}" >
+        <apex:tab label="Partners" name="Partners" id="tabPartners" rendered="{!ShowPartnersTab}" />
+        <apex:tab label="Partners To" name="Partners To" id="tabPartnersOf" rendered="{!ShowAccountsTab}" />
+    </apex:tabPanel>
+
+    <!-- P A R T N E R S -->
+    <apex:outputPanel id="Partners" rendered="{!TabInFocus = 'Partners'}" style="position:relative; top:-20px;"  >
+        <apex:pageBlock >
+            <apex:outputPanel layout="block" id="PartnersList" >    
+                <div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="fBody">
+                                        <input class="btn" type="button" value="New Partner" 
+                                           onclick="window.open('{!AddPartnerURL}', '_top')" />
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                </div>
+        
+                <apex:pageBlockTable id="PartnerList" value="{!PartnerData}" var="apData" rowClasses="odd,even" styleClass="tableClass" frame="border" >
+
+                    <!-- Action -->
+                    <apex:column headerValue="Action" width="65" rendered="{!ShowActionCol}" >
+                        <apex:outputPanel layout="block" rendered="{!apData.CanEdit}" > 
+                            <apex:outputLink value="{!apData.urlEdit}" target="_top" rendered="{!ShowEditLink}"
+                                             style="color: #015BA7; -moz-text-decoration-line: none; text-decoration: none;" >
+                                             Edit</apex:outputLink>
+                            <apex:outputText value="&nbsp;<b>|</b>&nbsp;" escape="false" rendered="{!ShowEditLink && ShowDeleteLink}" />
+                            <apex:commandLink action="{!doAccountPartnerDelete}" 
+                                              onClick="if(!confirm('Are you sure?')){return};" rendered="{!ShowDeleteLink}"
+                                              style="color: #015BA7; -moz-text-decoration-line: none; text-decoration: none;"  >
+                                <apex:param name="CurrAPId" value="{!apData.AcctPartner.ID}" assignTo="{!CurrAPId}" />Delete</apex:commandLink>
+                        </apex:outputPanel>
+                    </apex:column> 
+
+                    <!-- Partner Name -->
+                    <apex:column style="text-align: left;vertical-align:top;">
+                        <apex:facet name="header" >
+                            <apex:commandLink value="Partner" action="{!doPartnerSort}" >
+                                <apex:param name="sortPartnerColumn" value="0" assignTo="{!sortPartnerColumn}"/>
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_ASC_Arrow)}" title="Sorted Ascending" rendered="{!IF(CurrentPartnerSort = '0' + 'ASC','True', 'False')}" />
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_DESC_Arrow)}" title="Sorted Descending" rendered="{!IF(CurrentPartnerSort = '0' + 'DESC','True', 'False')}" />
+                            </apex:commandLink>
+                        </apex:facet>
+        
+                        <apex:outputLink value="/{!apData.Partner.ID}" target="_top">{!apData.Partner.Name}</apex:outputLink>
+                    </apex:column>
+                    
+                    
+                    
+                    <!-- CSN ID -->
+                    <apex:column headerValue="CSN ID" style="text-align: left;vertical-align:top;">
+                        <apex:facet name="header" >
+                        </apex:facet>
+                        <apex:outputText value="{!apData.Partner.CSN_ID__c}" />
+                    </apex:column>
+                    
+                    
+                    <!-- Role -->
+                    <apex:column headerValue="Role" style="text-align: left;vertical-align:top;">
+                        <apex:facet name="header" >
+                            <apex:commandLink value="Role" action="{!doPartnerSort}" >
+                                <apex:param name="sortPartnerColumn" value="1" assignTo="{!sortPartnerColumn}"/>
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_ASC_Arrow)}" title="Sorted Ascending" rendered="{!IF(CurrentPartnerSort = '1' + 'ASC','True', 'False')}" />
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_DESC_Arrow)}" title="Sorted Descending" rendered="{!IF(CurrentPartnerSort = '1' + 'DESC','True', 'False')}" />
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:outputText value="{!apData.Role}" />
+                    </apex:column>
+                    
+                    <!-- Account Hierarchy Link -->
+                    <apex:column headerValue="Partner Hierarchy" style="text-align: left;vertical-align:top;">
+                        <apex:outputLink value="{!apData.urlAH}" target="_top">View Hierarchy</apex:outputLink>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:pageBlock>    
+    </apex:outputPanel> 
+    
+    <!-- A C C O U N T S -->
+    <apex:outputPanel id="Accounts" rendered="{!TabInFocus = 'Partners To'}" style="position:relative; top:-20px;"  >
+        <apex:pageBlock >
+            <apex:outputPanel layout="block" id="AccountsList" >    
+                <div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="fBody">
+                                        <input class="btn" type="button" value="New Account" 
+                                           onclick="window.open('{!AddAccountURL}', '_top')" />
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                </div>
+        
+                <apex:pageBlockTable id="AccountList" value="{!AccountData}" var="apData" rowClasses="odd,even" styleClass="tableClass" frame="border" >
+                    <!-- Action -->
+                    <apex:column headerValue="Action" width="65" rendered="{!ShowActionCol}" >
+                        <apex:outputPanel layout="block" rendered="{!apData.CanEdit}" > 
+                            <apex:outputLink value="{!apData.urlEdit}" target="_top" rendered="{!ShowEditLink}"
+                                             style="color: #015BA7; -moz-text-decoration-line: none; text-decoration: none;" >
+                                             Edit</apex:outputLink>
+                            <apex:outputText value="&nbsp;<b>|</b>&nbsp;" escape="false" rendered="{!ShowEditLink && ShowDeleteLink}" />
+                            <apex:commandLink action="{!doAccountPartnerDelete}" rendered="{!ShowDeleteLink}"
+                                              onClick="if(!confirm('Are you sure?')){return};"
+                                              style="color: #015BA7; -moz-text-decoration-line: none; text-decoration: none;"  >
+                                <apex:param name="CurrAPId" value="{!apData.AcctPartner.ID}" assignTo="{!CurrAPId}" />Delete</apex:commandLink>
+                        </apex:outputPanel>
+                    </apex:column> 
+
+                    <!-- Account Name -->
+                    <apex:column style="text-align: left;vertical-align:top;">
+                        <apex:facet name="header" >
+                            <apex:commandLink value="Account" action="{!doAccountSort}" >
+                                <apex:param name="sortAccountColumn" value="0" assignTo="{!sortAccountColumn}"/>
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_ASC_Arrow)}" title="Sorted Ascending" rendered="{!IF(CurrentAccountSort = '0' + 'ASC','True', 'False')}" />
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_DESC_Arrow)}" title="Sorted Descending" rendered="{!IF(CurrentAccountSort = '0' + 'DESC','True', 'False')}" />
+                            </apex:commandLink>
+                        </apex:facet>
+        
+                        <apex:outputLink value="/{!apData.Acct.ID}" target="_top">{!apData.Acct.Name}</apex:outputLink>
+                    </apex:column>
+        
+        
+                <!-- CSN Id -->
+                    <apex:column headerValue="CSN ID" style="text-align: left;vertical-align:top;">
+                        <apex:outputText value="{!apData.Acct.CSN_ID__c}" />
+                        
+                       
+                    </apex:column>
+                    
+                    
+                    <!-- Account Hierarchy Link -->
+                    <apex:column headerValue="Role" style="text-align: left;vertical-align:top;">
+                        <apex:facet name="header" >
+                            <apex:commandLink value="Role" action="{!doAccountSort}" >
+                                <apex:param name="sortAccountColumn" value="1" assignTo="{!sortAccountColumn}"/>
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_ASC_Arrow)}" title="Sorted Ascending" rendered="{!IF(CurrentAccountSort = '1' + 'ASC','True', 'False')}" />
+                                <apex:image url="{!URLFOR($Resource.InSituCah__InSitu_Sort_DESC_Arrow)}" title="Sorted Descending" rendered="{!IF(CurrentAccountSort = '1' + 'DESC','True', 'False')}" />
+                            </apex:commandLink>
+                        </apex:facet>
+                        <apex:outputText value="{!apData.Role}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Account Hierarchy" style="text-align: left;vertical-align:top;">
+                        <apex:outputLink value="{!apData.urlAH}" target="_top">View Hierarchy</apex:outputLink>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:pageBlock>    
+    </apex:outputPanel>         
+            
+</apex:form>    
+</apex:page>

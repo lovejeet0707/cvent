@@ -1,0 +1,315 @@
+<apex:page controller="RushRequestSurvey_Cont" sidebar="false" showHeader="false" standardStylesheets="false" title="Rush Request - Fill Response">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+        <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+            <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+        <style>            
+            .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+            }
+            
+        </style>
+    </head>
+    <apex:form > 
+        <div style="color: red;">
+            <apex:messages style="color:red;margin-right: 30%;margin-left: 28%;margin-top: 2%;"/>                     
+        </div>
+        <body style="background-image: url('{!$Resource.RushReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;">
+                <div style="margin-top: 2%;">
+                    <img src="{!$Resource.RushReqHeader}"/>
+                </div>
+                <div style="margin-left: 45%;color: aliceblue;">Page 1 of 2</div>
+                <div style="margin-left: 5%;color: aliceblue;">Please verify the following information:</div>
+                <br/>           
+                <div style="margin-left: 7%;color: aliceblue;">First Name: {!respondentFirstName}</div>
+                <div style="margin-left: 7%;color: aliceblue;">Last Name: {!respondentLastName}</div>
+                <div style="margin-left: 7%;color: aliceblue;">Email Address: {!respondentEmailAddress}</div>
+                <apex:pageBlock >
+                    <apex:variable var="dateTimeId" value="{!0}"/>
+                    <apex:repeat value="{!surQuestnAnsList}" var="sQA">                        
+                        <div style="margin-top: 2%;">
+                            <!-- Output panel takes care of Text Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text', true, false)}">
+                                <div class="panel panel-primary" >
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:inputText required="true" value="{!sQA.Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Sub Questions Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Sub Questions', true, false)}">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>                                    
+                                    <div class="panel-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-3" style="font-weight: 300;">{!sQA.Sub_Question_1__c}</label>
+                                                <div class="col-sm-7">
+                                                    <apex:inputText required="true" value="{!sQA.Sub_Answer_1__c}" styleClass="form-control" style="width: 45%;"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-3" style="font-weight: 300;">{!sQA.Sub_Question_2__c}</label>
+                                                <div class="col-sm-7">
+                                                    <apex:inputText required="true" value="{!sQA.Sub_Answer_2__c}" styleClass="form-control" style="width: 45%;"/>
+                                                </div>
+                                            </div>                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of MultiSelect1 Question/ Answers  -->
+                            <apex:outputPanel id="MultiSelect1" rendered="{!IF(sQA.Answer_Type__c == 'MultiSelect1', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:actionRegion >
+                                            <apex:selectList value="{!selectedMultiSelect1Question}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                                <apex:actionSupport event="onchange" action="{!MultiSelect1QuestionVisibility}" reRender="MultiSelect1"/>
+                                                <apex:param name="MultiSelect1QuestionId" value="{!selectedMultiSelect1Question}"/>
+                                                <apex:selectOptions value="{!Answers}"/>                                                
+                                            </apex:selectList>
+                                        </apex:actionRegion>
+                                    </div>
+                                </div>
+                                <apex:outputPanel rendered="{!showMultiSelect1Question}">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">{!sQA.Sub_Question__c}</div>
+                                        <div class="panel-body">
+                                            <apex:inputText required="true" value="{!sQA.Sub_Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>                                
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of MultiSelect2 Question/ Answers  -->
+                            <apex:outputPanel id="MultiSelect2" rendered="{!IF(sQA.Answer_Type__c == 'MultiSelect2', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:actionRegion >
+                                            <apex:selectList value="{!selectedMultiSelect2Question}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                                <apex:actionSupport event="onchange" action="{!MultiSelect2QuestionVisibility}" reRender="MultiSelect2"/>
+                                                <apex:param name="MultiSelect2QuestionId" value="{!selectedMultiSelect2Question}"/>
+                                                <apex:selectOptions value="{!MultiSelect2Answers}"/>                                                
+                                            </apex:selectList>
+                                        </apex:actionRegion>
+                                    </div>
+                                </div>
+                                <apex:outputPanel rendered="{!showMultiSelect2Question}">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">{!sQA.Sub_Question__c}</div>
+                                        <div class="panel-body">
+                                            <apex:inputText required="true" value="{!sQA.Sub_Answer__c}" styleClass="form-control" style="width: 45%;"/>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>                                
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Text Area Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Text Area', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <apex:inputTextarea richText="false" required="true" rows="5" value="{!sQA.Answer__c}" styleClass="form-control" style="width: 60%;"/>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Static Display Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Sequence__c == 11, true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr class="alert alert-info">                        
+                                                <th>Event Attributes</th><th><center>Simple</center></th><th><center>Medium</center></th><th><center>Advanced</center></th>
+                                                <th><center>Complex</center></th>
+                                            </tr>                    
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Attendee Types"/></td>
+                                                <td><center><apex:outputText value="1"/></center></td>
+                                                <td><center><apex:outputText value="2-5"/></center></td>
+                                                <td><center><apex:outputText value="6-10"/></center></td>
+                                                <td><center><apex:outputText value="11+"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Registration Experiences"/></td>
+                                                <td><center><apex:outputText value="1"/></center></td>
+                                                <td><center><apex:outputText value="2-5"/></center></td>
+                                                <td><center><apex:outputText value="6-10"/></center></td>
+                                                <td><center><apex:outputText value="11+"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Travel and Housing"/></td>
+                                                <td><center><apex:outputText value="No"/></center></td>
+                                                <td><center><apex:outputText value="1-5 Hotels"/></center></td>
+                                                <td><center><apex:outputText value="5-10 Hotels"/></center></td>
+                                                <td><center><apex:outputText value="10+ Hotels"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Website Pages"/></td>
+                                                <td><center><apex:outputText value="1"/></center></td>
+                                                <td><center><apex:outputText value="3-6"/></center></td>
+                                                <td><center><apex:outputText value="7-12"/></center></td>
+                                                <td><center><apex:outputText value="13+"/></center></td>                                                 
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Attendee Types"/></td>
+                                                <td><center><apex:outputText value="1"/></center></td>
+                                                <td><center><apex:outputText value="3-6"/></center></td>
+                                                <td><center><apex:outputText value="7-12"/></center></td>
+                                                <td><center><apex:outputText value="13+"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Discount or non-standard pricing"/></td>
+                                                <td><center><apex:outputText value="No"/></center></td>
+                                                <td><center><apex:outputText value="Yes"/></center></td>
+                                                <td><center><apex:outputText value="Yes"/></center></td>
+                                                <td><center><apex:outputText value="Yes"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Agenda Items or Agenda Visibility"/></td>
+                                                <td><center><apex:outputText value="1-5"/></center></td>
+                                                <td><center><apex:outputText value="5-20"/></center></td>
+                                                <td><center><apex:outputText value="20-50"/></center></td>
+                                                <td><center><apex:outputText value="50+"/></center></td>                                                 
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Event Length"/></td>
+                                                <td><center><apex:outputText value="1 day event"/></center></td>
+                                                <td><center><apex:outputText value="2 day event"/></center></td>
+                                                <td><center><apex:outputText value="3 day event"/></center></td>
+                                                <td><center><apex:outputText value="4+ day event"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Multi Lingual"/></td>
+                                                <td><center><apex:outputText value="No"/></center></td>
+                                                <td><center><apex:outputText value="No"/></center></td>
+                                                <td><center><apex:outputText value="Bi-Lingual"/></center></td>
+                                                <td><center><apex:outputText value="Multi-Lingual"/></center></td>                                                
+                                            </tr> 
+                                            <tr>                                                                                       
+                                                <td><apex:outputText value="Total Hours Allotted"/></td>
+                                                <td><center><apex:outputText value="6 Hours"/></center></td>
+                                                <td><center><apex:outputText value="8 Hours"/></center></td>
+                                                <td><center><apex:outputText value="12 Hours"/></center></td>
+                                                <td><center><apex:outputText value="14 Hours"/></center></td>                                                
+                                            </tr> 
+                                        </table>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>                            
+                            
+                            <!-- Output panel takes care of Static Display Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Static Display', true, false)}" style="color: aliceblue;">
+                                <span><strong>Additional Information</strong></span><br/>
+                                <span>If you have received any document about the event, please upload below. You can upload up to two documents. 
+                                    For additional documents, please email them to <a href="mailto:eventbuilder@cvent.com" target="_top" style="color: blueviolet;">eventbuilder@cvent.com</a>, with attention to Ashish/Suhail (US and Canada) or Baldeep (International).
+                                </span><br/><br/>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Picklist- Yes/ No Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Picklist - Yes/No', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:selectList value="{!selectedMultiSelectYesNoQuestion}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                            <apex:selectOptions value="{!Answers}"/>                                                
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Picklist - Complexity Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Picklist - Complexity', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:selectList value="{!selectedComplexity}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                            <apex:selectOptions value="{!Complexities}"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Country Name Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Country Name', true, false)}">                           
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}:</div>
+                                    <div class="panel-body">
+                                        <apex:selectList value="{!selectedCountry}" multiselect="false" size="1" styleClass="form-control" style="width: 45%;">
+                                            <apex:selectOptions value="{!Countries}"/>
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Date Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Date', true, false)}"> 
+                                <apex:variable var="dateTimeId" value="{!dateTimeId+1}"/>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        {!sQA.Question__c}<br/><br/>
+                                        {!sQA.Sub_Question__c}
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="{!dateTimeId}" style="width: 45%;">
+                                                <apex:inputText required="true" value="{!sQA.Answer__c}" styleClass="form-control"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                        $(function (){
+                                            var v = {!dateTimeId};
+                                            $('#' + v).datetimepicker();
+                                        });
+                                        </script>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            
+                            <!-- Output panel takes care of Date Time Question/ Answers  -->
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'DateTime', true, false)}"> 
+                                <apex:variable var="dateTimeId" value="{!dateTimeId+1}"/>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="{!dateTimeId}" style="width: 45%;">
+                                                <apex:inputText required="true" value="{!sQA.Answer__c}" styleClass="form-control"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                        $(function (){
+                                            var v = {!dateTimeId};
+                                            $('#' + v).datetimepicker();
+                                        });
+                                        </script>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                        </div> 
+                    </apex:repeat>                    
+                    <div class="col-sm-offset-2 col-sm-10"> 
+                        <apex:commandButton id="responsePage" action="{!rushRequestSubmit}" styleClass="btn btn-primary" value="Next"/>
+                    </div>                                           
+                </apex:pageBlock>                
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

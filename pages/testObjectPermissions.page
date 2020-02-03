@@ -1,0 +1,7 @@
+<apex:page sidebar="false" showHeader="false" contentType="plain/text" standardStylesheets="false"> 
+<accessible>{!$ObjectType[$CurrentPage.parameters.obj].accessible}</accessible> 
+<createable>{!$ObjectType[$CurrentPage.parameters.obj].createable}</createable> 
+<deletable>{!$ObjectType[$CurrentPage.parameters.obj].deletable}</deletable> 
+<undeletable>{!$ObjectType[$CurrentPage.parameters.obj].undeletable}</undeletable> 
+<updateable>{!$ObjectType[$CurrentPage.parameters.obj].updateable}</updateable> 
+</apex:page>

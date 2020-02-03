@@ -1,0 +1,11 @@
+<apex:component controller="QuoteTermsController" access="global">
+    <apex:attribute name="quoteId" description="Id of the quote" type="Id" assignTo="{!objId}" />   
+        
+    <apex:variable var="quoteTerms" value="{!quoteTermList}" />
+    <apex:outputPanel rendered="{!NOT(ISBLANK(quoteTerms))}">
+        <b>Quote Terms:</b><br/>
+        <apex:repeat value="{!quoteTerms}" var="quoteTerm" id="theRepeat">
+            <apex:outputText value="{!quoteTerm.body}" id="theValue" escape="false"/><br/>
+        </apex:repeat>
+    </apex:outputPanel>
+</apex:component>

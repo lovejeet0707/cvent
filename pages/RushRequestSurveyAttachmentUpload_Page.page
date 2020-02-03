@@ -1,0 +1,62 @@
+<apex:page controller="RushRequestSurvey_Cont" sidebar="false" showHeader="false" standardStylesheets="false" title="Upload Attachments">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap37, '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://code.jquery.com/jquery-1.11.2.min.js"/>
+        <style>            
+            .surveyPage-center{
+            width: 100%;
+            // text-align: center;
+            height:100%;
+            }
+            
+        </style>
+    </head>
+    <apex:form >
+        <apex:messages />
+        <body style="background-image: url('{!$Resource.RushReqBGImage}');background-size:cover;">
+            <div class="container" border="1" style="border-style: solid;border-width: 0px;width: 823px;">
+                <div style="margin-top: 2%;">
+                    <img src="{!$Resource.RushReqHeader}"/>
+                </div>
+                <div style="margin-left: 45%;color: aliceblue;">Page 2 of 2</div>
+                <apex:outputPanel id="showUploadMessagePanel" rendered="{!showUploadMessagePanel}">
+                    <div class="alert-body" style="margin-left:5.2%;margin-right:3.2%;">
+                        <div class="alert alert-success" style="height:20%; width:108%;margin-left:-5%;margin-top:3%;">
+                            <strong> {!AttachmentCount} attachment's uploaded successfully. Kindly repeat the process, if you have more attachements to upload. Otherwise use 'Submit Survey' button to save your Responses.</strong>
+                        </div>                
+                    </div>
+                </apex:outputPanel>
+                <div style="margin-left: 5%;color: aliceblue;">Please upload attachments:</div>
+                <br/>           
+                <apex:pageBlock >                    
+                    <apex:repeat value="{!surQuestnAnsList}" var="sQA">                        
+                        <div style="margin-top: 2%;">                            
+                            <!-- Output panel takes care of Attachment1 Question/ Answers  -->                                
+                            <apex:outputPanel rendered="{!IF(sQA.Answer_Type__c == 'Attachment1', true, false)}">
+                                <div class="panel panel-primary" >
+                                    <div class="panel-heading">{!sQA.Question__c}</div>
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="col-md-6">
+                                                <apex:inputFile value="{!attachment1.body}" fileName="{!attachment1.Name}" styleClass="form-control"/>
+                                                <apex:inputFile value="{!attachment2.body}" fileName="{!attachment2.Name}" styleClass="form-control"/>
+                                            </div>
+                                            <br/>
+                                            <div class="col-md-6">
+                                                <apex:commandButton id="attachment1" action="{!uploadAttachments}" styleClass="btn btn-primary" value="Upload"/>
+                                            </div>
+                                        </form>                          
+                                    </div>
+                                </div>                                
+                            </apex:outputPanel>                            
+                        </div>
+                    </apex:repeat>                    
+                    <div class="col-sm-offset-2 col-sm-10"> 
+                        <apex:commandButton id="finish" action="{!submitSurvey}" style="margin-left: 28%;" styleClass="btn btn-primary" value="Submit Survey" />
+                    </div>                   
+                </apex:pageBlock>                
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

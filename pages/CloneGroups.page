@@ -1,0 +1,198 @@
+<apex:page standardController="Group" showHeader="true" sidebar="false">
+<div id="content" style="background-color:#ffffff;width: 935px; margin: 25px auto 0;">
+     <style>
+    .activeTab {background-color: #236FBD; color:white; background-image:none}
+    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+    .rich-tabpanel-content{background:#fff !important;border-left:1px solid #fff !important;border-right:1px solid #fff !important;border-bottom:1px solid #fff !important;}
+    #userGroups-regional ul,#tabs ul,#userGroups-vertical ul{list-style-type:none;}
+    #userGroups-regional ul li, #userGroups-vertical ul li{  float: left;
+  width: 296px;
+  background: #f1f1f1; 
+  margin:20px 20px 0 0;
+  margin-left:0px; 
+  border: 1px solid #ccc;}
+  #userGroups-regional ul li:hover, #userGroups-vertical ul li:hover,#userGroups-regional ul li:hover a,
+   #userGroups-vertical ul li:hover a{color:#015ba7;background:#fff}
+   #userGroups-regional ul li a, #userGroups-vertical ul li a{text-decoration:none}
+  #userGroups-regional ul li div,#userGroups-vertical ul li div{float: left; padding: 20px 30px 20px 20px;}
+  #userGroups-regional ul li h4,#userGroups-vertical ul li h4{  padding-top: 40px;float: left;}
+  #userGroups-regional ul li.last,#userGroups-vertical ul li.last{margin-right:0px}
+   #tabs ul li {float: left;
+  margin-right: 1px;
+  padding: 0;
+  margin-left: 0;
+  padding: 5px 10px;
+    border: 1px solid #ccc;
+  background: #f1f1f1;
+  border-bottom: 0;
+  border-top-left-radius:4px;
+border-top-right-radius:4px;
+
+  }
+      #userGroups-regional,#userGroups-vertical {clear:both}
+   #tabs ul li a,#tabs ul li a:hover{text-decoration:none;color:#000}
+   #tabs{border-bottom:1px solid #ccc;
+      float: left;
+      width: 100%;
+     }
+     #userGroups-regional, #userGroups-vertical{display:none;}
+     #userGroups-regional.active,#userGroups-vertical.active,#regional.active,#vertical.active{display:block !important}
+     #regional.active,#vertical.active, #tabs ul li:hover{background:#14497f;border:1px solid #14497f;border-bottom:0}
+      #regional.active a,#vertical.active a, #regional.active a:hover,#vertical.active a:hover,#tabs ul li:hover a{color:#fff}
+      .top-text{font-size: 14px;
+  padding-bottom: 20px;}
+  .regional-text,.vertical-text{padding: 20px 0 5px 0;
+  font-size: 14px;}
+  
+    </style>
+    <div align="center" style="width: 935px; margin: 10px auto 0;"> 
+    <table border="0" width="935">
+                                <tr>
+                                                <td>
+                                                <apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/check-out-user-groups-slider.png')}" width="935" height="380" />
+                                                </td>
+                                </tr>
+                                <tr>
+                                                <td>&nbsp;</td>
+                                </tr>
+                          <!--      <tr>
+                                                <td><font face="Arial">
+                                                <span style="font-size: 20pt; font-weight: 700">User Groups </span>
+                                                <br>
+                                                <font size="2">User groups are customer-organized groups that meet 
+                                                online and in-person. Join one today to network, share ideas and get 
+                                                tips on how to get the most out of Cvent</font></br></font></td>
+                                </tr> -->
+                </table>
+                </div>
+              <!--  <p>&nbsp;</p> -->
+          <div class="top-text">Success groups make it easy to connect with Cvent users from a similar background. Explore online conversations by region or vertical.</div>    
+        <div id="tabs">
+            <ul>
+            <li id="regional" class="active">
+                <a href="#">Regional</a>
+            </li>
+             <li id="vertical">
+                <a href="#">Vertical</a>
+            </li>
+            </ul>
+        </div>  
+        <div id="userGroups-regional" class="active">
+        <div class="regional-text">Network with local Cvent users, either to continue the conversation from a recent in-person Customer Success Group meetup or to organize one yourself! Don't see your city listed? Contact <a href="mailto:successgroups@cvent.com">successgroups@cvent.com</a> to discuss the best way to connect with users in your area. </div>
+            <ul>
+            <li>
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Aj"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/atlanta.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Aj">Atlanta <br/>Success Group</a></h4>
+            </li>
+            <li>
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000PCwM"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/austin.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000PCwM">Austin <br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Ao"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/baltimore.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Ao">Baltimore <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9At"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/boston.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9At">Boston <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Ay"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/chicago.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Ay">Chicago <br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9B3"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/dallas.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9B3">Dallas <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9B8"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/denver.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9B8">Denver <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000PCwR"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/houston.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000PCwR">Houston<br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BD"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/London.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BD">London <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BI"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/los-angeles.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BI">Los Angeles <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BN"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/minneapolis.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BN">Minneapolis <br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BS"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/new-york.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BS">New York <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BX"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/philadelphia.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9BX">Philadelphia <br/>Success Group</a></h4>
+            </li>
+            <li >
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bc"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/san-francisco.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bc">San Francisco <br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bh"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/washington-dc.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bh">Washington DC Metro <br/> Area Success Group</a></h4>
+            </li>
+            <!-- New group -->
+                        
+            
+            <!-- New group -->
+            </ul>
+        </div>
+         <div id="userGroups-vertical">
+         <div class="vertical-text">Click on the group below that best matches your industry and join in the discussion! </div>
+            <ul>
+            <li>
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bm"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/association-nonprofit.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bm">Association and <br/>Non-Profit <br/>Success Group</a></h4>
+            </li>
+            <li>
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Br"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/corporate.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Br">Corporate <br/>Success Group</a></h4>
+            </li>
+            <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9iS"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/CONNECT-group.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9iS">Cvent CONNECT<br/> Attendees</a></h4>
+            </li>
+            <li class="">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bw"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/education.png')}" width="100" height="100" /></a> </div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9Bw">Education <br/>Success Group</a></h4>
+            </li>
+            <li>
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9C1"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/enterprise.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9C1">Enterprise <br/>Success Group</a></h4>
+            </li>
+                        <li class="last">
+            <div><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9C6"><apex:image url="{!URLFOR($Resource.CommunityAssets, 'CommunityAssets/images/government.png')}" width="100" height="100" /></a></div>
+            <h4><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9o0000000U9C6">Government <br/>Success Group</a></h4>
+            </li>
+                        
+            </ul>
+        </div>
+    </div>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" />
+    <script>
+     $(function() {
+        $('#tabs ul li').on('click',function(e){
+            e.preventDefault();
+            $('#tabs ul li').removeClass('active');
+            $(this).addClass('active');           
+            if($(this).attr('id') ==='regional'){
+                $("#userGroups-regional").addClass('active');
+                 $("#userGroups-vertical").removeClass('active');
+            }else if($(this).attr('id') ==='vertical'){
+                $("#userGroups-vertical").addClass('active');
+                $("#userGroups-regional").removeClass('active');
+            }
+            
+        });
+     });
+     </script>
+</apex:page>
