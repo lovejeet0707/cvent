@@ -18,7 +18,7 @@ public class UserTriggerHandler{
       set<id> accIdSet = new set<id>();
       list<Mobile_Card__c> mobCardList = new list<Mobile_Card__c> ();
       map<id,List<Mobile_Card__c>> mapOfMobileCards = new map<id,List<Mobile_Card__c>>();
-      set<id> accountIds = new set<id>();// account Ids for docebo
+      //set<id> accountIds = new set<id>();// account Ids for docebo
       //fetch all the users with profile 'Cvent Customer Community User'....
       Profile profileRec = [SELECT Id FROM Profile WHERE Name = 'Cvent Customer Community User'];
       for(user u : newValues){
@@ -29,13 +29,13 @@ public class UserTriggerHandler{
             u.ProfileId=profileRec.id;
          }
          //Added by Udita to populate contact Id for Docebo : 4/15/2019
-         if(u.ContactId != null && Boolean.ValueOf(Label.IsDoceboCodeActive)){
+        /* if(u.ContactId != null && Boolean.ValueOf(Label.IsDoceboCodeActive)){
              u.Contact_ID__c = String.ValueOf(u.ContactId);
              accountIds.add(u.Account_Id_Dev__c);
-         }
+         }*/
        } 
        // Code for docebo : Udita
-       if(accountIds.size() > 0 && Boolean.ValueOf(Label.IsDoceboCodeActive)){
+      /* if(accountIds.size() > 0 && Boolean.ValueOf(Label.IsDoceboCodeActive)){
           Map<Id,String> accIdMap = new Map<Id,String>();      
           for(Account acc : [select id,Product_Mix__c from account where id in : accountIds AND Product_Mix__c != NULL ]){
             accIdMap.put(acc.id,acc.Product_Mix__c);
@@ -44,10 +44,10 @@ public class UserTriggerHandler{
              if(u.ContactId != null && accIdMap.containsKey(u.Account_Id_Dev__c)){
                 u.LMS_Groups__c  = accIdMap.get(u.Account_Id_Dev__c);
                 /***************TICBP-74**************/
-                u.LMS_Sync_Date__c = System.today();
-             }
-          }
-       } 
+               // u.LMS_Sync_Date__c = System.today();
+             //}
+          //}
+      //} */
     }
     
     public void OnAfterInsert( Map<Id,User> newMap){     
@@ -179,7 +179,7 @@ public class UserTriggerHandler{
                 userObj.UserPermissionsCallCenterAutoLogin    = false;
                 userObj.UserPermissionsChatterAnswersUser     = false;
                 userObj.UserPermissionsInteractionUser        = false;
-                userObj.UserPermissionsJigsawProspectingUser  = false;
+            //    userObj.UserPermissionsJigsawProspectingUser  = false;  Commented by Lovejeeet Singh on 01/31/2020 as Data.Com has been retired by Salesforce
                 userObj.UserPermissionsKnowledgeUser          = false;
                 userObj.UserPermissionsLiveAgentUser          = false;
                 userObj.UserPermissionsMarketingUser          = false;

@@ -6,9 +6,9 @@ global class BatchDeactivateUsers implements Database.Batchable<sObject>,Databas
     Public String csvContent;
    
     Public string heading='Error Message';
-
+    Integer numberOfDaysToSubtract = Integer.valueOf(Label.Number_of_Days_for_Deactivating_Users);
     datetime myDateTime = datetime.now();
-    datetime inactiveDateTime = myDateTime.addDays(-30);
+    datetime inactiveDateTime = myDateTime.addDays(-numberOfDaysToSubtract);
     date inactivenewUSerDateTime = system.today().addDays(-15);
     
     global Database.QueryLocator start(Database.BatchableContext bc){
@@ -28,7 +28,7 @@ global class BatchDeactivateUsers implements Database.Batchable<sObject>,Databas
                 u.UserPermissionsCallCenterAutoLogin    = false;
                 u.UserPermissionsChatterAnswersUser     = false;
                 u.UserPermissionsInteractionUser        = false;
-                u.UserPermissionsJigsawProspectingUser  = false;
+      //          u.UserPermissionsJigsawProspectingUser  = false; Commented by Lovejeeet Singh on 01/31/2020 as Data.Com has been retired by Salesforce
                 u.UserPermissionsKnowledgeUser          = false;
                 u.UserPermissionsLiveAgentUser          = false;
                 u.UserPermissionsMarketingUser          = false;

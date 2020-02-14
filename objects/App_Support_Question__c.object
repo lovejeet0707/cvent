@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Case_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Record Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New_Event</fullName>
+                    <default>false</default>
+                    <label>New_Event</label>
+                </value>
+                <value>
+                    <fullName>New_Onsite_Solutions</fullName>
+                    <default>false</default>
+                    <label>New_Onsite_Solutions</label>
+                </value>
+                <value>
+                    <fullName>New_CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>New_CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>New_Inquisium</fullName>
+                    <default>false</default>
+                    <label>New_Inquisium</label>
+                </value>
+                <value>
+                    <fullName>New_CSN_Planner</fullName>
+                    <default>false</default>
+                    <label>New_CSN_Planner</label>
+                </value>
+                <value>
+                    <fullName>New_CSN_Supplier</fullName>
+                    <default>false</default>
+                    <label>New_CSN_Supplier</label>
+                </value>
+                <value>
+                    <fullName>New_Abstact_Management</fullName>
+                    <default>false</default>
+                    <label>New_Abstact_Management</label>
+                </value>
+                <value>
+                    <fullName>New_Appointments</fullName>
+                    <default>false</default>
+                    <label>New_Appointments</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case_Submission_Guidelines__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Submission Guidelines</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Escalated_Topic__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalated Topic</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Case_Record_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Registration</fullName>
+                    <default>false</default>
+                    <label>Registration</label>
+                </value>
+                <value>
+                    <fullName>API</fullName>
+                    <default>false</default>
+                    <label>API</label>
+                </value>
+                <value>
+                    <fullName>Other integrations (SalesForce, Marketo, Eloqua, Webhooks etc)</fullName>
+                    <default>false</default>
+                    <label>Other integrations (SalesForce, Marketo, Eloqua, Webhooks etc)</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Planner side</fullName>
+                    <default>false</default>
+                    <label>Planner side</label>
+                </value>
+                <value>
+                    <fullName>Import</fullName>
+                    <default>false</default>
+                    <label>Import</label>
+                </value>
+                <value>
+                    <fullName>Badges</fullName>
+                    <default>false</default>
+                    <label>Badges</label>
+                </value>
+                <value>
+                    <fullName>PNR / GDS</fullName>
+                    <default>false</default>
+                    <label>PNR / GDS</label>
+                </value>
+                <value>
+                    <fullName>Look and Feel</fullName>
+                    <default>false</default>
+                    <label>Look and Feel</label>
+                </value>
+                <value>
+                    <fullName>Import Issues</fullName>
+                    <default>false</default>
+                    <label>Import Issues</label>
+                </value>
+                <value>
+                    <fullName>Web Application / General Issue</fullName>
+                    <default>false</default>
+                    <label>Web Application / General Issue</label>
+                </value>
+                <value>
+                    <fullName>LeadCapture Mobile App</fullName>
+                    <default>false</default>
+                    <label>LeadCapture Mobile App</label>
+                </value>
+                <value>
+                    <fullName>OnArrival Mobile App</fullName>
+                    <default>false</default>
+                    <label>OnArrival Mobile App</label>
+                </value>
+                <value>
+                    <fullName>Badge Printing</fullName>
+                    <default>false</default>
+                    <label>Badge Printing</label>
+                </value>
+                <value>
+                    <fullName>Utility Mobile App</fullName>
+                    <default>false</default>
+                    <label>Utility Mobile App</label>
+                </value>
+                <value>
+                    <fullName>OSS to CC Integration</fullName>
+                    <default>false</default>
+                    <label>OSS to CC Integration</label>
+                </value>
+                <value>
+                    <fullName>Custom Reports</fullName>
+                    <default>false</default>
+                    <label>Custom Reports</label>
+                </value>
+                <value>
+                    <fullName>OSS SSO</fullName>
+                    <default>false</default>
+                    <label>OSS SSO</label>
+                </value>
+                <value>
+                    <fullName>Mobile Application Issue</fullName>
+                    <default>false</default>
+                    <label>Mobile Application Issue</label>
+                </value>
+                <value>
+                    <fullName>Cvent Integration Issue</fullName>
+                    <default>false</default>
+                    <label>Cvent Integration Issue</label>
+                </value>
+                <value>
+                    <fullName>Third party sync</fullName>
+                    <default>false</default>
+                    <label>Third party sync</label>
+                </value>
+                <value>
+                    <fullName>Partner API</fullName>
+                    <default>false</default>
+                    <label>Partner API</label>
+                </value>
+                <value>
+                    <fullName>Master Admin Creation</fullName>
+                    <default>false</default>
+                    <label>Master Admin Creation</label>
+                </value>
+                <value>
+                    <fullName>Survey Design</fullName>
+                    <default>false</default>
+                    <label>Survey Design</label>
+                </value>
+                <value>
+                    <fullName>Emails</fullName>
+                    <default>false</default>
+                    <label>Emails</label>
+                </value>
+                <value>
+                    <fullName>Reports</fullName>
+                    <default>false</default>
+                    <label>Reports</label>
+                </value>
+                <value>
+                    <fullName>Dashboards</fullName>
+                    <default>false</default>
+                    <label>Dashboards</label>
+                </value>
+                <value>
+                    <fullName>Imports</fullName>
+                    <default>false</default>
+                    <label>Imports</label>
+                </value>
+                <value>
+                    <fullName>Respondent Auditing</fullName>
+                    <default>false</default>
+                    <label>Respondent Auditing</label>
+                </value>
+                <value>
+                    <fullName>General requirement </fullName>
+                    <default>false</default>
+                    <label>General requirement </label>
+                </value>
+                <value>
+                    <fullName>Custom Report Request</fullName>
+                    <default>false</default>
+                    <label>Custom Report Request</label>
+                </value>
+                <value>
+                    <fullName>NSO related issues</fullName>
+                    <default>false</default>
+                    <label>NSO related issues</label>
+                </value>
+                <value>
+                    <fullName>Proposal/RFP Document issue</fullName>
+                    <default>false</default>
+                    <label>Proposal/RFP Document issue</label>
+                </value>
+                <value>
+                    <fullName>RFP email delivery issue</fullName>
+                    <default>false</default>
+                    <label>RFP email delivery issue</label>
+                </value>
+                <value>
+                    <fullName>CSN email issue</fullName>
+                    <default>false</default>
+                    <label>CSN email issue</label>
+                </value>
+                <value>
+                    <fullName>Ads update/insert</fullName>
+                    <default>false</default>
+                    <label>Ads update/insert</label>
+                </value>
+                <value>
+                    <fullName>CSN Search Issue</fullName>
+                    <default>false</default>
+                    <label>CSN Search Issue</label>
+                </value>
+                <value>
+                    <fullName>Chain/Brand Additions/Updates</fullName>
+                    <default>false</default>
+                    <label>Chain/Brand Additions/Updates</label>
+                </value>
+                <value>
+                    <fullName>Portal Cases</fullName>
+                    <default>false</default>
+                    <label>Portal Cases</label>
+                </value>
+                <value>
+                    <fullName>Meeting Requests</fullName>
+                    <default>false</default>
+                    <label>Meeting Requests</label>
+                </value>
+                <value>
+                    <fullName>Meetings Managememt Workflow</fullName>
+                    <default>false</default>
+                    <label>Meetings Managememt Workflow</label>
+                </value>
+                <value>
+                    <fullName>Budgets</fullName>
+                    <default>false</default>
+                    <label>Budgets</label>
+                </value>
+                <value>
+                    <fullName>Basic Questions</fullName>
+                    <default>false</default>
+                    <label>Basic Questions</label>
+                </value>
+                <value>
+                    <fullName>IF APPROPRIATE TO PRIMARY COMPLAINT</fullName>
+                    <default>false</default>
+                    <label>IF APPROPRIATE TO PRIMARY COMPLAINT</label>
+                </value>
+                <value>
+                    <fullName>General Questions</fullName>
+                    <default>false</default>
+                    <label>General Questions</label>
+                </value>
+                <value>
+                    <fullName>General requirement</fullName>
+                    <default>false</default>
+                    <label>General requirement</label>
+                </value>
+                <value>
+                    <fullName>Stuck Transcation</fullName>
+                    <default>false</default>
+                    <label>Stuck Transcation</label>
+                </value>
+                <value>
+                    <fullName>Failed Transactions (multiple)</fullName>
+                    <default>false</default>
+                    <label>Failed Transactions (multiple)</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Registration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>API</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Other integrations (SalesForce, Marketo, Eloqua, Webhooks etc)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Email</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Planner side</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Import</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Badges</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>PNR / GDS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Meeting Requests</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Meetings Managememt Workflow</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Budgets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>General requirement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Stuck Transcation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Event</controllingFieldValue>
+                <valueName>Failed Transactions (multiple)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Look and Feel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>Import Issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Web Application / General Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>LeadCapture Mobile App</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>OnArrival Mobile App</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>Badge Printing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>Utility Mobile App</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>OSS to CC Integration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Custom Reports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Onsite_Solutions</controllingFieldValue>
+                <valueName>OSS SSO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Mobile Application Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Cvent Integration Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Third party sync</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Partner API</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CrowdCompass</controllingFieldValue>
+                <valueName>Master Admin Creation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Survey Design</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Emails</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Reports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Dashboards</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Imports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Inquisium</controllingFieldValue>
+                <valueName>Respondent Auditing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>General requirement </valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>Custom Report Request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>NSO related issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>Proposal/RFP Document issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>RFP email delivery issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>CSN email issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>Ads update/insert</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>CSN Search Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>Chain/Brand Additions/Updates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_CSN_Planner</controllingFieldValue>
+                <controllingFieldValue>New_CSN_Supplier</controllingFieldValue>
+                <valueName>Portal Cases</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Abstact_Management</controllingFieldValue>
+                <valueName>Basic Questions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Abstact_Management</controllingFieldValue>
+                <valueName>IF APPROPRIATE TO PRIMARY COMPLAINT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>New_Appointments</controllingFieldValue>
+                <valueName>General Questions</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>App Support Question</label>
+    <nameField>
+        <displayFormat>{0000}</displayFormat>
+        <label>App Support Question Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>App Support Questions</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Case_Record_Type__c</columns>
+        <columns>Escalated_Topic__c</columns>
+        <columns>Case_Submission_Guidelines__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>New_Event</fullName>
+        <columns>NAME</columns>
+        <columns>Case_Record_Type__c</columns>
+        <columns>Escalated_Topic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case_Record_Type__c</field>
+            <operation>equals</operation>
+            <value>New_Event</value>
+        </filters>
+        <label>New_Event</label>
+        <language>en_US</language>
+    </listViews>
+</CustomObject>

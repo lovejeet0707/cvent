@@ -47,7 +47,7 @@ trigger updateMoodFrmCase on Case (after insert,after update) {
                         String urlString = System.URL.getSalesforceBaseUrl().toExternalForm();
                         string Url='<a href=' + urlString + '/' + caseMap.get(c.id).id + '>Please click on this Link to review the case and take the appropriate action.</a>';
                         c.Mood_Text__c = caseMap.get(c.id).Mood__c.substring(4,Integer.valueof((caseMap.get(c.id).Mood__c).length()));
-                           c.Manager_Email__c = emailCase.get(c.id).Manager_Email__c;//UD:Commented for FP:4thApril DA: Comment removed Dec 26
+                       // c.Manager_Email__c = emailCase.get(c.id).Manager_Email__c;//UD:Commented for FP:4thApril
                         /*c.Template_FIelds__c = 'Product: ' + rtMap.get(caseMap.get(c.id).RecordTypeId).getName() +'<br>' +
                            'Mood Origin: Case' + '<br>' + 
                            'Mood Creator: ' + emailCase.get(c.id).Name + '<br>' +
@@ -69,7 +69,7 @@ trigger updateMoodFrmCase on Case (after insert,after update) {
                         String urlString = System.URL.getSalesforceBaseUrl().toExternalForm();
                         string Url='<a href=' + urlString + '/' + caseMap.get(c.id).id + '>Please click on this Link to review the case and take the appropriate action.</a>';
                         c.Mood_Text__c = caseMap.get(c.id).Mood__c.substring(4,Integer.valueof((caseMap.get(c.id).Mood__c).length()));
-                        c.Manager_Email__c = emailCase.get(c.id).Manager_Email__c;//UD:Commented for FP:4thApril DA: Comment removed Dec 26
+                       // c.Manager_Email__c = emailCase.get(c.id).Manager_Email__c;//UD:Commented for FP:4thApril
                         /*c.Template_FIelds__c = 'Product: ' + rtMap.get(caseMap.get(c.id).RecordTypeId).getName() +'<br>' +
                            'Mood Origin: Case' + '<br>' + 
                            'Mood Creator: ' + emailCase.get(c.id).Name + '<br>' +

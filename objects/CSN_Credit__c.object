@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Bundle_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Bundle Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bundle_Amt_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),1*Bundle_Amount__c,Bundle_Amount__c/Exchange_Rate__c)</formula>
+        <label>Bundle Amt USD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CSN_Enterprise__c</fullName>
+        <externalId>false</externalId>
+        <label>CSN Enterprise $</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Competitive_Market_Ad_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Competitor_Ad_Value__c * Multiplier__c 
+),
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Competitor_Ad_Value__c )/Exchange_Rate__c)* Multiplier__c )
+)
+)</formula>
+        <label>Competitive Market Ad Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>DS Credit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Veronica Tikoo</fullName>
+                    <default>false</default>
+                    <label>Veronica Tikoo</label>
+                </value>
+                <value>
+                    <fullName>Chinmay Gulati</fullName>
+                    <default>false</default>
+                    <label>Chinmay Gulati</label>
+                </value>
+                <value>
+                    <fullName>Ian Shukla</fullName>
+                    <default>false</default>
+                    <label>Ian Shukla</label>
+                </value>
+                <value>
+                    <fullName>Shawn Ganjoo</fullName>
+                    <default>false</default>
+                    <label>Shawn Ganjoo</label>
+                </value>
+                <value>
+                    <fullName>Patricia Priyadarshini</fullName>
+                    <default>false</default>
+                    <label>Patricia Priyadarshini</label>
+                </value>
+                <value>
+                    <fullName>Samaira Ghosh</fullName>
+                    <default>false</default>
+                    <label>Samaira Ghosh</label>
+                </value>
+                <value>
+                    <fullName>Devan Sehgal</fullName>
+                    <default>false</default>
+                    <label>Devan Sehgal</label>
+                </value>
+                <value>
+                    <fullName>Sananda Thakurta</fullName>
+                    <default>false</default>
+                    <label>Sananda Thakurta</label>
+                </value>
+                <value>
+                    <fullName>Aminat Bakre</fullName>
+                    <default>false</default>
+                    <label>Aminat Bakre</label>
+                </value>
+                <value>
+                    <fullName>Kolade Ogunade</fullName>
+                    <default>false</default>
+                    <label>Kolade Ogunade</label>
+                </value>
+                <value>
+                    <fullName>Olivia Murray-Taylor</fullName>
+                    <default>false</default>
+                    <label>Olivia Murray-Taylor</label>
+                </value>
+                <value>
+                    <fullName>Mo AlWasaibei</fullName>
+                    <default>false</default>
+                    <label>Mo AlWasaibei</label>
+                </value>
+                <value>
+                    <fullName>Julia Gould</fullName>
+                    <default>false</default>
+                    <label>Julia Gould</label>
+                </value>
+                <value>
+                    <fullName>Sammie Blizzard</fullName>
+                    <default>false</default>
+                    <label>Sammie Blizzard</label>
+                </value>
+                <value>
+                    <fullName>David Riedel</fullName>
+                    <default>false</default>
+                    <label>David Riedel</label>
+                </value>
+                <value>
+                    <fullName>Jordan Underwood</fullName>
+                    <default>false</default>
+                    <label>Jordan Underwood</label>
+                </value>
+                <value>
+                    <fullName>Bailey Price</fullName>
+                    <default>false</default>
+                    <label>Bailey Price</label>
+                </value>
+                <value>
+                    <fullName>Abby Glackin</fullName>
+                    <default>false</default>
+                    <label>Abby Glackin</label>
+                </value>
+                <value>
+                    <fullName>Laura Kearney</fullName>
+                    <default>false</default>
+                    <label>Laura Kearney</label>
+                </value>
+                <value>
+                    <fullName>Taylor Woods</fullName>
+                    <default>false</default>
+                    <label>Taylor Woods</label>
+                </value>
+                <value>
+                    <fullName>Gokul Bajaj</fullName>
+                    <default>false</default>
+                    <label>Gokul Bajaj</label>
+                </value>
+                <value>
+                    <fullName>Thomas Knights</fullName>
+                    <default>false</default>
+                    <label>Thomas Knights</label>
+                </value>
+                <value>
+                    <fullName>Ginna Tucker</fullName>
+                    <default>false</default>
+                    <label>Ginna Tucker</label>
+                </value>
+                <value>
+                    <fullName>Neil Bennetto</fullName>
+                    <default>false</default>
+                    <label>Neil Bennetto</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cvent_Connect_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Cvent_Connect_Value_MCVal__c * Multiplier__c
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Cvent_Connect_Value_MCVal__c )/Exchange_Rate__c) * Multiplier__c ) 
+) 
+)</formula>
+        <label>Cvent Connect Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decision_Street_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Decision_Street_Total__c * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Decision_Street_Total__c )/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Decision Street Total (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Diamond_Amount__c</fullName>
+        <description>Gives the diamond value of the credit</description>
+        <externalId>false</externalId>
+        <label>Diamond/Everything Else Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Diamond_Amt_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),1*Diamond_Amount__c,Diamond_Amount__c/Exchange_Rate__c)</formula>
+        <label>Diamond Amt USD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EMI_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>EMI/CventConnect/DS’</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>EMI_CConnect_DS_Amt_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),1*EMI_Amount__c,EMI_Amount__c/Exchange_Rate__c)</formula>
+        <label>EMI/CConnect/DS Amt USD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EMI_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.EMI_Value_MCVal__c * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.EMI_Value_MCVal__c)/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>EMI Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Error_Corrected_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Corrected By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Implementation Team</fullName>
+                    <default>false</default>
+                    <label>Implementation Team</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Exchange_Rate_NEW__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Exchange_Rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Exchange Rate (NEW)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exchange_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Exchange Rate</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Implementation_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Implementation Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Influence_Credit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Influence Credit</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Scoring_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),Opportunity__r.Lead_Scoring_Value__c * Multiplier__c, 
+((Opportunity__r.Lead_Scoring_Value__c /Exchange_Rate__c)* Multiplier__c ) 
+)</formula>
+        <label>Lead Scoring Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MRF_Implementation_Hour__c</fullName>
+        <externalId>false</externalId>
+        <label>MRF/Implementation Hour $</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Multiplier__c</fullName>
+        <externalId>false</externalId>
+        <label>Multiplier</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>CSN_Credits</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PS_Credit_Influenced__c</fullName>
+        <externalId>false</externalId>
+        <label>PS Credit (Influenced)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ian Shukla</fullName>
+                    <default>false</default>
+                    <label>Ian Shukla</label>
+                </value>
+                <value>
+                    <fullName>Shawn Ganjoo</fullName>
+                    <default>false</default>
+                    <label>Shawn Ganjoo</label>
+                </value>
+                <value>
+                    <fullName>Patricia Priyadarshini</fullName>
+                    <default>false</default>
+                    <label>Patricia Priyadarshini</label>
+                </value>
+                <value>
+                    <fullName>Samaira Ghosh</fullName>
+                    <default>false</default>
+                    <label>Samaira Ghosh</label>
+                </value>
+                <value>
+                    <fullName>Devan Sehgal</fullName>
+                    <default>false</default>
+                    <label>Devan Sehgal</label>
+                </value>
+                <value>
+                    <fullName>Sananda Thakurta</fullName>
+                    <default>false</default>
+                    <label>Sananda Thakurta</label>
+                </value>
+                <value>
+                    <fullName>Aminat Bakre</fullName>
+                    <default>false</default>
+                    <label>Aminat Bakre</label>
+                </value>
+                <value>
+                    <fullName>Kolade Ogunade</fullName>
+                    <default>false</default>
+                    <label>Kolade Ogunade</label>
+                </value>
+                <value>
+                    <fullName>Julia Gould</fullName>
+                    <default>false</default>
+                    <label>Julia Gould</label>
+                </value>
+                <value>
+                    <fullName>Samantha Blizzard</fullName>
+                    <default>false</default>
+                    <label>Samantha Blizzard</label>
+                </value>
+                <value>
+                    <fullName>David Riedel</fullName>
+                    <default>false</default>
+                    <label>David Riedel</label>
+                </value>
+                <value>
+                    <fullName>Jordan Underwood</fullName>
+                    <default>false</default>
+                    <label>Jordan Underwood</label>
+                </value>
+                <value>
+                    <fullName>Bailey Price</fullName>
+                    <default>false</default>
+                    <label>Bailey Price</label>
+                </value>
+                <value>
+                    <fullName>Abby Glackin</fullName>
+                    <default>false</default>
+                    <label>Abby Glackin</label>
+                </value>
+                <value>
+                    <fullName>Lisa Welch</fullName>
+                    <default>false</default>
+                    <label>Lisa Welch</label>
+                </value>
+                <value>
+                    <fullName>Ashley Holden</fullName>
+                    <default>false</default>
+                    <label>Ashley Holden</label>
+                </value>
+                <value>
+                    <fullName>Ginna Tucker</fullName>
+                    <default>false</default>
+                    <label>Ginna Tucker</label>
+                </value>
+                <value>
+                    <fullName>Maggie Goldberg</fullName>
+                    <default>false</default>
+                    <label>Maggie Goldberg</label>
+                </value>
+                <value>
+                    <fullName>Eric Smith</fullName>
+                    <default>false</default>
+                    <label>Eric Smith</label>
+                </value>
+                <value>
+                    <fullName>Katie Girard</fullName>
+                    <default>false</default>
+                    <label>Katie Girard</label>
+                </value>
+                <value>
+                    <fullName>Brianna Ryan</fullName>
+                    <default>false</default>
+                    <label>Brianna Ryan</label>
+                </value>
+                <value>
+                    <fullName>CJ Knipper</fullName>
+                    <default>false</default>
+                    <label>CJ Knipper</label>
+                </value>
+                <value>
+                    <fullName>Golzar Nejad</fullName>
+                    <default>false</default>
+                    <label>Golzar Nejad</label>
+                </value>
+                <value>
+                    <fullName>Kate Murphy</fullName>
+                    <default>false</default>
+                    <label>Kate Murphy</label>
+                </value>
+                <value>
+                    <fullName>Catherine Yoo</fullName>
+                    <default>false</default>
+                    <label>Catherine Yoo</label>
+                </value>
+                <value>
+                    <fullName>Julia Everstine</fullName>
+                    <default>false</default>
+                    <label>Julia Everstine</label>
+                </value>
+                <value>
+                    <fullName>Shanzeh Ahmed</fullName>
+                    <default>false</default>
+                    <label>Shanzeh Ahmed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PS_Credit__c</fullName>
+        <externalId>false</externalId>
+        <label>PS Credit (Commission)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ian Shukla</fullName>
+                    <default>false</default>
+                    <label>Ian Shukla</label>
+                </value>
+                <value>
+                    <fullName>Shawn Ganjoo</fullName>
+                    <default>false</default>
+                    <label>Shawn Ganjoo</label>
+                </value>
+                <value>
+                    <fullName>Patricia Priyadarshini</fullName>
+                    <default>false</default>
+                    <label>Patricia Priyadarshini</label>
+                </value>
+                <value>
+                    <fullName>Samaira Ghosh</fullName>
+                    <default>false</default>
+                    <label>Samaira Ghosh</label>
+                </value>
+                <value>
+                    <fullName>Devan Sehgal</fullName>
+                    <default>false</default>
+                    <label>Devan Sehgal</label>
+                </value>
+                <value>
+                    <fullName>Sananda Thakurta</fullName>
+                    <default>false</default>
+                    <label>Sananda Thakurta</label>
+                </value>
+                <value>
+                    <fullName>Aminat Bakre</fullName>
+                    <default>false</default>
+                    <label>Aminat Bakre</label>
+                </value>
+                <value>
+                    <fullName>Kolade Ogunade</fullName>
+                    <default>false</default>
+                    <label>Kolade Ogunade</label>
+                </value>
+                <value>
+                    <fullName>Julia Gould</fullName>
+                    <default>false</default>
+                    <label>Julia Gould</label>
+                </value>
+                <value>
+                    <fullName>Samantha Blizzard</fullName>
+                    <default>false</default>
+                    <label>Samantha Blizzard</label>
+                </value>
+                <value>
+                    <fullName>David Riedel</fullName>
+                    <default>false</default>
+                    <label>David Riedel</label>
+                </value>
+                <value>
+                    <fullName>Jordan Underwood</fullName>
+                    <default>false</default>
+                    <label>Jordan Underwood</label>
+                </value>
+                <value>
+                    <fullName>Bailey Price</fullName>
+                    <default>false</default>
+                    <label>Bailey Price</label>
+                </value>
+                <value>
+                    <fullName>Abby Glackin</fullName>
+                    <default>false</default>
+                    <label>Abby Glackin</label>
+                </value>
+                <value>
+                    <fullName>Lisa Welch</fullName>
+                    <default>false</default>
+                    <label>Lisa Welch</label>
+                </value>
+                <value>
+                    <fullName>Ashley Holden</fullName>
+                    <default>false</default>
+                    <label>Ashley Holden</label>
+                </value>
+                <value>
+                    <fullName>Ginna Tucker</fullName>
+                    <default>false</default>
+                    <label>Ginna Tucker</label>
+                </value>
+                <value>
+                    <fullName>Maggie Goldberg</fullName>
+                    <default>false</default>
+                    <label>Maggie Goldberg</label>
+                </value>
+                <value>
+                    <fullName>Eric Smith</fullName>
+                    <default>false</default>
+                    <label>Eric Smith</label>
+                </value>
+                <value>
+                    <fullName>Katie Girard</fullName>
+                    <default>false</default>
+                    <label>Katie Girard</label>
+                </value>
+                <value>
+                    <fullName>Brianna Ryan</fullName>
+                    <default>false</default>
+                    <label>Brianna Ryan</label>
+                </value>
+                <value>
+                    <fullName>CJ Knipper</fullName>
+                    <default>false</default>
+                    <label>CJ Knipper</label>
+                </value>
+                <value>
+                    <fullName>Golzar Nejad</fullName>
+                    <default>false</default>
+                    <label>Golzar Nejad</label>
+                </value>
+                <value>
+                    <fullName>Kate Murphy</fullName>
+                    <default>false</default>
+                    <label>Kate Murphy</label>
+                </value>
+                <value>
+                    <fullName>Julia Everstine</fullName>
+                    <default>false</default>
+                    <label>Julia Everstine</label>
+                </value>
+                <value>
+                    <fullName>Catherine Yoo</fullName>
+                    <default>false</default>
+                    <label>Catherine Yoo</label>
+                </value>
+                <value>
+                    <fullName>Shanzeh Ahmed</fullName>
+                    <default>false</default>
+                    <label>Shanzeh Ahmed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Passkey__c</fullName>
+        <externalId>false</externalId>
+        <label>Passkey $</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Per_RFP_Ad_Type_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Per_RFP_Ad_Type_Value__c  * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Per_RFP_Ad_Type_Value__c )/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Per RFP Ad Type Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Personal_Credit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Credit</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pure_Bundle_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Pure_Bundle_Value__c * Multiplier__c
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Pure_Bundle_Value__c )/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Pure Bundle Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pure_Diamond_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Pure_Diamond_Value__c * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Pure_Diamond_Value__c  )/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Pure Diamond Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QD_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>QD Approved</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>QD_Opportunity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>QD Opportunity</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RFP_Commitment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.of_RFPs__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RFP Commitment(old)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RFP_Commitment_new__c</fullName>
+        <externalId>false</externalId>
+        <label>RFP Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RFP_Reports_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),Opportunity__r.RFP_Reports_Value_MCValue__c * Multiplier__c, 
+((Opportunity__r.RFP_Reports_Value_MCValue__c /Exchange_Rate__c)* Multiplier__c ) 
+)</formula>
+        <label>RFP Reports Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Review_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Review Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Role_Credit_as__c</fullName>
+        <externalId>false</externalId>
+        <label>Role (Credit as)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Account Manager</fullName>
+                    <default>false</default>
+                    <label>Account Manager</label>
+                </value>
+                <value>
+                    <fullName>GDM/GBI</fullName>
+                    <default>false</default>
+                    <label>GDM/GBI</label>
+                </value>
+                <value>
+                    <fullName>Regional SAT owner</fullName>
+                    <default>false</default>
+                    <label>Regional SAT owner</label>
+                </value>
+                <value>
+                    <fullName>SAT owner chain</fullName>
+                    <default>false</default>
+                    <label>SAT owner chain</label>
+                </value>
+                <value>
+                    <fullName>SAT owner management company</fullName>
+                    <default>false</default>
+                    <label>SAT owner management company</label>
+                </value>
+                <value>
+                    <fullName>Territory owner</fullName>
+                    <default>false</default>
+                    <label>Territory owner</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Room_Night_Commitment_New__c</fullName>
+        <externalId>false</externalId>
+        <label>Room Night Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Room_Night_Commitment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.of_Total_Room_Nights_Committed__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Room Night Commitment(old)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ST__c</fullName>
+        <description>Case# 11678672</description>
+        <externalId>false</externalId>
+        <label>ST $</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Social_Wall_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Social_Wall_Value__c * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Social_Wall_Value__c)/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Social Wall Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Certification_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c),Multiplier__c * Opportunity__r.Supplier_Certification_Value__c, 
+((Opportunity__r.Supplier_Certification_Value__c /Exchange_Rate__c)* Multiplier__c ) 
+)</formula>
+        <label>Supplier Certification Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Feature_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), Opportunity__r.Supplier_Feature_Value_MCValue__c * Multiplier__c, 
+((Opportunity__r.Supplier_Feature_Value_MCValue__c  /Exchange_Rate__c)* Multiplier__c ) 
+)</formula>
+        <label>Supplier Feature Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AM CSN</fullName>
+                    <default>false</default>
+                    <label>AM CSN</label>
+                </value>
+                <value>
+                    <fullName>GDM &amp; GBI</fullName>
+                    <default>false</default>
+                    <label>GDM &amp; GBI</label>
+                </value>
+                <value>
+                    <fullName>Regional SAT Owner</fullName>
+                    <default>false</default>
+                    <label>Regional SAT Owner</label>
+                </value>
+                <value>
+                    <fullName>SAT Owner</fullName>
+                    <default>false</default>
+                    <label>SAT Owner</label>
+                </value>
+                <value>
+                    <fullName>SAT Owner - Management Company</fullName>
+                    <default>false</default>
+                    <label>SAT Owner - Management Company</label>
+                </value>
+                <value>
+                    <fullName>Territory Owner</fullName>
+                    <default>false</default>
+                    <label>Territory Owner</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Transient__c</fullName>
+        <externalId>false</externalId>
+        <label>Transient $</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CSN_Credits</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Video_Ad_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Exchange_Rate__c), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0, Opportunity__r.Video_Ad_Value__c * Multiplier__c 
+), 
+IF( 
+ISPICKVAL(Team__c,"GDM &amp; GBI"),0,(((Opportunity__r.Video_Ad_Value__c  )/Exchange_Rate__c)* Multiplier__c ) 
+) 
+)</formula>
+        <label>Video Ad Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Created for the Contracts Team</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Credit</label>
+    <nameField>
+        <displayFormat>CSN Credit-{0000}</displayFormat>
+        <label>CSN Credit Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Credits</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>CSN_Suppliers</fullName>
+        <active>true</active>
+        <label>CSN Suppliers</label>
+        <picklistValues>
+            <picklist>Credit_Owner__c</picklist>
+            <values>
+                <fullName>Abby Glackin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aminat Bakre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bailey Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinmay Gulati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>David Riedel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ian Shukla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Gould</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kolade Ogunade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laura Kearney</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mo AlWasaibei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Olivia Murray-Taylor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patricia Priyadarshini</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samaira Ghosh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sammie Blizzard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sananda Thakurta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shawn Ganjoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taylor Woods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thomas Knights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veronica Tikoo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Corrected_By__c</picklist>
+            <values>
+                <fullName>Implementation Team</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PS_Credit_Influenced__c</picklist>
+            <values>
+                <fullName>Abby Glackin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aminat Bakre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ashley Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bailey Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brianna Ryan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CJ Knipper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catherine Yoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>David Riedel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eric Smith</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golzar Nejad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ian Shukla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Everstine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Gould</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kate Murphy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Katie Girard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kolade Ogunade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maggie Goldberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samaira Ghosh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samantha Blizzard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sananda Thakurta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanzeh Ahmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PS_Credit__c</picklist>
+            <values>
+                <fullName>Abby Glackin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aminat Bakre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ashley Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bailey Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brianna Ryan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CJ Knipper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catherine Yoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>David Riedel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eric Smith</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golzar Nejad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ian Shukla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Everstine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Gould</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kate Murphy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Katie Girard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kolade Ogunade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maggie Goldberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samaira Ghosh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samantha Blizzard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sananda Thakurta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanzeh Ahmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role_Credit_as__c</picklist>
+            <values>
+                <fullName>Account Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDM%2FGBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional SAT owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT owner chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT owner management company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory owner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Team__c</picklist>
+            <values>
+                <fullName>AM CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDM %26 GBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional SAT Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT Owner - Management Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Owner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Event_Cloud</fullName>
+        <active>true</active>
+        <label>Event Cloud</label>
+        <picklistValues>
+            <picklist>Credit_Owner__c</picklist>
+            <values>
+                <fullName>Chinmay Gulati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gokul Bajaj</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laura Kearney</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mo AlWasaibei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neil Bennetto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Olivia Murray-Taylor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taylor Woods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thomas Knights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veronica Tikoo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Corrected_By__c</picklist>
+            <values>
+                <fullName>Implementation Team</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PS_Credit_Influenced__c</picklist>
+            <values>
+                <fullName>Abby Glackin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aminat Bakre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ashley Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bailey Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brianna Ryan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CJ Knipper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catherine Yoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>David Riedel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eric Smith</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golzar Nejad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ian Shukla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Everstine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Gould</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kate Murphy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Katie Girard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kolade Ogunade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maggie Goldberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samaira Ghosh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samantha Blizzard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sananda Thakurta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanzeh Ahmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PS_Credit__c</picklist>
+            <values>
+                <fullName>Abby Glackin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aminat Bakre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ashley Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bailey Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brianna Ryan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CJ Knipper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catherine Yoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>David Riedel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Devan Sehgal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eric Smith</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginna Tucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golzar Nejad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ian Shukla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan Underwood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Everstine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Julia Gould</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kate Murphy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Katie Girard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kolade Ogunade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maggie Goldberg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samaira Ghosh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samantha Blizzard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sananda Thakurta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanzeh Ahmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role_Credit_as__c</picklist>
+            <values>
+                <fullName>Account Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDM%2FGBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional SAT owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT owner chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT owner management company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory owner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Team__c</picklist>
+            <values>
+                <fullName>AM CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDM %26 GBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional SAT Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAT Owner - Management Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Owner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>Sales_cannot_modify_after_closed_won</fullName>
+        <active>true</active>
+        <description>opportunity is Closed Won and Contract Implemented is checked then sales cannot modify CSN credit</description>
+        <errorConditionFormula>AND(
+NOT(ISNEW()),
+ ISPICKVAL(Opportunity__r.StageName,"Closed Won"),
+ Opportunity__r.Contract_Implemented__c = TRUE,
+ CONTAINS( $Profile.Name,"Sales"),
+ $User.Id &lt;&gt;"00500000006r4y3"
+)</errorConditionFormula>
+        <errorMessage>You cannot modify CSN credit once Contract is Completed.</errorMessage>
+    </validationRules>
+</CustomObject>

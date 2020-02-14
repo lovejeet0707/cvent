@@ -675,19 +675,6 @@ public class ShowImplementationSurveyDetailsCtrl
                 }
             }
             
-            if(showTaxValidation)
-            {
-                if(implementationSurvey.Tax_Exempt__c == 'Yes, but certificate on file is expired' || implementationSurvey.Tax_Exempt__c == 'Yes, and we have no certificate on file')
-                {
-                    if(implementationSurvey.Tax_Validation__c != 'Yes' && implementationSurvey.Tax_Validation__c != 'No')
-                    {
-                        editSection = true;
-                        errorFree = true;
-                        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'Please fill the value of Is Tax Exempt Certificate Valid?'));
-                    }
-                }
-            }
-
             if(implementationSurvey.K_has_mult_Bill_to_or_Ship_to_addresses__c == 'Yes')
             {
                 if(implementationSurvey.Upload_Exhibit__c != 'Yes')

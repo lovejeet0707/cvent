@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>FeatureSet__c</fullName>
+        <externalId>false</externalId>
+        <label>FeatureSet</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>This is used in the Year1 opportunity Project. This will store the feature set picklist value and is used in the class"billingCaseCreate_Opp_handler" to match.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Feature Set</label>
+    <visibility>Public</visibility>
+</CustomObject>

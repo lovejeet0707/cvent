@@ -695,14 +695,8 @@ public class ContractTrgHelperCls {
                             nextYearLineId = line.Id;
                             
                             System.debug('nextYearLineId: ' + nextYearLineId);
-							System.debug('quoteLineIdToOutyearLineWrapper>>'+quoteLineIdToOutyearLineWrapper);
-                            System.debug('subscription>>>>'+subscription);
-                            System.debug('quoteLineIdToOutyearLineWrapper.containsKey(nextYearLineId)>>'+quoteLineIdToOutyearLineWrapper.containsKey(nextYearLineId));
-                            if(quoteLineIdToOutyearLineWrapper.containsKey(nextYearLineId))
-                            {
-                                if(quoteLineIdToOutyearLineWrapper.get(nextYearLineId) != NULL)
-                            		quoteLineIdToOutyearLineWrapper.get(nextYearLineId).subscription = subscription;
-                            }
+
+                            quoteLineIdToOutyearLineWrapper.get(nextYearLineId).subscription = subscription;
 
                         }
 

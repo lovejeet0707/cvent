@@ -24,7 +24,7 @@ public class billingCaseCreate_Opp_Test{
             acc.CVII_ID__c='11;12;23';
             acc.Affiliate_Name__c ='Curio Collection';
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             insert acc;
             //acc.Billing_Case__c=billingObj.Id;
             Id pricebookId = Test.getStandardPricebookId();
@@ -137,7 +137,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Affiliate_Name__c ='';
             insert acc;
@@ -252,7 +252,7 @@ public class billingCaseCreate_Opp_Test{
         {
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.Affiliate_Name__c ='Autograph Collection';
             insert acc;
             system.debug('accountIDformutil'+acc.Id);
@@ -312,7 +312,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             acc.Billing_Case__c=billingObj.Id;
             
@@ -380,7 +380,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             acc.Billing_Case__c=billingObj.Id;
             
@@ -449,7 +449,7 @@ public class billingCaseCreate_Opp_Test{
             insert billingObj;
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id; // commented  it for the billing case else part
             
@@ -515,7 +515,7 @@ public class billingCaseCreate_Opp_Test{
             insert billingObj;
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id; // commented  it for the billing case else part
             address__c address = testutil.createAccountAddress(acc.Id,'Billing');
@@ -579,7 +579,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             
@@ -646,7 +646,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             
@@ -711,7 +711,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             
@@ -804,7 +804,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             
@@ -903,7 +903,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             
@@ -979,7 +979,7 @@ public class billingCaseCreate_Opp_Test{
             
             Account acc= testutil.createAccount('name', 'Biz_Ac');
             acc.BillingCountryCode = 'US';
-            acc.BillingState = 'TX';
+            acc.BillingStateCode = 'TX';
             acc.CVII_ID__c='11;12;23';
             //acc.Billing_Case__c=billingObj.Id;
             

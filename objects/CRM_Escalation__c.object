@@ -1,0 +1,1997 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Additional_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>CRM_Escalations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Created_by_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.UserRole.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created by Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Responsible__c</fullName>
+        <externalId>false</externalId>
+        <label>Department Responsible</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Ops</fullName>
+                    <default>false</default>
+                    <label>Sales Ops</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Departments_Impacted__c</fullName>
+        <externalId>false</externalId>
+        <label>Departments Impacted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Ops</fullName>
+                    <default>false</default>
+                    <label>Sales Ops</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Do_we_need_to_associate_it_with_case__c</fullName>
+        <externalId>false</externalId>
+        <label>Do you want to associate this with case?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalated_By_Department__c</fullName>
+        <description>Department of the user who has escalated the incident</description>
+        <externalId>false</externalId>
+        <formula>Escalated_By__r.Department</formula>
+        <label>Escalated By Department</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Escalated_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>User's name who have escalated the incident</description>
+        <externalId>false</externalId>
+        <label>Escalated By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CRM_Escalations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Escalation_By_Email_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation By Email ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Escalation_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Timeliness</fullName>
+                    <default>false</default>
+                    <label>Timeliness</label>
+                </value>
+                <value>
+                    <fullName>Quality</fullName>
+                    <default>false</default>
+                    <label>Quality</label>
+                </value>
+                <value>
+                    <fullName>Responsiveness</fullName>
+                    <default>false</default>
+                    <label>Responsiveness</label>
+                </value>
+                <value>
+                    <fullName>Communication gap</fullName>
+                    <default>false</default>
+                    <label>Communication gap</label>
+                </value>
+                <value>
+                    <fullName>Process Failure</fullName>
+                    <default>false</default>
+                    <label>Process Failure</label>
+                </value>
+                <value>
+                    <fullName>Task Mis-assignments</fullName>
+                    <default>false</default>
+                    <label>Task Mis-assignments</label>
+                </value>
+                <value>
+                    <fullName>Incorrect Information Updated</fullName>
+                    <default>false</default>
+                    <label>Incorrect Information Updated</label>
+                </value>
+                <value>
+                    <fullName>Missed Tasks</fullName>
+                    <default>false</default>
+                    <label>Missed Tasks</label>
+                </value>
+                <value>
+                    <fullName>Campaign Mapping Issue</fullName>
+                    <default>false</default>
+                    <label>Campaign Mapping Issue</label>
+                </value>
+                <value>
+                    <fullName>Duplicate Tasks</fullName>
+                    <default>false</default>
+                    <label>Duplicate Tasks</label>
+                </value>
+                <value>
+                    <fullName>Incorrect Subject lines</fullName>
+                    <default>false</default>
+                    <label>Incorrect Subject lines</label>
+                </value>
+                <value>
+                    <fullName>Duplicate Acc/Contacts</fullName>
+                    <default>false</default>
+                    <label>Duplicate Acc/Contacts</label>
+                </value>
+                <value>
+                    <fullName>Sops Delay</fullName>
+                    <default>false</default>
+                    <label>Sops Delay</label>
+                </value>
+                <value>
+                    <fullName>Lack of Proper Instructions</fullName>
+                    <default>false</default>
+                    <label>Lack of Proper Instructions</label>
+                </value>
+                <value>
+                    <fullName>Delay In Participant Marking</fullName>
+                    <default>false</default>
+                    <label>Delay In Participant Marking</label>
+                </value>
+                <value>
+                    <fullName>Delay in Post Event Survey Feedback</fullName>
+                    <default>false</default>
+                    <label>Delay in Post Event Survey Feedback</label>
+                </value>
+                <value>
+                    <fullName>Non Standard Data updates in SF</fullName>
+                    <default>false</default>
+                    <label>Non Standard Data updates in SF</label>
+                </value>
+                <value>
+                    <fullName>Delay in response</fullName>
+                    <default>false</default>
+                    <label>Delay in response</label>
+                </value>
+                <value>
+                    <fullName>Instructions missed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Instructions missed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Cause__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Cause</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Process Breakdown</fullName>
+                    <default>false</default>
+                    <label>Process Breakdown</label>
+                </value>
+                <value>
+                    <fullName>Data Issue (Marketing)</fullName>
+                    <default>false</default>
+                    <label>Data Issue (Marketing)</label>
+                </value>
+                <value>
+                    <fullName>Human Error</fullName>
+                    <default>false</default>
+                    <label>Human Error</label>
+                </value>
+                <value>
+                    <fullName>Informatica Bug</fullName>
+                    <default>false</default>
+                    <label>Informatica Bug</label>
+                </value>
+                <value>
+                    <fullName>Data Issue (SF)</fullName>
+                    <default>false</default>
+                    <label>Data Issue (SF)</label>
+                </value>
+                <value>
+                    <fullName>False Escalation</fullName>
+                    <default>false</default>
+                    <label>False Escalation</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>QC Missed</fullName>
+                    <default>false</default>
+                    <label>QC Missed</label>
+                </value>
+                <value>
+                    <fullName>Territory sheet issue</fullName>
+                    <default>false</default>
+                    <label>Territory sheet issue</label>
+                </value>
+                <value>
+                    <fullName>Sops Delay</fullName>
+                    <default>false</default>
+                    <label>Sops Delay</label>
+                </value>
+                <value>
+                    <fullName>Coordination</fullName>
+                    <default>false</default>
+                    <label>Coordination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Escalation_Description__c</fullName>
+        <description>Complete description of the issue raised</description>
+        <externalId>false</externalId>
+        <label>Escalation Description</label>
+        <length>100000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Escalation_Major_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Major Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Escalation_Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tasks</fullName>
+                    <default>false</default>
+                    <label>Tasks</label>
+                </value>
+                <value>
+                    <fullName>Process Breakdown</fullName>
+                    <default>false</default>
+                    <label>Process Breakdown</label>
+                </value>
+                <value>
+                    <fullName>Account/Contact Management</fullName>
+                    <default>false</default>
+                    <label>Account/Contact Management</label>
+                </value>
+                <value>
+                    <fullName>Insufficient Instructions</fullName>
+                    <default>false</default>
+                    <label>Insufficient Instructions</label>
+                </value>
+                <value>
+                    <fullName>Process Delay</fullName>
+                    <default>false</default>
+                    <label>Process Delay</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Missed Tasks</controllingFieldValue>
+                <controllingFieldValue>Duplicate Tasks</controllingFieldValue>
+                <controllingFieldValue>Incorrect Subject lines</controllingFieldValue>
+                <controllingFieldValue>Task Mis-assignments</controllingFieldValue>
+                <valueName>Tasks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Delay in response</controllingFieldValue>
+                <valueName>Process Delay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Campaign Mapping Issue</controllingFieldValue>
+                <controllingFieldValue>Sops Delay</controllingFieldValue>
+                <controllingFieldValue>Delay In Participant Marking</controllingFieldValue>
+                <controllingFieldValue>Delay in Post Event Survey Feedback</controllingFieldValue>
+                <controllingFieldValue>Incorrect Information Updated</controllingFieldValue>
+                <controllingFieldValue>Non Standard Data updates in SF</controllingFieldValue>
+                <valueName>Process Breakdown</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Duplicate Acc/Contacts</controllingFieldValue>
+                <valueName>Account/Contact Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lack of Proper Instructions</controllingFieldValue>
+                <valueName>Insufficient Instructions</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Resolved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Escalation Resolved</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Escalation_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Status (Sops)</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>True</fullName>
+                    <default>false</default>
+                    <label>True</label>
+                </value>
+                <value>
+                    <fullName>False</fullName>
+                    <default>false</default>
+                    <label>False</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>False_Escalation_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>False Escalation Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Process not clear to the Requestor</fullName>
+                    <default>false</default>
+                    <label>Process not clear to the Requestor</label>
+                </value>
+                <value>
+                    <fullName>Insufficient Instructions</fullName>
+                    <default>false</default>
+                    <label>Insufficient Instructions</label>
+                </value>
+                <value>
+                    <fullName>Request submitted incorrectly</fullName>
+                    <default>false</default>
+                    <label>Request submitted incorrectly</label>
+                </value>
+                <value>
+                    <fullName>Technical Issue</fullName>
+                    <default>false</default>
+                    <label>Technical Issue</label>
+                </value>
+                <value>
+                    <fullName>Process Gap Identified</fullName>
+                    <default>false</default>
+                    <label>Process Gap Identified</label>
+                </value>
+                <value>
+                    <fullName>Escalation for Sales</fullName>
+                    <default>false</default>
+                    <label>Escalation for Sales</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Incident_Owner_Divison__c</fullName>
+        <description>Sub division of the incident owner</description>
+        <externalId>false</externalId>
+        <formula>Incident_Owner__r.Sub_Division__c</formula>
+        <label>Incident Owner Divison</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Incident_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of the user working on that incident/ticket/project</description>
+        <externalId>false</externalId>
+        <label>Incident Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CRM_Escalations1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Informatica_Bug_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Informatica Bug Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Escalation_Cause__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Code Issue</fullName>
+                    <default>false</default>
+                    <label>Code Issue</label>
+                </value>
+                <value>
+                    <fullName>System Issue</fullName>
+                    <default>false</default>
+                    <label>System Issue</label>
+                </value>
+                <value>
+                    <fullName>Incomplete Requirements</fullName>
+                    <default>false</default>
+                    <label>Incomplete Requirements</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Informatica Bug</controllingFieldValue>
+                <valueName>Code Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Informatica Bug</controllingFieldValue>
+                <valueName>System Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Informatica Bug</controllingFieldValue>
+                <valueName>Incomplete Requirements</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Person_Responsible__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Person Responsible</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Escalations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>CRM_Project__c</referenceTo>
+        <relationshipName>CRM_Escalations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resolution_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Resolution Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Process Adherence</fullName>
+                    <default>false</default>
+                    <label>Process Adherence</label>
+                </value>
+                <value>
+                    <fullName>QC Cadence</fullName>
+                    <default>false</default>
+                    <label>QC Cadence</label>
+                </value>
+                <value>
+                    <fullName>Effective Coordination</fullName>
+                    <default>false</default>
+                    <label>Effective Coordination</label>
+                </value>
+                <value>
+                    <fullName>Informatica Enhancement</fullName>
+                    <default>false</default>
+                    <label>Informatica Enhancement</label>
+                </value>
+                <value>
+                    <fullName>Hiring/Staffing</fullName>
+                    <default>false</default>
+                    <label>Hiring/Staffing</label>
+                </value>
+                <value>
+                    <fullName>Data Governance</fullName>
+                    <default>false</default>
+                    <label>Data Governance</label>
+                </value>
+                <value>
+                    <fullName>Process Enhancement</fullName>
+                    <default>false</default>
+                    <label>Process Enhancement</label>
+                </value>
+                <value>
+                    <fullName>False Escalation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>False Escalation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Resolution_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Resolution Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Resolution__c</fullName>
+        <externalId>false</externalId>
+        <label>Resolution</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Tactic_Program_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Tactic/Program Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Product Seminars</fullName>
+                    <default>false</default>
+                    <label>Product Seminars</label>
+                </value>
+                <value>
+                    <fullName>Online Demo</fullName>
+                    <default>false</default>
+                    <label>Online Demo</label>
+                </value>
+                <value>
+                    <fullName>HSG</fullName>
+                    <default>false</default>
+                    <label>HSG</label>
+                </value>
+                <value>
+                    <fullName>CSG</fullName>
+                    <default>false</default>
+                    <label>CSG</label>
+                </value>
+                <value>
+                    <fullName>Tradeshows</fullName>
+                    <default>false</default>
+                    <label>Tradeshows</label>
+                </value>
+                <value>
+                    <fullName>IRCEL List</fullName>
+                    <default>false</default>
+                    <label>IRCEL List</label>
+                </value>
+                <value>
+                    <fullName>Ad-hoc Events (Other)</fullName>
+                    <default>false</default>
+                    <label>Ad-hoc Events (Other)</label>
+                </value>
+                <value>
+                    <fullName>Ad-hoc Events (Partner)</fullName>
+                    <default>false</default>
+                    <label>Ad-hoc Events (Partner)</label>
+                </value>
+                <value>
+                    <fullName>Connect US</fullName>
+                    <default>false</default>
+                    <label>Connect US</label>
+                </value>
+                <value>
+                    <fullName>Connect EU</fullName>
+                    <default>false</default>
+                    <label>Connect EU</label>
+                </value>
+                <value>
+                    <fullName>Webinars</fullName>
+                    <default>false</default>
+                    <label>Webinars</label>
+                </value>
+                <value>
+                    <fullName>Partner webinars</fullName>
+                    <default>false</default>
+                    <label>Partner webinars</label>
+                </value>
+                <value>
+                    <fullName>Web leads</fullName>
+                    <default>false</default>
+                    <label>Web leads</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>To Track escalations</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Escalation</label>
+    <nameField>
+        <displayFormat>E-{0000}</displayFormat>
+        <label>Escalation</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Escalations</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>Marketing_Open_escalations</fullName>
+        <columns>NAME</columns>
+        <columns>Escalation_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Department_Responsible__c</field>
+            <operation>equals</operation>
+            <value>Marketing</value>
+        </filters>
+        <label>Marketing Open escalations</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Ops_Open_escalations</fullName>
+        <columns>NAME</columns>
+        <columns>Escalation_Status__c</columns>
+        <columns>Department_Responsible__c</columns>
+        <columns>Escalation_Date__c</columns>
+        <columns>Incident_Owner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Department_Responsible__c</field>
+            <operation>equals</operation>
+            <value>Sales Ops,Sales</value>
+        </filters>
+        <label>Sales Ops Open escalations</label>
+        <language>en_US</language>
+    </listViews>
+    <recordTypes>
+        <fullName>CRM_Escalations</fullName>
+        <active>true</active>
+        <label>CRM Escalations</label>
+        <picklistValues>
+            <picklist>Department_Responsible__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Departments_Impacted__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_we_need_to_associate_it_with_case__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Communication gap</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay In Participant Marking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in Post Event Survey Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Proper Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non Standard Data updates in SF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Failure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Responsiveness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timeliness</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Cause__c</picklist>
+            <values>
+                <fullName>Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28Marketing%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28SF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>False Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Human Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informatica Bug</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Missed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sops Delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory sheet issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Major_Category__c</picklist>
+            <values>
+                <fullName>Account%2FContact Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tasks</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Type__c</picklist>
+            <values>
+                <fullName>False</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>True</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>False_Escalation_Category__c</picklist>
+            <values>
+                <fullName>Insufficient Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process not clear to the Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request submitted incorrectly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Informatica_Bug_Category__c</picklist>
+            <values>
+                <fullName>Code Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Category__c</picklist>
+            <values>
+                <fullName>Effective Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informatica Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Adherence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Cadence</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tactic_Program_Name__c</picklist>
+            <values>
+                <fullName>Ad-hoc Events %28Other%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ad-hoc Events %28Partner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect EU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRCEL List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner webinars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tradeshows</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Closed_Request</fullName>
+        <active>true</active>
+        <label>Closed</label>
+        <picklistValues>
+            <picklist>Department_Responsible__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Departments_Impacted__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_we_need_to_associate_it_with_case__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Campaign Mapping Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay In Participant Marking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in Post Event Survey Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Acc%2FContacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrect Information Updated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrect Subject lines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Proper Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non Standard Data updates in SF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sops Delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Task Mis-assignments</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Cause__c</picklist>
+            <values>
+                <fullName>Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28Marketing%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28SF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>False Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Missed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sops Delay</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Major_Category__c</picklist>
+            <values>
+                <fullName>Account%2FContact Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tasks</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Type__c</picklist>
+            <values>
+                <fullName>False</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>True</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>False_Escalation_Category__c</picklist>
+            <values>
+                <fullName>Escalation for Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process not clear to the Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request submitted incorrectly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Informatica_Bug_Category__c</picklist>
+            <values>
+                <fullName>Code Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Category__c</picklist>
+            <values>
+                <fullName>Data Governance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Effective Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiring%2FStaffing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informatica Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Adherence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Cadence</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tactic_Program_Name__c</picklist>
+            <values>
+                <fullName>Ad-hoc Events %28Other%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ad-hoc Events %28Partner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect EU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRCEL List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner webinars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tradeshows</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SOPS_Escalations</fullName>
+        <active>true</active>
+        <label>SOPS Escalations</label>
+        <picklistValues>
+            <picklist>Department_Responsible__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Departments_Impacted__c</picklist>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Ops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_we_need_to_associate_it_with_case__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Campaign Mapping Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay In Participant Marking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in Post Event Survey Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delay in response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Acc%2FContacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrect Information Updated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrect Subject lines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Proper Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed Tasks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non Standard Data updates in SF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sops Delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Task Mis-assignments</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Cause__c</picklist>
+            <values>
+                <fullName>Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28Marketing%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Issue %28SF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>False Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informatica Bug</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Missed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sops Delay</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Major_Category__c</picklist>
+            <values>
+                <fullName>Account%2FContact Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tasks</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Type__c</picklist>
+            <values>
+                <fullName>False</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>True</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>False_Escalation_Category__c</picklist>
+            <values>
+                <fullName>Escalation for Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient Instructions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Gap Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process not clear to the Requestor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request submitted incorrectly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Informatica_Bug_Category__c</picklist>
+            <values>
+                <fullName>Code Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Issue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Category__c</picklist>
+            <values>
+                <fullName>Data Governance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Effective Coordination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiring%2FStaffing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informatica Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Adherence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Cadence</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tactic_Program_Name__c</picklist>
+            <values>
+                <fullName>Ad-hoc Events %28Other%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ad-hoc Events %28Partner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect EU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connect US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRCEL List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner webinars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tradeshows</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>Associate_Escalation_with_Case</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Do_we_need_to_associate_it_with_case__c,"Yes"),
+ISBLANK(Case__c),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) , 
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c /*Added to bypass rollup helper updates */ 
+)</errorConditionFormula>
+        <errorDisplayField>Case__c</errorDisplayField>
+        <errorMessage>Please associate the escalation with case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Escalation_Cause_cannot_be_updated</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CONTAINS($User.Profile_Name__c,"Marketing"), 
+ISCHANGED(Escalation_Cause__c), 
+NOT(
+ISPICKVAL(Escalation_Cause__c,"Process Breakdown")),
+NOT(ISPICKVAL(Escalation_Cause__c,"Data Issue (Marketing)")),
+NOT(ISPICKVAL(Escalation_Cause__c,"Coordination"))
+)</errorConditionFormula>
+        <errorDisplayField>Escalation_Cause__c</errorDisplayField>
+        <errorMessage>You cannot select the Escalation cause other than Coordination/Process Breakdown/Data Issue (Marketing).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Escalation_Resolved_Update</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Escalation_Status__c,"Closed")),
+ISCHANGED(Escalation_Resolved__c),
+Escalation_Resolved__c)</errorConditionFormula>
+        <errorDisplayField>Escalation_Resolved__c</errorDisplayField>
+        <errorMessage>You can update this checkbox once the escalation status is Closed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Please_fill_the_required_fields</fullName>
+        <active>true</active>
+        <description>validation for the following fields that they can not be left blank:
+a.	Escalation Category (all record types and views)
+b.	Escalation Description (all record types and views)
+c.	Escalation Cause (only in Sops record type and view)</description>
+        <errorConditionFormula>OR(
+Escalation_Description__c="",
+ISPICKVAL(Escalation_Category__c,""),
+AND(CONTAINS($User.Profile_Name__c,"Sops") ,
+ISPICKVAL(Escalation_Cause__c,""))
+)</errorConditionFormula>
+        <errorMessage>Please fill the Escalation Cause/Escalation Description/Escalation Category</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Resolution_cannot_be_blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ISCHANGED(Escalation_Status__c), 
+ISPICKVAL(Escalation_Status__c,"Closed"), 
+OR(
+ISBLANK(Resolution_Date__c), 
+ISBLANK(Resolution__c), 
+ISBLANK(TEXT(Escalation_Cause__c))),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) ,
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c /*Added to bypass rollup helper updates */ 
+)</errorConditionFormula>
+        <errorMessage>Please fill the Resolution/Resolution Date and Escalation Cause.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sales_Ops_team_should_fill_the_fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISCHANGED(Escalation_Status__c),
+ISPICKVAL(Escalation_Status__c,"Closed"), 
+OR(
+ISPICKVAL(Department_Responsible__c,"Sales"),
+ISPICKVAL(Department_Responsible__c,"Marketing")
+),
+OR(
+ISBLANK(Escalated_By__c), 
+ISBLANK(Person_Responsible__c),
+ISBlank(TEXT(Escalation_Cause__c)), 
+ISBLANK(Resolution__c) , 
+ISBLANK(Resolution_Date__c)
+),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorMessage>Please update the Escalation Status to Closed and update the fields - Escalated By/Person Responsible/Escalation Cause/Resolution/Resolution Date.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Security Reviews</relationshipLabel>
+        <relationshipName>Security_Reviews</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Access_Issues_Pushback__c</fullName>
+        <description>Defines if the client had any issues accessing our security documentation or pushed back on our standard access policies</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the prospect/client has any issues accessing our security documentation or pushes back on our policies/procedures for sharing documentation, list them here.</inlineHelpText>
+        <label>Client Access Issues/Pushback</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cannot access Box</fullName>
+                    <default>false</default>
+                    <label>Cannot access Box</label>
+                </value>
+                <value>
+                    <fullName>Cannot view encrypted emails</fullName>
+                    <default>false</default>
+                    <label>Cannot view encrypted emails</label>
+                </value>
+                <value>
+                    <fullName>Want to download reports</fullName>
+                    <default>false</default>
+                    <label>Want to download reports</label>
+                </value>
+                <value>
+                    <fullName>Want files uploaded to own portal</fullName>
+                    <default>false</default>
+                    <label>Want files uploaded to own portal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Completed_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed By</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Gautam Gulati</fullName>
+                    <default>false</default>
+                    <label>Gautam Gulati</label>
+                </value>
+                <value>
+                    <fullName>Jason Staub</fullName>
+                    <default>false</default>
+                    <label>Jason Staub</label>
+                </value>
+                <value>
+                    <fullName>Steve Smith</fullName>
+                    <default>false</default>
+                    <label>Steve Smith</label>
+                </value>
+                <value>
+                    <fullName>Jonathan Bissett</fullName>
+                    <default>false</default>
+                    <label>Jonathan Bissett</label>
+                </value>
+                <value>
+                    <fullName>Manik Soi</fullName>
+                    <default>false</default>
+                    <label>Manik Soi</label>
+                </value>
+                <value>
+                    <fullName>Eric Dinh</fullName>
+                    <default>false</default>
+                    <label>Eric Dinh</label>
+                </value>
+                <value>
+                    <fullName>Daniel Godin</fullName>
+                    <default>false</default>
+                    <label>Daniel Godin</label>
+                </value>
+                <value>
+                    <fullName>Okan Koc</fullName>
+                    <default>false</default>
+                    <label>Okan Koc</label>
+                </value>
+                <value>
+                    <fullName>Hans Kurniadi</fullName>
+                    <default>false</default>
+                    <label>Hans Kurniadi</label>
+                </value>
+                <value>
+                    <fullName>Ankur Kaushal</fullName>
+                    <default>false</default>
+                    <label>Ankur Kaushal</label>
+                </value>
+                <value>
+                    <fullName>Stephanie Wu</fullName>
+                    <default>false</default>
+                    <label>Stephanie Wu</label>
+                </value>
+                <value>
+                    <fullName>Jason Chen</fullName>
+                    <default>false</default>
+                    <label>Jason Chen</label>
+                </value>
+                <value>
+                    <fullName>Jennifer Kim</fullName>
+                    <default>false</default>
+                    <label>Jennifer Kim</label>
+                </value>
+                <value>
+                    <fullName>Anwar Dhanani</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Anwar Dhanani</label>
+                </value>
+                <value>
+                    <fullName>Colin Morrison</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Colin Morrison</label>
+                </value>
+                <value>
+                    <fullName>Garvit Arora</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Garvit Arora</label>
+                </value>
+                <value>
+                    <fullName>Lisa Asti</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Lisa Asti</label>
+                </value>
+                <value>
+                    <fullName>Peter Watt</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Peter Watt</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Received</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Email URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>File_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>File URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes_for_Requester__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes for Requester</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Value__c</fullName>
+        <description>Used to input the value of an opportunity if not stored in Salesforce already.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the security review is for a newly-acquired product whose Opportunities are not in Salesforce, please manually specify the Opportunity value.</inlineHelpText>
+        <label>Opportunity Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Security Reviews</relationshipLabel>
+        <relationshipName>Security_Reviews</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requestor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Security_Reviews</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Started_On__c</fullName>
+        <externalId>false</externalId>
+        <label>Started On</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Submitter_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>First_Name__c &amp; " " &amp; Last_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Submitter Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>T_Shirt_Size__c</fullName>
+        <externalId>false</externalId>
+        <label>T-Shirt Size</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>S</fullName>
+                    <default>false</default>
+                    <label>S</label>
+                </value>
+                <value>
+                    <fullName>M</fullName>
+                    <default>false</default>
+                    <label>M</label>
+                </value>
+                <value>
+                    <fullName>L</fullName>
+                    <default>false</default>
+                    <label>L</label>
+                </value>
+                <value>
+                    <fullName>XL</fullName>
+                    <default>false</default>
+                    <label>XL</label>
+                </value>
+                <value>
+                    <fullName>XXL</fullName>
+                    <default>false</default>
+                    <label>XXL</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Security Review</label>
+    <nameField>
+        <displayFormat>SR-{0000}</displayFormat>
+        <label>Security Review</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Security Reviews</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_Received__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Due_Date__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Name__c</columns>
+        <columns>Product__c</columns>
+        <columns>Submitter_Name__c</columns>
+        <columns>Date_Received__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All2</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Date_Received__c</columns>
+        <columns>Submitter_Name__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Completed_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Security Reviews</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Generic_Security_Review</fullName>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Submitter_Name__c</columns>
+        <columns>Account_Name__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>NAME</columns>
+        <columns>Started_On__c</columns>
+        <columns>Status__c</columns>
+        <columns>Completed_By__c</columns>
+        <columns>Completed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>contains</operation>
+            <value>Donaldson</value>
+        </filters>
+        <label>Generic Security Review</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Open_Security_Reviews</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Product__c</columns>
+        <columns>Date_Received__c</columns>
+        <columns>Submitter_Name__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Completed_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <filters>
+            <field>Date_Received__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All Open Security Reviews</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Security_Views_Expanded_View1</fullName>
+        <columns>NAME</columns>
+        <columns>Started_On__c</columns>
+        <columns>Submitter_Name__c</columns>
+        <columns>Completed_By__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>New,In Progress</value>
+        </filters>
+        <filters>
+            <field>Started_On__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Submitter_Name__c</field>
+            <operation>contains</operation>
+            <value>afeef</value>
+        </filters>
+        <label>Security Views Expanded View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>AMEnt</role>
+            <role>AM_Manager_Ent</role>
+            <role>DirectSalesEnt</role>
+            <role>PMO</role>
+            <role>PreSalesEnt</role>
+            <role>SalesOperations_T2</role>
+            <role>Sales_Management</role>
+            <role>Sales_Manager_Ent</role>
+            <role>Sales_Operations_T1</role>
+            <role>Sales_Operations_T2</role>
+        </sharedTo>
+    </listViews>
+    <validationRules>
+        <fullName>Check_Notes_for_Requestor</fullName>
+        <active>true</active>
+        <description>Ensures the Security Review cannot be submitted unless the Notes for Requestor is filled out.</description>
+        <errorConditionFormula>AND( ISPICKVAL( Status__c ,"Completed") ,ISBLANK(Notes_for_Requester__c))</errorConditionFormula>
+        <errorMessage>Please fill out Notes for Requestor</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Provide_Opp_Value</fullName>
+        <active>true</active>
+        <description>Requires an Opportunity Value when a Security Review is created without an associated Opportunity.</description>
+        <errorConditionFormula>OR(AND(ISBLANK(Opportunity__c), ISBLANK(Opportunity_Value__c)), AND(NOT(ISBLANK(Opportunity__c)), NOT(ISBLANK(Opportunity_Value__c))))</errorConditionFormula>
+        <errorDisplayField>Opportunity_Value__c</errorDisplayField>
+        <errorMessage>Please provide an opportunity value if you do not have an Opportunity record. If you do have an Opportunity record, please leave this field blank.</errorMessage>
+    </validationRules>
+</CustomObject>

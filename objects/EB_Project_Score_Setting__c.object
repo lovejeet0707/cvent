@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Category_Weightage__c</fullName>
+        <description>Stores the weight-age for individual category. e.g. EB Type , Complexity, Tier of Account</description>
+        <externalId>false</externalId>
+        <label>Category Weightage</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EB_Category__c</fullName>
+        <description>Stores either "EB Type" , "Complexity" , "Tier Of Account" or "Weightage"</description>
+        <externalId>false</externalId>
+        <label>EB Category</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Points__c</fullName>
+        <description>Stores points ranging from 0-10</description>
+        <externalId>false</externalId>
+        <label>Points</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Stores the data for EB Auto Assignment workflow.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>EB Project Score Setting</label>
+    <visibility>Protected</visibility>
+</CustomObject>

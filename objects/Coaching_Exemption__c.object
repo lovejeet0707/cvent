@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Approver_Email__c</fullName>
+        <description>to be updated by a workflow</description>
+        <externalId>false</externalId>
+        <inlineHelpText>to be updated by a workflow</inlineHelpText>
+        <label>Approver Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Coaching_Exemption__c</fullName>
+        <externalId>false</externalId>
+        <label>Coaching Exemption</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Management</fullName>
+                    <default>false</default>
+                    <label>Management</label>
+                </value>
+                <value>
+                    <fullName>Quality</fullName>
+                    <default>false</default>
+                    <label>Quality</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exemption__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*IF( 
+ISPICKVAL(Coaching_Exemption__c ,"Management"), 
+CASE(TEXT(No_of_Days__c ),"1",0,"2",0.25,"3",0.50,"4",0.75,"5",1,1), 
+CASE(TEXT(No_of_Days__c ),"1",0.20,"2",0.40,"3",0.60,"4",0.80,"5",1, 
+IF( 
+ISPICKVAL(Coaching_Exemption__c ,"Quality"), 
+CASE(TEXT(No_of_Days__c ),"1",0.20,"2",0.40,"3",0.60,"4",0.80,"5",1,1), 
+CASE(TEXT(No_of_Days__c ),"1",0.20,"2",0.40,"3",0.60,"4",0.80,"5",1,1 
+
+))))*/1</formula>
+        <label>Exemption %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Name_of_Approver__c</fullName>
+        <description>Changes Done Case# 10843600</description>
+        <externalId>false</externalId>
+        <formula>CASE(
+TEXT(Team__c),
+"CrowdCompass Queue","Vineet Puri",
+"Event Builder","Vineet Puri",
+"Creative","Vineet Puri",
+"Event Queue","Vineet Puri",
+"Support Ops","Kevin Maurer",
+"Event CSC","Rachel Ruddock",
+"SignUp4","Mike Tarver",
+"CSN Queue","Vineet Puri",
+"CSN CSC","Scott Castleman",
+"CrowdCompass Project Coordinator","Scott Castleman",
+"Supplier Success CSC","Scott Castleman",
+"Survey CSC","Scott Castleman",
+"Onsite","Zane Bennett",
+"RFP Builder","Vineet Puri",
+"Survey Queue","Vineet Puri",
+"Events - Legacy Lanyon","Zane Bennett",
+"Implementation Team","Allison Hamill",
+"Lanyon Team","Vineet Puri",
+"Meetings - Legacy Lanyon","Kevin Maurer",
+"OA360","Zane Bennett",
+"SA","Kerry Lambert",
+"Inquisium PSG","Kevin Maurer",
+"MTA","Allison Hamill",
+"Travel and Transient PSG","Allison Hamill",
+"Enterprise Onsite","Zane Bennett","Training","Kevin Maurer",
+"Scott Castleman")</formula>
+        <label>Name of Approver</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>(5 * ( FLOOR( ( End_Date__c + 1 - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( End_Date__c + 1 - DATE( 1900, 1, 8), 7 ) ) ) 
+- 
+(5 * ( FLOOR( ( Start_Date__c - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( Start_Date__c - DATE( 1900, 1, 8), 7 ) ) )
+
+/*(End_Date__c - Start_Date__c)+1*/</formula>
+        <label>No.of Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PTO_Taken__c</fullName>
+        <externalId>false</externalId>
+        <label>PTO Taken</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Reason_for_Deny__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for Deny</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requestor_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requestor Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Coaching Exemption</relationshipLabel>
+        <relationshipName>Coaching_Exemption</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Denied</fullName>
+                    <default>false</default>
+                    <label>Denied</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Creative</fullName>
+                    <default>false</default>
+                    <label>Creative</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass Queue</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass Queue</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass Project Coordinator</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass MSS</label>
+                </value>
+                <value>
+                    <fullName>CSN Queue</fullName>
+                    <default>false</default>
+                    <label>CSN Queue</label>
+                </value>
+                <value>
+                    <fullName>Event Builder</fullName>
+                    <default>false</default>
+                    <label>Event Builder</label>
+                </value>
+                <value>
+                    <fullName>Event CSC</fullName>
+                    <default>false</default>
+                    <label>Event CSC</label>
+                </value>
+                <value>
+                    <fullName>Event Queue</fullName>
+                    <default>false</default>
+                    <label>Event Queue</label>
+                </value>
+                <value>
+                    <fullName>Support Ops</fullName>
+                    <default>false</default>
+                    <label>Support Ops</label>
+                </value>
+                <value>
+                    <fullName>Survey CSC</fullName>
+                    <default>false</default>
+                    <label>Survey CSC</label>
+                </value>
+                <value>
+                    <fullName>RFP Builder</fullName>
+                    <default>false</default>
+                    <label>RFP Builder</label>
+                </value>
+                <value>
+                    <fullName>Survey Queue</fullName>
+                    <default>false</default>
+                    <label>Survey Queue</label>
+                </value>
+                <value>
+                    <fullName>CSN CSC</fullName>
+                    <default>false</default>
+                    <label>CSN CSC</label>
+                </value>
+                <value>
+                    <fullName>Onsite</fullName>
+                    <default>false</default>
+                    <label>Onsite</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Onsite</fullName>
+                    <default>false</default>
+                    <label>Enterprise Onsite</label>
+                </value>
+                <value>
+                    <fullName>Events - Legacy Lanyon</fullName>
+                    <default>false</default>
+                    <label>Events - Legacy Lanyon</label>
+                </value>
+                <value>
+                    <fullName>Implementation Team</fullName>
+                    <default>false</default>
+                    <label>Implementation Team</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Team</fullName>
+                    <default>false</default>
+                    <label>Lanyon Tier 1 (India)</label>
+                </value>
+                <value>
+                    <fullName>Meetings - Legacy Lanyon</fullName>
+                    <default>false</default>
+                    <label>Meetings - Legacy Lanyon</label>
+                </value>
+                <value>
+                    <fullName>Inquisium PSG</fullName>
+                    <default>false</default>
+                    <label>Inquisium PSG</label>
+                </value>
+                <value>
+                    <fullName>MTA</fullName>
+                    <default>false</default>
+                    <label>MTA</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>Travel and Transient PSG</fullName>
+                    <default>false</default>
+                    <label>Travel and Transient PSG</label>
+                </value>
+                <value>
+                    <fullName>OA360</fullName>
+                    <default>false</default>
+                    <label>OA360</label>
+                </value>
+                <value>
+                    <fullName>Supplier Success CSC</fullName>
+                    <default>false</default>
+                    <label>Supplier Success CSC</label>
+                </value>
+                <value>
+                    <fullName>SA</fullName>
+                    <default>false</default>
+                    <label>SA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AQL</fullName>
+                    <default>false</default>
+                    <label>AQL</label>
+                </value>
+                <value>
+                    <fullName>Assistant Manager</fullName>
+                    <default>false</default>
+                    <label>Assistant Manager</label>
+                </value>
+                <value>
+                    <fullName>ATL</fullName>
+                    <default>false</default>
+                    <label>ATL</label>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                    <label>Director</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>QA</fullName>
+                    <default>false</default>
+                    <label>QA</label>
+                </value>
+                <value>
+                    <fullName>QL</fullName>
+                    <default>false</default>
+                    <label>QL</label>
+                </value>
+                <value>
+                    <fullName>Senior Manager</fullName>
+                    <default>false</default>
+                    <label>Senior Manager</label>
+                </value>
+                <value>
+                    <fullName>SPC</fullName>
+                    <default>false</default>
+                    <label>SPC</label>
+                </value>
+                <value>
+                    <fullName>TL</fullName>
+                    <default>false</default>
+                    <label>TL</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Coaching Exemption</label>
+    <nameField>
+        <displayFormat>CE-{0000}</displayFormat>
+        <label>Coaching Exemption Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Coaching Exemption</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All_CS_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Team__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Exemption__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Name_of_Approver__c</field>
+            <operation>equals</operation>
+            <value>Tim Blackwood</value>
+        </filters>
+        <label>All CS Requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_PS_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Team__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>No_of_Days__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Name_of_Approver__c</field>
+            <operation>equals</operation>
+            <value>Zane Bennett,Steven Bushey</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_N_MONTHS:3</value>
+        </filters>
+        <label>PS Requests (last 3 months)</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Exemptions</fullName>
+        <columns>NAME</columns>
+        <columns>Requestor_Name__c</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approver_Email__c</field>
+            <operation>equals</operation>
+            <value>eglazyrin@cvent.com</value>
+        </filters>
+        <label>Exemptions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Coaching_Exemptions2</fullName>
+        <columns>NAME</columns>
+        <columns>Reason__c</columns>
+        <columns>Description__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Coaching Exemptions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <validationRules>
+        <fullName>Start_Date_cannot_be_greater_than_End_D</fullName>
+        <active>true</active>
+        <errorConditionFormula>if ( End_Date__c &lt; Start_Date__c, True, False)</errorConditionFormula>
+        <errorMessage>Please Check! Start Date cannot be greater than End Date</errorMessage>
+    </validationRules>
+</CustomObject>

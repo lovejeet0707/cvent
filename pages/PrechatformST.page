@@ -377,7 +377,7 @@
                     lastName = details.customDetails[i].value;
                 }
                 if(details.customDetails[i].label == 'Email'){
-                email = details.customDetails[i].value;
+                    email = details.customDetails[i].value;
                 }
             }
 
@@ -414,7 +414,7 @@
                                                     style="color:red; margin:-4px 0 0 0">*</span>Name: </font>
                                         </div>
                                         <div class="input-box"><input type="text" required='True'
-                                                name="liveagent.prechat:Name" id="nameField" style="width: 403px;"
+                                                name="liveagent.prechat:ContactFirstName" id="nameField" style="width: 403px;"
                                                 /></div>
                                     </div>
 
@@ -424,15 +424,60 @@
                                                     style="color:red; margin:-4px 0 0 0">*</span>Email Address: </font>
                                         </div>
                                         <div class="input-box"> <input type="email" required='True'
-                                                name="liveagent.prechat:EmailAddress" style="width: 403px;" id="emailField"
+                                                name="liveagent.prechat:Email" style="width: 403px;" id="emailField"
                                                 value='{!$User.Email}' disabled="true" /></div>
                                     </div>
 
                                     <div class="field-box clearfix">
-                                       
+                                        <!-- Map the detail inputs to the Contact fields -->
+                                        <input type="hidden" name="liveagent.prechat:caseOrigin" value="Chat" />
+                                        <input type="hidden" name="liveagent.prechat:status" value="Work In Progress" />
+                                        <input type="hidden" name="liveagent.prechat:Edited Information"
+                                            id="editedInformation" value="FALSE" />
+                                    <!--    <input type="hidden" name="liveagent.prechat:relatedContactId" id="ContactId"
+                                            value="{!CventContactId}" /> -->
+
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.map:Case"
+                                            id="valuesMap"
+                                            value="Origin,caseOrigin;Subject,Subject;Priority,priority;Status,status;Description,Description;CaseNumber,Case_Number;RecordTypeId,recordTypeId;ContactId,relatedContactId;" />
+
+                                        <!-- Try to find the Case by CaseNumber (exact match) -->
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Case"
+                                            value="CaseNumber,true;" />
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Case"
+                                            value="CaseNumber,true;" />
+
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case"
+                                            value="Origin,true;Subject,true;Priority,true;Status,true;Description,true;RecordTypeId,true;ContactId,true" />
+
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case"
+                                            value="Case" />
+                                        <input type="hidden" name="liveagent.prechat.save:Case" value="Case" />
+
+                                        <!-- Show the Contact when it is found or created -->
+                                        <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case"
+                                            value="true" />
                                         <br clear="all" />
-                                        <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:EmailAddress" value="Visitor_s_Email__c" />
+                                        <input type="hidden" value="Contact,Contact.Email"
+                                            name="liveagent.prechat.query:Email" />
+                                        <input type="hidden" value="Email__c" name="liveagent.prechat.save:Email" />
+                                        <input type="hidden" value="Account,Account.Cvent_Account_ID__c"
+                                            name="liveagent.prechat.query:Account Number" />
+                                        <input type="hidden" value="Cvent_Account_ID__c"
+                                            name="liveagent.prechat.save:Account Number" />
+
+                                        <input type="hidden" name="liveagent.prechat.save:Name"
+                                            value="Visitor_s_Name__c" />
+                                        <input type="hidden" name="liveagent.prechat.save:Email"
+                                            value="Visitor_s_Email__c" />
+                                        <input type="hidden" name="liveagent.prechat.save:Account Number"
+                                            value="Visitor_s_Account_ID__c" />
+                                        <input type="hidden" name="liveagent.prechat.save:Subject" value="Subject__c" />
+                                        <!--<input type="hidden" name="liveagent.prechat.save:Priority" value="Severity__c" />-->
+                                        <input type="hidden" name="liveagent.prechat.save:Description"
+                                            value="Description__c" />
+                                        <input type="hidden" name="liveagent.prechat.save:Phone"
+                                            value="Phone_Number__c" />
                                     </div>
 
                                     <!-- Updated code: now for transcript

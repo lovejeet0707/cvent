@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>EB_Project_Complexity__c</fullName>
+        <externalId>false</externalId>
+        <label>EB Project Complexity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>1-Simple</fullName>
+                    <default>false</default>
+                    <label>1-Simple</label>
+                </value>
+                <value>
+                    <fullName>2-Medium</fullName>
+                    <default>false</default>
+                    <label>2-Medium</label>
+                </value>
+                <value>
+                    <fullName>3-Advanced</fullName>
+                    <default>false</default>
+                    <label>3-Advanced</label>
+                </value>
+                <value>
+                    <fullName>4-Complex</fullName>
+                    <default>false</default>
+                    <label>4-Complex</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EB_Project_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>EB Project Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Additional Changes</fullName>
+                    <default>false</default>
+                    <label>Additional Changes</label>
+                </value>
+                <value>
+                    <fullName>ARA Projects</fullName>
+                    <default>false</default>
+                    <label>ARA Projects</label>
+                </value>
+                <value>
+                    <fullName>ARA Re-build</fullName>
+                    <default>false</default>
+                    <label>ARA Re-build</label>
+                </value>
+                <value>
+                    <fullName>Creative Services - EB</fullName>
+                    <default>false</default>
+                    <label>Creative Services - EB</label>
+                </value>
+                <value>
+                    <fullName>Creative Services - Premium</fullName>
+                    <default>false</default>
+                    <label>Creative Services - Premium</label>
+                </value>
+                <value>
+                    <fullName>Creative Services - Regular</fullName>
+                    <default>false</default>
+                    <label>Creative Services - Regular</label>
+                </value>
+                <value>
+                    <fullName>Creative Services - Rush</fullName>
+                    <default>false</default>
+                    <label>Creative Services - Rush</label>
+                </value>
+                <value>
+                    <fullName>Custom Pages</fullName>
+                    <default>false</default>
+                    <label>Custom Pages</label>
+                </value>
+                <value>
+                    <fullName>Custom Task</fullName>
+                    <default>false</default>
+                    <label>Custom Task</label>
+                </value>
+                <value>
+                    <fullName>Daily/Monthly Report</fullName>
+                    <default>false</default>
+                    <label>Daily/Monthly Report</label>
+                </value>
+                <value>
+                    <fullName>Dedicated Support</fullName>
+                    <default>false</default>
+                    <label>Dedicated Support</label>
+                </value>
+                <value>
+                    <fullName>Demo eMarketing</fullName>
+                    <default>false</default>
+                    <label>Demo eMarketing</label>
+                </value>
+                <value>
+                    <fullName>Demo Event</fullName>
+                    <default>false</default>
+                    <label>Demo Event</label>
+                </value>
+                <value>
+                    <fullName>Demo Survey</fullName>
+                    <default>false</default>
+                    <label>Demo Survey</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Project</fullName>
+                    <default>false</default>
+                    <label>Enterprise Project</label>
+                </value>
+                <value>
+                    <fullName>Event Builder - Express</fullName>
+                    <default>false</default>
+                    <label>Event Builder - Express</label>
+                </value>
+                <value>
+                    <fullName>Event Builder - Premium</fullName>
+                    <default>false</default>
+                    <label>Event Builder - Premium</label>
+                </value>
+                <value>
+                    <fullName>Event Builder - Regular</fullName>
+                    <default>false</default>
+                    <label>Event Builder - Regular</label>
+                </value>
+                <value>
+                    <fullName>Event Builder - Rush</fullName>
+                    <default>false</default>
+                    <label>Event Builder - Rush</label>
+                </value>
+                <value>
+                    <fullName>Event Builder - SU4</fullName>
+                    <default>false</default>
+                    <label>Event Builder - SU4</label>
+                </value>
+                <value>
+                    <fullName>Event Quarterback Project</fullName>
+                    <default>false</default>
+                    <label>Event Quarterback Project</label>
+                </value>
+                <value>
+                    <fullName>Event Report</fullName>
+                    <default>false</default>
+                    <label>Event Report</label>
+                </value>
+                <value>
+                    <fullName>FLEX Conversion</fullName>
+                    <default>false</default>
+                    <label>FLEX Conversion</label>
+                </value>
+                <value>
+                    <fullName>Free Trial</fullName>
+                    <default>false</default>
+                    <label>Free Trial</label>
+                </value>
+                <value>
+                    <fullName>HTML Email</fullName>
+                    <default>false</default>
+                    <label>HTML Email</label>
+                </value>
+                <value>
+                    <fullName>Image Creation</fullName>
+                    <default>false</default>
+                    <label>Image Creation</label>
+                </value>
+                <value>
+                    <fullName>Image Editing</fullName>
+                    <default>false</default>
+                    <label>Image Editing</label>
+                </value>
+                <value>
+                    <fullName>Internal Event Rebuild</fullName>
+                    <default>false</default>
+                    <label>Internal Event Rebuild</label>
+                </value>
+                <value>
+                    <fullName>Survey Analysis Report</fullName>
+                    <default>false</default>
+                    <label>Survey Analysis Report</label>
+                </value>
+                <value>
+                    <fullName>Survey Builder</fullName>
+                    <default>false</default>
+                    <label>Survey Builder</label>
+                </value>
+                <value>
+                    <fullName>Survey Custom Report</fullName>
+                    <default>false</default>
+                    <label>Survey Custom Report</label>
+                </value>
+                <value>
+                    <fullName>TPP Partnership - Premium</fullName>
+                    <default>false</default>
+                    <label>TPP Partnership - Premium</label>
+                </value>
+                <value>
+                    <fullName>TPP Partnership - Regular</fullName>
+                    <default>false</default>
+                    <label>TPP Partnership - Regular</label>
+                </value>
+                <value>
+                    <fullName>TPP Partnership - Rush</fullName>
+                    <default>false</default>
+                    <label>TPP Partnership - Rush</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Objects is used to store the Opportunity product name as a key with "EB_SB_Builder__c"  Object fields as values. It is created for the EB automation project. Records created in this object are being used in triggers and shouldn't be deleted by anyone.
+
+Should you need any information. Please reach out to CRM Management Team.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>EB Products Mapping</label>
+    <nameField>
+        <label>EB Product Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>EB Products Mappings</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <validationRules>
+        <fullName>Unique_Product_Mapping</fullName>
+        <active>true</active>
+        <errorConditionFormula>And(
+Lower(VLOOKUP( $ObjectType.EB_Project_Products_Mapping__c.Fields.Name ,  $ObjectType.EB_Project_Products_Mapping__c.Fields.Name ,  Name )) = Lower(Name),
+VLOOKUP( $ObjectType.EB_Project_Products_Mapping__c.Fields.Id,  $ObjectType.EB_Project_Products_Mapping__c.Fields.Name ,  Name ) &lt;&gt; Id)</errorConditionFormula>
+        <errorMessage>There is already a Mapping which exist for this Product. You're not allowed to create duplicate records with same name. There should be only one mapping per object.</errorMessage>
+    </validationRules>
+</CustomObject>

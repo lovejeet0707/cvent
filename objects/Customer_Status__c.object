@@ -1,0 +1,3322 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>This is being used in Cast Iron Integration, exclude from field purging exercise</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Customer Status</relationshipLabel>
+        <relationshipName>Sales_Vertical_Status</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CS_Unique_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>CS Unique ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Creation_Source_System_External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Creation Source System External Id</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Creation_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Creation System</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Trigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Field Trigger</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Legacy Source ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Lost_Reason_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost Reason Details</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Lost_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost Reason</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Budget Cuts</fullName>
+                    <default>false</default>
+                    <label>Budget Cuts</label>
+                </value>
+                <value>
+                    <fullName>Built In House</fullName>
+                    <default>false</default>
+                    <label>Built In House</label>
+                </value>
+                <value>
+                    <fullName>Delinquent</fullName>
+                    <default>false</default>
+                    <label>Delinquent</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>Internal Testing</fullName>
+                    <default>false</default>
+                    <label>Internal Testing</label>
+                </value>
+                <value>
+                    <fullName>No Longer Need Solution</fullName>
+                    <default>false</default>
+                    <label>No Longer Need Solution</label>
+                </value>
+                <value>
+                    <fullName>Opened by mistake</fullName>
+                    <default>false</default>
+                    <label>Opened by mistake</label>
+                </value>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Product Functionality</fullName>
+                    <default>false</default>
+                    <label>Product Functionality</label>
+                </value>
+                <value>
+                    <fullName>Programs Cancelled</fullName>
+                    <default>false</default>
+                    <label>Programs Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Registrant</fullName>
+                    <default>false</default>
+                    <label>Registrant</label>
+                </value>
+                <value>
+                    <fullName>Service Capabilities</fullName>
+                    <default>false</default>
+                    <label>Service Capabilities</label>
+                </value>
+                <value>
+                    <fullName>Switched to Competitor</fullName>
+                    <default>false</default>
+                    <label>Switched to Competitor</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lost_to_Competitor__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost to Competitor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Lost_Reason__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>123signup.com</fullName>
+                    <default>false</default>
+                    <label>123signup.com</label>
+                </value>
+                <value>
+                    <fullName>1card.com</fullName>
+                    <default>false</default>
+                    <label>1card.com</label>
+                </value>
+                <value>
+                    <fullName>accela.com</fullName>
+                    <default>false</default>
+                    <label>accela.com</label>
+                </value>
+                <value>
+                    <fullName>accenture.com</fullName>
+                    <default>false</default>
+                    <label>accenture.com</label>
+                </value>
+                <value>
+                    <fullName>accesso.com</fullName>
+                    <default>false</default>
+                    <label>accesso.com</label>
+                </value>
+                <value>
+                    <fullName>acstechnologies.com</fullName>
+                    <default>false</default>
+                    <label>acstechnologies.com</label>
+                </value>
+                <value>
+                    <fullName>acteva.com</fullName>
+                    <default>false</default>
+                    <label>acteva.com</label>
+                </value>
+                <value>
+                    <fullName>advent.com</fullName>
+                    <default>false</default>
+                    <label>advent.com</label>
+                </value>
+                <value>
+                    <fullName>aekcomputers.com</fullName>
+                    <default>false</default>
+                    <label>aekcomputers.com</label>
+                </value>
+                <value>
+                    <fullName>aligntech.com</fullName>
+                    <default>false</default>
+                    <label>aligntech.com</label>
+                </value>
+                <value>
+                    <fullName>amateurgolf.com</fullName>
+                    <default>false</default>
+                    <label>amateurgolf.com</label>
+                </value>
+                <value>
+                    <fullName>amd.com</fullName>
+                    <default>false</default>
+                    <label>amd.com</label>
+                </value>
+                <value>
+                    <fullName>arcaneo.com</fullName>
+                    <default>false</default>
+                    <label>arcaneo.com</label>
+                </value>
+                <value>
+                    <fullName>asapconnected.com</fullName>
+                    <default>false</default>
+                    <label>asapconnected.com</label>
+                </value>
+                <value>
+                    <fullName>asbworks.com</fullName>
+                    <default>false</default>
+                    <label>asbworks.com</label>
+                </value>
+                <value>
+                    <fullName>associationvoice.com</fullName>
+                    <default>false</default>
+                    <label>associationvoice.com</label>
+                </value>
+                <value>
+                    <fullName>attachmate.com</fullName>
+                    <default>false</default>
+                    <label>attachmate.com</label>
+                </value>
+                <value>
+                    <fullName>autodesk.com</fullName>
+                    <default>false</default>
+                    <label>autodesk.com</label>
+                </value>
+                <value>
+                    <fullName>Axess</fullName>
+                    <default>false</default>
+                    <label>Axess</label>
+                </value>
+                <value>
+                    <fullName>Bazu Sports</fullName>
+                    <default>false</default>
+                    <label>Bazu Sports</label>
+                </value>
+                <value>
+                    <fullName>bazusports.com</fullName>
+                    <default>false</default>
+                    <label>bazusports.com</label>
+                </value>
+                <value>
+                    <fullName>bentley.com</fullName>
+                    <default>false</default>
+                    <label>bentley.com</label>
+                </value>
+                <value>
+                    <fullName>bikereg.com</fullName>
+                    <default>false</default>
+                    <label>bikereg.com</label>
+                </value>
+                <value>
+                    <fullName>blackbaud.com</fullName>
+                    <default>false</default>
+                    <label>blackbaud.com</label>
+                </value>
+                <value>
+                    <fullName>bluesombrero.com</fullName>
+                    <default>false</default>
+                    <label>bluesombrero.com</label>
+                </value>
+                <value>
+                    <fullName>bunk1.com</fullName>
+                    <default>false</default>
+                    <label>bunk1.com</label>
+                </value>
+                <value>
+                    <fullName>campbrain.com</fullName>
+                    <default>false</default>
+                    <label>campbrain.com</label>
+                </value>
+                <value>
+                    <fullName>campminder.com</fullName>
+                    <default>false</default>
+                    <label>campminder.com</label>
+                </value>
+                <value>
+                    <fullName>camppros.com</fullName>
+                    <default>false</default>
+                    <label>camppros.com</label>
+                </value>
+                <value>
+                    <fullName>camptrak.com</fullName>
+                    <default>false</default>
+                    <label>camptrak.com</label>
+                </value>
+                <value>
+                    <fullName>campwise.com</fullName>
+                    <default>false</default>
+                    <label>campwise.com</label>
+                </value>
+                <value>
+                    <fullName>canadiantire.ca</fullName>
+                    <default>false</default>
+                    <label>canadiantire.ca</label>
+                </value>
+                <value>
+                    <fullName>capturepointusa.com</fullName>
+                    <default>false</default>
+                    <label>capturepointusa.com</label>
+                </value>
+                <value>
+                    <fullName>CCC (Christensen Computer Company)</fullName>
+                    <default>false</default>
+                    <label>CCC (Christensen Computer Company)</label>
+                </value>
+                <value>
+                    <fullName>cccsoft.com</fullName>
+                    <default>false</default>
+                    <label>cccsoft.com</label>
+                </value>
+                <value>
+                    <fullName>ccischurchsoftware.com</fullName>
+                    <default>false</default>
+                    <label>ccischurchsoftware.com</label>
+                </value>
+                <value>
+                    <fullName>certainsoftware.com</fullName>
+                    <default>false</default>
+                    <label>certainsoftware.com</label>
+                </value>
+                <value>
+                    <fullName>cfed.org</fullName>
+                    <default>false</default>
+                    <label>cfed.org</label>
+                </value>
+                <value>
+                    <fullName>championsway.com</fullName>
+                    <default>false</default>
+                    <label>championsway.com</label>
+                </value>
+                <value>
+                    <fullName>checkfree.com</fullName>
+                    <default>false</default>
+                    <label>checkfree.com</label>
+                </value>
+                <value>
+                    <fullName>churchcommunitybuilder.com</fullName>
+                    <default>false</default>
+                    <label>churchcommunitybuilder.com</label>
+                </value>
+                <value>
+                    <fullName>churchteams.com</fullName>
+                    <default>false</default>
+                    <label>churchteams.com</label>
+                </value>
+                <value>
+                    <fullName>cisco.com</fullName>
+                    <default>false</default>
+                    <label>cisco.com</label>
+                </value>
+                <value>
+                    <fullName>civicasoft.com</fullName>
+                    <default>false</default>
+                    <label>civicasoft.com</label>
+                </value>
+                <value>
+                    <fullName>civicplus.com</fullName>
+                    <default>false</default>
+                    <label>civicplus.com</label>
+                </value>
+                <value>
+                    <fullName>clickitgolf.com</fullName>
+                    <default>false</default>
+                    <label>clickitgolf.com</label>
+                </value>
+                <value>
+                    <fullName>clubprophetsystems.com</fullName>
+                    <default>false</default>
+                    <label>clubprophetsystems.com</label>
+                </value>
+                <value>
+                    <fullName>cmu.edu</fullName>
+                    <default>false</default>
+                    <label>cmu.edu</label>
+                </value>
+                <value>
+                    <fullName>comcate.com</fullName>
+                    <default>false</default>
+                    <label>comcate.com</label>
+                </value>
+                <value>
+                    <fullName>computerease.ca</fullName>
+                    <default>false</default>
+                    <label>computerease.ca</label>
+                </value>
+                <value>
+                    <fullName>computergolf.com</fullName>
+                    <default>false</default>
+                    <label>computergolf.com</label>
+                </value>
+                <value>
+                    <fullName>corebt.com</fullName>
+                    <default>false</default>
+                    <label>corebt.com</label>
+                </value>
+                <value>
+                    <fullName>countmein.com</fullName>
+                    <default>false</default>
+                    <label>countmein.com</label>
+                </value>
+                <value>
+                    <fullName>crescentsystems.com</fullName>
+                    <default>false</default>
+                    <label>crescentsystems.com</label>
+                </value>
+                <value>
+                    <fullName>CSI Software</fullName>
+                    <default>false</default>
+                    <label>CSI Software</label>
+                </value>
+                <value>
+                    <fullName>csisoftware.com</fullName>
+                    <default>false</default>
+                    <label>csisoftware.com</label>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                    <label>Custom</label>
+                </value>
+                <value>
+                    <fullName>cvent.com</fullName>
+                    <default>false</default>
+                    <label>cvent.com</label>
+                </value>
+                <value>
+                    <fullName>cybergolf.com</fullName>
+                    <default>false</default>
+                    <label>cybergolf.com</label>
+                </value>
+                <value>
+                    <fullName>d3technologies.com</fullName>
+                    <default>false</default>
+                    <label>d3technologies.com</label>
+                </value>
+                <value>
+                    <fullName>datatel.com</fullName>
+                    <default>false</default>
+                    <label>datatel.com</label>
+                </value>
+                <value>
+                    <fullName>Daxko</fullName>
+                    <default>false</default>
+                    <label>Daxko</label>
+                </value>
+                <value>
+                    <fullName>daxko.com</fullName>
+                    <default>false</default>
+                    <label>daxko.com</label>
+                </value>
+                <value>
+                    <fullName>dea.com</fullName>
+                    <default>false</default>
+                    <label>dea.com</label>
+                </value>
+                <value>
+                    <fullName>demosphere.com</fullName>
+                    <default>false</default>
+                    <label>demosphere.com</label>
+                </value>
+                <value>
+                    <fullName>dmcgolf.com</fullName>
+                    <default>false</default>
+                    <label>dmcgolf.com</label>
+                </value>
+                <value>
+                    <fullName>drupal.org</fullName>
+                    <default>false</default>
+                    <label>drupal.org</label>
+                </value>
+                <value>
+                    <fullName>efinesstri</fullName>
+                    <default>false</default>
+                    <label>efinesstri</label>
+                </value>
+                <value>
+                    <fullName>egovlink.com</fullName>
+                    <default>false</default>
+                    <label>egovlink.com</label>
+                </value>
+                <value>
+                    <fullName>ektron.com</fullName>
+                    <default>false</default>
+                    <label>ektron.com</label>
+                </value>
+                <value>
+                    <fullName>emerson.com</fullName>
+                    <default>false</default>
+                    <label>emerson.com</label>
+                </value>
+                <value>
+                    <fullName>EMS (Event Management Systems)</fullName>
+                    <default>false</default>
+                    <label>EMS (Event Management Systems)</label>
+                </value>
+                <value>
+                    <fullName>etouches.com</fullName>
+                    <default>false</default>
+                    <label>etouches.com</label>
+                </value>
+                <value>
+                    <fullName>eTrak-plus</fullName>
+                    <default>false</default>
+                    <label>eTrak-plus</label>
+                </value>
+                <value>
+                    <fullName>eTrak-plus.com</fullName>
+                    <default>false</default>
+                    <label>eTrak-plus.com</label>
+                </value>
+                <value>
+                    <fullName>Event Brite</fullName>
+                    <default>false</default>
+                    <label>Event Brite</label>
+                </value>
+                <value>
+                    <fullName>eventbrite.com</fullName>
+                    <default>false</default>
+                    <label>eventbrite.com</label>
+                </value>
+                <value>
+                    <fullName>eventley.com</fullName>
+                    <default>false</default>
+                    <label>eventley.com</label>
+                </value>
+                <value>
+                    <fullName>exxon.com</fullName>
+                    <default>false</default>
+                    <label>exxon.com</label>
+                </value>
+                <value>
+                    <fullName>EZFacility</fullName>
+                    <default>false</default>
+                    <label>EZFacility</label>
+                </value>
+                <value>
+                    <fullName>ezfacility.com</fullName>
+                    <default>false</default>
+                    <label>ezfacility.com</label>
+                </value>
+                <value>
+                    <fullName>ezlinksgolf.com</fullName>
+                    <default>false</default>
+                    <label>ezlinksgolf.com</label>
+                </value>
+                <value>
+                    <fullName>finesstri.com</fullName>
+                    <default>false</default>
+                    <label>finesstri.com</label>
+                </value>
+                <value>
+                    <fullName>foretees.com</fullName>
+                    <default>false</default>
+                    <label>foretees.com</label>
+                </value>
+                <value>
+                    <fullName>foreupgolf.com</fullName>
+                    <default>false</default>
+                    <label>foreupgolf.com</label>
+                </value>
+                <value>
+                    <fullName>forrester.com</fullName>
+                    <default>false</default>
+                    <label>forrester.com</label>
+                </value>
+                <value>
+                    <fullName>fujitsu.com</fullName>
+                    <default>false</default>
+                    <label>fujitsu.com</label>
+                </value>
+                <value>
+                    <fullName>gartner.com</fullName>
+                    <default>false</default>
+                    <label>gartner.com</label>
+                </value>
+                <value>
+                    <fullName>getmeregistered.com</fullName>
+                    <default>false</default>
+                    <label>getmeregistered.com</label>
+                </value>
+                <value>
+                    <fullName>girlscouts.org</fullName>
+                    <default>false</default>
+                    <label>girlscouts.org</label>
+                </value>
+                <value>
+                    <fullName>goalline.com</fullName>
+                    <default>false</default>
+                    <label>goalline.com</label>
+                </value>
+                <value>
+                    <fullName>gogogolf.net</fullName>
+                    <default>false</default>
+                    <label>gogogolf.net</label>
+                </value>
+                <value>
+                    <fullName>golf.com</fullName>
+                    <default>false</default>
+                    <label>golf.com</label>
+                </value>
+                <value>
+                    <fullName>golfchannel.com</fullName>
+                    <default>false</default>
+                    <label>golfchannel.com</label>
+                </value>
+                <value>
+                    <fullName>golfgopher.com</fullName>
+                    <default>false</default>
+                    <label>golfgopher.com</label>
+                </value>
+                <value>
+                    <fullName>golfguys.net</fullName>
+                    <default>false</default>
+                    <label>golfguys.net</label>
+                </value>
+                <value>
+                    <fullName>golfhub.com</fullName>
+                    <default>false</default>
+                    <label>golfhub.com</label>
+                </value>
+                <value>
+                    <fullName>golflink.com</fullName>
+                    <default>false</default>
+                    <label>golflink.com</label>
+                </value>
+                <value>
+                    <fullName>golfnow.com</fullName>
+                    <default>false</default>
+                    <label>golfnow.com</label>
+                </value>
+                <value>
+                    <fullName>golfswitch.com</fullName>
+                    <default>false</default>
+                    <label>golfswitch.com</label>
+                </value>
+                <value>
+                    <fullName>gotsoccer.com</fullName>
+                    <default>false</default>
+                    <label>gotsoccer.com</label>
+                </value>
+                <value>
+                    <fullName>govoffice.com</fullName>
+                    <default>false</default>
+                    <label>govoffice.com</label>
+                </value>
+                <value>
+                    <fullName>govpartner.com</fullName>
+                    <default>false</default>
+                    <label>govpartner.com</label>
+                </value>
+                <value>
+                    <fullName>gpseg.org</fullName>
+                    <default>false</default>
+                    <label>gpseg.org</label>
+                </value>
+                <value>
+                    <fullName>greatgolfevents.com</fullName>
+                    <default>false</default>
+                    <label>greatgolfevents.com</label>
+                </value>
+                <value>
+                    <fullName>hammerhead.net</fullName>
+                    <default>false</default>
+                    <label>hammerhead.net</label>
+                </value>
+                <value>
+                    <fullName>herbalife.com</fullName>
+                    <default>false</default>
+                    <label>herbalife.com</label>
+                </value>
+                <value>
+                    <fullName>hometeamsonline.com</fullName>
+                    <default>false</default>
+                    <label>hometeamsonline.com</label>
+                </value>
+                <value>
+                    <fullName>hotbanana.com</fullName>
+                    <default>false</default>
+                    <label>hotbanana.com</label>
+                </value>
+                <value>
+                    <fullName>hp.com</fullName>
+                    <default>false</default>
+                    <label>hp.com</label>
+                </value>
+                <value>
+                    <fullName>ieee.org</fullName>
+                    <default>false</default>
+                    <label>ieee.org</label>
+                </value>
+                <value>
+                    <fullName>ihs.com</fullName>
+                    <default>false</default>
+                    <label>ihs.com</label>
+                </value>
+                <value>
+                    <fullName>imAthlete</fullName>
+                    <default>false</default>
+                    <label>imAthlete</label>
+                </value>
+                <value>
+                    <fullName>imathlete.com</fullName>
+                    <default>false</default>
+                    <label>imathlete.com</label>
+                </value>
+                <value>
+                    <fullName>img.com</fullName>
+                    <default>false</default>
+                    <label>img.com</label>
+                </value>
+                <value>
+                    <fullName>In-House Solution</fullName>
+                    <default>false</default>
+                    <label>In-House Solution</label>
+                </value>
+                <value>
+                    <fullName>InnoSoft</fullName>
+                    <default>false</default>
+                    <label>InnoSoft</label>
+                </value>
+                <value>
+                    <fullName>innosoftfusion.com</fullName>
+                    <default>false</default>
+                    <label>innosoftfusion.com</label>
+                </value>
+                <value>
+                    <fullName>Innovative Data's SportCode</fullName>
+                    <default>false</default>
+                    <label>Innovative Data's SportCode</label>
+                </value>
+                <value>
+                    <fullName>Intouch</fullName>
+                    <default>false</default>
+                    <label>Intouch</label>
+                </value>
+                <value>
+                    <fullName>intouchsoftware.co.uk</fullName>
+                    <default>false</default>
+                    <label>intouchsoftware.co.uk</label>
+                </value>
+                <value>
+                    <fullName>itsportsnet.com</fullName>
+                    <default>false</default>
+                    <label>itsportsnet.com</label>
+                </value>
+                <value>
+                    <fullName>Jackrabbitclass</fullName>
+                    <default>false</default>
+                    <label>Jackrabbitclass</label>
+                </value>
+                <value>
+                    <fullName>jackrabbitclass.com</fullName>
+                    <default>false</default>
+                    <label>jackrabbitclass.com</label>
+                </value>
+                <value>
+                    <fullName>JackrabbitTech.com</fullName>
+                    <default>false</default>
+                    <label>JackrabbitTech.com</label>
+                </value>
+                <value>
+                    <fullName>jonassoftware.com</fullName>
+                    <default>false</default>
+                    <label>jonassoftware.com</label>
+                </value>
+                <value>
+                    <fullName>kana.com</fullName>
+                    <default>false</default>
+                    <label>kana.com</label>
+                </value>
+                <value>
+                    <fullName>kevsoftware.com</fullName>
+                    <default>false</default>
+                    <label>kevsoftware.com</label>
+                </value>
+                <value>
+                    <fullName>kimbiaracing.com</fullName>
+                    <default>false</default>
+                    <label>kimbiaracing.com</label>
+                </value>
+                <value>
+                    <fullName>kinderstreet.com</fullName>
+                    <default>false</default>
+                    <label>kinderstreet.com</label>
+                </value>
+                <value>
+                    <fullName>kingfisher.com</fullName>
+                    <default>false</default>
+                    <label>kingfisher.com</label>
+                </value>
+                <value>
+                    <fullName>kintera.com</fullName>
+                    <default>false</default>
+                    <label>kintera.com</label>
+                </value>
+                <value>
+                    <fullName>kinterainc.com</fullName>
+                    <default>false</default>
+                    <label>kinterainc.com</label>
+                </value>
+                <value>
+                    <fullName>korrio.com</fullName>
+                    <default>false</default>
+                    <label>korrio.com</label>
+                </value>
+                <value>
+                    <fullName>lagan.com</fullName>
+                    <default>false</default>
+                    <label>lagan.com</label>
+                </value>
+                <value>
+                    <fullName>landesk.com</fullName>
+                    <default>false</default>
+                    <label>landesk.com</label>
+                </value>
+                <value>
+                    <fullName>lanyon.com</fullName>
+                    <default>false</default>
+                    <label>lanyon.com</label>
+                </value>
+                <value>
+                    <fullName>lastminutegolfer.com</fullName>
+                    <default>false</default>
+                    <label>lastminutegolfer.com</label>
+                </value>
+                <value>
+                    <fullName>leagueathletics.com</fullName>
+                    <default>false</default>
+                    <label>leagueathletics.com</label>
+                </value>
+                <value>
+                    <fullName>leaguelineup.com</fullName>
+                    <default>false</default>
+                    <label>leaguelineup.com</label>
+                </value>
+                <value>
+                    <fullName>leaguepilot.com</fullName>
+                    <default>false</default>
+                    <label>leaguepilot.com</label>
+                </value>
+                <value>
+                    <fullName>leaguetoolbox.com</fullName>
+                    <default>false</default>
+                    <label>leaguetoolbox.com</label>
+                </value>
+                <value>
+                    <fullName>lenos.com</fullName>
+                    <default>false</default>
+                    <label>lenos.com</label>
+                </value>
+                <value>
+                    <fullName>liftopia.com</fullName>
+                    <default>false</default>
+                    <label>liftopia.com</label>
+                </value>
+                <value>
+                    <fullName>lumensoftware.com</fullName>
+                    <default>false</default>
+                    <label>lumensoftware.com</label>
+                </value>
+                <value>
+                    <fullName>manageyourleague.com</fullName>
+                    <default>false</default>
+                    <label>manageyourleague.com</label>
+                </value>
+                <value>
+                    <fullName>Manual</fullName>
+                    <default>false</default>
+                    <label>Manual</label>
+                </value>
+                <value>
+                    <fullName>Marathon Guide</fullName>
+                    <default>false</default>
+                    <label>Marathon Guide</label>
+                </value>
+                <value>
+                    <fullName>marathonguide.com</fullName>
+                    <default>false</default>
+                    <label>marathonguide.com</label>
+                </value>
+                <value>
+                    <fullName>marketinggolf.com</fullName>
+                    <default>false</default>
+                    <label>marketinggolf.com</label>
+                </value>
+                <value>
+                    <fullName>Maximum Solutions</fullName>
+                    <default>false</default>
+                    <label>Maximum Solutions</label>
+                </value>
+                <value>
+                    <fullName>maxsolutions.com</fullName>
+                    <default>false</default>
+                    <label>maxsolutions.com</label>
+                </value>
+                <value>
+                    <fullName>membersolutions.com</fullName>
+                    <default>false</default>
+                    <label>membersolutions.com</label>
+                </value>
+                <value>
+                    <fullName>microsoft.com</fullName>
+                    <default>false</default>
+                    <label>microsoft.com</label>
+                </value>
+                <value>
+                    <fullName>MINDBODY</fullName>
+                    <default>false</default>
+                    <label>MINDBODY</label>
+                </value>
+                <value>
+                    <fullName>mindbodyonline.com</fullName>
+                    <default>false</default>
+                    <label>mindbodyonline.com</label>
+                </value>
+                <value>
+                    <fullName>motorola.com</fullName>
+                    <default>false</default>
+                    <label>motorola.com</label>
+                </value>
+                <value>
+                    <fullName>netapp.com</fullName>
+                    <default>false</default>
+                    <label>netapp.com</label>
+                </value>
+                <value>
+                    <fullName>Net Ventures</fullName>
+                    <default>false</default>
+                    <label>Net Ventures</label>
+                </value>
+                <value>
+                    <fullName>netventurescorporation.com</fullName>
+                    <default>false</default>
+                    <label>netventurescorporation.com</label>
+                </value>
+                <value>
+                    <fullName>nfocus.com</fullName>
+                    <default>false</default>
+                    <label>nfocus.com</label>
+                </value>
+                <value>
+                    <fullName>nFocus Solutions</fullName>
+                    <default>false</default>
+                    <label>nFocus Solutions</label>
+                </value>
+                <value>
+                    <fullName>novell.com</fullName>
+                    <default>false</default>
+                    <label>novell.com</label>
+                </value>
+                <value>
+                    <fullName>officialpayments.com</fullName>
+                    <default>false</default>
+                    <label>officialpayments.com</label>
+                </value>
+                <value>
+                    <fullName>ominture.com</fullName>
+                    <default>false</default>
+                    <label>ominture.com</label>
+                </value>
+                <value>
+                    <fullName>onestoprace.com</fullName>
+                    <default>false</default>
+                    <label>onestoprace.com</label>
+                </value>
+                <value>
+                    <fullName>Oracle</fullName>
+                    <default>false</default>
+                    <label>Oracle</label>
+                </value>
+                <value>
+                    <fullName>oracle.com</fullName>
+                    <default>false</default>
+                    <label>oracle.com</label>
+                </value>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>false</default>
+                    <label>OTHER</label>
+                </value>
+                <value>
+                    <fullName>paciolan.com</fullName>
+                    <default>false</default>
+                    <label>paciolan.com</label>
+                </value>
+                <value>
+                    <fullName>peakinfo.com</fullName>
+                    <default>false</default>
+                    <label>peakinfo.com</label>
+                </value>
+                <value>
+                    <fullName>Peak Software Systems</fullName>
+                    <default>false</default>
+                    <label>Peak Software Systems</label>
+                </value>
+                <value>
+                    <fullName>pearsonschoolsystems.com</fullName>
+                    <default>false</default>
+                    <label>pearsonschoolsystems.com</label>
+                </value>
+                <value>
+                    <fullName>Personify</fullName>
+                    <default>false</default>
+                    <label>Personify</label>
+                </value>
+                <value>
+                    <fullName>planningcenteronline.com</fullName>
+                    <default>false</default>
+                    <label>planningcenteronline.com</label>
+                </value>
+                <value>
+                    <fullName>plone.org</fullName>
+                    <default>false</default>
+                    <label>plone.org</label>
+                </value>
+                <value>
+                    <fullName>pointstreaksolutions.com</fullName>
+                    <default>false</default>
+                    <label>pointstreaksolutions.com</label>
+                </value>
+                <value>
+                    <fullName>prerace.com</fullName>
+                    <default>false</default>
+                    <label>prerace.com</label>
+                </value>
+                <value>
+                    <fullName>pro-shopkeeper.com</fullName>
+                    <default>false</default>
+                    <label>pro-shopkeeper.com</label>
+                </value>
+                <value>
+                    <fullName>qscend.com</fullName>
+                    <default>false</default>
+                    <label>qscend.com</label>
+                </value>
+                <value>
+                    <fullName>Raceit</fullName>
+                    <default>false</default>
+                    <label>Raceit</label>
+                </value>
+                <value>
+                    <fullName>raceit.com</fullName>
+                    <default>false</default>
+                    <label>raceit.com</label>
+                </value>
+                <value>
+                    <fullName>racepartner.com</fullName>
+                    <default>false</default>
+                    <label>racepartner.com</label>
+                </value>
+                <value>
+                    <fullName>realbuzzregistrations.com</fullName>
+                    <default>false</default>
+                    <label>realbuzzregistrations.com</label>
+                </value>
+                <value>
+                    <fullName>Rec1</fullName>
+                    <default>false</default>
+                    <label>Rec1</label>
+                </value>
+                <value>
+                    <fullName>rec1.com</fullName>
+                    <default>false</default>
+                    <label>rec1.com</label>
+                </value>
+                <value>
+                    <fullName>ReCPro</fullName>
+                    <default>false</default>
+                    <label>ReCPro</label>
+                </value>
+                <value>
+                    <fullName>recprosoftware.com</fullName>
+                    <default>false</default>
+                    <label>recprosoftware.com</label>
+                </value>
+                <value>
+                    <fullName>Recreational Solutions</fullName>
+                    <default>false</default>
+                    <label>Recreational Solutions</label>
+                </value>
+                <value>
+                    <fullName>recsolutions.com</fullName>
+                    <default>false</default>
+                    <label>recsolutions.com</label>
+                </value>
+                <value>
+                    <fullName>reddot.com</fullName>
+                    <default>false</default>
+                    <label>reddot.com</label>
+                </value>
+                <value>
+                    <fullName>rediker.com</fullName>
+                    <default>false</default>
+                    <label>rediker.com</label>
+                </value>
+                <value>
+                    <fullName>redpodium.com</fullName>
+                    <default>false</default>
+                    <label>redpodium.com</label>
+                </value>
+                <value>
+                    <fullName>renweb.com</fullName>
+                    <default>false</default>
+                    <label>renweb.com</label>
+                </value>
+                <value>
+                    <fullName>responsys.com</fullName>
+                    <default>false</default>
+                    <label>responsys.com</label>
+                </value>
+                <value>
+                    <fullName>revtrak.com</fullName>
+                    <default>false</default>
+                    <label>revtrak.com</label>
+                </value>
+                <value>
+                    <fullName>rim.com</fullName>
+                    <default>false</default>
+                    <label>rim.com</label>
+                </value>
+                <value>
+                    <fullName>runbritain.com</fullName>
+                    <default>false</default>
+                    <label>runbritain.com</label>
+                </value>
+                <value>
+                    <fullName>runraceregister.com</fullName>
+                    <default>false</default>
+                    <label>runraceregister.com</label>
+                </value>
+                <value>
+                    <fullName>runreg.com</fullName>
+                    <default>false</default>
+                    <label>runreg.com</label>
+                </value>
+                <value>
+                    <fullName>runsignup.com</fullName>
+                    <default>false</default>
+                    <label>runsignup.com</label>
+                </value>
+                <value>
+                    <fullName>salesforce.com</fullName>
+                    <default>false</default>
+                    <label>salesforce.com</label>
+                </value>
+                <value>
+                    <fullName>schooldude.com</fullName>
+                    <default>false</default>
+                    <label>schooldude.com</label>
+                </value>
+                <value>
+                    <fullName>serviceu.com</fullName>
+                    <default>false</default>
+                    <label>serviceu.com</label>
+                </value>
+                <value>
+                    <fullName>shelbysystems.com</fullName>
+                    <default>false</default>
+                    <label>shelbysystems.com</label>
+                </value>
+                <value>
+                    <fullName>signmeup.com</fullName>
+                    <default>false</default>
+                    <label>signmeup.com</label>
+                </value>
+                <value>
+                    <fullName>signup4.com</fullName>
+                    <default>false</default>
+                    <label>signup4.com</label>
+                </value>
+                <value>
+                    <fullName>Siriusware</fullName>
+                    <default>false</default>
+                    <label>Siriusware</label>
+                </value>
+                <value>
+                    <fullName>softerware.com</fullName>
+                    <default>false</default>
+                    <label>softerware.com</label>
+                </value>
+                <value>
+                    <fullName>sportability.com</fullName>
+                    <default>false</default>
+                    <label>sportability.com</label>
+                </value>
+                <value>
+                    <fullName>Sports IT</fullName>
+                    <default>false</default>
+                    <label>Sports IT</label>
+                </value>
+                <value>
+                    <fullName>sports-it.com</fullName>
+                    <default>false</default>
+                    <label>sports-it.com</label>
+                </value>
+                <value>
+                    <fullName>sportsngin.com</fullName>
+                    <default>false</default>
+                    <label>sportsngin.com</label>
+                </value>
+                <value>
+                    <fullName>sportspilot.com</fullName>
+                    <default>false</default>
+                    <label>sportspilot.com</label>
+                </value>
+                <value>
+                    <fullName>sportssignup.com</fullName>
+                    <default>false</default>
+                    <label>sportssignup.com</label>
+                </value>
+                <value>
+                    <fullName>springermiller.com</fullName>
+                    <default>false</default>
+                    <label>springermiller.com</label>
+                </value>
+                <value>
+                    <fullName>sungard.com</fullName>
+                    <default>false</default>
+                    <label>sungard.com</label>
+                </value>
+                <value>
+                    <fullName>symantec.com</fullName>
+                    <default>false</default>
+                    <label>symantec.com</label>
+                </value>
+                <value>
+                    <fullName>systeminnovators.com</fullName>
+                    <default>false</default>
+                    <label>systeminnovators.com</label>
+                </value>
+                <value>
+                    <fullName>teamsnap.com</fullName>
+                    <default>false</default>
+                    <label>teamsnap.com</label>
+                </value>
+                <value>
+                    <fullName>teeitup.com</fullName>
+                    <default>false</default>
+                    <label>teeitup.com</label>
+                </value>
+                <value>
+                    <fullName>teemaster.com</fullName>
+                    <default>false</default>
+                    <label>teemaster.com</label>
+                </value>
+                <value>
+                    <fullName>tee-on.com</fullName>
+                    <default>false</default>
+                    <label>tee-on.com</label>
+                </value>
+                <value>
+                    <fullName>teequest.com</fullName>
+                    <default>false</default>
+                    <label>teequest.com</label>
+                </value>
+                <value>
+                    <fullName>teetime.com</fullName>
+                    <default>false</default>
+                    <label>teetime.com</label>
+                </value>
+                <value>
+                    <fullName>teetimes.com</fullName>
+                    <default>false</default>
+                    <label>teetimes.com</label>
+                </value>
+                <value>
+                    <fullName>teetimewatch.com</fullName>
+                    <default>false</default>
+                    <label>teetimewatch.com</label>
+                </value>
+                <value>
+                    <fullName>tele-works.com</fullName>
+                    <default>false</default>
+                    <label>tele-works.com</label>
+                </value>
+                <value>
+                    <fullName>teradata.com</fullName>
+                    <default>false</default>
+                    <label>teradata.com</label>
+                </value>
+                <value>
+                    <fullName>test.com</fullName>
+                    <default>false</default>
+                    <label>test.com</label>
+                </value>
+                <value>
+                    <fullName>thinkministry.com</fullName>
+                    <default>false</default>
+                    <label>thinkministry.com</label>
+                </value>
+                <value>
+                    <fullName>tier.com</fullName>
+                    <default>false</default>
+                    <label>tier.com</label>
+                </value>
+                <value>
+                    <fullName>tigersix.net</fullName>
+                    <default>false</default>
+                    <label>tigersix.net</label>
+                </value>
+                <value>
+                    <fullName>tmaresources.com</fullName>
+                    <default>false</default>
+                    <label>tmaresources.com</label>
+                </value>
+                <value>
+                    <fullName>totalegolf.com</fullName>
+                    <default>false</default>
+                    <label>totalegolf.com</label>
+                </value>
+                <value>
+                    <fullName>totaleintegrated.com</fullName>
+                    <default>false</default>
+                    <label>totaleintegrated.com</label>
+                </value>
+                <value>
+                    <fullName>TouchNet</fullName>
+                    <default>false</default>
+                    <label>TouchNet</label>
+                </value>
+                <value>
+                    <fullName>touchnet.com</fullName>
+                    <default>false</default>
+                    <label>touchnet.com</label>
+                </value>
+                <value>
+                    <fullName>travelgolf.com</fullName>
+                    <default>false</default>
+                    <label>travelgolf.com</label>
+                </value>
+                <value>
+                    <fullName>treshna.com</fullName>
+                    <default>false</default>
+                    <label>treshna.com</label>
+                </value>
+                <value>
+                    <fullName>ultracamp.com</fullName>
+                    <default>false</default>
+                    <label>ultracamp.com</label>
+                </value>
+                <value>
+                    <fullName>ungerboeck.com</fullName>
+                    <default>false</default>
+                    <label>ungerboeck.com</label>
+                </value>
+                <value>
+                    <fullName>uniquesystems.com</fullName>
+                    <default>false</default>
+                    <label>uniquesystems.com</label>
+                </value>
+                <value>
+                    <fullName>US eDirect</fullName>
+                    <default>false</default>
+                    <label>US eDirect</label>
+                </value>
+                <value>
+                    <fullName>usedirect.com</fullName>
+                    <default>false</default>
+                    <label>usedirect.com</label>
+                </value>
+                <value>
+                    <fullName>usegolf.com</fullName>
+                    <default>false</default>
+                    <label>usegolf.com</label>
+                </value>
+                <value>
+                    <fullName>usgbc.org</fullName>
+                    <default>false</default>
+                    <label>usgbc.org</label>
+                </value>
+                <value>
+                    <fullName>Vermont Systems</fullName>
+                    <default>false</default>
+                    <label>Vermont Systems</label>
+                </value>
+                <value>
+                    <fullName>vermontsystems.com</fullName>
+                    <default>false</default>
+                    <label>vermontsystems.com</label>
+                </value>
+                <value>
+                    <fullName>visioninternet.com</fullName>
+                    <default>false</default>
+                    <label>visioninternet.com</label>
+                </value>
+                <value>
+                    <fullName>worldgolf.com</fullName>
+                    <default>false</default>
+                    <label>worldgolf.com</label>
+                </value>
+                <value>
+                    <fullName>wwagallery.com</fullName>
+                    <default>false</default>
+                    <label>wwagallery.com</label>
+                </value>
+                <value>
+                    <fullName>xerox.ca</fullName>
+                    <default>false</default>
+                    <label>xerox.ca</label>
+                </value>
+                <value>
+                    <fullName>xostech.com</fullName>
+                    <default>false</default>
+                    <label>xostech.com</label>
+                </value>
+                <value>
+                    <fullName>ylusa.com</fullName>
+                    <default>false</default>
+                    <label>ylusa.com</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>123signup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>1card.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>accela.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>accenture.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>accesso.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>acstechnologies.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>acteva.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>advent.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>aekcomputers.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>aligntech.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>amateurgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>amd.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>arcaneo.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>asapconnected.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>asbworks.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>associationvoice.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>attachmate.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>autodesk.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Axess</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Bazu Sports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>bazusports.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>bentley.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>bikereg.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>blackbaud.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>bluesombrero.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>bunk1.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>campbrain.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>campminder.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>camppros.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>camptrak.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>campwise.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>canadiantire.ca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>capturepointusa.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>CCC (Christensen Computer Company)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cccsoft.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ccischurchsoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>certainsoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cfed.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>championsway.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>checkfree.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>churchcommunitybuilder.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>churchteams.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cisco.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>civicasoft.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>civicplus.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>clickitgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>clubprophetsystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cmu.edu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>comcate.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>computerease.ca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>computergolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>corebt.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>countmein.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>crescentsystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>CSI Software</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>csisoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Custom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cvent.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>cybergolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>d3technologies.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>datatel.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Daxko</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>daxko.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>dea.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>demosphere.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>dmcgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>drupal.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>efinesstri</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>egovlink.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ektron.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>emerson.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>EMS (Event Management Systems)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>etouches.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>eTrak-plus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>eTrak-plus.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Event Brite</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>eventbrite.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>eventley.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>exxon.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>EZFacility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ezfacility.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ezlinksgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>finesstri.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>foretees.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>foreupgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>forrester.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>fujitsu.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>gartner.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>getmeregistered.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>girlscouts.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>goalline.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>gogogolf.net</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfchannel.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfgopher.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfguys.net</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfhub.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golflink.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfnow.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>golfswitch.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>gotsoccer.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>govoffice.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>govpartner.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>gpseg.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>greatgolfevents.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>hammerhead.net</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>herbalife.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>hometeamsonline.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>hotbanana.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>hp.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ieee.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ihs.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>imAthlete</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>imathlete.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>img.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>In-House Solution</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>InnoSoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>innosoftfusion.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Innovative Data's SportCode</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Intouch</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>intouchsoftware.co.uk</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>itsportsnet.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Jackrabbitclass</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>jackrabbitclass.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>JackrabbitTech.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>jonassoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kana.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kevsoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kimbiaracing.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kinderstreet.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kingfisher.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kintera.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>kinterainc.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>korrio.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>lagan.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>landesk.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>lanyon.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>lastminutegolfer.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>leagueathletics.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>leaguelineup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>leaguepilot.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>leaguetoolbox.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>lenos.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>liftopia.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>lumensoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>manageyourleague.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Manual</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Marathon Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>marathonguide.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>marketinggolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Maximum Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>maxsolutions.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>membersolutions.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>microsoft.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>MINDBODY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>mindbodyonline.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>motorola.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>netapp.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Net Ventures</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>netventurescorporation.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>nfocus.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>nFocus Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>novell.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>officialpayments.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ominture.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>onestoprace.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Oracle</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>oracle.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>OTHER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>paciolan.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>peakinfo.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Peak Software Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>pearsonschoolsystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Personify</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>planningcenteronline.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>plone.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>pointstreaksolutions.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>prerace.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>pro-shopkeeper.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>qscend.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Raceit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>raceit.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>racepartner.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>realbuzzregistrations.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Rec1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>rec1.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ReCPro</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>recprosoftware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Recreational Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>recsolutions.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>reddot.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>rediker.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>redpodium.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>renweb.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>responsys.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>revtrak.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>rim.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>runbritain.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>runraceregister.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>runreg.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>runsignup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>salesforce.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>schooldude.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>serviceu.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>shelbysystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>signmeup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>signup4.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Siriusware</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>softerware.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sportability.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Sports IT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sports-it.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sportsngin.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sportspilot.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sportssignup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>springermiller.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>sungard.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>symantec.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>systeminnovators.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teamsnap.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teeitup.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teemaster.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>tee-on.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teequest.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teetime.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teetimes.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teetimewatch.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>tele-works.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>teradata.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>test.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>thinkministry.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>tier.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>tigersix.net</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>tmaresources.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>totalegolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>totaleintegrated.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>TouchNet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>touchnet.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>travelgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>treshna.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ultracamp.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ungerboeck.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>uniquesystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>US eDirect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>usedirect.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>usegolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>usgbc.org</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>Vermont Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>vermontsystems.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>visioninternet.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>worldgolf.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>wwagallery.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>xerox.ca</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>xostech.com</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Switched to Competitor</controllingFieldValue>
+                <valueName>ylusa.com</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Customer Status</relationshipLabel>
+        <relationshipName>Customer_Status</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACM</fullName>
+                    <default>false</default>
+                    <label>ACM</label>
+                </value>
+                <value>
+                    <fullName>ACM Standard-Premium</fullName>
+                    <default>false</default>
+                    <label>ACM Standard-Premium</label>
+                </value>
+                <value>
+                    <fullName>ACR</fullName>
+                    <default>false</default>
+                    <label>ACR</label>
+                </value>
+                <value>
+                    <fullName>ACS Magazines</fullName>
+                    <default>false</default>
+                    <label>ACS Magazines</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE.com</fullName>
+                    <default>false</default>
+                    <label>ACTIVE.com</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE.com Mobile App</fullName>
+                    <default>false</default>
+                    <label>ACTIVE.com Mobile App</label>
+                </value>
+                <value>
+                    <fullName>Active Advantage</fullName>
+                    <default>false</default>
+                    <label>Active Advantage</label>
+                </value>
+                <value>
+                    <fullName>Active Giving</fullName>
+                    <default>false</default>
+                    <label>Active Giving</label>
+                </value>
+                <value>
+                    <fullName>Active Global</fullName>
+                    <default>false</default>
+                    <label>Active Global</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE Net</fullName>
+                    <default>false</default>
+                    <label>ACTIVE Net</label>
+                </value>
+                <value>
+                    <fullName>Active Outdoors Consumer Support</fullName>
+                    <default>false</default>
+                    <label>Active Outdoors Consumer Support</label>
+                </value>
+                <value>
+                    <fullName>Active Trainer</fullName>
+                    <default>false</default>
+                    <label>Active Trainer</label>
+                </value>
+                <value>
+                    <fullName>Active View Mobile</fullName>
+                    <default>false</default>
+                    <label>Active View Mobile</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Camps</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Camps</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Endurance</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Endurance</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks – Endurance Premier</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks – Endurance Premier</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks - Membership</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks - Membership</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks Outdoors</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks Outdoors</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Outdoors</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Outdoors</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-PayCenter</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-PayCenter</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Swim</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Swim</label>
+                </value>
+                <value>
+                    <fullName>AWO Campgrounds</fullName>
+                    <default>false</default>
+                    <label>AWO Campgrounds</label>
+                </value>
+                <value>
+                    <fullName>AWO Hunt and Fish</fullName>
+                    <default>false</default>
+                    <label>AWO Hunt and Fish</label>
+                </value>
+                <value>
+                    <fullName>Blue Bear</fullName>
+                    <default>false</default>
+                    <label>Blue Bear</label>
+                </value>
+                <value>
+                    <fullName>Business Manager</fullName>
+                    <default>false</default>
+                    <label>Business Manager</label>
+                </value>
+                <value>
+                    <fullName>Class</fullName>
+                    <default>false</default>
+                    <label>Class</label>
+                </value>
+                <value>
+                    <fullName>ClubReg</fullName>
+                    <default>false</default>
+                    <label>ClubReg</label>
+                </value>
+                <value>
+                    <fullName>Clubspaces</fullName>
+                    <default>false</default>
+                    <label>Clubspaces</label>
+                </value>
+                <value>
+                    <fullName>Connection Power</fullName>
+                    <default>false</default>
+                    <label>Connection Power</label>
+                </value>
+                <value>
+                    <fullName>eteamz</fullName>
+                    <default>false</default>
+                    <label>eteamz</label>
+                </value>
+                <value>
+                    <fullName>Fairway</fullName>
+                    <default>false</default>
+                    <label>Fairway</label>
+                </value>
+                <value>
+                    <fullName>FellowshipOne</fullName>
+                    <default>false</default>
+                    <label>FellowshipOne</label>
+                </value>
+                <value>
+                    <fullName>Gen</fullName>
+                    <default>false</default>
+                    <label>Gen</label>
+                </value>
+                <value>
+                    <fullName>Jencess</fullName>
+                    <default>false</default>
+                    <label>Jencess</label>
+                </value>
+                <value>
+                    <fullName>LeagueOne</fullName>
+                    <default>false</default>
+                    <label>LeagueOne</label>
+                </value>
+                <value>
+                    <fullName>LibOnline</fullName>
+                    <default>false</default>
+                    <label>LibOnline</label>
+                </value>
+                <value>
+                    <fullName>Marketing Hub</fullName>
+                    <default>false</default>
+                    <label>Marketing Hub</label>
+                </value>
+                <value>
+                    <fullName>Meet Manager - Swim</fullName>
+                    <default>false</default>
+                    <label>Meet Manager - Swim</label>
+                </value>
+                <value>
+                    <fullName>Meet Manager - T&amp;F</fullName>
+                    <default>false</default>
+                    <label>Meet Manager - T&amp;F</label>
+                </value>
+                <value>
+                    <fullName>Membership Manager</fullName>
+                    <default>false</default>
+                    <label>Membership Manager</label>
+                </value>
+                <value>
+                    <fullName>Online Meet Entry</fullName>
+                    <default>false</default>
+                    <label>Online Meet Entry</label>
+                </value>
+                <value>
+                    <fullName>OpenBook</fullName>
+                    <default>false</default>
+                    <label>OpenBook</label>
+                </value>
+                <value>
+                    <fullName>Open Course</fullName>
+                    <default>false</default>
+                    <label>Open Course</label>
+                </value>
+                <value>
+                    <fullName>Payment Manager</fullName>
+                    <default>false</default>
+                    <label>Payment Manager</label>
+                </value>
+                <value>
+                    <fullName>Payment Server</fullName>
+                    <default>false</default>
+                    <label>Payment Server</label>
+                </value>
+                <value>
+                    <fullName>RegCenter</fullName>
+                    <default>false</default>
+                    <label>RegCenter</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>Reserve America</fullName>
+                    <default>false</default>
+                    <label>Reserve America</label>
+                </value>
+                <value>
+                    <fullName>Reserve Suite</fullName>
+                    <default>false</default>
+                    <label>Reserve Suite</label>
+                </value>
+                <value>
+                    <fullName>Results</fullName>
+                    <default>false</default>
+                    <label>Results</label>
+                </value>
+                <value>
+                    <fullName>RTP</fullName>
+                    <default>false</default>
+                    <label>RTP</label>
+                </value>
+                <value>
+                    <fullName>Safari</fullName>
+                    <default>false</default>
+                    <label>Safari</label>
+                </value>
+                <value>
+                    <fullName>ServiceU</fullName>
+                    <default>false</default>
+                    <label>ServiceU</label>
+                </value>
+                <value>
+                    <fullName>Site Builder</fullName>
+                    <default>false</default>
+                    <label>Site Builder</label>
+                </value>
+                <value>
+                    <fullName>Smart Events Cloud</fullName>
+                    <default>false</default>
+                    <label>Smart Events Cloud</label>
+                </value>
+                <value>
+                    <fullName>Social Connect</fullName>
+                    <default>false</default>
+                    <label>Social Connect</label>
+                </value>
+                <value>
+                    <fullName>StarCite</fullName>
+                    <default>false</default>
+                    <label>StarCite</label>
+                </value>
+                <value>
+                    <fullName>StarCite Supplier</fullName>
+                    <default>false</default>
+                    <label>StarCite Supplier</label>
+                </value>
+                <value>
+                    <fullName>Swim Manager</fullName>
+                    <default>false</default>
+                    <label>Swim Manager</label>
+                </value>
+                <value>
+                    <fullName>Swim Meet Mobile</fullName>
+                    <default>false</default>
+                    <label>Swim Meet Mobile</label>
+                </value>
+                <value>
+                    <fullName>Team Manager - Swim</fullName>
+                    <default>false</default>
+                    <label>Team Manager - Swim</label>
+                </value>
+                <value>
+                    <fullName>Team Manager - T&amp;F</fullName>
+                    <default>false</default>
+                    <label>Team Manager - T&amp;F</label>
+                </value>
+                <value>
+                    <fullName>Thriva</fullName>
+                    <default>false</default>
+                    <label>Thriva</label>
+                </value>
+                <value>
+                    <fullName>Tournament Builder</fullName>
+                    <default>false</default>
+                    <label>Tournament Builder</label>
+                </value>
+                <value>
+                    <fullName>USTA</fullName>
+                    <default>false</default>
+                    <label>USTA</label>
+                </value>
+                <value>
+                    <fullName>VMOD</fullName>
+                    <default>false</default>
+                    <label>VMOD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Risk_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Risk_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>true</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>15%</fullName>
+                    <default>false</default>
+                    <label>15%</label>
+                </value>
+                <value>
+                    <fullName>25%</fullName>
+                    <default>false</default>
+                    <label>25%</label>
+                </value>
+                <value>
+                    <fullName>50%</fullName>
+                    <default>false</default>
+                    <label>50%</label>
+                </value>
+                <value>
+                    <fullName>75%</fullName>
+                    <default>false</default>
+                    <label>75%</label>
+                </value>
+                <value>
+                    <fullName>90%</fullName>
+                    <default>false</default>
+                    <label>90%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Potential__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Potential</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Priority</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A</fullName>
+                    <default>false</default>
+                    <label>A</label>
+                </value>
+                <value>
+                    <fullName>B</fullName>
+                    <default>false</default>
+                    <label>B</label>
+                </value>
+                <value>
+                    <fullName>C</fullName>
+                    <default>false</default>
+                    <label>C</label>
+                </value>
+                <value>
+                    <fullName>D</fullName>
+                    <default>false</default>
+                    <label>D</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Vertical__c</fullName>
+        <description>This is being used in Cast Iron Integration, exclude from field purging exercise</description>
+        <externalId>false</externalId>
+        <label>Sales Vertical</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>APAC</fullName>
+                    <default>false</default>
+                    <label>APAC</label>
+                </value>
+                <value>
+                    <fullName>EMEA</fullName>
+                    <default>false</default>
+                    <label>EMEA</label>
+                </value>
+                <value>
+                    <fullName>ENDURANCE</fullName>
+                    <default>false</default>
+                    <label>ENDURANCE</label>
+                </value>
+                <value>
+                    <fullName>ENTERPRISE</fullName>
+                    <default>false</default>
+                    <label>ENTERPRISE</label>
+                </value>
+                <value>
+                    <fullName>FAITH</fullName>
+                    <default>false</default>
+                    <label>FAITH</label>
+                </value>
+                <value>
+                    <fullName>FEDERAL</fullName>
+                    <default>false</default>
+                    <label>FEDERAL</label>
+                </value>
+                <value>
+                    <fullName>GOLF</fullName>
+                    <default>false</default>
+                    <label>GOLF</label>
+                </value>
+                <value>
+                    <fullName>K12</fullName>
+                    <default>false</default>
+                    <label>K12</label>
+                </value>
+                <value>
+                    <fullName>LOCAL</fullName>
+                    <default>false</default>
+                    <label>LOCAL</label>
+                </value>
+                <value>
+                    <fullName>MEDIA AND MARKETING</fullName>
+                    <default>false</default>
+                    <label>MEDIA AND MARKETING</label>
+                </value>
+                <value>
+                    <fullName>NON PROFIT</fullName>
+                    <default>false</default>
+                    <label>NON PROFIT</label>
+                </value>
+                <value>
+                    <fullName>PUBLIC SECTOR INTERNATIONAL</fullName>
+                    <default>false</default>
+                    <label>PUBLIC SECTOR INTERNATIONAL</label>
+                </value>
+                <value>
+                    <fullName>PURESEND</fullName>
+                    <default>false</default>
+                    <label>PURESEND</label>
+                </value>
+                <value>
+                    <fullName>SKI AND ATTRACTIONS</fullName>
+                    <default>false</default>
+                    <label>SKI AND ATTRACTIONS</label>
+                </value>
+                <value>
+                    <fullName>SMB</fullName>
+                    <default>false</default>
+                    <label>SMB</label>
+                </value>
+                <value>
+                    <fullName>STATE</fullName>
+                    <default>false</default>
+                    <label>STATE</label>
+                </value>
+                <value>
+                    <fullName>SUPPLIER</fullName>
+                    <default>false</default>
+                    <label>SUPPLIER</label>
+                </value>
+                <value>
+                    <fullName>TEAM SPORTS</fullName>
+                    <default>false</default>
+                    <label>TEAM SPORTS</label>
+                </value>
+                <value>
+                    <fullName>YOUTH AND EDUCATION</fullName>
+                    <default>false</default>
+                    <label>YOUTH AND EDUCATION</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>This is being used in Cast Iron Integration, exclude from field purging exercise</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Prospect</fullName>
+                    <default>false</default>
+                    <label>Prospect</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Former Customer</fullName>
+                    <default>false</default>
+                    <label>Former Customer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Termination_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Termination Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Termination_Notification_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Termination Notification Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>sfxId__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>sfxId</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Customer Status by Sales Vertical.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Customer Status</label>
+    <nameField>
+        <displayFormat>{000000000}</displayFormat>
+        <label>Customer Status Number</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Customer Status</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Sales_Vertical__c</columns>
+        <columns>Status__c</columns>
+        <columns>Lost_Reason__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <validationRules>
+        <fullName>Lost_Reason_Needed</fullName>
+        <active>true</active>
+        <description>Lost Reason cannot be blank if Status is Former Customer.</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(  Status__c  , "Former Customer") ,
+ISBLANK(  TEXT( Lost_Reason__c ) )
+)</errorConditionFormula>
+        <errorDisplayField>Lost_Reason__c</errorDisplayField>
+        <errorMessage>Lost Reason cannot be blank if Status is Former Customer.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HC Competitive Sets</relationshipLabel>
+        <relationshipName>HC_Competitive_Sets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Comp_Set_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Comp Set Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Analytics Overlap Report</fullName>
+                    <default>false</default>
+                    <label>Analytics Overlap Report</label>
+                </value>
+                <value>
+                    <fullName>Supplier Comp Set</fullName>
+                    <default>false</default>
+                    <label>Supplier Comp Set</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Competitor_Account_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Competitor_Account__r.Account_Status__c)</formula>
+        <label>Competitor Account Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitor Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HC Competitive Sets (Competitior Account)</relationshipLabel>
+        <relationshipName>HC_Competitive_Sets1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Competitor_CSN_Listing_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.CSN_Listing_Type__c</formula>
+        <label>Competitor CSN Listing Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_Chain_Affiliation__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.Chain_Affiliation__c</formula>
+        <label>Competitor Chain Affiliation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_EMA_Purchased_Licence_For__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Event 1"), "Event 1", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Event 2"), "Event 2", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Event 3"), "Event 3", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Event 4"), "Event 4", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Event 5"), "Event 5", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.EMA_Purchased_License_For__c, "Undecided"), "Undecided", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Competitor EMA Purchased Licence For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_EM_License_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.EM_License_Type__c</formula>
+        <label>Competitor EM License Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_SRFP_License_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.SRFP_License_Type__c</formula>
+        <label>Competitor SRFP License Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_SRFP_White_Label__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Professional - Active"),"Professional - Active","")   + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Professional - Inactive"),"Professional - Inactive", NULL)   + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Enterprise - Group Buy"),"Enterprise - Group Buy", NULL)   + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Enterprise - Property"),"Enterprise - Property", NULL)  + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Professional - Deactivated"),"Professional - Deactivated", NULL)   + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Enterprise - Deactivated"),"Enterprise - Deactivated", NULL)  + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Does NOT Qualify"),"Does NOT Qualify", NULL)  + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_White_Label__c,"Professional - Inactive (Will Not Use)"),"Professional - Inactive (Will Not Use)", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Competitor SRFP White Label</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_Venue_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.CSN_ID__c</formula>
+        <label>Competitor Venue Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EM_License_Type__c</fullName>
+        <description>Last update based on GR-0963</description>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Premier Marketing Program Print"), "Premier Marketing Program Print ;", NULL) +   
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Premier Marketing Program Digital"), "Premier Marketing Program Digital ;", NULL)  + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Enhanced Marketing Program"), "Enhanced Marketing Program ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Standard Marketing Program"), "Standard Marketing Program ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Hero Ad"), "Hero Ad ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Banner Ad"), "Banner Ad ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Platinum - Front Cover"), "Platinum - Front Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Platinum - Inside Front Cover"), "Platinum - Inside Front Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Platinum - Back Cover"), "Platinum - Back Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Platinum - Inside Back Cover"), "Platinum - Inside Back Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Platinum - Display Ad"), "Platinum - Display Ad ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Gold Print - Front Cover"), "Gold Print - Front Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Gold Print - Inside Front Cover"), "Gold Print - Inside Front Cover ;", NULL) +
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Gold Print - Back Cover"), "Gold Print - Back Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Gold Print - Inside Back Cover"), "Gold Print - Inside Back Cover ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Gold Print - Display Ad"), "Gold Print - Display Ad ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Attendee Hub"), "Attendee Hub ;", NULL) + 
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Half Standard Marketing Program"), "Half Standard Marketing Program ;", NULL) +
+IF(INCLUDES( Competitor_Account__r.Purchased_License__c, "Lead Link"), "Lead Link", NULL)</formula>
+        <label>Competitor EM Purchased License For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HC_Share_of_Wallet_Client__c</fullName>
+        <externalId>false</externalId>
+        <formula>Competitor_Account__r.HC_Share_of_Wallet_Client__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>HC Share of Wallet $ (Client)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MMA__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Competitor_Account__r.MetroArea__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MMA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SRFP_License_Type__c</fullName>
+        <description>Last update based on GR-0963</description>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Half Standard Visibility Package"), "Half Standard Visibility Package", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Premier Visibility Package"), "Premier Visibility Package", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Enhanced Visibility Package"), "Enhanced Visibility Package", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Standard Visibility Package"), "Standard Visibility Package", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Banner Ad"), "Banner Ad", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Hero Ad"), "Hero Ad", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Featured Search"), "Featured Search", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Recommended Hotels"), "Recommended Hotels", NULL) + BR() + 
+IF(INCLUDES( Competitor_Account__r.SRFP_Purchased_License_For__c, "Planner Dashboard /Suggested Search"), "Planner Dashboard /Suggested Search", NULL)</formula>
+        <label>Competitor SRFP Purchased License For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>HC Competitive Set</label>
+    <nameField>
+        <displayFormat>{00000}</displayFormat>
+        <label>HC Competitive Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>HC Competitive Sets</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

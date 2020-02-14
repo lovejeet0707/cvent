@@ -400,7 +400,7 @@ global without sharing class CventMyd_LegacyContractValidator {
             
             SBQQ__Quote__r.SBQQ__EndDate__c,
 
-            SBQQ__Quote__r.SBQQ__StartDate__c,renewalChainMaster__c,RecordTypeId,
+            SBQQ__Quote__r.SBQQ__StartDate__c,renewalChainMaster__c,
 
             (SELECT
 

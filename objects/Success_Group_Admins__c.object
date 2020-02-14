@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>User_ID_15_Digit__c</fullName>
+        <externalId>false</externalId>
+        <label>User ID (15 Digit)</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Enable Admins to Add/Remove success groups in Community.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Success Group Admins</label>
+    <visibility>Public</visibility>
+</CustomObject>

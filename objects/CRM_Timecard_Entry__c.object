@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Auto__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this record auto generated?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this record auto generated?</inlineHelpText>
+        <label>Auto?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CRM_Project_Work_Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CRM Project Work Item</label>
+        <referenceTo>CRM_Project_Item__c</referenceTo>
+        <relationshipName>CRM_Timecard_Entries</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CRM_Timecard__c</fullName>
+        <externalId>false</externalId>
+        <label>CRM Timecard</label>
+        <referenceTo>CRM_Timecard__c</referenceTo>
+        <relationshipName>CRM_Timecard_Entries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_1__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 1 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 1 for that week</inlineHelpText>
+        <label>Day 1</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_2__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 2 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 2 for that week</inlineHelpText>
+        <label>Day 2</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_3__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 3 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 3 for that week</inlineHelpText>
+        <label>Day 3</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_4__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 4 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 4 for that week</inlineHelpText>
+        <label>Day 4</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_5__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 5 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 5 for that week</inlineHelpText>
+        <label>Day 5</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_6__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 6 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 6 for that week</inlineHelpText>
+        <label>Day 6</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_7__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Identifies the amount of work done on Day 7 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 7 for that week</inlineHelpText>
+        <label>Day 7</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Project_Work_Item__r.CRM_Project__r.Project_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team_Member__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Timecard__r.Team_Member__r.FirstName &amp; ' ' &amp; CRM_Timecard__r.Team_Member__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team Member</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Represents the type of work</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the type of work</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cases</fullName>
+                    <default>true</default>
+                    <label>Cases</label>
+                </value>
+                <value>
+                    <fullName>Support/Transactional Work</fullName>
+                    <default>false</default>
+                    <label>Support/Transactional Work</label>
+                </value>
+                <value>
+                    <fullName>Projects</fullName>
+                    <default>false</default>
+                    <label>Projects</label>
+                </value>
+                <value>
+                    <fullName>Others - Dev Related</fullName>
+                    <default>false</default>
+                    <label>Others - Dev Related</label>
+                </value>
+                <value>
+                    <fullName>Others - Admin Related</fullName>
+                    <default>false</default>
+                    <label>Others - Admin Related</label>
+                </value>
+                <value>
+                    <fullName>Others - Meetings</fullName>
+                    <default>false</default>
+                    <label>Others - Meetings</label>
+                </value>
+                <value>
+                    <fullName>On Duty - Travel</fullName>
+                    <default>false</default>
+                    <label>On Duty - Travel</label>
+                </value>
+                <value>
+                    <fullName>On Duty - CU</fullName>
+                    <default>false</default>
+                    <label>On Duty - CU</label>
+                </value>
+                <value>
+                    <fullName>On Duty - Team Building</fullName>
+                    <default>false</default>
+                    <label>On Duty - Team Building</label>
+                </value>
+                <value>
+                    <fullName>Innovation/Ideation</fullName>
+                    <default>false</default>
+                    <label>Innovation/Ideation</label>
+                </value>
+                <value>
+                    <fullName>Proof of Concept/Demo</fullName>
+                    <default>false</default>
+                    <label>Proof of Concept/Demo</label>
+                </value>
+                <value>
+                    <fullName>Training/KT</fullName>
+                    <default>false</default>
+                    <label>Training/KT</label>
+                </value>
+                <value>
+                    <fullName>PTO/Holiday</fullName>
+                    <default>false</default>
+                    <label>PTO/Holiday</label>
+                </value>
+                <value>
+                    <fullName>CPQ Support</fullName>
+                    <default>false</default>
+                    <label>CPQ Support</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CRM_Timecard_Entries</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Work_Item_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Project_Work_Item__r.Subject__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Work Item Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Closed_Cases_Week__c</fullName>
+        <description>Identifies the number of closed cases in this week.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the number of closed cases in this week.</inlineHelpText>
+        <label># of Closed Cases (Week)</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represents one entry under a given timecard</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Timecard Entry</label>
+    <nameField>
+        <label>Entry #</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Timecard Entries</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

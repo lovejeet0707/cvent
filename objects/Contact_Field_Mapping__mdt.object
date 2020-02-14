@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Contact_Field_APIName__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Contact Field APIName</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL_Parameter_Mapped__c</fullName>
+        <description>The parameter values which we received from the URL and needs to map with Contact Field.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>URL Parameter Mapped</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <description>This field mapping is used in PayGo for Lead Conversion.</description>
+    <label>Contact Field Mapping</label>
+    <pluralLabel>Contact Field Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

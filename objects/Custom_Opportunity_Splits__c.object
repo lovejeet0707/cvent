@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>BCT_Factor_Pct__c</fullName>
+        <description>If this record is a Revenue split the pct displayed is the split amount / by the BCT Factor (combination of Product Family and Bookings Classification).  If the record is an Overlay split the pct displayed is the split amount / Oppy Amount.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Split_Type__c, "Revenue"), Split_Amount__c / BCT_Factor_Total__c , Split_Amount__c /  Opportunity__r.Amount )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>If this record is a Revenue split the pct displayed is the split amount / by the BCT Factor (combination of Product Family and Bookings Classification).  If the record is an Overlay split the pct displayed is the split amount / Oppy Amount.</inlineHelpText>
+        <label>BCT Factor Pct</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>BCT_Factor_Total__c</fullName>
+        <description>Sum of all the bookings classification records that have the same Product Family and Bookings Classification.</description>
+        <externalId>false</externalId>
+        <label>BCT Factor Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Booking_Classification_Record__c</fullName>
+        <deleteConstraint>Cascade</deleteConstraint>
+        <description>Revenue splits should always sum to the Booking Classification combination of Product Family and Bookings Classification (PF x BC).</description>
+        <externalId>false</externalId>
+        <label>Booking Classification Record</label>
+        <referenceTo>Booking_Classification__c</referenceTo>
+        <relationshipLabel>Custom Opportunity Splits</relationshipLabel>
+        <relationshipName>Custom_Opportunity_Splits1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bookings_Classification__c</fullName>
+        <description>Indicates 1 of 4 bookings classifications as defined by the business. Bookings Classifications are NBB (New Booked Business), MYD (Multi-Year Deal), Renewal and Other.</description>
+        <externalId>false</externalId>
+        <label>Bookings Classification</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Bookings_Classification</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Credit_Type__c</fullName>
+        <description>User defined field to indicate the nature of a Team Members contribution.</description>
+        <externalId>false</externalId>
+        <label>Credit Type</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Split_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Specified</fullName>
+                    <default>true</default>
+                    <label>Not Specified</label>
+                </value>
+                <value>
+                    <fullName>Brand</fullName>
+                    <default>false</default>
+                    <label>Brand</label>
+                </value>
+                <value>
+                    <fullName>Property</fullName>
+                    <default>false</default>
+                    <label>Property</label>
+                </value>
+                <value>
+                    <fullName>Ownership Group</fullName>
+                    <default>false</default>
+                    <label>Ownership Group</label>
+                </value>
+                <value>
+                    <fullName>Management Company</fullName>
+                    <default>false</default>
+                    <label>Management Company</label>
+                </value>
+                <value>
+                    <fullName>Ad Agency</fullName>
+                    <default>false</default>
+                    <label>Ad Agency</label>
+                </value>
+                <value>
+                    <fullName>Event Cloud</fullName>
+                    <default>false</default>
+                    <label>Event Cloud</label>
+                </value>
+                <value>
+                    <fullName>TSC Team</fullName>
+                    <default>false</default>
+                    <label>TSC Team</label>
+                </value>
+                <value>
+                    <fullName>OS DS Team</fullName>
+                    <default>false</default>
+                    <label>OS DS Team</label>
+                </value>
+                <value>
+                    <fullName>VST</fullName>
+                    <default>false</default>
+                    <label>VST</label>
+                </value>
+                <value>
+                    <fullName>Demo/RFP Team</fullName>
+                    <default>false</default>
+                    <label>Demo/RFP Team</label>
+                </value>
+                <value>
+                    <fullName>IQ Team</fullName>
+                    <default>false</default>
+                    <label>IQ Team</label>
+                </value>
+                <value>
+                    <fullName>Mobile Solutions Team</fullName>
+                    <default>false</default>
+                    <label>Mobile Solutions Team</label>
+                </value>
+                <value>
+                    <fullName>Business Transient</fullName>
+                    <default>false</default>
+                    <label>Business Transient</label>
+                </value>
+                <value>
+                    <fullName>Passkey</fullName>
+                    <default>false</default>
+                    <label>Passkey</label>
+                </value>
+                <value>
+                    <fullName>AM Influence</fullName>
+                    <default>false</default>
+                    <label>AM Influence</label>
+                </value>
+                <value>
+                    <fullName>AM-HC</fullName>
+                    <default>false</default>
+                    <label>AM-HC</label>
+                </value>
+                <value>
+                    <fullName>Auxiliary Sales - HC</fullName>
+                    <default>false</default>
+                    <label>Auxiliary Sales - HC</label>
+                </value>
+                <value>
+                    <fullName>International DS</fullName>
+                    <default>false</default>
+                    <label>International DS</label>
+                </value>
+                <value>
+                    <fullName>Social Tables</fullName>
+                    <default>false</default>
+                    <label>Social Tables</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Not Specified</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Brand</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Property</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Ownership Group</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Management Company</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Ad Agency</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Revenue</controllingFieldValue>
+                <valueName>Event Cloud</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>TSC Team</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>OS DS Team</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>VST</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Demo/RFP Team</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>IQ Team</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Mobile Solutions Team</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Business Transient</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Passkey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>AM Influence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>AM-HC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Auxiliary Sales - HC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>International DS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Overlay</controllingFieldValue>
+                <valueName>Social Tables</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity_ID__c</fullName>
+        <description>Display ID of the Parent Opportunity.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <description>Standard Opportunity is Master to Custom Opportunity splits.</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Custom Opportunity Splits</relationshipLabel>
+        <relationshipName>Custom_Opportunity_Splits1</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Origin_Split__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the split was created via the origin process.</description>
+        <externalId>false</externalId>
+        <label>Origin Split</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <description>A mid level categorization of an individual product that is used in classification of bookings line item.</description>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Split_Amount_USD__c</fullName>
+        <description>This is the split amount translated into USD dollars according to the exchange rate written on the Parent Opportunity.</description>
+        <externalId>false</externalId>
+        <formula>Split_Amount__c / Opportunity__r.Exchange_Rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Split Amount (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Split_Amount__c</fullName>
+        <description>The portion of the total revenue split line item as defined by the combination of Product Family and Bookings Classifications.</description>
+        <externalId>false</externalId>
+        <label>Split Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Split_Type__c</fullName>
+        <description>Revenue is split to each team member according to Product Family and Bookings Classification combination.  The sum of the revenue splits must equal the amount on the related opportunity.  Overlay splits can be applied if credit is greater than 100% of the sum of the opportunity.</description>
+        <externalId>false</externalId>
+        <label>Split Type</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Revenue</fullName>
+                    <default>false</default>
+                    <label>Revenue</label>
+                </value>
+                <value>
+                    <fullName>Overlay</fullName>
+                    <default>false</default>
+                    <label>Overlay</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Team_Member_Role__c</fullName>
+        <description>Lookup to Team Member Role Name</description>
+        <externalId>false</externalId>
+        <formula>Team_Member__r.UserRole.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Team Member Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identifies to whom the opportunity spit is being assigned.</description>
+        <externalId>false</externalId>
+        <label>Team Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Custom_Opportunity_Splits1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Weighted_Split_Amount_USD__c</fullName>
+        <description>This is the weighted split amount translated into USD dollars according to the exchange rate written on the Parent Opportunity.</description>
+        <externalId>false</externalId>
+        <formula>(Split_Amount__c / Opportunity__r.Exchange_Rate__c)  * Opportunity__r.Probability</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Weighted Split Amount (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Weighted_Split_Amount__c</fullName>
+        <description>Opportunity probability portion of split.</description>
+        <externalId>false</externalId>
+        <formula>Split_Amount__c *   Opportunity__r.Probability</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Weighted Split Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>index__c</fullName>
+        <externalId>false</externalId>
+        <label>index</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom Opportunity Splits (COS) has been designed to give users enhanced splits capabilities for Revenue and Overlay type splits.  In addition to Team Members, COS supports two additional split dimensions, Product Family and Bookings Classifications.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Custom Opportunity Splits</label>
+    <nameField>
+        <displayFormat>COS-{00000}</displayFormat>
+        <label>Split ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Custom Opportunity Splits</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Assign_Splits</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Assign Splits (New)</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/CustomSplits?opportunityIdString={!Opportunity.Id}</url>
+    </webLinks>
+</CustomObject>

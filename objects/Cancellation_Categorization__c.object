@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Cancellation Categorization</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Cancellation Categorization</label>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All_Types</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Types</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>CRM_Management_Group</group>
+        </sharedTo>
+    </listViews>
+</CustomObject>

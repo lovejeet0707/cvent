@@ -1,0 +1,19 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml">
+
+  <table table-layout="fixed" width="100%" border="1px white solid" >
+      <table-body border="1px white solid"> 
+          <table-row color="white" border="1px white solid">
+                        <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" width="450px">
+                            <block text-align="left" font-weight="bold">
+                                <apex:outputText value="Overage Fees"></apex:outputText>
+                            </block>
+                        </table-cell>
+                         <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" width="90px" border="1px white solid">
+                            <block text-align="center" font-weight="bold">
+                                <apex:outputText value="Price"></apex:outputText>
+                            </block>
+                        </table-cell>
+          </table-row>
+      </table-body>    
+   </table>
+</apex:page>

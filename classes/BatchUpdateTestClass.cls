@@ -1,5 +1,5 @@
 @isTest
-private class BatchUpdateTestClass{
+public class BatchUpdateTestClass{
     
     static testMethod void batchUpdateContactsTest()
     {
@@ -27,7 +27,7 @@ private class BatchUpdateTestClass{
         
         Test.startTest();
         String CRON_EXP1 = '0 0 0 1 1 ? 2025';  
-        String jobId1 = System.schedule('schedulerBatchUpdateContacts', CRON_EXP1, new schedulerBatchUpdateContacts() );
+        String jobId1 = System.schedule('schedulerBatchUpdateContacts', CRON_EXP1, new SchedulerBatchUpdateContacts() );
         
         CronTrigger ct1 = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId1];
         
@@ -65,7 +65,7 @@ private class BatchUpdateTestClass{
         
         Test.startTest();
         String CRON_EXP1 = '0 0 0 1 1 ? 2025';  
-        String jobId1 = System.schedule('schedulerBatchUpdateLeads', CRON_EXP1, new schedulerBatchUpdateLeads() );
+        String jobId1 = System.schedule('schedulerBatchUpdateLeads', CRON_EXP1, new SchedulerBatchUpdateLeads() );
         
         CronTrigger ct1 = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId1];
         

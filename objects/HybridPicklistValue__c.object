@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>HybridValue__c</fullName>
+        <externalId>false</externalId>
+        <label>HybridValue</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>It is used in Tract</description>
+    <enableFeeds>false</enableFeeds>
+    <label>HybridPicklistValue</label>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All_data</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>HybridValue__c</columns>
+        <columns>SETUP_OWNER_NAME</columns>
+        <columns>SETUP_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All data</label>
+        <language>en_US</language>
+    </listViews>
+</CustomObject>

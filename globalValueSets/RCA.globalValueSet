@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Attitude</fullName>
+        <default>false</default>
+        <label>Attitude</label>
+    </customValue>
+    <customValue>
+        <fullName>Attitude &amp; behavior Issue</fullName>
+        <default>false</default>
+        <label>Attitude &amp; behavior Issue</label>
+    </customValue>
+    <customValue>
+        <fullName>Attitude &amp; behavior Issue +Comunication</fullName>
+        <default>false</default>
+        <label>Attitude &amp; behavior Issue +Comunication</label>
+    </customValue>
+    <customValue>
+        <fullName>Attitude &amp; behavior Issue + Knowledge</fullName>
+        <default>false</default>
+        <label>Attitude &amp; behavior Issue + Knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Attitude &amp; behavior Issue + Logic vs real product knowledge</fullName>
+        <default>false</default>
+        <label>Attitude &amp; behavior Issue + Logic vs real product knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Communication</fullName>
+        <default>false</default>
+        <label>Communication</label>
+    </customValue>
+    <customValue>
+        <fullName>Communication + Attitude &amp; behavior Issue</fullName>
+        <default>false</default>
+        <label>Communication + Attitude &amp; behavior Issue</label>
+    </customValue>
+    <customValue>
+        <fullName>Communication + Knowledge</fullName>
+        <default>false</default>
+        <label>Communication + Knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Communication + Logic vs real product knowledge</fullName>
+        <default>false</default>
+        <label>Communication + Logic vs real product knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Knowledge</fullName>
+        <default>false</default>
+        <label>Knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Knowledge + Attitude &amp; behavior Issue</fullName>
+        <default>false</default>
+        <label>Knowledge + Attitude &amp; behavior Issue</label>
+    </customValue>
+    <customValue>
+        <fullName>Knowledge + Communication</fullName>
+        <default>false</default>
+        <label>Knowledge + Communication</label>
+    </customValue>
+    <customValue>
+        <fullName>Logic vs real product knowledge</fullName>
+        <default>false</default>
+        <label>Logic vs real product knowledge</label>
+    </customValue>
+    <customValue>
+        <fullName>Logic vs real product knowledge + Attitude &amp; behavior Issue</fullName>
+        <default>false</default>
+        <label>Logic vs real product knowledge + Attitude &amp; behavior Issue</label>
+    </customValue>
+    <customValue>
+        <fullName>Logic vs real product knowledge + Communication</fullName>
+        <default>false</default>
+        <label>Logic vs real product knowledge + Communication</label>
+    </customValue>
+    <customValue>
+        <fullName>Logic vs real product knowledge + Knowledge</fullName>
+        <default>false</default>
+        <label>Logic vs real product knowledge + Knowledge</label>
+    </customValue>
+    <description>Used in Trainee Object</description>
+    <masterLabel>RCA</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

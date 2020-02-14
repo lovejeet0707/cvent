@@ -1,0 +1,228 @@
+<apex:page id="pageId" title="Web2Case" standardController="Case" extensions="Web_To_Case_Class" applyHtmlTag="true" docType="html-5.0" cache="false"
+    showHeader="false">
+    <script type="text/javascript">
+        window.onload = function () {
+            var field1 = document.getElementById('pageId:form:hiddenField1');
+            if (field1.value == 'false') {
+                var formVar = document.getElementById('pageId:form');
+                formVar.style.display = 'none';
+
+                var formMessage = document.getElementById('cmpletion_Message');
+                formMessage.style.display = formMessage.style.display === 'none' ? '' : 'none';
+            }
+
+            var emailField = document.getElementById('pageId:form:ReqEmail');
+            emailField.type = 'email';
+
+            var urlField = document.getElementById('pageId:form:AfcRec');
+            urlField.type = 'url';
+        }
+
+        function hideForm(btn1) {
+            var field1 = document.getElementById('pageId:form:hiddenField1');
+            field1.value = false;
+
+            var allFields = document.querySelectorAll('input,textarea,select');
+
+            var reqFieldMissing = 'false';
+            for (index = 0; index < allFields.length; ++index) {
+                var values = allFields[index].value.trim();
+                if (reqFieldMissing == 'false' && allFields[index].required && values == '') {
+                    reqFieldMissing = 'true';
+                    break;
+                }
+            }
+
+            if (reqFieldMissing == 'true') {
+                alert('Please populate all the required fields');
+                return false;
+            }
+            return true;
+
+        }
+
+        function formSubmit() {
+            var btn1 = document.getElementById('pageId:form:btn');
+            btn1.style.display = 'none';
+
+            var btn2 = document.getElementById('pageId:form:btn1');
+            btn2.style.display = btn2.style.display === 'none' ? '' : 'none';
+        }
+
+        function checkSize() {
+            var field1 = document.getElementById('pageId:form:attachmentID');
+            var uploadFileSize = field1.files[0].size;
+
+            if (uploadFileSize > 1024 * 1024 * 5) {
+                alert('Attachment size exceeded 5 MB. Your attached file size is: ' + (Math.round(uploadFileSize / (1024 * 1024))) + ' MB');
+                field1.value = '';
+            }
+        }
+    </script>
+    <style type="text/css">
+        .top_fixed {
+            height: auto;
+            text-align: center;
+            z-index: 999;
+            position: relative;
+            bottom: -80px;
+        }
+
+        .top_fixed img {
+            width: 250px;
+        }
+
+        body .herosales {
+            margin: 0 auto;
+            float: left;
+            width: 80%;
+            display: inline-grid;
+            padding: 10px;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 50%;
+            border: 10px solid #03a2e0;
+            height: auto;
+            padding: 75px;
+            display: grid;
+            box-shadow: 2px 2px 15px 7px #333;
+        }
+
+        body .btn {
+            width: 250px;
+            font-size: 16px;
+            margin: 0 auto;
+            border-radius: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            height: 50px;
+            padding: 17px 19px;
+            background: #03a2e0;
+            color: #fff;
+        }
+
+        .mar-up-bot {
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .form_label {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .form_sizeLimit {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .fieldsitem {
+            height: 23px;
+            width: 100%;
+        }
+
+        .fieldsitemPicklist {
+            height: 23px;
+            width: 100.5%;
+        }
+
+        .fieldsitemdescription {
+            height: 100px;
+            width: 100%;
+            resize: none;
+        }
+
+        .fieldsitemAttachment {
+            height: 20px;
+            width: 100%;
+        }
+
+        .textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form_message {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+    <div class="top_fixed">
+        <img src="https://www.cvent.com/sites/default/files/image/2019-11/salesforce-logo.png" />
+    </div>
+    <div id="Wrapper" class="wrapper">
+        <apex:form id="form" styleClass="herosales" onsubmit="formSubmit()">
+            <apex:outputLabel styleClass="form_label">Category
+                <span style="color:#FF0000;font-size: 18px">*</span>
+            </apex:outputLabel>
+            <apex:inputField required="true" id="Category" label="Category" value="{!Case.Category__c}" styleClass="mar-up-bot fieldsitemPicklist"
+            />
+
+            <apex:outputLabel styleClass="form_label">Summary of Issue
+                <span style="color:#FF0000;font-size: 18px">*</span>
+            </apex:outputLabel>
+            <apex:inputField label="Subject" required="true" value="{!Case.Subject}" styleClass="mar-up-bot fieldsitem" id="Subject"
+            />
+
+            <apex:outputLabel styleClass="form_label">Issue Description
+                <span style="color:#FF0000;font-size: 18px">*</span>
+            </apex:outputLabel>
+            <apex:inputField id="Description" label="Description" required="true" value="{!Case.Description}" styleClass="mar-up-bot fieldsitemdescription"
+            />
+
+            <!--<apex:outputLabel styleClass="form_label">Requester Name:
+                <span style="color:#FF0000;font-size: 18px">*</span>
+            </apex:outputLabel>
+            <apex:inputField id="ReqName" required="true" value="{!Case.SuppliedName}" styleClass="mar-up-bot fieldsitem" />-->
+
+            <apex:outputLabel styleClass="form_label">Requester Email
+                <span style="color:#FF0000;font-size: 18px">*</span>
+            </apex:outputLabel>
+            <apex:inputField id="ReqEmail" required="true" value="{!Case.SuppliedEmail}" styleClass="mar-up-bot fieldsitem" />
+
+            <!--<apex:outputLabel styleClass="form_label" value="Requester Department:" />
+            <apex:inputField id="ReqDept" label="Requester Department" value="{!Case.Requestor_Department__c}" styleClass="mar-up-bot fieldsitemPicklist"
+            />-->
+
+
+
+            <apex:outputLabel styleClass="form_label" value="Affected Record URL" />
+            <apex:inputField id="AfcRec" value="{!Case.Affected_Records_URL__c}" styleClass="mar-up-bot fieldsitem" />
+
+            <!--<apex:outputLabel styleClass="form_label" value="Steps to Replicate Issue (If applicable):" />
+            <br/>
+            <apex:inputField id="steps" value="{!Case.Steps_to_Replicate__c}" styleClass="mar-up-bot fieldsitemdescription" />-->
+
+            <br/>
+            <br/>
+
+            <apex:outputLabel styleClass="form_label">Attachment
+                <span class="form_sizeLimit">(Maximum 5 MB)</span>
+            </apex:outputLabel>
+            <apex:inputFile id="attachmentID" styleclass="mar-up-bot fieldsitemAttachment" value="{!file}" fileName="{!fileName}" onchange="checkSize()"
+            />
+
+            <br/>
+            <br/>
+            <br/>
+            <apex:actionRegion >
+                <apex:commandButton value="Submit" action="{!SaveCase}" id="btn" styleClass="btn mar-up-bot" onclick="return hideForm(this)"
+                />
+                <apex:commandButton value="Submit" id="btn1" styleClass="btn mar-up-bot" style="display: none;" disabled="true" />
+            </apex:actionRegion>
+
+            <apex:inputHidden value="{!showfields}" id="hiddenField1" />
+        </apex:form>
+
+        <span id="cmpletion_Message" style="display: none;">
+            <apex:outputText styleClass="form_message" value="Thank you for submitting the case. You will be notified of the case details in a separate email."
+            />
+        </span>
+    </div>
+</apex:page>

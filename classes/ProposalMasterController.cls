@@ -233,7 +233,7 @@ public without sharing class ProposalMasterController {
                         SBQQ__RequiredBy__r.SBQQ__RequiredBy__r.OnArrival_360_Event_Selection__r.Venue_Name__c,
                         SBQQ__RequiredBy__r.OnArrival_360_Event_Selection__r.Venue_Name__c, OnArrival_360_Event_Selection__r.Venue_Name__c,
                         SBQQ__EffectiveStartDate__c, SBQQ__EffectiveEndDate__c, Year_2_Start_Date__c, Year_2_End_Date__c, Year_3_Start_Date__c, Year_3_End_Date__c,
-                        Year_4_Start_Date__c, Year_4_End_Date__c, Year_5_Start_Date__c, Year_5_End_Date__c, SA_Start_Date__c, SA_End_Date__c,term__c
+                        Year_4_Start_Date__c, Year_4_End_Date__c, Year_5_Start_Date__c, Year_5_End_Date__c
                 from SBQQ__QuoteLine__c
                 where SBQQ__Quote__c in :fullQuoteList
         ];
@@ -1005,40 +1005,33 @@ public without sharing class ProposalMasterController {
         System.debug(System.LoggingLevel.INFO, 'in create event table');
         Decimal rackRate;
         if(ql.SBQQ__EffectiveQuantity__c <> 0 || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP') {
-            if (ql.term__c == 1) {
-                if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
-                    rackRate = 0;
-                    if(ql.SBQQ__ListPrice__c <> 0 && ql.SBQQ__EffectiveQuantity__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {
-                        //rackRate = (ql.Rack_Rate__c / ql.SBQQ__ListPrice__c) * ql.SBQQ__NetTotal__c / ql.SBQQ__EffectiveQuantity__c;
-                        rackRate = ql.Rack_Rate__c;
-                        
-                    }
-                    wrapper = new QLWrapper(ql.SBQQ__ProductName__c, ql.SBQQ__EffectiveQuantity__c, rackRate, rackRate * ql.SBQQ__Quantity__c, ql.SBQQ__NetPrice__c, ql.SBQQ__NetTotal__c, rackRate * ql.SBQQ__EffectiveQuantity__c - ql.SBQQ__NetTotal__c);
-                } else {
-                    wrapper = aggregateCrowdCompass(ql, 1, quoteLines);
-                    eventMatrixTable.add(1, wrapper);
-                    System.debug('CC Year 1 Wrapper added.');
+            if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
+                rackRate = 0;
+                if(ql.SBQQ__ListPrice__c <> 0 && ql.SBQQ__EffectiveQuantity__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {
+                    //rackRate = (ql.Rack_Rate__c / ql.SBQQ__ListPrice__c) * ql.SBQQ__NetTotal__c / ql.SBQQ__EffectiveQuantity__c;
+                    rackRate = ql.Rack_Rate__c;
+
                 }
-                if(ql.Notes__c != NULL) {
-                    wrapper.notes = ql.Notes__c.escapeHtml4().stripHtmlTags();
-                }
-                if(wrapper != NULL && wrapper.quantity != 0) {
-                    eventTable.add(1, wrapper);
-                }
+                wrapper = new QLWrapper(ql.SBQQ__ProductName__c, ql.SBQQ__EffectiveQuantity__c, rackRate, rackRate * ql.SBQQ__Quantity__c, ql.SBQQ__NetPrice__c, ql.SBQQ__NetTotal__c, rackRate * ql.SBQQ__EffectiveQuantity__c - ql.SBQQ__NetTotal__c);
+            } else {
+                wrapper = aggregateCrowdCompass(ql, 1, quoteLines);
+                eventMatrixTable.add(1, wrapper);
+                System.debug('CC Year 1 Wrapper added.');
+            }
+            if(ql.Notes__c != NULL) {
+                wrapper.notes = ql.Notes__c.escapeHtml4().stripHtmlTags();
+            }
+            if(wrapper != NULL && wrapper.quantity != 0) {
+                eventTable.add(1, wrapper);
             }
         }
-        else if(ql.term__c == 2 && ql.Year_2_Effective_Quantity__c != NULL  && contractTermYears > 1 && quote.Multiple_Years_Commitment__c && (ql.Year_2_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
+        if(ql.Year_2_Effective_Quantity__c != NULL  && contractTermYears > 1 && quote.Multiple_Years_Commitment__c && (ql.Year_2_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
             if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
                 //rackRate = 0;
                 if(ql.Year_2_List_Price__c <> NULL && ql.Year_2_List_Price__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {
                     //rackRate = ql.Rack_Rate__c / ql.Year_2_List_Price__c * ql.Year_2_Effective_Amount__c / ql.Year_2_Effective_Quantity__c;
                     rackRate = (ql.Rack_Rate__c / ql.SBQQ__ListPrice__c) * ql.Year_2_List_Price__c;
                 }
-                System.debug('Point of error');
-                System.debug(ql.SBQQ__ProductName__c);
-                System.debug(rackRate);
-                System.debug(ql.Year_2_Effective_Quantity__c);
-                System.debug(ql.Year_2_Effective_Amount__c);
                 wrapper = new QLWrapper(ql.SBQQ__ProductName__c, ql.Year_2_Effective_Quantity__c, rackRate, rackRate * ql.Year_2_Effective_Quantity__c, ql.Year_2_Effective_Amount__c / ql.Year_2_Effective_Quantity__c, ql.Year_2_Effective_Amount__c, rackRate * ql.Year_2_Effective_Quantity__c - ql.Year_2_Effective_Amount__c);
             } else {
                 wrapper = aggregateCrowdCompass(ql, 2, quoteLines);
@@ -1051,7 +1044,7 @@ public without sharing class ProposalMasterController {
                 eventTable.add(2, wrapper);
             }
         }
-        else if(ql.term__c == 3 && ql.Year_3_Effective_Quantity__c != NULL && contractTermYears > 2 && quote.Multiple_Years_Commitment__c && (ql.Year_3_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
+        if(ql.Year_3_Effective_Quantity__c != NULL && contractTermYears > 2 && quote.Multiple_Years_Commitment__c && (ql.Year_3_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
             if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
                 //rackRate = 0;
                 if(ql.Year_3_List_Price__c <> NULL && ql.Year_3_List_Price__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {
@@ -1070,7 +1063,7 @@ public without sharing class ProposalMasterController {
                 eventTable.add(3, wrapper);
             }
         }
-        else if(ql.term__c == 4 && ql.Year_4_Effective_Quantity__c != NULL && contractTermYears > 3 && quote.Multiple_Years_Commitment__c && (ql.Year_4_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
+        if(ql.Year_4_Effective_Quantity__c != NULL && contractTermYears > 3 && quote.Multiple_Years_Commitment__c && (ql.Year_4_Effective_Quantity__c <> 0  || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
             if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
                 //rackRate = 0;
                 if(ql.Year_4_List_Price__c <> NULL && ql.Year_4_List_Price__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {
@@ -1089,7 +1082,7 @@ public without sharing class ProposalMasterController {
                 eventTable.add(4, wrapper);
             }
         }
-        else if(ql.term__c == 5 && ql.Year_5_Effective_Quantity__c != NULL && contractTermYears > 4 && quote.Multiple_Years_Commitment__c && (ql.Year_5_Effective_Quantity__c <> 0 || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
+        if(ql.Year_5_Effective_Quantity__c != NULL && contractTermYears > 4 && quote.Multiple_Years_Commitment__c && (ql.Year_5_Effective_Quantity__c <> 0 || ql.SBQQ__ProductCode__c == 'CV-SW-EC-EVT-CCMOBAPP')) {
             if(ql.SBQQ__ProductCode__c != 'CV-SW-EC-EVT-CCMOBAPP') {
                 //rackRate = 0;
                 if(ql.Year_5_List_Price__c <> NULL && ql.Year_5_List_Price__c <> 0 && ql.SBQQ__ListPrice__c != NULL && ql.SBQQ__ListPrice__c <> 0) {

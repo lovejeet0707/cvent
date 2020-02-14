@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>CoachingAppealAlert</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Appeals_Submission_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Appeals Submission Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approver_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Approver Comments</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Approver_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Master Calibrator's Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approver_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Approver Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Review</fullName>
+                    <default>false</default>
+                    <label>In Review</label>
+                </value>
+                <value>
+                    <fullName>Closed-Appeal Approved</fullName>
+                    <default>false</default>
+                    <label>Closed-Appeal Approved</label>
+                </value>
+                <value>
+                    <fullName>Closed-Appeal Denied</fullName>
+                    <default>false</default>
+                    <label>Closed-Appeal Denied</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE((PC_CSC_Team__c),
+"CrowdCompass","Nishi Punetha",
+"eMarketing","Andy Shah",
+"Event","Andy Shah",
+"Hospitality Cloud","Saloni Thapar",
+"Inquisium","Andy Shah",
+"Event Builder","Rashmi Mehta",
+"Support Ops", "Kevin Maurer",
+"Creative Services","Rashmi Mehta",
+"Alliance Tech","Rashmi Mehta",
+"CrowdComapss- Project Coordinator","Manu Gupta",
+"Ecommerce","Ross Kumar",
+"Conference","Sofi Dhar",
+"Passkey","VJ Singh",
+"Groups","VJ Singh",
+"Meetings","Sofi Dhar",
+"Attendee Support","Hazel Kaur",
+"PS-EB","Sofi Dhar",
+"Business Transient","Neha Chauhan",
+"RegOnline","Neha Chauhan",
+"RFP Builder","Shivani Sharma",
+"CRowdCompass AppBuilder","Nishi Punetha",
+"Tier 2","Andy Shah","")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Master Calibrator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Coaching_Form_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coaching Form ID</label>
+        <referenceTo>Coaching_Form__c</referenceTo>
+        <relationshipName>Coaching_Appeal_tieds</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Coaching_Session__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coaching Session</label>
+        <referenceTo>Coaching_Session__c</referenceTo>
+        <relationshipLabel>Coaching Appeal</relationshipLabel>
+        <relationshipName>Coaching_Appeal</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Critical_Error_Dispute__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Critical Error Dispute</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Critical_Error_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Critical Error Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business CE</fullName>
+                    <default>false</default>
+                    <label>Business CE</label>
+                </value>
+                <value>
+                    <fullName>Compliance CE</fullName>
+                    <default>false</default>
+                    <label>Compliance CE</label>
+                </value>
+                <value>
+                    <fullName>End User CE</fullName>
+                    <default>false</default>
+                    <label>End User CE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Evaluator_s_Email_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Evaluator's Email ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Feedback_Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Feedback Delivery Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Approver_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Approver Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Approver_s_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Approver's Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PC_CSC_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>PC/CSC Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Coaching_Appeal_tieds1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PC_CSC_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>PC/CSC Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Hospitality Cloud</fullName>
+                    <default>false</default>
+                    <label>Hospitality Cloud</label>
+                </value>
+                <value>
+                    <fullName>Inquisium</fullName>
+                    <default>false</default>
+                    <label>Inquisium</label>
+                </value>
+                <value>
+                    <fullName>Learning &amp; Development</fullName>
+                    <default>false</default>
+                    <label>Learning &amp; Development</label>
+                </value>
+                <value>
+                    <fullName>Creative Services</fullName>
+                    <default>false</default>
+                    <label>Creative Services</label>
+                </value>
+                <value>
+                    <fullName>Event Builder</fullName>
+                    <default>false</default>
+                    <label>Event Builder</label>
+                </value>
+                <value>
+                    <fullName>SignUp4</fullName>
+                    <default>false</default>
+                    <label>SignUp4</label>
+                </value>
+                <value>
+                    <fullName>Alliance Tech by Cvent</fullName>
+                    <default>false</default>
+                    <label>Alliance Tech by Cvent</label>
+                </value>
+                <value>
+                    <fullName>Support Ops</fullName>
+                    <default>false</default>
+                    <label>Support Ops</label>
+                </value>
+                <value>
+                    <fullName>Alliance Tech</fullName>
+                    <default>false</default>
+                    <label>Alliance Tech</label>
+                </value>
+                <value>
+                    <fullName>CrowdComapss- Project Coordinator</fullName>
+                    <default>false</default>
+                    <label>CrowdComapss- Project Coordinator</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce</fullName>
+                    <default>false</default>
+                    <label>Ecommerce</label>
+                </value>
+                <value>
+                    <fullName>Conference</fullName>
+                    <default>false</default>
+                    <label>Conference</label>
+                </value>
+                <value>
+                    <fullName>Passkey</fullName>
+                    <default>false</default>
+                    <label>Passkey</label>
+                </value>
+                <value>
+                    <fullName>Groups</fullName>
+                    <default>false</default>
+                    <label>Groups</label>
+                </value>
+                <value>
+                    <fullName>Meetings</fullName>
+                    <default>false</default>
+                    <label>Meetings</label>
+                </value>
+                <value>
+                    <fullName>Attendee Support</fullName>
+                    <default>false</default>
+                    <label>Attendee Support</label>
+                </value>
+                <value>
+                    <fullName>PS-EB</fullName>
+                    <default>false</default>
+                    <label>PS-EB</label>
+                </value>
+                <value>
+                    <fullName>Business Transient</fullName>
+                    <default>false</default>
+                    <label>Business Transient</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass AppBuilder</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass AppBuilder</label>
+                </value>
+                <value>
+                    <fullName>Tier 2</fullName>
+                    <default>false</default>
+                    <label>Tier 2</label>
+                </value>
+                <value>
+                    <fullName>RFP Builder</fullName>
+                    <default>false</default>
+                    <label>RFP Builder</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Parameter_Mark_Down__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Parameter Mark Down</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Review Pending</fullName>
+                    <default>false</default>
+                    <label>Review Pending</label>
+                </value>
+                <value>
+                    <fullName>In Review</fullName>
+                    <default>false</default>
+                    <label>In Review</label>
+                </value>
+                <value>
+                    <fullName>Need more information</fullName>
+                    <default>false</default>
+                    <label>Need more information</label>
+                </value>
+                <value>
+                    <fullName>Closed-Appeal Approved</fullName>
+                    <default>false</default>
+                    <label>Closed-Appeal Approved</label>
+                </value>
+                <value>
+                    <fullName>Closed-Appeal Denied</fullName>
+                    <default>false</default>
+                    <label>Closed-Appeal Denied</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Who_is_the_Evaluator__c</fullName>
+        <externalId>false</externalId>
+        <formula>Coaching_Form_ID__r.Owner:User.FirstName +" "+  Coaching_Form_ID__r.Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Who is the Evaluator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Why_do_you_disagree_with_the_rating_give__c</fullName>
+        <externalId>false</externalId>
+        <label>Why do you disagree with rating given?</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Migration of Coaching Appeal Form - SK</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Coaching Appeal</label>
+    <nameField>
+        <displayFormat>CA-{0000}</displayFormat>
+        <label>Coaching Appeal Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Coaching Appeal</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <validationRules>
+        <fullName>Approver_Status_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(
+AND(ISCHANGED( Approver_Status__c),($User.FirstName+" "+ $User.LastName)&lt;&gt;Final_Approver_Name__c),
+AND(ISNEW(),NOT(ISPICKVAL(Approver_Status__c,"" )))),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorMessage>Only Approver can change the Approver status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Approver_comment_to_be_mandatory</fullName>
+        <active>true</active>
+        <description>Approver_comment_to_be_mandatory when changing Approval status</description>
+        <errorConditionFormula>AND(ISCHANGED( Approver_Status__c), ISBLANK( Approver_Comments__c),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) )</errorConditionFormula>
+        <errorMessage>Please enter Approver Comments</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Approver_can_add_comment</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND((ISCHANGED( Approver_Comments__c)),
+(($User.FirstName+" "+ $User.LastName)&lt;&gt;Final_Approver_Name__c),NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")))</errorConditionFormula>
+        <errorMessage>Only Approver can add comments</errorMessage>
+    </validationRules>
+</CustomObject>

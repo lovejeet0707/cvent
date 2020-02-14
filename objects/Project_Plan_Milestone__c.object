@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Addnl_Info_Received_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Addnl Info Received-Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Launch_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Launch Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Setup_Call_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Setup Call Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Testing_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Testing Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FD_Completed_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Draft Completed Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1st_ROC_Completed_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>1st ROC Completed Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1st_ROC_Received_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>1st ROC Received Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2nd_ROC_Completed_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd ROC Completed Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2nd_ROC_Received_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd ROC Received Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3rd_ROC_Completed_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>3rd ROC Completed Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3rd_ROC_Received_Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>3rd ROC Received Expected Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Calculate Weekdays for Milestone based on Request Type and Complexity of a Case.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Project Plan Milestone</label>
+    <visibility>Public</visibility>
+</CustomObject>

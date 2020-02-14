@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Filter_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Filter Value ( From Action Column )</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Contains Filters for Setup and Audit Trail Changes for Batch</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Setup Audit Changes Batch Filter</label>
+    <visibility>Public</visibility>
+</CustomObject>

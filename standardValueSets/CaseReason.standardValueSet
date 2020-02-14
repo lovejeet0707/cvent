@@ -1,0 +1,4060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>1 Star Marketing Package Activation</fullName>
+        <default>false</default>
+        <label>1 Star Marketing Package Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>1 Star Marketing Package Deactivation</fullName>
+        <default>false</default>
+        <label>1 Star Marketing Package Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>2 Star Marketing Package Activation</fullName>
+        <default>false</default>
+        <label>2 Star Marketing Package Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>2 Star Marketing Package Deactivation</fullName>
+        <default>false</default>
+        <label>2 Star Marketing Package Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>3 Star Marketing Package Activation</fullName>
+        <default>false</default>
+        <label>3 Star Marketing Package Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>3 Star Marketing Package Deactivation</fullName>
+        <default>false</default>
+        <label>3 Star Marketing Package Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>508 compliance</fullName>
+        <default>false</default>
+        <label>508 compliance</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Aberdeen whitepaper downloads</fullName>
+        <default>false</default>
+        <label>Aberdeen whitepaper downloads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Contact Changes</fullName>
+        <default>false</default>
+        <label>Account Contact Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Creation &amp; Login Instructions</fullName>
+        <default>false</default>
+        <label>Account Creation &amp; Login Instructions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Event Templates</fullName>
+        <default>false</default>
+        <label>Account Event Templates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account ReFlag/Rebrand</fullName>
+        <default>false</default>
+        <label>Account ReFlag/Rebrand</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Shut Down</fullName>
+        <default>false</default>
+        <label>Account Shut Down</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Add/Remove Venue from Network</fullName>
+        <default>false</default>
+        <label>Add/Remove Venue from Network</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Add Client as a Reference in SF</fullName>
+        <default>false</default>
+        <label>Add Client as a Reference in SF</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Additional Feature Required</fullName>
+        <default>false</default>
+        <label>Additional Feature Required</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Additional Page Text</fullName>
+        <default>false</default>
+        <label>Additional Page Text</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Black/Gray List</fullName>
+        <default>false</default>
+        <label>Address Book-Black/Gray List</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Contact Groups</fullName>
+        <default>false</default>
+        <label>Address Book-Contact Groups</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Contact Segmentation</fullName>
+        <default>false</default>
+        <label>Address Book-Contact Segmentation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Contact Snapshot</fullName>
+        <default>false</default>
+        <label>Address Book-Contact Snapshot</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Delete Contacts</fullName>
+        <default>false</default>
+        <label>Address Book-Delete Contacts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Distribution Lists</fullName>
+        <default>false</default>
+        <label>Address Book-Distribution Lists</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Export</fullName>
+        <default>false</default>
+        <label>Address Book-Export</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-General</fullName>
+        <default>false</default>
+        <label>Address Book-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Import</fullName>
+        <default>false</default>
+        <label>Address Book-Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Merge</fullName>
+        <default>false</default>
+        <label>Address Book-Merge</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Opt-In Email</fullName>
+        <default>false</default>
+        <label>Address Book-Opt-In Email</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Book-Opt Out</fullName>
+        <default>false</default>
+        <label>Address Book-Opt Out</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Add Venue to Network</fullName>
+        <default>false</default>
+        <label>Add Venue to Network</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ad-hoc/Special Marketing campaigns</fullName>
+        <default>false</default>
+        <label>Ad-hoc/Special Marketing campaigns</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account Email/Domain</fullName>
+        <default>false</default>
+        <label>Administration-Account Email/Domain</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account Forgot Login Info</fullName>
+        <default>false</default>
+        <label>Administration-Account Forgot Login Info</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account Resources</fullName>
+        <default>false</default>
+        <label>Administration-Account Resources</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account Settings</fullName>
+        <default>false</default>
+        <label>Administration-Account Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account Set Up/User Login</fullName>
+        <default>false</default>
+        <label>Administration-Account Set Up/User Login</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Account User Groups</fullName>
+        <default>false</default>
+        <label>Administration-Account User Groups</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Answer Formats</fullName>
+        <default>false</default>
+        <label>Administration-Answer Formats</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Billing Info</fullName>
+        <default>false</default>
+        <label>Administration-Billing Info</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Contact Custom Field</fullName>
+        <default>false</default>
+        <label>Administration-Contact Custom Field</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Contact Types</fullName>
+        <default>false</default>
+        <label>Administration-Contact Types</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Contact Websites</fullName>
+        <default>false</default>
+        <label>Administration-Contact Websites</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Custom Event Invitations</fullName>
+        <default>false</default>
+        <label>Administration-Custom Event Invitations</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Data Lists</fullName>
+        <default>false</default>
+        <label>Administration-Data Lists</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Data Tag Defaults</fullName>
+        <default>false</default>
+        <label>Administration-Data Tag Defaults</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Discounts</fullName>
+        <default>false</default>
+        <label>Administration-Discounts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Document Library</fullName>
+        <default>false</default>
+        <label>Administration-Document Library</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Email Settings</fullName>
+        <default>false</default>
+        <label>Administration-Email Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Event Custom Field</fullName>
+        <default>false</default>
+        <label>Administration-Event Custom Field</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Event Templates</fullName>
+        <default>false</default>
+        <label>Administration-Event Templates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-General Ledgers</fullName>
+        <default>false</default>
+        <label>Administration-General Ledgers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Media Library</fullName>
+        <default>false</default>
+        <label>Administration-Media Library</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Other Libraries</fullName>
+        <default>false</default>
+        <label>Administration-Other Libraries</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Report Users</fullName>
+        <default>false</default>
+        <label>Administration-Report Users</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Resource Custom Field</fullName>
+        <default>false</default>
+        <label>Administration-Resource Custom Field</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Resource Types</fullName>
+        <default>false</default>
+        <label>Administration-Resource Types</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Roommate Notifications</fullName>
+        <default>false</default>
+        <label>Administration-Roommate Notifications</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-Session Custom Field</fullName>
+        <default>false</default>
+        <label>Administration-Session Custom Field</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Administration-User Roles/Visibility</fullName>
+        <default>false</default>
+        <label>Administration-User Roles/Visibility</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Admission Items</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Admission Items</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Contact Type Association</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Contact Type Association</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Discount Code</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Discount Code</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Fees</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Fees</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Item Availability</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Item Availability</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Item Questions</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Item Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Optional Items</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Optional Items</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Service Fees</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Service Fees</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Sessions</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Sessions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Taxes</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Taxes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Tracks</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Tracks</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Agenda &amp; Fees-Volume Discount</fullName>
+        <default>false</default>
+        <label>Agenda &amp; Fees-Volume Discount</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Airport Updates</fullName>
+        <default>false</default>
+        <label>Airport Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Already in Contact with Venue</fullName>
+        <default>false</default>
+        <label>Already in Contact with Venue</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>AM Bible</fullName>
+        <default>false</default>
+        <label>AM Bible</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>AM Dashboard-Gurpreet&apos;s Team</fullName>
+        <default>false</default>
+        <label>AM Dashboard-Gurpreet&apos;s Team</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>AM Report</fullName>
+        <default>false</default>
+        <label>AM Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Answer Import</fullName>
+        <default>false</default>
+        <label>Answer Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>API-Call Limit (Onsite)</fullName>
+        <default>false</default>
+        <label>API-Call Limit (Onsite)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>App Marketing</fullName>
+        <default>false</default>
+        <label>App Marketing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>App Release / Distribution</fullName>
+        <default>false</default>
+        <label>App Release / Distribution</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt. Already Scheduled</fullName>
+        <default>false</default>
+        <label>Appt. Already Scheduled</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt Related</fullName>
+        <default>false</default>
+        <label>Appt Related</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt Scheduler-Appointment Availability</fullName>
+        <default>false</default>
+        <label>Appt Scheduler-Appointment Availability</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt Scheduler-Appointment Custom Fields</fullName>
+        <default>false</default>
+        <label>Appt Scheduler-Appointment Custom Fields</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt Scheduler-Appointment Settings</fullName>
+        <default>false</default>
+        <label>Appt Scheduler-Appointment Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Appt Scheduler-Manage Appointments</fullName>
+        <default>false</default>
+        <label>Appt Scheduler-Manage Appointments</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>AR Cancellation</fullName>
+        <default>false</default>
+        <label>AR Cancellation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Asset Activity Request For Information</fullName>
+        <default>false</default>
+        <label>Asset Activity Request For Information</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Attendee/No Show/Cancellation Updates</fullName>
+        <default>false</default>
+        <label>Attendee/No Show/Cancellation Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-Account Linked</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-Account Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-Adding/Removing card types</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-Adding/Removing card types</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-API Info change</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-escalated to support</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-escalated to support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-Failed Transaction</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-Failed Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-set up</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-set up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net AIM-Stuck Transactions</fullName>
+        <default>false</default>
+        <label>Auth.net AIM-Stuck Transactions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.Net-Sim-Account Linked</fullName>
+        <default>false</default>
+        <label>Auth.Net-Sim-Account Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net SIM-API Info change</fullName>
+        <default>false</default>
+        <label>Auth.net SIM-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net SIM-escalated to support</fullName>
+        <default>false</default>
+        <label>Auth.net SIM-escalated to support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net SIM-Failed Transaction</fullName>
+        <default>false</default>
+        <label>Auth.net SIM-Failed Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net SIM-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Auth.net SIM-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.net SIM-set up</fullName>
+        <default>false</default>
+        <label>Auth.net SIM-set up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Auth.Net Sim-Stock Transaction</fullName>
+        <default>false</default>
+        <label>Auth.Net Sim-Stock Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Availability of Venue</fullName>
+        <default>false</default>
+        <label>Availability of Venue</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Banner+Icon</fullName>
+        <default>false</default>
+        <label>Banner+Icon</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Barcodes</fullName>
+        <default>false</default>
+        <label>Barcodes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>BD Farming Leads</fullName>
+        <default>false</default>
+        <label>BD Farming Leads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Bid Merge</fullName>
+        <default>false</default>
+        <label>Bid Merge</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Billing Cases Upload</fullName>
+        <default>false</default>
+        <label>Billing Cases Upload</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Biz-Dev</fullName>
+        <default>false</default>
+        <label>Biz-Dev</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Branding Package</fullName>
+        <default>false</default>
+        <label>Branding Package</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Bride No Show</fullName>
+        <default>false</default>
+        <label>Bride No Show</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Browser Issues</fullName>
+        <default>false</default>
+        <label>Browser Issues</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Budget</fullName>
+        <default>false</default>
+        <label>Budget</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Bundle Content Changes</fullName>
+        <default>false</default>
+        <label>Bundle Content Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Bundle Features</fullName>
+        <default>false</default>
+        <label>Bundle Features</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Cases Activation</fullName>
+        <default>false</default>
+        <label>Business Cases Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Cases Deactivation</fullName>
+        <default>false</default>
+        <label>Business Cases Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Calendar-External (Websites)</fullName>
+        <default>false</default>
+        <label>Calendar-External (Websites)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Calendar-Internal</fullName>
+        <default>false</default>
+        <label>Calendar-Internal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Campaigns-Associated Lists</fullName>
+        <default>false</default>
+        <label>Campaigns-Associated Lists</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Campaigns-General</fullName>
+        <default>false</default>
+        <label>Campaigns-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancellation</fullName>
+        <default>false</default>
+        <label>Cancellation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CC Instructions</fullName>
+        <default>false</default>
+        <label>CC Instructions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CC Rush Request</fullName>
+        <default>false</default>
+        <label>CC Rush Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CC’d Acct Manager</fullName>
+        <default>false</default>
+        <label>CC’d Acct Manager</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CDR Audit Reports</fullName>
+        <default>false</default>
+        <label>CDR Audit Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Certificates (Admin/Survey)</fullName>
+        <default>false</default>
+        <label>Certificates (Admin/Survey)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Chat Reports</fullName>
+        <default>false</default>
+        <label>Chat Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Check your Messages</fullName>
+        <default>false</default>
+        <label>Check your Messages</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cherry Pick Reports</fullName>
+        <default>false</default>
+        <label>Cherry Pick Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CIA-Event</fullName>
+        <default>false</default>
+        <label>CIA-Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Click</fullName>
+        <default>false</default>
+        <label>Click</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Assignment in CVII</fullName>
+        <default>false</default>
+        <label>Client Assignment in CVII</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Req-Custom Invite Template</fullName>
+        <default>false</default>
+        <label>Client Req-Custom Invite Template</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Req-Custom URL/Domain</fullName>
+        <default>false</default>
+        <label>Client Req-Custom URL/Domain</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Req-Custom Work</fullName>
+        <default>false</default>
+        <label>Client Req-Custom Work</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Req-Data Dump</fullName>
+        <default>false</default>
+        <label>Client Req-Data Dump</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Req-Mktg. Opt-Out</fullName>
+        <default>false</default>
+        <label>Client Req-Mktg. Opt-Out</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Services Team</fullName>
+        <default>false</default>
+        <label>Client Services Team</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Transfers</fullName>
+        <default>false</default>
+        <label>Client Transfers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Communication</fullName>
+        <default>false</default>
+        <label>Communication</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Configuration Options</fullName>
+        <default>false</default>
+        <label>Configuration Options</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Consultative Approach</fullName>
+        <default>false</default>
+        <label>Consultative Approach</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contact/Profile Updates</fullName>
+        <default>false</default>
+        <label>Contact/Profile Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contact information research</fullName>
+        <default>false</default>
+        <label>Contact information research</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contact Profile</fullName>
+        <default>false</default>
+        <label>Contact Profile</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contacts</fullName>
+        <default>false</default>
+        <label>Contacts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contacts without Email in SF</fullName>
+        <default>false</default>
+        <label>Contacts without Email in SF</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Contract Question</fullName>
+        <default>false</default>
+        <label>Contract Question</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Conversions</fullName>
+        <default>false</default>
+        <label>Conversions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Correct Product/User Error - Demand</fullName>
+        <default>false</default>
+        <label>Correct Product/User Error - Demand</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Correct Product/User Error - Supply</fullName>
+        <default>false</default>
+        <label>Correct Product/User Error - Supply</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cross Sell Deal</fullName>
+        <default>false</default>
+        <label>Cross Sell Deal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CrowdCompass</fullName>
+        <default>false</default>
+        <label>CrowdCompass</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Crowd Compass NBB</fullName>
+        <default>false</default>
+        <label>Crowd Compass NBB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CrowdTorch</fullName>
+        <default>false</default>
+        <label>CrowdTorch</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CrowdTorch NBB</fullName>
+        <default>false</default>
+        <label>CrowdTorch NBB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Bulk Purchase</fullName>
+        <default>false</default>
+        <label>CSN Bulk Purchase</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-Bundled</fullName>
+        <default>false</default>
+        <label>CSN-Bundled</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN d/b sync</fullName>
+        <default>false</default>
+        <label>CSN d/b sync</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Dashboard</fullName>
+        <default>false</default>
+        <label>CSN Dashboard</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN DS report</fullName>
+        <default>false</default>
+        <label>CSN DS report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Escalation RFP-Emails</fullName>
+        <default>false</default>
+        <label>CSN Escalation RFP-Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Integrity Check</fullName>
+        <default>false</default>
+        <label>CSN Integrity Check</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Misc. emails</fullName>
+        <default>false</default>
+        <label>CSN Misc. emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-NBB</fullName>
+        <default>false</default>
+        <label>CSN-NBB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Planner Account level updates</fullName>
+        <default>false</default>
+        <label>CSN Planner Account level updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Planner FT Account Creation</fullName>
+        <default>false</default>
+        <label>CSN Planner FT Account Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Planner FT update</fullName>
+        <default>false</default>
+        <label>CSN Planner FT update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Planner Updates(PA/Unique RFPs)</fullName>
+        <default>false</default>
+        <label>CSN Planner Updates(PA/Unique RFPs)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-Post Event</fullName>
+        <default>false</default>
+        <label>CSN-Post Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-ReFlag</fullName>
+        <default>false</default>
+        <label>CSN-ReFlag</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-Renewal</fullName>
+        <default>false</default>
+        <label>CSN-Renewal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-Supplier Updates</fullName>
+        <default>false</default>
+        <label>CSN-Supplier Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN-Upsell</fullName>
+        <default>false</default>
+        <label>CSN-Upsell</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Web Leads</fullName>
+        <default>false</default>
+        <label>CSN Web Leads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CS rep Changes</fullName>
+        <default>false</default>
+        <label>CS rep Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CSS</fullName>
+        <default>false</default>
+        <label>CSS</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Custom Report/Extract (Customer)</fullName>
+        <default>false</default>
+        <label>Custom Report/Extract (Customer)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Custom Report/Extract (Internal)</fullName>
+        <default>false</default>
+        <label>Custom Report/Extract (Internal)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Custom Report Creation</fullName>
+        <default>false</default>
+        <label>Custom Report Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Custom Views</fullName>
+        <default>false</default>
+        <label>Custom Views</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CVB</fullName>
+        <default>false</default>
+        <label>CVB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cvent-Certification</fullName>
+        <default>false</default>
+        <label>Cvent-Certification</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CVII-Duplicate Email Matching</fullName>
+        <default>false</default>
+        <label>CVII-Duplicate Email Matching</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CVII-Extended Login-Disable Offline CC</fullName>
+        <default>false</default>
+        <label>CVII-Extended Login-Disable Offline CC</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Account Created/Linked</fullName>
+        <default>false</default>
+        <label>CyberSource-Account Created/Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Escalated to Support</fullName>
+        <default>false</default>
+        <label>CyberSource-Escalated to Support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Failed Transaction</fullName>
+        <default>false</default>
+        <label>CyberSource-Failed Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-General Questions/Other</fullName>
+        <default>false</default>
+        <label>CyberSource-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource HOP Account Linked</fullName>
+        <default>false</default>
+        <label>CyberSource HOP Account Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource HOP General Questions/ Other</fullName>
+        <default>false</default>
+        <label>CyberSource HOP General Questions/ Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource HOP set up</fullName>
+        <default>false</default>
+        <label>CyberSource HOP set up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Merchant Account Change</fullName>
+        <default>false</default>
+        <label>CyberSource-Merchant Account Change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Security File change/update</fullName>
+        <default>false</default>
+        <label>CyberSource-Security File change/update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Setup</fullName>
+        <default>false</default>
+        <label>CyberSource-Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>CyberSource-Stock Transaction</fullName>
+        <default>false</default>
+        <label>CyberSource-Stock Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Daily Reports (DS/PS/AM/Chat Reports)</fullName>
+        <default>false</default>
+        <label>Daily Reports (DS/PS/AM/Chat Reports)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Dashboards</fullName>
+        <default>false</default>
+        <label>Dashboards</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Delist</fullName>
+        <default>false</default>
+        <label>Delist</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Demand Benchmark By Market Request</fullName>
+        <default>false</default>
+        <label>Demand Benchmark By Market Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Demand Benchmark By Property Request</fullName>
+        <default>false</default>
+        <label>Demand Benchmark By Property Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Activate Event</fullName>
+        <default>false</default>
+        <label>Details-Activate Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Configuration Options</fullName>
+        <default>false</default>
+        <label>Details-Configuration Options</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Contact Types</fullName>
+        <default>false</default>
+        <label>Details-Contact Types</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Event Admin (not launch)</fullName>
+        <default>false</default>
+        <label>Details-Event Admin (not launch)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Event Custom Fields</fullName>
+        <default>false</default>
+        <label>Details-Event Custom Fields</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Event Doc Library</fullName>
+        <default>false</default>
+        <label>Details-Event Doc Library</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Event Roles</fullName>
+        <default>false</default>
+        <label>Details-Event Roles</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-General Information</fullName>
+        <default>false</default>
+        <label>Details-General Information</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Security &amp; Search</fullName>
+        <default>false</default>
+        <label>Details-Security &amp; Search</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Staff</fullName>
+        <default>false</default>
+        <label>Details-Staff</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Task List</fullName>
+        <default>false</default>
+        <label>Details-Task List</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Test Mode</fullName>
+        <default>false</default>
+        <label>Details-Test Mode</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Details-Test Wizard</fullName>
+        <default>false</default>
+        <label>Details-Test Wizard</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Direct Sales Report</fullName>
+        <default>false</default>
+        <label>Direct Sales Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Display Options</fullName>
+        <default>false</default>
+        <label>Display Options</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Domain Creation</fullName>
+        <default>false</default>
+        <label>Domain Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Domain Inclusions and Exclusions</fullName>
+        <default>false</default>
+        <label>Domain Inclusions and Exclusions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Duplicate Hotel Removal</fullName>
+        <default>false</default>
+        <label>Duplicate Hotel Removal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>E&amp;P Channel Marketing Activation</fullName>
+        <default>false</default>
+        <label>E&amp;P Channel Marketing Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>E&amp;P Channel Marketing Deactivation</fullName>
+        <default>false</default>
+        <label>E&amp;P Channel Marketing Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ecommerce-Escalated to Team</fullName>
+        <default>false</default>
+        <label>Ecommerce-Escalated to Team</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ecommerce-General</fullName>
+        <default>false</default>
+        <label>Ecommerce-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Eloqua Emails</fullName>
+        <default>false</default>
+        <label>Eloqua Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Eloqua Form-Amazon/Visa gift card</fullName>
+        <default>false</default>
+        <label>Eloqua Form-Amazon/Visa gift card</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Calendar</fullName>
+        <default>false</default>
+        <label>Email Calendar</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Content/Delivery</fullName>
+        <default>false</default>
+        <label>Email Content/Delivery</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Reposnse tasks</fullName>
+        <default>false</default>
+        <label>Email Reposnse tasks</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Click Tracking</fullName>
+        <default>false</default>
+        <label>Emails-Click Tracking</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Custom Emails</fullName>
+        <default>false</default>
+        <label>Emails-Custom Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Data Tags</fullName>
+        <default>false</default>
+        <label>Emails-Data Tags</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Delivery</fullName>
+        <default>false</default>
+        <label>Emails-Delivery</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Email Alerts</fullName>
+        <default>false</default>
+        <label>Emails-Email Alerts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Email Settings</fullName>
+        <default>false</default>
+        <label>Emails-Email Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-General</fullName>
+        <default>false</default>
+        <label>Emails-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-HTML</fullName>
+        <default>false</default>
+        <label>Emails-HTML</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Manual Send</fullName>
+        <default>false</default>
+        <label>Emails-Manual Send</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Post Event</fullName>
+        <default>false</default>
+        <label>Emails-Post Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Schedule Send</fullName>
+        <default>false</default>
+        <label>Emails-Schedule Send</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Session Emails</fullName>
+        <default>false</default>
+        <label>Emails-Session Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Targeted List</fullName>
+        <default>false</default>
+        <label>Emails-Targeted List</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Test Send</fullName>
+        <default>false</default>
+        <label>Emails-Test Send</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Travel Email Alerts</fullName>
+        <default>false</default>
+        <label>Emails-Travel Email Alerts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Unsubscribe</fullName>
+        <default>false</default>
+        <label>Emails-Unsubscribe</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Emails-Whitelist Questions</fullName>
+        <default>false</default>
+        <label>Emails-Whitelist Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Empathy</fullName>
+        <default>false</default>
+        <label>Empathy</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Employee Separation Form</fullName>
+        <default>false</default>
+        <label>Employee Separation Form</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>EOM recon</fullName>
+        <default>false</default>
+        <label>EOM recon</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>EOM updates</fullName>
+        <default>false</default>
+        <label>EOM updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Builders</fullName>
+        <default>false</default>
+        <label>Event Builders</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event FT Account creation</fullName>
+        <default>false</default>
+        <label>Event FT Account creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event FT Shut Down</fullName>
+        <default>false</default>
+        <label>Event FT Shut Down</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event FT update</fullName>
+        <default>false</default>
+        <label>Event FT update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event-NBB</fullName>
+        <default>false</default>
+        <label>Event-NBB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event-Renewal</fullName>
+        <default>false</default>
+        <label>Event-Renewal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Review</fullName>
+        <default>false</default>
+        <label>Event Review</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Set up call</fullName>
+        <default>false</default>
+        <label>Event Set up call</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Support</fullName>
+        <default>false</default>
+        <label>Event Support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event-Upsell</fullName>
+        <default>false</default>
+        <label>Event-Upsell</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Views &amp; Selection</fullName>
+        <default>false</default>
+        <label>Event Views &amp; Selection</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exhibitors</fullName>
+        <default>false</default>
+        <label>Exhibitors</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exp Chkout-Account Linked</fullName>
+        <default>false</default>
+        <label>Exp Chkout-Account Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exp Chkout-API Info change</fullName>
+        <default>false</default>
+        <label>Exp Chkout-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exp Chkout-Escalated To Support</fullName>
+        <default>false</default>
+        <label>Exp Chkout-Escalated To Support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exp Chkout-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Exp Chkout-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Exp Chkout-Set Up</fullName>
+        <default>false</default>
+        <label>Exp Chkout-Set Up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Experience</fullName>
+        <default>false</default>
+        <label>Experience</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Export Values</fullName>
+        <default>false</default>
+        <label>Export Values</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Funnel Update</fullName>
+        <default>false</default>
+        <label>Funnel Update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Gbta File Synch</fullName>
+        <default>false</default>
+        <label>Gbta File Synch</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>General Inquiry</fullName>
+        <default>false</default>
+        <label>General Inquiry</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Graphics+Data</fullName>
+        <default>false</default>
+        <label>Graphics+Data</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Header and Footer</fullName>
+        <default>false</default>
+        <label>Header and Footer</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HMC/Chain Mapping</fullName>
+        <default>false</default>
+        <label>HMC/Chain Mapping</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Holdback</fullName>
+        <default>false</default>
+        <label>Holdback</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Hotel Flag Changes</fullName>
+        <default>false</default>
+        <label>Hotel Flag Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Hotelmastercore Updates</fullName>
+        <default>false</default>
+        <label>Hotelmastercore Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Hotelmastergds Updates</fullName>
+        <default>false</default>
+        <label>Hotelmastergds Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HTML-Advanced</fullName>
+        <default>false</default>
+        <label>HTML-Advanced</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HTML-Basic</fullName>
+        <default>false</default>
+        <label>HTML-Basic</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HTML-Callback</fullName>
+        <default>false</default>
+        <label>HTML-Callback</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HTML Editor</fullName>
+        <default>false</default>
+        <label>HTML Editor</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>HTML Editor/Presentation Options</fullName>
+        <default>false</default>
+        <label>HTML Editor/Presentation Options</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>ID Confirmation</fullName>
+        <default>false</default>
+        <label>ID Confirmation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Individual Opt Out</fullName>
+        <default>false</default>
+        <label>Individual Opt Out</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-API</fullName>
+        <default>false</default>
+        <label>Integrations-API</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-Google Analytics</fullName>
+        <default>false</default>
+        <label>Integrations-Google Analytics</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-HTTP Post</fullName>
+        <default>false</default>
+        <label>Integrations-HTTP Post</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-Merchant Accounts</fullName>
+        <default>false</default>
+        <label>Integrations-Merchant Accounts</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations Non MB</fullName>
+        <default>false</default>
+        <label>Integrations Non MB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-Salesforce</fullName>
+        <default>false</default>
+        <label>Integrations-Salesforce</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-Single Sign On</fullName>
+        <default>false</default>
+        <label>Integrations-Single Sign On</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrations-WebEx</fullName>
+        <default>false</default>
+        <label>Integrations-WebEx</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Intended to Contact Planner</fullName>
+        <default>false</default>
+        <label>Intended to Contact Planner</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Intended to Contact Supplier</fullName>
+        <default>false</default>
+        <label>Intended to Contact Supplier</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal Meeting</fullName>
+        <default>false</default>
+        <label>Internal Meeting</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>IRCEL-Event</fullName>
+        <default>false</default>
+        <label>IRCEL-Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>IRCEL-PA</fullName>
+        <default>false</default>
+        <label>IRCEL-PA</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>IRCEL-Social Media</fullName>
+        <default>false</default>
+        <label>IRCEL-Social Media</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>IRCEL-Survey</fullName>
+        <default>false</default>
+        <label>IRCEL-Survey</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Issue Resolution</fullName>
+        <default>false</default>
+        <label>Issue Resolution</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Kick-Off</fullName>
+        <default>false</default>
+        <label>Kick-Off</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Knowledge</fullName>
+        <default>false</default>
+        <label>Knowledge</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Known vs Anonymous</fullName>
+        <default>false</default>
+        <label>Known vs Anonymous</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Language Mgmt-Language Setup</fullName>
+        <default>false</default>
+        <label>Language Mgmt-Language Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>List Uploads(Cold Call lists)</fullName>
+        <default>false</default>
+        <label>List Uploads(Cold Call lists)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Logics</fullName>
+        <default>false</default>
+        <label>Logics</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Logo/Graphics</fullName>
+        <default>false</default>
+        <label>Logo/Graphics</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Mail Box Seggregation</fullName>
+        <default>false</default>
+        <label>Mail Box Seggregation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Abandoned &amp; Partial Reg</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Abandoned &amp; Partial Reg</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Cancel Registration</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Cancel Registration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Event Credits</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Event Credits</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-General</fullName>
+        <default>false</default>
+        <label>Manage Invitees-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Import Management</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Import Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Internal Info Questions</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Internal Info Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Invitee Approval</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Invitee Approval</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Manage Payments/refunds</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Manage Payments/refunds</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Mark Participants</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Mark Participants</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Modify Registration</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Modify Registration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Modify Travel</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Modify Travel</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Order Adjustment</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Order Adjustment</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Payment Credits</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Payment Credits</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Register New</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Register New</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Registration Import</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Registration Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Substitute Registration</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Substitute Registration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Summary Views</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Summary Views</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Switch Reg Type</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Switch Reg Type</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Invitees-Table Mgmt.</fullName>
+        <default>false</default>
+        <label>Manage Invitees-Table Mgmt.</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Manage Respondents</fullName>
+        <default>false</default>
+        <label>Manage Respondents</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Maps</fullName>
+        <default>false</default>
+        <label>Maps</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketing Report</fullName>
+        <default>false</default>
+        <label>Marketing Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Market Leads Activation</fullName>
+        <default>false</default>
+        <label>Market Leads Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Market Leads Deactivation</fullName>
+        <default>false</default>
+        <label>Market Leads Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketplace Intelligence Activation - Demand</fullName>
+        <default>false</default>
+        <label>Marketplace Intelligence Activation - Demand</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketplace Intelligence Activation - Supply</fullName>
+        <default>false</default>
+        <label>Marketplace Intelligence Activation - Supply</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketplace Intelligence Deactivation - Demand</fullName>
+        <default>false</default>
+        <label>Marketplace Intelligence Deactivation - Demand</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketplace Intelligence Deactivation - Supply</fullName>
+        <default>false</default>
+        <label>Marketplace Intelligence Deactivation - Supply</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>MB-Activation Request</fullName>
+        <default>false</default>
+        <label>MB-Activation Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>MB-Deactivation Request</fullName>
+        <default>false</default>
+        <label>MB-Deactivation Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>MB-Error sent to Appsupport</fullName>
+        <default>false</default>
+        <label>MB-Error sent to Appsupport</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Meeting</fullName>
+        <default>false</default>
+        <label>Meeting</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Meeting Rooms/Agenda</fullName>
+        <default>false</default>
+        <label>Meeting Rooms/Agenda</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Member-Creating membership types/items</fullName>
+        <default>false</default>
+        <label>Member-Creating membership types/items</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Membership-General</fullName>
+        <default>false</default>
+        <label>Membership-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Membership-import memberships</fullName>
+        <default>false</default>
+        <label>Membership-import memberships</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Merchant Account Test</fullName>
+        <default>false</default>
+        <label>Merchant Account Test</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Misc</fullName>
+        <default>false</default>
+        <label>Misc</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Misc. Email from CFC/Billing</fullName>
+        <default>false</default>
+        <label>Misc. Email from CFC/Billing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Misc. Email from CS Rep</fullName>
+        <default>false</default>
+        <label>Misc. Email from CS Rep</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Misc. Email from Sales Rep</fullName>
+        <default>false</default>
+        <label>Misc. Email from Sales Rep</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+        <label>Mobile</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-Account Linked</fullName>
+        <default>false</default>
+        <label>Moneris-Account Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-Adding/Removing card types</fullName>
+        <default>false</default>
+        <label>Moneris-Adding/Removing card types</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-API Info change</fullName>
+        <default>false</default>
+        <label>Moneris-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-escalated to support</fullName>
+        <default>false</default>
+        <label>Moneris-escalated to support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-Failed Transactions</fullName>
+        <default>false</default>
+        <label>Moneris-Failed Transactions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Moneris-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-set up</fullName>
+        <default>false</default>
+        <label>Moneris-set up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Moneris-Stuck Transactions</fullName>
+        <default>false</default>
+        <label>Moneris-Stuck Transactions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Monthly AM Account Audit report</fullName>
+        <default>false</default>
+        <label>Monthly AM Account Audit report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Monthly deal breakdown Event AM</fullName>
+        <default>false</default>
+        <label>Monthly deal breakdown Event AM</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Monthly deal breakdown Event DS</fullName>
+        <default>false</default>
+        <label>Monthly deal breakdown Event DS</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Monthly DS Keeper Accounts Audit report</fullName>
+        <default>false</default>
+        <label>Monthly DS Keeper Accounts Audit report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Monthly Enterprise and TPP Report</fullName>
+        <default>false</default>
+        <label>Monthly Enterprise and TPP Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD and Renewal report Updates</fullName>
+        <default>false</default>
+        <label>MYD and Renewal report Updates</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>My Response Page</fullName>
+        <default>false</default>
+        <label>My Response Page</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Name Badges-Advanced</fullName>
+        <default>false</default>
+        <label>Name Badges-Advanced</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Name Badges-Simple</fullName>
+        <default>false</default>
+        <label>Name Badges-Simple</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Named A/c Cleaning(SMM/TPP/BD)</fullName>
+        <default>false</default>
+        <label>Named A/c Cleaning(SMM/TPP/BD)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Newmarket</fullName>
+        <default>false</default>
+        <label>Newmarket</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Office Locations</fullName>
+        <default>false</default>
+        <label>Office Locations</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Organization Opt Out</fullName>
+        <default>false</default>
+        <label>Organization Opt Out</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Other Affiliation report</fullName>
+        <default>false</default>
+        <label>Other Affiliation report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Others</fullName>
+        <default>false</default>
+        <label>Others</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Outlook Instructions</fullName>
+        <default>false</default>
+        <label>Outlook Instructions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PA Numbers in PS report</fullName>
+        <default>false</default>
+        <label>PA Numbers in PS report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PA rep assignments</fullName>
+        <default>false</default>
+        <label>PA rep assignments</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Partnership</fullName>
+        <default>false</default>
+        <label>Partnership</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.gov-API Info change</fullName>
+        <default>false</default>
+        <label>Pay.gov-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.gov-Escalated to support</fullName>
+        <default>false</default>
+        <label>Pay.gov-Escalated to support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.gov-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Pay.gov-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.gov-Implementation</fullName>
+        <default>false</default>
+        <label>Pay.gov-Implementation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.gov-Other</fullName>
+        <default>false</default>
+        <label>Pay.gov-Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay.Gov-Set Up</fullName>
+        <default>false</default>
+        <label>Pay.Gov-Set Up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-Account Created/Linked</fullName>
+        <default>false</default>
+        <label>Payflow Pro-Account Created/Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-escalated to support</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-escalated to support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-Failed Transactions</fullName>
+        <default>false</default>
+        <label>Payflow Pro-Failed Transactions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Payflow Pro-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-Login Information Requested</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-Login Information Requested</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-Merchant Account Change</fullName>
+        <default>false</default>
+        <label>Payflow Pro-Merchant Account Change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-Password Update</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-Password Update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-Reports</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-Security Restrictions</fullName>
+        <default>false</default>
+        <label>Payflow Pro-Security Restrictions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-Settlement Issues</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-Settlement Issues</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PayFlow Pro-Setup</fullName>
+        <default>false</default>
+        <label>PayFlow Pro-Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payflow Pro-Stuck Transaction</fullName>
+        <default>false</default>
+        <label>Payflow Pro-Stuck Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payvision-Account Created/Linked</fullName>
+        <default>false</default>
+        <label>Payvision-Account Created/Linked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payvision-Escalated to Support</fullName>
+        <default>false</default>
+        <label>Payvision-Escalated to Support</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payvision-Failed Transaction</fullName>
+        <default>false</default>
+        <label>Payvision-Failed Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payvision-Setup</fullName>
+        <default>false</default>
+        <label>Payvision-Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Payvision-Stuck Transaction</fullName>
+        <default>false</default>
+        <label>Payvision-Stuck Transaction</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PCI Compliance/Security Inquiry</fullName>
+        <default>false</default>
+        <label>PCI Compliance/Security Inquiry</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone Number Proxy</fullName>
+        <default>false</default>
+        <label>Phone Number Proxy</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Awarding RFPs</fullName>
+        <default>false</default>
+        <label>Planner Awarding RFPs</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Cancelled Space</fullName>
+        <default>false</default>
+        <label>Planner Cancelled Space</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner FT Account Shut Down</fullName>
+        <default>false</default>
+        <label>Planner FT Account Shut Down</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Manage RFPs</fullName>
+        <default>false</default>
+        <label>Planner Manage RFPs</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner NSO</fullName>
+        <default>false</default>
+        <label>Planner NSO</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Preferences</fullName>
+        <default>false</default>
+        <label>Planner Preferences</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Preferred</fullName>
+        <default>false</default>
+        <label>Planner Preferred</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Reports</fullName>
+        <default>false</default>
+        <label>Planner Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner RFP Administration</fullName>
+        <default>false</default>
+        <label>Planner RFP Administration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner RFP Creation</fullName>
+        <default>false</default>
+        <label>Planner RFP Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner RFP Wizard</fullName>
+        <default>false</default>
+        <label>Planner RFP Wizard</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Search</fullName>
+        <default>false</default>
+        <label>Planner Search</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Send/Resend RFP</fullName>
+        <default>false</default>
+        <label>Planner Send/Resend RFP</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Post-Event</fullName>
+        <default>false</default>
+        <label>Post-Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pounce Report</fullName>
+        <default>false</default>
+        <label>Pounce Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Event</fullName>
+        <default>false</default>
+        <label>Pre-Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-Sales Report</fullName>
+        <default>false</default>
+        <label>Pre-Sales Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Presentations</fullName>
+        <default>false</default>
+        <label>Presentations</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Preview/Respondent View</fullName>
+        <default>false</default>
+        <label>Preview/Respondent View</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Preview App</fullName>
+        <default>false</default>
+        <label>Preview App</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pricing Clarification</fullName>
+        <default>false</default>
+        <label>Pricing Clarification</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Printable Survey</fullName>
+        <default>false</default>
+        <label>Printable Survey</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Product</fullName>
+        <default>false</default>
+        <label>Product</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Professionalism</fullName>
+        <default>false</default>
+        <label>Professionalism</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Professional Services</fullName>
+        <default>false</default>
+        <label>Professional Services</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Profile Mapping</fullName>
+        <default>false</default>
+        <label>Profile Mapping</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Project Scheduling</fullName>
+        <default>false</default>
+        <label>Project Scheduling</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Property Contacts Update</fullName>
+        <default>false</default>
+        <label>Property Contacts Update</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Property Copy</fullName>
+        <default>false</default>
+        <label>Property Copy</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Property Move</fullName>
+        <default>false</default>
+        <label>Property Move</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Proximity Report Activation</fullName>
+        <default>false</default>
+        <label>Proximity Report Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Proximity Report Deactivation</fullName>
+        <default>false</default>
+        <label>Proximity Report Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PS/OD Referrals</fullName>
+        <default>false</default>
+        <label>PS/OD Referrals</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PS Others</fullName>
+        <default>false</default>
+        <label>PS Others</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>PS Schedule Emails</fullName>
+        <default>false</default>
+        <label>PS Schedule Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Quality Check</fullName>
+        <default>false</default>
+        <label>Quality Check</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Question Import</fullName>
+        <default>false</default>
+        <label>Question Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Questions</fullName>
+        <default>false</default>
+        <label>Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reconciliation</fullName>
+        <default>false</default>
+        <label>Reconciliation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reference ID</fullName>
+        <default>false</default>
+        <label>Reference ID</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral/Prospect</fullName>
+        <default>false</default>
+        <label>Referral/Prospect</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>ReFlags</fullName>
+        <default>false</default>
+        <label>ReFlags</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registrant Question</fullName>
+        <default>false</default>
+        <label>Registrant Question</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration/Regret/Pre-Event tasks</fullName>
+        <default>false</default>
+        <label>Registration/Regret/Pre-Event tasks</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Admin Reg</fullName>
+        <default>false</default>
+        <label>Registration Process-Admin Reg</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Domain Exclusion</fullName>
+        <default>false</default>
+        <label>Registration Process-Domain Exclusion</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-General Information</fullName>
+        <default>false</default>
+        <label>Registration Process-General Information</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Group Reg</fullName>
+        <default>false</default>
+        <label>Registration Process-Group Reg</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Guest Reg</fullName>
+        <default>false</default>
+        <label>Registration Process-Guest Reg</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-ID Confirmation</fullName>
+        <default>false</default>
+        <label>Registration Process-ID Confirmation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Multiple Paths</fullName>
+        <default>false</default>
+        <label>Registration Process-Multiple Paths</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-My Registration</fullName>
+        <default>false</default>
+        <label>Registration Process-My Registration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Onsite Set up</fullName>
+        <default>false</default>
+        <label>Registration Process-Onsite Set up</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Post Event Feedback</fullName>
+        <default>false</default>
+        <label>Registration Process-Post Event Feedback</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Reg. Info</fullName>
+        <default>false</default>
+        <label>Registration Process-Reg. Info</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Reg. Summary</fullName>
+        <default>false</default>
+        <label>Registration Process-Reg. Summary</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Reg Pages</fullName>
+        <default>false</default>
+        <label>Registration Process-Reg Pages</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Reg Questions</fullName>
+        <default>false</default>
+        <label>Registration Process-Reg Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Regret Info</fullName>
+        <default>false</default>
+        <label>Registration Process-Regret Info</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Reg Rules</fullName>
+        <default>false</default>
+        <label>Registration Process-Reg Rules</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Submit Payment</fullName>
+        <default>false</default>
+        <label>Registration Process-Submit Payment</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Vouchers</fullName>
+        <default>false</default>
+        <label>Registration Process-Vouchers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Process-Waitlist</fullName>
+        <default>false</default>
+        <label>Registration Process-Waitlist</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reg Process-Contact Type Association</fullName>
+        <default>false</default>
+        <label>Reg Process-Contact Type Association</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reg Process-Custom ID Confirmation</fullName>
+        <default>false</default>
+        <label>Reg Process-Custom ID Confirmation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reminder Call Report</fullName>
+        <default>false</default>
+        <label>Reminder Call Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Remove Venue from Network</fullName>
+        <default>false</default>
+        <label>Remove Venue from Network</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Renegotiated Contract</fullName>
+        <default>false</default>
+        <label>Renegotiated Contract</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Report</fullName>
+        <default>false</default>
+        <label>Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Report Cards</fullName>
+        <default>false</default>
+        <label>Report Cards</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Administration Reports</fullName>
+        <default>false</default>
+        <label>Reports-Administration Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Contact Reports</fullName>
+        <default>false</default>
+        <label>Reports-Contact Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Cross Survey Reports</fullName>
+        <default>false</default>
+        <label>Reports-Cross Survey Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Custom Cross Reports</fullName>
+        <default>false</default>
+        <label>Reports-Custom Cross Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Custom Event Reports</fullName>
+        <default>false</default>
+        <label>Reports-Custom Event Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-eMarketing</fullName>
+        <default>false</default>
+        <label>Reports-eMarketing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Filtering (Advanced Filters)</fullName>
+        <default>false</default>
+        <label>Reports-Filtering (Advanced Filters)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-General</fullName>
+        <default>false</default>
+        <label>Reports-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-How to run</fullName>
+        <default>false</default>
+        <label>Reports-How to run</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Parked Reports</fullName>
+        <default>false</default>
+        <label>Reports-Parked Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reports-Report Selection</fullName>
+        <default>false</default>
+        <label>Reports-Report Selection</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Request Property Ids</fullName>
+        <default>false</default>
+        <label>Request Property Ids</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Resources-Event Resources</fullName>
+        <default>false</default>
+        <label>Resources-Event Resources</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Resources-Reports</fullName>
+        <default>false</default>
+        <label>Resources-Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Resources-Reserving Resources</fullName>
+        <default>false</default>
+        <label>Resources-Reserving Resources</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Respondent Question</fullName>
+        <default>false</default>
+        <label>Respondent Question</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Response ID</fullName>
+        <default>false</default>
+        <label>Response ID</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>RFI</fullName>
+        <default>false</default>
+        <label>RFI</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>RFP Builder</fullName>
+        <default>false</default>
+        <label>RFP Builder</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Rfp Publisher Activation</fullName>
+        <default>false</default>
+        <label>Rfp Publisher Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Rfp Publisher Deactivation</fullName>
+        <default>false</default>
+        <label>Rfp Publisher Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>RFP Reports</fullName>
+        <default>false</default>
+        <label>RFP Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>RFP Uploads</fullName>
+        <default>false</default>
+        <label>RFP Uploads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales</fullName>
+        <default>false</default>
+        <label>Sales</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Cycle</fullName>
+        <default>false</default>
+        <label>Sales Cycle</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Salesforce Administrator Requests</fullName>
+        <default>false</default>
+        <label>Salesforce Administrator Requests</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Lead</fullName>
+        <default>false</default>
+        <label>Sales Lead</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Schedule</fullName>
+        <default>false</default>
+        <label>Schedule</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Scoring</fullName>
+        <default>false</default>
+        <label>Scoring</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Scoring project</fullName>
+        <default>false</default>
+        <label>Scoring project</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Security Settings</fullName>
+        <default>false</default>
+        <label>Security Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Self Sign Ups</fullName>
+        <default>false</default>
+        <label>Self Sign Ups</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar Attendee Sheet-Event</fullName>
+        <default>false</default>
+        <label>Seminar Attendee Sheet-Event</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Settings</fullName>
+        <default>false</default>
+        <label>Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SF Activity Report</fullName>
+        <default>false</default>
+        <label>SF Activity Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SF Campaign Mapping</fullName>
+        <default>false</default>
+        <label>SF Campaign Mapping</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SFDC Automated Emails</fullName>
+        <default>false</default>
+        <label>SFDC Automated Emails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SF field setup/Changes</fullName>
+        <default>false</default>
+        <label>SF field setup/Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Show Rate Report</fullName>
+        <default>false</default>
+        <label>Show Rate Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Shut Down Mail - Awaiting Response</fullName>
+        <default>false</default>
+        <label>Shut Down Mail - Awaiting Response</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM</fullName>
+        <default>false</default>
+        <label>SMM</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM Campaign Data</fullName>
+        <default>false</default>
+        <label>SMM Campaign Data</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Event Roles</fullName>
+        <default>false</default>
+        <label>SMM-Event Roles</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-General</fullName>
+        <default>false</default>
+        <label>SMM-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Meeting Request Form</fullName>
+        <default>false</default>
+        <label>SMM-Meeting Request Form</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Notifications</fullName>
+        <default>false</default>
+        <label>SMM-Notifications</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Policies</fullName>
+        <default>false</default>
+        <label>SMM-Policies</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Process Forms</fullName>
+        <default>false</default>
+        <label>SMM-Process Forms</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Requester User</fullName>
+        <default>false</default>
+        <label>SMM-Requester User</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM-Triggers</fullName>
+        <default>false</default>
+        <label>SMM-Triggers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM White Paper Downloads</fullName>
+        <default>false</default>
+        <label>SMM White Paper Downloads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media Sharing</fullName>
+        <default>false</default>
+        <label>Social Media Sharing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Networking</fullName>
+        <default>false</default>
+        <label>Social Networking</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Tables</fullName>
+        <default>false</default>
+        <label>Social Tables</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Spam</fullName>
+        <default>false</default>
+        <label>Spam</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SPAM-Complaint</fullName>
+        <default>false</default>
+        <label>SPAM-Complaint</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Spend Analysis Request</fullName>
+        <default>false</default>
+        <label>Spend Analysis Request</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Spot Estimate Incorrect</fullName>
+        <default>false</default>
+        <label>Spot Estimate Incorrect</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>SSI Cases</fullName>
+        <default>false</default>
+        <label>SSI Cases</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Star Rating</fullName>
+        <default>false</default>
+        <label>Star Rating</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Submit Proposal</fullName>
+        <default>false</default>
+        <label>Submit Proposal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Support Center</fullName>
+        <default>false</default>
+        <label>Support Center</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey Administration/Changing Status</fullName>
+        <default>false</default>
+        <label>Survey Administration/Changing Status</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey Builder</fullName>
+        <default>false</default>
+        <label>Survey Builder</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey-Custom Fields</fullName>
+        <default>false</default>
+        <label>Survey-Custom Fields</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey FT Account creation</fullName>
+        <default>false</default>
+        <label>Survey FT Account creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey FT Account Shut Down</fullName>
+        <default>false</default>
+        <label>Survey FT Account Shut Down</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey-NBB</fullName>
+        <default>false</default>
+        <label>Survey-NBB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey-Renewal</fullName>
+        <default>false</default>
+        <label>Survey-Renewal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey-Upsell</fullName>
+        <default>false</default>
+        <label>Survey-Upsell</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>System Performance</fullName>
+        <default>false</default>
+        <label>System Performance</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Talk Time Adjustments</fullName>
+        <default>false</default>
+        <label>Talk Time Adjustments</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Task/Contact Misassignment</fullName>
+        <default>false</default>
+        <label>Task/Contact Misassignment</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Task Check report</fullName>
+        <default>false</default>
+        <label>Task Check report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Task Creation</fullName>
+        <default>false</default>
+        <label>Task Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Tasks Assigned to SSI</fullName>
+        <default>false</default>
+        <label>Tasks Assigned to SSI</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Task Transfers</fullName>
+        <default>false</default>
+        <label>Task Transfers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Team Meetings</fullName>
+        <default>false</default>
+        <label>Team Meetings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Territory Changes</fullName>
+        <default>false</default>
+        <label>Territory Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Thank You Pages</fullName>
+        <default>false</default>
+        <label>Thank You Pages</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Thinks we’re a Venue</fullName>
+        <default>false</default>
+        <label>Thinks we’re a Venue</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Change Ticket Holder Name</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Change Ticket Holder Name</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Check Order Status</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Check Order Status</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Refunds/Double Charges</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Refunds/Double Charges</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Resend Confirmation Email</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Resend Confirmation Email</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Transfer Showtime</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Transfer Showtime</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Buyer-Venue Questions</fullName>
+        <default>false</default>
+        <label>Ticket Buyer-Venue Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Analytics</fullName>
+        <default>false</default>
+        <label>Ticket Client-Analytics</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Box Office Management</fullName>
+        <default>false</default>
+        <label>Ticket Client-Box Office Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-CRM</fullName>
+        <default>false</default>
+        <label>Ticket Client-CRM</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Discount Codes</fullName>
+        <default>false</default>
+        <label>Ticket Client-Discount Codes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-eMarketing</fullName>
+        <default>false</default>
+        <label>Ticket Client-eMarketing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Event Management</fullName>
+        <default>false</default>
+        <label>Ticket Client-Event Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Reporting</fullName>
+        <default>false</default>
+        <label>Ticket Client-Reporting</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Ticket Buyers</fullName>
+        <default>false</default>
+        <label>Ticket Client-Ticket Buyers</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Ticket Client-Website Build/Management</fullName>
+        <default>false</default>
+        <label>Ticket Client-Website Build/Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Touchnet-API Info change</fullName>
+        <default>false</default>
+        <label>Touchnet-API Info change</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Touchnet-General Questions/Other</fullName>
+        <default>false</default>
+        <label>Touchnet-General Questions/Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Touchnet-Implementation</fullName>
+        <default>false</default>
+        <label>Touchnet-Implementation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Touchnet-Other</fullName>
+        <default>false</default>
+        <label>Touchnet-Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Touchnet-Setup</fullName>
+        <default>false</default>
+        <label>Touchnet-Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>TPP</fullName>
+        <default>false</default>
+        <label>TPP</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Tradeshow Assignments</fullName>
+        <default>false</default>
+        <label>Tradeshow Assignments</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Tradeshows</fullName>
+        <default>false</default>
+        <label>Tradeshows</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training</fullName>
+        <default>false</default>
+        <label>Training</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed AMT</fullName>
+        <default>false</default>
+        <label>Training-Completed AMT</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Best Practices</fullName>
+        <default>false</default>
+        <label>Training-Completed Best Practices</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed CD Introductory</fullName>
+        <default>false</default>
+        <label>Training-Completed CD Introductory</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training Completed-Corporate</fullName>
+        <default>false</default>
+        <label>Training Completed-Corporate</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed CVB</fullName>
+        <default>false</default>
+        <label>Training-Completed CVB</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed EC1</fullName>
+        <default>false</default>
+        <label>Training-Completed EC1</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed EC2</fullName>
+        <default>false</default>
+        <label>Training-Completed EC2</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed eMarketing</fullName>
+        <default>false</default>
+        <label>Training-Completed eMarketing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Enterprise Features</fullName>
+        <default>false</default>
+        <label>Training-Completed Enterprise Features</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Event Management</fullName>
+        <default>false</default>
+        <label>Training-Completed Event Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed HB Connect</fullName>
+        <default>false</default>
+        <label>Training-Completed HB Connect</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed HTML</fullName>
+        <default>false</default>
+        <label>Training-Completed HTML</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed MCI, RFP BP</fullName>
+        <default>false</default>
+        <label>Training-Completed MCI, RFP BP</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed MCI, RFP Creation</fullName>
+        <default>false</default>
+        <label>Training-Completed MCI, RFP Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed New Release Training</fullName>
+        <default>false</default>
+        <label>Training-Completed New Release Training</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed NSO</fullName>
+        <default>false</default>
+        <label>Training-Completed NSO</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed RFP Creation</fullName>
+        <default>false</default>
+        <label>Training-Completed RFP Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Social Media</fullName>
+        <default>false</default>
+        <label>Training-Completed Social Media</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Survey Creation</fullName>
+        <default>false</default>
+        <label>Training-Completed Survey Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Survey Distribution</fullName>
+        <default>false</default>
+        <label>Training-Completed Survey Distribution</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Survey Reports</fullName>
+        <default>false</default>
+        <label>Training-Completed Survey Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Travel</fullName>
+        <default>false</default>
+        <label>Training-Completed Travel</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Training-Completed Venue</fullName>
+        <default>false</default>
+        <label>Training-Completed Venue</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Transferred Call/Set Callback</fullName>
+        <default>false</default>
+        <label>Transferred Call/Set Callback</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Transient Channel Marketing Activation</fullName>
+        <default>false</default>
+        <label>Transient Channel Marketing Activation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Transient Channel Marketing Deactivation</fullName>
+        <default>false</default>
+        <label>Transient Channel Marketing Deactivation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Air Actual Import</fullName>
+        <default>false</default>
+        <label>Travel-Air Actual Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Air Actual Setup</fullName>
+        <default>false</default>
+        <label>Travel-Air Actual Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Air Request Setup</fullName>
+        <default>false</default>
+        <label>Travel-Air Request Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Car Setup</fullName>
+        <default>false</default>
+        <label>Travel-Car Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Concur</fullName>
+        <default>false</default>
+        <label>Travel-Concur</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-GDS Integration</fullName>
+        <default>false</default>
+        <label>Travel-GDS Integration</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-General</fullName>
+        <default>false</default>
+        <label>Travel-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-GetThere</fullName>
+        <default>false</default>
+        <label>Travel-GetThere</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Hotel Confirmation Import</fullName>
+        <default>false</default>
+        <label>Travel-Hotel Confirmation Import</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Hotel Fees</fullName>
+        <default>false</default>
+        <label>Travel-Hotel Fees</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Hotel Setup</fullName>
+        <default>false</default>
+        <label>Travel-Hotel Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Passkey</fullName>
+        <default>false</default>
+        <label>Travel-Passkey</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-PNR Management</fullName>
+        <default>false</default>
+        <label>Travel-PNR Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Registration Process</fullName>
+        <default>false</default>
+        <label>Travel-Registration Process</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Room Block Management</fullName>
+        <default>false</default>
+        <label>Travel-Room Block Management</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Roommate Matching</fullName>
+        <default>false</default>
+        <label>Travel-Roommate Matching</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel-Travel Questions</fullName>
+        <default>false</default>
+        <label>Travel-Travel Questions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Type Field Updated</fullName>
+        <default>false</default>
+        <label>Type Field Updated</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Unique Client Report to Finance</fullName>
+        <default>false</default>
+        <label>Unique Client Report to Finance</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>University Program(CCP)</fullName>
+        <default>false</default>
+        <label>University Program(CCP)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Unsubscribe/Deactivate</fullName>
+        <default>false</default>
+        <label>Unsubscribe/Deactivate</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Usability/Product Text</fullName>
+        <default>false</default>
+        <label>Usability/Product Text</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Usage Report</fullName>
+        <default>false</default>
+        <label>Usage Report</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>User Creation</fullName>
+        <default>false</default>
+        <label>User Creation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>User Roles - Permissions</fullName>
+        <default>false</default>
+        <label>User Roles - Permissions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>User Roles - Properties</fullName>
+        <default>false</default>
+        <label>User Roles - Properties</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Users / Roles</fullName>
+        <default>false</default>
+        <label>Users / Roles</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>US Support Requested</fullName>
+        <default>false</default>
+        <label>US Support Requested</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue already Booked</fullName>
+        <default>false</default>
+        <label>Venue already Booked</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Estimated Costs Grid</fullName>
+        <default>false</default>
+        <label>Venue Estimated Costs Grid</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Manage RFPs</fullName>
+        <default>false</default>
+        <label>Venue Manage RFPs</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Meeting Rooms Grid</fullName>
+        <default>false</default>
+        <label>Venue Meeting Rooms Grid</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Not Booked Yet</fullName>
+        <default>false</default>
+        <label>Venue Not Booked Yet</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue NSO</fullName>
+        <default>false</default>
+        <label>Venue NSO</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Package Pricing</fullName>
+        <default>false</default>
+        <label>Venue Package Pricing</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Profile Changes</fullName>
+        <default>false</default>
+        <label>Venue Profile Changes</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Proposal Defaults</fullName>
+        <default>false</default>
+        <label>Venue Proposal Defaults</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Proposal Wizard</fullName>
+        <default>false</default>
+        <label>Venue Proposal Wizard</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Reports</fullName>
+        <default>false</default>
+        <label>Venue Reports</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Retract Turn Down</fullName>
+        <default>false</default>
+        <label>Venue Retract Turn Down</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Routing/Escalation</fullName>
+        <default>false</default>
+        <label>Venue Routing/Escalation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue Suggestions</fullName>
+        <default>false</default>
+        <label>Venue Suggestions</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Venue took Convo Offline</fullName>
+        <default>false</default>
+        <label>Venue took Convo Offline</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Views</fullName>
+        <default>false</default>
+        <label>Views</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Visited/Abandoned Tasks</fullName>
+        <default>false</default>
+        <label>Visited/Abandoned Tasks</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Voicemails</fullName>
+        <default>false</default>
+        <label>Voicemails</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>WebLeads</fullName>
+        <default>false</default>
+        <label>WebLeads</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Advanced Mode(CSS)</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Advanced Mode(CSS)</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Auth Process</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Auth Process</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Footer</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Footer</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-General</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Header</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Header</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Layout</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Layout</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Navigation</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Navigation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Page Settings</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Page Settings</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-RSS Feeds</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-RSS Feeds</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Send to a Friend</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Send to a Friend</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Theme</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Theme</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Website Links</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Website Links</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website &amp; Invitation-Widgets</fullName>
+        <default>false</default>
+        <label>Website &amp; Invitation-Widgets</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Invitation</fullName>
+        <default>false</default>
+        <label>Website Invitation</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Links</fullName>
+        <default>false</default>
+        <label>Website Links</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Pages</fullName>
+        <default>false</default>
+        <label>Website Pages</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Pages-General</fullName>
+        <default>false</default>
+        <label>Website Pages-General</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Pages-Page Setup</fullName>
+        <default>false</default>
+        <label>Website Pages-Page Setup</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Pages-Presentation Options</fullName>
+        <default>false</default>
+        <label>Website Pages-Presentation Options</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Web Widgets</fullName>
+        <default>false</default>
+        <label>Web Widgets</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Welcome Page</fullName>
+        <default>false</default>
+        <label>Welcome Page</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+</StandardValueSet>

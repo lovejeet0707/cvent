@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>PSG__r.Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>PSG Projects</relationshipLabel>
+        <relationshipName>PSG_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CVII_Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.CVII_Contract_Number__c</formula>
+        <label>CVII Contract Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CVII_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.CVII_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CVII ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calculations_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Calculations Required</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Charged_Quoted__c</fullName>
+        <externalId>false</externalId>
+        <label>PSG $ Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Closed_by__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Owner.FirstName &amp; " " &amp;  Opportunity_ID__r.Owner.LastName</formula>
+        <label>Closed by</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Component_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Client/Prospect Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client</fullName>
+                    <default>false</default>
+                    <label>Client</label>
+                </value>
+                <value>
+                    <fullName>Prospecting</fullName>
+                    <default>false</default>
+                    <label>Prospecting</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Analysis_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.ContractEndDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Received__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.ContractReceived__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Received</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.ContractStartDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.New_Contract_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Converted_Deal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Converted Deal?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Deliverable_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( Deliverable_to_Client__c ),
+1, "January",
+2, "February",
+3, "March", 
+4, "April", 
+5, "May", 
+6, "June",
+7, "July",
+8, "August",
+9, "September",
+10, "October",
+11, "November",
+12, "December",
+"None")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Deliverable Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deliverable_to_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Deliverable to Client</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deliverable_to_Emily__c</fullName>
+        <defaultValue>NULL</defaultValue>
+        <externalId>false</externalId>
+        <label>Deliverable to Emily</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>E_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>E.Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Dates_Reviewed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Estimated Dates Reviewed</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( Opportunity_ID__r.Booked_Month__c), 
+1, "January", 
+2, "February", 
+3, "March", 
+4, "April", 
+5, "May", 
+6, "June", 
+7, "July", 
+8, "August", 
+9, "September", 
+10, "October", 
+11, "November", 
+12, "December", 
+"None")&amp;" "&amp;TEXT(YEAR(Opportunity_ID__r.Booked_Month__c))</formula>
+        <label>Closed/Expected Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Timeframe__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Timeframe</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Feature_Set__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Feature Set</label>
+        <referenceTo>Feature_Set__c</referenceTo>
+        <relationshipName>Analysis_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Format_Design_of_the_Report__c</fullName>
+        <externalId>false</externalId>
+        <label>Format/Design of the Report</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hours_Quoted__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours Quoted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Summary_Needed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Summary Needed?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_12_month_spent__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Last_12_month_spent__c</formula>
+        <label>$ Last 12 month spent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity Name</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>Analysis_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity_ID__r.StageName)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PM_s_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>PM's Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PSG_Value_Rollup_MCV__c</fullName>
+        <externalId>false</externalId>
+        <label>PSG $ Value (Rollup) MCV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PSG_Value_Rollup__c</fullName>
+        <description>Roll up of all the component total value of PSG Components</description>
+        <externalId>false</externalId>
+        <label>PSG $ Value (Rollup)</label>
+        <summarizedField>Project_Activity__c.Component_Total__c</summarizedField>
+        <summaryForeignKey>Project_Activity__c.Analysis_Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>PSG__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>PSG</label>
+        <referenceTo>Professional_Services_Project__c</referenceTo>
+        <relationshipName>Analysis_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Probabillity__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Probability</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Probabillity %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Project_Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>First Project</fullName>
+                    <default>false</default>
+                    <label>First Project</label>
+                </value>
+                <value>
+                    <fullName>New Project</fullName>
+                    <default>false</default>
+                    <label>New Project</label>
+                </value>
+                <value>
+                    <fullName>Renewal Project</fullName>
+                    <default>false</default>
+                    <label>Renewal Project</label>
+                </value>
+                <value>
+                    <fullName>Upsell Project</fullName>
+                    <default>false</default>
+                    <label>Upsell Project</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Completeness_Image__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( AND(Project_Completeness__c&gt;=0.8,Project_Completeness__c&lt;=0.99) ,IMAGE("https://cvent--c.na0.content.force.com/servlet/servlet.FileDownload?file=01500000000hrW7","RedImage"), IF( AND(Project_Completeness__c&gt;0,Project_Completeness__c&lt;=0.79),IMAGE("https://cvent--c.na0.content.force.com/servlet/servlet.FileDownload?file=01500000000hrWC","YellowImage"),IF( (Project_Completeness__c&gt;0.99) ,IMAGE("https://cvent--c.na0.content.force.com/servlet/servlet.FileDownload?file=01500000000hrWH","BlueImage"),null )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Completeness Image</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Completeness__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Time_Spent__c / Total_Project_Hours__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Completeness (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Project_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Project End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Abhi Pradhan</fullName>
+                    <default>false</default>
+                    <label>Abhi Pradhan</label>
+                </value>
+                <value>
+                    <fullName>Bianca Lama</fullName>
+                    <default>false</default>
+                    <label>Bianca Lama</label>
+                </value>
+                <value>
+                    <fullName>Brittany Krout</fullName>
+                    <default>false</default>
+                    <label>Brittany Krout</label>
+                </value>
+                <value>
+                    <fullName>Dorian Rosen</fullName>
+                    <default>false</default>
+                    <label>Dorian Rosen</label>
+                </value>
+                <value>
+                    <fullName>Jamal Scott</fullName>
+                    <default>false</default>
+                    <label>Jamal Scott</label>
+                </value>
+                <value>
+                    <fullName>Kerry Lambert</fullName>
+                    <default>true</default>
+                    <label>Kerry Lambert</label>
+                </value>
+                <value>
+                    <fullName>Sam Bhat</fullName>
+                    <default>false</default>
+                    <label>Sam Bhat</label>
+                </value>
+                <value>
+                    <fullName>Scott Verma</fullName>
+                    <default>false</default>
+                    <label>Scott Verma</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Requirements__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Requirements</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yet to Start</fullName>
+                    <default>false</default>
+                    <label>Yet to Start</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                    <label>On Hold</label>
+                </value>
+                <value>
+                    <fullName>Lost</fullName>
+                    <default>false</default>
+                    <label>Lost</label>
+                </value>
+                <value>
+                    <fullName>Requirements Changes</fullName>
+                    <default>false</default>
+                    <label>Requirements Changes</label>
+                </value>
+                <value>
+                    <fullName>Project Cancelled</fullName>
+                    <default>false</default>
+                    <label>Project Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Update__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Update</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quote_Break_Up__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote Break Up</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quote_Request_Recieved_on__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote Request Recieved on</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Sent_Back_on__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote Sent Back on</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Quoted_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Quoted By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Brittany Krout</fullName>
+                    <default>false</default>
+                    <label>Brittany Krout</label>
+                </value>
+                <value>
+                    <fullName>Carla Castellucci</fullName>
+                    <default>false</default>
+                    <label>Carla Castellucci</label>
+                </value>
+                <value>
+                    <fullName>Dorian Rosen</fullName>
+                    <default>false</default>
+                    <label>Dorian Rosen</label>
+                </value>
+                <value>
+                    <fullName>Jamal Scott</fullName>
+                    <default>false</default>
+                    <label>Jamal Scott</label>
+                </value>
+                <value>
+                    <fullName>Kerry Lambert</fullName>
+                    <default>false</default>
+                    <label>Kerry Lambert</label>
+                </value>
+                <value>
+                    <fullName>Mike Phillips</fullName>
+                    <default>false</default>
+                    <label>Mike Phillips</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rack_Value_Rollup_MCV__c</fullName>
+        <externalId>false</externalId>
+        <label>Rack $ Value (Rollup) MCV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rack_Value_Rollup__c</fullName>
+        <externalId>false</externalId>
+        <label>Rack $ Value (Rollup)</label>
+        <summarizedField>Project_Activity__c.Rack_Total__c</summarizedField>
+        <summaryForeignKey>Project_Activity__c.Analysis_Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Project_was_Lost__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Project was Lost</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Never Qualified</fullName>
+                    <default>false</default>
+                    <label>Never Qualified</label>
+                </value>
+                <value>
+                    <fullName>Needs Additional Features</fullName>
+                    <default>false</default>
+                    <label>Needs Additional Features</label>
+                </value>
+                <value>
+                    <fullName>Not Enough Budget</fullName>
+                    <default>false</default>
+                    <label>Not Enough Budget</label>
+                </value>
+                <value>
+                    <fullName>Went With Another Provider</fullName>
+                    <default>false</default>
+                    <label>Went With Another Provider</label>
+                </value>
+                <value>
+                    <fullName>Managing Project Internally</fullName>
+                    <default>false</default>
+                    <label>Managing Project Internally</label>
+                </value>
+                <value>
+                    <fullName>Project Cancelled</fullName>
+                    <default>false</default>
+                    <label>Project Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Not Interested</fullName>
+                    <default>false</default>
+                    <label>Not Interested</label>
+                </value>
+                <value>
+                    <fullName>PSG Gap</fullName>
+                    <default>false</default>
+                    <label>PSG Gap</label>
+                </value>
+                <value>
+                    <fullName>Reporting Limitations</fullName>
+                    <default>false</default>
+                    <label>Reporting Limitations</label>
+                </value>
+                <value>
+                    <fullName>Industry Benchmarking</fullName>
+                    <default>false</default>
+                    <label>Industry Benchmarking</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>S_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>S.Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Services_Contract_Value_New__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Net_Amount_Opp__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Services Contract Value (New)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Services_Contract_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.New_Contract_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Services Contract Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Total_Entitled_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Entitled Hours</label>
+        <summarizedField>Project_Activity__c.Entitled_Hours__c</summarizedField>
+        <summaryForeignKey>Project_Activity__c.Analysis_Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Historic_Spent__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Total_Historic_Spent__c</formula>
+        <label>$ Total Historic Spent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Project_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Project Hours</label>
+        <summarizedField>Project_Activity__c.Project_Hours__c</summarizedField>
+        <summaryForeignKey>Project_Activity__c.Analysis_Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Time_Spent_Reviewed__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Time Spent (Reviewed)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Time_Spent__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Time Spent</label>
+        <summarizedField>Project_Activity__c.Actual_Time_Spent__c</summarizedField>
+        <summaryForeignKey>Project_Activity__c.Analysis_Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Project</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Excel Report</fullName>
+                    <default>false</default>
+                    <label>Excel Report</label>
+                </value>
+                <value>
+                    <fullName>Word Report in AUSA Format</fullName>
+                    <default>false</default>
+                    <label>Word Report in AUSA Format</label>
+                </value>
+                <value>
+                    <fullName>Word Report in Island Timberland Format</fullName>
+                    <default>false</default>
+                    <label>Word Report in Island Timberland Format</label>
+                </value>
+                <value>
+                    <fullName>PPT in AUSA Format</fullName>
+                    <default>false</default>
+                    <label>PPT in AUSA Format</label>
+                </value>
+                <value>
+                    <fullName>PPT in Island Timberland Format</fullName>
+                    <default>false</default>
+                    <label>PPT in Island Timberland Format</label>
+                </value>
+                <value>
+                    <fullName>Word Report</fullName>
+                    <default>false</default>
+                    <label>Word Report</label>
+                </value>
+                <value>
+                    <fullName>PPT Report</fullName>
+                    <default>false</default>
+                    <label>PPT Report</label>
+                </value>
+                <value>
+                    <fullName>PDF Report</fullName>
+                    <default>false</default>
+                    <label>PDF Report</label>
+                </value>
+                <value>
+                    <fullName>Excel Based Portal</fullName>
+                    <default>false</default>
+                    <label>Excel Based Portal</label>
+                </value>
+                <value>
+                    <fullName>Business Object</fullName>
+                    <default>false</default>
+                    <label>Business Object</label>
+                </value>
+                <value>
+                    <fullName>Data Dump</fullName>
+                    <default>false</default>
+                    <label>Data Dump</label>
+                </value>
+                <value>
+                    <fullName>MDU Type of Report</fullName>
+                    <default>false</default>
+                    <label>MDU Type of Report</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Unique_Opp_id__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_ID__r.Unique_ID_Opp__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unique Opp id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Sales Rep</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Analysis_Projects</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X100_Actual_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>100% Actual Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X100_Estimated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>100% Estimated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X25_Actual_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>25% Actual Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X25_Estimated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>25% Estimated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X50_Actual_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>50% Actual Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X50_Estimated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>50% Estimated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X75_Actual_date__c</fullName>
+        <externalId>false</externalId>
+        <label>75% Actual date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X75_Estimated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>75% Estimated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>of_Project_Completed__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Time_Spent_Reviewed__c / Total_Project_Hours__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>% of Project Completed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains all PSG Reports projects</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Read</externalSharingModel>
+    <label>PSG Projects</label>
+    <nameField>
+        <displayFormat>AP-{00000}</displayFormat>
+        <label>Analysis Projects Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>PSG Projects</pluralLabel>
+    <searchLayouts />
+    <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account_Name__c</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Project_Status__c</field>
+            <operation>equals</operation>
+            <value>In Negotiation</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <validationRules>
+        <fullName>PSG_rule_2</fullName>
+        <active>false</active>
+        <errorConditionFormula>Not(ISPICKVAL( 00N00000008aRpy.00N00000008aRqg , "Survey Analysis Reports"))</errorConditionFormula>
+        <errorMessage>Survey Section</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>When_Summay_is_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (Is_Summary_Needed__c=TRUE,ISNULL(Deliverable_to_Emily__c))</errorConditionFormula>
+        <errorDisplayField>Deliverable_to_Emily__c</errorDisplayField>
+        <errorMessage>You need to enter the value here.</errorMessage>
+    </validationRules>
+</CustomObject>

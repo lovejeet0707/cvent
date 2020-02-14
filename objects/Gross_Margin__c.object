@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Effective_End_Date__c</fullName>
+        <description>Gross Margin Effective End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Gross Margin Effective End Date</inlineHelpText>
+        <label>Effective End Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Start_Date__c</fullName>
+        <description>Gross Margin Effective Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Gross Margin Effective Start Date</inlineHelpText>
+        <label>Effective Start Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Margin__c</fullName>
+        <description>Gross Margin Percentage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Gross Margin Percentage</inlineHelpText>
+        <label>CGM Cost %</label>
+        <precision>5</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family_And_Product_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Product_Family__c) + '-' + TEXT(Product_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Family And Product Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <description>Product Family</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Family</inlineHelpText>
+        <label>Product Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACM</fullName>
+                    <default>false</default>
+                    <label>ACM</label>
+                </value>
+                <value>
+                    <fullName>ACM - Client</fullName>
+                    <default>false</default>
+                    <label>ACM - Client</label>
+                </value>
+                <value>
+                    <fullName>ACM - Hosted</fullName>
+                    <default>false</default>
+                    <label>ACM - Hosted</label>
+                </value>
+                <value>
+                    <fullName>ACR</fullName>
+                    <default>false</default>
+                    <label>ACR</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE Exchange</fullName>
+                    <default>false</default>
+                    <label>ACTIVE Exchange</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE International</fullName>
+                    <default>false</default>
+                    <label>ACTIVE International</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE Net</fullName>
+                    <default>false</default>
+                    <label>ACTIVE Net</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE Trainer</fullName>
+                    <default>false</default>
+                    <label>ACTIVE Trainer</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Camps Lite</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Camps Lite</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Camps Plus</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Camps Plus</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Endurance</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Endurance</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Swimming</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Swimming</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Sports - Swimming</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Sports - Swimming</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Team Sports</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Team Sports</label>
+                </value>
+                <value>
+                    <fullName>AMM</fullName>
+                    <default>false</default>
+                    <label>AMM</label>
+                </value>
+                <value>
+                    <fullName>Blue Bear</fullName>
+                    <default>false</default>
+                    <label>Blue Bear</label>
+                </value>
+                <value>
+                    <fullName>Blue Bear WebStore</fullName>
+                    <default>false</default>
+                    <label>Blue Bear WebStore</label>
+                </value>
+                <value>
+                    <fullName>Class</fullName>
+                    <default>false</default>
+                    <label>Class</label>
+                </value>
+                <value>
+                    <fullName>Class Hybrid</fullName>
+                    <default>false</default>
+                    <label>Class Hybrid</label>
+                </value>
+                <value>
+                    <fullName>Digital Media - Brands</fullName>
+                    <default>false</default>
+                    <label>Digital Media - Brands</label>
+                </value>
+                <value>
+                    <fullName>Digital Media - Orgs</fullName>
+                    <default>false</default>
+                    <label>Digital Media - Orgs</label>
+                </value>
+                <value>
+                    <fullName>EST</fullName>
+                    <default>false</default>
+                    <label>EST</label>
+                </value>
+                <value>
+                    <fullName>Event Director</fullName>
+                    <default>false</default>
+                    <label>Event Director</label>
+                </value>
+                <value>
+                    <fullName>Fairway</fullName>
+                    <default>false</default>
+                    <label>Fairway</label>
+                </value>
+                <value>
+                    <fullName>Fellowship One</fullName>
+                    <default>false</default>
+                    <label>Fellowship One</label>
+                </value>
+                <value>
+                    <fullName>GEN</fullName>
+                    <default>false</default>
+                    <label>GEN</label>
+                </value>
+                <value>
+                    <fullName>Golf SOS</fullName>
+                    <default>false</default>
+                    <label>Golf SOS</label>
+                </value>
+                <value>
+                    <fullName>Jencess</fullName>
+                    <default>false</default>
+                    <label>Jencess</label>
+                </value>
+                <value>
+                    <fullName>League One</fullName>
+                    <default>false</default>
+                    <label>League One</label>
+                </value>
+                <value>
+                    <fullName>LibOnline</fullName>
+                    <default>false</default>
+                    <label>LibOnline</label>
+                </value>
+                <value>
+                    <fullName>M+M - Promotions - Other</fullName>
+                    <default>false</default>
+                    <label>M+M - Promotions - Other</label>
+                </value>
+                <value>
+                    <fullName>M+M - Promotions - Sampling</fullName>
+                    <default>false</default>
+                    <label>M+M - Promotions - Sampling</label>
+                </value>
+                <value>
+                    <fullName>Online Meet Entry</fullName>
+                    <default>false</default>
+                    <label>Online Meet Entry</label>
+                </value>
+                <value>
+                    <fullName>OpenCourse</fullName>
+                    <default>false</default>
+                    <label>OpenCourse</label>
+                </value>
+                <value>
+                    <fullName>Payment Manager</fullName>
+                    <default>false</default>
+                    <label>Payment Manager</label>
+                </value>
+                <value>
+                    <fullName>Payment Manager (PM)</fullName>
+                    <default>false</default>
+                    <label>Payment Manager (PM)</label>
+                </value>
+                <value>
+                    <fullName>Reg Center</fullName>
+                    <default>false</default>
+                    <label>Reg Center</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>RegOnline (ROL)</fullName>
+                    <default>false</default>
+                    <label>RegOnline (ROL)</label>
+                </value>
+                <value>
+                    <fullName>RTP</fullName>
+                    <default>false</default>
+                    <label>RTP</label>
+                </value>
+                <value>
+                    <fullName>RTP | ONE</fullName>
+                    <default>false</default>
+                    <label>RTP | ONE</label>
+                </value>
+                <value>
+                    <fullName>ServiceU</fullName>
+                    <default>false</default>
+                    <label>ServiceU</label>
+                </value>
+                <value>
+                    <fullName>SKIDATA Hardware</fullName>
+                    <default>false</default>
+                    <label>SKIDATA Hardware</label>
+                </value>
+                <value>
+                    <fullName>SKIDATA Media</fullName>
+                    <default>false</default>
+                    <label>SKIDATA Media</label>
+                </value>
+                <value>
+                    <fullName>Thriva</fullName>
+                    <default>false</default>
+                    <label>Thriva</label>
+                </value>
+                <value>
+                    <fullName>USTA</fullName>
+                    <default>false</default>
+                    <label>USTA</label>
+                </value>
+                <value>
+                    <fullName>Donations</fullName>
+                    <default>false</default>
+                    <label>Donations</label>
+                </value>
+                <value>
+                    <fullName>eTeamz</fullName>
+                    <default>false</default>
+                    <label>eTeamz</label>
+                </value>
+                <value>
+                    <fullName>Club Reg</fullName>
+                    <default>false</default>
+                    <label>Club Reg</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Outdoors - Hunt/Fish</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Outdoors - Hunt/Fish</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Outdoors - Campgrounds</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Outdoors - Campgrounds</label>
+                </value>
+                <value>
+                    <fullName>InfoSpherix - ReserveWorld</fullName>
+                    <default>false</default>
+                    <label>InfoSpherix - ReserveWorld</label>
+                </value>
+                <value>
+                    <fullName>InfoSpherix - Non-ReserveWorld</fullName>
+                    <default>false</default>
+                    <label>InfoSpherix - Non-ReserveWorld</label>
+                </value>
+                <value>
+                    <fullName>Hunting &amp; Fishing</fullName>
+                    <default>false</default>
+                    <label>Hunting &amp; Fishing</label>
+                </value>
+                <value>
+                    <fullName>Active Advantage</fullName>
+                    <default>false</default>
+                    <label>Active Advantage</label>
+                </value>
+                <value>
+                    <fullName>ActiveGolf</fullName>
+                    <default>false</default>
+                    <label>ActiveGolf</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Giving</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Giving</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - Parking</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - Parking</label>
+                </value>
+                <value>
+                    <fullName>ACTIVEworks - PayCenter</fullName>
+                    <default>false</default>
+                    <label>ACTIVEworks - PayCenter</label>
+                </value>
+                <value>
+                    <fullName>C4TT</fullName>
+                    <default>false</default>
+                    <label>C4TT</label>
+                </value>
+                <value>
+                    <fullName>ClubSpaces</fullName>
+                    <default>false</default>
+                    <label>ClubSpaces</label>
+                </value>
+                <value>
+                    <fullName>eCamp</fullName>
+                    <default>false</default>
+                    <label>eCamp</label>
+                </value>
+                <value>
+                    <fullName>Interactive Maintenance</fullName>
+                    <default>false</default>
+                    <label>Interactive Maintenance</label>
+                </value>
+                <value>
+                    <fullName>KnowledgeBase</fullName>
+                    <default>false</default>
+                    <label>KnowledgeBase</label>
+                </value>
+                <value>
+                    <fullName>Library</fullName>
+                    <default>false</default>
+                    <label>Library</label>
+                </value>
+                <value>
+                    <fullName>M&amp;M</fullName>
+                    <default>false</default>
+                    <label>M&amp;M</label>
+                </value>
+                <value>
+                    <fullName>M+M - Database (Custom Email/Newsletters)</fullName>
+                    <default>false</default>
+                    <label>M+M - Database (Custom Email/Newsletters)</label>
+                </value>
+                <value>
+                    <fullName>M+M - Online</fullName>
+                    <default>false</default>
+                    <label>M+M - Online</label>
+                </value>
+                <value>
+                    <fullName>Managed Services</fullName>
+                    <default>false</default>
+                    <label>Managed Services</label>
+                </value>
+                <value>
+                    <fullName>Marketing - International</fullName>
+                    <default>false</default>
+                    <label>Marketing - International</label>
+                </value>
+                <value>
+                    <fullName>Mobile CMS</fullName>
+                    <default>false</default>
+                    <label>Mobile CMS</label>
+                </value>
+                <value>
+                    <fullName>Mobile Commerce</fullName>
+                    <default>false</default>
+                    <label>Mobile Commerce</label>
+                </value>
+                <value>
+                    <fullName>Mobile License</fullName>
+                    <default>false</default>
+                    <label>Mobile License</label>
+                </value>
+                <value>
+                    <fullName>OpenBook</fullName>
+                    <default>false</default>
+                    <label>OpenBook</label>
+                </value>
+                <value>
+                    <fullName>PureSend</fullName>
+                    <default>false</default>
+                    <label>PureSend</label>
+                </value>
+                <value>
+                    <fullName>Registration Add on</fullName>
+                    <default>false</default>
+                    <label>Registration Add on</label>
+                </value>
+                <value>
+                    <fullName>Student Activity Management</fullName>
+                    <default>false</default>
+                    <label>Student Activity Management</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <description>Product Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Type</inlineHelpText>
+        <label>Product Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SaaS</fullName>
+                    <default>false</default>
+                    <label>SaaS</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                    <label>Hardware</label>
+                </value>
+                <value>
+                    <fullName>Maintenance</fullName>
+                    <default>false</default>
+                    <label>Maintenance</label>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                    <label>Software</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to capture gross margin by Product Family and Product Type</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Gross Margin</label>
+    <nameField>
+        <label>Gross Margin Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Gross Margins</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Product_Family__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Gross_Margin__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Effective_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Effective_End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CURRENCY_ISO_CODE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Product_Family__c</columns>
+        <columns>Product_Type__c</columns>
+        <columns>Gross_Margin__c</columns>
+        <columns>Effective_Start_Date__c</columns>
+        <columns>Effective_End_Date__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <validationRules>
+        <fullName>GM_End_Date_Later_Than_Start_Date</fullName>
+        <active>true</active>
+        <description>The effective_end_date should be later than effective start date</description>
+        <errorConditionFormula>Effective_Start_Date__c &gt; Effective_End_Date__c</errorConditionFormula>
+        <errorDisplayField>Effective_End_Date__c</errorDisplayField>
+        <errorMessage>The Effective End Date should be no earlier than Effective Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>GM_Gross_Margin_Between_0_and_100</fullName>
+        <active>true</active>
+        <description>The Gross Margin should be in the range of 0 and 100</description>
+        <errorConditionFormula>!(Gross_Margin__c &gt;= 0 &amp;&amp; Gross_Margin__c &lt;= 1)</errorConditionFormula>
+        <errorDisplayField>Gross_Margin__c</errorDisplayField>
+        <errorMessage>The Gross Margin should be in the range of 0 and 100 [since it is percent]</errorMessage>
+    </validationRules>
+</CustomObject>

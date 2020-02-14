@@ -1,0 +1,3152 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>AT_PCN_Upsell_or_Credit_Back__c</fullName>
+        <externalId>false</externalId>
+        <label>AT PCN: Upsell or Credit Back</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Upsell</fullName>
+                    <default>false</default>
+                    <label>Upsell</label>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                    <label>Credit</label>
+                </value>
+                <value>
+                    <fullName>Additional purchase + credit</fullName>
+                    <default>false</default>
+                    <label>Additional purchase + credit</label>
+                </value>
+                <value>
+                    <fullName>Additional purchase only</fullName>
+                    <default>false</default>
+                    <label>Additional purchase only</label>
+                </value>
+                <value>
+                    <fullName>Credit only</fullName>
+                    <default>false</default>
+                    <label>Credit only</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account_Microsite_is_Created_Within__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is labeled as the "Account Number" in CVII. E.g. MARHQ001</inlineHelpText>
+        <label>Account ID Microsite Is Created In</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Contacts_for_Welcome_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Contacts for Welcome Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_signed_on_Contract_Papers__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Deal_Booked_In__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Agreement signed on Contract Papers?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Are_all_properties_associated_correctly__c</fullName>
+        <externalId>false</externalId>
+        <label>Are all properties associated correctly?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No, I need CSC team to review &amp; confirm</fullName>
+                    <default>false</default>
+                    <label>No, I need CSC team to review &amp; confirm</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Are_there_any_special_Invoicing_needs__c</fullName>
+        <externalId>false</externalId>
+        <label>Are there any special Invoicing needs?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Brand_Page_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Page/Microsite Code</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CONNECT_Exhibitor_Point_of_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CONNECT Exhibitor Point of Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (CONNECT Exhibitor Point of Contact)</relationshipLabel>
+        <relationshipName>Implementation_Surveys2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Name_of_Multi_Property_Purchase__c</fullName>
+        <externalId>false</externalId>
+        <formula>MSA_Bundle_Campaigns__r.Account__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Client Name of Multi-Property Purchase</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NBB</fullName>
+                    <default>false</default>
+                    <label>NBB</label>
+                </value>
+                <value>
+                    <fullName>Upsell Only</fullName>
+                    <default>false</default>
+                    <label>Upsell Only</label>
+                </value>
+                <value>
+                    <fullName>Renewal Only</fullName>
+                    <default>false</default>
+                    <label>Renewal Only</label>
+                </value>
+                <value>
+                    <fullName>Renewal/Upsell</fullName>
+                    <default>false</default>
+                    <label>Renewal/Upsell</label>
+                </value>
+                <value>
+                    <fullName>Renegotiation on NBB Deal</fullName>
+                    <default>false</default>
+                    <label>Renegotiation on NBB Deal</label>
+                </value>
+                <value>
+                    <fullName>Renegotiation on Renewal Deal</fullName>
+                    <default>false</default>
+                    <label>Renegotiation on Renewal Deal</label>
+                </value>
+                <value>
+                    <fullName>Settlement and Release</fullName>
+                    <default>false</default>
+                    <label>Settlement and Release</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DS_AM_who_closed_the_deal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Owner.FirstName &amp; " " &amp; Opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DS/AM who closed the deal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Did_this_deal_renew_365_days_in_advance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>We must understand if a deal closed greater than 365 days in advance of its renewal date for commission purposes.</inlineHelpText>
+        <label>Did this deal renew &gt;365 days in advance</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Did_this_deal_use_the_Mid_Year_Promo__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check this box if this deal included 10-20% off, a free EB or ABP, and/or 50% off Cvent CONNECT registration as part of the official Mid-Year Promotion</inlineHelpText>
+        <label>Did this deal use the Mid-Year Promo?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Does_someone_else_get_board_credit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If so, who, and what %?</inlineHelpText>
+        <label>Does someone else get board credit?</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EMA_Point_of_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>EMA Point of Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (EMA Point of Contact)</relationshipLabel>
+        <relationshipName>Implementation_Surveys1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_of_the_Year_Promo__c</fullName>
+        <externalId>false</externalId>
+        <label>End of the Year Promo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Federal_Tax_ID_VAT_ID_GST_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Federal Tax ID/VAT ID/GST ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finance_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Approver</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Mobile_Event_Date_Backup__c</fullName>
+        <description>This field is created to take back of original field - First Mobile Event Date. Field type is going to change to Date</description>
+        <externalId>false</externalId>
+        <label>First Mobile Event Date(Backup)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Mobile_Event_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Mobile Event Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Mobile_Event_Launch_Date_Backup__c</fullName>
+        <description>Backup field for First Mobile Event Launch Date. Field type changed to Date for Original field</description>
+        <externalId>false</externalId>
+        <label>First Mobile Event Launch Date(Backup)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Mobile_Event_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Mobile Event Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Presentation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Presentation Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Give_Specific_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Give specific detail over how this account will grow and why it requires a traditional AM</inlineHelpText>
+        <label>Give Specific Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_Many_Mobile_Apps_Purchased_in_Year_1__c</fullName>
+        <externalId>false</externalId>
+        <label>How Many Mobile Apps Purchased in Year 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Implementation_Survey_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.FirstName +' ' + Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Implementation Survey Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_there_a_YoY_Price_Increase__c</fullName>
+        <externalId>false</externalId>
+        <label>Is there a YoY Price Increase</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_your_customer_tax_exempt__c</fullName>
+        <externalId>false</externalId>
+        <label>Is your customer tax exempt?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>K_has_mult_Bill_to_or_Ship_to_addresses__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Does this contract have multiple bill-to or ship-to addresses? 
+If Yes, you are required to attach the excel file outlining the different bill-to or ship-to addresses on this implementation survey record within the notes &amp; attachments.</inlineHelpText>
+        <label>Multiple Bill To/Ship To?</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Language_Specifications__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Only select if not in English</inlineHelpText>
+        <label>Language Specifications</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Danish</fullName>
+                    <default>false</default>
+                    <label>Danish</label>
+                </value>
+                <value>
+                    <fullName>German</fullName>
+                    <default>false</default>
+                    <label>German</label>
+                </value>
+                <value>
+                    <fullName>French</fullName>
+                    <default>false</default>
+                    <label>French</label>
+                </value>
+                <value>
+                    <fullName>Italian</fullName>
+                    <default>false</default>
+                    <label>Italian</label>
+                </value>
+                <value>
+                    <fullName>Japanese</fullName>
+                    <default>false</default>
+                    <label>Japanese</label>
+                </value>
+                <value>
+                    <fullName>Korean</fullName>
+                    <default>false</default>
+                    <label>Korean</label>
+                </value>
+                <value>
+                    <fullName>Dutch</fullName>
+                    <default>false</default>
+                    <label>Dutch</label>
+                </value>
+                <value>
+                    <fullName>Portuguese (Brazil)</fullName>
+                    <default>false</default>
+                    <label>Portuguese (Brazil)</label>
+                </value>
+                <value>
+                    <fullName>Portuguese (European)</fullName>
+                    <default>false</default>
+                    <label>Portuguese (European)</label>
+                </value>
+                <value>
+                    <fullName>Russian</fullName>
+                    <default>false</default>
+                    <label>Russian</label>
+                </value>
+                <value>
+                    <fullName>Chinese (China)</fullName>
+                    <default>false</default>
+                    <label>Chinese (China)</label>
+                </value>
+                <value>
+                    <fullName>Chinese (Traditional)</fullName>
+                    <default>false</default>
+                    <label>Chinese (Traditional)</label>
+                </value>
+                <value>
+                    <fullName>Spanish</fullName>
+                    <default>false</default>
+                    <label>Spanish</label>
+                </value>
+                <value>
+                    <fullName>Bulgarian (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Bulgarian (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Chinese (Taiwan; Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Chinese (Taiwan; Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Czech (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Czech (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Greek (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Greek (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Finnish (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Finnish (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Hungarian (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Hungarian (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Norwegian (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Norwegian (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Polish (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Polish (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Croatian (Survey ONLY</fullName>
+                    <default>false</default>
+                    <label>Croatian (Survey ONLY</label>
+                </value>
+                <value>
+                    <fullName>Swedish (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Swedish (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Thai (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Thai (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Turkish (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Turkish (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Indonesian (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Indonesian (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Vietnamese (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Vietnamese (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Azeri or Azerbaijani (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Azeri or Azerbaijani (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Hindi (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Hindi (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Malay (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Malay (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Bengali (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Bengali (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Tamil (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Tamil (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Telugu (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Telugu (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Kannada (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Kannada (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Malayalam (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Malayalam (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Swiss German (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Swiss German (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Serbian (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Serbian (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Canadian French (Survey ONLY)</fullName>
+                    <default>false</default>
+                    <label>Canadian French (Survey ONLY)</label>
+                </value>
+                <value>
+                    <fullName>Azeri/Azerbaijani</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Azeri/Azerbaijani</label>
+                </value>
+                <value>
+                    <fullName>Bengali</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Bengali</label>
+                </value>
+                <value>
+                    <fullName>Canadian</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Canadian</label>
+                </value>
+                <value>
+                    <fullName>Hindi</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Hindi</label>
+                </value>
+                <value>
+                    <fullName>Indonesian</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Indonesian</label>
+                </value>
+                <value>
+                    <fullName>Kannada</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kannada</label>
+                </value>
+                <value>
+                    <fullName>Malay</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Malay</label>
+                </value>
+                <value>
+                    <fullName>Malayalam</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Malayalam</label>
+                </value>
+                <value>
+                    <fullName>Serbian</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Serbian</label>
+                </value>
+                <value>
+                    <fullName>Swiss</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Swiss</label>
+                </value>
+                <value>
+                    <fullName>Tamil</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Tamil</label>
+                </value>
+                <value>
+                    <fullName>Telugu</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Telugu</label>
+                </value>
+                <value>
+                    <fullName>Vietnamese</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Vietnamese</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legal_Resources_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>Legal Resources Used</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>List_out_User_Logins_to_be_deactivated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For Renewal and Renegotiated agreements.</inlineHelpText>
+        <label>List out User Logins to be deactivated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>MSA_Bundle_Campaigns__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>MSA/Bundle Campaigns</label>
+        <referenceTo>Multi_Property_Bundles__c</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Main_POC_Managing_Microsite__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Requested by Lauren Wagner under Case #11239495</description>
+        <externalId>false</externalId>
+        <label>Main POC Managing Microsite</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (Main POC Managing Microsite)</relationshipLabel>
+        <relationshipName>Implementation_Surveys3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Delivery Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AttendeeHub</fullName>
+                    <default>false</default>
+                    <label>AttendeeHub</label>
+                </value>
+                <value>
+                    <fullName>Self-Publishing</fullName>
+                    <default>false</default>
+                    <label>Self-Publishing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Event_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Event_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Event Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Owner.FirstName + ' ' + Opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_Select_Gateway__c</fullName>
+        <externalId>false</externalId>
+        <label>Other - Select Gateway</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outline_Special_Invoicing_Needs__c</fullName>
+        <externalId>false</externalId>
+        <label>Outline Special Invoicing Needs</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Process Immediate Invoice</fullName>
+                    <default>false</default>
+                    <label>Process Immediate Invoice</label>
+                </value>
+                <value>
+                    <fullName>Split Up/Itemize Invoices</fullName>
+                    <default>false</default>
+                    <label>Split Up/Itemize Invoices</label>
+                </value>
+                <value>
+                    <fullName>Combine Invoices</fullName>
+                    <default>false</default>
+                    <label>Combine Invoices</label>
+                </value>
+                <value>
+                    <fullName>Apply Credit Amount</fullName>
+                    <default>false</default>
+                    <label>Apply Credit Amount</label>
+                </value>
+                <value>
+                    <fullName>Additional Info Requested by Client to be Listed on Invoice</fullName>
+                    <default>false</default>
+                    <label>Additional Info Requested by Client to be Listed on Invoice</label>
+                </value>
+                <value>
+                    <fullName>No Special Invoicing Needs</fullName>
+                    <default>false</default>
+                    <label>No Special Invoicing Needs</label>
+                </value>
+                <value>
+                    <fullName>Send Credit Card Link to Billing Contact</fullName>
+                    <default>false</default>
+                    <label>Send Credit Card Link to Billing Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PO_If_Applicable__c</fullName>
+        <externalId>false</externalId>
+        <label>PO# (If Applicable)</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Resources__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify the Partner Resource associated to this deal (i.e, American Eagle)</inlineHelpText>
+        <label>Partner Referral (If Applicable)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Services</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EAP (CC)</fullName>
+                    <default>false</default>
+                    <label>EAP (CC)</label>
+                </value>
+                <value>
+                    <fullName>EventTroops (CC)</fullName>
+                    <default>false</default>
+                    <label>EventTroops (CC)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Please_provide_any_additional_comments__c</fullName>
+        <description>Please provide any additional comments necessary that weren't covered through questions within this survey</description>
+        <externalId>false</externalId>
+        <label>Please provide any additional comments</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Primary_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This identifies the person who will be receiving the welcome email.</inlineHelpText>
+        <label>Welcome Email Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (Primary User)</relationshipLabel>
+        <relationshipName>Primary_User</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Provide_Cvent_Account_ID_If_Applicable__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If a Cvent Account ID is not applicable, please write Not Applicable or N/A</inlineHelpText>
+        <label>Provide Cvent Account ID (If Applicable)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>SBQQ__Quote__c</referenceTo>
+        <relationshipLabel>Implementation Surveys</relationshipLabel>
+        <relationshipName>Implementation_Surveys</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retargeting_Tracking__c</fullName>
+        <description>This field was requested by Lauren Wagner under Case #11489877</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When Selling Video Retargeting or Google Display Ads, this defines how retargeting &amp; tracking will be configured in CVII</inlineHelpText>
+        <label>Retargeting &amp; Tracking</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Landing Page On Cvent</fullName>
+                    <default>false</default>
+                    <label>Landing Page On Cvent</label>
+                </value>
+                <value>
+                    <fullName>Landing Page Off Cvent</fullName>
+                    <default>false</default>
+                    <label>Landing Page Off Cvent</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Rush_Request__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If &lt;60 days, select Yes</inlineHelpText>
+        <label>Rush Request</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sandbox_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Sandbox Account #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Seed_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Seed Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Full Seed</fullName>
+                    <default>false</default>
+                    <label>Full Seed</label>
+                </value>
+                <value>
+                    <fullName>Cvent Payment Services</fullName>
+                    <default>false</default>
+                    <label>Cvent Payment Services</label>
+                </value>
+                <value>
+                    <fullName>Lead Capture</fullName>
+                    <default>false</default>
+                    <label>Lead Capture</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source_Opp_for_Credit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Locate the opportunity the credit was generated from. If there is no opportunity in SF that the credit was generated from, update the comments on the survey to outline where the credit originated (note: these typically require managerial approval).</inlineHelpText>
+        <label>Source Opp for Credit</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Implementation Surveys (Source Opp for Credit)</relationshipLabel>
+        <relationshipName>Implementation_Surveys1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Specify_data_center_for_implementation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Customers with a bill to in Americas, Canada, &amp; Mexico will be implemented in US Data Center. All other countries, will be defaulted to the European Data Center.</inlineHelpText>
+        <label>Specify data center for implementation?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Default based on Customer's Bill To</fullName>
+                    <default>false</default>
+                    <label>Default based on Customer's Bill To</label>
+                </value>
+                <value>
+                    <fullName>Override Default Location</fullName>
+                    <default>false</default>
+                    <label>Override Default Location</label>
+                </value>
+                <value>
+                    <fullName>US Data Center</fullName>
+                    <default>false</default>
+                    <label>US Data Center</label>
+                </value>
+                <value>
+                    <fullName>European Data Center</fullName>
+                    <default>false</default>
+                    <label>European Data Center</label>
+                </value>
+                <value>
+                    <fullName>Existing Data Center</fullName>
+                    <default>true</default>
+                    <label>Existing Data Center</label>
+                </value>
+                <value>
+                    <fullName>NA Data Center</fullName>
+                    <default>false</default>
+                    <label>NA Data Center</label>
+                </value>
+                <value>
+                    <fullName>EU Data Center</fullName>
+                    <default>false</default>
+                    <label>EU Data Center</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Specify_the_preferred_data_center__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>1. For feature availability in the EDC, access the wiki page titled “European Data Center – Product Availability”
+2. Reminder: CC &amp; Event Integration does not work across data centers</inlineHelpText>
+        <label>Specify data center for implementation</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>US Data Center</fullName>
+                    <default>false</default>
+                    <label>US Data Center</label>
+                </value>
+                <value>
+                    <fullName>European Data Center</fullName>
+                    <default>false</default>
+                    <label>European Data Center</label>
+                </value>
+                <value>
+                    <fullName>Existing Account</fullName>
+                    <default>false</default>
+                    <label>Existing Account</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Standard_Account__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>No answer will be a default FLEX Account</inlineHelpText>
+        <label>Classic Standard Registration needed?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Legacy only</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>Flex only</label>
+                </value>
+                <value>
+                    <fullName>Flex and Legacy</fullName>
+                    <default>false</default>
+                    <label>Flex and Legacy</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Survey_limits__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey limits</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Exempt__c</fullName>
+        <description>Is the customer tax exempt based on jurisdiction of related shipping address?</description>
+        <externalId>false</externalId>
+        <label>Tax Exempt</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes, but certificate on file is expired</fullName>
+                    <default>false</default>
+                    <label>Yes, but certificate on file is expired</label>
+                </value>
+                <value>
+                    <fullName>Yes, and we have no certificate on file</fullName>
+                    <default>false</default>
+                    <label>Yes, and we have no certificate on file</label>
+                </value>
+                <value>
+                    <fullName>Yes, and certificate on file is valid</fullName>
+                    <default>false</default>
+                    <label>Yes, and certificate on file is valid</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tax_Validation__c</fullName>
+        <externalId>false</externalId>
+        <label>Tax Validation</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>true</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upgrade_account_from_Renewal_Desk_to_AM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If account ACV is under $5k, the account will go to the renewal desk. solid fiscal growth reason is needed for AM assignment. Also only to be used in the case of a fresh logos. If this is a current customer please work with the AM owner and their manager</inlineHelpText>
+        <label>Upgrade account from Renewal Desk to AM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upload_Exhibit__c</fullName>
+        <externalId>false</externalId>
+        <label>Upload Exhibit</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upload_Tax_Exempt_Cert__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If you have answered Yes to the question Tax Exempt, please attach the exemption certification in notes &amp; attachments upon saving this record</inlineHelpText>
+        <label>Upload Tax Exempt Cert</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Tax_Exempt__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <controllingFieldValue>Yes, but certificate on file is expired</controllingFieldValue>
+                <controllingFieldValue>Yes, and we have no certificate on file</controllingFieldValue>
+                <controllingFieldValue>Yes, and certificate on file is valid</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <controllingFieldValue>Yes, but certificate on file is expired</controllingFieldValue>
+                <controllingFieldValue>Yes, and we have no certificate on file</controllingFieldValue>
+                <controllingFieldValue>Yes, and certificate on file is valid</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Use_Case__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For Survey deals only. Please state your use case of how IQ will be used.</inlineHelpText>
+        <label>Use Case</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>User_Login_Instructions_for_deactivation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For Renewal and Renegotiated agreements.</inlineHelpText>
+        <label>User Login Instructions for deactivation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Email_Contact_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Welcome Email Contact 2</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (Welcome Email Contact 2)</relationshipLabel>
+        <relationshipName>Implementation_Surveys4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Email_Contact_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Welcome Email Contact 3</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (Welcome Email Contact 3)</relationshipLabel>
+        <relationshipName>Implementation_Surveys5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Email_Contact_4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Welcome Email Contact 4</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Implementation Surveys (Welcome Email Contact 4)</relationshipLabel>
+        <relationshipName>Implementation_Surveys6</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X2019_Mid_Year_Promo_influence_on_Deal__c</fullName>
+        <externalId>false</externalId>
+        <label>2019 Mid-Year Promo influence on Deal?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>YoY_Price_Increase__c</fullName>
+        <externalId>false</externalId>
+        <label>YoY Price Increase %</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Is_there_a_YoY_Price_Increase__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Price Increase</fullName>
+                    <default>false</default>
+                    <label>No Price Increase</label>
+                </value>
+                <value>
+                    <fullName>Price Increase of 9%+</fullName>
+                    <default>false</default>
+                    <label>Price Increase of 9%+</label>
+                </value>
+                <value>
+                    <fullName>Price Increase of 5.01 – 8.99%</fullName>
+                    <default>false</default>
+                    <label>Price Increase of 5.01 – 8.99%</label>
+                </value>
+                <value>
+                    <fullName>Price Increase of .01 – 5%</fullName>
+                    <default>false</default>
+                    <label>Price Increase of .01 – 5%</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Price Increase of 9%+</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Price Increase of 5.01 – 8.99%</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Price Increase of .01 – 5%</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>No</controllingFieldValue>
+                <valueName>No Price Increase</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Implementation Survey</label>
+    <nameField>
+        <displayFormat>IMS-{0000}</displayFormat>
+        <label>Implementation Survey Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Implementation Surveys</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <fieldSets>
+        <fullName>ImplementationSurveyAddFieldsEC</fullName>
+        <description>This will be used to display Implementation Survey EC Additional Fields on Opportunity in Inline Visualforce Page</description>
+        <displayedFields>
+            <field>First_Mobile_Event_Launch_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Partner_Resources__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>How_Many_Mobile_Apps_Purchased_in_Year_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Please_provide_any_additional_comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>First_Mobile_Event_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Standard_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile_Delivery_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AT_PCN_Upsell_or_Credit_Back__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rush_Request__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Survey_limits__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_of_the_Year_Promo__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Partner_Services__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ImplementationSurveyAddFieldsEC</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ImplementationSurveyAddFieldsForHC</fullName>
+        <description>These are the additional fields which will be displayed on Opportunity Page layout when the Opportunity record type is equals to Hospitality Cloud.</description>
+        <displayedFields>
+            <field>Brand_Page_Code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Main_POC_Managing_Microsite__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account_Microsite_is_Created_Within__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Are_all_properties_associated_correctly__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>ImplementationSurveyAddFieldsForHC</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ImplementationSurveyExtraAddFieldsEC</fullName>
+        <description>ImplementationSurveyExtraAddFieldsEC</description>
+        <displayedFields>
+            <field>Federal_Tax_ID_VAT_ID_GST_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Exempt__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Tax_Exempt_Cert__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>K_has_mult_Bill_to_or_Ship_to_addresses__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Outline_Special_Invoicing_Needs__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Exhibit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Source_Opp_for_Credit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Additional_Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PO_If_Applicable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ImplementationSurveyExtraAddFieldsEC</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ImplementationSurveyFields</fullName>
+        <description>This will be used to display Implementation Survey EC Fields on Opportunity in Inline Visualforce Page</description>
+        <displayedFields>
+            <field>Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quote__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Welcome_Email_Contact_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Welcome_Email_Contact_3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Welcome_Email_Contact_4__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Additional_Contacts_for_Welcome_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Seed_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>First_Presentation_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sandbox_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Provide_Cvent_Account_ID_If_Applicable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Specify_data_center_for_implementation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>List_out_User_Logins_to_be_deactivated__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Language_Specifications__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>User_Login_Instructions_for_deactivation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Does_someone_else_get_board_credit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upgrade_account_from_Renewal_Desk_to_AM__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Give_Specific_Details__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Did_this_deal_renew_365_days_in_advance__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Validation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ImplementationSurveyFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ImplementationSurveyFieldsForHC</fullName>
+        <description>These fields will be displayed on Opportunity Page layout when the Opportunity record type is equals to Hospitality Cloud.</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Federal_Tax_ID_VAT_ID_GST_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PO_If_Applicable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Exempt__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Outline_Special_Invoicing_Needs__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Tax_Exempt_Cert__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Source_Opp_for_Credit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>K_has_mult_Bill_to_or_Ship_to_addresses__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>EMA_Point_of_Contact__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CONNECT_Exhibitor_Point_of_Contact__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>First_Presentation_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Exhibit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Please_provide_any_additional_comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Validation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quote__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ImplementationSurveyFieldsForHC</label>
+    </fieldSets>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <recordTypes>
+        <fullName>Event_Cloud</fullName>
+        <active>true</active>
+        <label>Event Cloud</label>
+        <picklistValues>
+            <picklist>AT_PCN_Upsell_or_Credit_Back__c</picklist>
+            <values>
+                <fullName>Additional purchase %2B credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Additional purchase only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Are_all_properties_associated_correctly__c</picklist>
+            <values>
+                <fullName>No%2C I need CSC team to review %26 confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Are_there_any_special_Invoicing_needs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>NBB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renegotiation on NBB Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renegotiation on Renewal Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal%2FUpsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement and Release</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Did_this_deal_use_the_Mid_Year_Promo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>End_of_the_Year_Promo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_there_a_YoY_Price_Increase__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_your_customer_tax_exempt__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>K_has_mult_Bill_to_or_Ship_to_addresses__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_Specifications__c</picklist>
+            <values>
+                <fullName>Azeri or Azerbaijani %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bengali %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulgarian %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canadian French %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese %28China%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese %28Taiwan%3B Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese %28Traditional%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatian %28Survey ONLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Danish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dutch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finnish %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greek %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindi %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungarian %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesian %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kannada %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malayalam %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norwegian %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polish %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese %28Brazil%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese %28European%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Serbian %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swedish %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss German %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tamil %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telugu %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkish %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese %28Survey ONLY%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mobile_Delivery_Date__c</picklist>
+            <values>
+                <fullName>AttendeeHub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Publishing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outline_Special_Invoicing_Needs__c</picklist>
+            <values>
+                <fullName>Additional Info Requested by Client to be Listed on Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apply Credit Amount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combine Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Special Invoicing Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Immediate Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Credit Card Link to Billing Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Split Up%2FItemize Invoices</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partner_Services__c</picklist>
+            <values>
+                <fullName>EAP %28CC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EventTroops %28CC%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retargeting_Tracking__c</picklist>
+            <values>
+                <fullName>Landing Page Off Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landing Page On Cvent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Request__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seed_Account__c</picklist>
+            <values>
+                <fullName>Cvent Payment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Seed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Capture</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specify_data_center_for_implementation__c</picklist>
+            <values>
+                <fullName>EU Data Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Data Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>NA Data Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specify_the_preferred_data_center__c</picklist>
+            <values>
+                <fullName>European Data Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Existing Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Data Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Standard_Account__c</picklist>
+            <values>
+                <fullName>Flex and Legacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tax_Exempt__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C and certificate on file is valid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C and we have no certificate on file</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C but certificate on file is expired</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tax_Validation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upgrade_account_from_Renewal_Desk_to_AM__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Exhibit__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Tax_Exempt_Cert__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X2019_Mid_Year_Promo_influence_on_Deal__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>YoY_Price_Increase__c</picklist>
+            <values>
+                <fullName>No Price Increase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of %2E01 %E2%80%93 5%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of 5%2E01 %E2%80%93 8%2E99%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of 9%25%2B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Hospitality_Cloud</fullName>
+        <active>true</active>
+        <label>Hospitality Cloud</label>
+        <picklistValues>
+            <picklist>AT_PCN_Upsell_or_Credit_Back__c</picklist>
+            <values>
+                <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Are_all_properties_associated_correctly__c</picklist>
+            <values>
+                <fullName>No%2C I need CSC team to review %26 confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Are_there_any_special_Invoicing_needs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Type__c</picklist>
+            <values>
+                <fullName>NBB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renegotiation on NBB Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renegotiation on Renewal Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal%2FUpsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement and Release</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upsell Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Did_this_deal_use_the_Mid_Year_Promo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>End_of_the_Year_Promo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_there_a_YoY_Price_Increase__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_your_customer_tax_exempt__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>K_has_mult_Bill_to_or_Ship_to_addresses__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_Specifications__c</picklist>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mobile_Delivery_Date__c</picklist>
+            <values>
+                <fullName>AttendeeHub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Publishing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Outline_Special_Invoicing_Needs__c</picklist>
+            <values>
+                <fullName>Additional Info Requested by Client to be Listed on Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apply Credit Amount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combine Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Special Invoicing Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Immediate Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Split Up%2FItemize Invoices</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partner_Services__c</picklist>
+            <values>
+                <fullName>EAP %28CC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EventTroops %28CC%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retargeting_Tracking__c</picklist>
+            <values>
+                <fullName>Landing Page Off Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landing Page On Cvent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Request__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seed_Account__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specify_data_center_for_implementation__c</picklist>
+            <values>
+                <fullName>Default based on Customer%27s Bill To</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Override Default Location</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specify_the_preferred_data_center__c</picklist>
+            <values>
+                <fullName>European Data Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Data Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Standard_Account__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tax_Exempt__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C and certificate on file is valid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C and we have no certificate on file</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes%2C but certificate on file is expired</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tax_Validation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upgrade_account_from_Renewal_Desk_to_AM__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Exhibit__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Tax_Exempt_Cert__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X2019_Mid_Year_Promo_influence_on_Deal__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>YoY_Price_Increase__c</picklist>
+            <values>
+                <fullName>No Price Increase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of %2E01 %E2%80%93 5%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of 5%2E01 %E2%80%93 8%2E99%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Increase of 9%25%2B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>IMP_Survey_is_locked</fullName>
+        <active>true</active>
+        <description>Case# - 10140322</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Opportunity__r.StageName,"Closed Won"), 
+NOT(CONTAINS($User.Profile_Name__c, "Contract")), 
+NOT(CONTAINS($User.Username,"deployment")) 
+)</errorConditionFormula>
+        <errorDisplayField>X2019_Mid_Year_Promo_influence_on_Deal__c</errorDisplayField>
+        <errorMessage>You can not edit Implementation Survey now. Please contact ARHelp@cvent.com.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_Give_Specific_Details</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Upgrade_account_from_Renewal_Desk_to_AM__c,"Yes"), 
+ISBLANK(Give_Specific_Details__c), 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorMessage>Give specific detail over how this account will grow and why it requires a traditional AM</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_fields_for_CC_Products</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+RecordTypeId='0121N000001AQ3E', /* Event Cloud */ 
+Quote__r.Count_of_CrowdCompass_Products__c &gt; 0, 
+OR( 
+ISBLANK(First_Mobile_Event_Date__c), 
+ISBLANK(First_Mobile_Event_Launch_Date__c), 
+ISBLANK(How_Many_Mobile_Apps_Purchased_in_Year_1__c), 
+ISPICKVAL(Rush_Request__c,""), 
+ISPICKVAL(Mobile_Delivery_Date__c,'') 
+), 
+
+OR( 
+$UserRole.Id='00E00000006omm8', /* Direct Sales (Event) */ 
+$UserRole.Id='00E00000006uNkm', /* Direct Sales (CrowdCompass) */ 
+$UserRole.Id='00E00000006tgck', /* Direct Sales (Ent) */ 
+$UserRole.Id='00E00000006uFmQ', /*Direct Sales (TPP) */ 
+$UserRole.Id='00E00000006tiKx', /* AM (Event) */ 
+$UserRole.Id='00E00000006uKyb', /* AM (Ent) */ 
+$UserRole.Id='00E00000006uOXA', /*AM (TPP) */ 
+$UserRole.Id='00E00000006QdYr', /*Pre Sales (Event) */ 
+$UserRole.Id='00E00000006onAo', /* Pre Sales India (Event) */ 
+$UserRole.Id='00E00000006uCdf', /*Pre Sales (External) */ 
+$UserRole.Id='00E00000006uNkr', /* Pre Sales (CrowdCompass) */ 
+$UserRole.Id='00Eo0000000GZBD', /*Pre Sales India (CrowdCompass) */ 
+$UserRole.Id='00E00000006tgcp', /* Pre Sales (Ent) */ 
+$UserRole.Id='00E00000006uFmL', /* Pre Sales (TPP) */ 
+$UserRole.Id='00E00000006uGUr' /*Pre Sales India (TPP) */ 
+
+), 
+
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+$User.Validation_Bypass__c = False, 
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c /*Added to bypass rollup helper updates */ 
+
+)</errorConditionFormula>
+        <errorMessage>Please fill in all required information for Mobile Apps in the Additional Details section.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Preferred_Data_Center_Mandatory</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(
+ISPICKVAL(Specify_data_center_for_implementation__c,"Override Default Location"),
+ISPICKVAL(Specify_the_preferred_data_center__c,"")
+)</errorConditionFormula>
+        <errorDisplayField>Specify_the_preferred_data_center__c</errorDisplayField>
+        <errorMessage>Please Specify the Preferred Data Center</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Welcome_Email_Contact_is_mandatory</fullName>
+        <active>false</active>
+        <description>Temporarily deactivated - Mohsin - 26apr2019</description>
+        <errorConditionFormula>AND(ISPICKVAL(Contract_Type__c,"NBB"), 
+ISBLANK(Primary_User__c))</errorConditionFormula>
+        <errorMessage>Please fill the Welcome Email Contact</errorMessage>
+    </validationRules>
+</CustomObject>

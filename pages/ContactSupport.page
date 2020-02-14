@@ -240,16 +240,16 @@
                                 <!--<div style="clear:both;"></div>-->
                                 <h4 style="color: black;">1.  Ask The Community</h4>
                                 <p style="margin-left: 73px;font-size: 16px;">Post a question online to the seasoned planners and hoteliers of our Cvent customer community. Whatever your need, chances are someone&#39;s already solved it.<br/>
-                                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}">
+                                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}">
                                    <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum';">Go to Open Forum</button>
                                 </apex:actionRegion>
-                                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                    <button type="button" class="button button-blue" onclick="location.href='https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum';">Go to Open Forum</button>
                                 </apex:actionRegion>
-                                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}">
+                                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}">
                                    <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage';">Search Discussions</button>
                                 </apex:actionRegion>
-                                 <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                 <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                    <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage';">Search Discussions</button>
                                 </apex:actionRegion></p>
                             </p>
@@ -343,10 +343,10 @@
 
                 <div class="col-md-4 text-center" style="margin-top: 60px; border: 1px solid #CBCBCB;"><br/>
                 <p>Have you tried searching the</p><h3><b>Knowledge Base?</b></h3><br/><br/><p>Explore the same resources used by<br />Cvent Support experts.</p>
-                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}">
+                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}">
                 <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase';">Search Here</button>  <br/><br/>                
                  </apex:actionRegion>
-                  <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                  <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                 <button type="button" class="button button-blue" onclick="location.href='https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase';">Search Here</button>  <br/><br/>                
                  </apex:actionRegion>
                 </div>

@@ -60,7 +60,7 @@ public class TaskAutomation {
         mapOpportunity=new Map<ID,Opportunity>([select Id,AccountId,Bundle_Campaigns__c,Contact_Associated__c,
                                          Bundle_Campaigns__r.MSA_code__c,account.PA_Rep__c,Contract_Number_New__c,
                                          Bundle_Campaigns__r.End_date__c,Task_Created__c,
-                                         contract_Implemented__c,name,SBQQ__PrimaryQuote__c,SBQQ__PrimaryQuote__r.Contract_Opt_Out_Deadline__c,Account.Name 
+                                         contract_Implemented__c,name,SBQQ__PrimaryQuote__c,SBQQ__PrimaryQuote__r.Contract_Opt_Out_Deadline__c 
                                          from opportunity where Id In:setOppId]
         
         );
@@ -164,7 +164,8 @@ public class TaskAutomation {
                                       Opportunity__r.ownerId,Opportunity__r.Account.OwnerId,
                                       Opportunity__r.SBQQ__PrimaryQuote__c,
                                       Opportunity__r.Opportunity_Type__c,
-                                      MYD_Total__c,Opportunity__r.RenewalDate__c,Opportunity__r.SBQQ__PrimaryQuote__r.Opt_Out__c,Opportunity__r.Ship_To_Contact__c     from booking_classification__c where opportunity__c In:setOppId];
+                                      MYD_Total__c,Opportunity__r.RenewalDate__c,Opportunity__r.SBQQ__PrimaryQuote__r.Opt_Out__c                      
+                                      from booking_classification__c where opportunity__c In:setOppId];
                system.debug('booking'+bClassList);
           
             for(booking_classification__c instBooking :bClassList)
@@ -281,12 +282,6 @@ public class TaskAutomation {
             setSKU32.addAll(label.SKU32.split(','));
             final set<string> setsku33 = new set<string>();//{'CV-AD-HC-CSN-GGLDISADS'};//Google Display Ad
             setSKU33.addAll(label.SKU33.split(','));
-            final set<string> setsku34 = new set<string>();//{'CV-SW-HC-APF-SLCTSRVCSCR','CV-SW-HC-APF-LDSCFTSC'}; //Cvent Lead Scoring
-            setsku34.addAll(label.sku34.split(','));
-            final set<string> setsku36 = new set<string>();//{'CV-SW-HC-CSN-RFPSCORELT'};//Cvent Lead Scoring
-            setsku36.addAll(label.sku36.split(','));
-			final set<string> setsku37 = new set<string>();//{'CV-SW-HC-COT-CSNLVABVPRPT','CV-SW-HC-COT-CSNLVEADDUSR','CV-SW-HC-COT-MLUPRPTUSRACS'};
-            setsku37.addAll(label.sku37.split(','));
             date ContractImplementDate=instBookingClsf.Opportunity__r.Contract_Implemented_Date__c;
             string AssignTo=UserInfo.getUserID();
             Id OppAccountID =instBookingClsf.Opportunity__r.AccountId;
@@ -961,60 +956,6 @@ public class TaskAutomation {
                                             
                 
             }   // 33rd condition end
-            
-            // 34th condition new sku -->sku34 defined
-            if(instBookingClsf.Product_Family__c=='Analytics & RFP Performance' && 
-            (instBookingClsf.New_Logo_Total__c>=0 || instBookingClsf.Cross_Sell_Total__c>=0 || instBookingClsf.UpSell_Total__c>=0)
-            && checkSKUContains(setOppSKU,setsku34)){
-                
-                String owner1 = Label.RFPBuilderInbox;
-                String owner2 = Label.Lead_Scoring_Solutions_Specialists;
-                String subject1 = 'NBB Lead Scoring - Create Username and User Role';
-                String subject2 = 'Kick Off Call & Initial Implementation';
-
-                string description = instBookingClsf.Opportunity__c+'-HC-Supplier CS-'+ '34 Condition';
-                
-                listCaseInsert.add(caseCreateNew('Feature Implementation','Open',instBookingClsf.Opportunity__r.AccountId,'CSN – Supplier',
-                subject1,owner1,description,'CSN_Builder')); 
-                
-                listCaseInsert.add(caseCreateNew('Feature Implementation','Open',instBookingClsf.Opportunity__r.AccountId,'Lead Scoring',
-                subject2,owner2,description,'Client_Management_Global')); 
-            }   // 34th condition end
-
-            
-            // 35th condition new sku -->sku36 defined
-            if(instBookingClsf.Product_Family__c=='Analytics & RFP Performance' && 
-            (instBookingClsf.New_Logo_Total__c>=0 ||
-            instBookingClsf.Cross_Sell_Total__c>=0 || instBookingClsf.UpSell_Total__c>=0)
-            && checkSKUContains(setOppSKU,setsku36)){
-                
-                String owner1 = Label.RFPBuilderInbox;
-                String owner2 = Label.Lead_Scoring_Solutions_Specialists;
-                String subject1 = 'NBB Lead Scoring - Create Username and User Role';
-                String subject2 = 'RFP Score Implementation & Training';
-
-                string description = instBookingClsf.Opportunity__c+'-HC-Supplier CS-'+ '35 Condition';
-                
-                listCaseInsert.add(caseCreateNew('Feature Implementation','Open',instBookingClsf.Opportunity__r.AccountId,'CSN – Supplier',
-                subject1,owner1,description,'CSN_Builder')); 
-                
-                listCaseInsert.add(caseCreateNew('Feature Implementation','Open',instBookingClsf.Opportunity__r.AccountId,'Lead Scoring',
-                subject2,owner2,description,'Client_Management_Global')); 
-            }   // 35th condition end
-			
-			// 36th condition new sku -->sku37 defined
-            if(instBookingClsf.Product_Family__c=='Software & Integrations' && 
-            checkSKUContains(setOppSKU,setsku37)){
-                
-                String owner = Label.RFPBuilderInbox;
-                String subject = mapOpportunity.get(instBookingClsf.Opportunity__c).Account.Name+' - RFP Visibility';
-                string description = instBookingClsf.Opportunity__c+'-HC-Supplier CS-'+ '36 Condition';
-                
-                Case caseInstance = caseCreateNew('Feature Implementation','Open',instBookingClsf.Opportunity__r.AccountId,'CSN - Supplier',
-                subject,owner,description,'CSN_Builder'); 
-				caseInstance.ContactId = instBookingClsf.Opportunity__r.Ship_To_Contact__c;
-				listCaseInsert.add(caseInstance);
-            }   // 36th condition end
     }   //  end 
     
     
@@ -2068,21 +2009,6 @@ public class TaskAutomation {
         casecon4CSNplanner.OwnerId=owner;
         casecon4CSNplanner.Creation_Source_Dev__c=String.isNotBlank(description)?description:'TaskAutomation Class';
         return casecon4CSNPlanner;
-    }
-    
-    public static case caseCreateNew(String serviceCategory,string status,Id accId,string productType,string Subject,Id owner,string description,String recordTypeName)   
-    {   
-        Id CaseRecTypeCSPlanner = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get(recordTypeName).getRecordTypeId();
-        case caseInstance = new case();
-        caseInstance.RecordTypeId = CaseRecTypeCSPlanner;
-        caseInstance.Client_Services_Category__c = serviceCategory;
-        caseInstance.Status = status;
-        caseInstance.AccountId = accId;
-        caseInstance.Product_Type__c = productType;
-        caseInstance.Subject = subject;
-        caseInstance.OwnerId = owner;
-        caseInstance.Creation_Source_Dev__c = String.isNotBlank(description)?description:'TaskAutomation Class';
-        return caseInstance;
     }
     
     public static Onboarding__c OnboardingCreate(Id accountId,string status,Id owner, String recTypeName, string description) //CSN-Planner

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BatchJobId__c</fullName>
+        <externalId>false</externalId>
+        <label>BatchJobId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>This will store the Id of the Batch Job "CampaignROIAttribution_Batch"</description>
+    <enableFeeds>false</enableFeeds>
+    <label>CampaignROIBatchJobId</label>
+    <visibility>Public</visibility>
+</CustomObject>

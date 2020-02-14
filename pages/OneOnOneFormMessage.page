@@ -1,7 +1,18 @@
 <apex:page standardController="One_on_One_Form__c">
  <font color = "red"> 
   <apex:outputText style="font-size:19px;" value="After saving your 1:1 form, be sure to SHARE it directly with your manager and/or skip level manager in order for them to view it for your upcoming meeting.">
-
-  </apex:outputText>
+</apex:outputText>
   </font>
+  <br> 
+ <font color = "red"> 
+ <apex:outputText style="font-size:19px;" value="For more information on what to include in a specific area, hover your mouse over the '?' ">
+</apex:outputText>
+  </font>
+  
+  
+  <tr>
+      <td><img src="https://custom.cvent.com/3ACB589E68044DB09AA08F6A32C3E88E/pix/91074597979744aba43bd83d3637eb78.jpg" width="50" height="50"></img></td>
+         </tr> 
+         </br>
+         
 </apex:page>

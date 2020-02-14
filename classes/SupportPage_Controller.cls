@@ -41,7 +41,7 @@ public class SupportPage_Controller {
         }
         
         if(contactId!=null){
-            caseQuery = 'SELECT Id,CaseNumber,RecordType.DeveloperName,Subject,Status,CreatedDate FROM Case WHERE Client_Services_Category__c != \'Web Design Support\' AND Case_Status_L2__c != \'Forwarded to Sales\' AND RecordTypeId IN:recordTypeId AND ContactId =:contactId ';
+            caseQuery = 'SELECT Id,CaseNumber,RecordType.DeveloperName,Subject,Status,CreatedDate FROM Case WHERE RecordTypeId IN:recordTypeId AND ContactId =:contactId ';
             System.debug('Inside This out');
             if(CSCaseQueueDeleteId!=null){
                 System.debug('Inside This');
@@ -50,7 +50,7 @@ public class SupportPage_Controller {
             caseQuery = caseQuery +  ' ORDER BY CreatedDate DESC';
         }
         else{ 
-            caseQuery = 'SELECT Id,CaseNumber,RecordType.DeveloperName,Subject,Status,CreatedDate FROM Case WHERE Client_Services_Category__c != \'Web Design Support\' AND Case_Status_L2__c != \'Forwarded to Sales\' AND RecordTypeId IN:recordTypeId AND CreatedById =:loggedInUserId ';
+            caseQuery = 'SELECT Id,CaseNumber,RecordType.DeveloperName,Subject,Status,CreatedDate FROM Case WHERE RecordTypeId IN:recordTypeId AND CreatedById =:loggedInUserId ';
             if(CSCaseQueueDeleteId!=null)
                 caseQuery = caseQuery + ' AND OwnerId != :CSCaseQueueDeleteId';
             caseQuery = caseQuery +  ' ORDER BY CreatedDate DESC';

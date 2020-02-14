@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Actual_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Allow_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Allow Update</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Business_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Adoption</fullName>
+                    <default>false</default>
+                    <label>Adoption</label>
+                </value>
+                <value>
+                    <fullName>Analysis</fullName>
+                    <default>false</default>
+                    <label>Analysis</label>
+                </value>
+                <value>
+                    <fullName>CE/Power Up Program</fullName>
+                    <default>false</default>
+                    <label>CE/Power Up Program</label>
+                </value>
+                <value>
+                    <fullName>Certification</fullName>
+                    <default>false</default>
+                    <label>Certification</label>
+                </value>
+                <value>
+                    <fullName>Content</fullName>
+                    <default>false</default>
+                    <label>Content</label>
+                </value>
+                <value>
+                    <fullName>Mentoring</fullName>
+                    <default>false</default>
+                    <label>Mentoring</label>
+                </value>
+                <value>
+                    <fullName>New Hire Curriculum</fullName>
+                    <default>false</default>
+                    <label>New Hire Curriculum</label>
+                </value>
+                <value>
+                    <fullName>Online Classes</fullName>
+                    <default>false</default>
+                    <label>Online Classes</label>
+                </value>
+                <value>
+                    <fullName>Onsite Training</fullName>
+                    <default>false</default>
+                    <label>Onsite Training</label>
+                </value>
+                <value>
+                    <fullName>Other Comments</fullName>
+                    <default>false</default>
+                    <label>Other Comments</label>
+                </value>
+                <value>
+                    <fullName>Process/Product</fullName>
+                    <default>false</default>
+                    <label>Process/Product</label>
+                </value>
+                <value>
+                    <fullName>Workshops</fullName>
+                    <default>false</default>
+                    <label>Workshops</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Client Training</controllingFieldValue>
+                <valueName>Certification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Client Training</controllingFieldValue>
+                <valueName>Online Classes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Client Training</controllingFieldValue>
+                <valueName>Onsite Training</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Client Training</controllingFieldValue>
+                <valueName>Workshops</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Internal Training</controllingFieldValue>
+                <valueName>CE/Power Up Program</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Internal Training</controllingFieldValue>
+                <valueName>Mentoring</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Internal Training</controllingFieldValue>
+                <valueName>New Hire Curriculum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Internal Training</controllingFieldValue>
+                <valueName>Process/Product</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Support Center</controllingFieldValue>
+                <valueName>Adoption</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Support Center</controllingFieldValue>
+                <valueName>Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Support Center</controllingFieldValue>
+                <valueName>Content</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Other Comments</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Deliverables__c</fullName>
+        <externalId>false</externalId>
+        <label>Deliverables</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dont_Time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dont Time</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Draft_Due_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Due date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Draft_completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Editor__c</fullName>
+        <externalId>false</externalId>
+        <label>Editor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Alexis Petrovich</fullName>
+                    <default>false</default>
+                    <label>Alexis Petrovich</label>
+                </value>
+                <value>
+                    <fullName>Catelyn Thurman</fullName>
+                    <default>false</default>
+                    <label>Catelyn Thurman</label>
+                </value>
+                <value>
+                    <fullName>Erin Garrison</fullName>
+                    <default>false</default>
+                    <label>Erin Garrison</label>
+                </value>
+                <value>
+                    <fullName>Evelyn Rabil</fullName>
+                    <default>false</default>
+                    <label>Evelyn Rabil</label>
+                </value>
+                <value>
+                    <fullName>Holly Simon</fullName>
+                    <default>false</default>
+                    <label>Holly Simon</label>
+                </value>
+                <value>
+                    <fullName>Joey Van Scoy</fullName>
+                    <default>false</default>
+                    <label>Joey Van Scoy</label>
+                </value>
+                <value>
+                    <fullName>Kabir Rai</fullName>
+                    <default>false</default>
+                    <label>Kabir Rai</label>
+                </value>
+                <value>
+                    <fullName>Meredith Duncan</fullName>
+                    <default>false</default>
+                    <label>Meredith Duncan</label>
+                </value>
+                <value>
+                    <fullName>Peter SIngh</fullName>
+                    <default>false</default>
+                    <label>Peter SIngh</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Final_CSAT_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Final CSAT Score</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Goal__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Desired end result of the project and why we're doing it in the first place.</inlineHelpText>
+        <label>Goal</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Level_Of_Effort__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>High:  21+ hours
+Medium:  6-20 hours
+Low:  5 hours or less</inlineHelpText>
+        <label>Level Of Effort</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_of_Articles_Modules__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Articles/Modules</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Comments</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_SME__c</fullName>
+        <externalId>false</externalId>
+        <label>Other SME</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CrowdTorch</fullName>
+                    <default>false</default>
+                    <label>CrowdTorch</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_Projects__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Projects</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Requested</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requestor_Evaluator__c</fullName>
+        <externalId>false</externalId>
+        <label>Requestor/Evaluator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Requestor_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Requestor Name</label>
+        <length>20</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SME__c</fullName>
+        <externalId>false</externalId>
+        <label>SME</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Holly Simon</fullName>
+                    <default>false</default>
+                    <label>Holly Simon</label>
+                </value>
+                <value>
+                    <fullName>Jason Davis</fullName>
+                    <default>false</default>
+                    <label>Jason Davis</label>
+                </value>
+                <value>
+                    <fullName>Jayme Sobeck</fullName>
+                    <default>false</default>
+                    <label>Jayme Sobeck</label>
+                </value>
+                <value>
+                    <fullName>Jonathan Wilson</fullName>
+                    <default>false</default>
+                    <label>Jonathan Wilson</label>
+                </value>
+                <value>
+                    <fullName>Mindy Harding</fullName>
+                    <default>false</default>
+                    <label>Mindy Harding</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Shelley Casey</fullName>
+                    <default>false</default>
+                    <label>Shelley Casey</label>
+                </value>
+                <value>
+                    <fullName>Whitney Weeden</fullName>
+                    <default>false</default>
+                    <label>Whitney Weeden</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Ongoing</fullName>
+                    <default>false</default>
+                    <label>Ongoing</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Time_Spent_on_Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Time Spent on Project</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client Training</fullName>
+                    <default>false</default>
+                    <label>Client Training</label>
+                </value>
+                <value>
+                    <fullName>Internal Training</fullName>
+                    <default>false</default>
+                    <label>Internal Training</label>
+                </value>
+                <value>
+                    <fullName>Support Center</fullName>
+                    <default>false</default>
+                    <label>Support Center</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Why_The_Delay__c</fullName>
+        <externalId>false</externalId>
+        <label>Why The Delay</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Writer__c</fullName>
+        <externalId>false</externalId>
+        <label>Writer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Alexis Petrovich</fullName>
+                    <default>false</default>
+                    <label>Alexis Petrovich</label>
+                </value>
+                <value>
+                    <fullName>Catelyn Thurman</fullName>
+                    <default>false</default>
+                    <label>Catelyn Thurman</label>
+                </value>
+                <value>
+                    <fullName>Colleen Jaskot</fullName>
+                    <default>false</default>
+                    <label>Colleen Jaskot</label>
+                </value>
+                <value>
+                    <fullName>Erin Garrison</fullName>
+                    <default>false</default>
+                    <label>Erin Garrison</label>
+                </value>
+                <value>
+                    <fullName>Evelyn Rabil</fullName>
+                    <default>false</default>
+                    <label>Evelyn Rabil</label>
+                </value>
+                <value>
+                    <fullName>Holly Simon</fullName>
+                    <default>false</default>
+                    <label>Holly Simon</label>
+                </value>
+                <value>
+                    <fullName>Joey Van Scoy</fullName>
+                    <default>false</default>
+                    <label>Joey Van Scoy</label>
+                </value>
+                <value>
+                    <fullName>Kabir Rai</fullName>
+                    <default>false</default>
+                    <label>Kabir Rai</label>
+                </value>
+                <value>
+                    <fullName>Meredith Duncan</fullName>
+                    <default>false</default>
+                    <label>Meredith Duncan</label>
+                </value>
+                <value>
+                    <fullName>Peter SIngh</fullName>
+                    <default>false</default>
+                    <label>Peter SIngh</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>T&amp;D Project</label>
+    <nameField>
+        <label>Project Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>T&amp;D Projects</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <label>All Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Completed_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Requested_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Actual_Completion_Date__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Type__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>Completed</value>
+        </filters>
+        <label>All Completed Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Carrie_s_Open_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Actual_Completion_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>carrie</value>
+        </filters>
+        <label>Carrie's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Catelyn_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>catelyn</value>
+        </filters>
+        <label>Catelyn's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Erin_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>erin</value>
+        </filters>
+        <label>Erin's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Evelyn_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>evelyn</value>
+        </filters>
+        <label>Evelyn's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Meredith_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending,ongoing</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>meredith</value>
+        </filters>
+        <label>Meredith's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>alexis_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>alexis</value>
+        </filters>
+        <label>Alexis's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>holly_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>holly</value>
+        </filters>
+        <label>Holly's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>joey_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending,ongoing</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>joey</value>
+        </filters>
+        <label>Joey's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>kabir_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>kabir</value>
+        </filters>
+        <label>Kabir's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>peter_s_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>contains</operation>
+            <value>In Progress,Pending</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>peter</value>
+        </filters>
+        <label>Peter's Open Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <validationRules>
+        <fullName>Delay_field_Mandatory</fullName>
+        <active>true</active>
+        <description>if Actual Date is greater than due date</description>
+        <errorConditionFormula>IF(Due_Date__c &lt; Actual_Completion_Date__c , ISBLANK( Why_The_Delay__c )=true,null)</errorConditionFormula>
+        <errorDisplayField>Why_The_Delay__c</errorDisplayField>
+        <errorMessage>Please Enter A Value</errorMessage>
+    </validationRules>
+</CustomObject>

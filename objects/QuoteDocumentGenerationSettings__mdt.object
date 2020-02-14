@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>columnFieldApiNames__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>columnFieldApiNames</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>columnNames__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>columnNames</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>excludedProductCodes__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>excludedProductCodes</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>includedProductCodes__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>includedProductCodes</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>sectionDescriptionText__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>sectionDescriptionText</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>sectionTitle__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>sectionTitle</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Matrix Table Header</fullName>
+                    <default>true</default>
+                    <label>Matrix Table Header</label>
+                </value>
+                <value>
+                    <fullName>Quote Line Table Header</fullName>
+                    <default>false</default>
+                    <label>Quote Line Table Header</label>
+                </value>
+                <value>
+                    <fullName>Static Text</fullName>
+                    <default>false</default>
+                    <label>Static Text</label>
+                </value>
+                <value>
+                    <fullName>Matrix Table Column</fullName>
+                    <default>false</default>
+                    <label>Matrix Table Column</label>
+                </value>
+                <value>
+                    <fullName>Line Table Columns - Proposal</fullName>
+                    <default>false</default>
+                    <label>Line Table Columns - Proposal</label>
+                </value>
+                <value>
+                    <fullName>Line Table Columns - Contract</fullName>
+                    <default>false</default>
+                    <label>Line Table Columns - Contract</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass Product Codes</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass Product Codes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>QuoteDocumentGenerationSettings</label>
+    <pluralLabel>QuoteDocumentGenerationSettings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

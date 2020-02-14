@@ -28,12 +28,12 @@
         <div class="container">
            <div class="row">
                 <div class="col-md-4 col-sm-12">
-                  <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}">
+                  <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}">
                     <a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome">
                         <img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo-white.png')}" width="200"/>
                     </a>
                   </apex:actionRegion>
-                  <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                  <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                     <a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome">
                         <img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo-white.png')}" width="200"/>
                     </a>
@@ -64,10 +64,10 @@
                 </div>
                 <div class="col-md-2 col-sm-12">
                     <ul>
-                    <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}">
+                    <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}">
                         <li><a href="https://community.cvent.com/participate/faq">FAQs</a></li>
                         </apex:actionRegion>
-                  <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                  <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                         <li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Ffaq">FAQs</a></li>
                         </apex:actionRegion>
                         <li><a href="https://www.cvent.com/en/live-events-calendar">Event Calendar</a></li>
@@ -80,9 +80,9 @@
         </div>
         <div class="footer-copyright">
           <!--<apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">--> 
-          <p> <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c == null,true,false)}"><a class="border-right" href="https://www.cvent.com/en/privacy-policy">Privacy Policy</a> <a href="https://community.cvent.com/termsofuse">Community Terms of Use</a></apex:actionRegion>
-            <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}"><a class="border-right" href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Ftermsofuse">Community Terms of Use</a></apex:actionRegion>
-           <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a class="border-left" target="_blank" href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml">GDPR Sub-Processors</a></apex:actionRegion> </p> 
+          <p> <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c == null,true,false)}"><a class="border-right" href="https://www.cvent.com/en/privacy-policy">Privacy Policy</a> <a href="https://community.cvent.com/termsofuse">Community Terms of Use  |  </a></apex:actionRegion>
+            <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}"><a class="border-right" href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Ftermsofuse">Community Terms of Use</a></apex:actionRegion>
+           <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><a  target="_blank" href="https://www.cvent.com/uk/gdpr/cvents-affiliates-and-subprocessors.shtml">GDPR Sub-Processors</a></apex:actionRegion> </p> 
         </div>
     </footer>
     </div>

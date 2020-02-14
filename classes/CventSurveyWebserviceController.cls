@@ -126,14 +126,11 @@ Public class CventSurveyWebserviceController{
                         lastValue=var.ReferenceId; 
                     }
                     SS.Name=Name;
-                    if(ExecuteMethodHelper.isActive('CventSurveyWebserviceController'))
-                    {   
+                    if(ExecuteMethodHelper.isActive('CventSurveyWebserviceController')){                      
                         String textreceivedDate = ReceivedDate;
                         if(String.isNotBlank(textreceivedDate))
-                        {
-                            String dt1 = textreceivedDate.remove(':00');
-                            SS.Survey_Completed_Date__c = DateTime.parse(dt1);
-                        }
+                        {   DateTime dt = (DateTime) JSON.deserialize(textreceivedDate, DateTime.class);
+                            SS.Survey_Completed_Date__c = dt; }
                     }            
                     SS.Email_Address__c=EmailAddress;
                     SS.Question_Text__c=QuestionText;

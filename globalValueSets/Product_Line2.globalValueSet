@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CrowdCompass</fullName>
+        <default>false</default>
+        <label>CrowdCompass</label>
+    </customValue>
+    <customValue>
+        <fullName>CSN</fullName>
+        <default>false</default>
+        <label>CSN</label>
+    </customValue>
+    <customValue>
+        <fullName>CSN-P</fullName>
+        <default>false</default>
+        <label>CSN-P</label>
+    </customValue>
+    <customValue>
+        <fullName>Decision Street</fullName>
+        <default>false</default>
+        <label>Decision Street</label>
+    </customValue>
+    <customValue>
+        <fullName>EMI</fullName>
+        <default>false</default>
+        <label>EMI</label>
+    </customValue>
+    <customValue>
+        <fullName>Event</fullName>
+        <default>false</default>
+        <label>Event</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Events</fullName>
+        <default>false</default>
+        <label>Lanyon Events</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group</fullName>
+        <default>false</default>
+        <label>Lanyon Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Meetings</fullName>
+        <default>false</default>
+        <label>Lanyon Meetings</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Mobile</fullName>
+        <default>false</default>
+        <label>Lanyon Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Passkey</fullName>
+        <default>false</default>
+        <label>Lanyon Passkey</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Transient</fullName>
+        <default>false</default>
+        <label>Lanyon Transient</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Travel</fullName>
+        <default>false</default>
+        <label>Lanyon Travel</label>
+    </customValue>
+    <customValue>
+        <fullName>Onsite Solutions</fullName>
+        <default>false</default>
+        <label>Onsite Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Puresend</fullName>
+        <default>false</default>
+        <label>Puresend</label>
+    </customValue>
+    <customValue>
+        <fullName>RapidApp</fullName>
+        <default>false</default>
+        <label>RapidApp</label>
+    </customValue>
+    <customValue>
+        <fullName>RegOnline</fullName>
+        <default>false</default>
+        <label>RegOnline</label>
+    </customValue>
+    <customValue>
+        <fullName>SignUp4</fullName>
+        <default>false</default>
+        <label>SignUp4</label>
+    </customValue>
+    <customValue>
+        <fullName>Survey</fullName>
+        <default>false</default>
+        <label>Survey</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional Services</fullName>
+        <default>false</default>
+        <label>Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Software</fullName>
+        <default>false</default>
+        <label>Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Cvent Connect</fullName>
+        <default>false</default>
+        <label>Cvent Connect</label>
+    </customValue>
+    <customValue>
+        <fullName>Equipment</fullName>
+        <default>false</default>
+        <label>Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Activation</fullName>
+        <default>false</default>
+        <label>Product Activation</label>
+    </customValue>
+    <customValue>
+        <fullName>Supplier Certification</fullName>
+        <default>false</default>
+        <label>Supplier Certification</label>
+    </customValue>
+    <customValue>
+        <fullName>Supplier Feature</fullName>
+        <default>false</default>
+        <label>Supplier Feature</label>
+    </customValue>
+    <customValue>
+        <fullName>CSN Analytics</fullName>
+        <default>false</default>
+        <label>CSN Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>CSN Planner</fullName>
+        <default>false</default>
+        <label>CSN Planner</label>
+    </customValue>
+    <customValue>
+        <fullName>Cvent Magazine</fullName>
+        <default>false</default>
+        <label>Cvent Magazine</label>
+    </customValue>
+    <customValue>
+        <fullName>Diamonds</fullName>
+        <default>false</default>
+        <label>Diamonds</label>
+    </customValue>
+    <customValue>
+        <fullName>EMA</fullName>
+        <default>false</default>
+        <label>EMA</label>
+    </customValue>
+    <customValue>
+        <fullName>EMI Digital Ads</fullName>
+        <default>false</default>
+        <label>EMI Digital Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group Advertisement</fullName>
+        <default>false</default>
+        <label>Lanyon Group Advertisement</label>
+    </customValue>
+    <customValue>
+        <fullName>Lead Capture</fullName>
+        <default>false</default>
+        <label>Lead Capture</label>
+    </customValue>
+    <customValue>
+        <fullName>New Ads</fullName>
+        <default>false</default>
+        <label>New Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>New Market</fullName>
+        <default>false</default>
+        <label>New Market</label>
+    </customValue>
+    <customValue>
+        <fullName>OSS Professional Services</fullName>
+        <default>false</default>
+        <label>OSS Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>OSS Software</fullName>
+        <default>false</default>
+        <label>OSS Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Print Ads</fullName>
+        <default>false</default>
+        <label>Print Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>SMM</fullName>
+        <default>false</default>
+        <label>SMM</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Wall</fullName>
+        <default>false</default>
+        <label>Social Wall</label>
+    </customValue>
+    <customValue>
+        <fullName>Supplies</fullName>
+        <default>false</default>
+        <label>Supplies</label>
+    </customValue>
+    <customValue>
+        <fullName>White Label</fullName>
+        <default>false</default>
+        <label>White Label</label>
+    </customValue>
+    <customValue>
+        <fullName>Support</fullName>
+        <default>false</default>
+        <label>Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Implementation Hours</fullName>
+        <default>false</default>
+        <label>Implementation Hours</label>
+    </customValue>
+    <customValue>
+        <fullName>Merchant Services</fullName>
+        <default>false</default>
+        <label>Merchant Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Cvent Connect Magazine</fullName>
+        <default>false</default>
+        <label>Cvent Connect Magazine</label>
+    </customValue>
+    <customValue>
+        <fullName>Transient Advertisement</fullName>
+        <default>false</default>
+        <label>Transient Advertisement</label>
+    </customValue>
+    <customValue>
+        <fullName>Pay Per Click/Display Ads</fullName>
+        <default>false</default>
+        <label>Pay Per Click/Display Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Sourcing Commission</fullName>
+        <default>false</default>
+        <label>Sourcing Commission</label>
+    </customValue>
+    <customValue>
+        <fullName>Integrations</fullName>
+        <default>false</default>
+        <label>Integrations</label>
+    </customValue>
+    <customValue>
+        <fullName>Suggested Ads</fullName>
+        <default>false</default>
+        <label>Suggested Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Bundles</fullName>
+        <default>false</default>
+        <label>Bundles</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group Ads</fullName>
+        <default>false</default>
+        <label>Lanyon Group Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group Software</fullName>
+        <default>false</default>
+        <label>Lanyon Group Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Comp Set Dashboard</fullName>
+        <default>false</default>
+        <label>Comp Set Dashboard</label>
+    </customValue>
+    <customValue>
+        <fullName>Decision Street RFP Management Services</fullName>
+        <default>false</default>
+        <label>Decision Street RFP Management Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Elite Meetings Alliance</fullName>
+        <default>false</default>
+        <label>Elite Meetings Alliance</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group Reporting</fullName>
+        <default>false</default>
+        <label>Lanyon Group Reporting</label>
+    </customValue>
+    <customValue>
+        <fullName>Competitive Market Ad</fullName>
+        <default>false</default>
+        <label>Competitive Market Ad</label>
+    </customValue>
+    <customValue>
+        <fullName>Contracting Fees/Charges</fullName>
+        <default>false</default>
+        <label>Contracting Fees/Charges</label>
+    </customValue>
+    <customValue>
+        <fullName>EMI/SRFP Digital Ads</fullName>
+        <default>false</default>
+        <label>EMI/SRFP Digital Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Diamond Plus</fullName>
+        <default>false</default>
+        <label>Diamond Plus</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group White Label</fullName>
+        <default>false</default>
+        <label>Lanyon Group White Label</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group Integrations</fullName>
+        <default>false</default>
+        <label>Lanyon Group Integrations</label>
+    </customValue>
+    <customValue>
+        <fullName>Lead Link</fullName>
+        <default>false</default>
+        <label>Lead Link</label>
+    </customValue>
+    <customValue>
+        <fullName>Promotions Hub</fullName>
+        <default>false</default>
+        <label>Promotions Hub</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Dashboard</fullName>
+        <default>false</default>
+        <label>Enterprise Dashboard</label>
+    </customValue>
+    <customValue>
+        <fullName>Deep Dive Consultation</fullName>
+        <default>false</default>
+        <label>Deep Dive Consultation</label>
+    </customValue>
+    <customValue>
+        <fullName>Scorecard</fullName>
+        <default>false</default>
+        <label>Scorecard</label>
+    </customValue>
+    <customValue>
+        <fullName>Magazine</fullName>
+        <default>false</default>
+        <label>Magazine</label>
+    </customValue>
+    <customValue>
+        <fullName>Lead Scoring</fullName>
+        <default>false</default>
+        <label>Lead Scoring</label>
+    </customValue>
+    <customValue>
+        <fullName>RegOnline by Lanyon</fullName>
+        <default>false</default>
+        <label>RegOnline by Lanyon</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Meetings (StarCite)</fullName>
+        <default>false</default>
+        <label>Lanyon Meetings (StarCite)</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Events (Conference)</fullName>
+        <default>false</default>
+        <label>Lanyon Events (Conference)</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Mobile (GenieConnect)</fullName>
+        <default>false</default>
+        <label>Lanyon Mobile (GenieConnect)</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Content</fullName>
+        <default>false</default>
+        <label>Lanyon Content</label>
+    </customValue>
+    <customValue>
+        <fullName>General Services</fullName>
+        <default>false</default>
+        <label>General Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanyon Group (Marketview)</fullName>
+        <default>false</default>
+        <label>Lanyon Group (Marketview)</label>
+    </customValue>
+    <customValue>
+        <fullName>RappidApp</fullName>
+        <default>false</default>
+        <label>RappidApp</label>
+    </customValue>
+    <customValue>
+        <fullName>CONNECT</fullName>
+        <default>false</default>
+        <label>CONNECT</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Program</fullName>
+        <default>false</default>
+        <label>Marketing Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Reporting</fullName>
+        <default>false</default>
+        <label>Reporting</label>
+    </customValue>
+    <customValue>
+        <fullName>Search Ad</fullName>
+        <default>false</default>
+        <label>Search Ad</label>
+    </customValue>
+    <customValue>
+        <fullName>SRFP Package</fullName>
+        <default>false</default>
+        <label>SRFP Package</label>
+    </customValue>
+    <customValue>
+        <fullName>SRFP Search Ad</fullName>
+        <default>false</default>
+        <label>SRFP Search Ad</label>
+    </customValue>
+    <customValue>
+        <fullName>Video Retargeting</fullName>
+        <default>false</default>
+        <label>Video Retargeting</label>
+    </customValue>
+    <customValue>
+        <fullName>QuickEvents</fullName>
+        <default>false</default>
+        <label>QuickEvents</label>
+    </customValue>
+    <customValue>
+        <fullName>Cvent Connect Europe</fullName>
+        <default>false</default>
+        <label>Cvent Connect Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Services</fullName>
+        <default>false</default>
+        <label>Event Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Sales</fullName>
+        <default>false</default>
+        <label>Event Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales &amp; Catering</fullName>
+        <default>false</default>
+        <label>Sales &amp; Catering</label>
+    </customValue>
+    <customValue>
+        <fullName>RFP Visibility</fullName>
+        <default>false</default>
+        <label>RFP Visibility</label>
+    </customValue>
+    <masterLabel>Product Line2</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

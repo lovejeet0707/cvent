@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Migration_Allowed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Migration Allowed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Used for subscription migration. will create vista assets for subscriptions without quote line items.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Subscription Migration TF</label>
+    <visibility>Public</visibility>
+</CustomObject>

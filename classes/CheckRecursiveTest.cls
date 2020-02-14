@@ -56,6 +56,9 @@ public class CheckRecursiveTest{
         CheckRecursive.runFortySix();
         CheckRecursive.runFortySeven();
         CheckRecursive.runFortyEight();
+        CheckRecursive.runFortyNine();
+        CheckRecursive.runFifty();
+        CheckRecursive.runFiftyOne();
     }
     
 }

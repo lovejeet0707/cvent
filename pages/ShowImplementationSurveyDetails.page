@@ -188,7 +188,7 @@
         <apex:pageMessages id="messages" />
         <apex:pageBlock helpTitle="Survey Guidance and Help: Click Here" helpUrl="{!helpUrl}">
             <apex:pageBlockButtons location="top">
-                <apex:commandButton value="Edit" action="{!EdittheSection}" immediate="true" rendered="{!IF(!editSection && (editSectionExtraCondition || showTaxValidation),true,false)}" rerender="theForm"/>
+                <apex:commandButton value="Edit" action="{!EdittheSection}" immediate="true" rendered="{!IF(!editSection && editSectionExtraCondition,true,false)}" rerender="theForm"/>
                 
                 <apex:commandButton value="Save" action="{!OnSave}" onclick="showSpinner();" rendered="{!editSection}" />
                 
@@ -252,14 +252,7 @@
                             </span>
                         </apex:outputPanel>
                         <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate') && (contains($Profile.Name,"Contract Implementation")),true,false)}" />
-                    	<apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='Tax_Validation__c') && (contains($Profile.Name,'Finance')),true,false)}">
-                            <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
-                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
-                                <span class="tooltip">
-                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
-                                </span>
-                            </span>
-                        </apex:outputField>
+                    	<apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='Tax_Validation__c') && (contains($Profile.Name,"Finance")),true,false)}" />
                          
                     </apex:repeat>
                 </apex:pageBlockSection>
@@ -331,7 +324,7 @@
             <!-- Non Edit Section Ends -->
             
             <!-- Edit Section -->
-            <apex:pageBlockSection title="Information" columns="1" rendered="{!IF(AND(editSection,NOT(showTaxValidation)),true,false)}">
+            <apex:pageBlockSection title="Information" columns="1" rendered="{!editSection}">
                 
                 <apex:pageBlockSection columns="2" showHeader="false" title="PrimarySection">
                     <apex:repeat value="{!selectedFields}" var="f">
@@ -442,24 +435,8 @@
                             <apex:outputLabel value="US Tax Exempt Customers Repository" for="theFile"/>
                             <apex:outputLink id="theFile" value="{!$Resource.ExemptionCertificateListOfCustomers}" style="margin-left: 19px;">Click Here To Download</apex:outputLink>
                         </apex:outputPanel>
-                        <!--
-                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==true),true,false)}">
-                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
-                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
-                                <span class="tooltip">
-                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
-                                </span>
-                            </span>
-                        </apex:inputField>
-                        -->
-                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==false,contains($Profile.Name,'Finance')),true,false)}">
-                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
-                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
-                                <span class="tooltip">
-                                    {!$ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText}
-                                </span>
-                            </span>
-                            </apex:outputField>
+                        <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==true),true,false)}" />
+                        <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(AND(f.fieldPath=='Tax_Validation__c',showTaxValidation==false,contains($Profile.Name,"Finance")),true,false)}" />
                         <apex:outputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF((f.fieldPath=='CreatedById' || f.fieldPath=='CreatedDate' || f.fieldPath=='LastModifiedById' || f.fieldPath=='LastModifiedDate') && (contains($Profile.Name,"Contract Implementation")),true,false)}" />
                     </apex:repeat>
                 </apex:pageBlockSection>
@@ -547,7 +524,7 @@
                 
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection title="{!IF(hospitalityCloud,LabelForHCCloud,'Additional Details')}" rendered="{!IF(editSection == true && renderAddSection == true && showTaxValidation == false,true,false)}">
+            <apex:pageBlockSection title="{!IF(hospitalityCloud,LabelForHCCloud,'Additional Details')}" rendered="{!IF(editSection == true && renderAddSection == true,true,false)}">
                 <apex:repeat value="{!additionalFields}" var="f">
                     <apex:inputField value="{!implementationSurvey[f.fieldPath]}" rendered="{!IF(f.fieldPath=='Standard_Account__c',false,true)}" required="{!OR(f.required, f.dbrequired)}" styleClass="overflow-hide">
                         <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
@@ -569,7 +546,7 @@
                 </apex:repeat>
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection title="Live Events (If Applicable)" rendered="{!IF(editSection == true && renderExtraAddSection == true && showTaxValidation == false,true,false)}">
+            <apex:pageBlockSection title="Live Events (If Applicable)" rendered="{!IF(editSection == true && renderExtraAddSection == true,true,false)}">
                 <apex:repeat value="{!extraAdditionalFields}" var="f">
                     <apex:inputField value="{!implementationSurvey[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}">
                         <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields[f.fieldpath].InlineHelpText =='','none','inline-block')};">  
@@ -580,17 +557,6 @@
                             </span>
                     </apex:inputField>
                 </apex:repeat>
-            </apex:pageBlockSection>
-
-            <apex:pageBlockSection title="Information" rendered="{!IF(editSection == true && showTaxValidation == true,true,false)}">
-                <apex:inputField value="{!implementationSurvey.Tax_Validation__c}" required="true" rendered="{!showTaxValidation}">
-                        <span class="spnCustomTool" style="display:{!IF($ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText =='','none','inline-block')};">  
-                                <img style="display:{!IF($ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText =='','none','inline-block')};background-image: url(/img/help/helpOrbs.gif);width: 20px;height: 15px;background-position: top left;border: 0;" src="/img/s.gif" class="helpButton_cust" width="20" height="15" />
-                                <span class="tooltip">
-                                    {!$ObjectType.Implementation_Survey__c.Fields.Tax_Validation__c.InlineHelpText}
-                                </span>
-                            </span>
-                        </apex:inputField>
             </apex:pageBlockSection>
             <!-- Edit Section Ends -->
             

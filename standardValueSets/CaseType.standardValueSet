@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Account Created</fullName>
+        <default>false</default>
+        <label>Account Created</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Escalation</fullName>
+        <default>false</default>
+        <label>CSN Escalation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CSN Marketing Bundle</fullName>
+        <default>false</default>
+        <label>CSN Marketing Bundle</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Custom Report</fullName>
+        <default>false</default>
+        <label>Custom Report</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cvii Account Settings</fullName>
+        <default>false</default>
+        <label>Cvii Account Settings</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Enhancement Request</fullName>
+        <default>false</default>
+        <label>Enhancement Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Error/Issue Sent to Tech</fullName>
+        <default>false</default>
+        <label>Error/Issue Sent to Tech</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Negative Feedback</fullName>
+        <default>false</default>
+        <label>Negative Feedback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PlanCorp</fullName>
+        <default>false</default>
+        <label>PlanCorp</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner Contacted</fullName>
+        <default>false</default>
+        <label>Planner Contacted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Positive Feedback</fullName>
+        <default>false</default>
+        <label>Positive Feedback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ReFlag</fullName>
+        <default>false</default>
+        <label>ReFlag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registrant Question</fullName>
+        <default>false</default>
+        <label>Registrant Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Training issue/request</fullName>
+        <default>false</default>
+        <label>Training issue/request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Welcome Email</fullName>
+        <default>false</default>
+        <label>Welcome Email</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active Advantage – Benefits</fullName>
+        <default>false</default>
+        <label>Active Advantage – Benefits</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active Advantage – Rebates</fullName>
+        <default>false</default>
+        <label>Active Advantage – Rebates</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active Advantage – Refund/Cancel</fullName>
+        <default>false</default>
+        <label>Active Advantage – Refund/Cancel</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active Giving</fullName>
+        <default>false</default>
+        <label>Active Giving</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active Trainer</fullName>
+        <default>false</default>
+        <label>Active Trainer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Allianz (Registration Protector)</fullName>
+        <default>false</default>
+        <label>Allianz (Registration Protector)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Claiming Registration in My Events</fullName>
+        <default>false</default>
+        <label>Claiming Registration in My Events</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Support Transfer</fullName>
+        <default>false</default>
+        <label>Client Support Transfer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirm Registration Completed</fullName>
+        <default>false</default>
+        <label>Confirm Registration Completed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customization</fullName>
+        <default>false</default>
+        <label>Customization</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Discount Code Does Not Work</fullName>
+        <default>false</default>
+        <label>Discount Code Does Not Work</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Duplicate Registrations</fullName>
+        <default>false</default>
+        <label>Duplicate Registrations</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Enhancement/Feature Request</fullName>
+        <default>false</default>
+        <label>Enhancement/Feature Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Event Director Referral</fullName>
+        <default>false</default>
+        <label>Event Director Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hardware</fullName>
+        <default>false</default>
+        <label>Hardware</label>
+    </standardValue>
+    <standardValue>
+        <fullName>How-To/Training</fullName>
+        <default>false</default>
+        <label>How-To/Training</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Identify Charge on Credit Card Statement</fullName>
+        <default>false</default>
+        <label>Identify Charge on Credit Card Statement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invoice/Remittance Issue</fullName>
+        <default>false</default>
+        <label>Invoice/Remittance Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>My Events Team Center/Prepaid Teams</fullName>
+        <default>false</default>
+        <label>My Events Team Center/Prepaid Teams</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Payment Gateway Request</fullName>
+        <default>false</default>
+        <label>Payment Gateway Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Defect</fullName>
+        <default>false</default>
+        <label>Product Defect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration over the Phone</fullName>
+        <default>false</default>
+        <label>Registration over the Phone</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Resend Confirmation Request</fullName>
+        <default>false</default>
+        <label>Resend Confirmation Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Setup/Implementation</fullName>
+        <default>false</default>
+        <label>Setup/Implementation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Show Errors When Completing Registration</fullName>
+        <default>false</default>
+        <label>Show Errors When Completing Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>System Outage/Performance</fullName>
+        <default>false</default>
+        <label>System Outage/Performance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unable to Access Advantage Discounts</fullName>
+        <default>false</default>
+        <label>Unable to Access Advantage Discounts</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unable to Sign in/Password Reset Request</fullName>
+        <default>false</default>
+        <label>Unable to Sign in/Password Reset Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unable to View Registration</fullName>
+        <default>false</default>
+        <label>Unable to View Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upgrade/Migration</fullName>
+        <default>false</default>
+        <label>Upgrade/Migration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Username/Password Issue</fullName>
+        <default>false</default>
+        <label>Username/Password Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Work Request</fullName>
+        <default>false</default>
+        <label>Work Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Manager Request</fullName>
+        <default>false</default>
+        <label>Account Manager Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Refund Request</fullName>
+        <default>false</default>
+        <label>Refund Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancel/Void</fullName>
+        <default>false</default>
+        <label>Cancel/Void</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Chargeback</fullName>
+        <default>false</default>
+        <label>Chargeback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey/Schedule/Train</fullName>
+        <default>false</default>
+        <label>Survey/Schedule/Train</label>
+    </standardValue>
+    <standardValue>
+        <fullName>TRA</fullName>
+        <default>false</default>
+        <label>TRA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Complaint</fullName>
+        <default>false</default>
+        <label>Customer Complaint</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Complaint</fullName>
+        <default>false</default>
+        <label>Client Complaint</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tag Order</fullName>
+        <default>false</default>
+        <label>Tag Order</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Special Project</fullName>
+        <default>false</default>
+        <label>Special Project</label>
+    </standardValue>
+    <standardValue>
+        <fullName>WIN Card</fullName>
+        <default>false</default>
+        <label>WIN Card</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Supervisor Escalation</fullName>
+        <default>false</default>
+        <label>Supervisor Escalation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inventory Issue</fullName>
+        <default>false</default>
+        <label>Inventory Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Error Message</fullName>
+        <default>false</default>
+        <label>Error Message</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirmation Letter</fullName>
+        <default>false</default>
+        <label>Confirmation Letter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feedback</fullName>
+        <default>false</default>
+        <label>Feedback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Group Sales</fullName>
+        <default>false</default>
+        <label>Group Sales</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancel/Transfer</fullName>
+        <default>false</default>
+        <label>Cancel/Transfer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complaint/Compliment</fullName>
+        <default>false</default>
+        <label>Complaint/Compliment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Payment Issue</fullName>
+        <default>false</default>
+        <label>Payment Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gift Card</fullName>
+        <default>false</default>
+        <label>Gift Card</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Request</fullName>
+        <default>false</default>
+        <label>Client Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closure</fullName>
+        <default>false</default>
+        <label>Closure</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Non Payment</fullName>
+        <default>false</default>
+        <label>Non Payment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decline</fullName>
+        <default>false</default>
+        <label>Decline</label>
+    </standardValue>
+    <standardValue>
+        <fullName>AWO CG Project</fullName>
+        <default>false</default>
+        <label>AWO CG Project</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Split Stays</fullName>
+        <default>false</default>
+        <label>Split Stays</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Outs</fullName>
+        <default>false</default>
+        <label>Early Outs</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RegOnline Billing Case</fullName>
+        <default>false</default>
+        <label>RegOnline Billing Case</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Change Request</fullName>
+        <default>false</default>
+        <label>Address Change Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IR</fullName>
+        <default>false</default>
+        <label>IR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Non-IR</fullName>
+        <default>false</default>
+        <label>Non-IR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Do Not Call</fullName>
+        <default>false</default>
+        <label>Do Not Call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Request for access</fullName>
+        <default>false</default>
+        <label>Request for access</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Request to rectify</fullName>
+        <default>false</default>
+        <label>Request to rectify</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Request to be forgotten</fullName>
+        <default>false</default>
+        <label>Request to be forgotten</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Chat</fullName>
+        <default>false</default>
+        <label>Chat</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CSG</fullName>
+        <default>false</default>
+        <label>CSG</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Webinar</fullName>
+        <default>false</default>
+        <label>Customer Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cvent Connect</fullName>
+        <default>false</default>
+        <label>Cvent Connect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Free Trial</fullName>
+        <default>false</default>
+        <label>Free Trial</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYP</fullName>
+        <default>false</default>
+        <label>MYP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EOY</fullName>
+        <default>false</default>
+        <label>EOY</label>
+    </standardValue>
+    <standardValue>
+        <fullName>AQL</fullName>
+        <default>false</default>
+        <label>AQL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Online Demo</fullName>
+        <default>false</default>
+        <label>Online Demo</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Planner App Signups</fullName>
+        <default>false</default>
+        <label>Planner App Signups</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Seminar</fullName>
+        <default>false</default>
+        <label>Product Seminar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prospect Webinar</fullName>
+        <default>false</default>
+        <label>Prospect Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tradeshow</fullName>
+        <default>false</default>
+        <label>Tradeshow</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Website Forms</fullName>
+        <default>false</default>
+        <label>Website Forms</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Do not sell</fullName>
+        <default>false</default>
+        <label>Do not sell</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Both</fullName>
+        <default>false</default>
+        <label>Both</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CCPA</fullName>
+        <default>false</default>
+        <label>CCPA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GDPR</fullName>
+        <default>false</default>
+        <label>GDPR</label>
+    </standardValue>
+</StandardValueSet>

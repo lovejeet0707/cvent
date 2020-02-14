@@ -10,7 +10,7 @@ public class ContactSupportCls {
         searchTerm = '';
         productSel = '';
         
-         usr = [SELECT ID,contact.EU_Cvent_Account_ID__c,smallphotoURl,ShowLitmosTab__c,Name,Contact.Account.Service_Tier__c FROM User WHERE Id=: UserInfo.getUserId()]; //
+         usr = [SELECT ID,contact.EU_CVII_ID__c,smallphotoURl,ShowLitmosTab__c,Name,Contact.Account.Service_Tier__c FROM User WHERE Id=: UserInfo.getUserId()]; //
         callUsURL = 'http://www.cvent.com/en/contact/support-hours-and-numbers.shtml';
         if(String.IsNotBlank(usr.Contact.Account.Service_Tier__c)){
             callUsURL = callUsURL+'?st='+usr.Contact.Account.Service_Tier__c;

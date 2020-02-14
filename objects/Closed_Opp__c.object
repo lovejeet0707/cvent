@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Closed_Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the reason this opportunity closed. This field is required.</inlineHelpText>
+        <label>Closed Reason V2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Agency Failed to Sell</fullName>
+                    <default>false</default>
+                    <label>Agency Failed to Sell</label>
+                </value>
+                <value>
+                    <fullName>Brand Reputation</fullName>
+                    <default>false</default>
+                    <label>Brand Reputation</label>
+                </value>
+                <value>
+                    <fullName>Cancelled Event</fullName>
+                    <default>false</default>
+                    <label>Cancelled Event</label>
+                </value>
+                <value>
+                    <fullName>Competitor - Functionality</fullName>
+                    <default>false</default>
+                    <label>Competitor - Functionality</label>
+                </value>
+                <value>
+                    <fullName>Competitor - Price</fullName>
+                    <default>false</default>
+                    <label>Competitor - Price</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction</label>
+                </value>
+                <value>
+                    <fullName>Customer Unresponsive</fullName>
+                    <default>false</default>
+                    <label>Customer Unresponsive</label>
+                </value>
+                <value>
+                    <fullName>Cvent Converted</fullName>
+                    <default>false</default>
+                    <label>Cvent Converted</label>
+                </value>
+                <value>
+                    <fullName>Cvent Cross-Sell</fullName>
+                    <default>false</default>
+                    <label>Cvent Cross-Sell</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>In House Solution</fullName>
+                    <default>false</default>
+                    <label>In House Solution</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Product Functionality</fullName>
+                    <default>false</default>
+                    <label>Product Functionality</label>
+                </value>
+                <value>
+                    <fullName>References</fullName>
+                    <default>false</default>
+                    <label>References</label>
+                </value>
+                <value>
+                    <fullName>ROI</fullName>
+                    <default>false</default>
+                    <label>ROI</label>
+                </value>
+                <value>
+                    <fullName>Timeline</fullName>
+                    <default>false</default>
+                    <label>Timeline</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lanyon_Migrated_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Lanyon Migrated ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity_Relationship__r.Owner.Username</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Relationship__c</fullName>
+        <description>Created for relationship.</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>Closed_Opp_Owner_Fields</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Pricing_vs_Competition_Mirror__c</fullName>
+        <description>Pricing VS Competition</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required</inlineHelpText>
+        <label>Pricing vs Competition</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Win_Loss_Comments__c</fullName>
+        <description>Field for win/loss comments.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter your win/loss comments here.</inlineHelpText>
+        <label>Win/Loss Comments (price and process) V2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Created to contain fields Opportunity Owner needs to have access to change after the opportunity is closed won.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Closed Opp Competitor &amp; Win/Loss Comment</label>
+    <nameField>
+        <label>Opportunity Associated Record ID</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Closed Opp Competitor &amp; Win/Loss Comment</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>Duplicates</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Closed_Reason__c</field>
+            <operation>equals</operation>
+            <value>Duplicate</value>
+        </filters>
+        <label>Duplicates</label>
+    </listViews>
+    <webLinks>
+        <fullName>Delete_All_Checked</fullName>
+        <availability>online</availability>
+        <description>This will delete all records if checked.</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete All Checked</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT('/soap/ajax/29.0/connection.js')} 
+try 
+{ 
+var selectedRecords = {!GETRECORDIDS( $ObjectType.Closed_Opp__c )}; 
+if(selectedRecords.length&lt;1) 
+alert('Please Select at Least One Row !'); 
+else 
+{ 
+userConsent = confirm( 
+selectedRecords.length + 
+' Record(s) will be Deleted. Continue ? ' 
+); 
+if(userConsent == true) 
+{ 
+delResult = sforce.connection.deleteIds(selectedRecords); 
+if (delResult[0].getBoolean("success")) 
+{ 
+alert('ALL RIGHT!!!! The Record(s) were Deleted Successfully.'); 
+window.location.reload(); 
+} 
+else 
+alert( 
+'Fail! The Record(s) Could Not be Deleted. Error Message: ' + 
+delResult[0].errors.message 
+); 
+} 
+} 
+} 
+catch(e) 
+{ 
+alert('The Action Could not be Completed. Error Message: ' + e); 
+}</url>
+    </webLinks>
+</CustomObject>

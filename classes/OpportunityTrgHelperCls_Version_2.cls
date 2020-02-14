@@ -386,11 +386,7 @@ and at least on Product attached.*/
         
         //Calling below methods  [Trigger merge activity] : Kumud
         onAfterUpdateTaskBillingUpdate(newMapValues.values(),newMapValues,oldMapValues);
-        /** TICCM-1319 - Send an Email Alert for products starts with "Event in box" Once Contract Review is done.
-        **  Added on 01/29/2020 - Added by Shanu 
-        **/
-        sendEmailForOA360(newMapValues,oldMapValues);
-        
+        successExperienceProductRollup(newMapValues.values(),newMapValues,oldMapValues);
     }
     
     
@@ -2242,48 +2238,304 @@ Desc: Call task automation and billing handler on after update of opportunity: /
                 }
         }
 
-        /** TICCM-1319 - Send an Email Alert for products starts with "Event in box" Once Contract Review is done.
-        **  Added on 01/29/2020 - Added by Shanu 
-        **/
-        public static void sendEmailForOA360(Map<Id,Opportunity> newMap,Map<Id,Opportunity> oldMap){
+    /**
+    **  Added by Udita : TICCM-1018 - Sucess Experience Product
+    **  Added by Shanu : TICCM-1106 - Success Experience
+    **/
+    public static void successExperienceProductRollup(List<Opportunity> newValues,Map<Id,Opportunity> newMapOpp,Map<Id,Opportunity> oldMapOpp){
             
-            Map<Id,Opportunity> oppToSendMap = new Map<Id,Opportunity>();
-            for(Opportunity opp : newMap.values()){
-                if(oldMap.get(opp.Id).SBQQ__Contracted__c!= opp.SBQQ__Contracted__c && opp.SBQQ__Contracted__c==true && opp.Implementation_Response__c!= 'EIB' && opp.MYD_Deal__c!= 'MYD'){
-                    oppToSendMap.put(opp.Id,opp);
+        Map<Id,Id> accVsOppMap = new Map<Id,Id>();
+        Set<String> regionNames = new Set<String>();
+        String calcTargetExperience;
+        String calcDUNSexperience;
+        String calcSuccessExperience;
+        
+        Map<Id,Account> accMap = new Map<Id,Account>();
+        Map<Id,Account> updateAccountMap = new Map<Id,Account>();
+        Map<String,Integer> expVsLevelMap = new Map<String,Integer>();
+        
+        //Stores the highest success experience for the duns number
+        Map<String,Account> dunsVsHighestExperienceMap = new Map<String,Account>();
+        //Map for Account Notifcations
+        Map<Id,String> accounIdVsTypeMap = new Map<Id,String>();
+        Map<Id,Id> lostOpptyIdsMap = new Map<Id,Id>();
+        
+        for(Opportunity opp : newValues){
+            if((opp.stageName!=oldMapOpp.get(opp.id).stageName) && opp.Opportunity_Type__c == 'NBB' && (opp.StageName.contains('Closed') || opp.StageName == 'Verbal')){
+               accVsOppMap.put(opp.AccountId, opp.Id);
+            }
+            //To Skip Lost Opportunities from Success Calculation
+            if(opp.IsWon==False && opp.IsClosed==True){lostOpptyIdsMap.put(opp.AccountId,opp.Id);}   
+        }
+        
+        system.debug('$$$$ accVsOppMap $$$$'+ accVsOppMap);
+        
+        //Get Products 
+        if(!accVsOppMap.isEmpty()){
+                     
+            Map<Id,Set<String>> accVsLineCategMapMap = new Map<Id,Set<String>>();
+            Map<Id,Decimal> accVsLineRevenueMap = new Map<Id,Decimal>();
+            
+            for(OpportunityLineItem line : [Select Id,OpportunityId,Annual_Recurring_Revenue__c,Product2.Success_Experience_Category__c,Product_Name__c,ProductCode,Opportunity.AccountID,Product2.Name,Product2.Success_Experience_Product__c,Opportunity.Account.Success_Experience_Account_Value__c,
+            Opportunity.Account.Success_Experience_Region__c,Opportunity.Account.Success_Experience_Products__c,Opportunity.Account.Account_Cloud__c, Opportunity.Account.Named_Acct__c, Opportunity.Account.Success_Experience_Override__c,Opportunity.Opportunity_Type__c,
+            Opportunity.Account.Global_Ultimate_DUNS__c, Opportunity.Account.Success_Experience__c, Opportunity.Account.Success_Experience_Opportunity__c,SBQQ__QuoteLine__r.Revenue_Type__c,
+            SBQQ__QuoteLine__r.Product_Group__c ,SBQQ__QuoteLine__r.SBQQ__EffectiveStartDate__c,SBQQ__QuoteLine__r.SBQQ__EffectiveEndDate__c,SBQQ__QuoteLine__r.SBQQ__Group__c,SBQQ__QuoteLine__r.SBQQ__Group__r.SBQQ__Optional__c,SBQQ__QuoteLine__r.Primary_Quote_Line__c,convertCurrency(SBQQ__QuoteLine__r.Annual_Recurring_Revenue__c) from OpportunityLineItem where 
+            ((Product2.Success_Experience_Product__c = TRUE  AND Product2.Success_Experience_Category__c != NULL ) OR 
+            (SBQQ__QuoteLine__r.Product_Group__c = 'Event Cloud' AND SBQQ__QuoteLine__r.Revenue_Type__c ='Annual Recurring' /*AND SBQQ__QuoteLine__r.SBQQ__EffectiveStartDate__c <= Today*/ and SBQQ__QuoteLine__r.SBQQ__EffectiveEndDate__c >= Today AND (SBQQ__QuoteLine__r.SBQQ__Group__c = null or SBQQ__QuoteLine__r.SBQQ__Group__r.SBQQ__Optional__c = False) 
+            AND SBQQ__QuoteLine__r.Primary_Quote_Line__c= true)) AND Opportunity.AccountId IN : accVsOppMap.keySet() AND Opportunity.Probability>=80]){
+           
+            //The automation should only run if this field is unhecked so that user can change these fields manually.
+                if(line.Opportunity.Account.Success_Experience_Override__c==false){
+                    
+                    //Calculate Success Products
+                    if(line.Product2.Success_Experience_Product__c == TRUE  && line.Product2.Success_Experience_Category__c !=null){
+                        if(!accVsLineCategMapMap.containsKey(line.Opportunity.AccountID)){
+                            accVsLineCategMapMap.put(line.Opportunity.AccountID,new set<string>{line.Product2.Success_Experience_Category__c});
+                        }else{
+                            accVsLineCategMapMap.get(line.Opportunity.AccountID).add(line.Product2.Success_Experience_Category__c);
+                        }
+                    }
+                    
+                   
+                   //Calculate Success Account Value
+                   if(line.SBQQ__QuoteLine__r.Product_Group__c == 'Event Cloud'  && line.SBQQ__QuoteLine__r.Revenue_Type__c =='Annual Recurring' && (line.Opportunity.Opportunity_Type__c=='NBB' || line.SBQQ__QuoteLine__r.SBQQ__EffectiveStartDate__c <= system.Today()) && line.SBQQ__QuoteLine__r.SBQQ__EffectiveEndDate__c >= system.Today() && (line.SBQQ__QuoteLine__r.SBQQ__Group__c == null || line.SBQQ__QuoteLine__r.SBQQ__Group__r.SBQQ__Optional__c == False) && line.SBQQ__QuoteLine__r.Primary_Quote_Line__c== true){
+                        if(!accVsLineRevenueMap.containsKey(line.Opportunity.AccountID)){
+                            accVsLineRevenueMap.put(line.Opportunity.AccountID,line.SBQQ__QuoteLine__r.Annual_Recurring_Revenue__c);
+                        }else{
+                            accVsLineRevenueMap.put(line.Opportunity.AccountID,(accVsLineRevenueMap.get(line.Opportunity.AccountID) + line.SBQQ__QuoteLine__r.Annual_Recurring_Revenue__c));
+                        }
+                    }
+                   
+                    accMap.put(line.Opportunity.AccountID, line.Opportunity.Account);
+                    
+                    //Calculate Success Experience
+                    if(!lostOpptyIdsMap.containsKey(line.Opportunity.AccountId)){
+                        regionNames.add('\''+ line.Opportunity.Account.Success_Experience_Region__c +'\''); 
+                        if(line.Opportunity.Account.Global_Ultimate_DUNS__c!=null)
+                            dunsVsHighestExperienceMap.put(line.Opportunity.Account.Global_Ultimate_DUNS__c,null);
+                    }                   
                 }
             }
-            if(!oppToSendMap.isEmpty()){
-                for(AggregateResult ar : [Select Count(Id) prodCount, OpportunityId from OpportunityLineItem Where OpportunityId IN:oppToSendMap.keySet() AND 
-                    (Product2.Name like '%Event in a Box%' OR Product2.Name like '%Handheld Barcode Scanner%' ) Group By OpportunityId]){
-                    //Remove those Opportunities from alert without having Event in box products. 
-                    if(Integer.valueOf(ar.get('prodCount'))==0){
-                        oppToSendMap.remove(String.valueOf(ar.get('OpportunityId')));
+            
+            /** TICCM-1106 - 1st Part - Sucess Experience Evaluation
+            **  Sucess Experience High Touch, Full Service, Advised, Guided calculation based on DUNS, Setup table
+            **  Added on 11/26/2019 - Added by Shanu 
+            **/
+            regionNames.remove(null);
+            //Get Success Experience Rules for calculation - Region vs List of Setup Experience
+            Map<String,List<Success_Experience_Setup__c>> regionVsSetupMap = new Map<String,List<Success_Experience_Setup__c>>();            
+            system.debug('$$$$ regionNames $$$$'+ regionNames);   
+                     
+            if(regionNames.size()>0){
+                //Filters the setup table based on the regions from account 
+                List<String> regionList = new List<String>();
+                regionList.addAll(regionNames);
+                
+                for(Success_Experience_Setup__c setup : Database.Query('Select Id,Region__c,Rule_Reason__c,Target_Success_Experience__c,Level__c,Account_Value_Higher_Threshold__c, Account_Value_Lower_Threshold__c,Named_Account__c,Products__c,Number_of_Products_Lower_Threshold__c,Number_of_Products_Higher_Threshold__c from Success_Experience_Setup__c where Region__c includes ('+ String.join(regionList, ',') +') Order by Level__c DESC, Account_Value_Higher_Threshold__c DESC NULLS LAST')){
+                     for(String reg : setup.Region__c.split(';')){
+                        if(!regionVsSetupMap.containsKey(reg))
+                            regionVsSetupMap.put(reg, new List<Success_Experience_Setup__c>{setup});
+                        else
+                            regionVsSetupMap.get(reg).add(setup);
+                    }
+                    
+                    //Store Target Experience vs Level for comparison
+                    expVsLevelMap.put(setup.Target_Success_Experience__c, Integer.valueOf(setup.Level__c));
+                }
+                
+                system.debug('$$$$ expVsLevelMap $$$$'+ expVsLevelMap);
+                
+                //Get Accounts related to current DUNS number, except from current accounts
+                if(!dunsVsHighestExperienceMap.isEmpty() && !regionVsSetupMap.isEmpty()){
+                    for(Account dunsAcc : [Select Success_Experience__c,Success_Experience_Opportunity__c, Global_Ultimate_DUNS__c From Account Where Global_Ultimate_DUNS__c IN:dunsVsHighestExperienceMap.keySet() AND Success_Experience__c!=null AND ID NOT IN :accVsOppMap.keySet()]){
+                        //Stores the highest sucess experience value among all accounts per DUNS number
+                        if(dunsVsHighestExperienceMap.get(dunsAcc.Global_Ultimate_DUNS__c)==null || (expVsLevelMap.get(dunsAcc.Success_Experience__c) > expVsLevelMap.get(dunsVsHighestExperienceMap.get(dunsAcc.Global_Ultimate_DUNS__c).Success_Experience__c))){
+                            dunsVsHighestExperienceMap.put(dunsAcc.Global_Ultimate_DUNS__c,dunsAcc);
+                        }
                     }
                 }
+                system.debug('$$$$ dunsVsHighestExperienceMap $$$$'+ dunsVsHighestExperienceMap);
+            }
+                  
+            
+            //Processing Accounts
+            for(Account acc : accMap.values()){
                 
-                if(!oppToSendMap.isEmpty()){
-                    List<Messaging.SingleEmailMessage> emailMsgList = new List<Messaging.SingleEmailMessage>(); 
-                    for(Opportunity opp : oppToSendMap.values()){
-                        Messaging.SingleEmailMessage msg =  new Messaging.SingleEmailMessage();                    
-                        msg.setSubject('Place Online EIB Order - ' + opp.Account_Name_TM__c);
-                        msg.setHtmlBody('Hi Team,'+
-                                        'Please find below the quote link in which EIB SKUs are already created. Kindly place the online order on behalf of a'+ 'client as a client was unable to purchase this using our portal due to Credit Card limitation!'+
-                                        'Please use the following link to place the order - https://eventinabox.cvent.com/'+
-                                        '<b>Opportunity Link : </b>'+ URL.getSalesforceBaseUrl().toExternalForm() +'/'+ opp.Id + '<br/>'+
-                                        '<b>Quote Link : </b>'+ URL.getSalesforceBaseUrl().toExternalForm() +'/'+ opp.SBQQ__PrimaryQuote__c +'<br/>'+
-                                        'Thanks,<br/> SQ team');
-                        msg.setOrgWideEmailAddressId('0D2000000008OzJ');
-                        msg.setToAddresses(new List<String>{Label.SalesQuoteEmailAddress}); 
-                        msg.setSaveAsActivity(false);
-                        emailMsgList.add(msg); 
-                    }  
-                    //Send alert     
-                    if(emailMsgList.size()>0){
-                        Messaging.sendEmail(emailMsgList);
-                    } 
+                system.debug('$$$$ accVsLineCategMapMap $$$$'+ accVsLineCategMapMap);
+                system.debug('$$$$ accVsLineRevenueMap $$$$'+ accVsLineRevenueMap);     
+                
+                //TICCM-1110 - For Success Experience Products
+                if(accVsLineCategMapMap.containsKey(acc.id)){
+                   acc.Success_Experience_Products__c = String.join(new list<String>(accVsLineCategMapMap.get(acc.id)),';');  
+                   updateAccountMap.put(acc.Id,acc);
+                } 
+                
+                
+                //TICCM-1111 : For Annual Recurring value 
+                if(accVsLineRevenueMap.containsKey(acc.id)){
+                    acc.Success_Experience_Account_Value__c = accVsLineRevenueMap.get(acc.Id);
+                    updateAccountMap.put(acc.Id,acc);
                 }
+                system.debug('&&&&&&&&&&& Success_Experience_Products__c &&&&&&' + acc.Success_Experience_Products__c);
+                
+                /** TICCM-1106 - Success Experience Value 
+                **  2nd Part - Sucess Experience High Touch, Full Service, Advised, Guided calculation based on DUNS, Setup table
+                **  Added on 11/26/2019 - Added by Shanu 
+                **/
+                if(!regionVsSetupMap.isEmpty() && regionVsSetupMap.containsKey(acc.Success_Experience_Region__c) && acc.Success_Experience_Account_Value__c!=null && acc.Success_Experience_Products__c!=null && !lostOpptyIdsMap.containsKey(acc.Id)){
+                    
+                    Set<String> namedAcctCommonSet;
+                    Set<String> accProductsSet;
+                    Set<String> setupProductsSet;
+                    Success_Experience_Setup__c calcTargetSetup;
+                    
+                    //Calculate Target Success Experience
+                    for(Success_Experience_Setup__c setup : regionVsSetupMap.get(acc.Success_Experience_Region__c)){
+                        
+                        //Get Named Accounts
+                        if(acc.Named_Acct__c!=null && setup.Named_Account__c!=null){
+                            namedAcctCommonSet = new Set<String>(acc.Named_Acct__c.split(';'));
+                            namedAcctCommonSet.retainAll(setup.Named_Account__c.split(';'));
+                        }
+                        //Get Account Products
+                        if(setup.Products__c!=null){
+                            accProductsSet = new Set<String>(acc.Success_Experience_Products__c.split(';'));
+                            setupProductsSet = new Set<String>(setup.Products__c.split(';'));
+                        }
+                    
+                        system.debug('&&&&&&&&&&& accProductsSet &&&&&&' + accProductsSet);
+                        system.debug('&&&&&&&&&&& setupProductsSet &&&&&&' + setupProductsSet);
+                        
+                        //Success Experience Setup Evaluation:
+                        //1. Region is already Matched - by Filtering Region in SOQL
+                        //2. Account Value
+                        if((acc.Success_Experience_Account_Value__c >=setup.Account_Value_Lower_Threshold__c && acc.Success_Experience_Account_Value__c <=setup.Account_Value_Higher_Threshold__c) ||
+                        //3. Named Account    (Contains Any)
+                        (namedAcctCommonSet!=null && !namedAcctCommonSet.isEmpty()) ||
+                        //4. Success Products (Exach Match)
+                        (accProductsSet!=null && (accProductsSet.equals(setupProductsSet) ||
+                        //5. Number of Products 
+                        (accProductsSet.size() >= setup.Number_of_Products_Lower_Threshold__c && accProductsSet.size() <= setup.Number_of_Products_Higher_Threshold__c)))){
+                            calcTargetExperience = setup.Target_Success_Experience__c ; 
+                            calcTargetSetup = setup;
+                            break;
+                        }
+                    }       
+                    
+                    //Calculate DUNS Experience
+                    if(dunsVsHighestExperienceMap.containsKey(acc.Global_Ultimate_DUNS__c) && dunsVsHighestExperienceMap.get(acc.Global_Ultimate_DUNS__c)!=null){
+                        calcDUNSexperience = dunsVsHighestExperienceMap.get(acc.Global_Ultimate_DUNS__c).Success_Experience__c;
+                    }
+                    
+                    system.debug('$$$$$ calcTargetExperience $$$' + calcTargetExperience);
+                    system.debug('$$$$ calcDUNSexperience $$$$'+ calcDUNSexperience);
+                    
+                    /** 
+                    ** Populate Sucess Experience here (only if target experience is not blank)
+                    **/
+                    if(String.isNotBlank(calcTargetExperience)){
+                        
+                        /** 
+                        ** Success Experience Comparison
+                        **/
+                        //By Default calculated experience is target experience
+                        calcSuccessExperience = calcTargetExperience;
+                        acc.Success_Experience_Reason__c = calcTargetSetup.Rule_Reason__c;
+                        
+                        //Override Calculated expe If DUNS Experience is greater than Target experience
+                        if(String.isNotBlank(calcDUNSexperience) && expVsLevelMap.get(calcDUNSexperience) > expVsLevelMap.get(calcTargetExperience)){
+                            calcSuccessExperience = calcDUNSexperience;
+                            acc.Success_Experience_Reason__c = 'Inherited experience from DUNS Family';
+                        }
+                        
+                        /** 
+                        ** Success Experience Assignment 
+                        **/
+                        // Guided -     
+                        if((calcSuccessExperience == 'Guided' && (acc.Success_Experience__c==null || accVsOppMap.get(acc.Id)==acc.Success_Experience_Opportunity__c)) || 
+                        // Advised - 
+                        (calcSuccessExperience == 'Advised' && (acc.Success_Experience__c==null || acc.Success_Experience__c=='Guided' || (acc.Success_Experience__c=='High Touch' && accVsOppMap.get(acc.Id)==acc.Success_Experience_Opportunity__c))) ||
+                        // High Touch -
+                        (calcSuccessExperience == 'High Touch' && ((acc.Success_Experience__c=='Guided' || String.isBlank(acc.Success_Experience__c)) || (acc.Success_Experience__c=='Advised' && accVsOppMap.get(acc.Id)==acc.Success_Experience_Opportunity__c)))){
+                        
+                            acc.Success_Experience__c = calcSuccessExperience;
+                            acc.Success_Experience_Opportunity__c = accVsOppMap.get(acc.Id);
+                            acc.Success_Experience_Date__c = system.today();
+                            acc.Success_Populated_From_Code__c = true;
+                            updateAccountMap.put(acc.Id,acc);
+                            
+                            //DUNS Notification - If Calculated Experience is higher than DUNS Experience
+                            if (String.isNotBlank(calcDUNSexperience) && expVsLevelMap.get(calcSuccessExperience) > expVsLevelMap.get(calcDUNSexperience) && dunsVsHighestExperienceMap.get(acc.Global_Ultimate_DUNS__c).Id !=acc.Id){
+                                accounIdVsTypeMap.put(dunsVsHighestExperienceMap.get(acc.Global_Ultimate_DUNS__c).Id, 'DUNNotify');
+                            } 
+                        }
+                        //HT Notifcation - Advised to HT 
+                        else if (calcSuccessExperience == 'High Touch' && acc.Success_Experience__c=='Advised' && accVsOppMap.get(acc.Id)!=acc.Success_Experience_Opportunity__c){
+                            accounIdVsTypeMap.put(acc.Id, 'HTNotify');
+                        }
+                                      
+                    }
+                }     
+                
+                system.debug('$$$$ calcSuccessExperience $$$$'+ calcSuccessExperience);
                 
             }
+            system.debug('$$$$ accounIdVsTypeMap $$$$'+ accounIdVsTypeMap);
+            system.debug('---updateAccountMap----'+ updateAccountMap);
+            //Update Account
+            if(!updateAccountMap.isEmpty()){
+                update updateAccountMap.values();
+            }
+            //Notification Send
+            if(!accounIdVsTypeMap.isEmpty()){
+                successExperienceEmailNotification(accounIdVsTypeMap);
+            }
         }
+    }
+    
+    //Notification : TICCM-1106 : Udita
+    public static void successExperienceEmailNotification(Map<Id,String> accounIdVsTypeMap){
+
+            List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();            
+            List<setEmailParameters> parameterList = new List<setEmailParameters>();
+            
+            // map of template label
+            Map<String,Id> templateTypeVsId = new Map<String,Id>();
+            templateTypeVsId.put('HTNotify',Label.HTNotify);
+            templateTypeVsId.put('DUNNotify',Label.DUNNotify);
+            
+            for(AccountTeamMember accTeam : [Select Id, AccountId, TeamMemberRole , User.Email, User.Name, UserId  From  AccountTeamMember Where AccountId =:accounIdVsTypeMap.keySet()]){
+                   parameterList.add(new setEmailParameters(accTeam.AccountId, accTeam.UserId,accounIdVsTypeMap.get(accTeam.AccountId),accTeam.User.Email));
+            }
+            
+            for(SetEmailParameters param : parameterList){
+                Messaging.SingleEmailMessage message =  new Messaging.SingleEmailMessage();
+                message.setToAddresses(new string[] {param.emailId});             
+                message.setTemplateId(id.valueOf(templateTypeVsId.get(param.templateType)));
+                message.setTargetObjectId(param.userId);
+                message.setSaveAsActivity(false);
+                message.setWhatId(param.accountId);
+                messages.add(message);
+            }
+            
+            if(messages.size()>0){
+                Messaging.sendEmail(messages);
+            } 
+        
+     }
+        
+     public class SetEmailParameters {
+          public Id accountId;
+          public Id userId;
+          public String templateType;
+          public String emailId;
+            
+          public setEmailParameters(id accountId,id UserId,string templateType,string EmailId) {
+            this.accountId = accountId;
+            this.userId = UserId;
+            this.templateType = templateType;
+            this.emailId = EmailId;
+          }
+     }
+     
 }// end of class

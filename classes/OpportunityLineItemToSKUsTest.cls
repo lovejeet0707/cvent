@@ -17,14 +17,20 @@ public class OpportunityLineItemToSKUsTest{
         
         system.runAs(u){
         
-            Account acc = TestUtil.createAccount('Biz Test Acc 1','Biz_Ac');
+            Account acc = new Account();
+            acc.Name = 'Biz Test Acc 1';   
             acc.EBS_Account_ID__c = '46465464';     
+            acc.BillingCountry = 'US'; 
+            acc.BillingState = 'AK';
             acc.BillingCity = 'AKat';
             acc.BillingStreet = '172 Palm Ave Apt 2';
+            acc.BillingPostalCode='4654';
             insert acc;
 
 
-            Contact con = TestUtil.createContact(String.valueOf(acc.Id));
+            Contact con = new Contact();
+            con.LastName = 'Test Con 1';
+            con.AccountId = acc.Id;
             con.EBS_Account_Id__c = '464654';
             insert con;
 
@@ -43,9 +49,15 @@ public class OpportunityLineItemToSKUsTest{
          
 
 
-            Opportunity opp = TestUtil.createOpportunityNew('Test Opportunity','Verbal',con.Id,acc.Id);
+            Opportunity opp = new Opportunity();
+            opp.Name = 'Test Opp 1';
+            opp.AccountId = acc.Id;
+            opp.StageName = 'Presentation';
             opp.CloseDate = System.today()+ 30;
+            opp.Contact_Associated__c = con.Id;
+            opp.Contact_Role__c = 'Influencer';
             opp.ContractReceived__c = System.today()-7;
+
             opp.Product__c = 'CrowdCompass';
             opp.License_Type__c = 'Prepayment - Events Fee';
             opp.New_Amount__c = 150;
@@ -127,14 +139,20 @@ public class OpportunityLineItemToSKUsTest{
         
         system.runAs(u){
         
-            Account acc = TestUtil.createAccount('Biz Test Acc 1','Biz_Ac');
+            Account acc = new Account();
+            acc.Name = 'Biz Test Acc 1';   
             acc.EBS_Account_ID__c = '46465464';     
+            acc.BillingCountry = 'US'; 
+            acc.BillingState = 'AK';
             acc.BillingCity = 'AKat';
             acc.BillingStreet = '172 Palm Ave Apt 2';
+            acc.BillingPostalCode='4654';
             insert acc;
 
 
-            Contact con = TestUtil.createContact(String.valueOf(acc.Id));
+            Contact con = new Contact();
+            con.LastName = 'Test Con 1';
+            con.AccountId = acc.Id;
             con.EBS_Account_Id__c = '464654';
             insert con;
 
@@ -153,8 +171,13 @@ public class OpportunityLineItemToSKUsTest{
          
 
 
-            Opportunity opp = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',con.Id,acc.Id);
+            Opportunity opp = new Opportunity();
+            opp.Name = 'Test Opp 1';
+            opp.AccountId = acc.Id;
+            opp.StageName = 'Closed Won';
             opp.CloseDate = System.today()+ 30;
+            opp.Contact_Associated__c = con.Id;
+            opp.Contact_Role__c = 'Influencer';
             opp.ContractReceived__c = System.today()-7;
 
             opp.Product__c = 'CrowdCompass';

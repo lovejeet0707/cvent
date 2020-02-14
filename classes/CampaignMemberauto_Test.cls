@@ -8,7 +8,7 @@
   
  Campaign testCampaign = new Campaign ( name = 'vtinpofyipt',
                                       StartDate = System.today(),
-                                                                  /*product__c = 'Event',*/
+                                      product__c = 'Event',
                                       Type = 'Biz-Dev',
                                       isActive = True                                                                          
                                       );

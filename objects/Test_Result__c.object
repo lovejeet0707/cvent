@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Also_Included_in_Ids__c</fullName>
+        <externalId>false</externalId>
+        <label>Also Included in Ids</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Currency_Conversion__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Currency Conversion</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Developer_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Developer Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Environment__c</fullName>
+        <externalId>false</externalId>
+        <label>Environment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DATA</fullName>
+                    <default>false</default>
+                    <label>DATA</label>
+                </value>
+                <value>
+                    <fullName>UAT</fullName>
+                    <default>false</default>
+                    <label>UAT</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Failed__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(ISPICKVAL(Test_Result_Status__c,'Failed'),ISPICKVAL(Test_Status__c,'Failed'))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Failed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Failure_Criticality__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Must Have - this Scenario is critical for Go-Live
+Negotiable - this Scenario is recommended for Go-Live
+Nice to Have - this Scenario is not critical for Go-Live</inlineHelpText>
+        <label>Failure Criticality</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Must Have</fullName>
+                    <default>false</default>
+                    <label>Must Have</label>
+                </value>
+                <value>
+                    <fullName>Negotiable</fullName>
+                    <default>false</default>
+                    <label>Negotiable</label>
+                </value>
+                <value>
+                    <fullName>Nice to Have</fullName>
+                    <default>false</default>
+                    <label>Nice to Have</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Failure_Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Code - Bad coding
+Configuration - Configured incorrectly
+Product - Product malfunction
+User Error - Insufficient training</inlineHelpText>
+        <label>Failure Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Defect - Code</fullName>
+                    <default>false</default>
+                    <label>Defect - Code</label>
+                </value>
+                <value>
+                    <fullName>Defect - Configuration</fullName>
+                    <default>false</default>
+                    <label>Defect - Configuration</label>
+                </value>
+                <value>
+                    <fullName>Defect - Product</fullName>
+                    <default>false</default>
+                    <label>Defect - Product</label>
+                </value>
+                <value>
+                    <fullName>User Error/Training</fullName>
+                    <default>false</default>
+                    <label>User Error/Training</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>General_Feedback__c</fullName>
+        <description>General Feedback</description>
+        <externalId>false</externalId>
+        <inlineHelpText>General Feedback</inlineHelpText>
+        <label>General Feedback</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pending_Feedback__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pending Feedback</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pricing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pricing?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ready_for_Retest__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ready for Retest</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resolution_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Resolution Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Test_Results</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Screenshot__c</fullName>
+        <description>Add a screenshot for FAILED tests</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Add a screenshot for FAILED tests</inlineHelpText>
+        <label>Screenshot</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Steps_to_Reproduce__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Steps that were taken when the test failed</inlineHelpText>
+        <label>Steps to Reproduce</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Test_Cycle__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>When did this test occur? Will be set by default.</inlineHelpText>
+        <label>Test Cycle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Working Models</fullName>
+                    <default>false</default>
+                    <label>Working Models</label>
+                </value>
+                <value>
+                    <fullName>Pre-Validation</fullName>
+                    <default>false</default>
+                    <label>Pre-Validation</label>
+                </value>
+                <value>
+                    <fullName>Validation</fullName>
+                    <default>false</default>
+                    <label>Validation</label>
+                </value>
+                <value>
+                    <fullName>Pre-Unit Testing</fullName>
+                    <default>false</default>
+                    <label>Pre-Unit Testing</label>
+                </value>
+                <value>
+                    <fullName>Unit Testing</fullName>
+                    <default>false</default>
+                    <label>Unit Testing</label>
+                </value>
+                <value>
+                    <fullName>Pre-Integrated Testing</fullName>
+                    <default>false</default>
+                    <label>Pre-Integrated Testing</label>
+                </value>
+                <value>
+                    <fullName>Integrated Testing</fullName>
+                    <default>false</default>
+                    <label>Integrated Testing</label>
+                </value>
+                <value>
+                    <fullName>Pre-End to End Testing</fullName>
+                    <default>false</default>
+                    <label>Pre-End to End Testing</label>
+                </value>
+                <value>
+                    <fullName>End to End Testing</fullName>
+                    <default>false</default>
+                    <label>End to End Testing</label>
+                </value>
+                <value>
+                    <fullName>Pre-Go-Live</fullName>
+                    <default>false</default>
+                    <label>Pre-Go-Live</label>
+                </value>
+                <value>
+                    <fullName>Go-Live</fullName>
+                    <default>false</default>
+                    <label>Go-Live</label>
+                </value>
+                <value>
+                    <fullName>Post Go-Live</fullName>
+                    <default>false</default>
+                    <label>Post Go-Live</label>
+                </value>
+                <value>
+                    <fullName>UAT 3</fullName>
+                    <default>false</default>
+                    <label>UAT 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_Record_URL__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Copy the URL of the Test Record here that resulted in the Failed or Passed with Exception</inlineHelpText>
+        <label>Test Record URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Test_Result_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Result Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Blocked</fullName>
+                    <default>false</default>
+                    <label>Blocked</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Passed</fullName>
+                    <default>false</default>
+                    <label>Passed</label>
+                </value>
+                <value>
+                    <fullName>Passed, with exception</fullName>
+                    <default>false</default>
+                    <label>Passed, with exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_Scenario_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Test_Scenario__r.Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Test Scenario Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Test_Scenario__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Scenario</label>
+        <referenceTo>Test_Scenario__c</referenceTo>
+        <relationshipLabel>Test Results</relationshipLabel>
+        <relationshipName>Test_Results</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Test_Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Did this test pass?</inlineHelpText>
+        <label>Test Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Passed</fullName>
+                    <default>false</default>
+                    <label>Passed</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Urgency__c</fullName>
+        <externalId>false</externalId>
+        <label>Urgency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>products__c</fullName>
+        <externalId>false</externalId>
+        <label>Product(s)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Test Result</label>
+    <nameField>
+        <displayFormat>RES-{0000}</displayFormat>
+        <label>Test ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Test Results</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Test_Result_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Resolution_Owner__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Test_Scenario__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Test_Scenario__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Test_Result_Status__c</columns>
+        <columns>Test_Scenario_Status__c</columns>
+        <columns>Comments__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Simplus_Test_Results</fullName>
+        <columns>NAME</columns>
+        <columns>Comments__c</columns>
+        <columns>Test_Result_Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Resolution_Owner__c</columns>
+        <columns>Urgency__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Test_Scenario_Status__c</field>
+            <operation>equals</operation>
+            <value>Failed</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>4/15/2018 12:00 AM</value>
+        </filters>
+        <filters>
+            <field>Test_Result_Status__c</field>
+            <operation>equals</operation>
+            <value>Failed</value>
+        </filters>
+        <label>c</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Simplus_View</fullName>
+        <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Failed__c</columns>
+        <columns>Test_Scenario__c</columns>
+        <columns>Test_Scenario_Status__c</columns>
+        <columns>Ready_for_Retest__c</columns>
+        <columns>Resolution_Owner__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Urgency__c</columns>
+        <columns>Pricing__c</columns>
+        <columns>Pending_Feedback__c</columns>
+        <columns>products__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Developer_Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Failed__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>4/16/2018 12:00 AM</value>
+        </filters>
+        <filters>
+            <field>Test_Scenario_Status__c</field>
+            <operation>equals</operation>
+            <value>Failed</value>
+        </filters>
+        <label>Simplus View</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Test_Results_Created_Today</fullName>
+        <columns>NAME</columns>
+        <columns>Test_Status__c</columns>
+        <columns>Test_Result_Status__c</columns>
+        <columns>Test_Scenario__c</columns>
+        <columns>Failure_Reason__c</columns>
+        <columns>Comments__c</columns>
+        <columns>Resolution_Owner__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Urgency__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <filters>
+            <field>Test_Result_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Failed</value>
+        </filters>
+        <label>Test Results Created Today</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Test_Results_Created_TodayFailures</fullName>
+        <columns>CREATEDBY_USER</columns>
+        <columns>NAME</columns>
+        <columns>Test_Status__c</columns>
+        <columns>Test_Result_Status__c</columns>
+        <columns>Test_Scenario__c</columns>
+        <columns>Failure_Reason__c</columns>
+        <columns>Comments__c</columns>
+        <columns>Resolution_Owner__c</columns>
+        <columns>Urgency__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <filters>
+            <field>Test_Result_Status__c</field>
+            <operation>equals</operation>
+            <value>Failed,"Passed, with exception"</value>
+        </filters>
+        <label>Test Results Created Today - Failures</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>WIP</fullName>
+        <columns>NAME</columns>
+        <columns>Resolution_Owner__c</columns>
+        <columns>Test_Scenario__c</columns>
+        <columns>Urgency__c</columns>
+        <columns>Test_Scenario_Status__c</columns>
+        <columns>Pricing__c</columns>
+        <columns>Pending_Feedback__c</columns>
+        <columns>Ready_for_Retest__c</columns>
+        <columns>products__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Developer_Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Failed__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>4/16/2018 12:00 AM</value>
+        </filters>
+        <filters>
+            <field>Test_Scenario_Status__c</field>
+            <operation>equals</operation>
+            <value>WIP</value>
+        </filters>
+        <label>WIP</label>
+        <language>en_US</language>
+    </listViews>
+    <validationRules>
+        <fullName>Comments_Required_if_Blocked</fullName>
+        <active>true</active>
+        <description>Comments are required if test result is marked as "Blocked"</description>
+        <errorConditionFormula>AND(
+ISPICKVAL( Test_Result_Status__c , "Blocked"),
+Comments__c = "")</errorConditionFormula>
+        <errorMessage>Comments required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Failure_Criticality_required_for_fails</fullName>
+        <active>false</active>
+        <description>Failure Criticality required for failed Test Results</description>
+        <errorConditionFormula>OR(TEXT( Test_Result_Status__c ) = "Failed",TEXT( Test_Result_Status__c ) = "Passed, with Exception") &amp;&amp; ISBLANK(TEXT( Failure_Criticality__c ))</errorConditionFormula>
+        <errorMessage>You must state failure criticality for failed test results</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Failure_Reason_required_for_fails</fullName>
+        <active>true</active>
+        <description>Failure Reason is required for failed test results</description>
+        <errorConditionFormula>TEXT( Test_Result_Status__c ) != "Passed" &amp;&amp; ISBLANK(TEXT( Failure_Reason__c ))</errorConditionFormula>
+        <errorMessage>A failure reason is required for failed test results</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Steps_to_reproduce_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(
+ISBLANK(Test_Record_URL__c),
+ISBLANK(Steps_to_Reproduce__c )),
+OR(
+ISPICKVAL(Test_Result_Status__c , "Failed"),
+ISPICKVAL(Test_Result_Status__c , "Passed, with Exception")
+))</errorConditionFormula>
+        <errorMessage>Steps to Reproduce and URL for the Test Record that Failed or Passed with Exception is required</errorMessage>
+    </validationRules>
+</CustomObject>

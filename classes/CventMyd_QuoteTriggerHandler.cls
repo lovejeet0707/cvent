@@ -168,14 +168,6 @@ public without sharing class CventMyd_QuoteTriggerHandler {
         }
 
     }
-    /* test for MSA renewal
-    public static void updateMsaOnRenewal(){
-        
-        for(SBQQ__Quote__c q:(List<SBQQ__Quote__c>)Trigger.new){
-            
-            if(q.SBQQ__Opportunity2__r.MSA_Code__c != null)
-                q.msaUpload__c = true;
-        }*/
     
     public static void handleBeforeInsert() {
 
@@ -192,10 +184,7 @@ public without sharing class CventMyd_QuoteTriggerHandler {
         for(SBQQ__Quote__c quote : (List<SBQQ__Quote__c>)Trigger.new) {
 
             if(quote.Cloned_From_Quote__c == null) {
-            
-                //if(quote.previousquote__r.MSAUpload__c)
-                  //  quote.MSAUpload__c = true;
-                
+
                 quote.renewalChainMaster__c = renewalChainMasterId;
 
                 quote.amendmentChainMaster__c = amendmentChainMasterId;
@@ -223,7 +212,7 @@ public without sharing class CventMyd_QuoteTriggerHandler {
                 quote.jsonString__c = JSON.serialize(quoteObject);
 
             }
-                
+
         }        
 
         quoteInsertionIdToOpportunity = getUpdatedQuoteToOpportunityMap(quoteInsertionIdToOpportunity);
@@ -584,7 +573,7 @@ public without sharing class CventMyd_QuoteTriggerHandler {
         Map<Id,Integer> quoteIdToRecalculationAttempts = new Map<Id,Integer>();
 
         for(SBQQ__Quote__c quote : (List<SBQQ__Quote__c>)Trigger.new) {
-            
+               
             // set outyear dates for certification SKU quotes: P-004417
             if(quote.Certification_SKU__c > 0 && quote.SBQQ__Type__c == 'Renewal' && quote.Current_Year__c == 1 && quote.CreatedDate > Date.newInstance(2019, 2, 17)){
                 quote.SBQQ__EndDate__c = quote.SBQQ__StartDate__c!=null?quote.SBQQ__StartDate__c.addYears(2):quote.SBQQ__EndDate__c;
@@ -625,7 +614,6 @@ public without sharing class CventMyd_QuoteTriggerHandler {
 
             quote.calculationCycleFinished__c = (lineCountHasChanged && !calculationIsRunning) ? false : quote.calculationCyclefinished__c;
 
-            
             if(quote.msaUpload__c) {
 
                 quote.SBQQ__LineItemsGrouped__c = (quote.Multiple_Years_Commitment__c) ? true : quote.SBQQ__LineItemsGrouped__c ;
@@ -639,7 +627,6 @@ public without sharing class CventMyd_QuoteTriggerHandler {
                 }
 
             }
-            
 
             try {
 
@@ -704,7 +691,6 @@ public without sharing class CventMyd_QuoteTriggerHandler {
                 System.debug('In general it is bad practice to just catch and debug exceptions... here it should be ok: ' + CventMyd_UtilityMethods.getExceptionString(e));
 
             }
-            
 
         }
 

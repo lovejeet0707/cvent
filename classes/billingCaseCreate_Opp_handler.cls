@@ -166,7 +166,7 @@ else{
             Datetime closeDateTime;
             if(oppObj.CloseDate!=null)
             closeDateTime = datetime.newInstance(oppObj.CloseDate.year(), oppObj.CloseDate.month(),oppObj.CloseDate.day());
-            oppObj.Name=(closeDateTime !=null?closeDateTime .format('MMMMM'):'')+' '+(closeDateTime!=null?closeDateTime.Year():null)+' '+((oppObj.Early_Contract__c=='Not Early' ||oppObj.Early_Contract__c=='')?'':'Early')+' '+((oppObj.Parent_Upsell__c=='Upsell' && oppObj.Parent_Upsell__c!=null)?'Upsell':(oppObj.NBB_Renewal__c!=null?oppObj.NBB_Renewal__c:''))+' '+(oppObj.Years__c=='1'?'':(' Year '+oppObj.Deal_Year__c+' of '+(oppObj.Years__c!=null?oppObj.Years__c:'')))+' '+(oppObj.Opportunity_Name_Affix__c!=null?oppObj.Opportunity_Name_Affix__c:'');//((oppObj.Years__c<oppObj.Deal_Year__c?' Of'+oppObj.Years__c:''))//Opportunity_Name_Affix__c added by Udita for TICCM-956  
+            oppObj.Name=(closeDateTime !=null?closeDateTime .format('MMMMM'):'')+' '+(closeDateTime!=null?closeDateTime.Year():null)+' '+((oppObj.Early_Contract__c=='Not Early' ||oppObj.Early_Contract__c=='')?'':'Early')+' '+((oppObj.Parent_Upsell__c=='Upsell' && oppObj.Parent_Upsell__c!=null)?'Upsell':(oppObj.NBB_Renewal__c!=null?oppObj.NBB_Renewal__c:''))+' '+(oppObj.Years__c=='1'?'':(' Year '+oppObj.Deal_Year__c+' of '+(oppObj.Years__c!=null?oppObj.Years__c:'')))+' '+(oppObj.Opportunity_Name_Affix__c!=null?oppObj.Opportunity_Name_Affix__c:'');//((oppObj.Years__c<oppObj.Deal_Year__c?' Of'+oppObj.Years__c:''))//Opportunity_Name_Affix__c added by Harshit/Udita for TICCM-956 
             oppObj.MYD_Deal__c=(oppObj.Deal_Year__c=='1'?'First Year':'MYD');
             //if(oppObj.Contract_Implemented__c)
             //{
@@ -349,7 +349,7 @@ else{
            for(Opportunity oppObj:listCurrentOppty){
                setOpptyId.add(oppObj.id);
               ContractNumberSet.add(oppObj.Contract_Number_New__c); 
-              ContractNumberSet.remove(null);
+               
            }
            if(ContractNumberSet.size()>0){
                opportunityRecord=[SELECT Id,CurrencyIsoCode,Contract_Number_New__c,CFC_Check__c,To_Be_Reviewed_By__c FROM Opportunity WHERE Contract_Number_New__c IN : ContractNumberSet];
@@ -363,8 +363,7 @@ else{
             for(RRATracker__c objRRtracker :mapRRATracker.values()){ 
                 mapNameVsRRId.put(objRRtracker.User_Name__c,Integer.valueOF(objRRtracker.RoundRobinId__c));   
                 mapRRIdVsName.put(Integer.valueOF(objRRtracker.RoundRobinId__c),objRRtracker.User_Name__c);            } 
-             Set<String> setContractNumber=new Set<String>(); 
-             if(opportunityRecord != null && opportunityRecord.size()>0)
+             Set<String> setContractNumber=new Set<String>();   
              For(Opportunity oppObj : opportunityRecord)
              {
                 setContractNumber.add(oppObj.Contract_Number_New__c);    
@@ -379,7 +378,6 @@ else{
             Map<String,String> mapNumberVsAssignUser=new Map<String,String>();
             List<Contract_Reviewing__c> listtobeUpdateContract =new List<Contract_Reviewing__c>();
             Map<Id,Contract_Reviewing__c> mapOppidVscontract=new Map<Id,Contract_Reviewing__c>();
-            if(listContractReview != null && listContractReview.size()>0)
             for(Contract_Reviewing__c objReview:listContractReview){
                     mapOppidVscontract.put(objReview.Opportunity__C,objReview);
                     if(objReview.Contract_Reviewer__c!=null){

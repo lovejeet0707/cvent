@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Pending_Completion_Message__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the message that will be mentioned to Assigned Resources in Chatter when Projects are set to Pending Completion.</inlineHelpText>
+        <label>Pending Completion Message</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Custom Setting containing chatter settings for PSA functions</description>
+    <enableFeeds>false</enableFeeds>
+    <label>PSA Chatter Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

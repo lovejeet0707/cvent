@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Keywords__c</fullName>
+        <externalId>false</externalId>
+        <label>Keywords</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ArticleId__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source ArticleId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ArticleNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source ArticleNo</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Original_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Original_Created_Date_ref__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Original Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Original_Created_Date_ref__c</fullName>
+        <defaultValue>NOW ()</defaultValue>
+        <description>Used to store the original creation date for the article.</description>
+        <externalId>false</externalId>
+        <label>Original Created Date ref</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>General Information</fullName>
+                    <default>false</default>
+                    <label>General Information</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Attendee Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Attendee Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Business Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Business Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-New Registration</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-New Registration</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Simple Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Simple Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Spend Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Spend Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>Lanyon MPoint</fullName>
+                    <default>false</default>
+                    <label>Lanyon MPoint</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Venues</fullName>
+                    <default>false</default>
+                    <label>Lanyon Venues</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Channel Publisher</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Channel Publisher</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-GDS Access</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-GDS Access</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-HODPublisher</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-HODPublisher</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Market Leads</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Market Leads</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Marketplace Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Marketplace Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-RFP Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-RFP Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Engagements &amp; Projects</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Engagements &amp; Projects</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Hotel Directory</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Hotel Directory</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Market Leads</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Market Leads</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Marketplace Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Marketplace Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Reverse Auction</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Reverse Auction</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Transient Sourcing</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Transient Sourcing</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Rate Audit</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Rate Audit</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Rate Availability</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Rate Availability</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Reverse Audit</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Reverse Audit</label>
+                </value>
+                <value>
+                    <fullName>RegOnline by Lanyon</fullName>
+                    <default>false</default>
+                    <label>RegOnline by Lanyon</label>
+                </value>
+                <value>
+                    <fullName>RegOnline Classic by Lanyon</fullName>
+                    <default>false</default>
+                    <label>RegOnline Classic by Lanyon</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Related__c</fullName>
+        <externalId>false</externalId>
+        <label>Related</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Review_Date__c</fullName>
+        <defaultValue>NOW () + 366</defaultValue>
+        <description>If applicable, enter a review date for this article. Not required.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, enter a review date for this article. Not required.</inlineHelpText>
+        <label>Review Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Solution__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>35</visibleLines>
+    </fields>
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <page>cs_VideosView</page>
+            <template>Page</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <page>cs_VideosView</page>
+            <template>Page</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Lanyon Article type</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <label>Videos (Lanyon)</label>
+    <pluralLabel>Videos(Lanyon)</pluralLabel>
+</CustomObject>

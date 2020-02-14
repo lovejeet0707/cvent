@@ -1,0 +1,15 @@
+<apex:component controller="SuccessMailTempController" access="global">
+    <apex:attribute name="dunsNum" type="string" description="DUNS Number" assignTo="{!dunsNumber}"/>
+    <table border = "2" cellspacing = "5">
+        <tr>
+            <td><B>Account Name</B></td>
+            <td><B>Success Experience</B></td>                
+        </tr>
+        <apex:repeat value="{!DUNSAccounts}" var="a">
+        <tr>
+            <td>{!a.Name}</td>
+            <td>{!a.Success_Experience__c}</td>              
+        </tr>
+        </apex:repeat>       
+    </table>
+</apex:component>

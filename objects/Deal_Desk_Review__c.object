@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>ACV__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>from the Quote Total</inlineHelpText>
+        <label>ACV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK("/" &amp;  Opportunity__r.Account.Id , Opportunity__r.Account.Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Action_Needed_for_Develop_Needs__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe action or obstacle to overcome</inlineHelpText>
+        <label>Action Needed for Develop - Needs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action_Needed_for_Negotiate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe action or obstacle to overcome</inlineHelpText>
+        <label>Action Needed for Negotiate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action_Needed_for_Prove_ROI__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe action or obstacle to overcome</inlineHelpText>
+        <label>Action Needed for Prove - ROI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action_Needed_for_Qualification__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe action or obstacle to overcome</inlineHelpText>
+        <label>Action Needed for Qualification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action_Needed_for_Signed_Agreements__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe action or obstacle to overcome</inlineHelpText>
+        <label>Action Needed for Signed Agreements</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Agile_Demo__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate Date when Agile Demo was Delivered</inlineHelpText>
+        <label>Agile Demo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approved_Asks__c</fullName>
+        <externalId>false</externalId>
+        <label># Approved Asks</label>
+        <summaryFilterItems>
+            <field>Deal_Desk_Ask__c.Ask_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved, Amended by Deal Desk - Approved</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Desk_Ask__c.Deal_Desk_Review__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Asks_In_Review__c</fullName>
+        <externalId>false</externalId>
+        <label># Asks in Review</label>
+        <summaryFilterItems>
+            <field>Deal_Desk_Ask__c.Ask_Status__c</field>
+            <operation>notContain</operation>
+            <value>Approved</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Desk_Ask__c.Deal_Desk_Review__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Assets_on_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK("https://cs22.salesforce.com/"&amp;Opportunity__r.AccountId&amp;"#"&amp;Opportunity__r.AccountId&amp;"_"&amp;"00N17000000aIgO"&amp;"_target", 'Go to Assets','_blank')</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This field will direct you to the Assets related list on the Account</inlineHelpText>
+        <label>Assets on Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competition__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Competition, product and price</inlineHelpText>
+        <label>Competition</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Deal Desk Reviews (Contact)</relationshipLabel>
+        <relationshipName>Deal_Desk_Reviews1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Invited_Other__c</fullName>
+        <description>The Event type if not in the pick list of values</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter event type only if "Other" is selected in previous field</inlineHelpText>
+        <label>Customer Invited Other</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Invited_to_Customer_Led_Event__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate if Customer has been Invited or Participated in a Customer Led Event</inlineHelpText>
+        <label>Customer Invited to Customer Led Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Webinar</fullName>
+                    <default>false</default>
+                    <label>Webinar</label>
+                </value>
+                <value>
+                    <fullName>Tech Tour</fullName>
+                    <default>false</default>
+                    <label>Tech Tour</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Reference_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Customer Reference #2</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Deal Desk Reviews (Customer Reference #2)</relationshipLabel>
+        <relationshipName>Deal_Desk_Reviews5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Reference__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate the Contact who is the Customer Reference</inlineHelpText>
+        <label>Customer Reference</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Deal Desk Reviews (Customer Reference)</relationshipLabel>
+        <relationshipName>Deal_Desk_Reviews2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Success_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate the Customer Success Advisor Engaged in the Process</inlineHelpText>
+        <label>Customer Success Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Deal_Desk__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Deal Desk</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Develop_Needs__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Develop - Needs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Negotiate__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Negotiate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Prove_ROI__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Prove - ROI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Qualification_Completed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Qualification Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Signed_Agreements__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Signed Agreements</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_1_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 1 Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved with Exception</fullName>
+                    <default>false</default>
+                    <label>Approved with Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 1</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_2_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 2 Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved with Exception</fullName>
+                    <default>false</default>
+                    <label>Approved with Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 2</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_3_St__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 3 Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved with Exception</fullName>
+                    <default>false</default>
+                    <label>Approved with Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 3</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_4_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 4 Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved with Exception</fullName>
+                    <default>false</default>
+                    <label>Approved with Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 4</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_5_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 5 Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved with Exception</fullName>
+                    <default>false</default>
+                    <label>Approved with Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_5__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask 5</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask_Admin__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask (Admin)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Ask__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Desk Ask</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deal_Desk_Status__c</fullName>
+        <description>Status of Deal Desk Approval</description>
+        <externalId>false</externalId>
+        <label>Deal Desk Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Request for Deal Desk</fullName>
+                    <default>false</default>
+                    <label>Request for Deal Desk</label>
+                </value>
+                <value>
+                    <fullName>Deal Desk Complete</fullName>
+                    <default>false</default>
+                    <label>Deal Desk Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Dedicated_Resource_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If a Dedicated Resource is needed please provide details here</inlineHelpText>
+        <label>Dedicated Resource Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dedicated_Resource_Needed_by_Customer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>If Yes please add explanation below</inlineHelpText>
+        <label>Dedicated Resource Needed by Customer?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Executive_Sponsor_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Executive Sponsor #2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews6</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Executive_Sponsor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate Executive Sponsor Engaged in the Process</inlineHelpText>
+        <label>Executive Sponsor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Existing_New__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Type )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>from the Opportunity Type field</inlineHelpText>
+        <label>Existing/New</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Close__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>from the "Close Date" of the Opportunity</inlineHelpText>
+        <label>Expected Close</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Fields_with_Values__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Agile_Demo__c) = "",0,1) +
+IF(ISBLANK(Customer_Invited_to_Customer_Led_Event__c),0,1) +
+IF(ISBLANK(Product_Marketing_to_Customer__c),0,1) +
+IF(TEXT(Hobson_ROI__c) = "",0,1) +
+IF(Technical_Solutions_Engineer__c = "",0,1) +
+IF(Executive_Sponsor__c  = "",0,1) +
+IF(Professional_Services__c  = "",0,1) +
+IF(Customer_Success_Advisor__c  = "",0,1) +
+IF(Customer_Reference__c = "",0,1)</formula>
+        <label>Fields with Values</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GIVE_GET__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What does Cvent get in return for the approved exception? ie. Case Study, Multi-year deal, price increases in year 2, etc.</inlineHelpText>
+        <label>GIVE/GET:</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hobson_ROI_Completed__c</fullName>
+        <description>Date Hobson ROI was completed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the date the Hobson ROI was completed only if "Yes" was selected in previous field</inlineHelpText>
+        <label>Hobson ROI Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Hobson_ROI__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate Hobson ROI Provided to Customer</inlineHelpText>
+        <label>Hobson ROI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Legal_Finance_Operations_Concerns__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Items that the legal, finance or operations team should be made aware of (e.g. prospect requests unique contract clauses, billing terms, etc.)</inlineHelpText>
+        <label>Legal/Finance/Operations Concerns</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRIM(Opportunity__r.Owner.FirstName)+' '+ Opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Deal Desk Reviews</relationshipLabel>
+        <relationshipName>Deal_Desk_Reviews</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Other Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Deal Desk Reviews (Other Contact)</relationshipLabel>
+        <relationshipName>Deal_Desk_Reviews</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Marketing_Other__c</fullName>
+        <description>Enter if Other Selected from Product Marketing Sent Pick List</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter marketing material sent only if "Other" is selected in previous field</inlineHelpText>
+        <label>Product Marketing Other</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Marketing_to_Customer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate Product Marketing Collateral Provided to Customer</inlineHelpText>
+        <label>Product Marketing to Customer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sell Sheet</fullName>
+                    <default>false</default>
+                    <label>Sell Sheet</label>
+                </value>
+                <value>
+                    <fullName>Case Study</fullName>
+                    <default>false</default>
+                    <label>Case Study</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Professional_Services_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Professional Services #2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Professional_Services__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate Professional Services Associate Engaged in the Process</inlineHelpText>
+        <label>Professional Services</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Not_Approved__c</fullName>
+        <description>Indicate Reason Deal Desk Not Approved</description>
+        <externalId>false</externalId>
+        <label>Reason Not Approved</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Strategy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are we going to win this deal?</inlineHelpText>
+        <label>Sales Strategy</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Opportunity__r.StageName )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>from the "Stage" field of the Oportunity</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (Asks_In_Review__c &gt; 0, "In Review", "Approved")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Forrnula checks if all Asks are Approved.  If yes then this Review record is "Approved"</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Technical_Solutions_Engineer_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Technical Solutions Engineer #2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Technical_Solutions_Engineer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Indicate the Technical Solution Engineer Supporting this Process</inlineHelpText>
+        <label>Technical Solutions Engineer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Desk_Reviews</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>For sales reps to request review of Quotes by Deal Desk</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Deal Desk Review</label>
+    <nameField>
+        <displayFormat>DDR-{0000000}</displayFormat>
+        <label>Record No.</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deal Desk Reviews</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Account_Name__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <validationRules>
+        <fullName>Ask_1_Edit</fullName>
+        <active>true</active>
+        <description>Prohibit Edit by sales if Deal Desk Status in an active approval state</description>
+        <errorConditionFormula>OR(
+ISPICKVAL(Deal_Desk_Status__c , 'Awaiting Deal Desk') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved With Exceptions'))
+&amp;&amp;
+ISCHANGED(Deal_Desk_Ask_1__c)
+&amp;&amp;
+OR(
+$Profile.Name  = 'Sales' ,
+$Profile.Name  = 'Sales Manager' ,
+$Profile.Name  = 'Renewals')</errorConditionFormula>
+        <errorMessage>Ask 1 is locked during an active approval status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ask_2_Edit</fullName>
+        <active>true</active>
+        <description>Prohibit Edit by sales if Deal Desk Status in an active approval state</description>
+        <errorConditionFormula>OR(
+ISPICKVAL(Deal_Desk_Status__c , 'Awaiting Deal Desk') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved With Exceptions'))
+&amp;&amp;
+ISCHANGED(Deal_Desk_Ask_2__c)
+&amp;&amp;
+OR(
+$Profile.Name  = 'Sales' ,
+$Profile.Name  = 'Sales Manager' ,
+$Profile.Name  = 'Renewals')</errorConditionFormula>
+        <errorMessage>Ask 2 is locked during an active approval status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ask_3_Edit</fullName>
+        <active>true</active>
+        <description>Prohibit Edit by sales if Deal Desk Status in an active approval state</description>
+        <errorConditionFormula>OR(
+ISPICKVAL(Deal_Desk_Status__c , 'Awaiting Deal Desk') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved With Exceptions'))
+&amp;&amp;
+ISCHANGED(Deal_Desk_Ask_3__c)
+&amp;&amp;
+OR(
+$Profile.Name  = 'Sales' ,
+$Profile.Name  = 'Sales Manager' ,
+$Profile.Name  = 'Renewals')</errorConditionFormula>
+        <errorMessage>Ask 3 is locked during an active approval status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ask_4_Edit</fullName>
+        <active>true</active>
+        <description>Prohibit Edit by sales if Deal Desk Status in an active approval state</description>
+        <errorConditionFormula>OR(
+ISPICKVAL(Deal_Desk_Status__c , 'Awaiting Deal Desk') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved With Exceptions'))
+&amp;&amp;
+ISCHANGED(Deal_Desk_Ask_4__c)
+&amp;&amp;
+OR(
+$Profile.Name  = 'Sales' ,
+$Profile.Name  = 'Sales Manager' ,
+$Profile.Name  = 'Renewals')</errorConditionFormula>
+        <errorMessage>Ask 4 is locked during an active approval status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ask_5_Edit</fullName>
+        <active>true</active>
+        <description>Prohibit Edit by sales if Deal Desk Status in an active approval state</description>
+        <errorConditionFormula>OR(
+ISPICKVAL(Deal_Desk_Status__c , 'Awaiting Deal Desk') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved') ,
+ISPICKVAL(Deal_Desk_Status__c , 'Deal Desk Approved With Exceptions'))
+&amp;&amp;
+ISCHANGED(Deal_Desk_Ask_5__c)
+&amp;&amp;
+OR(
+$Profile.Name  = 'Sales' ,
+$Profile.Name  = 'Sales Manager' ,
+$Profile.Name  = 'Renewals')</errorConditionFormula>
+        <errorMessage>Ask 5 is locked during an active approval status</errorMessage>
+    </validationRules>
+</CustomObject>

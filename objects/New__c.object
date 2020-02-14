@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Name</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Customer_Name__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Also_Send_Email_to__c</fullName>
+        <externalId>false</externalId>
+        <label>Also Send Email to</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attendee_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Attendee Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Award</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate</fullName>
+                    <default>true</default>
+                    <label>Corporate</label>
+                </value>
+                <value>
+                    <fullName>Consumer</fullName>
+                    <default>false</default>
+                    <label>Consumer</label>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Customer_s_Feedback__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer's Feedback</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EB_SB_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>EB SB Project</label>
+        <referenceTo>EB_SB_Builder__c</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Manager_s_Feedback__c</fullName>
+        <externalId>false</externalId>
+        <label>Manager's Feedback</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mobile_App__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Mobile App</label>
+        <referenceTo>Mobile_Card__c</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Onboarding_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Onboarding</label>
+        <referenceTo>Onboarding__c</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Onsite_Solutions_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Onsite Solutions Project</label>
+        <referenceTo>Alliance_OA_Projects__c</referenceTo>
+        <relationshipLabel>Awards</relationshipLabel>
+        <relationshipName>Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Photo__c</fullName>
+        <externalId>false</externalId>
+        <formula>Recipient__r.PhotoURL__c</formula>
+        <label>Photo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recipient_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Recipient Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CS - Creative Services</fullName>
+                    <default>false</default>
+                    <label>CS - Creative Services</label>
+                </value>
+                <value>
+                    <fullName>CS - CSN</fullName>
+                    <default>false</default>
+                    <label>CS - CSN</label>
+                </value>
+                <value>
+                    <fullName>CS - EB</fullName>
+                    <default>false</default>
+                    <label>CS - EB</label>
+                </value>
+                <value>
+                    <fullName>CS - Event</fullName>
+                    <default>false</default>
+                    <label>CS - Event</label>
+                </value>
+                <value>
+                    <fullName>CS - CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CS - CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CS - Survey</fullName>
+                    <default>false</default>
+                    <label>CS - Survey</label>
+                </value>
+                <value>
+                    <fullName>CS - T&amp;D</fullName>
+                    <default>false</default>
+                    <label>CS - T&amp;D</label>
+                </value>
+                <value>
+                    <fullName>CS – Alliance Tech</fullName>
+                    <default>false</default>
+                    <label>CS – Alliance Tech</label>
+                </value>
+                <value>
+                    <fullName>CS – OA360</fullName>
+                    <default>false</default>
+                    <label>CS – OA360</label>
+                </value>
+                <value>
+                    <fullName>CS – Strategic Accounts</fullName>
+                    <default>false</default>
+                    <label>CS – Strategic Accounts</label>
+                </value>
+                <value>
+                    <fullName>CS – Implementation</fullName>
+                    <default>false</default>
+                    <label>CS – Implementation</label>
+                </value>
+                <value>
+                    <fullName>CS - Business Intelligence</fullName>
+                    <default>false</default>
+                    <label>CS - Business Intelligence</label>
+                </value>
+                <value>
+                    <fullName>CS - GDS Access</fullName>
+                    <default>false</default>
+                    <label>CS - GDS Access</label>
+                </value>
+                <value>
+                    <fullName>CS - HODPublisher</fullName>
+                    <default>false</default>
+                    <label>CS - HODPublisher</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Events</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Events</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Meetings</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Meetings</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>CS - Passkey</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Transient</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Transient</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Transient (Non-licensed)</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Transient (Non-licensed)</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Travel</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Travel</label>
+                </value>
+                <value>
+                    <fullName>CS - Rate Integrity</fullName>
+                    <default>false</default>
+                    <label>CS - Rate Integrity</label>
+                </value>
+                <value>
+                    <fullName>CS - Rate Integrity (Supply)</fullName>
+                    <default>false</default>
+                    <label>CS - Rate Integrity (Supply)</label>
+                </value>
+                <value>
+                    <fullName>CS - RegOnline</fullName>
+                    <default>false</default>
+                    <label>CS - RegOnline</label>
+                </value>
+                <value>
+                    <fullName>CS - Simple Meetings</fullName>
+                    <default>false</default>
+                    <label>CS - Simple Meetings</label>
+                </value>
+                <value>
+                    <fullName>CS - Lanyon Venues</fullName>
+                    <default>false</default>
+                    <label>CS - Lanyon Venues</label>
+                </value>
+                <value>
+                    <fullName>CS - QuickMobile</fullName>
+                    <default>false</default>
+                    <label>CS - QuickMobile</label>
+                </value>
+                <value>
+                    <fullName>CS - Professional Services</fullName>
+                    <default>false</default>
+                    <label>CS - Professional Services</label>
+                </value>
+                <value>
+                    <fullName>CS - RFP Builder</fullName>
+                    <default>false</default>
+                    <label>CS - RFP Builder</label>
+                </value>
+                <value>
+                    <fullName>CS - Social Tables</fullName>
+                    <default>false</default>
+                    <label>CS - Social Tables</label>
+                </value>
+                <value>
+                    <fullName>CS - Doubledutch</fullName>
+                    <default>false</default>
+                    <label>CS - Doubledutch</label>
+                </value>
+                <value>
+                    <fullName>CS - Wedding Spot</fullName>
+                    <default>false</default>
+                    <label>CS - Wedding Spot</label>
+                </value>
+                <value>
+                    <fullName>CS - Event in a Box</fullName>
+                    <default>false</default>
+                    <label>CS - Event in a Box</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Recipient__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Recipient</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Wall_of_Fame_Awards</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Send_to_CS_Global__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Send to CS Leadership Global</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>Customer_Name__r.Title</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Wall Of Fame</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Award</label>
+    <nameField>
+        <label>Award Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Awards</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

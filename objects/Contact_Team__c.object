@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>CC_Call_Recording_Permission_Taken_by__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CC Call Recording Permission Taken by</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contact_Team1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CC_Call_Recording_Permission_Taken_on__c</fullName>
+        <externalId>false</externalId>
+        <label>CC Call Recording Permission Taken on</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CS_Note__c</fullName>
+        <externalId>false</externalId>
+        <label>CS Note</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Email</formula>
+        <label>Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contact Team</relationshipLabel>
+        <relationshipName>Contact_Team</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Member_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AM (Biz Dev)</fullName>
+                    <default>false</default>
+                    <label>AM (Biz Dev)</label>
+                </value>
+                <value>
+                    <fullName>AM (CrowdCompass)</fullName>
+                    <default>false</default>
+                    <label>AM (CrowdCompass)</label>
+                </value>
+                <value>
+                    <fullName>AM (CrowdTorch)</fullName>
+                    <default>false</default>
+                    <label>AM (CrowdTorch)</label>
+                </value>
+                <value>
+                    <fullName>AM (CSN)</fullName>
+                    <default>false</default>
+                    <label>AM (CSN)</label>
+                </value>
+                <value>
+                    <fullName>AM (Event)</fullName>
+                    <default>false</default>
+                    <label>AM (Event)</label>
+                </value>
+                <value>
+                    <fullName>AM (SMM)</fullName>
+                    <default>false</default>
+                    <label>AM (SMM)</label>
+                </value>
+                <value>
+                    <fullName>AM (Survey)</fullName>
+                    <default>false</default>
+                    <label>AM (Survey)</label>
+                </value>
+                <value>
+                    <fullName>AM (TPP)</fullName>
+                    <default>false</default>
+                    <label>AM (TPP)</label>
+                </value>
+                <value>
+                    <fullName>AM Pre Sales (CSN)</fullName>
+                    <default>false</default>
+                    <label>AM Pre Sales (CSN)</label>
+                </value>
+                <value>
+                    <fullName>CC Deal Assisted By</fullName>
+                    <default>false</default>
+                    <label>CC Deal Assisted By</label>
+                </value>
+                <value>
+                    <fullName>Cross Sell Referral By</fullName>
+                    <default>false</default>
+                    <label>Cross Sell Referral By</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass Referred By</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass Referred By</label>
+                </value>
+                <value>
+                    <fullName>CrowdTorch Referred By</fullName>
+                    <default>false</default>
+                    <label>CrowdTorch Referred By</label>
+                </value>
+                <value>
+                    <fullName>CS (CSN)</fullName>
+                    <default>false</default>
+                    <label>CS (CSN)</label>
+                </value>
+                <value>
+                    <fullName>CS (Event)</fullName>
+                    <default>false</default>
+                    <label>CS (Event)</label>
+                </value>
+                <value>
+                    <fullName>CS (Survey)</fullName>
+                    <default>false</default>
+                    <label>CS (Survey)</label>
+                </value>
+                <value>
+                    <fullName>CSN Product Referred By</fullName>
+                    <default>false</default>
+                    <label>CSN Product Referred By</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (Biz Dev)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (Biz Dev)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (CrowdCompass)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (CrowdCompass)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (CrowdTorch)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (CrowdTorch)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (CSN)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (CSN)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (CSN CVB)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (CSN CVB)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (CSN SAT)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (CSN SAT)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (Event)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (Event)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (SMM)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (SMM)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (Survey)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (Survey)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (Ticket Mob)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (Ticket Mob)</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales (TPP)</fullName>
+                    <default>false</default>
+                    <label>Direct Sales (TPP)</label>
+                </value>
+                <value>
+                    <fullName>Event Referred By</fullName>
+                    <default>false</default>
+                    <label>Event Referred By</label>
+                </value>
+                <value>
+                    <fullName>PA Rep</fullName>
+                    <default>false</default>
+                    <label>PA Rep</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (CrowdCompass)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (CrowdCompass)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (CrowdTorch)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (CrowdTorch)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (CSN)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (CSN)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (CSN CVB)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (CSN CVB)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (CSN SAT)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (CSN SAT)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (Event)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (Event)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (SMM)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (SMM)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (Survey)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (Survey)</label>
+                </value>
+                <value>
+                    <fullName>Pre Sales (TPP)</fullName>
+                    <default>false</default>
+                    <label>Pre Sales (TPP)</label>
+                </value>
+                <value>
+                    <fullName>Relationship Manager (RFP)</fullName>
+                    <default>false</default>
+                    <label>Relationship Manager (RFP)</label>
+                </value>
+                <value>
+                    <fullName>SAT Owner</fullName>
+                    <default>false</default>
+                    <label>SAT Owner</label>
+                </value>
+                <value>
+                    <fullName>SAT Owner (Management Company)</fullName>
+                    <default>false</default>
+                    <label>SAT Owner (Management Company)</label>
+                </value>
+                <value>
+                    <fullName>SAT Rep</fullName>
+                    <default>false</default>
+                    <label>SAT Rep</label>
+                </value>
+                <value>
+                    <fullName>Survey Referred By</fullName>
+                    <default>false</default>
+                    <label>Survey Referred By</label>
+                </value>
+                <value>
+                    <fullName>Territory Owner</fullName>
+                    <default>false</default>
+                    <label>Territory Owner</label>
+                </value>
+                <value>
+                    <fullName>TicketMob Referred By</fullName>
+                    <default>false</default>
+                    <label>TicketMob Referred By</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile_App__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Mobile App</label>
+        <referenceTo>Mobile_Card__c</referenceTo>
+        <relationshipLabel>Contact Team</relationshipLabel>
+        <relationshipName>Contact_Team</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Team_Member_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the rep</inlineHelpText>
+        <label>Team Member Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contact_Team</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Title</formula>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Contact Team</label>
+    <nameField>
+        <displayFormat>CT-{00}</displayFormat>
+        <label>Contact Team Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contact Team</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

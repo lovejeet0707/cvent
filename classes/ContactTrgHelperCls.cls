@@ -85,7 +85,7 @@ public class ContactTrgHelperCls {
         Set<String> emailSetToValidate = new Set<String>();
         Set<String> GDPREmailSet = new Set<String>();
         //Ends here.............
-        
+        Map<Id,String> accIdMap = new Map<Id,String>();  
         //trigger.new for loop (before insert)
         For(Contact instOFContact : newValues){
             if(String.IsNotBlank(instOFContact.Email))
@@ -383,7 +383,7 @@ public class ContactTrgHelperCls {
         ****Method Summary****
         ****Method Author: Mohsin Siddiqui****
         ****Date: 04th November, 2019****
-        ****Description: Updating BatchUpdateContactFlag__c field if any of the fields in the BatchUpdateContactFields__c custom settings updates Using BatchUpdateContactFlag__c field in Batch Class****
+        ****Description: Updating BatchFlag__c field if any of the fields in the BatchUpdateContactFields__c custom settings updates Using BatchUpdateContactFlag__c field in Batch Class****
     */
     public static void updateBatchFlag(Map<Id,Contact> oldMapValues,Map<Id,Contact> newMapValues)
     {
@@ -392,7 +392,7 @@ public class ContactTrgHelperCls {
         {
             for(String fieldName : fieldNames.keySet())
             {
-                if(newCon.get(fieldName) != oldMapValues.get(newCon.Id).get(fieldName) && newCon.BatchFlag__c == FALSE)
+                if(newCon.get(fieldName) != oldMapValues.get(newCon.Id).get(fieldName))
                 {
                     newCon.BatchFlag__c = true;
                     break;
@@ -401,13 +401,16 @@ public class ContactTrgHelperCls {
         }
     }
     
-    public void OnBeforeUpdate(Map<Id,Contact> oldMapValues,Map<Id,Contact> newMapValues){
+    public void OnBeforeUpdate(Map<Id,Contact> oldMapValues,Map<Id,Contact> newMapValues){ 
+        
         if(CheckRecursive.runFifty())
         {
             updateBatchFlag(oldMapValues,newMapValues);
         }
         //GDPR code starts this overrides the fields of contacts when its marked gdpr : Udita - 5/17/2018
         Contact contactOld;
+        set<id> accountIds = new set<id>();// Udita : account Ids for docebo    
+        Map<Id,String> accIdMap = new Map<Id,String>();    // Udita : account Ids map for docebo  
         For(Contact conObj : newMapValues.values())
         {   contactOld = oldMapValues.get(conObj.Id);
          if(conObj.Is_GDPR__c && contactOld.Is_GDPR__c != conObj.Is_GDPR__c)
@@ -471,10 +474,19 @@ public class ContactTrgHelperCls {
          if(contactOld.Is_GDPR__c == true && conObj.Is_GDPR__c == true){
              conObj.addError('You cannot update a GDPR processed contact.');
          }
+         if(conObj.User_Profile_Name__c == 'Cvent Customer Community User' && contactOld.User_Profile_Name__c  != conObj.User_Profile_Name__c ){        
+              accountIds.add(conObj.Account_ID__c); } // docebo 
+         }
          
-        }
-        //GDPR code ends: Udita
         
+        //GDPR code ends: Udita
+        // Code for docebo : Udita  
+           if(accountIds.size() > 0 && Boolean.ValueOf(Label.IsDoceboCodeActive)){  
+                
+             for(Account acc : [select id,Product_Mix__c from account where id in : accountIds AND Product_Mix__c != NULL ]){   
+               accIdMap.put(acc.id,acc.Product_Mix__c); 
+             }  
+           } 
         
         /* 29/05/2016 HSR : DWF Contact Status should not go back when a advance stage is selected....*/
         //Fetching Data from Custom Setting
@@ -603,6 +615,11 @@ public class ContactTrgHelperCls {
             if(mapISO.containsKey(instOfCOntNew.MailingCountryCode))
                 instOfCOntNew.Iso_Tract__c = mapISO.get(instOfCOntNew.MailingCountryCode);  
             //}
+              //Docebo : Udita  
+             if(accIdMap.containsKey(instOfCOntNew.Account_ID__c)){ 
+                instOfCOntNew.LMS_Groups__c  = accIdMap.get(instOfCOntNew.Account_ID__c);                   
+                instOfCOntNew.LMS_Sync_Contact__c = True;   
+             }
         }
         //To update ISO value with respecitve country.
         
@@ -675,6 +692,7 @@ public class ContactTrgHelperCls {
     }
     
     public void OnAfterUpdate(Map<Id,Contact> oldMapValues,Map<Id,Contact> newMapValues){
+        
         
         //Added By Mohsin
         rollUpDedicatedEntMinutesPurchased(oldMapValues,newMapValues);

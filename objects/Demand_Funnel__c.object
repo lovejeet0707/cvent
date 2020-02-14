@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Billing_Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.BillingCountry</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Billing Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_CSN_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.CSN_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: CSN ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Chain_Affiliation__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Chain_Affiliation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Chain Affiliation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Chain_Scale__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Account__r.Chain_Scale__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Chain Scale</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Country_Region__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Country_Region__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Country Region</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Account__c)</formula>
+        <label>Account Id (18-char)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Account__r.Account_Status__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Account Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Account__r.Type )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Venue_Service_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Account__r.Venue_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account: Venue/Service Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Demand Funnel</relationshipLabel>
+        <relationshipName>DFR_Account2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (Campaign)</relationshipLabel>
+        <relationshipName>Demand_Funnel</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Contact__c)</formula>
+        <label>Contact Id (18-char)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Industry__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Industry__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact: Industry</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Segment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Segment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact: Segment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Demand Funnel</relationshipLabel>
+        <relationshipName>DFR_Contact2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DFR_Seeded_Create_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>DFR Seeded Create Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EOL_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>EOL - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EOL_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>EOL - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (EOL - Last Campaign)</relationshipLabel>
+        <relationshipName>EOL_Campaign_ID2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EOL_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>EOL_Behavior_Score__c + EOL_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EOL - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EOL_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(EOL_Date_Entered__c)), EOL_Date_Entered__c - Lead_Creation__c, Null)</formula>
+        <label>EOL - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EOL_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>EOL - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EOL_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>EOL - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EOL_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>EOL - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enterprise__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(ISBLANK(Account__c),NULL,IF(
+OR(INCLUDES(Account__r.Named_Acct__c , 'Event Enterprise-HQ'),
+INCLUDES(Account__r.Named_Acct__c , 'Event Enterprise-HQ'),
+INCLUDES(Account__r.Named_Acct__c , 'Event Enterprise Subsidiary-HQ'),
+INCLUDES(Account__r.Named_Acct__c , 'Event Enterprise Subsidiary'))
+,'Yes','No'))</formula>
+        <label>Enterprise</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HDR_Current_Funnel_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Pre_Opportunity_Close_Reason__c)),CASE(Pre_Opportunity_Close_Reason__c,'Trash','0 - Trash','Recycle','0 - Recycle',Pre_Opportunity_Close_Reason__c), 
+IF(OPP_Closed__c = 1, IF(Opportunity_IsWon__c, '6 - Closed Won', '7 - Closed Lost'), 
+IF(Pre_Opportunity_Status__c='Opportunity Stage','5 - Opportunity Stage',
+IF(Pre_Opportunity_Status__c='SQL','4 - SQL',
+IF(Pre_Opportunity_Status__c='SAL','3 - SAL',
+IF(Pre_Opportunity_Status__c='SGL','3 - SGL',
+IF(Pre_Opportunity_Status__c='MRL','2 - MRL',
+IF(Pre_Opportunity_Status__c='MQL','2 - MQL',
+IF(Pre_Opportunity_Status__c='Inquiry','1 - Inquiry',NULL)))))))))</formula>
+        <label>Current Funnel Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HDR_DFR_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(HDR_DFR_Created_Date__c)),  NOT(ISBLANK(HDR_DFR_Close_Date__c))),HDR_DFR_Close_Date__c-HDR_DFR_Created_Date__c,TODAY()-HDR_DFR_Created_Date__c)</formula>
+        <label>DFR Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HDR_DFR_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(OPP_Closed__c = 1, Opp_Actual_Close_Date__c, 
+if( NOT(ISBLANK( Pre_Opportunity_Close_Date__c  )),Pre_Opportunity_Close_Date__c  ,NULL))</formula>
+        <label>DFR Close Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HDR_DFR_Closed_Reason__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(OPP_Closed__c = 1,TEXT( Opportunity__r.StageName),
+if( NOT(ISBLANK( Pre_Opportunity_Close_Reason__c )),Pre_Opportunity_Close_Reason__c,NULL))</formula>
+        <label>DFR Closed Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HDR_DFR_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(DFR_Seeded_Create_Date__c )),DFR_Seeded_Create_Date__c ,DATEVALUE( CreatedDate ))</formula>
+        <label>DFR Created Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HDR_DFR_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(ISBLANK( HDR_DFR_Close_Date__c ),'Active','Inactive')</formula>
+        <label>DFR Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HDR_Last_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(LastModifiedDate)</formula>
+        <label>DFR Last Modified Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Inquiry - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (Inquiry - Last Campaign)</relationshipLabel>
+        <relationshipName>Inquiry_Campaign_ID2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>Inquiry_Behavior_Score__c + Inquiry_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inquiry - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(Inquiry_Date_Entered__c)), Inquiry_Date_Entered__c - Lead_Creation__c, Null)</formula>
+        <label>Inquiry - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Created_to_Exit__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(Inquiry_Date_Exited__c)), Inquiry_Date_Exited__c-Lead_Creation__c, Null)</formula>
+        <label>Inquiry - Created to Exit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Date_Exited__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Date Exited</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Exited_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry - Exited To</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(Inquiry_Date_Entered__c)), NOT(ISBLANK(Inquiry_Date_Exited__c))),(Inquiry_Date_Exited__c-Inquiry_Date_Entered__c),IF(NOT(ISBLANK(Inquiry_Date_Entered__c)), TODAY()-Inquiry_Date_Entered__c,NULL))</formula>
+        <label>Inquiry - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Creation__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Lead__c  &lt;&gt; Null,  DATEVALUE(Lead__r.CreatedDate) ,  DATEVALUE(Contact__r.CreatedDate) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Creation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Lead__c)</formula>
+        <label>Lead Id (18-char)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Demand Funnel</relationshipLabel>
+        <relationshipName>DFR_Lead2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MQL_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel</relationshipLabel>
+        <relationshipName>MQL_Campaign_ID2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MQL_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>MQL_Behavior_Score__c + MQL_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MQL/MRL - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(MQL_Date_Entered__c)), MQL_Date_Entered__c - Lead_Creation__c, Null)</formula>
+        <label>MQL/MRL - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Created_to_Exit__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(MQL_Date_Exited__c)), MQL_Date_Exited__c-Lead_Creation__c, Null)</formula>
+        <label>MQL/MRL - Created to Exit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MQL_Date_Exited__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Date Exited</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MQL_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Exited_To__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Exited To</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(MQL_Date_Entered__c)), NOT(ISBLANK(MQL_Date_Exited__c))),(MQL_Date_Exited__c-MQL_Date_Entered__c),IF(NOT(ISBLANK(MQL_Date_Entered__c)), TODAY()-MQL_Date_Entered__c,NULL))</formula>
+        <label>MQL/MRL - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MQL/MRL - Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_to_Opp_Close__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(NOT(ISBLANK(MQL_Date_Entered__c)), NOT(ISBLANK(Opportunity__c)),  Opportunity__r.IsClosed), Opportunity__r.CloseDate - MQL_Date_Entered__c, NULL)</formula>
+        <label>MQL to Opp Close</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MQL_to_Opp_Creation__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(NOT(ISBLANK(MQL_Date_Entered__c)), NOT(ISBLANK(Opportunity__c))), DATEVALUE(Opportunity__r.CreatedDate) - MQL_Date_Entered__c, NULL)</formula>
+        <label>MQL to Opp Creation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Amount</formula>
+        <label>Opportunity Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OPP_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.CloseDate</formula>
+        <label>Opp Projected Close Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OPP_Closed__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(Opportunity__r.IsClosed,1,Null)</formula>
+        <label>CLS Is Closed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Created_to_Close__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( OPP_Closed__c = 1, Opp_Actual_Close_Date__c -Lead_Creation__c, Null)</formula>
+        <label>Created to Opp Close</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Created_to_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK( OPP_Date_Created__c )), OPP_Date_Created__c-Lead_Creation__c, Null)</formula>
+        <label>Created to Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Date_Created__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(Opportunity__r.CreatedDate)</formula>
+        <label>Opportunity Create Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OPP_Forecast_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity__c &lt;&gt; NULL, TEXT(Opportunity__r.ForecastCategoryName), NULL)</formula>
+        <label>Opportunity Forecast Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity__c &lt;&gt; NULL,  (Opportunity__r.LastModifiedBy.FirstName + ' ' +  Opportunity__r.LastModifiedBy.LastName), NULL)</formula>
+        <label>Opp Last Modified By</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Last_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.LastModifiedDate</formula>
+        <label>Opp Last Modified Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>OPP_Opportunity_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( OPP_Closed__c = 1,( Opp_Actual_Close_Date__c - OPP_Date_Created__c ),(TODAY()-OPP_Date_Created__c ))</formula>
+        <label>Opportunity Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Opportunity_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Type)</formula>
+        <label>Opportunity Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OPP_Sales_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Opportunity__r.StageName )</formula>
+        <label>Sales Stage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (OS - Last Campaign)</relationshipLabel>
+        <relationshipName>OS_Campaign2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OS_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>OS_Behavior_Score__c + OS_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Stage - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(OS_Date_Entered__c)), OS_Date_Entered__c-Lead_Creation__c, Null)</formula>
+        <label>Opportunity Stage - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Created_to_Exit__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(OS_Date_Exited__c)),OS_Date_Exited__c-Lead_Creation__c, Null)</formula>
+        <label>Opportunity Stage - Created to Exit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OS_Date_Exited__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Date Exited</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OS_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Exited_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage - Exited To</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OS_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(OS_Date_Entered__c)), NOT(ISBLANK(OS_Date_Exited__c))),(OS_Date_Exited__c-OS_Date_Entered__c),IF(NOT(ISBLANK(OS_Date_Entered__c)), TODAY()-OS_Date_Entered__c,NULL))</formula>
+        <label>Opportunity Stage - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opp_Actual_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity__r.IsClosed,Opportunity__r.CloseDate,NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opp Actual Close Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opp_Stage_Before_Lost__c</fullName>
+        <externalId>false</externalId>
+        <label>Opp Stage Before Lost</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Created Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_IsClosed__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.IsClosed</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity_IsClosed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_IsWon__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.IsWon</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity_IsWon</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Demand Funnel</relationshipLabel>
+        <relationshipName>DFR_Opportunity2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Opportunity_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Opportunity Close Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Opportunity_Close_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Opportunity Close Reason</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pre_Opportunity_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Opportunity Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Contact__c&lt;&gt;NULL,
+CASE(Product__c,
+'Event',
+Contact__r.Contact_Owner_for_Event__c,
+'CrowdCompass',
+Contact__r.Contact_Owner_for_CrowdCompass__c,
+'Inquisium',
+Contact__r.Contact_Owner_for_Survey__c,
+'Enterprise',
+Contact__r.Contact_Owner_for_SMM__c,
+'CSN-P',
+Contact__r.Contact_Owner_for_PA__c,
+'Hospitality Cloud',
+Contact__r.Contact_Owner_for_CSN_S__c, NULL),
+CASE(Product__c,
+'Event',
+Lead__r.Contact_Owner_for_Event__c,
+'CrowdCompass',
+Lead__r.Contact_Owner_for_CrowdCompass__c,
+'Inquisium',
+Lead__r.Contact_Owner_for_Survey__c,
+'Enterprise',
+Lead__r.Contact_Owner_for_SMM__c,
+'CSN-P',
+Lead__r.Contact_Owner_for_PA__c,
+'CSN-S',
+Lead__r.Contact_Owner_for_CSN_S__c, NULL))</formula>
+        <label>Product Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Recycle_Trash_Reason__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Contact__c&lt;&gt;NULL,
+CASE(Product__c,
+'Event',
+TEXT(Contact__r.Event_Recycle_Reason__c),
+'CrowdCompass',
+TEXT(Contact__r.CC_Recycle_Trash_Reason__c),
+'Inquisium',
+TEXT(Contact__r.Survey_Recycle_Reason__c),
+'Hospitality Cloud',
+TEXT(Contact__r.CSN_S_Recycle_Trash__c), NULL),
+CASE(Product__c,
+'Event',
+TEXT(Lead__r.Event_Recycle_Reason__c),
+'CrowdCompass',
+TEXT(Lead__r.CC_Recycle_Trash_Reason__c),
+'Inquisium',
+TEXT(Lead__r.Survey_Recycle_Reason__c),
+'Hospitality Cloud',
+TEXT(Lead__r.CSN_S_Recycle_Trash_Reason__c), NULL))</formula>
+        <label>Product Recycle/Trash Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (SAL/SGL - Last Campaign)</relationshipLabel>
+        <relationshipName>SAL_Campaign_ID2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SAL_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>SAL_Behavior_Score__c + SAL_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SAL/SGL - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(SAL_Date_Entered__c)),  SAL_Date_Entered__c-Lead_Creation__c, Null)</formula>
+        <label>SAL/SGL - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Created_to_Exit__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(SAL_Date_Exited__c)), SAL_Date_Exited__c-Lead_Creation__c, Null)</formula>
+        <label>SAL/SGL - Created to Exit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SAL_Date_Exited__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Date Exited</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SAL_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Exited_To__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Exited To</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(SAL_Date_Entered__c)), NOT(ISBLANK(SAL_Date_Exited__c))),(SAL_Date_Exited__c-SAL_Date_Entered__c),IF(NOT(ISBLANK(SAL_Date_Entered__c)), TODAY()-SAL_Date_Entered__c,NULL))</formula>
+        <label>SAL/SGL - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL/SGL - Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Behavior_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Behavior Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>SQL - Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Demand Funnel (SQL - Last Campaign)</relationshipLabel>
+        <relationshipName>SQL_Campaign_ID2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SQL_Combined_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>SQL_Behavior_Score__c + SQL_Demographic_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SQL - Combined Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Created_to_Entry__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(SQL_Date_Entered__c)), SQL_Date_Entered__c - Lead_Creation__c, Null)</formula>
+        <label>SQL - Created to Entry</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Created_to_Exit__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(NOT(ISBLANK(SQL_Date_Exited__c)), SQL_Date_Exited__c-Lead_Creation__c, Null)</formula>
+        <label>SQL - Created to Exit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Date_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Date Entered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SQL_Date_Exited__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Date Exited</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SQL_Demographic_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Demographic Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Entered_From__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Entered From</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Exited_To__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL - Exited To</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND(NOT(ISBLANK(SQL_Date_Entered__c)), NOT(ISBLANK(SQL_Date_Exited__c))),(SQL_Date_Exited__c-SQL_Date_Entered__c),IF(NOT(ISBLANK(SQL_Date_Entered__c)), TODAY()-SQL_Date_Entered__c,NULL))</formula>
+        <label>SQL - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sleep_Rooms__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Sleep_Rooms_Actual__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sleep Rooms</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Suspect_Status_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>Inquiry_Date_Entered__c - DATEVALUE(Lead__r.CreatedDate)</formula>
+        <label>Suspect - Status Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Meeting_Space__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Account__r.Total_Meeting_Space__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Meeting Space</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Marketing Demand Funnel Stage tracking across lead, contact and opportunity.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Read</externalSharingModel>
+    <label>Demand Funnel</label>
+    <nameField>
+        <displayFormat>DFR-{0000000}</displayFormat>
+        <label>DFR ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Demand Funnel</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>HDR_DFR_Created_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>HDR_DFR_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>HDR_Current_Funnel_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

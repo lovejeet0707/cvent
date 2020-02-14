@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>CRM_MyTimeCard</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Approver_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Approver Email</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <description>Name of the person approving the timecard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person approving the timecard</inlineHelpText>
+        <label>Approver</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_1__c</fullName>
+        <description>Identifies the amount of work done on Day 1 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 1 for that week</inlineHelpText>
+        <label>Day 1</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_1__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_2__c</fullName>
+        <description>Identifies the amount of work done on Day 2 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 2 for that week</inlineHelpText>
+        <label>Day 2</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_2__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_3__c</fullName>
+        <description>Identifies the amount of work done on Day 3 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 3 for that week</inlineHelpText>
+        <label>Day 3</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_3__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_4__c</fullName>
+        <description>Identifies the amount of work done on Day 4 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 4 for that week</inlineHelpText>
+        <label>Day 4</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_4__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_5__c</fullName>
+        <description>Identifies the amount of work done on Day 5 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 5 for that week</inlineHelpText>
+        <label>Day 5</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_5__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_6__c</fullName>
+        <description>Identifies the amount of work done on Day 6 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 6 for that week</inlineHelpText>
+        <label>Day 6</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_6__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Day_7__c</fullName>
+        <description>Identifies the amount of work done on Day 7 for that week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the amount of work done on Day 7 for that week</inlineHelpText>
+        <label>Day 7</label>
+        <summarizedField>CRM_Timecard_Entry__c.Day_7__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Delayed_submission__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Delayed submission</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>End Date for this week. Inclusive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>End Date for this week. Inclusive</inlineHelpText>
+        <label>End Date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Locked?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mgr_Same_as_Logged_in_User__c</fullName>
+        <externalId>false</externalId>
+        <formula>Team_Member__r.ManagerId = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Mgr Same as Logged in User?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Off_Hours_Week__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Represents the National Holidays/CCW/PTO hours for this week</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the National Holidays/CCW/PTO hours for this week</inlineHelpText>
+        <label>Off Hours (Week)</label>
+        <precision>4</precision>
+        <required>true</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>Start Date for this week. Inclusive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Start Date for this week. Inclusive</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Identifies the status of a timecard throughout the lifecycle</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the status of a timecard throughout the lifecycle</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <default>false</default>
+                    <label>Pending Approval</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TM_Same_as_Logged_in_User__c</fullName>
+        <externalId>false</externalId>
+        <formula>Team_Member__c =  $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TM Same as Logged in User?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Team_Member_Division__c</fullName>
+        <externalId>false</externalId>
+        <formula>Team_Member__r.Division</formula>
+        <label>Team Member Division</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Team Member</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CRM_Timecards</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Time_Card_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Month</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Jan</fullName>
+                    <default>false</default>
+                    <label>Jan</label>
+                </value>
+                <value>
+                    <fullName>Feb</fullName>
+                    <default>false</default>
+                    <label>Feb</label>
+                </value>
+                <value>
+                    <fullName>Mar</fullName>
+                    <default>false</default>
+                    <label>Mar</label>
+                </value>
+                <value>
+                    <fullName>Apr</fullName>
+                    <default>false</default>
+                    <label>Apr</label>
+                </value>
+                <value>
+                    <fullName>May</fullName>
+                    <default>false</default>
+                    <label>May</label>
+                </value>
+                <value>
+                    <fullName>Jun</fullName>
+                    <default>false</default>
+                    <label>Jun</label>
+                </value>
+                <value>
+                    <fullName>July</fullName>
+                    <default>false</default>
+                    <label>July</label>
+                </value>
+                <value>
+                    <fullName>Aug</fullName>
+                    <default>false</default>
+                    <label>Aug</label>
+                </value>
+                <value>
+                    <fullName>Sep</fullName>
+                    <default>false</default>
+                    <label>Sep</label>
+                </value>
+                <value>
+                    <fullName>Oct</fullName>
+                    <default>false</default>
+                    <label>Oct</label>
+                </value>
+                <value>
+                    <fullName>Nov</fullName>
+                    <default>false</default>
+                    <label>Nov</label>
+                </value>
+                <value>
+                    <fullName>Dec</fullName>
+                    <default>false</default>
+                    <label>Dec</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Time_Card_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Time Card Submitted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Total_Hours_Week__c</fullName>
+        <externalId>false</externalId>
+        <formula>Day_1__c + Day_2__c + Day_3__c + Day_4__c + Day_5__c + Day_6__c + Day_7__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Hours (Week)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <defaultValue>2016</defaultValue>
+        <externalId>false</externalId>
+        <label>Year</label>
+        <precision>4</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Closed_Cases_Week__c</fullName>
+        <externalId>false</externalId>
+        <label># of Closed Cases (Week)</label>
+        <summarizedField>CRM_Timecard_Entry__c.of_Closed_Cases_Week__c</summarizedField>
+        <summaryForeignKey>CRM_Timecard_Entry__c.CRM_Timecard__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>of_Holidays_Events_PTO__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Represents the National Holidays/CCW/PTO this month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the National Holidays/CCW/PTO this month</inlineHelpText>
+        <label># of Holidays/Events/PTO</label>
+        <precision>1</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represents monthly effort for a team member</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Timecard</label>
+    <nameField>
+        <displayFormat>T-{000000}</displayFormat>
+        <label>Timecard #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Timecards</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Value_Higher_Threshold__c</fullName>
+        <description>Higher Threshold for Account Value in experience calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Higher Threshold for Account Value in experience calculation.</inlineHelpText>
+        <label>Account Value Higher Threshold</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Account_Value_Lower_Threshold__c</fullName>
+        <description>Lower Threshold for Account Value in experience calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lower Threshold for Account Value in experience calculation.</inlineHelpText>
+        <label>Account Value Lower Threshold</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Level</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Named_Account__c</fullName>
+        <description>Named Account is one of the Success Experience automation criteria.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this criterion if needed as a condition of experience assignment.</inlineHelpText>
+        <label>Named Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CT Enterprise</fullName>
+                    <default>false</default>
+                    <label>CT Enterprise</label>
+                </value>
+                <value>
+                    <fullName>Enterprise(but with Event team)</fullName>
+                    <default>false</default>
+                    <label>Enterprise(but with Event team)</label>
+                </value>
+                <value>
+                    <fullName>Event Enterprise-HQ</fullName>
+                    <default>false</default>
+                    <label>Event Enterprise-HQ</label>
+                </value>
+                <value>
+                    <fullName>Event Enterprise</fullName>
+                    <default>false</default>
+                    <label>Event Enterprise</label>
+                </value>
+                <value>
+                    <fullName>Event Enterprise Subsidiary-HQ</fullName>
+                    <default>false</default>
+                    <label>Event Enterprise Subsidiary-HQ</label>
+                </value>
+                <value>
+                    <fullName>Event Enterprise Subsidiary</fullName>
+                    <default>false</default>
+                    <label>Event Enterprise Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>CC Enterprise-HQ</fullName>
+                    <default>false</default>
+                    <label>CC Enterprise-HQ</label>
+                </value>
+                <value>
+                    <fullName>CC Enterprise</fullName>
+                    <default>false</default>
+                    <label>CC Enterprise</label>
+                </value>
+                <value>
+                    <fullName>CC Enterprise Subsidiary-HQ</fullName>
+                    <default>false</default>
+                    <label>CC Enterprise Subsidiary-HQ</label>
+                </value>
+                <value>
+                    <fullName>CC Enterprise Subsidiary</fullName>
+                    <default>false</default>
+                    <label>CC Enterprise Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Partnership</fullName>
+                    <default>false</default>
+                    <label>Enterprise Partnership</label>
+                </value>
+                <value>
+                    <fullName>Enterprise Holdback</fullName>
+                    <default>false</default>
+                    <label>Enterprise Holdback</label>
+                </value>
+                <value>
+                    <fullName>Affinity Partnership</fullName>
+                    <default>false</default>
+                    <label>Affinity Partnership</label>
+                </value>
+                <value>
+                    <fullName>Biz-Dev</fullName>
+                    <default>false</default>
+                    <label>Biz-Dev</label>
+                </value>
+                <value>
+                    <fullName>Biz-Dev(but With Event Team)</fullName>
+                    <default>false</default>
+                    <label>Biz-Dev(but With Event Team)</label>
+                </value>
+                <value>
+                    <fullName>Biz-Dev Tradeshows</fullName>
+                    <default>false</default>
+                    <label>Biz-Dev Tradeshows</label>
+                </value>
+                <value>
+                    <fullName>Chapter Sales (Event Core)</fullName>
+                    <default>false</default>
+                    <label>Chapter Sales (Event Core)</label>
+                </value>
+                <value>
+                    <fullName>Cross Sell-Survey</fullName>
+                    <default>false</default>
+                    <label>Cross Sell-Survey</label>
+                </value>
+                <value>
+                    <fullName>CSN SAT</fullName>
+                    <default>false</default>
+                    <label>CSN SAT</label>
+                </value>
+                <value>
+                    <fullName>CSN SAT-HQ</fullName>
+                    <default>false</default>
+                    <label>CSN SAT-HQ</label>
+                </value>
+                <value>
+                    <fullName>CSN SAT-HQ (Sub Account)</fullName>
+                    <default>false</default>
+                    <label>CSN SAT-HQ (Sub Account)</label>
+                </value>
+                <value>
+                    <fullName>Cvent Banker</fullName>
+                    <default>false</default>
+                    <label>Cvent Banker</label>
+                </value>
+                <value>
+                    <fullName>Cvent Vendor</fullName>
+                    <default>false</default>
+                    <label>Cvent Vendor</label>
+                </value>
+                <value>
+                    <fullName>Federal Government</fullName>
+                    <default>false</default>
+                    <label>Federal Government</label>
+                </value>
+                <value>
+                    <fullName>MMI</fullName>
+                    <default>false</default>
+                    <label>MMI</label>
+                </value>
+                <value>
+                    <fullName>MMI (But with event team)</fullName>
+                    <default>false</default>
+                    <label>MMI (But with event team)</label>
+                </value>
+                <value>
+                    <fullName>MMI-HQ</fullName>
+                    <default>false</default>
+                    <label>MMI-HQ</label>
+                </value>
+                <value>
+                    <fullName>MMI Subsidiary</fullName>
+                    <default>false</default>
+                    <label>MMI Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>MMI Subsidiary-HQ</fullName>
+                    <default>false</default>
+                    <label>MMI Subsidiary-HQ</label>
+                </value>
+                <value>
+                    <fullName>Out of Territory-CC(Chk follow up)</fullName>
+                    <default>false</default>
+                    <label>Out of Territory-CC(Chk follow up)</label>
+                </value>
+                <value>
+                    <fullName>Out of Territory-Event(Check follow up)</fullName>
+                    <default>false</default>
+                    <label>Out of Territory-Event(Check follow up)</label>
+                </value>
+                <value>
+                    <fullName>Out of Territory-PA(Check follow up)</fullName>
+                    <default>false</default>
+                    <label>Out of Territory-PA(Check follow up)</label>
+                </value>
+                <value>
+                    <fullName>Out of Territory-Survey(Check follow up)</fullName>
+                    <default>false</default>
+                    <label>Out of Territory-Survey(Check follow up)</label>
+                </value>
+                <value>
+                    <fullName>Out of Territory-CT(Check follow up)</fullName>
+                    <default>false</default>
+                    <label>Out of Territory-CT(Check follow up)</label>
+                </value>
+                <value>
+                    <fullName>Survey Hospitality</fullName>
+                    <default>false</default>
+                    <label>Survey Hospitality</label>
+                </value>
+                <value>
+                    <fullName>TPP</fullName>
+                    <default>false</default>
+                    <label>TPP</label>
+                </value>
+                <value>
+                    <fullName>TPP(but with Event team)</fullName>
+                    <default>false</default>
+                    <label>TPP(but with Event team)</label>
+                </value>
+                <value>
+                    <fullName>TPP(but with PA team)</fullName>
+                    <default>false</default>
+                    <label>TPP(but with PA team)</label>
+                </value>
+                <value>
+                    <fullName>TPP-Affiliate</fullName>
+                    <default>false</default>
+                    <label>TPP-Affiliate</label>
+                </value>
+                <value>
+                    <fullName>TPP-HQ</fullName>
+                    <default>false</default>
+                    <label>TPP-HQ</label>
+                </value>
+                <value>
+                    <fullName>TPP-Partner</fullName>
+                    <default>false</default>
+                    <label>TPP-Partner</label>
+                </value>
+                <value>
+                    <fullName>TPP Subsidiary</fullName>
+                    <default>false</default>
+                    <label>TPP Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>TPP Subsidiary-HQ</fullName>
+                    <default>false</default>
+                    <label>TPP Subsidiary-HQ</label>
+                </value>
+                <value>
+                    <fullName>TPP (Geography)-HQ</fullName>
+                    <default>false</default>
+                    <label>TPP (Geography)-HQ</label>
+                </value>
+                <value>
+                    <fullName>TPP (Geography)</fullName>
+                    <default>false</default>
+                    <label>TPP (Geography)</label>
+                </value>
+                <value>
+                    <fullName>TPP (Geography) Subisidiary-HQ</fullName>
+                    <default>false</default>
+                    <label>TPP (Geography) Subisidiary-HQ</label>
+                </value>
+                <value>
+                    <fullName>TPP (Geography) Subisidiary</fullName>
+                    <default>false</default>
+                    <label>TPP (Geography) Subisidiary</label>
+                </value>
+                <value>
+                    <fullName>GANE Top Association Accounts</fullName>
+                    <default>false</default>
+                    <label>GANE Top Association Accounts</label>
+                </value>
+                <value>
+                    <fullName>Top Corporate Account - Grace Barry</fullName>
+                    <default>false</default>
+                    <label>Top Corporate Account - Grace Barry</label>
+                </value>
+                <value>
+                    <fullName>Event Holdback</fullName>
+                    <default>false</default>
+                    <label>Event Holdback</label>
+                </value>
+                <value>
+                    <fullName>TPP Client</fullName>
+                    <default>false</default>
+                    <label>TPP Client</label>
+                </value>
+                <value>
+                    <fullName>CORP</fullName>
+                    <default>false</default>
+                    <label>CORP</label>
+                </value>
+                <value>
+                    <fullName>Master Service Agreement In Place</fullName>
+                    <default>false</default>
+                    <label>Master Service Agreement In Place</label>
+                </value>
+                <value>
+                    <fullName>Vista Portfolio Account</fullName>
+                    <default>false</default>
+                    <label>Vista Portfolio Account</label>
+                </value>
+                <value>
+                    <fullName>Partners (International)</fullName>
+                    <default>false</default>
+                    <label>Partners (International)</label>
+                </value>
+                <value>
+                    <fullName>MSA</fullName>
+                    <default>false</default>
+                    <label>MSA</label>
+                </value>
+                <value>
+                    <fullName>HC ABM Top Account</fullName>
+                    <default>false</default>
+                    <label>HC ABM Top Account</label>
+                </value>
+                <value>
+                    <fullName>Top MLM (Andy Rouhafzai)</fullName>
+                    <default>false</default>
+                    <label>Top MLM (Andy Rouhafzai)</label>
+                </value>
+                <value>
+                    <fullName>TPP Client-HQ</fullName>
+                    <default>false</default>
+                    <label>TPP Client-HQ</label>
+                </value>
+                <value>
+                    <fullName>Partner</fullName>
+                    <default>false</default>
+                    <label>Partner</label>
+                </value>
+                <value>
+                    <fullName>Partnership</fullName>
+                    <default>false</default>
+                    <label>Partnership</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_of_Products_Higher_Threshold__c</fullName>
+        <description>The higher threshold value for the Number of Products Attribute.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The higher threshold value for the Number of Products Attribute.</inlineHelpText>
+        <label>Number of Products Higher Threshold</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Products_Lower_Threshold__c</fullName>
+        <description>The lower threshold value for the Number of Products Attribute.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The lower threshold value for the Number of Products Attribute.</inlineHelpText>
+        <label>Number of Products Lower Threshold</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Products__c</fullName>
+        <description>Adding Product as a dimension to define assignment criteria.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Adding Product as a dimension to define assignment criteria.</inlineHelpText>
+        <label>Products</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Success_Experience_Products</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <description>The region criterion is applicable for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The region criterion is applicable for.</inlineHelpText>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>North America</fullName>
+                    <default>false</default>
+                    <label>North America</label>
+                </value>
+                <value>
+                    <fullName>South and Latin America</fullName>
+                    <default>false</default>
+                    <label>South and Latin America</label>
+                </value>
+                <value>
+                    <fullName>Europe</fullName>
+                    <default>false</default>
+                    <label>Europe</label>
+                </value>
+                <value>
+                    <fullName>APAC</fullName>
+                    <default>false</default>
+                    <label>APAC</label>
+                </value>
+                <value>
+                    <fullName>Middle East</fullName>
+                    <default>false</default>
+                    <label>Middle East</label>
+                </value>
+                <value>
+                    <fullName>Africa</fullName>
+                    <default>false</default>
+                    <label>Africa</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Rule_Reason__c</fullName>
+        <description>Define the reason for this rule. This text can be used as the chatter notification on the records where rule is applied.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the brief description (reason) for this rule.</inlineHelpText>
+        <label>Rule Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Target_Success_Experience__c</fullName>
+        <description>This is the resulting experience from the setup record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the target Success Experience.</inlineHelpText>
+        <label>Target Success Experience</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Success_Experience</valueSetName>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The object to store the setup details (configurations, attributes, approvers, etc.) for Success Experience and any related process like change request approvers, territory sheet assignment attributes, etc.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Success Experience Setup</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Success Experience Setup Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Success Experience Setup</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Target_Success_Experience__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Target_Success_Experience__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>Attributes_APAC_ME_Africa</fullName>
+        <columns>NAME</columns>
+        <columns>Target_Success_Experience__c</columns>
+        <columns>Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>Account_Value_Lower_Threshold__c</columns>
+        <columns>Account_Value_Higher_Threshold__c</columns>
+        <columns>Named_Account__c</columns>
+        <columns>Products__c</columns>
+        <columns>Number_of_Products_Lower_Threshold__c</columns>
+        <columns>Number_of_Products_Higher_Threshold__c</columns>
+        <columns>Rule_Reason__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Success_Experience_Setup__c.Success_Experience_Attributes</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>includes</operation>
+            <value>APAC</value>
+        </filters>
+        <label>Attributes-APAC/ME/Africa</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Attributes_North_South_America_Europe</fullName>
+        <columns>NAME</columns>
+        <columns>Target_Success_Experience__c</columns>
+        <columns>Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>Account_Value_Lower_Threshold__c</columns>
+        <columns>Account_Value_Higher_Threshold__c</columns>
+        <columns>Named_Account__c</columns>
+        <columns>Products__c</columns>
+        <columns>Number_of_Products_Lower_Threshold__c</columns>
+        <columns>Number_of_Products_Higher_Threshold__c</columns>
+        <columns>Rule_Reason__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Success_Experience_Setup__c.Success_Experience_Attributes</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>includes</operation>
+            <value>North America</value>
+        </filters>
+        <label>Attributes-North/South America &amp; Europe</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Success_Experience_Attributes</fullName>
+        <columns>NAME</columns>
+        <columns>Target_Success_Experience__c</columns>
+        <columns>Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>Account_Value_Lower_Threshold__c</columns>
+        <columns>Account_Value_Higher_Threshold__c</columns>
+        <columns>Named_Account__c</columns>
+        <columns>Products__c</columns>
+        <columns>Number_of_Products_Lower_Threshold__c</columns>
+        <columns>Number_of_Products_Higher_Threshold__c</columns>
+        <columns>Rule_Reason__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Success_Experience_Setup__c.Success_Experience_Attributes</value>
+        </filters>
+        <label>Success Experience Attributes</label>
+        <language>en_US</language>
+    </listViews>
+    <recordTypes>
+        <fullName>Success_Experience_Attributes</fullName>
+        <active>true</active>
+        <description>Select this to enter the Success Experience attribute for automation.</description>
+        <label>Success Experience Attributes</label>
+        <picklistValues>
+            <picklist>Named_Account__c</picklist>
+            <values>
+                <fullName>Affinity Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biz-Dev</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biz-Dev Tradeshows</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biz-Dev%28but With Event Team%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CC Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CC Enterprise Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CC Enterprise Subsidiary-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CC Enterprise-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CORP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN SAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN SAT-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN SAT-HQ %28Sub Account%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chapter Sales %28Event Core%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cross Sell-Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cvent Banker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cvent Vendor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise Holdback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise%28but with Event team%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Enterprise Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Enterprise Subsidiary-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Enterprise-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Holdback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Federal Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GANE Top Association Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC ABM Top Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMI %28But with event team%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMI Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMI Subsidiary-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMI-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Master Service Agreement In Place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Territory-CC%28Chk follow up%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Territory-CT%28Check follow up%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Territory-Event%28Check follow up%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Territory-PA%28Check follow up%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Territory-Survey%28Check follow up%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners %28International%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP %28Geography%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP %28Geography%29 Subisidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP %28Geography%29 Subisidiary-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP %28Geography%29-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP Client-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP Subsidiary-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP%28but with Event team%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP%28but with PA team%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP-Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP-HQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TPP-Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Corporate Account - Grace Barry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top MLM %28Andy Rouhafzai%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vista Portfolio Account</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Products__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Capture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Lead Capture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Region__c</picklist>
+            <values>
+                <fullName>APAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Middle East</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South and Latin America</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Target_Success_Experience__c</picklist>
+            <values>
+                <fullName>Advised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guided</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Touch</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

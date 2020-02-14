@@ -145,6 +145,15 @@ private class salesSupportCasesTest {
         
         c = new Case();
         c.recordTypeId = recTypeCase;
+        c.Product_Type__c = 'QuickMobile';
+        c.Request_Type__c = 'Customer Care';
+        c.Status = 'Open';
+        c.Minutesoncase__c = 30; 
+        c.OwnerId = testUser.Id;    
+        caseList.add(c);
+        
+        c = new Case();
+        c.recordTypeId = recTypeCase;
         c.Product_Type__c = 'EMI';
         c.Request_Type__c = 'Strategic Support';
         c.Status = 'Open';

@@ -23,6 +23,7 @@ global class InquisiumToSalesforceEmailParser implements Messaging.InboundEmailH
     private final String onsiteSolutionProjectObjPrefix = Label.Inquisium_To_Salesforce_Onsite_Solution_Project_Prefix;
     private final String onboardingObjPrefix = Label.Inquisium_To_Salesforce_Onboarding_Prefix;
     private final String mobileAppObjPrefix = Label.Inquisium_To_Salesforce_Mobile_App_Prefix;
+    private final String EBSBObjPrefix = Label.Inquisium_To_Salesforce_EBSB_Prefix;
     
     global Messaging.InboundEmailResult handleInboundEmail(Messaging.inboundEmail email, Messaging.InboundEnvelope env){
         // Create an InboundEmailResult object for returning the result of the Apex Email Service
@@ -217,13 +218,43 @@ global class InquisiumToSalesforceEmailParser implements Messaging.InboundEmailH
                         recordTypeDevName = mobileAppSurvey.RecordTypeId != null ? mobileAppSurvey.RecordType.DeveloperName : null;
                         inquisiumSurveyType = mobileAppSurvey.Request_Type__c;
                         inquisiumSurveySubType = null;
-                        
+                        SYSTEM.DEBUG('-----mobileAppSurvey'+ mobileAppSurvey);
+                        SYSTEM.DEBUG('-----responseNumber'+ responseNumber);
+                        SYSTEM.DEBUG('-----SFDCRefId'+ SFDCRefId);
+                        SYSTEM.DEBUG('-----recordTypeDevName'+ recordTypeDevName);
+                        SYSTEM.DEBUG('-----inquisiumSurveyType'+ inquisiumSurveyType);
+                        SYSTEM.DEBUG('-----inquisiumSurveySubType'+ inquisiumSurveySubType);
                         // web-service callout to Inquisium.
                         InquisiumToSalesforceSurveySync.makeInquisiumCallout(responseNumber,SFDCRefId,recordTypeDevName,inquisiumSurveyType,inquisiumSurveySubType);
                     } 
                     // Set the result to true. No need to send an email back to the user with an error message.
                     result.success = true;
-                }              
+                } 
+                 if(SFDCRefId != null && SFDCRefId.startsWithIgnoreCase(EBSBObjPrefix)){
+                    SYSTEM.DEBUG('-----INsideee');
+                    /**************************************EBSB Survey Block*************************************************/
+                    EB_SB_Builder__c EBSBSurvey = [Select Id,RecordTypeId,RecordType.DeveloperName,Project_Type_del__c,Response_Number__c From EB_SB_Builder__c Where Id =:SFDCRefId LIMIT 1];
+                    // updates Survey Response Number at EBSB Object level.
+                    if(responseNumber != null && responseNumber != ''){
+                        if(EBSBSurvey.Response_Number__c == null){
+                            EBSBSurvey.Response_Number__c = responseNumber;
+                            update EBSBSurvey;
+                        }                        
+                        recordTypeDevName = EBSBSurvey.RecordTypeId != null ? EBSBSurvey.RecordType.DeveloperName : null;
+                        inquisiumSurveyType = EBSBSurvey.Project_Type_del__c;
+                        inquisiumSurveySubType = null;
+                        SYSTEM.DEBUG('-----EBSBSurvey'+ EBSBSurvey);
+                        SYSTEM.DEBUG('-----responseNumber'+ responseNumber);
+                        SYSTEM.DEBUG('-----SFDCRefId'+ SFDCRefId);
+                        SYSTEM.DEBUG('-----recordTypeDevName'+ recordTypeDevName);
+                        SYSTEM.DEBUG('-----inquisiumSurveyType'+ inquisiumSurveyType);
+                        SYSTEM.DEBUG('-----inquisiumSurveySubType'+ inquisiumSurveySubType);
+                        // web-service callout to Inquisium.
+                        InquisiumToSalesforceSurveySync.makeInquisiumCallout(responseNumber,SFDCRefId,recordTypeDevName,inquisiumSurveyType,inquisiumSurveySubType);
+                    } 
+                    // Set the result to true. No need to send an email back to the user with an error message.
+                    result.success = true;
+                }               
                 // Return the result for the Apex Email Service
                 return result; 
             }catch(Exception exp){ 

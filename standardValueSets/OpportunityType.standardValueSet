@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Not Applicable</fullName>
+        <default>true</default>
+        <label>Not Applicable</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New - Guaranteed Capitated</fullName>
+        <default>false</default>
+        <label>New - Guaranteed Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New - License</fullName>
+        <default>false</default>
+        <label>New - License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New - CSN Planner</fullName>
+        <default>false</default>
+        <label>New - CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New - Other</fullName>
+        <default>false</default>
+        <label>New - Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - Guaranteed Capitated</fullName>
+        <default>false</default>
+        <label>Renewal - Guaranteed Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - License</fullName>
+        <default>false</default>
+        <label>Renewal - License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - Other</fullName>
+        <default>false</default>
+        <label>Renewal - Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal  CSN Planner</fullName>
+        <default>false</default>
+        <label>Renewal  CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - Partner</fullName>
+        <default>false</default>
+        <label>Renewal - Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - PlanCorp Capitated</fullName>
+        <default>false</default>
+        <label>Renewal - PlanCorp Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal - PlanCorp License</fullName>
+        <default>false</default>
+        <label>Renewal - PlanCorp License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell</fullName>
+        <default>false</default>
+        <label>Upsell</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell - New</fullName>
+        <default>false</default>
+        <label>Upsell - New</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell  New_CSN Planner</fullName>
+        <default>false</default>
+        <label>Upsell  New_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell - Renewal</fullName>
+        <default>false</default>
+        <label>Upsell - Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell  Renewal_CSN Planner</fullName>
+        <default>false</default>
+        <label>Upsell  Renewal_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD - NBB</fullName>
+        <default>false</default>
+        <label>MYD - NBB</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD  NBB_CSN Planner</fullName>
+        <default>false</default>
+        <label>MYD  NBB_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD - Renewal</fullName>
+        <default>false</default>
+        <label>MYD - Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD  Renewal_CSN Planner</fullName>
+        <default>false</default>
+        <label>MYD  Renewal_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD - Upsell - New</fullName>
+        <default>false</default>
+        <label>MYD - Upsell - New</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD  Upsell  New_CSN Planner</fullName>
+        <default>false</default>
+        <label>MYD  Upsell  New_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD - Upsell - Renewal</fullName>
+        <default>false</default>
+        <label>MYD - Upsell - Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MYD  Upsell  Renewal_CSN Planner</fullName>
+        <default>false</default>
+        <label>MYD  Upsell  Renewal_CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - Guaranteed Capitated</fullName>
+        <default>false</default>
+        <label>Early Renewal - Guaranteed Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - License</fullName>
+        <default>false</default>
+        <label>Early Renewal - License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - Other</fullName>
+        <default>false</default>
+        <label>Early Renewal - Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - PlanCorp Capitated</fullName>
+        <default>false</default>
+        <label>Early Renewal - PlanCorp Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - PlanCorp License</fullName>
+        <default>false</default>
+        <label>Early Renewal - PlanCorp License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Upsell - New</fullName>
+        <default>false</default>
+        <label>Early Upsell - New</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Upsell - Renewal</fullName>
+        <default>false</default>
+        <label>Early Upsell - Renewal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early New - Guaranteed Capitated</fullName>
+        <default>false</default>
+        <label>Early New - Guaranteed Capitated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early New - License</fullName>
+        <default>false</default>
+        <label>Early New - License</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early New - Other</fullName>
+        <default>false</default>
+        <label>Early New - Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - Other</fullName>
+        <default>false</default>
+        <label>Partner - Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Custom Email Work</fullName>
+        <default>false</default>
+        <label>CS-Custom Email Work</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Custom Invite</fullName>
+        <default>false</default>
+        <label>CS-Custom Invite</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Custom Page</fullName>
+        <default>false</default>
+        <label>CS-Custom Page</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Custom Report</fullName>
+        <default>false</default>
+        <label>CS-Custom Report</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-EventBuilder</fullName>
+        <default>false</default>
+        <label>CS-EventBuilder</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Event Work</fullName>
+        <default>false</default>
+        <label>CS-Event Work</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-HTML/Graphic Work</fullName>
+        <default>false</default>
+        <label>CS-HTML/Graphic Work</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Name Badge Processing</fullName>
+        <default>false</default>
+        <label>CS-Name Badge Processing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Newsletter</fullName>
+        <default>false</default>
+        <label>CS-Newsletter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Other</fullName>
+        <default>false</default>
+        <label>CS-Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Plancorp</fullName>
+        <default>false</default>
+        <label>CS-Plancorp</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Reactivate Event</fullName>
+        <default>false</default>
+        <label>CS-Reactivate Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CS-Training(Onsite/Private)</fullName>
+        <default>false</default>
+        <label>CS-Training(Onsite/Private)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FREE EXTENSION</fullName>
+        <default>false</default>
+        <label>FREE EXTENSION</label>
+    </standardValue>
+    <standardValue>
+        <fullName>UNKNOWN</fullName>
+        <default>false</default>
+        <label>UNKNOWN</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell - New (One-Off)</fullName>
+        <default>false</default>
+        <label>Upsell - New (One-Off)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsell - Renewal (One-Off)</fullName>
+        <default>false</default>
+        <label>Upsell - Renewal (One-Off)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Renewal - CSN Planner</fullName>
+        <default>false</default>
+        <label>Early Renewal - CSN Planner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Early Upsell - CSN Planner</fullName>
+        <default>false</default>
+        <label>Early Upsell - CSN Planner</label>
+    </standardValue>
+</StandardValueSet>

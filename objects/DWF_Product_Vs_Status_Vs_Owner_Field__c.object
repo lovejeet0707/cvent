@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Contact_Owner_Field__c</fullName>
+        <description>This will store the API name of the contact owner field which will be updated through DWF.</description>
+        <externalId>false</externalId>
+        <label>Contact Owner Field</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Status_Field__c</fullName>
+        <description>This will store the API name of the contact status field which will be updated through DWF.</description>
+        <externalId>false</externalId>
+        <label>Contact Status Field</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting is used for those task which are assigned to the IST reps.
+If a Task is assigned to these reps then the contact status and owner will be updated according to the product assigned to them through these mapping.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>DWF Product Vs Status Vs Owner Field</label>
+    <visibility>Public</visibility>
+</CustomObject>

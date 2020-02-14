@@ -94,15 +94,15 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     </button>
-                                    <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                    <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                     <a class="navbar-brand" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo.png')}" width="250"/></a>
                                     </apex:actionRegion>
                                     <!--FOR EU--->
-                                    <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                    <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                      <a class="navbar-brand" href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo.png')}" width="250"/></a>
                                     </apex:actionRegion>
                                     <!--FOR EU ENDS--->
-                                    <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                    <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,TRUE,FALSE)}">
                                     <a class="navbar-brand" href="https://community.cvent.com/home"><img src="{!URLFOR($Resource.CommunityAssets2,'/assets/images/final-community-logo.png')}" width="250"/></a>
                                     </apex:actionRegion>
                                     </div>
@@ -122,48 +122,48 @@
                 class="btn login btn-lg"                                            href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhome">LOG IN</a></li>
                     </apex:actionRegion>
                <!--<apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}"> <a href="https://community.cvent.com/home" class="btn login btn-lg">LOG IN</a></apex:actionRegion> -->
-                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"> <div class="my-cases hidden-sm hidden-xs"><a href="/apex/SupportPage">My Cases</a></div>
+                <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}"> <div class="my-cases hidden-sm hidden-xs"><a href="/apex/SupportPage">My Cases</a></div>
                 <div class="my-profile hidden-sm hidden-xs"><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fnetwork%2Fmembers%2Fprofile">My Profile</a></div></apex:actionRegion> 
                 <!----FOR EU --->
-                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}"> <div class="my-cases hidden-sm hidden-xs"><a href="/apex/SupportPage">My Cases</a></div>
+                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}"> <div class="my-cases hidden-sm hidden-xs"><a href="/apex/SupportPage">My Cases</a></div>
                 <div class="my-profile hidden-sm hidden-xs"><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fnetwork%2Fmembers%2Fprofile">My Profile</a></div></apex:actionRegion> 
                 </div>
                 </div>  
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><li class="first"><a class="first" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum">OPEN FORUM</a></li></apex:actionRegion>
-                           <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}"><li class="first"><a class="first" href="https://community.cvent.com/openforum">OPEN FORUM</a></li></apex:actionRegion>
-                           <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}"><li class="first"><a class="first" href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum">OPEN FORUM</a></li></apex:actionRegion>
+                        <apex:actionRegion rendered="{!IF( $User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}"><li class="first"><a class="first" href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum">OPEN FORUM</a></li></apex:actionRegion>
+                           <apex:actionRegion rendered="{!if($User.Id == '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}"><li class="first"><a class="first" href="https://community.cvent.com/openforum">OPEN FORUM</a></li></apex:actionRegion>
+                           <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}"><li class="first"><a class="first" href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fopenforum">OPEN FORUM</a></li></apex:actionRegion>
 
-                            <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fproductnews">PRODUCT NEWS</a></li></apex:actionRegion>
-                            <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}"><li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fproductnews">PRODUCT NEWS</a></li></apex:actionRegion>
-                                <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fideas">IDEAS</a></li></apex:actionRegion>            
-                                <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}"><li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fideas">IDEAS</a></li></apex:actionRegion>            
+                            <apex:actionRegion rendered="{!IF( $User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fproductnews">PRODUCT NEWS</a></li></apex:actionRegion>
+                            <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}"><li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fproductnews">PRODUCT NEWS</a></li></apex:actionRegion>
+                                <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}"><li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fideas">IDEAS</a></li></apex:actionRegion>            
+                                <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}"><li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fideas">IDEAS</a></li></apex:actionRegion>            
    
-                                       <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                       <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                     <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase">KNOWLEDGE BASE</a></li>
                                        </apex:actionRegion> 
-                                  <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',TRUE,FALSE)}">
+                                  <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                     <li><a href="https://community.cvent.com/knowledgebase">KNOWLEDGE BASE</a></li>
                                        </apex:actionRegion>
                                        
-                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                          <li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fknowledgebase">KNOWLEDGE BASE</a></li>
                                        </apex:actionRegion>
                                        
-                                        <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                        <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                     <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Ftraining">TRAINING</a></li>
                                        </apex:actionRegion> 
                                        
-                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                     <li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Ftraining">TRAINING</a></li>
                                        </apex:actionRegion> 
                                   
-                                  <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                  <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                         <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhelpful-links">HELPFUL LINKS</a></li>
                                        </apex:actionRegion>
                                        
-                                        <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                        <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                         <li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fhelpful-links">HELPFUL LINKS</a></li>
                                        </apex:actionRegion>
                                   
@@ -178,12 +178,12 @@
                                        
                                        </apex:actionRegion>
                                        
-                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_Cvent_Account_ID__c != null,true,false)}">
+                                       <apex:actionRegion rendered="{!IF(usr.contact.EU_CVII_ID__c != null,true,false)}">
                                        <li><a href="https://app-eur.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage ">SEARCH</a></li>
                                        
                                        </apex:actionRegion>
                                   
-                                  <apex:actionRegion rendered="{!IF($User.Id == '005o0000001zagpAAA',FALSE,TRUE)}">
+                                  <apex:actionRegion rendered="{!IF($User.Id != '005o0000001zagpAAA' && usr.contact.EU_CVII_ID__c == null,true,false)}">
                                         
                                         <li><a href="https://app.cvent.com/Subscribers/Account/default.aspx?page=BE132BFF-ADD3-41F2-BCC9-4DBCE592E47E&targetPath=https%3A%2F%2Fcommunity%2Ecvent%2Ecom%2Fsearchpage">SEARCH</a></li>
                                        </apex:actionRegion>

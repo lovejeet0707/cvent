@@ -1,14 +1,3 @@
-<!--
-  @File Name          : QuoteLineTemplateContent.page
-  @Description        : 
-  @Author             : MS Simplus August
-  @Group              : 
-  @Last Modified By   : MS Simplus August
-  @Last Modified On   : 11/12/2019, 8:28:34 am
-  @Modification Log   : 
-  Ver       Date            Author      		    Modification
-  1.0    11/12/2019   MS Simplus August     Initial Version
--->
 <apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="QuoteLineTemplateContentController">   
     <apex:pageMessages id="showmsg"></apex:pageMessages>
     <!-- event table without discounted prices column -->   
@@ -583,9 +572,10 @@
                                 </table-cell>
                                 <table-cell display-align="center" padding-top="3" padding-bottom="3" padding-left="3" width="60px" padding-right="3" border="1px white solid">
                                     <block text-align="center">
-                                        <apex:outputText value="{0, number, #,###,###,##0.##}" rendered="{!IF(wrapper.quantity == NULL, false , true)}">
+                                        <apex:outputText value="{0, number, #,###,###,##0.##}" rendered="{!IF(OR(wrapper.quantity == NULL,wrapper.quantityOfOne), false , true)}">
                                             <apex:param value="{!wrapper.quantity}"/>
                                         </apex:outputText>
+                                        <apex:outputText value="1" rendered="{!wrapper.quantityOfOne}" />
                                         <!-- <apex:outputText rendered="{!IF(wrapper.quantity == NULL, true , false)}">
                                             {!IF(wrapper.header, '', 'N/A')}
                                         </apex:outputText> -->

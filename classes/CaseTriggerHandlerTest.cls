@@ -40,26 +40,25 @@ private class CaseTriggerHandlerTest
         User u = new User(Alias = 'testUX', Email='ggg@torg.com', 
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
                           LocaleSidKey='en_US', ProfileId = p.Id, 
-                          TimeZoneSidKey='America/Los_Angeles', UserName='syd@torg.com');
+                          TimeZoneSidKey='America/Los_Angeles', UserName='deploymentuser@cvent.com.testin123');
         insert u;
         //Create a
         User u2 = new User(Alias = 'testUX1', Email='syd@torg.com', 
                            EmailEncodingKey='UTF-8', LastName='Testing1', LanguageLocaleKey='en_US', 
                            LocaleSidKey='en_US', ProfileId = p.Id, 
-                           TimeZoneSidKey='America/Los_Angeles', UserName='yy@torg.com');
+                           TimeZoneSidKey='America/Los_Angeles', UserName='deploymentuser@cvent.com.testin1234');
         
         //Case Segeration Test Class
         
         //Insert Account record..........
-        instofAcc.Name = 'TestCaseSegeration';
+        instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
         instofAcc.Supplier_Type__c = 'Venue';
         instofAcc.Venue_Type__c = 'CVB';
-        instofAcc.BillingCountry='MX';
         insert instofAcc;
         
         //Insert AccountTeamMeber Record...........
         instofAccMember.AccountId = instofAcc.Id;
-        instofAccMember.TeamMemberRole = 'Strategic Account Consultant';
+        instofAccMember.TeamMemberRole = 'Client Success Manager';
         instofAccMember.UserId = UserInfo.GetUserId();
         insert instofAccMember;
         
@@ -181,14 +180,9 @@ private class CaseTriggerHandlerTest
         //create task for mobile app for apple oid
         System.runAs(u){
             
-            instofAcc = new Account();
-            RecordType rtType = [SELECT r.SobjectType, r.DeveloperName,r.IsActive FROM RecordType r WHERE SobjectType='Account' And DeveloperName='Biz_Ac' And IsActive=true];
-            instofAcc.Name = 'Test';
+            instofAcc = TestUtil.createAccount('Test Account Unique 2','Biz_Ac');
             instofAcc.Supplier_Type__c = 'Venue';
             instofAcc.Venue_Type__c = 'CVB';
-            instofAcc.RecordTypeId = rtType.id;
-             instofAcc.BillingCountryCode='US';
-            instOfAcc.BillingStateCode='TX';
             insert instofAcc;
             
             /*instOfCon.LastName = 'Test';
@@ -222,7 +216,6 @@ insert instOfCon;*/
             c3.Description = 'this is a test case for case priority';
             c3.Client_Proficiency_Level__c = 'Basic';
             c3.Client_is_Onsite__c = 'Yes';
-            c3.Origin = 'Email';
             insert c3;
             
             
@@ -247,15 +240,14 @@ insert instOfCon;*/
         //Case Segeration Test Class
         
         //Insert Account record..........
-        instofAcc.Name = 'TestCaseSegeration';
+        instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
         instofAcc.Supplier_Type__c = 'Venue';
         instofAcc.Venue_Type__c = 'CVB';
-        instofAcc.BillingCountry='MX';
         insert instofAcc;
         
         //Insert AccountTeamMeber Record...........
         instofAccMember.AccountId = instofAcc.Id;
-        instofAccMember.TeamMemberRole = 'Strategic Account Consultant';
+        instofAccMember.TeamMemberRole = 'Client Success Manager';
         instofAccMember.UserId = UserInfo.GetUserId();
         insert instofAccMember;
         
@@ -297,10 +289,9 @@ insert instOfCon;*/
         catch(Exception e){System.debug(e);}
     }
     static testMethod void GDPRTest(){
-        instofAcc.Name = 'TestCaseSegeration';
+        instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
         instofAcc.Supplier_Type__c = 'Venue';
         instofAcc.Venue_Type__c = 'CVB';
-        instofAcc.BillingCountry='MX';
         insert instofAcc;
         
         Case caseObj = new Case();
@@ -370,12 +361,11 @@ insert instOfCon;*/
         //Case Segeration Test Class
         
         //Insert Account record..........
-        instofAcc.Name = 'TestCaseSegeration';
+        instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
         instofAcc.Supplier_Type__c = 'Venue';
         instofAcc.Venue_Type__c = 'CVB';
         instOfAcc.Billing_Case__c = bc.Id;
         instOfAcc.Purchased_License__c = 'CrowdCompass';
-        instofAcc.BillingCountry='MX';
         insert instofAcc;
         
         Contact instContactFif1 = new Contact();
@@ -383,7 +373,7 @@ insert instOfCon;*/
         instContactFif1.AccountId = instofAcc.Id;
         instContactFif1.CT_Contact_Status__c= 'E - Attended';
         instContactFif1.Event_Contact_Status__c = 'Trash';//'E - Attended';
-        instContactFif1.TM_Contact_Status__c = 'E - Attended';
+        //instContactFif1.TM_Contact_Status__c = 'E - Attended';
         instContactFif1.LeadSource = 'WEB-Chat (CT-Mobile)';
         instContactFif1.Mood_Level__c = 4;
         instContactFif1.Attended__c = 'CSG';
@@ -418,11 +408,9 @@ insert instOfCon;*/
     {
         Id caseRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get('Client_Management_Global').getRecordTypeId();
         
-        Account parentAccount = new Account();
-        parentAccount.Name = 'TestCaseSegeration';
+        Account parentAccount = TestUtil.createAccount('Test Account','Biz_Ac');
         parentAccount.Supplier_Type__c = 'Venue';
         parentAccount.Venue_Type__c = 'CVB';
-        parentAccount.BillingCountry='MX';
         insert parentAccount;
         
         Contact instContactFif1 = new Contact();
@@ -430,7 +418,7 @@ insert instOfCon;*/
         instContactFif1.AccountId = parentAccount.Id;
         instContactFif1.CT_Contact_Status__c= 'E - Attended';
         instContactFif1.Event_Contact_Status__c = 'Trash';//'E - Attended';
-        instContactFif1.TM_Contact_Status__c = 'E - Attended';
+        //instContactFif1.TM_Contact_Status__c = 'E - Attended';
         instContactFif1.LeadSource = 'WEB-Chat (CT-Mobile)';
         instContactFif1.Mood_Level__c = 4;
         instContactFif1.Attended__c = 'CSG';
@@ -499,11 +487,9 @@ insert instOfCon;*/
     {
         Id caseRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get('New_CrowdCompass').getRecordTypeId();
         
-        Account parentAccount = new Account();
-        parentAccount.Name = 'TestCaseSegeration';
+        Account parentAccount = TestUtil.createAccount('Test Account','Biz_Ac');
         parentAccount.Supplier_Type__c = 'Venue';
         parentAccount.Venue_Type__c = 'CVB';
-        parentAccount.BillingCountry='MX';
         insert parentAccount;
         
         Contact instContactFif1 = new Contact();

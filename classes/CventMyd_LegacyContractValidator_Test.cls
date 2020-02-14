@@ -155,7 +155,7 @@ private class CventMyd_LegacyContractValidator_Test {
 
         Id contId = cont.Id;
 
-        cont = [SELECT Upcoming_Renewal_Type__c,RecordTypeId from contract where Id =: contId];
+        cont = [SELECT Upcoming_Renewal_Type__c from contract where Id =: contId];
 
         System.debug('childContract.Upcoming_Renewal_Type__c: ' + cont.Upcoming_Renewal_Type__c);
 

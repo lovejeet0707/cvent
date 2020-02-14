@@ -8,13 +8,14 @@ private class ProposalMasterControllerTest {
         PageReference pageRef = Page.QuoteLineTemplateContent;
         Test.setCurrentPage(pageRef);
         
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -24,7 +25,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         //quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -55,13 +56,14 @@ private class ProposalMasterControllerTest {
         PageReference pageRef = Page.QuoteLineTemplateContent;
         Test.setCurrentPage(pageRef);
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -81,7 +83,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -131,13 +133,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -157,7 +160,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -208,13 +211,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -234,7 +238,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
         quote.Multiple_Years_Commitment__c = TRUE;
@@ -279,13 +283,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -305,7 +310,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -415,13 +420,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -441,7 +447,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
         quote.Multiple_Years_Commitment__c = TRUE;
@@ -535,13 +541,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -561,7 +568,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -609,13 +616,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -635,7 +643,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -755,13 +763,14 @@ private class ProposalMasterControllerTest {
         PageReference pageRef = Page.QuoteLineTemplateContent;
         Test.setCurrentPage(pageRef);
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -781,7 +790,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
         quote.Multiple_Years_Commitment__c = TRUE;
@@ -845,13 +854,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -871,7 +881,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.Multiple_Years_Commitment__c = TRUE;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
@@ -923,13 +933,14 @@ private class ProposalMasterControllerTest {
         Test.setCurrentPage(pageRef);
 
 
-        Account instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
-        insert instofAcc;
+        Account account = new Account();
+        account.Name = 'Account 1';
+        insert account;
 
-        Contact instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
-        insert instOfCon;
-
-        Opportunity opportunity = TestUtil.createOpportunityNew('Test Opportunity','Budget',instOfCon.Id,instofAcc.Id);
+        Opportunity opportunity = new Opportunity();
+        opportunity.AccountId = account.Id;
+        opportunity.Name = 'Test Opportunity';
+        opportunity.StageName = 'Budget';
         opportunity.CloseDate = Date.today();
         insert opportunity;
 
@@ -949,7 +960,7 @@ private class ProposalMasterControllerTest {
         quote.Contract_Term_Years__c = '5';
         quote.Count_of_HC_Products__c = 0;
         quote.Count_of_EC_Products__c = 1;
-        quote.SBQQ__Account__c = instofAcc.Id;
+        quote.SBQQ__Account__c = account.Id;
         quote.Current_Year__c = 1;
         quote.SBQQ__Opportunity2__c = opportunity.Id;
         quote.Multiple_Years_Commitment__c = TRUE;

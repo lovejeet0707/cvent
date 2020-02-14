@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>CSN - Decision Maker</fullName>
+        <default>false</default>
+        <label>CSN - Decision Maker</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Contract Signer</fullName>
+        <default>false</default>
+        <label>Contract Signer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Primary Cvent User AND Contract Signer</fullName>
+        <default>false</default>
+        <label>Primary Cvent User AND Contract Signer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technology Influencer</fullName>
+        <default>false</default>
+        <label>Technology Influencer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other Cvent User</fullName>
+        <default>false</default>
+        <label>Other Cvent User</label>
+    </standardValue>
+</StandardValueSet>

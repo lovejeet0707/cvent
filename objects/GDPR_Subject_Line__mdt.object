@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Subject_Line__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Subject Line</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <description>CRM Team will only be creating the cases when the task created by is Marketo User AND have one of the above mentioned subject Lines AND task status is closed.</description>
+    <label>GDPR Subject Line</label>
+    <pluralLabel>GDPR Subject Lines</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>API_Integration__c</fullName>
+        <externalId>false</externalId>
+        <label>API Integration</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A2Z</fullName>
+                    <default>false</default>
+                    <label>A2Z</label>
+                </value>
+                <value>
+                    <fullName>CompuSystems</fullName>
+                    <default>false</default>
+                    <label>CompuSystems</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>Cvent</fullName>
+                    <default>false</default>
+                    <label>Cvent</label>
+                </value>
+                <value>
+                    <fullName>eTouches</fullName>
+                    <default>false</default>
+                    <label>eTouches</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>App_URL_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>App URL Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Mobile_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Folder_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Folder Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DataCentre__c</fullName>
+        <externalId>false</externalId>
+        <label>DataCentre</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>USDC</fullName>
+                    <default>false</default>
+                    <label>USDC</label>
+                </value>
+                <value>
+                    <fullName>EDC</fullName>
+                    <default>false</default>
+                    <label>EDC</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Developer_Account_Type_Dropdown__c</fullName>
+        <externalId>false</externalId>
+        <label>Developer Account Type Dropdown</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Enterprise</fullName>
+                    <default>false</default>
+                    <label>Enterprise</label>
+                </value>
+                <value>
+                    <fullName>Organization</fullName>
+                    <default>false</default>
+                    <label>Organization</label>
+                </value>
+                <value>
+                    <fullName>Individual</fullName>
+                    <default>false</default>
+                    <label>Individual</label>
+                </value>
+                <value>
+                    <fullName>Not Confirmed</fullName>
+                    <default>false</default>
+                    <label>Not Confirmed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Dont_Time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dont_Time</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Event_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Event_Links__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Links</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Event_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_Event_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Ideal Event Launch Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Submitted_Date_Android__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Submitted Date Android</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Submitted_Date_iOS__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Submitted Date iOS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_App__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile App</label>
+        <referenceTo>Mobile_Card__c</referenceTo>
+        <relationshipName>Mobile_Events_del</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>Mobile_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Personalized_Schedules__c</fullName>
+        <externalId>false</externalId>
+        <label>Personalized Schedules?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Platforms__c</fullName>
+        <externalId>false</externalId>
+        <label>Platforms</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>iPhone</fullName>
+                    <default>false</default>
+                    <label>iPhone</label>
+                </value>
+                <value>
+                    <fullName>Android</fullName>
+                    <default>false</default>
+                    <label>Android</label>
+                </value>
+                <value>
+                    <fullName>iPad</fullName>
+                    <default>false</default>
+                    <label>iPad</label>
+                </value>
+                <value>
+                    <fullName>Blackberry</fullName>
+                    <default>false</default>
+                    <label>Blackberry</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Mobile_Events</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Release_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>Release Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cvent</fullName>
+                    <default>false</default>
+                    <label>Cvent</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Undecided</fullName>
+                    <default>false</default>
+                    <label>Undecided</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Release_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Release Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AttendeeHub</fullName>
+                    <default>false</default>
+                    <label>AttendeeHub</label>
+                </value>
+                <value>
+                    <fullName>Self-publishing</fullName>
+                    <default>false</default>
+                    <label>Self-publishing</label>
+                </value>
+                <value>
+                    <fullName>Enterprise</fullName>
+                    <default>false</default>
+                    <label>Enterprise</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rush_Request_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Request Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rush_Request_Disposition__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Request Disposition</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Requested</fullName>
+                    <default>false</default>
+                    <label>Requested</label>
+                </value>
+                <value>
+                    <fullName>Need More Info</fullName>
+                    <default>false</default>
+                    <label>Need More Info</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                    <label>Declined</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rush_Request_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Request Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rush_Request_Info_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Request Info Required</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Rush_Request_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Request Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Short Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending Assignment</fullName>
+                    <default>false</default>
+                    <label>Pending Assignment</label>
+                </value>
+                <value>
+                    <fullName>Pending Kick-Off</fullName>
+                    <default>false</default>
+                    <label>Pending Kick-Off</label>
+                </value>
+                <value>
+                    <fullName>Kick-Off</fullName>
+                    <default>false</default>
+                    <label>Kick-Off</label>
+                </value>
+                <value>
+                    <fullName>Design &amp; Scope Definition</fullName>
+                    <default>false</default>
+                    <label>Design &amp; Scope Definition</label>
+                </value>
+                <value>
+                    <fullName>Graphics &amp; Data</fullName>
+                    <default>false</default>
+                    <label>Graphics &amp; Data</label>
+                </value>
+                <value>
+                    <fullName>Application Development</fullName>
+                    <default>false</default>
+                    <label>Application Development</label>
+                </value>
+                <value>
+                    <fullName>Preview &amp; Iterate</fullName>
+                    <default>false</default>
+                    <label>Preview &amp; Iterate</label>
+                </value>
+                <value>
+                    <fullName>Client review &amp; Iterate</fullName>
+                    <default>false</default>
+                    <label>Client review &amp; Iterate</label>
+                </value>
+                <value>
+                    <fullName>Pending App Store</fullName>
+                    <default>false</default>
+                    <label>Pending App Store</label>
+                </value>
+                <value>
+                    <fullName>Approved &amp; Released</fullName>
+                    <default>false</default>
+                    <label>Approved &amp; Released</label>
+                </value>
+                <value>
+                    <fullName>Event in Progress</fullName>
+                    <default>false</default>
+                    <label>Event in Progress</label>
+                </value>
+                <value>
+                    <fullName>Post-Event Support</fullName>
+                    <default>false</default>
+                    <label>Post-Event Support</label>
+                </value>
+                <value>
+                    <fullName>Pending Closeout</fullName>
+                    <default>false</default>
+                    <label>Pending Closeout</label>
+                </value>
+                <value>
+                    <fullName>Closed Out</fullName>
+                    <default>false</default>
+                    <label>Closed Out</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TTS_Case__c</fullName>
+        <externalId>false</externalId>
+        <label>TTS Case</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TTS_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>TTS Event</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TTS_Mobile_Event__c</fullName>
+        <externalId>false</externalId>
+        <formula>TTS_Case__c  +  TTS_Event__c  +  TTS_Task__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TTS (Mobile Event)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TTS_Task__c</fullName>
+        <externalId>false</externalId>
+        <label>TTS Task</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Alumni Events</fullName>
+                    <default>false</default>
+                    <label>Alumni Events</label>
+                </value>
+                <value>
+                    <fullName>Banquet</fullName>
+                    <default>false</default>
+                    <label>Banquet</label>
+                </value>
+                <value>
+                    <fullName>Board Meeting</fullName>
+                    <default>false</default>
+                    <label>Board Meeting</label>
+                </value>
+                <value>
+                    <fullName>Breakfast/Lunch/Dinners</fullName>
+                    <default>false</default>
+                    <label>Breakfast/Lunch/Dinners</label>
+                </value>
+                <value>
+                    <fullName>Community Event</fullName>
+                    <default>false</default>
+                    <label>Community Event</label>
+                </value>
+                <value>
+                    <fullName>Conference</fullName>
+                    <default>false</default>
+                    <label>Conference</label>
+                </value>
+                <value>
+                    <fullName>Continuing Education</fullName>
+                    <default>false</default>
+                    <label>Continuing Education</label>
+                </value>
+                <value>
+                    <fullName>Corporate Meeting</fullName>
+                    <default>false</default>
+                    <label>Corporate Meeting</label>
+                </value>
+                <value>
+                    <fullName>Donations</fullName>
+                    <default>false</default>
+                    <label>Donations</label>
+                </value>
+                <value>
+                    <fullName>Film Festival</fullName>
+                    <default>false</default>
+                    <label>Film Festival</label>
+                </value>
+                <value>
+                    <fullName>Food and Wine Event</fullName>
+                    <default>false</default>
+                    <label>Food and Wine Event</label>
+                </value>
+                <value>
+                    <fullName>Fundraiser/Auction</fullName>
+                    <default>false</default>
+                    <label>Fundraiser/Auction</label>
+                </value>
+                <value>
+                    <fullName>Galas</fullName>
+                    <default>false</default>
+                    <label>Galas</label>
+                </value>
+                <value>
+                    <fullName>Golf Event</fullName>
+                    <default>false</default>
+                    <label>Golf Event</label>
+                </value>
+                <value>
+                    <fullName>Happy Hour/Social Event/Networking</fullName>
+                    <default>false</default>
+                    <label>Happy Hour/Social Event/Networking</label>
+                </value>
+                <value>
+                    <fullName>Incentive Travel Program</fullName>
+                    <default>false</default>
+                    <label>Incentive Travel Program</label>
+                </value>
+                <value>
+                    <fullName>Internal Meetings</fullName>
+                    <default>false</default>
+                    <label>Internal Meetings</label>
+                </value>
+                <value>
+                    <fullName>Literary/Film Festival</fullName>
+                    <default>false</default>
+                    <label>Literary/Film Festival</label>
+                </value>
+                <value>
+                    <fullName>Membership Renewal Campaign</fullName>
+                    <default>false</default>
+                    <label>Membership Renewal Campaign</label>
+                </value>
+                <value>
+                    <fullName>Music Festival</fullName>
+                    <default>false</default>
+                    <label>Music Festival</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Other Festival</fullName>
+                    <default>false</default>
+                    <label>Other Festival</label>
+                </value>
+                <value>
+                    <fullName>Seminar</fullName>
+                    <default>false</default>
+                    <label>Seminar</label>
+                </value>
+                <value>
+                    <fullName>Sporting Event</fullName>
+                    <default>false</default>
+                    <label>Sporting Event</label>
+                </value>
+                <value>
+                    <fullName>Tradeshow</fullName>
+                    <default>false</default>
+                    <label>Tradeshow</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>User Conference Group</fullName>
+                    <default>false</default>
+                    <label>User Conference Group</label>
+                </value>
+                <value>
+                    <fullName>Webinar</fullName>
+                    <default>false</default>
+                    <label>Webinar</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>App Level</label>
+    <nameField>
+        <label>App Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>App Levels</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

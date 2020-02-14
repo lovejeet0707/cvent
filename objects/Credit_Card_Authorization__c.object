@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>To be charged</fullName>
+                    <default>false</default>
+                    <label>To be charged</label>
+                </value>
+                <value>
+                    <fullName>To be updated on file</fullName>
+                    <default>false</default>
+                    <label>To be updated on file</label>
+                </value>
+                <value>
+                    <fullName>To be refunded</fullName>
+                    <default>false</default>
+                    <label>To be refunded</label>
+                </value>
+                <value>
+                    <fullName>To be Force Charged</fullName>
+                    <default>false</default>
+                    <label>To be Force Charged</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amountt_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount Approval</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Approval_Links__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval Links</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Auth_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Auth Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Billing Case</label>
+        <referenceTo>BillingCase__c</referenceTo>
+        <relationshipLabel>Credit Card Authorizations</relationshipLabel>
+        <relationshipName>Credit_Card_Authorizations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CVII_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Billing_Case__r.CustomersAccount__r.CVII_ID__c</formula>
+        <label>CVII ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Card_Holder__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Holder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Client_s_Name_for_Reciept__c</fullName>
+        <externalId>false</externalId>
+        <label>Client's Name (for Reciept)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_no__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_payment_mode__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract payment mode</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Action__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Upfront by CreditCard</fullName>
+                    <default>false</default>
+                    <label>Upfront by CreditCard</label>
+                </value>
+                <value>
+                    <fullName>Upfront by Invoice</fullName>
+                    <default>false</default>
+                    <label>Upfront by Invoice</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>To be charged</controllingFieldValue>
+                <valueName>Upfront by CreditCard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>To be charged</controllingFieldValue>
+                <valueName>Upfront by Invoice</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Count_of_supporting_emails__c</fullName>
+        <externalId>false</externalId>
+        <label>Count of supporting emails</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>USD</fullName>
+                    <default>false</default>
+                    <label>USD</label>
+                </value>
+                <value>
+                    <fullName>AUD</fullName>
+                    <default>false</default>
+                    <label>AUD</label>
+                </value>
+                <value>
+                    <fullName>CAD</fullName>
+                    <default>false</default>
+                    <label>CAD</label>
+                </value>
+                <value>
+                    <fullName>EURO</fullName>
+                    <default>false</default>
+                    <label>EURO</label>
+                </value>
+                <value>
+                    <fullName>GBP</fullName>
+                    <default>false</default>
+                    <label>GBP</label>
+                </value>
+                <value>
+                    <fullName>Japanese YEN</fullName>
+                    <default>false</default>
+                    <label>Japanese YEN</label>
+                </value>
+                <value>
+                    <fullName>INR</fullName>
+                    <default>false</default>
+                    <label>INR</label>
+                </value>
+                <value>
+                    <fullName>SGD</fullName>
+                    <default>false</default>
+                    <label>SGD</label>
+                </value>
+                <value>
+                    <fullName>QAR</fullName>
+                    <default>false</default>
+                    <label>QAR</label>
+                </value>
+                <value>
+                    <fullName>AED</fullName>
+                    <default>false</default>
+                    <label>AED</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_Bound__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Bound</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Processed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Processed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Client's Email ID (for Reciept)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cvent Inc</fullName>
+                    <default>false</default>
+                    <label>Cvent Inc</label>
+                </value>
+                <value>
+                    <fullName>Cvent Europe</fullName>
+                    <default>false</default>
+                    <label>Cvent Europe</label>
+                </value>
+                <value>
+                    <fullName>Alliance tech</fullName>
+                    <default>false</default>
+                    <label>Alliance tech</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Exp_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Exp Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Flux_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Flux Approval</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Currency__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>AUD</controllingFieldValue>
+                <controllingFieldValue>CAD</controllingFieldValue>
+                <controllingFieldValue>EURO</controllingFieldValue>
+                <controllingFieldValue>GBP</controllingFieldValue>
+                <controllingFieldValue>Japanese YEN</controllingFieldValue>
+                <controllingFieldValue>INR</controllingFieldValue>
+                <controllingFieldValue>SGD</controllingFieldValue>
+                <controllingFieldValue>QAR</controllingFieldValue>
+                <controllingFieldValue>AED</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>AUD</controllingFieldValue>
+                <controllingFieldValue>CAD</controllingFieldValue>
+                <controllingFieldValue>EURO</controllingFieldValue>
+                <controllingFieldValue>GBP</controllingFieldValue>
+                <controllingFieldValue>Japanese YEN</controllingFieldValue>
+                <controllingFieldValue>INR</controllingFieldValue>
+                <controllingFieldValue>SGD</controllingFieldValue>
+                <controllingFieldValue>QAR</controllingFieldValue>
+                <controllingFieldValue>AED</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Force_Charge_Approval_Grid__c</fullName>
+        <externalId>false</externalId>
+        <label>Force Charge Approval Grid</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Action__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assistant Manager</fullName>
+                    <default>false</default>
+                    <label>Assistant Manager</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Sr. Manager/ Director</fullName>
+                    <default>false</default>
+                    <label>Sr. Manager/ Director</label>
+                </value>
+                <value>
+                    <fullName>CFO/VP/SVP</fullName>
+                    <default>false</default>
+                    <label>CFO/VP/SVP</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>To be Force Charged</controllingFieldValue>
+                <valueName>Assistant Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>To be Force Charged</controllingFieldValue>
+                <valueName>Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>To be Force Charged</controllingFieldValue>
+                <valueName>Sr. Manager/ Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>To be Force Charged</controllingFieldValue>
+                <valueName>CFO/VP/SVP</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Future_Auth__c</fullName>
+        <externalId>false</externalId>
+        <label>Future Auth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Grid_level__c</fullName>
+        <externalId>false</externalId>
+        <label>Grid level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Amountt_Approval__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assistant Manager</fullName>
+                    <default>false</default>
+                    <label>Assistant Manager</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Sr. Manager/ Director</fullName>
+                    <default>false</default>
+                    <label>Sr. Manager/ Director</label>
+                </value>
+                <value>
+                    <fullName>CFO/VP/SVP</fullName>
+                    <default>false</default>
+                    <label>CFO/VP/SVP</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Billing</controllingFieldValue>
+                <valueName>Assistant Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing</controllingFieldValue>
+                <valueName>Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing</controllingFieldValue>
+                <valueName>Sr. Manager/ Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing</controllingFieldValue>
+                <valueName>CFO/VP/SVP</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Invoice_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_four_digits__c</fullName>
+        <externalId>false</externalId>
+        <label>Last four digits</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name_of_approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Name of approver</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ashley Chiu</fullName>
+                    <default>false</default>
+                    <label>Ashley Chiu</label>
+                </value>
+                <value>
+                    <fullName>Gaurav Sood</fullName>
+                    <default>false</default>
+                    <label>Gaurav Sood</label>
+                </value>
+                <value>
+                    <fullName>Ajay Singh</fullName>
+                    <default>false</default>
+                    <label>Ajay Singh</label>
+                </value>
+                <value>
+                    <fullName>Rohit Khanna</fullName>
+                    <default>false</default>
+                    <label>Rohit Khanna</label>
+                </value>
+                <value>
+                    <fullName>Varun Sareen</fullName>
+                    <default>false</default>
+                    <label>Varun Sareen</label>
+                </value>
+                <value>
+                    <fullName>Maria Canfora</fullName>
+                    <default>false</default>
+                    <label>Maria Canfora</label>
+                </value>
+                <value>
+                    <fullName>Cynthia Russo</fullName>
+                    <default>false</default>
+                    <label>Cynthia Russo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Name_of_approver_force_charge__c</fullName>
+        <externalId>false</externalId>
+        <label>Name of approver (Force Charge)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ashley Chiu</fullName>
+                    <default>false</default>
+                    <label>Ashley Chiu</label>
+                </value>
+                <value>
+                    <fullName>Gaurav Sood</fullName>
+                    <default>false</default>
+                    <label>Gaurav Sood</label>
+                </value>
+                <value>
+                    <fullName>Ajay Singh</fullName>
+                    <default>false</default>
+                    <label>Ajay Singh</label>
+                </value>
+                <value>
+                    <fullName>Rohit Khanna</fullName>
+                    <default>false</default>
+                    <label>Rohit Khanna</label>
+                </value>
+                <value>
+                    <fullName>Varun Sareen</fullName>
+                    <default>false</default>
+                    <label>Varun Sareen</label>
+                </value>
+                <value>
+                    <fullName>Maria Canfora</fullName>
+                    <default>false</default>
+                    <label>Maria Canfora</label>
+                </value>
+                <value>
+                    <fullName>Cynthia Russo</fullName>
+                    <default>false</default>
+                    <label>Cynthia Russo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Other_Card_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Card Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending for charge</fullName>
+                    <default>true</default>
+                    <label>Pending for charge</label>
+                </value>
+                <value>
+                    <fullName>Incomplete Details</fullName>
+                    <default>false</default>
+                    <label>Incomplete Details</label>
+                </value>
+                <value>
+                    <fullName>Charged</fullName>
+                    <default>false</default>
+                    <label>Charged</label>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                    <label>Declined</label>
+                </value>
+                <value>
+                    <fullName>Invalid Card</fullName>
+                    <default>false</default>
+                    <label>Invalid Card</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Refunded</fullName>
+                    <default>false</default>
+                    <label>Refunded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_of_Card__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Card</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MasterCard</fullName>
+                    <default>false</default>
+                    <label>MasterCard</label>
+                </value>
+                <value>
+                    <fullName>Visa</fullName>
+                    <default>false</default>
+                    <label>Visa</label>
+                </value>
+                <value>
+                    <fullName>Amex</fullName>
+                    <default>false</default>
+                    <label>Amex</label>
+                </value>
+                <value>
+                    <fullName>MasterCard (P/V Card)</fullName>
+                    <default>false</default>
+                    <label>MasterCard (P/V Card)</label>
+                </value>
+                <value>
+                    <fullName>Discover</fullName>
+                    <default>false</default>
+                    <label>Discover</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Credit Card Authorization</label>
+    <nameField>
+        <displayFormat>CCA-{00000000}</displayFormat>
+        <label>Credit Card Authorization Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Credit Card Authorizations</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <validationRules>
+        <fullName>AMex_and_non_usd_currency</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ISPICKVAL(Type_of_Card__c,"AmEx"),
+NOT(ISPICKVAL(Currency__c,"USD")),
+ISPICKVAL(Flux_Approval__c,"")
+)</errorConditionFormula>
+        <errorMessage>Flux Approval is mandatory for Amex Card and NON USD Currency</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Approval_required_for_amount</fullName>
+        <active>true</active>
+        <description>If amount is greater than 7500, approval is required</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Amountt_Approval__c,""),
+Amount__c&gt;7500
+)</errorConditionFormula>
+        <errorDisplayField>Amountt_Approval__c</errorDisplayField>
+        <errorMessage>You must select Approval</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Collection_team_status</fullName>
+        <active>true</active>
+        <description>Collection team can only use pending for Charge or On Hold Status</description>
+        <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+NOT(OR(ISPICKVAL(Status__c,"Pending for charge"),
+ISPICKVAL(Status__c,"On Hold"),
+ISPICKVAL(Status__c,"Pending for review"))),
+CONTAINS($UserRole.Name,"Collection")
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot use any other status except Pending for Charge, Pending for review and On Hold</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Exp_Date_should_be_present_or_future</fullName>
+        <active>true</active>
+        <description>Exp Date should be always today or future date</description>
+        <errorConditionFormula>Exp_Date__c &lt; TODAY()</errorConditionFormula>
+        <errorDisplayField>Date_Bound__c</errorDisplayField>
+        <errorMessage>Date Bound should be today's or future date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Flux_Approval_Mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL(Flux_Approval__c,"No")</errorConditionFormula>
+        <errorDisplayField>Flux_Approval__c</errorDisplayField>
+        <errorMessage>You must have Flux Approval.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Force_Charge_approval_grid_mandate</fullName>
+        <active>true</active>
+        <description>validation to make Force Charge approval grid mandate, when 'To be force charged' is selected in 'Action'</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Action__c , "To be force charged"),
+ISPICKVAL(Force_Charge_Approval_Grid__c,"" )
+)</errorConditionFormula>
+        <errorDisplayField>Force_Charge_Approval_Grid__c</errorDisplayField>
+        <errorMessage>Please select the value in "Force Charge Approval Grid" field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Negative_amount_for_to_be_refunded</fullName>
+        <active>true</active>
+        <description>If action is to be refunded, amount field should be less than zero</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Action__c,"To be refunded"),
+Amount__c&gt;0.0
+)</errorConditionFormula>
+        <errorDisplayField>Amount__c</errorDisplayField>
+        <errorMessage>For "To be refunded" action, Amount cannot be greater than 0.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Other_card_tpe_mandate</fullName>
+        <active>true</active>
+        <description>If Type of Card is selected as Other, then Other Card type field is mandatory</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Type_of_Card__c,"Other"),
+ISBLANK(Other_Card_Type__c)
+)</errorConditionFormula>
+        <errorDisplayField>Other_Card_Type__c</errorDisplayField>
+        <errorMessage>Please enter Other Card Type</errorMessage>
+    </validationRules>
+</CustomObject>

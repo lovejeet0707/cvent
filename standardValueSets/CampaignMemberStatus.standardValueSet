@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Abandoned</fullName>
+        <default>false</default>
+        <label>Abandoned</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Active</fullName>
+        <default>false</default>
+        <label>Active</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ADDS</fullName>
+        <default>false</default>
+        <label>ADDS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Amazon-Yes</fullName>
+        <default>false</default>
+        <label>Amazon-Yes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Attended</fullName>
+        <default>false</default>
+        <label>Attended</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Attended On-demand</fullName>
+        <default>false</default>
+        <label>Attended On-demand</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Attendee Referral</fullName>
+        <default>false</default>
+        <label>Attendee Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Awarded</fullName>
+        <default>false</default>
+        <label>Awarded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Blocked</fullName>
+        <default>false</default>
+        <label>Blocked</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Blog SMM Webinar</fullName>
+        <default>false</default>
+        <label>Blog SMM Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Booth Attended</fullName>
+        <default>false</default>
+        <label>Booth Attended</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Booth Attended-Walk-in</fullName>
+        <default>false</default>
+        <label>Booth Attended-Walk-in</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+        <label>Cancelled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Click Through</fullName>
+        <default>false</default>
+        <label>Click Through</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cold Call</fullName>
+        <default>false</default>
+        <label>Cold Call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cold Calling</fullName>
+        <default>false</default>
+        <label>Cold Calling</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <label>Completed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Converted</fullName>
+        <default>false</default>
+        <label>Converted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Converted (Filled Out Form)</fullName>
+        <default>false</default>
+        <label>Converted (Filled Out Form)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decline</fullName>
+        <default>false</default>
+        <label>Decline</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Declined</fullName>
+        <default>false</default>
+        <label>Declined</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dinner/Reception Only</fullName>
+        <default>false</default>
+        <label>Dinner/Reception Only</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dinner Only</fullName>
+        <default>false</default>
+        <label>Dinner Only</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Downloaded</fullName>
+        <default>false</default>
+        <label>Downloaded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Referral</fullName>
+        <default>false</default>
+        <label>Email Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Responded</fullName>
+        <default>false</default>
+        <label>Email Responded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email Response</fullName>
+        <default>false</default>
+        <label>Email Response</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Engaged</fullName>
+        <default>false</default>
+        <label>Engaged</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Event</fullName>
+        <default>false</default>
+        <label>Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Excluded</fullName>
+        <default>false</default>
+        <label>Excluded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Exhausted</fullName>
+        <default>false</default>
+        <label>Exhausted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Form Submission</fullName>
+        <default>false</default>
+        <label>Form Submission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invited</fullName>
+        <default>false</default>
+        <label>Invited</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invite Pending</fullName>
+        <default>false</default>
+        <label>Invite Pending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invite Sent</fullName>
+        <default>false</default>
+        <label>Invite Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IRCEL Show</fullName>
+        <default>false</default>
+        <label>IRCEL Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LinkedIn</fullName>
+        <default>false</default>
+        <label>LinkedIn</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Meeting &amp; Dinner/Reception</fullName>
+        <default>false</default>
+        <label>Meeting &amp; Dinner/Reception</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Meeting Only</fullName>
+        <default>false</default>
+        <label>Meeting Only</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Member</fullName>
+        <default>false</default>
+        <label>Member</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No/No</fullName>
+        <default>false</default>
+        <label>No/No</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No/Yes</fullName>
+        <default>false</default>
+        <label>No/Yes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No history</fullName>
+        <default>false</default>
+        <label>No history</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No Response</fullName>
+        <default>false</default>
+        <label>No Response</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No Show</fullName>
+        <default>false</default>
+        <label>No Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No Show-Viewed</fullName>
+        <default>false</default>
+        <label>No Show-Viewed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Omniture</fullName>
+        <default>false</default>
+        <label>Omniture</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Others</fullName>
+        <default>false</default>
+        <label>Others</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Paused</fullName>
+        <default>false</default>
+        <label>Paused</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post Show</fullName>
+        <default>false</default>
+        <label>Post Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre Show</fullName>
+        <default>false</default>
+        <label>Pre Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Adoption</fullName>
+        <default>false</default>
+        <label>Product Adoption</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reception Attended</fullName>
+        <default>false</default>
+        <label>Reception Attended</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral</fullName>
+        <default>false</default>
+        <label>Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registered</fullName>
+        <default>false</default>
+        <label>Registered</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Error</fullName>
+        <default>false</default>
+        <label>Registration Error</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Responded</fullName>
+        <default>false</default>
+        <label>Responded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent</fullName>
+        <default>false</default>
+        <label>Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SM- LinkedIn</fullName>
+        <default>false</default>
+        <label>SM- LinkedIn</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SMM Matters PDF Download</fullName>
+        <default>false</default>
+        <label>SMM Matters PDF Download</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SM - Twitter</fullName>
+        <default>false</default>
+        <label>SM - Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SM- Twitter</fullName>
+        <default>false</default>
+        <label>SM- Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Strategic Sourcing</fullName>
+        <default>false</default>
+        <label>Strategic Sourcing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey</fullName>
+        <default>false</default>
+        <label>Survey</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Survey Amazon</fullName>
+        <default>false</default>
+        <label>Survey Amazon</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Test</fullName>
+        <default>false</default>
+        <label>Test</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Test 2</fullName>
+        <default>false</default>
+        <label>Test 2</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Twitter</fullName>
+        <default>false</default>
+        <label>Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Uncalled</fullName>
+        <default>false</default>
+        <label>Uncalled</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Viewed</fullName>
+        <default>false</default>
+        <label>Viewed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Visa-Yes</fullName>
+        <default>false</default>
+        <label>Visa-Yes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Visited</fullName>
+        <default>false</default>
+        <label>Visited</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Walk-In Attendees</fullName>
+        <default>false</default>
+        <label>Walk-In Attendees</label>
+    </standardValue>
+</StandardValueSet>

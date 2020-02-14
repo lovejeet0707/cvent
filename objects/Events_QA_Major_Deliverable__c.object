@@ -1,0 +1,2043 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Any_Remediation_Required__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(
+  Customer_Demo_Remediation_Required__c=TRUE,
+  CAT_Remediation_Required__c=TRUE
+  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Any Remediation Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Number__c</fullName>
+        <displayFormat>{000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Auto Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BA_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>BA Manager</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Analyst_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Business Analyst_Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.pse__Is_Resource__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <infoMessage>Only PSA Resources are available for selection (Is Resource = TRUE)</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Business_Analyst_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Business_Analyst__r.Manager.FirstName &amp; " " &amp; Business_Analyst__r.Manager.LastName</formula>
+        <label>Business Analyst Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Analyst__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Business Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Events_QA_Major_Deliverables</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CAT_Remediation_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>CAT Remediation Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CAT_Remediation_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CAT Remediation Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CAT_Status_Completed_Date__c</fullName>
+        <description>Auto-populated when the Customer UAT Status is changed to Complete</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated when the Customer UAT Status is changed to Complete</inlineHelpText>
+        <label>CAT Status Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>CAT_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>CAT Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Remediation Required</fullName>
+                    <default>false</default>
+                    <label>Remediation Required</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client_Lanyon__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is responsible for the new Launch Date?</inlineHelpText>
+        <label>Client/Cvent?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client</fullName>
+                    <default>false</default>
+                    <label>Client</label>
+                </value>
+                <value>
+                    <fullName>Cvent</fullName>
+                    <default>false</default>
+                    <label>Cvent</label>
+                </value>
+                <value>
+                    <fullName>Lanyon</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Lanyon</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Independent QA Score Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Current_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+      NOT(ISBLANK(New_Launch_Date__c)),New_Launch_Date__c,Original_Launch_Date__c 
+   )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Demo_Remediation_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Demo Remediation Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Demo_Remediation_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Customer Demo Remediation Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Demo_Status_Completed_Date__c</fullName>
+        <description>Auto-populated when the Customer Demo Status is changed to Complete</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated when the Customer Demo Status is changed to Complete</inlineHelpText>
+        <label>Customer Demo Status Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Demo_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Demo Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Remediation Required</fullName>
+                    <default>false</default>
+                    <label>Remediation Required</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Days_till_Launch__c</fullName>
+        <externalId>false</externalId>
+        <formula>Current_Launch_Date__c - Today()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days till Launch</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Degree_of_Scope_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Degree of Scope Changes?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1 – Few small changes, no major ones</fullName>
+                    <default>false</default>
+                    <label>1 – Few small changes, no major ones</label>
+                </value>
+                <value>
+                    <fullName>2 – Many small changes, no major ones</fullName>
+                    <default>false</default>
+                    <label>2 – Many small changes, no major ones</label>
+                </value>
+                <value>
+                    <fullName>3 – Few small changes, one major change</fullName>
+                    <default>false</default>
+                    <label>3 – Few small changes, one major change</label>
+                </value>
+                <value>
+                    <fullName>4 – Many small changes, one major change</fullName>
+                    <default>false</default>
+                    <label>4 – Many small changes, one major change</label>
+                </value>
+                <value>
+                    <fullName>5 – More than one major change</fullName>
+                    <default>false</default>
+                    <label>5 – More than one major change</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deliverable_Description__c</fullName>
+        <description>Deliverable description when "Other" is selected in the Major Deliverable Type field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Deliverable description when "Other" is selected in the Major Deliverable Type field.</inlineHelpText>
+        <label>Deliverable Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_of_Scope_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Description of Scope Changes</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description_of_known_issues__c</fullName>
+        <externalId>false</externalId>
+        <label>Description of known issues</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description_short__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  LEN(Deliverable_Description__c)&lt;81,Deliverable_Description__c,
+  LEFT(Deliverable_Description__c,77) &amp; "..."
+  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Escape_Velocity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  AND(
+    Customer_Demo_Remediation_Required__c=FALSE,
+    CAT_Remediation_Required__c=FALSE
+    ),1,
+    
+ IF(
+  AND(
+    Customer_Demo_Remediation_Required__c=TRUE,
+    CAT_Remediation_Required__c=FALSE
+    ),0.50,
+    
+     IF(
+  AND(
+    Customer_Demo_Remediation_Required__c=FALSE,
+    CAT_Remediation_Required__c=TRUE
+    ),0.50,
+    
+     IF(
+  AND(
+    Customer_Demo_Remediation_Required__c=TRUE,
+    CAT_Remediation_Required__c=TRUE
+    ),0,0
+    ))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Escape Velocity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>FTR_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  ISNULL(Total_Audit_Points_Possible__c),0,
+  IF(
+    Total_Audit_Points_Possible__c=0,1,
+    Total_Audit_Points_Passed__c / Total_Audit_Points_Possible__c)
+    )</formula>
+        <label>FTR Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Independent_QA_Auditor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Independent QA Auditor</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.pse__Is_Resource__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <infoMessage>Only PSA Resources are available for selection (Is Resource = TRUE)</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables (Independent QA Auditor)</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Independent_QA_Status_Complete_Date__c</fullName>
+        <description>Auto-populated when the Independent QA Status is changed to Complete</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated when the Independent QA Status is changed to Complete</inlineHelpText>
+        <label>Independent QA Status Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Launch_Date_Risk__c</fullName>
+        <externalId>false</externalId>
+        <label>Launch Date Risk?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Link_to_Requirements__c</fullName>
+        <externalId>false</externalId>
+        <label>Link to Reqs &amp; Test Plan Document</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Major_Deliverable_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Major Deliverable Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Gathering Requirements</fullName>
+                    <default>false</default>
+                    <label>Gathering Requirements</label>
+                </value>
+                <value>
+                    <fullName>Ready for QA Review</fullName>
+                    <default>false</default>
+                    <label>Ready for QA Review</label>
+                </value>
+                <value>
+                    <fullName>Under QA Review</fullName>
+                    <default>false</default>
+                    <label>Under QA Review</label>
+                </value>
+                <value>
+                    <fullName>QA Remediation Required</fullName>
+                    <default>false</default>
+                    <label>QA Remediation Required</label>
+                </value>
+                <value>
+                    <fullName>QA Complete</fullName>
+                    <default>false</default>
+                    <label>QA Complete</label>
+                </value>
+                <value>
+                    <fullName>PM Demo Complete</fullName>
+                    <default>false</default>
+                    <label>PM Demo Complete</label>
+                </value>
+                <value>
+                    <fullName>Customer Demo Complete</fullName>
+                    <default>false</default>
+                    <label>Customer Demo Complete</label>
+                </value>
+                <value>
+                    <fullName>Customer Demo Remediation</fullName>
+                    <default>false</default>
+                    <label>Customer Demo Remediation</label>
+                </value>
+                <value>
+                    <fullName>Customer Acceptance Testing</fullName>
+                    <default>false</default>
+                    <label>Customer Acceptance Testing</label>
+                </value>
+                <value>
+                    <fullName>CAT Remediation</fullName>
+                    <default>false</default>
+                    <label>CAT Remediation</label>
+                </value>
+                <value>
+                    <fullName>CAT Complete</fullName>
+                    <default>false</default>
+                    <label>CAT Complete</label>
+                </value>
+                <value>
+                    <fullName>Launched</fullName>
+                    <default>false</default>
+                    <label>Launched</label>
+                </value>
+                <value>
+                    <fullName>Customer UAT Remediation</fullName>
+                    <default>false</default>
+                    <label>Customer UAT Remediation</label>
+                </value>
+                <value>
+                    <fullName>Implementing Requirements</fullName>
+                    <default>false</default>
+                    <label>Implementing Requirements</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Major_Deliverable_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Major Deliverable Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CFP</fullName>
+                    <default>false</default>
+                    <label>CFP</label>
+                </value>
+                <value>
+                    <fullName>Connect</fullName>
+                    <default>false</default>
+                    <label>Connect</label>
+                </value>
+                <value>
+                    <fullName>ERC</fullName>
+                    <default>false</default>
+                    <label>ERC</label>
+                </value>
+                <value>
+                    <fullName>Mobile</fullName>
+                    <default>false</default>
+                    <label>Mobile</label>
+                </value>
+                <value>
+                    <fullName>Onsite</fullName>
+                    <default>false</default>
+                    <label>Onsite</label>
+                </value>
+                <value>
+                    <fullName>Registration</fullName>
+                    <default>false</default>
+                    <label>Registration</label>
+                </value>
+                <value>
+                    <fullName>Reporting (if role permission required)</fullName>
+                    <default>false</default>
+                    <label>Reporting (if role permission required)</label>
+                </value>
+                <value>
+                    <fullName>Site Launch</fullName>
+                    <default>false</default>
+                    <label>Site Launch</label>
+                </value>
+                <value>
+                    <fullName>SRC</fullName>
+                    <default>false</default>
+                    <label>SRC</label>
+                </value>
+                <value>
+                    <fullName>Surveys</fullName>
+                    <default>false</default>
+                    <label>Surveys</label>
+                </value>
+                <value>
+                    <fullName>Voting</fullName>
+                    <default>false</default>
+                    <label>Voting</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Lead Retrieval</fullName>
+                    <default>false</default>
+                    <label>Lead Retrieval</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>My_QA_Work_as_BA__c</fullName>
+        <externalId>false</externalId>
+        <formula>Business_Analyst__r.Id = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My QA Work as BA</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>My_QA_Work_as_PM__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.pse__Salesforce_User__r.Id = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My QA Work as PM</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>My_QA_Works_as_Independent_Auditor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Independent_QA_Auditor__r.pse__Salesforce_User__r.Id = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My QA Works as Independent Auditor</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Only if the Original Launch Date chanes</inlineHelpText>
+        <label>New Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>On_Quality__c</fullName>
+        <externalId>false</externalId>
+        <label>On - Quality</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>True</fullName>
+                    <default>true</default>
+                    <label>True</label>
+                </value>
+                <value>
+                    <fullName>False</fullName>
+                    <default>false</default>
+                    <label>False</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>On_time__c</fullName>
+        <externalId>false</externalId>
+        <label>On-time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>True</fullName>
+                    <default>true</default>
+                    <label>True</label>
+                </value>
+                <value>
+                    <fullName>False</fullName>
+                    <default>false</default>
+                    <label>False</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Original_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Original Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PM_Demo_Status_Completed_Date__c</fullName>
+        <description>Auto-populated when the PM Demo Status is changed to Complete</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated when the PM Demo Status is changed to Complete</inlineHelpText>
+        <label>PM Demo Status Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PM_Demo_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>PM Demo Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Remediation Required</fullName>
+                    <default>false</default>
+                    <label>Remediation Required</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PM_Demo_Time_Spent_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Include both BA and PM time spent</inlineHelpText>
+        <label>PM Demo Time Spent (Minutes)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PSA_Migration_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>PSA Migration ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PowerOfOne__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PowerOfOne</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Manager</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables (Project Manager)</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>pse__Proj__c</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>QA_Remediation_Required_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Indpt QA Remediation Required Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>QA_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Independent QA Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>Ready for QA Review</fullName>
+                    <default>false</default>
+                    <label>Ready for QA Review</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Remediation Required</fullName>
+                    <default>false</default>
+                    <label>Remediation Required</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>QA_Time_Spent_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <label>Independent QA Time Spent (Minutes)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason_for_New_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Required if PM enters New Launch Date</inlineHelpText>
+        <label>Reason for New Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Remediation_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Remediation Notes</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Remediation_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Remediation Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Req_Test_Plan_Status_Complete_Date__c</fullName>
+        <description>Auto-populated when the Requirements &amp; Test Plan Status is changed to Complete</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated when the Requirements &amp; Test Plan Status is changed to Complete</inlineHelpText>
+        <label>Req &amp; Test Plan Status Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Requirements_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirements &amp; Test Plan Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>false</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scope_Change_Number__c</fullName>
+        <description>Converts picklist values from Degree of Scope Changes to numerical value</description>
+        <externalId>false</externalId>
+        <formula>CASE(
+  Degree_of_Scope_Changes__c,
+  "1 – Few small changes, no major ones",1,
+  "2 – Many small changes, no major ones",2,
+  "3 – Few small changes, one major change",3,
+  "4 – Many small changes, one major change",4,
+  "5 – More than one major change",5,0
+  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Converts picklist values from Degree of Scope Changes to numerical value</inlineHelpText>
+        <label>Scope Change Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Business_Analyst__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Secondary Business Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Events_QA_Major_Deliverables1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Self_serviced__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select Yes if a 3rd Party (client/agency) is responsible for the majority of the configuration of this deliverable.</inlineHelpText>
+        <label>Self-serviced?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>true</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Solution_Architect_Approval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Only Solution Leads can check this</inlineHelpText>
+        <label>Solution Lead Approval</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Solution_Architect__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Required for ERC, SRC, Surveys, Reporting (if role permission required), or Voting</inlineHelpText>
+        <label>Solution Lead</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.pse__Is_Resource__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events QA - Major Deliverables (Solution Architect)</relationshipLabel>
+        <relationshipName>Events_QA_Major_Deliverables3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Time_to_Complete_Requirements_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <label>Reqs &amp; Test Plan Time Spent (Minutes)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Audit_Points_Passed__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Audit Points Passed</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Audit_Points_Possible__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Audit Points Possible</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Events QA - Major Deliverable</label>
+    <nameField>
+        <label>Events QA - Major Deliverable Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Events QA - Major Deliverables</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Actual_Launch_Date__c</columns>
+        <columns>CAT_Remediation_Required__c</columns>
+        <columns>Degree_of_Scope_Changes__c</columns>
+        <columns>Client_Lanyon__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_QA_Objects</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>On_Quality__c</columns>
+        <columns>On_time__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <label>All Active QA Objects</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_QA_Objects_Late</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>On_Quality__c</columns>
+        <columns>On_time__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Days_till_Launch__c</field>
+            <operation>lessThan</operation>
+            <value>0</value>
+        </filters>
+        <label>All Active QA Objects - Late</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_QA_Objects_Upcoming</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>On_Quality__c</columns>
+        <columns>On_time__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Days_till_Launch__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>0</value>
+        </filters>
+        <label>All Active QA Objects - Upcoming</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Missing_Actual_Date</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Original_Launch_Date__c</columns>
+        <columns>New_Launch_Date__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Actual_Launch_Date__c</columns>
+        <columns>Client_Lanyon__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Actual_Launch_Date__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>All - Closed - Missing Actual Date</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>BA_My_Active_QA_Objects</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Independent_QA_Auditor__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>On_Quality__c</columns>
+        <columns>On_time__c</columns>
+        <columns>Requirements_Status__c</columns>
+        <columns>QA_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_BA__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>My_QA_Works_as_Independent_Auditor__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My - BA - Active QA Objects</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Exceptions_All_Incorrectly_Closed</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR  6)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Requirements_Status__c</columns>
+        <columns>QA_Status__c</columns>
+        <columns>PM_Demo_Status__c</columns>
+        <columns>Customer_Demo_Status__c</columns>
+        <columns>CAT_Status__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Requirements_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </filters>
+        <filters>
+            <field>QA_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>PM_Demo_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>Customer_Demo_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete,Remediation Required</value>
+        </filters>
+        <filters>
+            <field>CAT_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <label>Exceptions - All Incorrectly Closed</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Exceptions_BA_My_Incorrectly_Closed</fullName>
+        <booleanFilter>1 AND (2 OR 3 ) and 4</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Requirements_Status__c</columns>
+        <columns>QA_Status__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Requirements_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </filters>
+        <filters>
+            <field>QA_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_BA__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Exceptions - BA - My Incorrectly Closed</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Exceptions_My_Incorrectly_Closed</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR  6) and 7</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Requirements_Status__c</columns>
+        <columns>QA_Status__c</columns>
+        <columns>PM_Demo_Status__c</columns>
+        <columns>Customer_Demo_Status__c</columns>
+        <columns>CAT_Status__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>Requirements_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </filters>
+        <filters>
+            <field>QA_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>PM_Demo_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>Customer_Demo_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete,Remediation Required</value>
+        </filters>
+        <filters>
+            <field>CAT_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Remediation Required,Complete</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_PM__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Exceptions - PM - My Incorrectly Closed</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_PM_Active_QA_Objects_Date_View</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Original_Launch_Date__c</columns>
+        <columns>New_Launch_Date__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Actual_Launch_Date__c</columns>
+        <columns>Client_Lanyon__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_PM__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My - PM - Active QA Objects Date View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_PM_Closed_Missing_Actual_Date</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Original_Launch_Date__c</columns>
+        <columns>New_Launch_Date__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>Actual_Launch_Date__c</columns>
+        <columns>Client_Lanyon__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_PM__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Actual_Launch_Date__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>My - PM - Closed - Missing Actual Date</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>PM_My_Active_QA_Objects</fullName>
+        <columns>NAME</columns>
+        <columns>Description_short__c</columns>
+        <columns>Self_serviced__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Business_Analyst__c</columns>
+        <columns>Current_Launch_Date__c</columns>
+        <columns>On_Quality__c</columns>
+        <columns>On_time__c</columns>
+        <columns>Major_Deliverable_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Major_Deliverable_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Launched</value>
+        </filters>
+        <filters>
+            <field>My_QA_Work_as_PM__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My - PM - Active QA Objects</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <validationRules>
+        <fullName>Business_Analyst_Cannot_Modify</fullName>
+        <active>true</active>
+        <description>Included more fields to edit (as requested by Emre)
+•	Link to Reqs &amp; Test Plan Document
+•	Description of known issues
+•	Reqs &amp; Test Plan Time Spent (Minutes)
+•	Requirements &amp; Test Plan Status</description>
+        <errorConditionFormula>OR(
+  AND(
+    ISBLANK(Business_Analyst__c),
+    PRIORVALUE(Business_Analyst__c)=$User.Id
+        ),
+  AND(
+    !ISBLANK(PRIORVALUE(Business_Analyst__c)),
+    $User.Id=Business_Analyst__c,
+    
+    !ISCHANGED(Requirements_Status__c),
+    !ISCHANGED(Description_of_known_issues__c),
+    !ISCHANGED(Link_to_Requirements__c),
+    !ISCHANGED(Time_to_Complete_Requirements_Minutes__c),
+  
+    $Permission.Major_Minor_Deliverables_View_Modify_Al=False
+    )
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>You can only update the Requirements and Test Plan section.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CAT_Remediation_Notes_Required</fullName>
+        <active>true</active>
+        <description>UAT Remediation Notes are required when UAT Status is Remediation Required</description>
+        <errorConditionFormula>AND(
+  ISPICKVAL(CAT_Status__c, 'Remediation Required'),
+  ISBLANK(CAT_Remediation_Notes__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>CAT_Remediation_Notes__c</errorDisplayField>
+        <errorMessage>CAT Remediation Notes are required when CAT Status is Remediation Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Client_Lanyon_field_required</fullName>
+        <active>true</active>
+        <description>select a value in the “Client/Lanyon?” field when they enter a value into the “New Launch Date” field</description>
+        <errorConditionFormula>AND(NOT(ISBLANK(New_Launch_Date__c)), 
+ISPICKVAL(Client_Lanyon__c,""))
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Client_Lanyon__c</errorDisplayField>
+        <errorMessage>Please select any value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Demo_Remediation_Notes_Required</fullName>
+        <active>true</active>
+        <description>Customer Demo Remediation Notes are required when the Customer Demo Status is Customer Demo Remediation</description>
+        <errorConditionFormula>AND(
+  ISPICKVAL(Customer_Demo_Status__c, 'Remediation Required'),
+  ISBLANK(Customer_Demo_Remediation_Notes__c)
+  )
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Customer_Demo_Remediation_Notes__c</errorDisplayField>
+        <errorMessage>Demo Remediation Notes are required when the Demo Status is Customer Demo Remediation</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Limit_Available_Solution_Architects</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( 
+NOT(Solution_Architect__r.psa_report__Resource_Name__c="Wade Bowers"), 
+NOT(Solution_Architect__r.psa_report__Resource_Name__c="Brent Bullock"), 
+NOT(Solution_Architect__r.psa_report__Resource_Name__c="Matt Allison"), 
+NOT(Solution_Architect__r.psa_report__Resource_Name__c="Paul Crawford"), 
+NOT(Solution_Architect__r.psa_report__Resource_Name__c="Brandon Mathews"), 
+NOT(ISBLANK(Solution_Architect__c)) 
+) 
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Solution_Architect__c</errorDisplayField>
+        <errorMessage>This person is not a valid Solutions Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Limit_Changes_to_View_All_users</fullName>
+        <active>true</active>
+        <description>Prevents several edits unless user has permission set with custom permission</description>
+        <errorConditionFormula>AND(
+  NOT($Permission.Major_Minor_Deliverables_View_Modify_Al=True),
+  OR(
+      AND(
+        ISCHANGED(Original_Launch_Date__c),
+        !ISBLANK(PRIORVALUE(Original_Launch_Date__c))
+        ),
+      AND(
+        ISCHANGED(Launch_Date_Risk__c),
+        !ISBLANK(PRIORVALUE(Launch_Date_Risk__c)),
+        NOT($Permission.Major_Minor_Deliverables_PM = TRUE)
+        ),
+      AND(
+        ISCHANGED(New_Launch_Date__c),
+        !ISBLANK(PRIORVALUE(New_Launch_Date__c)),
+        NOT($Permission.Major_Minor_Deliverables_PM  = TRUE)
+        ),
+      AND(
+        ISCHANGED(Client_Lanyon__c),
+        !ISBLANK(PRIORVALUE(Client_Lanyon__c)),
+        NOT($Permission.Major_Minor_Deliverables_PM  = TRUE) 
+        ),
+      AND(
+        ISCHANGED(Reason_for_New_Launch_Date__c),
+        !ISBLANK(PRIORVALUE(Reason_for_New_Launch_Date__c)),
+        NOT($Permission.Major_Minor_Deliverables_PM  = TRUE) 
+        )
+      )
+  )
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Only Management can change the values of fields in the Delivery Dates section once they're populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_Actual_Launch_Date</fullName>
+        <active>true</active>
+        <description># 	
+11595177</description>
+        <errorConditionFormula>AND
+(
+ISPICKVAL( Major_Deliverable_Status__c ,"Launched"),
+OR
+(
+ISBLANK( Actual_Launch_Date__c )
+)
+)</errorConditionFormula>
+        <errorMessage>Please specify actual launch date before changing Major Deliverables Status to Launched.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PM_Only_Fields</fullName>
+        <active>true</active>
+        <description>Limits certain fields to be edited by Project Managers</description>
+        <errorConditionFormula>AND(
+  NOT($Permission.Major_Minor_Deliverables_View_Modify_Al=True),
+  NOT(Project__r.pse__Project_Manager__r.pse__Salesforce_User__c=$User.Id),
+  OR(
+        ISCHANGED(Original_Launch_Date__c),
+        ISCHANGED(Launch_Date_Risk__c),
+        ISCHANGED(New_Launch_Date__c),
+        ISCHANGED(Client_Lanyon__c),
+        ISCHANGED(Reason_for_New_Launch_Date__c)
+      ), 
+NOT(OR( 
+$User.Id = '0051N000004y5Ws',/*Shannon Crawford */ 
+$User.Id = '0051N0000068ayD',/*Joe Meehan */ 
+$User.Id = '0051N000004y5Wl',/*Noah Bongard */ 
+$User.Id = '0051N000004y5Wf'/*Jonathan Heider */ 
+) ) 
+  )
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Only the Project Manager can set the values in the Delivery Dates section (and only Management can modify the values once they're set)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PM_Time_Spent_Req_when_Status_Complete</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  OR(ISPICKVAL(PM_Demo_Status__c, 'Complete'),
+       ISPICKVAL(PM_Demo_Status__c, 'Remediation Required')),
+  ISBLANK(PM_Demo_Time_Spent_Minutes__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>PM_Demo_Time_Spent_Minutes__c</errorDisplayField>
+        <errorMessage>PM Demo Time Spent (Minutes) is required when PM Demo Status is Complete or Remediation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSA_Due_Date_Req_when_Assigning_QA</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  !ISNULL(PRIORVALUE(Due_Date__c)),
+  NOT(ISBLANK(Independent_QA_Auditor__c)),
+  ISBLANK(Due_Date__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Due Date cannot be cleared once an Independent QA Auditor is assigned.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSA_QA_Auditor_Required_when_In_Progress</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  ISPICKVAL(QA_Status__c, 'In Progress'),
+  ISBLANK(Independent_QA_Auditor__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Independent_QA_Auditor__c</errorDisplayField>
+        <errorMessage>Independent QA Auditor must be entered when the QA Status is In Progress</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSA_Req_Deliverable_desc_when_type_Other</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  ISPICKVAL(Major_Deliverable_Type__c, 'Other'),
+  ISBLANK(Deliverable_Description__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Deliverable_Description__c</errorDisplayField>
+        <errorMessage>Deliverable Description is a required field when the Major Deliverable Type is 'Other'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Passed_Cant_Be_Greater_Than_Possible</fullName>
+        <active>true</active>
+        <errorConditionFormula>Total_Audit_Points_Passed__c&gt;Total_Audit_Points_Possible__c
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Total Audit Points Passed cannot be greater than Total Audit Points Possible (zero is a valid value).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QA_Cant_be_BA</fullName>
+        <active>true</active>
+        <errorConditionFormula>Business_Analyst__c =  Independent_QA_Auditor__r.pse__Salesforce_User__r.Id
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>The Business Analyst and Independent QA Auditor cannot be the same person.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QA_Remediation_Notes_Required</fullName>
+        <active>true</active>
+        <description>Notes field required if QA Status = Remediation Required</description>
+        <errorConditionFormula>AND(
+  ISPICKVAL(QA_Status__c, 'Remediation Required'),
+  ISBLANK(QA_Remediation_Required_Notes__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>QA_Remediation_Required_Notes__c</errorDisplayField>
+        <errorMessage>QA Remediation Required Notes are required when the QA Status is Remediation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QA_Time_Spen_Req_when_Status_Complete</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  OR(ISPICKVAL(QA_Status__c, 'Complete'),
+       ISPICKVAL(QA_Status__c, 'Remediation Required')),
+  ISBLANK(QA_Time_Spent_Minutes__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Completion Date and QA Time Spent (Minutes) is required when QA Status is Complete or Remediation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Req_Time_Spen_Req_when_Status_Complete</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  ISPICKVAL(Requirements_Status__c, 'Complete'),
+  ISBLANK(Time_to_Complete_Requirements_Minutes__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Time_to_Complete_Requirements_Minutes__c</errorDisplayField>
+        <errorMessage>Time to Complete Requirements (Minutes) is required when Requirements Status is Complete or Remediation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Points_When_Complete_RRequired</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  OR(
+    ISPICKVAL(QA_Status__c,"Complete"),
+    ISPICKVAL(QA_Status__c,"Remediation Required")
+      ),
+  OR(
+     ISNULL(Total_Audit_Points_Possible__c),
+     ISNULL(Total_Audit_Points_Passed__c)
+       )
+     )
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorMessage>Total Audit Points Possible and Total Audit Points Passed are required when the QA Status is Complete or Remediation Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution_Architect_Approval</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Solution_Architect__r.pse__Salesforce_User__c!=$User.Id,
+$Profile.Name!="System Administrator",
+ISCHANGED(Solution_Architect_Approval__c)
+)
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Solution_Architect_Approval__c</errorDisplayField>
+        <errorMessage>Only Solution Architects can approve</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution_Architect_Required_Restricted</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+  AND(
+    OR(
+      ISPICKVAL(Major_Deliverable_Type__c,"ERC"),
+      ISPICKVAL(Major_Deliverable_Type__c,"SRC"),
+      ISPICKVAL(Major_Deliverable_Type__c,"Surveys"),
+      ISPICKVAL(Major_Deliverable_Type__c,"Reporting (if role permission required)"),
+      ISPICKVAL(Major_Deliverable_Type__c,"Voting")
+      ),
+    ISBLANK(Solution_Architect__c)
+    ),
+  AND(
+      NOT(ISPICKVAL(Major_Deliverable_Type__c,"ERC")),
+      NOT(ISPICKVAL(Major_Deliverable_Type__c,"SRC")),
+      NOT(ISPICKVAL(Major_Deliverable_Type__c,"Surveys")),
+      NOT(ISPICKVAL(Major_Deliverable_Type__c,"Reporting (if role permission required)")),
+      NOT(ISPICKVAL(Major_Deliverable_Type__c,"Voting")),
+    NOT(ISBLANK(Solution_Architect__c))
+    )
+  )
+&amp;&amp; $User.Validation_Bypass__c = FALSE</errorConditionFormula>
+        <errorDisplayField>Solution_Architect__c</errorDisplayField>
+        <errorMessage>Solution Architect is required (and only allowed) if the Major Deliverable Type is ERC, SRC, Surveys, Reporting (if role permission required), or Voting.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Major_Deliverable</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Major Deliverable</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/aGB/e?
+Name=PlaceholderName
+&amp;CF00N1N00000EuJdR={!pse__Proj__c.Name}
+&amp;CF00N1N00000EuJdR_lkid={!pse__Proj__c.Id}
+&amp;CF00N1N00000EuJld={!pse__Proj__c.pse__Account__c}
+&amp;CF00N1N00000EuJld_lkid={!pse__Proj__c.pse__AccountId__c}
+&amp;CF00N1N00000EuJmO={!pse__Proj__c.pse__Project_Manager__c}
+&amp;CF00N1N00000EuJmO_lkid={!pse__Proj__c.pse__Project_ManagerId__c}
+&amp;retURL={!pse__Proj__c.Id}</url>
+    </webLinks>
+</CustomObject>

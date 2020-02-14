@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Not aware</fullName>
+        <default>false</default>
+        <label>Not aware</label>
+    </customValue>
+    <customValue>
+        <fullName>Aware but not used</fullName>
+        <default>false</default>
+        <label>Aware but not used</label>
+    </customValue>
+    <customValue>
+        <fullName>Aware and used previously</fullName>
+        <default>false</default>
+        <label>Aware and used previously</label>
+    </customValue>
+    <customValue>
+        <fullName>Aware and currently using</fullName>
+        <default>false</default>
+        <label>Aware and currently using</label>
+    </customValue>
+    <masterLabel>Awareness Answers</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

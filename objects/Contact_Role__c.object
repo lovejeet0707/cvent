@@ -1,0 +1,2435 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Buyer_Role__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Buyer Roles are created/modified by sales and establish the role that the individual plays in the buying process.</inlineHelpText>
+        <label>Account (Buyer Role)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contact - Buyer Roles</relationshipLabel>
+        <relationshipName>Buyer_Contact_Roles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Customer_Role__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer Roles are based on feeds from the product and/or other areas of SFDC to provide user information as it relates to the role the individual plays with our product(s).</inlineHelpText>
+        <label>Account (Customer Role)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contact - Customer Roles</relationshipLabel>
+        <relationshipName>Customer_Contact_Roles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( RecordType.Name == 'Customer Role',   HYPERLINK('/' &amp; Account_Customer_Role__r.Id, Account_Customer_Role__r.Name),    HYPERLINK('/' &amp; Account_Buyer_Role__r.Id, Account_Buyer_Role__r.Name))</formula>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_del__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contact Roles</relationshipLabel>
+        <relationshipName>R00N000000071h6WEAQ</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Acct_ID_Buyer__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Buyer_Role__r.Account_18_digit_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acct ID Buyer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acct_Id_Customer__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Customer_Role__r.Account_18_digit_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acct Id Customer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_History__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Activity History</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Advocate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Advocate</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Batch__c</fullName>
+        <externalId>false</externalId>
+        <label>Batch</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Billing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Case_Activity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Case Activity</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Role</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Executive Sponsor</fullName>
+                    <default>false</default>
+                    <label>Executive Sponsor</label>
+                </value>
+                <value>
+                    <fullName>Decision Maker</fullName>
+                    <default>false</default>
+                    <label>Decision Maker</label>
+                </value>
+                <value>
+                    <fullName>Influencer</fullName>
+                    <default>false</default>
+                    <label>Influencer</label>
+                </value>
+                <value>
+                    <fullName>User</fullName>
+                    <default>false</default>
+                    <label>User</label>
+                </value>
+                <value>
+                    <fullName>Primary POC</fullName>
+                    <default>false</default>
+                    <label>Primary POC</label>
+                </value>
+                <value>
+                    <fullName>Advocate</fullName>
+                    <default>false</default>
+                    <label>Advocate</label>
+                </value>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contact_Validated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Validated Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Validated__c</fullName>
+        <description>IF(( NOW() -  Contact_Validated_Date__c )&lt; 180, true, false)</description>
+        <externalId>false</externalId>
+        <formula>IF(( NOW() -  Contact_Validated_Date__c )&lt; 365, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Validated?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contact Roles</relationshipLabel>
+        <relationshipName>R00N000000071h6REAQ</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Contract_Validated_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Validated By</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Role_Check_account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Customer_Role__c   =   Contact__r.AccountId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Role Check account</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Maker_Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision Maker - Products</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>Decision Street</fullName>
+                    <default>false</default>
+                    <label>Decision Street</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>EMI</fullName>
+                    <default>false</default>
+                    <label>EMI</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Events</fullName>
+                    <default>false</default>
+                    <label>Lanyon Events</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Onsite Solutions</label>
+                </value>
+                <value>
+                    <fullName>QuickMobile</fullName>
+                    <default>false</default>
+                    <label>QuickMobile</label>
+                </value>
+                <value>
+                    <fullName>RappidApp</fullName>
+                    <default>false</default>
+                    <label>RappidApp</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>SignUp4</fullName>
+                    <default>false</default>
+                    <label>SignUp4</label>
+                </value>
+                <value>
+                    <fullName>Social Tables</fullName>
+                    <default>false</default>
+                    <label>Social Tables</label>
+                </value>
+                <value>
+                    <fullName>StarCite</fullName>
+                    <default>false</default>
+                    <label>StarCite</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Decision_Maker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Decision Maker</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <default>false</default>
+                    <label>HR</label>
+                </value>
+                <value>
+                    <fullName>Procurement</fullName>
+                    <default>false</default>
+                    <label>Procurement</label>
+                </value>
+                <value>
+                    <fullName>Travel</fullName>
+                    <default>false</default>
+                    <label>Travel</label>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                    <label>Operations</label>
+                </value>
+                <value>
+                    <fullName>Adminsitrative</fullName>
+                    <default>false</default>
+                    <label>Adminsitrative</label>
+                </value>
+                <value>
+                    <fullName>Technology</fullName>
+                    <default>false</default>
+                    <label>Technology</label>
+                </value>
+                <value>
+                    <fullName>Client Services</fullName>
+                    <default>false</default>
+                    <label>Client Services</label>
+                </value>
+                <value>
+                    <fullName>Billing/Collections</fullName>
+                    <default>false</default>
+                    <label>Billing/Collections</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Talent Development</fullName>
+                    <default>false</default>
+                    <label>Talent Development</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Email</formula>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Executive_Sponsor_Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Executive Sponsor - Products</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>Decision Street</fullName>
+                    <default>false</default>
+                    <label>Decision Street</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>EMI</fullName>
+                    <default>false</default>
+                    <label>EMI</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Events</fullName>
+                    <default>false</default>
+                    <label>Lanyon Events</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Onsite Solutions</label>
+                </value>
+                <value>
+                    <fullName>QuickMobile</fullName>
+                    <default>false</default>
+                    <label>QuickMobile</label>
+                </value>
+                <value>
+                    <fullName>RappidApp</fullName>
+                    <default>false</default>
+                    <label>RappidApp</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>SignUp4</fullName>
+                    <default>false</default>
+                    <label>SignUp4</label>
+                </value>
+                <value>
+                    <fullName>Social Tables</fullName>
+                    <default>false</default>
+                    <label>Social Tables</label>
+                </value>
+                <value>
+                    <fullName>StarCite</fullName>
+                    <default>false</default>
+                    <label>StarCite</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Executive_Sponsor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Executive Sponsor</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Influencer_Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Influencer - Products</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>Decision Street</fullName>
+                    <default>false</default>
+                    <label>Decision Street</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>EMI</fullName>
+                    <default>false</default>
+                    <label>EMI</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Events</fullName>
+                    <default>false</default>
+                    <label>Lanyon Events</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solution</fullName>
+                    <default>false</default>
+                    <label>Onsite Solution</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Onsite Solutions</label>
+                </value>
+                <value>
+                    <fullName>QuickMobile</fullName>
+                    <default>false</default>
+                    <label>QuickMobile</label>
+                </value>
+                <value>
+                    <fullName>RappidApp</fullName>
+                    <default>false</default>
+                    <label>RappidApp</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>SignUp4</fullName>
+                    <default>false</default>
+                    <label>SignUp4</label>
+                </value>
+                <value>
+                    <fullName>Social Tables</fullName>
+                    <default>false</default>
+                    <label>Social Tables</label>
+                </value>
+                <value>
+                    <fullName>StarCite</fullName>
+                    <default>false</default>
+                    <label>StarCite</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Influencer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Influencer</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lanyon_Migrated_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Lanyon Migrated ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Activity_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.LastActivityDate</formula>
+        <label>Last Activity Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date_BT__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Login Date BT</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date_CrowdCompass__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Login Date CrowdCompass</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATETIMEVALUE(NOW())-Last_Login_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Login Date Difference</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date_Passkey__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Login Date Passkey</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Login_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Core Last Login Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Catcher__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Lead Catcher</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Legacy_Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Company Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>QuickMobile</fullName>
+                    <default>false</default>
+                    <label>QuickMobile</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Contact Roles</relationshipLabel>
+        <relationshipName>Buyer_Contact_Roles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_Departments__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_POC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Primary POC</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>Decision Street</fullName>
+                    <default>false</default>
+                    <label>Decision Street</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>EMI</fullName>
+                    <default>false</default>
+                    <label>EMI</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Onsite Solutions</label>
+                </value>
+                <value>
+                    <fullName>RappidApp</fullName>
+                    <default>false</default>
+                    <label>RappidApp</label>
+                </value>
+                <value>
+                    <fullName>SignUp4</fullName>
+                    <default>false</default>
+                    <label>SignUp4</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>HC</fullName>
+                    <default>false</default>
+                    <label>HC</label>
+                </value>
+                <value>
+                    <fullName>CSN-P</fullName>
+                    <default>false</default>
+                    <label>CSN-P</label>
+                </value>
+                <value>
+                    <fullName>Inquisium</fullName>
+                    <default>false</default>
+                    <label>Inquisium</label>
+                </value>
+                <value>
+                    <fullName>Abstract Management</fullName>
+                    <default>false</default>
+                    <label>Abstract Management</label>
+                </value>
+                <value>
+                    <fullName>Appointments</fullName>
+                    <default>false</default>
+                    <label>Appointments</label>
+                </value>
+                <value>
+                    <fullName>OnArrival Premium</fullName>
+                    <default>false</default>
+                    <label>OnArrival Premium</label>
+                </value>
+                <value>
+                    <fullName>Lead Retrieval</fullName>
+                    <default>false</default>
+                    <label>Lead Retrieval</label>
+                </value>
+                <value>
+                    <fullName>Starcite Report Recipient</fullName>
+                    <default>false</default>
+                    <label>Starcite Report Recipient</label>
+                </value>
+                <value>
+                    <fullName>PayGo</fullName>
+                    <default>false</default>
+                    <label>PayGo</label>
+                </value>
+                <value>
+                    <fullName>PassKey</fullName>
+                    <default>false</default>
+                    <label>PassKey</label>
+                </value>
+                <value>
+                    <fullName>BT</fullName>
+                    <default>false</default>
+                    <label>BT</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(RecordTypeId="012o00000012XyW","Buyer Role",
+IF(RecordTypeId="012o00000012XyX","Customer Role",""))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CSN Planner - User</fullName>
+                    <default>false</default>
+                    <label>CSN Planner - User</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Ad Agency Contact</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Ad Agency Contact</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Billing Contact</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Billing Contact</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Both User and Decision-Maker</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Both User and Decision-Maker</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Decision Maker</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Decision Maker</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - e-Commerce Manager/Field Marketing Manager(FMM)</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - e-Commerce Manager/Field Marketing Manager(FMM)</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Evaluator</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Evaluator</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Gatekeeper</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Gatekeeper</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Recommender</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Recommender</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Regional Director of Field Marketing(RDFM)</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Regional Director of Field Marketing(RDFM)</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Regional Sales Officer(RSO)</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Regional Sales Officer(RSO)</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - RFP Catcher</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - RFP Catcher</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - Technician</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - Technician</label>
+                </value>
+                <value>
+                    <fullName>CSN Supplier - User</fullName>
+                    <default>false</default>
+                    <label>CSN Supplier - User</label>
+                </value>
+                <value>
+                    <fullName>Event User</fullName>
+                    <default>false</default>
+                    <label>Event User</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Survey User</fullName>
+                    <default>false</default>
+                    <label>Survey User</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>System_Login__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>System Login</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Title</formula>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Total_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>User_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>User Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>User__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Dormant</fullName>
+                    <default>false</default>
+                    <label>Dormant</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Engaged</fullName>
+                    <default>false</default>
+                    <label>Engaged</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>unchecked</controllingFieldValue>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Dormant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>unchecked</controllingFieldValue>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Active</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>unchecked</controllingFieldValue>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Engaged</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>User_Sub_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>User Sub Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Administrator</fullName>
+                    <default>false</default>
+                    <label>Administrator</label>
+                </value>
+                <value>
+                    <fullName>Community Portal Administrator</fullName>
+                    <default>false</default>
+                    <label>Community Portal Administrator</label>
+                </value>
+                <value>
+                    <fullName>Lead Catcher</fullName>
+                    <default>false</default>
+                    <label>Lead Catcher</label>
+                </value>
+                <value>
+                    <fullName>NSO Contact</fullName>
+                    <default>false</default>
+                    <label>NSO Contact</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Generic Call Center</fullName>
+                    <default>false</default>
+                    <label>Passkey-Generic Call Center</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Hotel</fullName>
+                    <default>false</default>
+                    <label>Passkey-Hotel</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Hotel (ADMIN)</fullName>
+                    <default>false</default>
+                    <label>Passkey-Hotel (ADMIN)</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Hotel Call Center</fullName>
+                    <default>false</default>
+                    <label>Passkey-Hotel Call Center</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Marketing</fullName>
+                    <default>false</default>
+                    <label>Passkey-Marketing</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Organizer</fullName>
+                    <default>false</default>
+                    <label>Passkey-Organizer</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Organizer (ADMIN)</fullName>
+                    <default>false</default>
+                    <label>Passkey-Organizer (ADMIN)</label>
+                </value>
+                <value>
+                    <fullName>Passkey-RoomListManager</fullName>
+                    <default>false</default>
+                    <label>Passkey-RoomListManager</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Sr Organizer</fullName>
+                    <default>false</default>
+                    <label>Passkey-Sr Organizer</label>
+                </value>
+                <value>
+                    <fullName>Passkey-Sr Organizer (ADMIN)</fullName>
+                    <default>false</default>
+                    <label>Passkey-Sr Organizer (ADMIN)</label>
+                </value>
+                <value>
+                    <fullName>Profile Edit POC</fullName>
+                    <default>false</default>
+                    <label>Profile Edit POC</label>
+                </value>
+                <value>
+                    <fullName>Venue Administrator</fullName>
+                    <default>false</default>
+                    <label>Venue Administrator</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>User</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Contact Role</label>
+    <nameField>
+        <displayFormat>{00000}</displayFormat>
+        <label>Contact Role</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contact Roles</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>Buyer_Role</fullName>
+        <active>true</active>
+        <label>Buyer Role</label>
+        <picklistValues>
+            <picklist>Contact_Role__c</picklist>
+            <values>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Sponsor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Influencer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary POC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Maker_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Transient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RegOnline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Adminsitrative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing%2FCollections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Talent Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Executive_Sponsor_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Transient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RegOnline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Influencer_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Transient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RegOnline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Legacy_Company_Name__c</picklist>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>CSN Planner - User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Ad Agency Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Billing Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Both User and Decision-Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Decision Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Evaluator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Gatekeeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - RFP Catcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Recommender</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Regional Director of Field Marketing%28RDFM%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Regional Sales Officer%28RSO%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - e-Commerce Manager%2FField Marketing Manager%28FMM%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>User_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dormant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>User_Sub_Role__c</picklist>
+            <values>
+                <fullName>Lead Catcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Administrator</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Customer_Role</fullName>
+        <active>true</active>
+        <label>Customer Role</label>
+        <picklistValues>
+            <picklist>Contact_Role__c</picklist>
+            <values>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Sponsor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Influencer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary POC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Maker_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Adminsitrative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing%2FCollections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Talent Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Executive_Sponsor_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Influencer_Products__c</picklist>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Street</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RappidApp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SignUp4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Legacy_Company_Name__c</picklist>
+            <values>
+                <fullName>QuickMobile</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>Abstract Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN-P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Retrieval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OnArrival Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PassKey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayGo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starcite Report Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>CSN Planner - User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Ad Agency Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Billing Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Both User and Decision-Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Decision Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Evaluator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Gatekeeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - RFP Catcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Recommender</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Regional Director of Field Marketing%28RDFM%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Regional Sales Officer%28RSO%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN Supplier - e-Commerce Manager%2FField Marketing Manager%28FMM%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event User</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>User_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dormant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>User_Sub_Role__c</picklist>
+            <values>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Portal Administrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead Catcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSO Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Generic Call Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Hotel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Hotel %28ADMIN%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Hotel Call Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Organizer %28ADMIN%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-RoomListManager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Sr Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey-Sr Organizer %28ADMIN%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Profile Edit POC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Administrator</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>Atleast_One_Checkbox_should_be_checked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Executive_Sponsor__c	
+=False,Decision_Maker__c=False,Influencer__c=False, 
+RecordType.DeveloperName="Buyer_Role", 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")))</errorConditionFormula>
+        <errorMessage>At least one of the three roles must be marked true.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Decision_Maker_Products_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Decision_Maker__c=true, 
+ISBLANK(Decision_Maker_Products__c),
+RecordType.DeveloperName="Buyer_Role",
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorDisplayField>Account_del__c</errorDisplayField>
+        <errorMessage>Please select Decision Maker - Products</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Executive_Sponsor_Products_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Executive_Sponsor__c=true, 
+ISBLANK(Executive_Sponsor_Products__c),
+RecordType.DeveloperName="Buyer_Role",
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorMessage>Please select Executive Sponsor - Products</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Influencer_Products_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Influencer__c=true, 
+ISBLANK(Influencer_Products__c),
+RecordType.DeveloperName="Buyer_Role",
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorDisplayField>Account_del__c</errorDisplayField>
+        <errorMessage>Please select Influencer - Products</errorMessage>
+    </validationRules>
+</CustomObject>

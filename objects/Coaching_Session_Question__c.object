@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Coaching_Question_Category__c</fullName>
+        <description>A list of descriptors which helps to further define and categorize a coaching question.</description>
+        <externalId>false</externalId>
+        <label>Coaching Question Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Coaching_Question_Categories</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Coaching_Question__c</fullName>
+        <description>The actual question being asked during a coaching session.</description>
+        <externalId>false</externalId>
+        <label>Coaching Question</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Coaching_Session__c</fullName>
+        <description>Each Coaching Session Question is part of a Coaching Session.</description>
+        <externalId>false</externalId>
+        <label>Coaching Session</label>
+        <referenceTo>Coaching_Session__c</referenceTo>
+        <relationshipLabel>Coaching Session Questions</relationshipLabel>
+        <relationshipName>Coaching_Session_Questions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Comment__c</fullName>
+        <description>Add additional comments related to this coaching question.</description>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Max_Score__c</fullName>
+        <description>The maximum number of points that can be earned for this question.</description>
+        <externalId>false</externalId>
+        <label>Max Score</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Number__c</fullName>
+        <description>This is the order assigned to a question according to the questions type.</description>
+        <externalId>false</externalId>
+        <label>Question Number</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response_Scale__c</fullName>
+        <description>Describes which baseline scoring model should be applied for an individual question.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not attempt to change.</inlineHelpText>
+        <label>Response Scale</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Coaching_Question_Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Boolean</fullName>
+                    <default>false</default>
+                    <label>Boolean</label>
+                </value>
+                <value>
+                    <fullName>3 Point</fullName>
+                    <default>false</default>
+                    <label>3 Point</label>
+                </value>
+                <value>
+                    <fullName>5 Point</fullName>
+                    <default>false</default>
+                    <label>5 Point</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Noncritical</controllingFieldValue>
+                <valueName>3 Point</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Noncritical</controllingFieldValue>
+                <valueName>5 Point</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Business Critical</controllingFieldValue>
+                <controllingFieldValue>Compliance Critical</controllingFieldValue>
+                <controllingFieldValue>End User Critical</controllingFieldValue>
+                <valueName>Boolean</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Response_Set_Code__c</fullName>
+        <description>Controls the set of available responses for the user.</description>
+        <externalId>false</externalId>
+        <label>Response Set Code</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                    <label>11</label>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                    <label>22</label>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                    <label>23</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Response__c</fullName>
+        <description>List of the responses for all coaching questions.  The displayed responses will be controlled by the response code and is based on the individual question type.</description>
+        <externalId>false</externalId>
+        <label>Response</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Response_Scale__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Did Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Did Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Remarkable</fullName>
+                    <default>false</default>
+                    <label>Remarkable</label>
+                </value>
+                <value>
+                    <fullName>Often Exceeds Expectations</fullName>
+                    <default>false</default>
+                    <label>Often Exceeds Expectations</label>
+                </value>
+                <value>
+                    <fullName>Expectations Met</fullName>
+                    <default>false</default>
+                    <label>Expectations Met</label>
+                </value>
+                <value>
+                    <fullName>Improvement Needed</fullName>
+                    <default>false</default>
+                    <label>Improvement Needed</label>
+                </value>
+                <value>
+                    <fullName>Unsatisfactory</fullName>
+                    <default>false</default>
+                    <label>Unsatisfactory</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Boolean</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Boolean</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Boolean</controllingFieldValue>
+                <controllingFieldValue>3 Point</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3 Point</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3 Point</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3 Point</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>5 Point</controllingFieldValue>
+                <valueName>Remarkable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>5 Point</controllingFieldValue>
+                <valueName>Often Exceeds Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>5 Point</controllingFieldValue>
+                <valueName>Expectations Met</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>5 Point</controllingFieldValue>
+                <valueName>Improvement Needed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>5 Point</controllingFieldValue>
+                <valueName>Unsatisfactory</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <description>Calculated question score.</description>
+        <externalId>false</externalId>
+        <formula>CASE(Response__c , "Yes", 1,
+                    "No", 0,
+                    "N/A", 0,
+                    "Met Expectations", ( Max_Score__c * 1),
+                    "Partially Met Expectations", (Max_Score__c * (1/2)),
+                    "Did Not Meet Expectations", 0,
+                    "Remarkable", (Max_Score__c * 1),
+                    "Often Exceeds Expectations", (Max_Score__c * (4/5)),
+                    "Expectations Met", (Max_Score__c * (3/5)),
+                    "Improvement Needed", (Max_Score__c * (2/5)),
+                    "Unsatisfactory", (Max_Score__c * (1/5)),
+                     0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>For each coaching session there are a set of questions that need to be answered.  The questions are loaded from a question bank (Coaching Questions) and individual responses are recorded here.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Coaching Session Question</label>
+    <nameField>
+        <displayFormat>CSQ-{00000}</displayFormat>
+        <label>Coaching Session Questions ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Coaching Session Questions</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Coaching_Session__c</columns>
+        <columns>NAME</columns>
+        <columns>Question_Number__c</columns>
+        <columns>Coaching_Question__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <validationRules>
+        <fullName>QuestionResponseScale_NoChange</fullName>
+        <active>true</active>
+        <description>Enforcement for all users that they cannot change the response scale on a question once it has been loaded as defined in the question bank.</description>
+        <errorConditionFormula>ISCHANGED( Response_Scale__c )</errorConditionFormula>
+        <errorDisplayField>Coaching_Question__c</errorDisplayField>
+        <errorMessage>Response scale cannot be changed.  This question was loaded as it was defined in the question bank.  Press cancel and try again.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Session_is_Submitted</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+$Setup.Coaching_Form_Admin__c.Id__c &lt;&gt; $User.Id,
+$User.Id &lt;&gt; Coaching_Session__r.CreatedById 
+)</errorConditionFormula>
+        <errorMessage>Session is locked. Please contact your QA Evaluator.</errorMessage>
+    </validationRules>
+</CustomObject>

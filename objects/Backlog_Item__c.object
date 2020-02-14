@@ -1,0 +1,1700 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Analysis_Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Analysis Phase</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Approach__c</fullName>
+        <externalId>false</externalId>
+        <label>Approach</label>
+        <length>5000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Assignee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assignee</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Product_Backlog_Items</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Business_Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Case</label>
+        <length>5000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cost__c</fullName>
+        <description>1 = Low Effort
+10 = High Effort</description>
+        <externalId>false</externalId>
+        <label>Cost</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hotfix_Candidate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Hotfix Candidate</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>International_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>International Market</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Market-Specific/USA</fullName>
+                    <default>true</default>
+                    <label>Not Market-Specific/USA</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Europe/UK</fullName>
+                    <default>false</default>
+                    <label>Europe/UK</label>
+                </value>
+                <value>
+                    <fullName>South America</fullName>
+                    <default>false</default>
+                    <label>South America</label>
+                </value>
+                <value>
+                    <fullName>UAE/Middle East</fullName>
+                    <default>false</default>
+                    <label>UAE/Middle East</label>
+                </value>
+                <value>
+                    <fullName>South Africa</fullName>
+                    <default>false</default>
+                    <label>South Africa</label>
+                </value>
+                <value>
+                    <fullName>East Asia</fullName>
+                    <default>false</default>
+                    <label>East Asia</label>
+                </value>
+                <value>
+                    <fullName>Australia</fullName>
+                    <default>false</default>
+                    <label>Australia</label>
+                </value>
+                <value>
+                    <fullName>Other (provide in description)</fullName>
+                    <default>false</default>
+                    <label>Other (provide in description)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Item_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Item Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Feature</fullName>
+                    <default>true</default>
+                    <label>Feature</label>
+                </value>
+                <value>
+                    <fullName>Epic</fullName>
+                    <default>false</default>
+                    <label>Epic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Parent_Epic__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Epic</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Backlog_Item__c.Item_Type__c</field>
+                <operation>equals</operation>
+                <value>Epic</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Backlog_Item__c</referenceTo>
+        <relationshipLabel>Product Backlog Items</relationshipLabel>
+        <relationshipName>Product_Backlog_Items</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>API</fullName>
+                    <default>false</default>
+                    <label>API</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>CrowdTorch</fullName>
+                    <default>false</default>
+                    <label>CrowdTorch</label>
+                </value>
+                <value>
+                    <fullName>CSN - Planners</fullName>
+                    <default>false</default>
+                    <label>CSN - Planners</label>
+                </value>
+                <value>
+                    <fullName>CSN - Search &amp; DG</fullName>
+                    <default>false</default>
+                    <label>CSN - Search &amp; DG</label>
+                </value>
+                <value>
+                    <fullName>CSN - Suppliers</fullName>
+                    <default>false</default>
+                    <label>CSN - Suppliers</label>
+                </value>
+                <value>
+                    <fullName>CVII</fullName>
+                    <default>false</default>
+                    <label>CVII</label>
+                </value>
+                <value>
+                    <fullName>eMarketing</fullName>
+                    <default>false</default>
+                    <label>eMarketing</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>OnArrival</fullName>
+                    <default>false</default>
+                    <label>OnArrival</label>
+                </value>
+                <value>
+                    <fullName>SMM</fullName>
+                    <default>false</default>
+                    <label>SMM</label>
+                </value>
+                <value>
+                    <fullName>SocialWall</fullName>
+                    <default>false</default>
+                    <label>SocialWall</label>
+                </value>
+                <value>
+                    <fullName>SpeedRFP/EMI</fullName>
+                    <default>false</default>
+                    <label>SpeedRFP/EMI</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Release__c</fullName>
+        <externalId>false</externalId>
+        <label>Release</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>9.0</fullName>
+                    <default>false</default>
+                    <label>9.0</label>
+                </value>
+                <value>
+                    <fullName>9.0 Hotfix</fullName>
+                    <default>false</default>
+                    <label>9.0 Hotfix</label>
+                </value>
+                <value>
+                    <fullName>9.0 MR1</fullName>
+                    <default>false</default>
+                    <label>9.0 MR1</label>
+                </value>
+                <value>
+                    <fullName>9.0 MR2</fullName>
+                    <default>false</default>
+                    <label>9.0 MR2</label>
+                </value>
+                <value>
+                    <fullName>9.0 MR3</fullName>
+                    <default>false</default>
+                    <label>9.0 MR3</label>
+                </value>
+                <value>
+                    <fullName>9.0 MR4</fullName>
+                    <default>false</default>
+                    <label>9.0 MR4</label>
+                </value>
+                <value>
+                    <fullName>9.1</fullName>
+                    <default>false</default>
+                    <label>9.1</label>
+                </value>
+                <value>
+                    <fullName>9.1 Hotfix</fullName>
+                    <default>false</default>
+                    <label>9.1 Hotfix</label>
+                </value>
+                <value>
+                    <fullName>9.1 MR1</fullName>
+                    <default>false</default>
+                    <label>9.1 MR1</label>
+                </value>
+                <value>
+                    <fullName>9.1 MR2</fullName>
+                    <default>false</default>
+                    <label>9.1 MR2</label>
+                </value>
+                <value>
+                    <fullName>9.1 MR3</fullName>
+                    <default>false</default>
+                    <label>9.1 MR3</label>
+                </value>
+                <value>
+                    <fullName>9.1 MR4</fullName>
+                    <default>false</default>
+                    <label>9.1 MR4</label>
+                </value>
+                <value>
+                    <fullName>10.0</fullName>
+                    <default>false</default>
+                    <label>10.0</label>
+                </value>
+                <value>
+                    <fullName>10.0 Hotfix</fullName>
+                    <default>false</default>
+                    <label>10.0 Hotfix</label>
+                </value>
+                <value>
+                    <fullName>10.0 MR1</fullName>
+                    <default>false</default>
+                    <label>10.0 MR1</label>
+                </value>
+                <value>
+                    <fullName>10.0 MR2</fullName>
+                    <default>false</default>
+                    <label>10.0 MR2</label>
+                </value>
+                <value>
+                    <fullName>10.0 MR3</fullName>
+                    <default>false</default>
+                    <label>10.0 MR3</label>
+                </value>
+                <value>
+                    <fullName>10.0 MR4</fullName>
+                    <default>false</default>
+                    <label>10.0 MR4</label>
+                </value>
+                <value>
+                    <fullName>10.1</fullName>
+                    <default>false</default>
+                    <label>10.1</label>
+                </value>
+                <value>
+                    <fullName>10.1 Hotfix</fullName>
+                    <default>false</default>
+                    <label>10.1 Hotfix</label>
+                </value>
+                <value>
+                    <fullName>10.1 MR1</fullName>
+                    <default>false</default>
+                    <label>10.1 MR1</label>
+                </value>
+                <value>
+                    <fullName>10.1 MR2</fullName>
+                    <default>false</default>
+                    <label>10.1 MR2</label>
+                </value>
+                <value>
+                    <fullName>10.1 MR3</fullName>
+                    <default>false</default>
+                    <label>10.1 MR3</label>
+                </value>
+                <value>
+                    <fullName>10.1 MR4</fullName>
+                    <default>false</default>
+                    <label>10.1 MR4</label>
+                </value>
+                <value>
+                    <fullName>PSR  Event Phase</fullName>
+                    <default>false</default>
+                    <label>PSR  Event Phase</label>
+                </value>
+                <value>
+                    <fullName>PSR  Survey Phase</fullName>
+                    <default>false</default>
+                    <label>PSR  Survey Phase</label>
+                </value>
+                <value>
+                    <fullName>PSR  Admin Phase</fullName>
+                    <default>false</default>
+                    <label>PSR  Admin Phase</label>
+                </value>
+                <value>
+                    <fullName>PSR  CSN Phase</fullName>
+                    <default>false</default>
+                    <label>PSR  CSN Phase</label>
+                </value>
+                <value>
+                    <fullName>PSR - eMarketing (Part 2)</fullName>
+                    <default>false</default>
+                    <label>PSR - eMarketing (Part 2)</label>
+                </value>
+                <value>
+                    <fullName>PSR - Contacts (Part 2)</fullName>
+                    <default>false</default>
+                    <label>PSR - Contacts (Part 2)</label>
+                </value>
+                <value>
+                    <fullName>3.1</fullName>
+                    <default>false</default>
+                    <label>3.1</label>
+                </value>
+                <value>
+                    <fullName>3.2</fullName>
+                    <default>false</default>
+                    <label>3.2</label>
+                </value>
+                <value>
+                    <fullName>3.3</fullName>
+                    <default>false</default>
+                    <label>3.3</label>
+                </value>
+                <value>
+                    <fullName>3.4</fullName>
+                    <default>false</default>
+                    <label>3.4</label>
+                </value>
+                <value>
+                    <fullName>3.5</fullName>
+                    <default>false</default>
+                    <label>3.5</label>
+                </value>
+                <value>
+                    <fullName>3.6</fullName>
+                    <default>false</default>
+                    <label>3.6</label>
+                </value>
+                <value>
+                    <fullName>3.7</fullName>
+                    <default>false</default>
+                    <label>3.7</label>
+                </value>
+                <value>
+                    <fullName>3.8</fullName>
+                    <default>false</default>
+                    <label>3.8</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0 Hotfix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0 MR1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0 MR2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0 MR3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.0 MR4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1 Hotfix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1 MR1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1 MR2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1 MR3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>9.1 MR4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0 Hotfix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0 MR1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0 MR2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0 MR3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.0 MR4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1 Hotfix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1 MR1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1 MR2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1 MR3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>10.1 MR4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR  Event Phase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR  Survey Phase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR  Admin Phase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR  CSN Phase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR - eMarketing (Part 2)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>API</controllingFieldValue>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <controllingFieldValue>eMarketing</controllingFieldValue>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <controllingFieldValue>SMM</controllingFieldValue>
+                <controllingFieldValue>Survey</controllingFieldValue>
+                <controllingFieldValue>CVII</controllingFieldValue>
+                <valueName>PSR - Contacts (Part 2)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>CrowdTorch</controllingFieldValue>
+                <valueName>3.1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>CrowdTorch</controllingFieldValue>
+                <valueName>3.2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>CrowdTorch</controllingFieldValue>
+                <valueName>3.3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>CrowdTorch</controllingFieldValue>
+                <valueName>3.4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>CrowdTorch</controllingFieldValue>
+                <valueName>3.5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <valueName>3.6</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <valueName>3.7</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <valueName>3.8</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Requirements_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirements Link</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>(11 - VALUE(TEXT(Cost__c))) * VALUE(TEXT(Value__c))</formula>
+        <label>Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Ice</fullName>
+                    <default>true</default>
+                    <label>On Ice</label>
+                </value>
+                <value>
+                    <fullName>Scheduled</fullName>
+                    <default>false</default>
+                    <label>Scheduled</label>
+                </value>
+                <value>
+                    <fullName>Closed - Released</fullName>
+                    <default>false</default>
+                    <label>Closed - Released</label>
+                </value>
+                <value>
+                    <fullName>Closed - Abandoned</fullName>
+                    <default>false</default>
+                    <label>Closed - Abandoned</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subcategory__c</fullName>
+        <externalId>false</externalId>
+        <label>Subcategory</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>User Experience</fullName>
+                    <default>false</default>
+                    <label>User Experience</label>
+                </value>
+                <value>
+                    <fullName>Backend</fullName>
+                    <default>false</default>
+                    <label>Backend</label>
+                </value>
+                <value>
+                    <fullName>International</fullName>
+                    <default>false</default>
+                    <label>International</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Ticket_Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Ticket/Issue #</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <description>1 = Not Valuable
+10 = Highly Valuable</description>
+        <externalId>false</externalId>
+        <label>Value</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Backlog Item</label>
+    <nameField>
+        <label>Backlog Item Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Product Backlog Items</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Parent_Epic__c</field>
+            <operation>equals</operation>
+            <value>reporting</value>
+        </filters>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Brandon_and_Shravan</fullName>
+        <columns>NAME</columns>
+        <columns>Assignee__c</columns>
+        <columns>Status__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Score__c</columns>
+        <columns>Value__c</columns>
+        <columns>Cost__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Requirements_Link__c</columns>
+        <columns>Product__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Assignee__c</field>
+            <operation>equals</operation>
+            <value>Shravan Suri</value>
+        </filters>
+        <label>Shravan</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>CSN</fullName>
+        <columns>NAME</columns>
+        <columns>Score__c</columns>
+        <columns>Value__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>CSN - Planners,CSN - Search &amp; DG,CSN - Suppliers</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice</value>
+        </filters>
+        <filters>
+            <field>Item_Type__c</field>
+            <operation>equals</operation>
+            <value>Feature</value>
+        </filters>
+        <label>CSN Future Enhancements</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Tech_PMs_CSN</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CSN_Future_Enhancements_Not_Rated</fullName>
+        <columns>NAME</columns>
+        <columns>Score__c</columns>
+        <columns>Value__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Priority__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>CSN - Planners,CSN - Search &amp; DG,CSN - Suppliers</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice</value>
+        </filters>
+        <filters>
+            <field>Item_Type__c</field>
+            <operation>equals</operation>
+            <value>Feature</value>
+        </filters>
+        <filters>
+            <field>Priority__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>CSN Future Enhancements - Not Rated</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Product_Management</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CSN_Future_Enhancements_Not_Rated1</fullName>
+        <columns>NAME</columns>
+        <columns>Score__c</columns>
+        <columns>Value__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Priority__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>CSN - Planners,CSN - Search &amp; DG,CSN - Suppliers</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice</value>
+        </filters>
+        <filters>
+            <field>Item_Type__c</field>
+            <operation>equals</operation>
+            <value>Feature</value>
+        </filters>
+        <filters>
+            <field>Priority__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>OWNER.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>Pandelidis</value>
+        </filters>
+        <label>CSN Future Enhancements - temp</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Product_Management</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CSN_Scheduled_Enhancements</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>CSN - Planners,CSN - Search &amp; DG,CSN - Suppliers</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Scheduled</value>
+        </filters>
+        <filters>
+            <field>Item_Type__c</field>
+            <operation>equals</operation>
+            <value>Feature,Epic</value>
+        </filters>
+        <label>CSN Scheduled Enhancements</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Product_Management</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CrowdCompass</fullName>
+        <columns>NAME</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Ticket_Issue__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Analysis_Phase__c</columns>
+        <columns>Requirements_Link__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>CrowdCompass</value>
+        </filters>
+        <filters>
+            <field>Parent_Epic__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed - Released,Closed - Abandoned</value>
+        </filters>
+        <label>CrowdCompass</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>EMI_Future_Enhancements</fullName>
+        <columns>NAME</columns>
+        <columns>Score__c</columns>
+        <columns>Value__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>Assignee__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>EMI Future Enhancements</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Enhancement_Backlog_On_Ice</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Analysis_Phase__c</columns>
+        <columns>Approach__c</columns>
+        <columns>Assignee__c</columns>
+        <columns>Business_Case__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>International_Market__c</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Priority__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice</value>
+        </filters>
+        <label>Enhancement Backlog - On Ice</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Event2</fullName>
+        <columns>NAME</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Score__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>Event</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice</value>
+        </filters>
+        <label>Event - On Ice</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Event_Closed_Released</fullName>
+        <columns>NAME</columns>
+        <columns>Item_Type__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Score__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>Event</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed - Released</value>
+        </filters>
+        <label>Event - Closed - Released</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Kunal_ER_Backlog</fullName>
+        <columns>NAME</columns>
+        <columns>Assignee__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>Requirements_Link__c</columns>
+        <columns>Score__c</columns>
+        <columns>Status__c</columns>
+        <columns>Value__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Assignee__c</field>
+            <operation>equals</operation>
+            <value>Kunal Lal</value>
+        </filters>
+        <label>Kunal - ER Backlog</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SMM_Backlog_Items</fullName>
+        <columns>NAME</columns>
+        <columns>Approach__c</columns>
+        <columns>Business_Case__c</columns>
+        <columns>Requirements_Link__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Analysis_Phase__c</columns>
+        <columns>Status__c</columns>
+        <columns>Release__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Assignee__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>SMM</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice,Scheduled</value>
+        </filters>
+        <label>SMM - On Ice and Scheduled</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Tech_PMs_SMM</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>SMM_Released</fullName>
+        <columns>NAME</columns>
+        <columns>Approach__c</columns>
+        <columns>Business_Case__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Parent_Epic__c</columns>
+        <columns>Release__c</columns>
+        <columns>Requirements_Link__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>SMM</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed - Released</value>
+        </filters>
+        <label>SMM - Released</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Tech_PMs_SMM</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Survey_Backlogs</fullName>
+        <columns>CREATEDBY_USER</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Cost__c</columns>
+        <columns>Value__c</columns>
+        <columns>Score__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Item_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>contains</operation>
+            <value>Survey,eMarketing</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>On Ice,Scheduled</value>
+        </filters>
+        <filters>
+            <field>Hotfix_Candidate__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Survey Hot Fix Candidates (To Do)</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Survey_Low_Hanging_fruit</fullName>
+        <columns>NAME</columns>
+        <columns>Assignee__c</columns>
+        <columns>Hotfix_Candidate__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Product__c</columns>
+        <columns>Business_Case__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product__c</field>
+            <operation>equals</operation>
+            <value>Survey</value>
+        </filters>
+        <filters>
+            <field>Cost__c</field>
+            <operation>contains</operation>
+            <value>1,2,3,4</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Scheduled,Closed - Released,Closed - Abandoned</value>
+        </filters>
+        <label>Survey Low-Hanging fruit</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Tech_PMs_Survey</group>
+        </sharedTo>
+    </listViews>
+</CustomObject>

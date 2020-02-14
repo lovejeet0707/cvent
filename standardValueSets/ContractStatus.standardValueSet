@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>In Approval Process</fullName>
+        <default>false</default>
+        <label>In Approval Process</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Received</fullName>
+        <default>false</default>
+        <label>Received</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Assigned</fullName>
+        <default>false</default>
+        <label>Assigned</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Review</fullName>
+        <default>false</default>
+        <label>In Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for Documents</fullName>
+        <default>false</default>
+        <label>Waiting for Documents</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Response from Counterparty</fullName>
+        <default>false</default>
+        <label>Awaiting Response from Counterparty</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Response from Cvent Internal Stakeholders</fullName>
+        <default>false</default>
+        <label>Awaiting Response from Cvent Internal Stakeholders</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Drafting Initial Response</fullName>
+        <default>false</default>
+        <label>Drafting Initial Response</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Drafting Subsequent Response</fullName>
+        <default>false</default>
+        <label>Drafting Subsequent Response</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Negotiation with Opposing Counsel</fullName>
+        <default>false</default>
+        <label>Negotiation with Opposing Counsel</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renegotiation</fullName>
+        <default>false</default>
+        <label>Renegotiation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Ready for Signature</fullName>
+        <default>false</default>
+        <label>Ready for Signature</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Response Received from Counterparty (Review Pending)</fullName>
+        <default>false</default>
+        <label>Response Received from Counterparty (Review Pending)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed/Not Executed</fullName>
+        <default>false</default>
+        <label>Closed/Not Executed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed/Executed</fullName>
+        <default>false</default>
+        <label>Closed/Executed</label>
+    </standardValue>
+</StandardValueSet>

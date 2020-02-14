@@ -29,7 +29,7 @@ global class InquisiumToSalesforceSurveySync{
             surveyFinalKey += ':'+surveyType.trim();
         if(surveySubType != null)
             surveyFinalKey += ':'+surveySubType.trim();
-        
+        system.debug('----surveyFinalKey '+  surveyFinalKey);
         // Get Survey Mappings from the Custom MetaData Type - "SyncSurveyFromInquisiumMapping__mdt"
         metaDataLabelToMetaDataTypeMap = new Map<String,SyncSurveyFromInquisiumMapping__mdt>();
         
@@ -75,6 +75,7 @@ global class InquisiumToSalesforceSurveySync{
         
         if(!Test.isRunningTest()){
             result = loginStub.loginRequest(loginRequestMap,40000);
+            system.debug('----successlogin ');
         }else{
             Cevent_WebService_Helper.LoginResult testobj = new Cevent_WebService_Helper.LoginResult();
             testobj.sessionId='sssssss'; 
@@ -94,7 +95,8 @@ global class InquisiumToSalesforceSurveySync{
         // Else part executes whenever the request comes from the automated workflow.
         if(surveyFinalKey != null){
             // Update the Cvent Survey ID
-            searchRequestMap.put('SurveyID',metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Survey_Stub_ID__c.trim());            
+            searchRequestMap.put('SurveyID',metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Survey_Stub_ID__c.trim());  
+            system.debug('----searchRequestMap'+ searchRequestMap);          
         } 
         
         Date DateToday = date.today().addDays(-Integer.valueOf(metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Survey_Sync_Deadline_In_Days__c));
@@ -111,7 +113,7 @@ global class InquisiumToSalesforceSurveySync{
             testobj.Error_Code = '200'; 
             searchResult.add(testobj);         
         }
-        
+        system.debug('----searchRequestMap1'+ searchRequestMap); 
         // Collecting survey IDS from Search API response.         
         for(Cevent_WebService_Helper.searchWrapper var : searchResult){
             surveyIds.add(var.SurveyId);
@@ -129,6 +131,7 @@ global class InquisiumToSalesforceSurveySync{
         
         if(!Test.isRunningTest()){
             surveyResult = surveyStub.retriveSurvey(surveyRequestMap,surveyIds,40000);
+            system.debug('----surveyResult'+ surveyResult); 
         }else{
             Cevent_WebService_Helper.SurveyDetailWrapper testobj = new Cevent_WebService_Helper.SurveyDetailWrapper();
             testobj.Id = 'sssssss'; 
@@ -146,6 +149,7 @@ global class InquisiumToSalesforceSurveySync{
             testobj.Answere = SurveyAnswereWrapper_TestList;                                   
             SurveyResult.add(testobj);         
         }
+        system.debug('----surveyResult1'+ surveyResult); 
         // If the Survey Result Size is > 0. It means some surveys are reteived.
         if(SurveyResult.size() > 0){
             // Variable and Object declaration
@@ -163,7 +167,10 @@ global class InquisiumToSalesforceSurveySync{
             
             // get survey information
             if(metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Allow_Multiple_Responses__c){
+                system.debug('first if'+ surveyRefId);
+                system.debug('-----getSurveyInfo'+ getSurveyInfo(metaDataLabelToMetaDataTypeMap.get(surveyFinalKey),surveyRefId));
                 for(Survey_Q__c surveyInfo  : getSurveyInfo(metaDataLabelToMetaDataTypeMap.get(surveyFinalKey),surveyRefId)){
+                    system.debug('surveyInfo'+ surveyInfo);
                     surveyInfoKey = '';
                     
                     if(surveyInfo.Name != null)
@@ -179,9 +186,12 @@ global class InquisiumToSalesforceSurveySync{
                     // create unique record in the map
                     surveyInfokeyToSurveyInfoObjMap.put(surveyInfoKey, surveyInfo);
                 }
+                system.debug('----surveyInfokeyToSurveyInfoObjMap'+ surveyInfokeyToSurveyInfoObjMap); 
             }
             
             for(Cevent_WebService_Helper.SurveyDetailWrapper surveyResponseObj : SurveyResult){
+                system.debug('----surveyResponseObj'+ surveyResponseObj);
+                system.debug('----surveyResponseObj.SourceId'+ surveyResponseObj.SourceId);
                 surveyResponseSourceId = '';
                 IsvalidSurveyRecordId = true;
                 // Get the survey Respondent Name
@@ -210,6 +220,7 @@ global class InquisiumToSalesforceSurveySync{
                 // Creates a Survey Information Object only if the Salesforce Record ID and Survey Source ID are matched.
                 // AND Inquisium Response Number and Survey Response Number are matched.
                 if(!metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Allow_Multiple_Responses__c && surveyResponseNumber == responseNumber && surveyRefId == surveyResponseSourceId){
+                    system.debug('----metaDataLabelToMetaDataTypeMap' );
                     // Fetch individual responses and create a Survey Information Object.
                     for(Cevent_WebService_Helper.SurveyAnswereWrapper val: surveyResponseObj.Answere){
                         surveyInfoObj = new Survey_Q__c();
@@ -232,6 +243,7 @@ global class InquisiumToSalesforceSurveySync{
                     // Handles multiple responses per object
                     // Creates a Survey Information Object only if the Salesforce Record ID and Survey Source ID are matched.                    
                 }else if(metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Allow_Multiple_Responses__c && surveyRefId == surveyResponseSourceId){
+                    system.debug('second if'+ metaDataLabelToMetaDataTypeMap.get(surveyFinalKey).Allow_Multiple_Responses__c);
                     // Fetch individual responses and create a Survey Information Object.
                     for(Cevent_WebService_Helper.SurveyAnswereWrapper val: surveyResponseObj.Answere){
                         surveyInfoObj = new Survey_Q__c();
@@ -266,7 +278,7 @@ global class InquisiumToSalesforceSurveySync{
                         }                         
                     } 
                 }
-            }
+            } system.debug('---surveyInformationList'+surveyInformationList);
             try{
                 if(!surveyInformationList.isEmpty()){
                     insert surveyInformationList;

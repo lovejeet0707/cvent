@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>No_of_Weeks__c</fullName>
+        <externalId>false</externalId>
+        <label># Weeks from Packlist Freeze to Shipment</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Cvent Asset Management settings. Developed by the Professional Services Operations Team.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>CAM_Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

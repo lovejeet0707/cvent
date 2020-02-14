@@ -1520,4 +1520,222 @@ public testmethod static void testMethodForPending()
         update instopp;
 
     }
+    
+    public testmethod static void sucessExpTestmethod(){
+   
+   List<PricebookEntry> listOfPBE=new List<PricebookEntry>();
+   Address__c  sAddress= new Address__c();
+   Profile p = [SELECT Id FROM Profile WHERE Name='Sales Development - RFP'];
+        
+        User u = new User(Alias = 'standt', Email='standarduser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Payne', FirstName ='Donnie',LanguageLocaleKey='en_US',
+                          LocaleSidKey='en_US', ProfileId = p.Id,
+                          TimeZoneSidKey='America/Los_Angeles',
+                          UserName='test12987@ctest.com');
+        insert u;
+   
+   Product2 prod2= new Product2(Name = 'Test Product - OneTime',
+                                        Family = 'XTCD',
+                                     Description = 'Test Product',
+                                     IsActive = true,
+                                    ProductCode='CV-PS-EC-CCS-APPBPLS',Success_Experience_Product__c = TRUE,Success_Experience_Category__c = 'Event');
+        insert prod2;
+        Id pricebookId = Test.getStandardPricebookId();
+        PricebookEntry pbEntry = new PricebookEntry(Pricebook2Id = pricebookId,
+                                                    product2Id = prod2.Id,
+                                                    isActive = true,
+                                                    UnitPrice = 1000);
+        insert pbEntry;
+        
+        
+        
+   
+   Account acc = TestUtil.createAccount('Test Account','Biz_Ac');
+        acc.Supplier_Type__c = 'Venue';
+        acc.Venue_Type__c = 'CVB';
+        acc.CSN_Status__c ='Using';
+        acc.Supplier_Status__c='Approved';
+        acc.BillingCountryCode='US';
+        acc.BillingStateCode='TX';
+        acc.Named_Acct__c = 'TPP Client';
+        acc.Global_Ultimate_DUNS__c ='12345678';
+        acc.Success_Experience__c = 'Guided';
+        acc.Success_Experience_Products__c = 'Event';
+        insert acc;
+        
+        Account acc1 = TestUtil.createAccount('Test Account','Biz_Ac');
+        acc1.Supplier_Type__c = 'Venue';
+        acc1.Venue_Type__c = 'CVB';
+        acc1.CSN_Status__c ='Using';
+        acc1.Supplier_Status__c='Approved';
+        acc1.BillingCountryCode='US';
+        acc1.BillingStateCode='TX';
+        acc1.Named_Acct__c = 'TPP Client';
+        acc1.Global_Ultimate_DUNS__c ='12345678';
+        acc1.Success_Experience__c = 'Advised';
+        insert acc1;
+        
+          sAddress = new Address__c();
+            sAddress.Type__c = 'Shipping';
+            sAddress.Account__c = acc.Id;
+            saddress.City__c='Burnaby';
+            saddress.Province__c='BC';
+            saddress.Country__c='US';
+            saddress.CountryCode__c='US';
+            saddress.Postal_Code__c = '1001';
+            saddress.EBS_Site_Use_Id__c=null;
+            sAddress.EBS_Account_Id__c = acc.Id;
+            sAddress.Operating_Unit_Name__c='CVAUS';
+            insert sAddress;
+            
+        
+        Contact con = TestUtil.createContact(acc.id);
+        con.Email = 'Test987654321@test.com';
+        con.Phone = '8877665544';
+        insert con;
+
+        AccountTeamMember instATeam=TestUtil.createAccountTeamMember(acc.id,'AM - Renewal Specialist');
+        instATeam.userid = u.Id;
+        insert instATeam;
+        
+        List<Opportunity> oppList = new List<Opportunity>();
+        Opportunity instOpp = TestUtil.createOpportunity('Test Opp','Renewal','Qualified');
+        instOpp.AccountID = acc.id;
+        instOpp.RenewalDate__c = System.today() - 5;
+        instOpp.Ship_To_Address__c = sAddress.id;
+        instopp.StageName='Verbal';
+        instOpp.Contract_Type_2_0__c = 'Reflag';
+        oppList.add(instOpp);
+        
+        Opportunity oppRec = TestUtil.createOpportunity('Test Opp','Renewal','Qualified');
+        oppRec.stageName = 'Presentation';
+        oppRec.AccountID = acc.id;
+        oppRec.RenewalDate__c = System.today() - 5;
+        oppRec.Ship_To_Address__c = sAddress.id;
+        oppRec.Contract_Type_2_0__c = 'Reflag';
+        oppList.add(oppRec);
+        
+        insert oppList;
+        
+        
+        
+        SBQQ__Quote__c sbqq = new SBQQ__Quote__c();
+        sbqq.SBQQ__Opportunity2__c = instopp.id;
+        sbqq.Contract_Term_Years__c = '1';
+        sbqq.Contract_Executed_Date__c = System.today()+5;
+        sbqq.SBQQ__Primary__c = true;        
+        //instopp.SBQQ__PrimaryQuote__c=sbqq.id;
+        insert sbqq;
+        
+        
+        
+        List<OpportunityLineItem> listOlitem = new List<OpportunityLineItem>();
+            
+        Product2 product1 = new Product2();
+        product1.Name = 'Product 1';
+        product1.Family = 'Event';
+        product1.Contract_Output_Grouping__c = 'Bundle Advertisements';
+        product1.Product_Group__c = 'Event Cloud';
+        product1.Revenue_Type__c = 'Annual Recurring';
+        product1.Success_Experience_Product__c = TRUE;
+        product1.Success_Experience_Category__c = 'Event';
+        insert product1;
+         
+        SBQQ__QuoteLine__c ql1 = new SBQQ__QuoteLine__c();
+        ql1.SBQQ__Quantity__c = 1;
+        ql1.SBQQ__Product__c = product1.Id;
+        ql1.SBQQ__ListPrice__c = 10;
+        ql1.SBQQ__NetPrice__c = 10;
+        ql1.SBQQ__SubscriptionPricing__c = 'Fixed Price';
+        ql1.Rack_Rate__c = 10;
+        ql1.Year_2_Quantity__c = 2;
+        ql1.Year_2_List_Price__c = 20;
+        ql1.Year_2_Net_Amount__c = 40;
+        ql1.Year_2_Effective_Amount__c = 40;
+        ql1.Year_3_Quantity__c = 2;
+        ql1.Year_3_List_Price__c = 20;
+        ql1.Year_3_Net_Amount__c = 40;
+        ql1.Year_3_Effective_Amount__c = 40;
+        ql1.Year_4_Quantity__c = 2;
+        ql1.Year_4_List_Price__c = 20;
+        ql1.Year_4_Net_Amount__c = 40;
+        ql1.Year_4_Effective_Amount__c = 40;
+        ql1.Year_5_Quantity__c = 2;
+        ql1.Year_5_List_Price__c = 20;
+        ql1.Year_5_Net_Amount__c = 40;
+        ql1.Year_5_Effective_Amount__c = 40;
+        ql1.SBQQ__Quote__c = sbqq.Id;
+        ql1.Notes__c = 'abc';
+        ql1.SBQQ__EndDate__c = System.today().addDays(10);
+        ql1.SBQQ__Group__c = null;
+        //ql1.Primary_Quote_Line__c = true;
+        
+        insert ql1;
+        
+        OpportunityLineItem instOfOlitem=new OpportunityLineItem();
+        instOfOlitem.OpportunityID = instOpp.Id;
+        instOfOlitem.PriceBookEntryID=pbEntry.Id;
+        instOfOlitem.Product__c = 'CVENT Attendee Support';
+        instOfOlitem.quantity=4;
+        instOfOlitem.totalprice=200;
+        instOfOlitem.SBQQ__QuoteLine__c = ql1.id;
+        instOfOlitem.Product2Id = prod2.Id;
+        //instOfOlitem.Product_Group__c = 'Event Cloud';
+        //instOfOlitem.SBQQ__QuoteLine__r.Revenue_Type__c ='Annual Recurring' ;
+       // instOfOlitem.SBQQ__QuoteLine__r.SBQQ__EffectiveEndDate__c = system.Today().addDays(100);
+        // instOfOlitem.SBQQ__QuoteLine__r.Primary_Quote_Line__c= true;
+        // instOfOlitem.SBQQ__QuoteLine__r.SBQQ__Group__r.SBQQ__Optional__c = False;
+        listOlitem.add(instOfOlitem);
+        
+         instOfOlitem=new OpportunityLineItem();
+        instOfOlitem.OpportunityID = instOpp.Id;
+        instOfOlitem.PriceBookEntryID=pbEntry.Id;
+        instOfOlitem.Product__c = 'Cvent Creative Services';
+        instOfOlitem.Product2Id = prod2.Id;
+        instOfOlitem.quantity=4;
+        instOfOlitem.totalprice=200;
+        
+        listOlitem.add(instOfOlitem);
+        
+        instOfOlitem=new OpportunityLineItem();
+        instOfOlitem.OpportunityID = instOpp.Id;
+        instOfOlitem.Product2Id = prod2.Id;
+       // instOfOlitem.PriceBookEntryID=listOfPBE[5].Id;
+        instOfOlitem.Product__c = 'Transient Sourcing';
+        instOfOlitem.quantity=4;
+        instOfOlitem.totalprice=200;
+        
+        //listOlitem.add(instOfOlitem);
+        
+        insert listOlitem;
+        
+        Success_Experience_Setup__c  exp = new Success_Experience_Setup__c ();
+        exp.Target_Success_Experience__c = 'Advised';
+        exp.Region__c = 'North America; South and Latin America; Europe';
+        exp.Rule_Reason__c ='Account has only Event and CrowdCompass Products.';
+        exp.Products__c = 'CrowdCompass; Event';
+        exp.Level__c = 2;
+        exp.Number_of_Products_Lower_Threshold__c  = 0;
+        exp.Number_of_Products_Higher_Threshold__c = 5;
+        insert exp;
+        
+        
+        //update sbqq;
+        
+        
+        //update instOpp;
+        
+        List<Opportunity> newValues = new List<Opportunity>();
+        newValues = [Select id,IsWon,IsClosed, Opportunity_Type__c,stageName, AccountId, Probability from Opportunity where id =: instOpp.id ];
+        Map<Id,Opportunity> newMapOpp = new Map<Id,Opportunity>();
+        newMapOpp.put(instOpp.id, newValues[0]);
+        Map<Id,Opportunity> oldMapOpp = new Map<Id,Opportunity>();
+        oldMapOpp.put(instOpp.id, oppRec);
+        OpportunityTrgHelperCls_Version_2.successExperienceProductRollup(newValues, newMapOpp, oldMapOpp);
+        
+        //SuccessExperienceCalculator.checkCalculation(acc.Id , instOpp.Id);
+        Map<id, string> accounIdNotificationMap = new Map<id, String>();
+        accounIdNotificationMap.put(acc.id, 'HTNotify');
+        OpportunityTrgHelperCls_Version_2.successExperienceEmailNotification(accounIdNotificationMap);
+   }
 }

@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>AmendedContract__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.SBQQ__AmendedContract__r.X18_digit_id__c</formula>
+        <label>AmendedContract</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BCT_Detail__c</fullName>
+        <description>Requested By Anmol Kochar under Case #11818110</description>
+        <externalId>false</externalId>
+        <label>BCT Detail</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Type_2_0__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Type 2 0</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Type_Dev__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Contract_Type_2_0__c)</formula>
+        <label>Contract Type Dev</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cross_Sell_Override__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Cross Sell Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cross_Sell_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND(Others_X__c=0.00, 
+NOT(AND(Deal_Years__c &gt; 1,SBQQ_AmendedContract__c==null))), 
+(Cross_Sell_Value__c+Cross_Sell_Override__c), 
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cross Sell</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cross_Sell_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Cross_Sell_Total__c / Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cross Sell (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cross_Sell_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(UpSell_CrossSell_DEV__c == 'CROSSSELL', 
+IF( OR(ISNULL(Total_Annual_Recurring_Revenue__c),Total_Annual_Recurring_Revenue__c==0.00), Total_Price__c ,null) 
+,null)</formula>
+        <label>Cross Sell X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Deal_Year__c)</formula>
+        <label>Deal Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Years__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Opportunity Deal_Year__c field Value in Number format.</description>
+        <externalId>false</externalId>
+        <label>Deal Years</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exch_Diff__c</fullName>
+        <externalId>false</externalId>
+        <formula>Exchange_Rate_Formula__c -  Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Exch Diff</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exchange_Rate_Formula__c</fullName>
+        <description>This is not in Use.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Exchange_Rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Exchange Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exchange_Rates__c</fullName>
+        <externalId>false</externalId>
+        <label>Exchange Rate</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MYD_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>MYD Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MYD_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+Others_X__c=0.00, 
+(MYD__c+MYD_Override__c),
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MYD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MYD_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>MYD_Total__c / Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MYD (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MYD__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(
+Product_Family__c != "Not Identified",
+Deal_Years__c &gt; 1,
+SBQQ_AmendedContract__c==null
+),Total_Price__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MYD X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NBB_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Contains(Product_Family__c,'Not Identified'), Total_Price__c ,(UpSell_Value__c +  Cross_Sell_Value__c +  New_Logo__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total NBB X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Amount_opp_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Net_Amount_opp_USD__c</formula>
+        <label>Net Amount (opp) USD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Logo_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>New Logo Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>New_Logo_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+Others_X__c=0.00,
+(New_Logo__c+New_Logo_Override__c),
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Logo Classification</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>New_Logo_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>New_Logo_Total__c / Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>New Logo (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Logo__c</fullName>
+        <externalId>false</externalId>
+        <label>New Logo X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>O__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>O</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Type__c</fullName>
+        <description>References the Opportunity Type in order to have a direct reference on the Bookings Classification record.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Opportunity_Type__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Booking Classifications</relationshipLabel>
+        <relationshipName>Opp_Prod_Snapshots</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Origin_Splits_Processed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that the one time origin splits process has taken place for this BCT record.</description>
+        <externalId>false</externalId>
+        <label>Origin Splits Processed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Others_Override__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <externalId>false</externalId>
+        <label>Others Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Others_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Others__c / Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Others (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Others_X__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+OR(
+CONTAINS(Contract_Type_2_0__c,"Upload"),
+CONTAINS(Contract_Type_2_0__c,"Cvent Connect"),
+CONTAINS(Contract_Type_2_0__c,"Pass Through")
+),
+Total_Price__c,
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Others X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Others__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Others_X__c+Others_Override__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Others</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Calculation_Cycle_Complete__c</fullName>
+        <description>Display the primary quote processing status on the opportunity.  Used for Splits processing automation.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.SBQQ__PrimaryQuote__r.calculationCycleFinished__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Calculation Cycle Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Value_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Value Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Value_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+Others_X__c=0.00,
+(Renewal_Value__c + Renewal_Value_Override__c),
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Value_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Renewal_Value_Total__c / Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Value (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Renewal_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(
+ Deal_Years__c ==1,
+ NOT(ISPICKVAL(Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Type__c, 'Amendment'))),
+ IF((Total_Price__c- Total_Annual_Recurring_Revenue__c)&lt;=0,IF((Opportunity__r.SBQQ__RenewedContract__c!=null),Total_Price__c,null), UFR__c),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Value X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RenewedContract__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.SBQQ__RenewedContract__r.X18_digit_id__c</formula>
+        <label>RenewedContract</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ_AmendedContract__c</fullName>
+        <description>Opportunity SBQQ__AmendedContract__c field Id populated over here.</description>
+        <externalId>false</externalId>
+        <label>SBQQ AmendedContract</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ_RenewedContract__c</fullName>
+        <description>Opportunity "SBQQ__RenewedContract__c" field value is being populated over here.</description>
+        <externalId>false</externalId>
+        <label>SBQQ RenewedContract</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Annual_Recurring_Revenue_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Total_Annual_Recurring_Revenue__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Annual Recurring Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Annual_Recurring_Revenue_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Annual_Recurring_Revenue__c /  Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Annual Recurring Revenue (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Annual_Recurring_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Annual Recurring Revenue X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_NBB_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+Product_Family__c=='Not Identified',
+Total_Price__c,
+Cross_Sell_Total__c+New_Logo_Total__c+UpSell_Total__c)</formula>
+        <label>Total NBB</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_NBB_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_NBB_Total__c  /  Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total NBB (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Price_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Price__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Price_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Total_Price_Total__c/Exchange_Rates__c)</formula>
+        <label>Total Price (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Price X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UFR_Override__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>UFR Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UFR_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+Others_X__c=0.00,
+IF(MYD_Total__c &gt; 0, 
+MYD_Total__c, 
+(UFR__c + UFR_Override__c)),0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UFR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UFR_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>UFR_Total__c /  Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UFR (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UFR__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+MYD__c&lt;&gt;0.00,MYD__c, 
+IF( 
+OR(Product_Family__c=='Not Identified', 
+SBQQ_AmendedContract__c&lt;&gt;null, 
+
+Total_Annual_Recurring_Revenue__c&lt;0), 
+0.00, 
+Total_Annual_Recurring_Revenue__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UFR X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UpSell_CrossSell_DEV__c</fullName>
+        <externalId>false</externalId>
+        <label>UpSell/CrossSell DEV</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UpSell_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>UpSell Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UpSell_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+Others_X__c=0.00, 
+(UpSell_Value__c + UpSell_Override__c),
+0.00)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UpSell</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UpSell_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>UpSell_Total__c  /  Exchange_Rates__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UpSell (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UpSell_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(UpSell_CrossSell_DEV__c=='UPSELL',
+IF((Total_Price__c - UFR__c)&gt;0,(Total_Price__c - UFR__c),
+IF(Opportunity__r.SBQQ__AmendedContract__c==null,0,(Total_Price__c - UFR__c))
+)
+,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UpSell X</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Weighted_Total_Price_USD__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Price_USD__c * Opportunity__r.Probability</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Weighted Total Price(USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Weighted_Total_Price__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Price__c *  Opportunity__r.Probability</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Weighted Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>mydSplitCount__c</fullName>
+        <externalId>false</externalId>
+        <label>mydSplitCount</label>
+        <summaryFilterItems>
+            <field>Custom_Opportunity_Split__c.Booking_Classification__c</field>
+            <operation>equals</operation>
+            <value>MYD</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Custom_Opportunity_Split__c.Booking_Classification_ID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>nbbSplitCount__c</fullName>
+        <externalId>false</externalId>
+        <label>NBB Split Record Count</label>
+        <summaryFilterItems>
+            <field>Custom_Opportunity_Split__c.Booking_Classification__c</field>
+            <operation>equals</operation>
+            <value>NBB</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Custom_Opportunity_Split__c.Booking_Classification_ID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>otherSplitCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Split Record Count</label>
+        <summaryFilterItems>
+            <field>Custom_Opportunity_Split__c.Booking_Classification__c</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Custom_Opportunity_Split__c.Booking_Classification_ID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>renewalSplitCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Split Record Count</label>
+        <summaryFilterItems>
+            <field>Custom_Opportunity_Split__c.Booking_Classification__c</field>
+            <operation>equals</operation>
+            <value>Renewal</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Custom_Opportunity_Split__c.Booking_Classification_ID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Booking Classification</label>
+    <nameField>
+        <displayFormat>OPS-{00000}</displayFormat>
+        <label>Booking Classification Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Booking Classifications</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <validationRules>
+        <fullName>Cannot_Override_b4_Contract_implement</fullName>
+        <active>false</active>
+        <description>This validaton ensures that override cannot be used before opportunity is closed won and contract is implemented</description>
+        <errorConditionFormula>AND(
+OR(
+ISCHANGED(Cross_Sell_Override__c),
+ISCHANGED(MYD_Override__c),
+ISCHANGED(New_Logo_Override__c),
+ISCHANGED(Renewal_Value_Override__c),
+ISCHANGED(UpSell_Override__c)
+),
+NOT(ISPICKVAL(Opportunity__r.StageName,"Closed Won")),
+NOT(ISPICKVAL(Opportunity__r.StageName,"Closed Won - Do Not Send to EBS")),
+NOT(Opportunity__r.Contract_Implemented__c),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorDisplayField>Contract_Type_2_0__c</errorDisplayField>
+        <errorMessage>You cannot over ride values as Contract is not yet implemented</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Override_value_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+
+$User.Validation_Bypass__c = False,
+
+IF(
+OR(
+ISCHANGED(Cross_Sell_Override__c),
+ISCHANGED(MYD_Override__c),
+ISCHANGED(New_Logo_Override__c),
+ISCHANGED(Renewal_Value_Override__c),
+ISCHANGED(UpSell_Override__c),
+ISCHANGED(Others_Override__c)),
+IF((New_Logo_Total__c + Cross_Sell_Total__c + MYD_Total__c +Renewal_Value_Total__c + UpSell_Total__c+Others_Override__c)== Total_Price_Total__c,
+FALSE,
+TRUE),
+FALSE))</errorConditionFormula>
+        <errorDisplayField>Contract_Type_2_0__c</errorDisplayField>
+        <errorMessage>Total price should match the override values.</errorMessage>
+    </validationRules>
+</CustomObject>

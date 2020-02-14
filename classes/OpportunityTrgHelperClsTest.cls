@@ -13,9 +13,9 @@ Modified:  30 May 2018 : Kumud: Remove the Event venue,country,state,city, as a 
 @isTest
 //(seeAllData = True)
 private class OpportunityTrgHelperClsTest {
-    public static Account instofAcc;
+    public static Account instofAcc = new Account();
     public static BillingCase__c billCase = new BillingCase__c();
-    public static Contact instOfCon;
+    public static Contact instofCon =  new Contact();
     public static Multi_Property_Bundles__c instOfMulPropBund =  new Multi_Property_Bundles__c();
     public static Multi_Property_Bundles__c instOfMulPropBund_New =  new Multi_Property_Bundles__c();//Code Added
     public static Multi_Property_Bundles__c instOfMulPropBundSec =  new Multi_Property_Bundles__c();
@@ -32,9 +32,12 @@ private class OpportunityTrgHelperClsTest {
         billCase.Name = 'Billing Case Test';
         insert billCase;
         
-        instofAcc = TestUtil.createAccount('Test Account','Biz_Ac');
+        RecordType rtType = [SELECT r.SobjectType, r.DeveloperName,r.IsActive FROM RecordType r WHERE SobjectType='Account' And DeveloperName='Biz_Ac' And IsActive=true];
+        instofAcc.Name = 'Test';
+        //instofAcc.CurrencyIsoCode  = 'USD';
         instofAcc.Supplier_Type__c = 'Venue';
         instofAcc.Venue_Type__c = 'CVB';
+        instofAcc.RecordTypeId = rtType.id;
         instofAcc.CVII_ID__c = '1231231231';
         instofAcc.Billing_Case__c = billCase.Id;
         insert instofAcc;
@@ -56,7 +59,8 @@ private class OpportunityTrgHelperClsTest {
         insert instOfMulPropBund_New;
         
         lstMPB_New=[SELECT Id,MSA_Code__c FROM Multi_Property_Bundles__c WHERE Id =: instOfMulPropBund_New.Id];
-        instOfCon = TestUtil.createContact(String.valueOf(instofAcc.Id));
+        instOfCon.LastName = 'Test';
+        instOfCon.AccountId = instofAcc.Id;
         insert instOfCon;
         
         HybridPicklistValue__c instOfHydPLV = new HybridPicklistValue__c();
@@ -262,21 +266,24 @@ private class OpportunityTrgHelperClsTest {
     static {
         
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
-        instOfMasterOpp = TestUtil.createOpportunityNew('Test Opportunity','Tract',instOfCon.Id,instofAcc.Id);
+        instOfMasterOpp = new Opportunity();
         instOfMasterOpp.Contract_Type_Test__c = 'Renewal';
         instOfMasterOpp.Forex_rate__c = 1;
         instOfMasterOpp.License_Type__c = 'Diamond Plus';
         instOfMasterOpp.Liquidation_Fee__c  = 10;
         instOfMasterOpp.OptOutDate__c = system.today();
         instOfMasterOpp.Opp_End_Date__c  = system.today();
+        instOfMasterOpp.AccountId = instofAcc.id;
         instOfMasterOpp.Forex_rate__c = 1;
        // instOfMasterOpp.Price_per_lead__c = 1;
+        instOfMasterOpp.Name = 'TestSetup';
         instOfMasterOpp.Counted_sales_Cancellation_Value__c =110;
         instOfMasterOpp.Product__c = 'Event';
         instOfMasterOpp.Team__c = 'BD'; 
         instOfMasterOpp.Product_Category__c = null; 
         instOfMasterOpp.Contract_Number_New__c = '25512';
         instOfMasterOpp.New_Type__c =  'Upsell-NBB';
+        instOfMasterOpp.StageName = 'Tract';
         instOfMasterOpp.Parent_Upsell__c = 'Upsell';
         instOfMasterOpp.Parent_Contract_Number__c = 123;
         instOfMasterOpp.Contract_Implemented__c = false;
@@ -288,6 +295,7 @@ private class OpportunityTrgHelperClsTest {
         //instOfMasterOpp.Price_per_lead__c = 1;
         instOfMasterOpp.Years__c= '1';
         instOfMasterOpp.LeadSource = 'ACD-PS';
+        instOfMasterOpp.Contact_Associated__c = instOfCon.Id;
         instOfMasterOpp.Contact_Role__c = 'Executive Sponsor';
         instOfMasterOpp.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfMasterOpp.ContractReceived__c = system.today();
@@ -313,7 +321,7 @@ private class OpportunityTrgHelperClsTest {
         instContract=TestUtil.CreateContract(instofAcc,instOfMasterOpp.id);
         insert instContract;
         
-        instClosedWonOpty = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        instClosedWonOpty = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instClosedWonOpty.License_Type__c = 'Diamond Plus';
         instClosedWonOpty.Contract_Type_Test__c = 'Renewal';
@@ -321,9 +329,12 @@ private class OpportunityTrgHelperClsTest {
         instClosedWonOpty.Liquidation_Fee__c  = 10;
         instClosedWonOpty.OptOutDate__c = system.today();
         instClosedWonOpty.Opp_End_Date__c  = system.today();
+        instClosedWonOpty.AccountId = instofAcc.id;
+        instClosedWonOpty.Name = 'Test';
         instClosedWonOpty.Product__c = 'CrowdCompass';
         instClosedWonOpty.Contract_Number_New__c = '255126';
         instClosedWonOpty.New_Type__c =  'Upsell-NBB';
+        instClosedWonOpty.StageName = 'Closed Won';
         instClosedWonOpty.CloseDate = system.today();
         //instClosedWonOpty.RecordTypeId = recTypeId;
         instClosedWonOpty.Year_1_at_Risk__c = 11;
@@ -332,6 +343,8 @@ private class OpportunityTrgHelperClsTest {
        // instClosedWonOpty.Price_per_lead__c = 1;
         instClosedWonOpty.Years__c= '1';
         instClosedWonOpty.LeadSource = 'ACD-PS';
+        instClosedWonOpty.Contact_Associated__c = instOfCon.Id;
+        instClosedWonOpty.Contact_Role__c = 'Primary User';
         instClosedWonOpty.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instClosedWonOpty.ContractReceived__c = system.today();
         //instClosedWonOpty.Deal_Year__c = '1';
@@ -360,15 +373,20 @@ private class OpportunityTrgHelperClsTest {
         List<Opportunity> listOpp=new List<Opportunity>();
         Test.StartTest();
             
-            Opportunity instOfOpp = TestUtil.createOpportunityNew('Test Opportunity','Verbal',instOfCon.Id,instofAcc.Id);
+            Opportunity instOfOpp = new Opportunity();
+            instOfOpp.AccountId = instofAcc.id;
             instOfOpp.recordtypeID=instOfRecType.id;
+            instOfOpp.Name = 'Test123';
             instOfOpp.Product__c = 'Event';
             instOfOpp.Product_Category__c='';
             instOfOpp.New_Type__c =  'Upsell-NBB';
+            instOfOpp.StageName = 'Verbal';
             instOfOpp.CloseDate = system.today()-5;
             instOfOpp.New_Amount__c = 11;
             instOfOpp.Years__c= '1';
             instOfOpp.LeadSource = 'ACD-PS';
+            instOfOpp.Contact_Associated__c = instOfCon.Id;
+            instOfOpp.Contact_Role__c = 'Primary User';
             instOfOpp.MSA_Code__c = lstMPB[0].MSA_Code__c;
             instOfOpp.Contract_Implemented__c = true;
             instOfOpp.ContractReceived__c = system.today();
@@ -389,13 +407,18 @@ private class OpportunityTrgHelperClsTest {
         
         List<Opportunity> listOpp=new List<Opportunity>();
         Test.StartTest();
-            Opportunity instOfOpp = TestUtil.createOpportunityNew('Test Opportunity','Verbal',instOfCon.Id,instofAcc.Id);
+            Opportunity instOfOpp = new Opportunity();
+            instOfOpp.AccountId = instofAcc.id;
+            instOfOpp.Name = 'Test';
             instOfOpp.Product__c = 'Event';
             instOfOpp.New_Type__c =  'Upsell-NBB';
+            instOfOpp.StageName = 'Verbal';
             instOfOpp.CloseDate = system.today();
             instOfOpp.New_Amount__c = 11;
             instOfOpp.Years__c= '1';
             instOfOpp.LeadSource = 'ACD-PS';
+            instOfOpp.Contact_Associated__c = instOfCon.Id;
+            instOfOpp.Contact_Role__c = 'Primary User';
             instOfOpp.MSA_Code__c = lstMPB[0].MSA_Code__c;
             instOfOpp.Contract_Implemented__c = true;
             instOfOpp.ContractReceived__c = system.today();
@@ -417,13 +440,18 @@ private class OpportunityTrgHelperClsTest {
         
         
         Test.StartTest();
-            Opportunity instOfOpp = TestUtil.createOpportunityNew('Test Opportunity','Verbal',instOfCon.Id,instofAcc.Id);
+            Opportunity instOfOpp = new Opportunity();
+            instOfOpp.AccountId = instofAcc.id;
+            instOfOpp.Name = 'Test';
             instOfOpp.Product__c = 'Event';
             instOfOpp.New_Type__c =  'Upsell-NBB';
+            instOfOpp.StageName = 'Verbal';
             instOfOpp.CloseDate = system.today();
             instOfOpp.New_Amount__c = 11;
             instOfOpp.Years__c= '1';
             instOfOpp.LeadSource = 'ACD-PS';
+            instOfOpp.Contact_Associated__c = instOfCon.Id;
+            instOfOpp.Contact_Role__c = 'Primary User';
             instOfOpp.MSA_Code__c = lstMPB[0].MSA_Code__c;
             instOfOpp.Contract_Implemented__c = true;
             instOfOpp.ContractReceived__c = system.today();
@@ -483,7 +511,7 @@ private class OpportunityTrgHelperClsTest {
         
         List<Opportunity> lstOppIns = new List<Opportunity>();
         
-        Opportunity instOfOpp = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOpp = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOpp.Contract_Type_Test__c = 'Renewal';
         instOfOpp.Liquidation_Fee__c  = 10;
@@ -492,9 +520,12 @@ private class OpportunityTrgHelperClsTest {
       //  instOfOpp.Price_per_lead__c = 1;
         instOfOpp.OptOutDate__c = system.today();
         instOfOpp.Opp_End_Date__c  = system.today();
+        instOfOpp.AccountId = instofAcc.id;
+        instOfOpp.Name = 'Test';
         instOfOpp.Product__c = 'Event';
         instOfOpp.Contract_Number_New__c = '25512';
         instOfOpp.New_Type__c =  'Upsell-NBB';
+        instOfOpp.StageName = 'Closed Won';
         instOfOpp.CloseDate = system.today();
         instOfOpp.RecordTypeId = instOfRecType.Id;
         instOfOpp.Year_1_at_Risk__c = 11;
@@ -702,7 +733,7 @@ private class OpportunityTrgHelperClsTest {
         cc.Username__c = UserInfo.getUserName();        
         insert cc;      
         /*.............................ENDS HERE........................................*/
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -710,9 +741,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CSN';
         instOfOppSec.Contract_Number_New__c = '25512';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -722,7 +756,9 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
-       instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Influencer';
+        instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.Contract_Implemented__c = true;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -765,7 +801,6 @@ private class OpportunityTrgHelperClsTest {
         instOfWriteOff.Write_Off_Status__c = 'Initially Approved';
         instOfWriteOff.New_TCV_To_Be_Moved__c ='Yes';
         instOfWriteOff.Customer_Name__c = instOfBilC.id;
-        instOfWriteOff.Office_Location__c = 'US';
         insert instOfWriteOff;
         
         
@@ -801,7 +836,7 @@ private class OpportunityTrgHelperClsTest {
         
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
         
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -809,9 +844,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '25512';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -820,6 +858,8 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         instOfOppSec.ContractStartDate__c = system.today(); 
@@ -878,7 +918,7 @@ private class OpportunityTrgHelperClsTest {
     static testMethod void myUnitTestEight() {
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
         
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -886,9 +926,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '25512';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -897,6 +940,8 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Influencer';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.Contract_Implemented__c = true;
         instOfOppSec.ContractReceived__c = system.today();
@@ -966,7 +1011,7 @@ private class OpportunityTrgHelperClsTest {
         cc.Username__c = UserInfo.getUserName();        
         insert cc;      
         /*.............................ENDS HERE........................................*/
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -974,9 +1019,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '25512';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -985,6 +1033,8 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1137,7 +1187,6 @@ private class OpportunityTrgHelperClsTest {
             instOfWriteOff.Write_Off_Status__c = 'Initially Approved';
             instOfWriteOff.New_TCV_To_Be_Moved__c ='Yes';
             instOfWriteOff.Customer_Name__c = instOfBilC.id;
-            instOfWriteOff.Office_Location__c = 'US';
             insert instOfWriteOff;
         
         
@@ -1196,7 +1245,6 @@ private class OpportunityTrgHelperClsTest {
         instOfWriteOff.Sale_Impact__c = 'No';
         instOfWriteOff.Commission_Impact__c = 'No';
         instOfWriteOff.Time_taken_for_Cancellation__c = 10;
-        instOfWriteOff.Office_Location__c = 'US';
         insert instOfWriteOff;
         }
         
@@ -1216,7 +1264,7 @@ private class OpportunityTrgHelperClsTest {
         cc.Username__c = UserInfo.getUserName();        
         insert cc;      
         /*.............................ENDS HERE........................................*/
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1224,9 +1272,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '255122';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1235,6 +1286,8 @@ private class OpportunityTrgHelperClsTest {
       //  instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1282,7 +1335,6 @@ private class OpportunityTrgHelperClsTest {
         instOfWriteOff.Write_Off_Status__c = 'Initially Approved';
         instOfWriteOff.New_TCV_To_Be_Moved__c ='Yes';
         instOfWriteOff.Customer_Name__c = instOfBilC.id;
-        instOfWriteOff.Office_Location__c = 'US';
         insert instOfWriteOff;
         Test.startTest();
         instOfWriteOff.Write_Off_Status__c = 'Submitted for Review';
@@ -1298,7 +1350,7 @@ private class OpportunityTrgHelperClsTest {
     static testMethod void myUnitTestFifteen() {
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
         
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1306,9 +1358,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '255122';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1317,6 +1372,8 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1373,7 +1430,7 @@ private class OpportunityTrgHelperClsTest {
     }
     static testMethod void myUnitTestSixteen() {
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
-        Opportunity instOfOppFIF = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppFIF = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppFIF.Contract_Type_Test__c = 'Renewal';
         instOfOppFIF.Forex_rate__c = 1;
@@ -1381,11 +1438,14 @@ private class OpportunityTrgHelperClsTest {
         instOfOppFIF.Liquidation_Fee__c  = 10;
         instOfOppFIF.OptOutDate__c = system.today();
         instOfOppFIF.Opp_End_Date__c  = system.today();
+        instOfOppFIF.AccountId = instofAcc.id;
         instOfOppFIF.Forex_rate__c = 1;
        // instOfOppFIF.Price_per_lead__c = 1;
+        instOfOppFIF.Name = 'Test';
         instOfOppFIF.Product__c = 'CSN';
         instOfOppFIF.Contract_Number_New__c = '25512l1111';
         instOfOppFIF.New_Type__c =  'Upsell-NBB';
+        instOfOppFIF.StageName = 'Closed Won';
         instOfOppFIF.CloseDate = system.today();
         instOfOppFIF.RecordTypeId = instOfRecType.Id;
         instOfOppFIF.Year_1_at_Risk__c = 11;
@@ -1394,6 +1454,8 @@ private class OpportunityTrgHelperClsTest {
         //instOfOppFIF.Price_per_lead__c = 1;
         instOfOppFIF.Years__c= '1';
         instOfOppFIF.LeadSource = 'ACD-PS';
+        instOfOppFIF.Contact_Associated__c = instOfCon.Id;
+        instOfOppFIF.Contact_Role__c = 'Primary User';
         instOfOppFIF.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppFIF.ContractReceived__c = system.today();
         instOfOppFIF.Deal_Year__c = '1';
@@ -1436,7 +1498,7 @@ private class OpportunityTrgHelperClsTest {
     
     static testMethod void Seventeen(){
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1444,9 +1506,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '255122';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1455,6 +1520,8 @@ private class OpportunityTrgHelperClsTest {
         //instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1534,7 +1601,7 @@ private class OpportunityTrgHelperClsTest {
     
     static testMethod void Eighteen(){
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1542,9 +1609,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '255122';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1553,6 +1623,8 @@ private class OpportunityTrgHelperClsTest {
         //instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1638,7 +1710,7 @@ private class OpportunityTrgHelperClsTest {
     }
     static testMethod void Nineteen(){
         RecordType instOfRecType = [SELECT Id FROM RecordType WHERE SobjectType='Opportunity' And DeveloperName='Event' And IsActive=true];
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1646,9 +1718,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '255122';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1657,6 +1732,8 @@ private class OpportunityTrgHelperClsTest {
        // instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';
@@ -1770,7 +1847,7 @@ private class OpportunityTrgHelperClsTest {
         insert cc;      
      
      
-        Opportunity instOfOppSec = TestUtil.createOpportunityNew('Test Opportunity','Closed Won',instOfCon.Id,instofAcc.Id);
+        Opportunity instOfOppSec = new Opportunity();
         //instOfOpp.Opportunity_Start_Date__c = system.today();
         instOfOppSec.License_Type__c = 'Diamond Plus';
         instOfOppSec.Contract_Type_Test__c = 'Renewal';
@@ -1778,9 +1855,12 @@ private class OpportunityTrgHelperClsTest {
         instOfOppSec.Liquidation_Fee__c  = 10;
         instOfOppSec.OptOutDate__c = system.today();
         instOfOppSec.Opp_End_Date__c  = system.today();
+        instOfOppSec.AccountId = instofAcc.id;
+        instOfOppSec.Name = 'Test';
         instOfOppSec.Product__c = 'CrowdCompass';
         instOfOppSec.Contract_Number_New__c = '2551234';
         instOfOppSec.New_Type__c =  'Upsell-NBB';
+        instOfOppSec.StageName = 'Closed Won';
         instOfOppSec.CloseDate = system.today();
         instOfOppSec.RecordTypeId = instOfRecType.Id;
         instOfOppSec.Year_1_at_Risk__c = 11;
@@ -1789,6 +1869,8 @@ private class OpportunityTrgHelperClsTest {
         //instOfOppSec.Price_per_lead__c = 1;
         instOfOppSec.Years__c= '1';
         instOfOppSec.LeadSource = 'ACD-PS';
+        instOfOppSec.Contact_Associated__c = instOfCon.Id;
+        instOfOppSec.Contact_Role__c = 'Primary User';
         instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
         instOfOppSec.ContractReceived__c = system.today();
         //instOfOppSec.Deal_Year__c = '1';

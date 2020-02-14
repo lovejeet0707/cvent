@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Bundle_Card_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Bundle Card Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DG/Promo Hub</fullName>
+                    <default>false</default>
+                    <label>DG/Promo Hub</label>
+                </value>
+                <value>
+                    <fullName>Email Newsletter</fullName>
+                    <default>false</default>
+                    <label>Email Newsletter</label>
+                </value>
+                <value>
+                    <fullName>Supplier Network/Brand Page</fullName>
+                    <default>false</default>
+                    <label>Supplier Network/Brand Page</label>
+                </value>
+                <value>
+                    <fullName>Blog</fullName>
+                    <default>false</default>
+                    <label>Blog</label>
+                </value>
+                <value>
+                    <fullName>EMI/Speed RFP</fullName>
+                    <default>false</default>
+                    <label>EMI/Speed RFP</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bundle_Card_Task__c</fullName>
+        <externalId>false</externalId>
+        <label>Bundle Card Task</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Bundle_Card_Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Banner Ad - 294x60</fullName>
+                    <default>false</default>
+                    <label>Banner Ad - 294x60</label>
+                </value>
+                <value>
+                    <fullName>Banner Ad - 300x250</fullName>
+                    <default>false</default>
+                    <label>Banner Ad - 300x250</label>
+                </value>
+                <value>
+                    <fullName>Featured Content Ad</fullName>
+                    <default>false</default>
+                    <label>Featured Content Ad</label>
+                </value>
+                <value>
+                    <fullName>Billboard Destination</fullName>
+                    <default>false</default>
+                    <label>Billboard Destination</label>
+                </value>
+                <value>
+                    <fullName>Featured Directory Listing</fullName>
+                    <default>false</default>
+                    <label>Featured Directory Listing</label>
+                </value>
+                <value>
+                    <fullName>Marquee Promotion</fullName>
+                    <default>false</default>
+                    <label>Marquee Promotion</label>
+                </value>
+                <value>
+                    <fullName>Featured Supplier/Destination</fullName>
+                    <default>false</default>
+                    <label>Featured Supplier/Destination</label>
+                </value>
+                <value>
+                    <fullName>Display Ad</fullName>
+                    <default>false</default>
+                    <label>Display Ad</label>
+                </value>
+                <value>
+                    <fullName>Featured Blog Article</fullName>
+                    <default>false</default>
+                    <label>Featured Blog Article</label>
+                </value>
+                <value>
+                    <fullName>Content Promotion</fullName>
+                    <default>false</default>
+                    <label>Content Promotion</label>
+                </value>
+                <value>
+                    <fullName>Footer Promotion</fullName>
+                    <default>false</default>
+                    <label>Footer Promotion</label>
+                </value>
+                <value>
+                    <fullName>Search Screen Sponsorship</fullName>
+                    <default>false</default>
+                    <label>Search Screen Sponsorship</label>
+                </value>
+                <value>
+                    <fullName>Diamond Plus Ad</fullName>
+                    <default>false</default>
+                    <label>Diamond Plus Ad</label>
+                </value>
+                <value>
+                    <fullName>Brand Page</fullName>
+                    <default>false</default>
+                    <label>Brand Page</label>
+                </value>
+                <value>
+                    <fullName>Headliner</fullName>
+                    <default>false</default>
+                    <label>Headliner</label>
+                </value>
+                <value>
+                    <fullName>Opener</fullName>
+                    <default>false</default>
+                    <label>Opener</label>
+                </value>
+                <value>
+                    <fullName>Center Stage</fullName>
+                    <default>false</default>
+                    <label>Center Stage</label>
+                </value>
+                <value>
+                    <fullName>Spotlight</fullName>
+                    <default>false</default>
+                    <label>Spotlight</label>
+                </value>
+                <value>
+                    <fullName>Encore</fullName>
+                    <default>false</default>
+                    <label>Encore</label>
+                </value>
+                <value>
+                    <fullName>Finale</fullName>
+                    <default>false</default>
+                    <label>Finale</label>
+                </value>
+                <value>
+                    <fullName>EM Banner Half</fullName>
+                    <default>false</default>
+                    <label>EM Banner Half</label>
+                </value>
+                <value>
+                    <fullName>EM Banner Leaderboard</fullName>
+                    <default>false</default>
+                    <label>EM Banner Leaderboard</label>
+                </value>
+                <value>
+                    <fullName>EM Banner Square Side</fullName>
+                    <default>false</default>
+                    <label>EM Banner Square Side</label>
+                </value>
+                <value>
+                    <fullName>EM Banner Standard</fullName>
+                    <default>false</default>
+                    <label>EM Banner Standard</label>
+                </value>
+                <value>
+                    <fullName>EM Hero</fullName>
+                    <default>false</default>
+                    <label>EM Hero</label>
+                </value>
+                <value>
+                    <fullName>SpeedRFP Network Hero</fullName>
+                    <default>false</default>
+                    <label>SpeedRFP Network Hero</label>
+                </value>
+                <value>
+                    <fullName>SpeedRFP Targeted Search</fullName>
+                    <default>false</default>
+                    <label>SpeedRFP Targeted Search</label>
+                </value>
+                <value>
+                    <fullName>Microsite</fullName>
+                    <default>false</default>
+                    <label>Microsite</label>
+                </value>
+                <value>
+                    <fullName>Microsite Search Ad</fullName>
+                    <default>false</default>
+                    <label>Microsite Search Ad</label>
+                </value>
+                <value>
+                    <fullName>Video Ad</fullName>
+                    <default>false</default>
+                    <label>Video Ad</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Banner Ad - 294x60</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Banner Ad - 300x250</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Featured Content Ad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Billboard Destination</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Featured Directory Listing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DG/Promo Hub</controllingFieldValue>
+                <valueName>Marquee Promotion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email Newsletter</controllingFieldValue>
+                <valueName>Featured Supplier/Destination</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email Newsletter</controllingFieldValue>
+                <valueName>Display Ad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email Newsletter</controllingFieldValue>
+                <valueName>Featured Blog Article</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email Newsletter</controllingFieldValue>
+                <valueName>Content Promotion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email Newsletter</controllingFieldValue>
+                <valueName>Footer Promotion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supplier Network/Brand Page</controllingFieldValue>
+                <valueName>Search Screen Sponsorship</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supplier Network/Brand Page</controllingFieldValue>
+                <valueName>Brand Page</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supplier Network/Brand Page</controllingFieldValue>
+                <valueName>Microsite</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supplier Network/Brand Page</controllingFieldValue>
+                <valueName>Microsite Search Ad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supplier Network/Brand Page</controllingFieldValue>
+                <valueName>Video Ad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Headliner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Opener</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Center Stage</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Spotlight</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Encore</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Blog</controllingFieldValue>
+                <valueName>Finale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>EM Banner Half</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>EM Banner Leaderboard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>EM Banner Square Side</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>EM Banner Standard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>EM Hero</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>SpeedRFP Network Hero</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EMI/Speed RFP</controllingFieldValue>
+                <valueName>SpeedRFP Targeted Search</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bundle_Card__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Bundle Card</label>
+        <referenceTo>Bundle_Card__c</referenceTo>
+        <relationshipLabel>Bundle Card Items</relationshipLabel>
+        <relationshipName>Bundle_Card_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bundle_Item_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Bundle Item Comment</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ClosedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Date/Time Closed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bundle_Card__r.Contact__r.Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Bundle Card Items</relationshipLabel>
+        <relationshipName>Bundle_Card_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Do_not_create_a_task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do not create a task</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dont_Time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dont Time</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inquisium_Response_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquisium Response Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Listing_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Listing Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Proof_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Proof Sent Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status_L2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status L2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Missed-Client</fullName>
+                    <default>false</default>
+                    <label>Missed-Client</label>
+                </value>
+                <value>
+                    <fullName>Missed-Internal</fullName>
+                    <default>false</default>
+                    <label>Missed-Internal</label>
+                </value>
+                <value>
+                    <fullName>Cancelled Contract</fullName>
+                    <default>false</default>
+                    <label>Cancelled Contract</label>
+                </value>
+                <value>
+                    <fullName>Mistake/Duplicate</fullName>
+                    <default>false</default>
+                    <label>Mistake/Duplicate</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Cancelled</controllingFieldValue>
+                <valueName>Cancelled Contract</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cancelled</controllingFieldValue>
+                <valueName>Mistake/Duplicate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Missed</controllingFieldValue>
+                <valueName>Missed-Client</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Missed</controllingFieldValue>
+                <valueName>Missed-Internal</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Missed</fullName>
+                    <default>false</default>
+                    <label>Missed</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Survey_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Sent Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Upload_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Upload Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Bundle Card Item</label>
+    <nameField>
+        <displayFormat>BCardItem-A{0000}</displayFormat>
+        <label>Bundle Card Item Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Bundle Card Items</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <validationRules>
+        <fullName>Mandatory_to_fill_Contact</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Contact__c), ISCHANGED(Status__c), 
+ISPICKVAL(Status__c,"Closed"), 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")))</errorConditionFormula>
+        <errorMessage>Please select the contact before closing the Bundle Card Item.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Status_L2_Mandatory</fullName>
+        <active>true</active>
+        <description>Status L2 is required on Cancelled / Missed Status. Requested Under Case # 09906408</description>
+        <errorConditionFormula>AND( 
+
+OR(
+ISPICKVAL( Status__c , "Cancelled"),
+ISPICKVAL( Status__c , "Missed")
+),
+
+OR( 
+CONTAINS($Profile.Name,"Customer Care"),
+CONTAINS($Profile.Name,"Client Services")
+),
+
+ISPICKVAL( Status_L2__c,"")
+)</errorConditionFormula>
+        <errorDisplayField>Status_L2__c</errorDisplayField>
+        <errorMessage>You must fill Status L2</errorMessage>
+    </validationRules>
+</CustomObject>

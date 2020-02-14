@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Name_Level_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Name Level 2</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name_Level_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Name Level 3</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>It is used in track implementation</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Track UserProductWise</label>
+    <visibility>Protected</visibility>
+    <listViews>
+        <fullName>All_Data</fullName>
+        <columns>NAME</columns>
+        <columns>Name__c</columns>
+        <columns>Name_Level_2__c</columns>
+        <columns>Name_Level_3__c</columns>
+        <columns>Product_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Data</label>
+        <language>en_US</language>
+    </listViews>
+</CustomObject>

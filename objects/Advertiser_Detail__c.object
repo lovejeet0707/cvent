@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Advertised_in_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Advertised in Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2009</fullName>
+                    <default>false</default>
+                    <label>2009</label>
+                </value>
+                <value>
+                    <fullName>2010</fullName>
+                    <default>false</default>
+                    <label>2010</label>
+                </value>
+                <value>
+                    <fullName>2011</fullName>
+                    <default>false</default>
+                    <label>2011</label>
+                </value>
+                <value>
+                    <fullName>2012</fullName>
+                    <default>false</default>
+                    <label>2012</label>
+                </value>
+                <value>
+                    <fullName>2013</fullName>
+                    <default>false</default>
+                    <label>2013</label>
+                </value>
+                <value>
+                    <fullName>2014</fullName>
+                    <default>false</default>
+                    <label>2014</label>
+                </value>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                    <label>2015</label>
+                </value>
+                <value>
+                    <fullName>2016</fullName>
+                    <default>false</default>
+                    <label>2016</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Advertiser_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Advertiser Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Old</fullName>
+                    <default>false</default>
+                    <label>Old</label>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Competitor_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Advertising with Competitor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Bedouk</fullName>
+                    <default>false</default>
+                    <label>Bedouk</label>
+                </value>
+                <value>
+                    <fullName>Bizbash</fullName>
+                    <default>false</default>
+                    <label>Bizbash</label>
+                </value>
+                <value>
+                    <fullName>Elite Meetings</fullName>
+                    <default>false</default>
+                    <label>Elite Meetings</label>
+                </value>
+                <value>
+                    <fullName>Elite Meetings-Speed RFPs</fullName>
+                    <default>false</default>
+                    <label>Elite Meetings-Speed RFPs</label>
+                </value>
+                <value>
+                    <fullName>Event Connect</fullName>
+                    <default>false</default>
+                    <label>Event Connect</label>
+                </value>
+                <value>
+                    <fullName>Expedia</fullName>
+                    <default>false</default>
+                    <label>Expedia</label>
+                </value>
+                <value>
+                    <fullName>Gathering Guide</fullName>
+                    <default>false</default>
+                    <label>Gathering Guide</label>
+                </value>
+                <value>
+                    <fullName>Luxury Meeting Summit</fullName>
+                    <default>false</default>
+                    <label>Luxury Meeting Summit</label>
+                </value>
+                <value>
+                    <fullName>Meeting Mart</fullName>
+                    <default>false</default>
+                    <label>Meeting Mart</label>
+                </value>
+                <value>
+                    <fullName>Meetings Focus</fullName>
+                    <default>false</default>
+                    <label>Meetings Focus</label>
+                </value>
+                <value>
+                    <fullName>MPI-Multiview</fullName>
+                    <default>false</default>
+                    <label>MPI-Multiview</label>
+                </value>
+                <value>
+                    <fullName>Smart Meetings</fullName>
+                    <default>false</default>
+                    <label>Smart Meetings</label>
+                </value>
+                <value>
+                    <fullName>Speed RFP</fullName>
+                    <default>false</default>
+                    <label>Speed RFP</label>
+                </value>
+                <value>
+                    <fullName>Starcite</fullName>
+                    <default>false</default>
+                    <label>Starcite</label>
+                </value>
+                <value>
+                    <fullName>Venue Directory</fullName>
+                    <default>false</default>
+                    <label>Venue Directory</label>
+                </value>
+                <value>
+                    <fullName>Venue Finder</fullName>
+                    <default>false</default>
+                    <label>Venue Finder</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Competitor_Package_Pricing__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Package Pricing</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Competitor_Package_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Package Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Basic</fullName>
+                    <default>false</default>
+                    <label>Basic</label>
+                </value>
+                <value>
+                    <fullName>Destination Page Sponserships</fullName>
+                    <default>false</default>
+                    <label>Destination Page Sponserships</label>
+                </value>
+                <value>
+                    <fullName>Destination Video</fullName>
+                    <default>false</default>
+                    <label>Destination Video</label>
+                </value>
+                <value>
+                    <fullName>Expanded</fullName>
+                    <default>false</default>
+                    <label>Expanded</label>
+                </value>
+                <value>
+                    <fullName>Gold</fullName>
+                    <default>false</default>
+                    <label>Gold</label>
+                </value>
+                <value>
+                    <fullName>Landing Pages</fullName>
+                    <default>false</default>
+                    <label>Landing Pages</label>
+                </value>
+                <value>
+                    <fullName>Platinum</fullName>
+                    <default>false</default>
+                    <label>Platinum</label>
+                </value>
+                <value>
+                    <fullName>Premium</fullName>
+                    <default>false</default>
+                    <label>Premium</label>
+                </value>
+                <value>
+                    <fullName>Priority</fullName>
+                    <default>false</default>
+                    <label>Priority</label>
+                </value>
+                <value>
+                    <fullName>Promote Your Venue</fullName>
+                    <default>false</default>
+                    <label>Promote Your Venue</label>
+                </value>
+                <value>
+                    <fullName>Show Case</fullName>
+                    <default>false</default>
+                    <label>Show Case</label>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                    <label>Standard</label>
+                </value>
+                <value>
+                    <fullName>Virtual Showround</fullName>
+                    <default>false</default>
+                    <label>Virtual Showround</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Issue_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Lost__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Lost</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Magazine_Ad_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Ad Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Magazine_Ad_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Ad Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Corporate Ad</fullName>
+                    <default>false</default>
+                    <label>Corporate Ad</label>
+                </value>
+                <value>
+                    <fullName>CVB Ad</fullName>
+                    <default>false</default>
+                    <label>CVB Ad</label>
+                </value>
+                <value>
+                    <fullName>Service Ad</fullName>
+                    <default>false</default>
+                    <label>Service Ad</label>
+                </value>
+                <value>
+                    <fullName>Venue Ad</fullName>
+                    <default>false</default>
+                    <label>Venue Ad</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Magazine_Ad_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Year(Issue_Month__c))</formula>
+        <label>Ad Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Magazine_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Publication Name</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mazagine_AD_Size__c</fullName>
+        <externalId>false</externalId>
+        <label>Ad Size</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Page</fullName>
+                    <default>false</default>
+                    <label>Full Page</label>
+                </value>
+                <value>
+                    <fullName>Half Page</fullName>
+                    <default>false</default>
+                    <label>Half Page</label>
+                </value>
+                <value>
+                    <fullName>1/8 Page</fullName>
+                    <default>false</default>
+                    <label>1/8 Page</label>
+                </value>
+                <value>
+                    <fullName>1/4 Page</fullName>
+                    <default>false</default>
+                    <label>1/4 Page</label>
+                </value>
+                <value>
+                    <fullName>1/6 Page</fullName>
+                    <default>false</default>
+                    <label>1/6 Page</label>
+                </value>
+                <value>
+                    <fullName>1/3 Page</fullName>
+                    <default>false</default>
+                    <label>1/3 Page</label>
+                </value>
+                <value>
+                    <fullName>1/2 Page</fullName>
+                    <default>false</default>
+                    <label>1/2 Page</label>
+                </value>
+                <value>
+                    <fullName>2/3 Page</fullName>
+                    <default>false</default>
+                    <label>2/3 Page</label>
+                </value>
+                <value>
+                    <fullName>Half Page Horizontal</fullName>
+                    <default>false</default>
+                    <label>Half Page Horizontal</label>
+                </value>
+                <value>
+                    <fullName>Half Page Island</fullName>
+                    <default>false</default>
+                    <label>Half Page Island</label>
+                </value>
+                <value>
+                    <fullName>Half-Page Spread</fullName>
+                    <default>false</default>
+                    <label>Half-Page Spread</label>
+                </value>
+                <value>
+                    <fullName>Inside Back Cover</fullName>
+                    <default>false</default>
+                    <label>Inside Back Cover</label>
+                </value>
+                <value>
+                    <fullName>Inside Front Cover</fullName>
+                    <default>false</default>
+                    <label>Inside Front Cover</label>
+                </value>
+                <value>
+                    <fullName>Outside Back Cover</fullName>
+                    <default>false</default>
+                    <label>Outside Back Cover</label>
+                </value>
+                <value>
+                    <fullName>Quarter Page/Strip</fullName>
+                    <default>false</default>
+                    <label>Quarter Page/Strip</label>
+                </value>
+                <value>
+                    <fullName>Back Cover</fullName>
+                    <default>false</default>
+                    <label>Back Cover</label>
+                </value>
+                <value>
+                    <fullName>Double Page Spread</fullName>
+                    <default>false</default>
+                    <label>Double Page Spread</label>
+                </value>
+                <value>
+                    <fullName>1/3 Page Vertical</fullName>
+                    <default>false</default>
+                    <label>1/3 Page Vertical</label>
+                </value>
+                <value>
+                    <fullName>1/3 Page Square</fullName>
+                    <default>false</default>
+                    <label>1/3 Page Square</label>
+                </value>
+                <value>
+                    <fullName>Front Cover</fullName>
+                    <default>false</default>
+                    <label>Front Cover</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Publication_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Publication Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Magazine</fullName>
+                    <default>false</default>
+                    <label>Magazine</label>
+                </value>
+                <value>
+                    <fullName>Directory/Guide</fullName>
+                    <default>false</default>
+                    <label>Directory/Guide</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Publisher_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Publisher Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Supplier Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Advertiser Details</relationshipLabel>
+        <relationshipName>Advertiser_Details</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Advertiser Detail</label>
+    <nameField>
+        <displayFormat>AN# {00000000}</displayFormat>
+        <label>Record Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Advertiser Details</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>Advertised_in_Magazine</fullName>
+        <active>true</active>
+        <label>Advertised in Magazine</label>
+        <picklistValues>
+            <picklist>Advertised_in_Year__c</picklist>
+            <values>
+                <fullName>2009</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advertiser_Status__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Old</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Competitor_Name__c</picklist>
+            <values>
+                <fullName>Bizbash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elite Meetings-Speed RFPs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expedia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPI-Multiview</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Mart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speed RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starcite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Directory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Finder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Competitor_Package_Type__c</picklist>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine_Ad_Type__c</picklist>
+            <values>
+                <fullName>CVB Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Ad</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mazagine_AD_Size__c</picklist>
+            <values>
+                <fullName>1%2F2 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F3 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F3 Page Square</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F3 Page Vertical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F4 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F6 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F8 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%2F3 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Back Cover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Page Spread</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Front Cover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Page Horizontal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Page Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half-Page Spread</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inside Back Cover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inside Front Cover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside Back Cover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarter Page%2FStrip</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Publication_Type__c</picklist>
+            <values>
+                <fullName>Directory%2FGuide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Advertised_with_Competitor</fullName>
+        <active>true</active>
+        <label>Advertised with Competitor</label>
+        <picklistValues>
+            <picklist>Advertised_in_Year__c</picklist>
+            <values>
+                <fullName>2009</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advertiser_Status__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Old</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Competitor_Name__c</picklist>
+            <values>
+                <fullName>Bedouk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bizbash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elite Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elite Meetings-Speed RFPs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Connect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expedia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gathering Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury Meeting Summit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPI-Multiview</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Mart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meetings Focus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speed RFP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starcite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Directory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Finder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Competitor_Package_Type__c</picklist>
+            <values>
+                <fullName>Basic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Destination Page Sponserships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Destination Video</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expanded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landing Pages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Priority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promote Your Venue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Showround</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine_Ad_Type__c</picklist>
+            <values>
+                <fullName>CVB Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Ad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Ad</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mazagine_AD_Size__c</picklist>
+            <values>
+                <fullName>1%2F4 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F6 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%2F8 Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Page</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Page</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Publication_Type__c</picklist>
+            <values>
+                <fullName>Directory%2FGuide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

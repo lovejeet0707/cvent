@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>API_Name_AM__c</fullName>
+        <description>Account Fields for AM-Prouct</description>
+        <externalId>false</externalId>
+        <label>API Name (AM) - Product</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Label_AM_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Label (AM) - Product</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Contains Multi-Product Mapping for AM's on Account</description>
+    <enableFeeds>false</enableFeeds>
+    <label>AccountTeamMultiProductSetting</label>
+    <visibility>Public</visibility>
+</CustomObject>

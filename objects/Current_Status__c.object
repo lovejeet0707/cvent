@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account_Progress__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Core Account Progress</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Untouched</fullName>
+                    <default>false</default>
+                    <label>Untouched</label>
+                </value>
+                <value>
+                    <fullName>Prospecting</fullName>
+                    <default>false</default>
+                    <label>Prospecting</label>
+                </value>
+                <value>
+                    <fullName>Engaged buyer</fullName>
+                    <default>false</default>
+                    <label>Engaged buyer</label>
+                </value>
+                <value>
+                    <fullName>Presentation scheduled</fullName>
+                    <default>false</default>
+                    <label>Presentation scheduled</label>
+                </value>
+                <value>
+                    <fullName>Correct Contacts Identified</fullName>
+                    <default>false</default>
+                    <label>Correct Contacts Identified</label>
+                </value>
+                <value>
+                    <fullName>Demo</fullName>
+                    <default>false</default>
+                    <label>Demo</label>
+                </value>
+                <value>
+                    <fullName>Presentation</fullName>
+                    <default>false</default>
+                    <label>Presentation</label>
+                </value>
+                <value>
+                    <fullName>Price Quote/Proposal</fullName>
+                    <default>false</default>
+                    <label>Price Quote/Proposal</label>
+                </value>
+                <value>
+                    <fullName>Negotiation</fullName>
+                    <default>false</default>
+                    <label>Negotiation</label>
+                </value>
+                <value>
+                    <fullName>Verbal</fullName>
+                    <default>false</default>
+                    <label>Verbal</label>
+                </value>
+                <value>
+                    <fullName>Opportunity Created</fullName>
+                    <default>false</default>
+                    <label>Opportunity Created</label>
+                </value>
+                <value>
+                    <fullName>Closed Won</fullName>
+                    <default>false</default>
+                    <label>Closed Won</label>
+                </value>
+                <value>
+                    <fullName>Closed Lost</fullName>
+                    <default>false</default>
+                    <label>Closed Lost</label>
+                </value>
+                <value>
+                    <fullName>Using Competitor/Keeping in Touch</fullName>
+                    <default>false</default>
+                    <label>Using Competitor/Keeping in Touch</label>
+                </value>
+                <value>
+                    <fullName>No Opportunity / Not a Fit</fullName>
+                    <default>false</default>
+                    <label>No Opportunity / Not a Fit</label>
+                </value>
+                <value>
+                    <fullName>Active Review</fullName>
+                    <default>false</default>
+                    <label>Active Review</label>
+                </value>
+                <value>
+                    <fullName>Closed Won - Parent</fullName>
+                    <default>false</default>
+                    <label>Closed Won - Parent</label>
+                </value>
+                <value>
+                    <fullName>Closed Won - Parent &amp; Subsidiary</fullName>
+                    <default>false</default>
+                    <label>Closed Won - Parent &amp; Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>Closed Won - Sourcing</fullName>
+                    <default>false</default>
+                    <label>Closed Won - Sourcing</label>
+                </value>
+                <value>
+                    <fullName>Closed Won - Subsidiary</fullName>
+                    <default>false</default>
+                    <label>Closed Won - Subsidiary</label>
+                </value>
+                <value>
+                    <fullName>Completely Unresponsive</fullName>
+                    <default>false</default>
+                    <label>Completely Unresponsive</label>
+                </value>
+                <value>
+                    <fullName>Delayed</fullName>
+                    <default>false</default>
+                    <label>Delayed</label>
+                </value>
+                <value>
+                    <fullName>In Communication</fullName>
+                    <default>false</default>
+                    <label>In Communication</label>
+                </value>
+                <value>
+                    <fullName>Keeping in touch - CT</fullName>
+                    <default>false</default>
+                    <label>Keeping in touch - CT</label>
+                </value>
+                <value>
+                    <fullName>Keeping in touch - Interested in CSN</fullName>
+                    <default>false</default>
+                    <label>Keeping in touch - Interested in CSN</label>
+                </value>
+                <value>
+                    <fullName>Keeping in touch - Interested in Event</fullName>
+                    <default>false</default>
+                    <label>Keeping in touch - Interested in Event</label>
+                </value>
+                <value>
+                    <fullName>Keeping in touch - Interested in Mobile</fullName>
+                    <default>false</default>
+                    <label>Keeping in touch - Interested in Mobile</label>
+                </value>
+                <value>
+                    <fullName>Keeping in touch -  Interested in SMM</fullName>
+                    <default>false</default>
+                    <label>Keeping in touch -  Interested in SMM</label>
+                </value>
+                <value>
+                    <fullName>No Contact</fullName>
+                    <default>true</default>
+                    <label>No Contact</label>
+                </value>
+                <value>
+                    <fullName>No Opportunity</fullName>
+                    <default>false</default>
+                    <label>No Opportunity</label>
+                </value>
+                <value>
+                    <fullName>Technology Through TMC/MMC</fullName>
+                    <default>false</default>
+                    <label>Technology Through TMC/MMC</label>
+                </value>
+                <value>
+                    <fullName>Trial</fullName>
+                    <default>false</default>
+                    <label>Trial</label>
+                </value>
+                <value>
+                    <fullName>Using Competitor/In-house system</fullName>
+                    <default>false</default>
+                    <label>Using Competitor/In-house system</label>
+                </value>
+                <value>
+                    <fullName>Using Competitor  No Interest</fullName>
+                    <default>false</default>
+                    <label>Using Competitor  No Interest</label>
+                </value>
+                <value>
+                    <fullName>Using Competitor  will Revisit Cvent</fullName>
+                    <default>false</default>
+                    <label>Using Competitor  will Revisit Cvent</label>
+                </value>
+                <value>
+                    <fullName>Using In-house system  No Interest</fullName>
+                    <default>false</default>
+                    <label>Using In-house system  No Interest</label>
+                </value>
+                <value>
+                    <fullName>Using In-house system  will Revisit Cvent</fullName>
+                    <default>false</default>
+                    <label>Using In-house system  will Revisit Cvent</label>
+                </value>
+                <value>
+                    <fullName>Working - CT</fullName>
+                    <default>false</default>
+                    <label>Working - CT</label>
+                </value>
+                <value>
+                    <fullName>Working - Event</fullName>
+                    <default>false</default>
+                    <label>Working - Event</label>
+                </value>
+                <value>
+                    <fullName>Working - Mobile</fullName>
+                    <default>false</default>
+                    <label>Working - Mobile</label>
+                </value>
+                <value>
+                    <fullName>Working - SMM</fullName>
+                    <default>false</default>
+                    <label>Working - SMM</label>
+                </value>
+                <value>
+                    <fullName>Working - Sourcing</fullName>
+                    <default>false</default>
+                    <label>Working - Sourcing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>A_c_Status1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BCP_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Progress Details</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CC_Acct_Status_Change_Time_Capture__c</fullName>
+        <description>This field capture the time stamp when the "CC Acct Status" field is changed. This field is updated by Workflow Rule. Requested by Bay Nixon &amp; Kristen Brendli on Project: P-003460.</description>
+        <externalId>false</externalId>
+        <label>CC Acct Status Change Time Capture</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>CC_Acct_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Solutions Account Progress</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Untouched</fullName>
+                    <default>true</default>
+                    <label>Untouched</label>
+                </value>
+                <value>
+                    <fullName>Prospecting</fullName>
+                    <default>false</default>
+                    <label>Prospecting</label>
+                </value>
+                <value>
+                    <fullName>Engaged buyer</fullName>
+                    <default>false</default>
+                    <label>Engaged buyer</label>
+                </value>
+                <value>
+                    <fullName>Presentation scheduled</fullName>
+                    <default>false</default>
+                    <label>Presentation scheduled</label>
+                </value>
+                <value>
+                    <fullName>Opportunity Created</fullName>
+                    <default>false</default>
+                    <label>Opportunity Created</label>
+                </value>
+                <value>
+                    <fullName>Closed Won</fullName>
+                    <default>false</default>
+                    <label>Closed Won</label>
+                </value>
+                <value>
+                    <fullName>Qualified</fullName>
+                    <default>false</default>
+                    <label>Qualified</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CC_Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CC Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>A_c_Status</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CC_Progress_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>CC Progress Details</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Days_Since_CC_Acct_Status_Change__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOW() - CC_Acct_Status_Change_Time_Capture__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since CC Acct Status Change</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Status_Change__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOW() - Status_Change_Time_Capture__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Status Change</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Parent Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Current_Status</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Account_Progress__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CSN</fullName>
+                    <default>false</default>
+                    <label>CSN</label>
+                </value>
+                <value>
+                    <fullName>Event/Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Event/Onsite Solutions</label>
+                </value>
+                <value>
+                    <fullName>CC</fullName>
+                    <default>false</default>
+                    <label>CC</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Using Competitor/Keeping in Touch</controllingFieldValue>
+                <valueName>CSN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Competitor/Keeping in Touch</controllingFieldValue>
+                <valueName>Event/Onsite Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Competitor/Keeping in Touch</controllingFieldValue>
+                <valueName>CC</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status_Change_Time_Capture__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Change Time Capture</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>A/c Status</label>
+    <nameField>
+        <displayFormat>CS{0000}</displayFormat>
+        <label>Current Status Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>A/c Status</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>CSN_SAT</fullName>
+        <active>true</active>
+        <label>CSN SAT</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Active Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent %26 Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Sourcing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completely Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Correct Contacts Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch -  Interested in SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Contact</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>No Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Quote%2FProposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Through TMC%2FMMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FIn-house system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Sourcing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CT_Enterprise</fullName>
+        <active>false</active>
+        <description>Used by CT Team</description>
+        <label>CT-Enterprise</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Active Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent %26 Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Sourcing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completely Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Correct Contacts Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch -  Interested in SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Contact</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>No Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Quote%2FProposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Through TMC%2FMMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FIn-house system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Sourcing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Enterprise</fullName>
+        <active>true</active>
+        <description>Used by Enterprise team</description>
+        <label>Enterprise</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Active Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent %26 Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Sourcing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completely Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Correct Contacts Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch -  Interested in SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Contact</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>No Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Quote%2FProposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Through TMC%2FMMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FIn-house system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Sourcing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Partners_International</fullName>
+        <active>true</active>
+        <label>Partners (International)</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Correct Contacts Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Quote%2FProposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FKeeping in Touch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>TPP</fullName>
+        <active>true</active>
+        <description>Used by TPP Team</description>
+        <label>TPP</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FKeeping in Touch</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Top_Accounts</fullName>
+        <active>true</active>
+        <label>Top Accounts</label>
+        <picklistValues>
+            <picklist>Account_Progress__c</picklist>
+            <values>
+                <fullName>Active Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Parent %26 Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Sourcing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completely Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Correct Contacts Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engaged buyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Communication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch -  Interested in SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeping in touch - Interested in Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Opportunity %2F Not a Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Quote%2FProposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Through TMC%2FMMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FIn-house system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using Competitor%2FKeeping in Touch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 No Interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using In-house system %C2%96 will Revisit Cvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - SMM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working - Sourcing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CC_Acct_Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engaged buyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presentation scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Untouched</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FOnsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

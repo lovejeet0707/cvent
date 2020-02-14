@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Met Expectations</fullName>
+        <default>false</default>
+        <label>Met Expectations</label>
+    </customValue>
+    <customValue>
+        <fullName>Partially Met Expectations</fullName>
+        <default>false</default>
+        <label>Partially Met Expectations</label>
+    </customValue>
+    <customValue>
+        <fullName>Did Not Meet Expectations</fullName>
+        <default>false</default>
+        <label>Did Not Meet Expectations</label>
+    </customValue>
+    <customValue>
+        <fullName>N/A</fullName>
+        <default>false</default>
+        <label>N/A</label>
+    </customValue>
+    <masterLabel>1 Non Critical Dropdown</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

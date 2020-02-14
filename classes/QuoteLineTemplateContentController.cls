@@ -1,14 +1,3 @@
-/**
- * @File Name          : QuoteLineTemplateContentController.cls
- * @Description        : 
- * @Author             : MS Simplus August
- * @Group              : 
- * @Last Modified By   : MS Simplus August
- * @Last Modified On   : 11/12/2019, 8:28:32 am
- * @Modification Log   : 
- * Ver       Date            Author      		    Modification
- * 1.0    11/12/2019   MS Simplus August     Initial Version
-**/
 public class QuoteLineTemplateContentController {
     public String qId { get; set; }
     public List<SBQQ__QuoteLine__c> quoteLines { get; set; }

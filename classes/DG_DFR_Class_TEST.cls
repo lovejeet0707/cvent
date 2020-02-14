@@ -592,7 +592,7 @@ private class DG_DFR_Class_TEST{
           o.Years__c= '1';
           o.LeadSource = 'ACD-PS';
           o.Contact_Associated__c = lcr.getContactId();
-          o.Contact_Role__c = 'Primary User';
+          o.Contact_Role__c = 'Influencer';
           //o.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
           o.Contract_Implemented__c = true;
           o.ContractReceived__c = system.today();

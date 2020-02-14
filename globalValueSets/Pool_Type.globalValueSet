@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Individual Property Pool</fullName>
+        <default>false</default>
+        <label>Individual Property Pool</label>
+    </customValue>
+    <customValue>
+        <fullName>Corporate Super Pool</fullName>
+        <default>false</default>
+        <label>Corporate Super Pool</label>
+    </customValue>
+    <customValue>
+        <fullName>HWW Match Program Pool</fullName>
+        <default>false</default>
+        <label>HWW Match Program Pool</label>
+    </customValue>
+    <description>Used for Suggested Ad Pricing</description>
+    <masterLabel>Pool Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -9,8 +9,9 @@ public class EventHelperCls {
     
     public static Boolean recursiveFlag=true;
     
-    public void OnBeforeInsert(List<Event> newValues){ }
-    
+    public void OnBeforeInsert(List<Event> newValues){
+        //system.debug('Insert');
+    }
     public void OnAfterInsert(Map<Id,Event> newMapValues){          
         
         // Blue Release check box functionality
@@ -25,7 +26,9 @@ public class EventHelperCls {
                 String instOfStr = instOfEvent.WhatId;
                 if(instOfStr.startsWith('a0B')){
                     idESB.add(instOfEvent.WhatId);
-                }else if(instOfStr.startsWith('a07')){idProjActi.add(instOfEvent.WhatId); }
+                }else if(instOfStr.startsWith('a07')){
+                    idProjActi.add(instOfEvent.WhatId);
+                }
             }
             //Merged trigger "Eventtriggerbulk" on after update and after insert
         }
@@ -131,7 +134,9 @@ public class EventHelperCls {
 
         UpdateStatusSQL(newMapValues);  
     }
-    public void OnBeforeUpdate(Map<Id,Event> oldMapValues,Map<Id,Event> newMapValues){}
+    public void OnBeforeUpdate(Map<Id,Event> oldMapValues,Map<Id,Event> newMapValues){   
+                        
+    }
     public void OnAfterUpdate(Map<Id,Event> oldMapValues,Map<Id,Event> newMapValues){
         if(recursiveFlag == true){
             // Blue Release check box functionality
@@ -205,7 +210,8 @@ public class EventHelperCls {
             
             
             for(EB_SB_Builder__c instOfEBSBSec : lstEBSBEvent){
-                Double Sum = 0,SumSec = 0;
+                Double Sum = 0;
+                Double SumSec = 0;
                 for(Event instOfTsk : instOfEBSBSec.Events){
                     if(instOfTsk.Minutes_on_tasks__c != null)
                     Sum = Sum + instOfTsk.Minutes_on_tasks__c;
@@ -263,7 +269,9 @@ public class EventHelperCls {
         }
     }
     
-    public void OnBeforeDelete(List<Event> oldValues,Map<Id,Event> oldMapValues){    }
+    public void OnBeforeDelete(List<Event> oldValues,Map<Id,Event> oldMapValues){
+        system.debug('Delete');
+    }
     
     public void OnAfterDelete(List<Event> oldValues,Map<Id,Event> oldMapValues){
         system.debug('Delete');
@@ -280,7 +288,9 @@ public class EventHelperCls {
                 }
             }
         }
-        List<EB_SB_Builder__c> lstEBSB = new List<EB_SB_Builder__c>();List<EB_SB_Builder__c> lstEBSBCase = new List<EB_SB_Builder__c>();List<EB_SB_Builder__c> lstEBSBEvent = new List<EB_SB_Builder__c>();
+        List<EB_SB_Builder__c> lstEBSB = new List<EB_SB_Builder__c>();
+        List<EB_SB_Builder__c> lstEBSBCase = new List<EB_SB_Builder__c>();
+        List<EB_SB_Builder__c> lstEBSBEvent = new List<EB_SB_Builder__c>();
         
         if(idESB.size()>0){
             lstEBSB = [SELECT Id,Build_Out_Time_Exhausted__c,(SELECT Id,Minutes_on_tasks__c FROM Tasks) FROM EB_SB_Builder__c WHERE Id =: idESB ];
@@ -375,7 +385,9 @@ public class EventHelperCls {
         update mapProjActIdCount.values();
         //Merged trigger "Eventtriggerbulk" on after update and after insert
     }
-    public void OnUndelete(List<Event> newValues){    }
+    public void OnUndelete(List<Event> newValues){
+        system.debug('Delete');
+    }
     
     /*
     **  Update Sales Qualified Contact Status 
@@ -402,10 +414,10 @@ public class EventHelperCls {
             for(Id eventId : eventVsContactMap.keySet()){
                 Event eventobj = newMapValues.get(eventId);
                 Contact conObj = contactMap.get(eventobj.WhoId);
-                Map<String,DWF_Product_Vs_Status_Vs_Owner_Field__c> dwfSettingMap;
+                
                 //Product is not null
                 if(eventobj.Product__c != null){ 
-                    dwfSettingMap = DWF_Product_Vs_Status_Vs_Owner_Field__c.getAll();                   
+                    Map<String,DWF_Product_Vs_Status_Vs_Owner_Field__c> dwfSettingMap = DWF_Product_Vs_Status_Vs_Owner_Field__c.getAll();                   
                     for(String product : eventobj.Product__c.split(';')){
                         order=0;
                         //if(DWF_Product_Vs_Status_Vs_Owner_Field__c.getValues(product) != null ){ // commented on 13 Nov - Custom setting 40 char limitation on Name 
@@ -418,7 +430,8 @@ public class EventHelperCls {
                         }
                     }
                 }else{
-                    DWF_Product_Vs_Status_Vs_Owner_Field__c roleSetting = dwfSettingMap.get(eventobj.Task_Assigned_Role__c);
+                    DWF_Product_Vs_Status_Vs_Owner_Field__c roleSetting = DWF_Product_Vs_Status_Vs_Owner_Field__c.getValues(eventobj.Task_Assigned_Role__c);
+                    
                     if(roleSetting!=null){
                         conStatusField = roleSetting.Contact_Status_Field__c;
                         DWF_Contact_Status_Order__c orderSetting  = DWF_Contact_Status_Order__c.getValues(String.ValueOf(conObj.get(conStatusField)));
@@ -457,12 +470,13 @@ public class EventHelperCls {
             List<Event_Attachment_Email_Sending_Mapping__c> lstEventAESM = Event_Attachment_Email_Sending_Mapping__c.getall().values();
             for(Id userId : mapUserId.keySet()){
                 for(Event_Attachment_Email_Sending_Mapping__c userIdSec : lstEventAESM){
-                    if(userId == userIdSec.User_Creating__c){mapUserIdSec.put(userIdSec.User_Mapped__c,mapUserId.get(userId));
+                    if(userId == userIdSec.User_Creating__c){
+                        mapUserIdSec.put(userIdSec.User_Mapped__c,mapUserId.get(userId));
                     }
-                }}
-            
-            List<User> lstUserSec = [SELECT Id,Name FROM User WHERE Id =:mapUserId.keySet()];
-            List<User> lstUser = [SELECT Id,Email From User WHERE Id =:mapUserIdSec.keySet()];
+                }
+            }
+            List<User> lstUserSec = [SELECT Id,Name FROM User WHERE Id=:mapUserId.keySet()];
+            List<User> lstUser = [SELECT Id,Email From User WHERE Id =: mapUserIdSec.keySet()];
             if(lstUser.size()>0){
                 Messaging.SingleEmailMessage email =  new  Messaging.SingleEmailMessage();
                 email.setTargetObjectId(lstUser[0].id); 

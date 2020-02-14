@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Partners</relationshipLabel>
+        <relationshipName>Account_Partners</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Lanyon_Migrated_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Lanyon Migrated ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Partner__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Partner</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Partners (Partner)</relationshipLabel>
+        <relationshipName>Account_Partners1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Role_Select__c</fullName>
+        <description>Contains the selected Roles for the Account Partner association. When importing Account Partner data, be sure to populate this field (not the Role__c field).</description>
+        <externalId>false</externalId>
+        <label>Role Select</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advertising Agency</fullName>
+                    <default>false</default>
+                    <label>Advertising Agency</label>
+                </value>
+                <value>
+                    <fullName>Chain Affiliation</fullName>
+                    <default>false</default>
+                    <label>Chain Affiliation</label>
+                </value>
+                <value>
+                    <fullName>Management Company</fullName>
+                    <default>false</default>
+                    <label>Management Company</label>
+                </value>
+                <value>
+                    <fullName>Other Chain Name</fullName>
+                    <default>false</default>
+                    <label>Other Chain Name</label>
+                </value>
+                <value>
+                    <fullName>Ownership Group</fullName>
+                    <default>false</default>
+                    <label>Ownership Group</label>
+                </value>
+                <value>
+                    <fullName>Regional Sales Office</fullName>
+                    <default>false</default>
+                    <label>Regional Sales Office</label>
+                </value>
+                <value>
+                    <fullName>Parent Management Company</fullName>
+                    <default>false</default>
+                    <label>Parent Management Company</label>
+                </value>
+                <value>
+                    <fullName>Asset Management Firm</fullName>
+                    <default>false</default>
+                    <label>Asset Management Firm</label>
+                </value>
+                <value>
+                    <fullName>Consultant Firm</fullName>
+                    <default>false</default>
+                    <label>Consultant Firm</label>
+                </value>
+                <value>
+                    <fullName>Accor Hotels</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Accor Hotels</label>
+                </value>
+                <value>
+                    <fullName>Advertising Agencies</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Advertising Agencies</label>
+                </value>
+                <value>
+                    <fullName>Chain Affilaition</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Chain Affilaition</label>
+                </value>
+                <value>
+                    <fullName>Chain Affilifation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Chain Affilifation</label>
+                </value>
+                <value>
+                    <fullName>Chain Affliation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Chain Affliation</label>
+                </value>
+                <value>
+                    <fullName>Choice Hotels</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Choice Hotels</label>
+                </value>
+                <value>
+                    <fullName>Hilton Worldwide</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Hilton Worldwide</label>
+                </value>
+                <value>
+                    <fullName>Independent / Other</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Independent / Other</label>
+                </value>
+                <value>
+                    <fullName>Independent Restaurants</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Independent Restaurants</label>
+                </value>
+                <value>
+                    <fullName>NH Hotel Group</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>NH Hotel Group</label>
+                </value>
+                <value>
+                    <fullName>Role select</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Role select</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Role__c</fullName>
+        <description>This field is automatically populated with values from the Role_Select__c field by the SetValuesOnAccountPartner trigger. Due to the limitations with multi-select fields (difficulty searching, can't sort, etc.), this text field value should be used for reporting, lists, views, etc. 
+When importing Account Partner data, DO NOT IMPORT into this field - Role information should be imported to the Role_Select__c field.</description>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A custom Account Partner object to connect partner accounts</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Account Partner</label>
+    <nameField>
+        <displayFormat>AP-{0000}</displayFormat>
+        <label>Account Partner Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Account Partners</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Cvent_Asset_Group__c</fullName>
+        <externalId>false</externalId>
+        <formula>Onsite_Hardware_Request_Bundle__r.Cvent_Asset_Subgroup_Bundle__r.Cvent_Asset_Subgroup__r.Cvent_Asset_Group__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cvent Asset Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cvent_Asset_Subgroup__c</fullName>
+        <externalId>false</externalId>
+        <formula>Onsite_Hardware_Request_Bundle__r.Cvent_Asset_Subgroup_Bundle__r.Cvent_Asset_Subgroup__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cvent Asset Subgroup</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cvent_Asset_Type__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Cvent Asset Type</label>
+        <referenceTo>Cvent_Asset_Type__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Request Items</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Request_Items</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cvent_Box__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Cvent Box</label>
+        <referenceTo>Cvent_Box__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Request Items</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Request_Items</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_Actual_Return__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated once the Asset is marked as Returned</inlineHelpText>
+        <label>Date - Actual Return</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Item_Created_By__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-populated. 
+Used for Reporting.</inlineHelpText>
+        <label>Item Created By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PM</fullName>
+                    <default>true</default>
+                    <label>PM</label>
+                </value>
+                <value>
+                    <fullName>Logistics Team</fullName>
+                    <default>false</default>
+                    <label>Logistics Team</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Onsite_Hardware_Request_Bundle__c</fullName>
+        <externalId>false</externalId>
+        <label>Onsite Hardware Request Bundle</label>
+        <referenceTo>Onsite_Hardware_Request_Bundle__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Request Items</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Request_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Onsite_Hardware_Request__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Onsite Hardware Request</label>
+        <referenceTo>Onsite_Hardware_Request__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Request Items</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Request_Items</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Packed__c</fullName>
+        <externalId>false</externalId>
+        <formula>Shipped_Quantity__c / Packlist_Quantity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Packed %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Packlist_Created__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Packlist__c &lt;&gt; null, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Packlist Created?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Packlist_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the Logistics Team. Might include buffers and spares.</inlineHelpText>
+        <label>Packlist Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Packlist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Packlist</label>
+        <referenceTo>Packlist__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Request Items</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Request_Items</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quantity_to_be_Packed__c</fullName>
+        <externalId>false</externalId>
+        <formula>if ( Packlist_Quantity__c &lt;&gt; 0, Packlist_Quantity__c , Requested_Quantity__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated. Uses the Logistics Team's entry (Packlist Quantity), if there is one. If not, defaults to the Requested Quantity entered by the PM.</inlineHelpText>
+        <label>Quantity to be Packed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requested_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the PM. Represents the quantities agreed with the client, in the SOW or with further PCNs/COs.</inlineHelpText>
+        <label>Requested Quantity</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Returned_Quantity_All_Unique_Assets__c</fullName>
+        <externalId>false</externalId>
+        <label>Returned Quantity - All Unique Assets</label>
+        <summaryFilterItems>
+            <field>Packlist_Item__c.Date_Actual_Return__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </summaryFilterItems>
+        <summaryForeignKey>Packlist_Item__c.Onsite_Hardware_Request_Item__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Returned_Quantity_Others__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the Logistics Team. 
+Indicates the number of non-unique hardware returned from the event.</inlineHelpText>
+        <label>Returned Quantity - Others</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Returned_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( Returned_Quantity_All_Unique_Assets__c == 0, Returned_Quantity_Others__c, Returned_Quantity_All_Unique_Assets__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated.
+Number of items being returned: unique hardware or quantity entered for non-unique hardware.</inlineHelpText>
+        <label>Returned Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Returned__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (  OR(ISNULL(Shipped_Quantity__c),Shipped_Quantity__c==0) , null, Returned_Quantity__c /  Shipped_Quantity__c)</formula>
+        <label>Returned %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Shipped_Quantity_Correct_Unique_Assets__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-calculated.
+Count of all unique assets scanned to be shipped - excludes incorrectly scanned items.</inlineHelpText>
+        <label>Shipped Quantity - Correct Unique Assets</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shipped_Quantity_Others__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of items being shipped. 
+Used for non-unique assets or consumables.</inlineHelpText>
+        <label>Shipped Quantity - Others</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shipped_Quantity_Unique_Assets__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-calculated.
+Count of all unique assets scanned to be shipped. 
+May include incorrectly scanned items.</inlineHelpText>
+        <label>Shipped Quantity - All Unique Assets</label>
+        <summaryForeignKey>Packlist_Item__c.Onsite_Hardware_Request_Item__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Shipped_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(  Shipped_Quantity_Correct_Unique_Assets__c == 0, Shipped_Quantity_Others__c,  Shipped_Quantity_Correct_Unique_Assets__c  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated.
+Number of items being shipped: unique hardware or quantity entered for non-unique hardware or consumable.</inlineHelpText>
+        <label>Shipped Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Onsite Hardware Request Item</label>
+    <nameField>
+        <displayFormat>OHRI - {0}</displayFormat>
+        <label>Onsite Hardware Request Item Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Onsite Hardware Request Items</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Onsite_Hardware_Request_Bundle__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Cvent_Asset_Group__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Packlist__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Packlist_Quantity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Packlist__c</columns>
+        <columns>Packlist_Quantity__c</columns>
+        <columns>Onsite_Hardware_Request_Bundle__c</columns>
+        <columns>Cvent_Asset_Group__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <webLinks>
+        <fullName>Pack_Items</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Pack Items</masterLabel>
+        <openType>noSidebar</openType>
+        <page>CAM_PrepareShipment</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Prepare_Packlist</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Prepare Packlist</masterLabel>
+        <openType>noSidebar</openType>
+        <page>CAM_PreparePacklist</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Return_Items</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Return Items</masterLabel>
+        <openType>replace</openType>
+        <page>CAM_ReturnShipment</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

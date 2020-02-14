@@ -1,0 +1,23 @@
+<apex:page >
+ <script type="text/javascript"> 
+    if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('573000000008OVF', document.getElementById('liveagent_button_online_573000000008OVF'));
+liveagent.showWhenOffline('573000000008OVF', document.getElementById('liveagent_button_offline_573000000008OVF'));
+});
+</script>
+<script type="text/javascript" src="https://c.la2-c2-ia2.salesforceliveagent.com/content/g/js/46.0/deployment.js"></script>
+<script type="text/javascript"> 
+    liveagent.init('https://d.la2-c2-ia2.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+</script>
+
+<div class="side-bar-nav-chat text-left text-white" id="liveagent_button_online_573000000008OVF" onclick="liveagent.startChatWithWindow('573000000008OVF', 'Livechat')">
+</div>
+
+<script type="text/javascript">
+debugger;
+var k = document.getElementById("liveagent_button_online_573000000008OVF");
+debugger;
+k.click();
+</script>
+
+</apex:page>

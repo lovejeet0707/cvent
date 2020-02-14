@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Is_Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate whether Trigger is Active or Inactive</description>
+        <externalId>false</externalId>
+        <label>Is Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Activate / Deactivate Triggers using custom setting.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>TriggerManagementSetting</label>
+    <visibility>Public</visibility>
+</CustomObject>

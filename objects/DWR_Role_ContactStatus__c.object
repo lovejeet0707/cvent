@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Contact_Owner_Field__c</fullName>
+        <description>API name of the Contact Owner Field which will get updated on the basis of Task Assigned</description>
+        <externalId>false</externalId>
+        <label>Contact Owner Field</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Status_Field__c</fullName>
+        <description>API name of the Contact Status field depending on the Roles</description>
+        <externalId>false</externalId>
+        <label>Contact Status Field</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Used in the Batch class to store the Mapping of Role and Corresponding Contact Status fields needs to be updated.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>DWF Role Vs ContactStatusField</label>
+    <visibility>Public</visibility>
+</CustomObject>

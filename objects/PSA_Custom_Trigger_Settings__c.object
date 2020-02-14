@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Disable_Assignment_followProject__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables the trigger/method PSA_AssignmentTriggerHandler.followProject (causes resources to automatically follow Projects in Chatter when they are Assigned to a Project)</inlineHelpText>
+        <label>Disable Assignment followProject</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Client_Meeting_deactivateMeeting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disable trigger/method PSA_clientMeetingTriggerHandler.deactivateMeeting (unchecks Active on Client Meetings when they are edited to have a work end date in the past)</inlineHelpText>
+        <label>Disable Client Meeting deactivateMeeting</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_ER_handleNewExpenseReport__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_ExpenseReportTriggerHandler.handleNewExpenseReport (creates Integration Queue records from Approved Expense Reports for EBS integration)</inlineHelpText>
+        <label>Disable ER handleNewExpenseReport</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_ER_populateApprover__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_ExpenseReportHeaderTriggerHandler.populateApprover (populates either Resource Manager or Project Manager in Approver field depending on project Expense Approval Method - WARNING-DISABLING WILL AFFECT APPROVAL PROCESS FUNCTION</inlineHelpText>
+        <label>Disable ER populateApprover</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Expense_setExpenseType__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_expenseTriggerHandler.setExpenseType (sets Expense Type lookup on Expense records based on value in the Type field - used by EBS integration)</inlineHelpText>
+        <label>Disable Expense setExpenseType</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Milestone_sumMilestoneWeight__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables the trigger/method PSA_MilestoneTriggerHandler.sumMilestoneWeight (sums total Milestone weight and weight of Approved Milestones onto the Project for a complete by weight %)</inlineHelpText>
+        <label>Disable Milestone sumMilestoneWeight</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Project_pendingCompletionPost__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables the trigger/method PSA_ProjectTriggerHandler.pendingCompletionPost (posts a message to Chatter to all assigned resources and PM's Manager when Project Status is set to "Pending Completion")</inlineHelpText>
+        <label>Disable Project pendingCompletionPost</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Project_populatePMsMgr__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables the trigger/method PSA_ProjectTriggerHandler.populatePMsMgr from executing (functionality that populates the PM's Manager on the Project for notification purposes)</inlineHelpText>
+        <label>Disable Project populatePMsMgr</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_RR_setResourceManager__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_ResourceRequestTriggerHandler.setResourceManager (populates Resource Manager field on Resource Request with Resource Manager field from Project's Group)</inlineHelpText>
+        <label>Disable RR setResourceManager</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Survey_Info_answerToNumber__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_surveyInfoTriggerHandler.answerToNumber (converts long text area Answer__c field to 1-5 numeric value if answer is Very Satisfied, Satisfied, Neutral, Dissatisfied, Very Dissatisfied)</inlineHelpText>
+        <label>Disable Survey Info answerToNumber</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Survey_Info_sumTotalScore__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_surveyInfoTriggerHandler.sumTotalScore (sums total # of questions and total question score from Survey Info onto Project for Project Health Calculation)</inlineHelpText>
+        <label>Disable Survey Info sumTotalScore</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_TCHeader_nonBillableMilestone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_TimecardHeaderTriggerHandler.nonBillableMilestone (unchecks Billable and checks Time Credited on Timecards against billable Projects where the Non-Billable Milestone field = TRUE on the related Milestone record)</inlineHelpText>
+        <label>Disable TCHeader nonBillableMilestone</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_TCHeader_populateApprover__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_TimecardHeaderTriggerHandler.populateApprover (populates either Resource Manager or Project Manager in Approver field depending on project Time Approval Method - WARNING-DISABLING WILL AFFECT APPROVAL PROCESS FUNCTION</inlineHelpText>
+        <label>Disable TCHeader populateApprover</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_TC_Split_populateTimePeriod__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Disables trigger/method PSA_TimecardSplitTriggerHandler.populateTimePeriod (populates Quarter, Month and Year Time Period lookups on TC split for use in MBO Utilization Calculation batch).  Disabling this will affect Utilization Calculation function.</inlineHelpText>
+        <label>Disable TC Split populateTimePeriod</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <label>PSA Custom Trigger Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

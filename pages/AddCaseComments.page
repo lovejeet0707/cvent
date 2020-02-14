@@ -235,40 +235,6 @@ p {
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <table class="table">
-                            <thead>
-                            <tr>
-                                <th width="20%">
-                                    <apex:outputLabel >Created By</apex:outputLabel>
-                                </th>
-                                <th width="20">
-                                    <apex:outputLabel >Created Date</apex:outputLabel>
-                                </th>
-                                <th width="60%">
-                                    <apex:outputLabel >Description</apex:outputLabel> 
-                                </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                            <apex:repeat value="{!CaseComments}" var="cs">
-                                <tr>
-                                    <td>
-                                        <apex:outputField value="{!cs.CreatedBy.Name}"/>
-                                    </td>
-                                    <td>
-                                        <apex:outputField value="{!cs.CreatedDate}"/>
-                                    </td>
-                                    <td>
-                                        <apex:outputField value="{!cs.CommentBody}"/> 
-                                    </td>
-                                </tr>
-                            </apex:repeat>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
                              <label for="txtComment" class="control-label">Comments</label>
        
                              <div class="requiredInput">

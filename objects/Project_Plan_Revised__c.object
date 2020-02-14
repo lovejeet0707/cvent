@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Actual_Timeline_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Timeline API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Timeline_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Timeline API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Sequence__c</fullName>
+        <externalId>false</externalId>
+        <label>Field Sequence</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Revised_Timeline_API_Name__c</fullName>
+        <description>This field contains the name of Revised Milestone Date fields on EB SB project plan object.</description>
+        <externalId>false</externalId>
+        <label>Revised Timeline API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Timeline_Reason_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Timeline Reason API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>It contains sequence of milestone dates and revised timeline fields.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Project Plan Revised</label>
+    <visibility>Public</visibility>
+</CustomObject>

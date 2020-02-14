@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>FieldAPIName__c</fullName>
+        <description>API Name of the field</description>
+        <externalId>false</externalId>
+        <label>FieldAPIName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Used in BatchUpdateAccountTeamMembersOnAccount class to update account fields</description>
+    <enableFeeds>false</enableFeeds>
+    <label>AccountAndTeamMembersSetting</label>
+    <visibility>Protected</visibility>
+</CustomObject>

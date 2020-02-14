@@ -1,0 +1,3343 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Area</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Setup-Licenses​</fullName>
+                    <default>false</default>
+                    <label>Account Setup-Licenses​</label>
+                </value>
+                <value>
+                    <fullName>​​Administration-Answer Formats</fullName>
+                    <default>false</default>
+                    <label>​​Administration-Answer Formats</label>
+                </value>
+                <value>
+                    <fullName>Administration-Contact Websites</fullName>
+                    <default>false</default>
+                    <label>Administration-Contact Websites</label>
+                </value>
+                <value>
+                    <fullName>Administration-Custom Fields</fullName>
+                    <default>false</default>
+                    <label>Administration-Custom Fields</label>
+                </value>
+                <value>
+                    <fullName>Administration-Custom URL / Domain</fullName>
+                    <default>false</default>
+                    <label>Administration-Custom URL / Domain</label>
+                </value>
+                <value>
+                    <fullName>Administration-Editors and Lead Coordinators</fullName>
+                    <default>false</default>
+                    <label>Administration-Editors and Lead Coordinators</label>
+                </value>
+                <value>
+                    <fullName>Administration-Email Settings</fullName>
+                    <default>false</default>
+                    <label>Administration-Email Settings</label>
+                </value>
+                <value>
+                    <fullName>Administration-External Calendar</fullName>
+                    <default>false</default>
+                    <label>Administration-External Calendar</label>
+                </value>
+                <value>
+                    <fullName>Administration-Floor Plans</fullName>
+                    <default>false</default>
+                    <label>Administration-Floor Plans</label>
+                </value>
+                <value>
+                    <fullName>Administration-General</fullName>
+                    <default>false</default>
+                    <label>Administration-General</label>
+                </value>
+                <value>
+                    <fullName>Administration-Image Editor</fullName>
+                    <default>false</default>
+                    <label>Administration-Image Editor</label>
+                </value>
+                <value>
+                    <fullName>Administration-Lead Scoring</fullName>
+                    <default>false</default>
+                    <label>Administration-Lead Scoring</label>
+                </value>
+                <value>
+                    <fullName>Administration-Libraries</fullName>
+                    <default>false</default>
+                    <label>Administration-Libraries</label>
+                </value>
+                <value>
+                    <fullName>Administration-Onsite User Logins</fullName>
+                    <default>false</default>
+                    <label>Administration-Onsite User Logins</label>
+                </value>
+                <value>
+                    <fullName>Administration-Other</fullName>
+                    <default>false</default>
+                    <label>Administration-Other</label>
+                </value>
+                <value>
+                    <fullName>Administration-Password Reset / Locked</fullName>
+                    <default>false</default>
+                    <label>Administration-Password Reset / Locked</label>
+                </value>
+                <value>
+                    <fullName>Administration-Revenue/Profit Targets</fullName>
+                    <default>false</default>
+                    <label>Administration-Revenue/Profit Targets</label>
+                </value>
+                <value>
+                    <fullName>Administration-RFP Labels</fullName>
+                    <default>false</default>
+                    <label>Administration-RFP Labels</label>
+                </value>
+                <value>
+                    <fullName>Administration-Rooms</fullName>
+                    <default>false</default>
+                    <label>Administration-Rooms</label>
+                </value>
+                <value>
+                    <fullName>Administration-Spaces</fullName>
+                    <default>false</default>
+                    <label>Administration-Spaces</label>
+                </value>
+                <value>
+                    <fullName>Administration-Users</fullName>
+                    <default>false</default>
+                    <label>Administration-Users</label>
+                </value>
+                <value>
+                    <fullName>Administration-Users, Groups &amp; Roles</fullName>
+                    <default>false</default>
+                    <label>Administration-Users, Groups &amp; Roles</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Admission Items</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Admission Items</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Item Availability</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Item Availability</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Optional Items</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Optional Items</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Sessions</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Sessions</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Tickets (Express)</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Tickets (Express)</label>
+                </value>
+                <value>
+                    <fullName>Agenda Items-Tracks</fullName>
+                    <default>false</default>
+                    <label>Agenda Items-Tracks</label>
+                </value>
+                <value>
+                    <fullName>Availability-Meeting Space</fullName>
+                    <default>false</default>
+                    <label>Availability-Meeting Space</label>
+                </value>
+                <value>
+                    <fullName>Availability-Sleeping Rooms</fullName>
+                    <default>false</default>
+                    <label>Availability-Sleeping Rooms</label>
+                </value>
+                <value>
+                    <fullName>Bookings-Create Lead</fullName>
+                    <default>false</default>
+                    <label>Bookings-Create Lead</label>
+                </value>
+                <value>
+                    <fullName>Bookings-Dashboard</fullName>
+                    <default>false</default>
+                    <label>Bookings-Dashboard</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Add a customer list</fullName>
+                    <default>false</default>
+                    <label>Box Office-Add a customer list</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Box Office General</fullName>
+                    <default>false</default>
+                    <label>Box Office-Box Office General</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Box Office Transactions</fullName>
+                    <default>false</default>
+                    <label>Box Office-Box Office Transactions</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Gift Cards</fullName>
+                    <default>false</default>
+                    <label>Box Office-Gift Cards</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Group Parties</fullName>
+                    <default>false</default>
+                    <label>Box Office-Group Parties</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Guests</fullName>
+                    <default>false</default>
+                    <label>Box Office-Guests</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Merchandise</fullName>
+                    <default>false</default>
+                    <label>Box Office-Merchandise</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Printing</fullName>
+                    <default>false</default>
+                    <label>Box Office-Printing</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Settings</fullName>
+                    <default>false</default>
+                    <label>Box Office-Settings</label>
+                </value>
+                <value>
+                    <fullName>Box Office-Tickets</fullName>
+                    <default>false</default>
+                    <label>Box Office-Tickets</label>
+                </value>
+                <value>
+                    <fullName>Click-Click Game Play</fullName>
+                    <default>false</default>
+                    <label>Click-Click Game Play</label>
+                </value>
+                <value>
+                    <fullName>Click-Click Setup</fullName>
+                    <default>false</default>
+                    <label>Click-Click Setup</label>
+                </value>
+                <value>
+                    <fullName>Click-Click Wall</fullName>
+                    <default>false</default>
+                    <label>Click-Click Wall</label>
+                </value>
+                <value>
+                    <fullName>Click-Players/Submission</fullName>
+                    <default>false</default>
+                    <label>Click-Players/Submission</label>
+                </value>
+                <value>
+                    <fullName>Click-User Management</fullName>
+                    <default>false</default>
+                    <label>Click-User Management</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Client Website General</fullName>
+                    <default>false</default>
+                    <label>Client Website-Client Website General</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Display Widget (Donations)</fullName>
+                    <default>false</default>
+                    <label>Client Website-Display Widget (Donations)</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Display Widget (Participation Sports)</fullName>
+                    <default>false</default>
+                    <label>Client Website-Display Widget (Participation Sports)</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Display Widget (Tickets)</fullName>
+                    <default>false</default>
+                    <label>Client Website-Display Widget (Tickets)</label>
+                </value>
+                <value>
+                    <fullName>Client Website-GA Ticket Purchase</fullName>
+                    <default>false</default>
+                    <label>Client Website-GA Ticket Purchase</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Integration setup</fullName>
+                    <default>false</default>
+                    <label>Client Website-Integration setup</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Login / Customer Accounts</fullName>
+                    <default>false</default>
+                    <label>Client Website-Login / Customer Accounts</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Marketing Request</fullName>
+                    <default>false</default>
+                    <label>Client Website-Marketing Request</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Merchandise Purchase</fullName>
+                    <default>false</default>
+                    <label>Client Website-Merchandise Purchase</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Reserved Seating Ticket Purchase</fullName>
+                    <default>false</default>
+                    <label>Client Website-Reserved Seating Ticket Purchase</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Tracking Pixel</fullName>
+                    <default>false</default>
+                    <label>Client Website-Tracking Pixel</label>
+                </value>
+                <value>
+                    <fullName>Client Website-Website Modification</fullName>
+                    <default>false</default>
+                    <label>Client Website-Website Modification</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Contact Import / Export</fullName>
+                    <default>false</default>
+                    <label>Contacts-Contact Import / Export</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Contact Management</fullName>
+                    <default>false</default>
+                    <label>Contacts-Contact Management</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Contact Merge</fullName>
+                    <default>false</default>
+                    <label>Contacts-Contact Merge</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Distribution Lists</fullName>
+                    <default>false</default>
+                    <label>Contacts-Distribution Lists</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Membership Management</fullName>
+                    <default>false</default>
+                    <label>Contacts-Membership Management</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Payment Credits</fullName>
+                    <default>false</default>
+                    <label>Contacts-Payment Credits</label>
+                </value>
+                <value>
+                    <fullName>Contacts-Related Contacts</fullName>
+                    <default>false</default>
+                    <label>Contacts-Related Contacts</label>
+                </value>
+                <value>
+                    <fullName>Content-External Feeds</fullName>
+                    <default>false</default>
+                    <label>Content-External Feeds</label>
+                </value>
+                <value>
+                    <fullName>Content-Social Media</fullName>
+                    <default>false</default>
+                    <label>Content-Social Media</label>
+                </value>
+                <value>
+                    <fullName>Content-Sponsored Cards</fullName>
+                    <default>false</default>
+                    <label>Content-Sponsored Cards</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Budget</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Budget</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Dashboards</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Dashboards</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Localization</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Localization</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Meeting Estimator</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Meeting Estimator</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Overview Page</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Overview Page</label>
+                </value>
+                <value>
+                    <fullName>Crosstab - Text Customization</fullName>
+                    <default>false</default>
+                    <label>Crosstab - Text Customization</label>
+                </value>
+                <value>
+                    <fullName>Cross Tab-Web Widgets &amp; Links</fullName>
+                    <default>false</default>
+                    <label>Cross Tab-Web Widgets &amp; Links</label>
+                </value>
+                <value>
+                    <fullName>CVII</fullName>
+                    <default>false</default>
+                    <label>CVII</label>
+                </value>
+                <value>
+                    <fullName>CVII-User / Permission Management</fullName>
+                    <default>false</default>
+                    <label>CVII-User / Permission Management</label>
+                </value>
+                <value>
+                    <fullName>​​Dashboards-Details &amp; Settings</fullName>
+                    <default>false</default>
+                    <label>​​Dashboards-Details &amp; Settings</label>
+                </value>
+                <value>
+                    <fullName>​​Dashboards-​Visibility</fullName>
+                    <default>false</default>
+                    <label>​​Dashboards-​Visibility</label>
+                </value>
+                <value>
+                    <fullName>​​Dashboards-​Widgets</fullName>
+                    <default>false</default>
+                    <label>​​Dashboards-​Widgets</label>
+                </value>
+                <value>
+                    <fullName>Data-Integration</fullName>
+                    <default>false</default>
+                    <label>Data-Integration</label>
+                </value>
+                <value>
+                    <fullName>Display-Gallery</fullName>
+                    <default>false</default>
+                    <label>Display-Gallery</label>
+                </value>
+                <value>
+                    <fullName>Display-Mobile</fullName>
+                    <default>false</default>
+                    <label>Display-Mobile</label>
+                </value>
+                <value>
+                    <fullName>Display-Widget</fullName>
+                    <default>false</default>
+                    <label>Display-Widget</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Auth.net AIM</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Auth.net AIM</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Auth.net SIM</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Auth.net SIM</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Cybersource</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Cybersource</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-General</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-General</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Moneris</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Moneris</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Ogone</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Ogone</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Pay.gov</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Pay.gov</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-PayFlowPro</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-PayFlowPro</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Payment Processor</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Payment Processor</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-PayPal Express Checkout</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-PayPal Express Checkout</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Payvision</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Payvision</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Touchnet</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Touchnet</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce-Transactions</fullName>
+                    <default>false</default>
+                    <label>Ecommerce-Transactions</label>
+                </value>
+                <value>
+                    <fullName>Emails-Campaigns</fullName>
+                    <default>false</default>
+                    <label>Emails-Campaigns</label>
+                </value>
+                <value>
+                    <fullName>Emails-Custom Data Tags</fullName>
+                    <default>false</default>
+                    <label>Emails-Custom Data Tags</label>
+                </value>
+                <value>
+                    <fullName>​​Emails-​Custom Email Templates</fullName>
+                    <default>false</default>
+                    <label>​​Emails-​Custom Email Templates</label>
+                </value>
+                <value>
+                    <fullName>Emails-Email Alerts</fullName>
+                    <default>false</default>
+                    <label>Emails-Email Alerts</label>
+                </value>
+                <value>
+                    <fullName>Emails-Email Calendar</fullName>
+                    <default>false</default>
+                    <label>Emails-Email Calendar</label>
+                </value>
+                <value>
+                    <fullName>Emails-Email Content &amp; Settings</fullName>
+                    <default>false</default>
+                    <label>Emails-Email Content &amp; Settings</label>
+                </value>
+                <value>
+                    <fullName>Emails-Email Data Tags</fullName>
+                    <default>false</default>
+                    <label>Emails-Email Data Tags</label>
+                </value>
+                <value>
+                    <fullName>Emails-Email Notifications</fullName>
+                    <default>false</default>
+                    <label>Emails-Email Notifications</label>
+                </value>
+                <value>
+                    <fullName>Emails-HTML</fullName>
+                    <default>false</default>
+                    <label>Emails-HTML</label>
+                </value>
+                <value>
+                    <fullName>Emails-Sending &amp; Scheduling</fullName>
+                    <default>false</default>
+                    <label>Emails-Sending &amp; Scheduling</label>
+                </value>
+                <value>
+                    <fullName>Emails-Send Message</fullName>
+                    <default>false</default>
+                    <label>Emails-Send Message</label>
+                </value>
+                <value>
+                    <fullName>Emails-Session Emails</fullName>
+                    <default>false</default>
+                    <label>Emails-Session Emails</label>
+                </value>
+                <value>
+                    <fullName>Emails-Targeted List Setup</fullName>
+                    <default>false</default>
+                    <label>Emails-Targeted List Setup</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Cancelled Space</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Cancelled Space</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Contracted Rates</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Contracted Rates</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Negotiated Rates</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Negotiated Rates</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-NSO Contacts</fullName>
+                    <default>false</default>
+                    <label>Enterprise-NSO Contacts</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Organization Profile</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Organization Profile</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Planner Promotions</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Planner Promotions</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Preferred / Supplier Categories</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Preferred / Supplier Categories</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-Rate History</fullName>
+                    <default>false</default>
+                    <label>Enterprise-Rate History</label>
+                </value>
+                <value>
+                    <fullName>Enterprise-RFP Sharing</fullName>
+                    <default>false</default>
+                    <label>Enterprise-RFP Sharing</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Account Configuration</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Account Configuration</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Account Users</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Account Users</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-App Build And Submission</fullName>
+                    <default>false</default>
+                    <label>EventCenter-App Build And Submission</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-App Configuration</fullName>
+                    <default>false</default>
+                    <label>EventCenter-App Configuration</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-App Design</fullName>
+                    <default>false</default>
+                    <label>EventCenter-App Design</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Attendee Management</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Attendee Management</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Content Import / Export</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Content Import / Export</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Content</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Content</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Content - Agenda</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Content - Agenda</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Content - Attendees</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Content - Attendees</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Content - Organizations</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Content - Organizations</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Content - People</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Content - People</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Design</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Design</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Design - Graphics</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Design - Graphics</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Metrics</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Metrics</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Preview and Publish</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Preview and Publish</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Event Settings</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Event Settings</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Launch Icons</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Launch Icons</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Lead Retrieval</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Lead Retrieval</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Marketing</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Marketing</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Navigation Setup</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Navigation Setup</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Polling</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Polling</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Social Login</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Social Login</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Survey Questions</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Survey Questions</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Survey Reports</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Survey Reports</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Survey Settings</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Survey Settings</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-Tracks/Tags</fullName>
+                    <default>false</default>
+                    <label>EventCenter-Tracks/Tags</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-User Login</fullName>
+                    <default>false</default>
+                    <label>EventCenter-User Login</label>
+                </value>
+                <value>
+                    <fullName>EventCenter-VIP Admin Center</fullName>
+                    <default>false</default>
+                    <label>EventCenter-VIP Admin Center</label>
+                </value>
+                <value>
+                    <fullName>​Exhibitor-​Booth Staff Setup</fullName>
+                    <default>false</default>
+                    <label>​Exhibitor-​Booth Staff Setup</label>
+                </value>
+                <value>
+                    <fullName>Exhibitor Portal-Exhibitor Portal</fullName>
+                    <default>false</default>
+                    <label>Exhibitor Portal-Exhibitor Portal</label>
+                </value>
+                <value>
+                    <fullName>​Exhibitor-​Reporting</fullName>
+                    <default>false</default>
+                    <label>​Exhibitor-​Reporting</label>
+                </value>
+                <value>
+                    <fullName>Fees-Discounts</fullName>
+                    <default>false</default>
+                    <label>Fees-Discounts</label>
+                </value>
+                <value>
+                    <fullName>Fees-Service Fees</fullName>
+                    <default>false</default>
+                    <label>Fees-Service Fees</label>
+                </value>
+                <value>
+                    <fullName>Fees-Setup</fullName>
+                    <default>false</default>
+                    <label>Fees-Setup</label>
+                </value>
+                <value>
+                    <fullName>Fees-Taxes</fullName>
+                    <default>false</default>
+                    <label>Fees-Taxes</label>
+                </value>
+                <value>
+                    <fullName>General-Advanced Settings (Express)</fullName>
+                    <default>false</default>
+                    <label>General-Advanced Settings (Express)</label>
+                </value>
+                <value>
+                    <fullName>General-Custom Newsletter Build</fullName>
+                    <default>false</default>
+                    <label>General-Custom Newsletter Build</label>
+                </value>
+                <value>
+                    <fullName>General-Custom Ticket Build</fullName>
+                    <default>false</default>
+                    <label>General-Custom Ticket Build</label>
+                </value>
+                <value>
+                    <fullName>General-Dashboards</fullName>
+                    <default>false</default>
+                    <label>General-Dashboards</label>
+                </value>
+                <value>
+                    <fullName>General-Elite Meetings Alliance</fullName>
+                    <default>false</default>
+                    <label>General-Elite Meetings Alliance</label>
+                </value>
+                <value>
+                    <fullName>General-Event/Survey Activation</fullName>
+                    <default>false</default>
+                    <label>General-Event/Survey Activation</label>
+                </value>
+                <value>
+                    <fullName>General-Event Creation Wizard</fullName>
+                    <default>false</default>
+                    <label>General-Event Creation Wizard</label>
+                </value>
+                <value>
+                    <fullName>General-Event Info &amp; Configuration</fullName>
+                    <default>false</default>
+                    <label>General-Event Info &amp; Configuration</label>
+                </value>
+                <value>
+                    <fullName>General-Feedback</fullName>
+                    <default>false</default>
+                    <label>General-Feedback</label>
+                </value>
+                <value>
+                    <fullName>General-Intended to Contact Cvent User</fullName>
+                    <default>false</default>
+                    <label>General-Intended to Contact Cvent User</label>
+                </value>
+                <value>
+                    <fullName>General-​Intended to Contact Cvent User</fullName>
+                    <default>false</default>
+                    <label>General-​Intended to Contact Cvent User</label>
+                </value>
+                <value>
+                    <fullName>General-Internal Calendar</fullName>
+                    <default>false</default>
+                    <label>General-Internal Calendar</label>
+                </value>
+                <value>
+                    <fullName>General-New Feature</fullName>
+                    <default>false</default>
+                    <label>General-New Feature</label>
+                </value>
+                <value>
+                    <fullName>General-Performance Inquiry</fullName>
+                    <default>false</default>
+                    <label>General-Performance Inquiry</label>
+                </value>
+                <value>
+                    <fullName>General-Preview</fullName>
+                    <default>false</default>
+                    <label>General-Preview</label>
+                </value>
+                <value>
+                    <fullName>General-Resources</fullName>
+                    <default>false</default>
+                    <label>General-Resources</label>
+                </value>
+                <value>
+                    <fullName>General-Sales Inquiry</fullName>
+                    <default>false</default>
+                    <label>General-Sales Inquiry</label>
+                </value>
+                <value>
+                    <fullName>General-Seating Map Request</fullName>
+                    <default>false</default>
+                    <label>General-Seating Map Request</label>
+                </value>
+                <value>
+                    <fullName>General-Speaker Management</fullName>
+                    <default>false</default>
+                    <label>General-Speaker Management</label>
+                </value>
+                <value>
+                    <fullName>General-Staff</fullName>
+                    <default>false</default>
+                    <label>General-Staff</label>
+                </value>
+                <value>
+                    <fullName>General-Task List</fullName>
+                    <default>false</default>
+                    <label>General-Task List</label>
+                </value>
+                <value>
+                    <fullName>General-Test Mode</fullName>
+                    <default>false</default>
+                    <label>General-Test Mode</label>
+                </value>
+                <value>
+                    <fullName>General-Training Inquiry</fullName>
+                    <default>false</default>
+                    <label>General-Training Inquiry</label>
+                </value>
+                <value>
+                    <fullName>General-Views and Selection</fullName>
+                    <default>false</default>
+                    <label>General-Views and Selection</label>
+                </value>
+                <value>
+                    <fullName>Integrations-AmEx Card</fullName>
+                    <default>false</default>
+                    <label>Integrations-AmEx Card</label>
+                </value>
+                <value>
+                    <fullName>Integrations-API</fullName>
+                    <default>false</default>
+                    <label>Integrations-API</label>
+                </value>
+                <value>
+                    <fullName>Integrations-API Mobile Website Modification</fullName>
+                    <default>false</default>
+                    <label>Integrations-API Mobile Website Modification</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Concur Expense</fullName>
+                    <default>false</default>
+                    <label>Integrations-Concur Expense</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Concur Travel</fullName>
+                    <default>false</default>
+                    <label>Integrations-Concur Travel</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Custom Identity Service</fullName>
+                    <default>false</default>
+                    <label>Integrations-Custom Identity Service</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Cvent-CC Connector</fullName>
+                    <default>false</default>
+                    <label>Integrations-Cvent-CC Connector</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Cvent Event Integration</fullName>
+                    <default>false</default>
+                    <label>Integrations-Cvent Event Integration</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Cvent Survey Integration</fullName>
+                    <default>false</default>
+                    <label>Integrations-Cvent Survey Integration</label>
+                </value>
+                <value>
+                    <fullName>Integrations-General/Other Integration</fullName>
+                    <default>false</default>
+                    <label>Integrations-General/Other Integration</label>
+                </value>
+                <value>
+                    <fullName>Integrations-GetThere</fullName>
+                    <default>false</default>
+                    <label>Integrations-GetThere</label>
+                </value>
+                <value>
+                    <fullName>Integrations-HTTP Post</fullName>
+                    <default>false</default>
+                    <label>Integrations-HTTP Post</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Hyatt</fullName>
+                    <default>false</default>
+                    <label>Integrations-Hyatt</label>
+                </value>
+                <value>
+                    <fullName>​​Integrations-Inquisium App for Salesforce</fullName>
+                    <default>false</default>
+                    <label>​​Integrations-Inquisium App for Salesforce</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Leonardo / VFM</fullName>
+                    <default>false</default>
+                    <label>Integrations-Leonardo / VFM</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Marketo</fullName>
+                    <default>false</default>
+                    <label>Integrations-Marketo</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Marriott EPIC</fullName>
+                    <default>false</default>
+                    <label>Integrations-Marriott EPIC</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Marriott Siebel</fullName>
+                    <default>false</default>
+                    <label>Integrations-Marriott Siebel</label>
+                </value>
+                <value>
+                    <fullName>Integrations-MeetingBroker</fullName>
+                    <default>false</default>
+                    <label>Integrations-MeetingBroker</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Opera</fullName>
+                    <default>false</default>
+                    <label>Integrations-Opera</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Partner API</fullName>
+                    <default>false</default>
+                    <label>Integrations-Partner API</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Passbook</fullName>
+                    <default>false</default>
+                    <label>Integrations-Passbook</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Passkey</fullName>
+                    <default>false</default>
+                    <label>Integrations-Passkey</label>
+                </value>
+                <value>
+                    <fullName>Integrations-PNR</fullName>
+                    <default>false</default>
+                    <label>Integrations-PNR</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Rearden</fullName>
+                    <default>false</default>
+                    <label>Integrations-Rearden</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Salesforce</fullName>
+                    <default>false</default>
+                    <label>Integrations-Salesforce</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Scanning App</fullName>
+                    <default>false</default>
+                    <label>Integrations-Scanning App</label>
+                </value>
+                <value>
+                    <fullName>Integrations-SocialWall</fullName>
+                    <default>false</default>
+                    <label>Integrations-SocialWall</label>
+                </value>
+                <value>
+                    <fullName>Integrations-SSO</fullName>
+                    <default>false</default>
+                    <label>Integrations-SSO</label>
+                </value>
+                <value>
+                    <fullName>Integrations-WebEx</fullName>
+                    <default>false</default>
+                    <label>Integrations-WebEx</label>
+                </value>
+                <value>
+                    <fullName>Jenkins / Other-Build Issue</fullName>
+                    <default>false</default>
+                    <label>Jenkins / Other-Build Issue</label>
+                </value>
+                <value>
+                    <fullName>Jenkins / Other-Pieceable</fullName>
+                    <default>false</default>
+                    <label>Jenkins / Other-Pieceable</label>
+                </value>
+                <value>
+                    <fullName>Jenkins / Other-Submission Issue</fullName>
+                    <default>false</default>
+                    <label>Jenkins / Other-Submission Issue</label>
+                </value>
+                <value>
+                    <fullName>Jenkins / Other-Vol1/Vol2 Issue</fullName>
+                    <default>false</default>
+                    <label>Jenkins / Other-Vol1/Vol2 Issue</label>
+                </value>
+                <value>
+                    <fullName>​LeadCapture App-​Android</fullName>
+                    <default>false</default>
+                    <label>​LeadCapture App-​Android</label>
+                </value>
+                <value>
+                    <fullName>​LeadCapture App-​iOS</fullName>
+                    <default>false</default>
+                    <label>​LeadCapture App-​iOS</label>
+                </value>
+                <value>
+                    <fullName>Lead Retrieval</fullName>
+                    <default>false</default>
+                    <label>Lead Retrieval</label>
+                </value>
+                <value>
+                    <fullName>Leads-Add a Lead</fullName>
+                    <default>false</default>
+                    <label>Leads-Add a Lead</label>
+                </value>
+                <value>
+                    <fullName>Leads-Dashboard</fullName>
+                    <default>false</default>
+                    <label>Leads-Dashboard</label>
+                </value>
+                <value>
+                    <fullName>Leads-Date Scores</fullName>
+                    <default>false</default>
+                    <label>Leads-Date Scores</label>
+                </value>
+                <value>
+                    <fullName>Leads-Evaluation</fullName>
+                    <default>false</default>
+                    <label>Leads-Evaluation</label>
+                </value>
+                <value>
+                    <fullName>Leads-Other</fullName>
+                    <default>false</default>
+                    <label>Leads-Other</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Answer Import</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Answer Import</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Certificates</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Certificates</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Details</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Details</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Event Credits</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Event Credits</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-General</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-General</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Imports</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Imports</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Invoicing</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Invoicing</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Orders &amp; Payments</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Orders &amp; Payments</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Search</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Search</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Seating</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Seating</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Summary Views</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Summary Views</label>
+                </value>
+                <value>
+                    <fullName>​Manage Invitees/Respondents-Transaction ID Import</fullName>
+                    <default>false</default>
+                    <label>​Manage Invitees/Respondents-Transaction ID Import</label>
+                </value>
+                <value>
+                    <fullName>Manage Invitees/Respondents-Workflows</fullName>
+                    <default>false</default>
+                    <label>Manage Invitees/Respondents-Workflows</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Active Packages / Hot Dates</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Active Packages / Hot Dates</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Add / Remove Venue from Network</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Add / Remove Venue from Network</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Chain / Brand / Affiliate Change</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Chain / Brand / Affiliate Change</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Marketing Performance Dashboard</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Marketing Performance Dashboard</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Planner Reviews</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Planner Reviews</label>
+                </value>
+                <value>
+                    <fullName>Manage Listing-Profile Management General</fullName>
+                    <default>false</default>
+                    <label>Manage Listing-Profile Management General</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Automated Approval</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Automated Approval</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Event Roles</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Event Roles</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Meeting Request Forms</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Meeting Request Forms</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Meeting Request Websites</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Meeting Request Websites</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Notifications</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Notifications</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Policies</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Policies</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Process Forms</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Process Forms</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Spend Per Participant (HCP)</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Spend Per Participant (HCP)</label>
+                </value>
+                <value>
+                    <fullName>Meetings Management-Triggers</fullName>
+                    <default>false</default>
+                    <label>Meetings Management-Triggers</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Account &amp; Profile Settings</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Account &amp; Profile Settings</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-App Build</fullName>
+                    <default>false</default>
+                    <label>Mobile App-App Build</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Attendee List</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Attendee List</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Attendee User Login</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Attendee User Login</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Banners</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Banners</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Beacons</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Beacons</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Contact Exchange</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Contact Exchange</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Content Sync</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Content Sync</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Detail Screens</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Detail Screens</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Event Code Inquiry</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Event Code Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Event Compass</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Event Compass</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Event Directory</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Event Directory</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Event Extras</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Event Extras</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Home Screen</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Home Screen</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Lists</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Lists</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Maps</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Maps</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Messages</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Messages</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-My Schedule</fullName>
+                    <default>false</default>
+                    <label>Mobile App-My Schedule</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Notes</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Notes</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Performance Inquiry - App Crash</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Performance Inquiry - App Crash</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Performance Inquiry - Mobile App</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Performance Inquiry - Mobile App</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Push Notifications</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Push Notifications</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-QR Codes</fullName>
+                    <default>false</default>
+                    <label>Mobile App-QR Codes</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Search</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Search</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Social Login</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Social Login</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Social Sharing</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Social Sharing</label>
+                </value>
+                <value>
+                    <fullName>Mobile App-Surveys/Polling</fullName>
+                    <default>false</default>
+                    <label>Mobile App-Surveys/Polling</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Mobile Apps</fullName>
+                    <default>false</default>
+                    <label>Mobile-Mobile Apps</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Mobile Friendly Features</fullName>
+                    <default>false</default>
+                    <label>Mobile-Mobile Friendly Features</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Mobile Guest Side</fullName>
+                    <default>false</default>
+                    <label>Mobile-Mobile Guest Side</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Mobile Planner Side</fullName>
+                    <default>false</default>
+                    <label>Mobile-Mobile Planner Side</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Mobile Setup</fullName>
+                    <default>false</default>
+                    <label>Mobile-Mobile Setup</label>
+                </value>
+                <value>
+                    <fullName>Mobile-Responsive Display (Express)​</fullName>
+                    <default>false</default>
+                    <label>Mobile-Responsive Display (Express)​</label>
+                </value>
+                <value>
+                    <fullName>My SpeedRFPs-Assignment</fullName>
+                    <default>false</default>
+                    <label>My SpeedRFPs-Assignment</label>
+                </value>
+                <value>
+                    <fullName>My SpeedRFPs-Manage RFPs</fullName>
+                    <default>false</default>
+                    <label>My SpeedRFPs-Manage RFPs</label>
+                </value>
+                <value>
+                    <fullName>My SpeedRFPs-MeetingBroker</fullName>
+                    <default>false</default>
+                    <label>My SpeedRFPs-MeetingBroker</label>
+                </value>
+                <value>
+                    <fullName>My SpeedRFPs-SpeedRFP Button</fullName>
+                    <default>false</default>
+                    <label>My SpeedRFPs-SpeedRFP Button</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Affiliates</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Affiliates</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Artist Ticketing</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Artist Ticketing</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Fairs &amp; Festivals</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Fairs &amp; Festivals</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Museums &amp; Aquariums</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Museums &amp; Aquariums</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-New Vertical General</fullName>
+                    <default>false</default>
+                    <label>New Vertical-New Vertical General</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Participation Sports</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Participation Sports</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Performing Arts</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Performing Arts</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Promoters</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Promoters</label>
+                </value>
+                <value>
+                    <fullName>New Vertical-Self Serve</fullName>
+                    <default>false</default>
+                    <label>New Vertical-Self Serve</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Account &amp; Profile Settings</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Account &amp; Profile Settings</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Attendee Appointments</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Attendee Appointments</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Attendees</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Attendees</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Banners</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Banners</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Contact Exchange</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Contact Exchange</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Detail Screen</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Detail Screen</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Event Compass</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Event Compass</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Event Directory</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Event Directory</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Event Extras</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Event Extras</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Home Screen</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Home Screen</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Lists</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Lists</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Maps</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Maps</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Messages</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Messages</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-My Schedule</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-My Schedule</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Notes</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Notes</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Push Notifications</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Push Notifications</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Search</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Search</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Social Login</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Social Login</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Social Sharing</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Social Sharing</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-Survey/Polling</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-Survey/Polling</label>
+                </value>
+                <value>
+                    <fullName>Online Event Guide-User Login</fullName>
+                    <default>false</default>
+                    <label>Online Event Guide-User Login</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Appointments</fullName>
+                    <default>false</default>
+                    <label>Onsite-Appointments</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Attendee Details</fullName>
+                    <default>false</default>
+                    <label>Onsite-Attendee Details</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Badges &amp; Certificates</fullName>
+                    <default>false</default>
+                    <label>Onsite-Badges &amp; Certificates</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Barcodes &amp; QR Codes</fullName>
+                    <default>false</default>
+                    <label>Onsite-Barcodes &amp; QR Codes</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Collect Payments</fullName>
+                    <default>false</default>
+                    <label>Onsite-Collect Payments</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Kiosk Mode</fullName>
+                    <default>false</default>
+                    <label>Onsite-Kiosk Mode</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Mark Participants</fullName>
+                    <default>false</default>
+                    <label>Onsite-Mark Participants</label>
+                </value>
+                <value>
+                    <fullName>Onsite-Register New</fullName>
+                    <default>false</default>
+                    <label>Onsite-Register New</label>
+                </value>
+                <value>
+                    <fullName>OS Admin-Account Creation</fullName>
+                    <default>false</default>
+                    <label>OS Admin-Account Creation</label>
+                </value>
+                <value>
+                    <fullName>OS Admin-Contract Management</fullName>
+                    <default>false</default>
+                    <label>OS Admin-Contract Management</label>
+                </value>
+                <value>
+                    <fullName>OS Admin-Feature Management</fullName>
+                    <default>false</default>
+                    <label>OS Admin-Feature Management</label>
+                </value>
+                <value>
+                    <fullName>Planner Admin-Event Creation/Management</fullName>
+                    <default>false</default>
+                    <label>Planner Admin-Event Creation/Management</label>
+                </value>
+                <value>
+                    <fullName>Planner Admin-Event Details</fullName>
+                    <default>false</default>
+                    <label>Planner Admin-Event Details</label>
+                </value>
+                <value>
+                    <fullName>Planner Admin-User Management</fullName>
+                    <default>false</default>
+                    <label>Planner Admin-User Management</label>
+                </value>
+                <value>
+                    <fullName>​Planner-Event Setup (Core integration)</fullName>
+                    <default>false</default>
+                    <label>​Planner-Event Setup (Core integration)</label>
+                </value>
+                <value>
+                    <fullName>​Planner-​Event Setup (Standalone)</fullName>
+                    <default>false</default>
+                    <label>​Planner-​Event Setup (Standalone)</label>
+                </value>
+                <value>
+                    <fullName>​Planner-​Reporting</fullName>
+                    <default>false</default>
+                    <label>​Planner-​Reporting</label>
+                </value>
+                <value>
+                    <fullName>Polling-Poll Results</fullName>
+                    <default>false</default>
+                    <label>Polling-Poll Results</label>
+                </value>
+                <value>
+                    <fullName>Polling-Poll Setup</fullName>
+                    <default>false</default>
+                    <label>Polling-Poll Setup</label>
+                </value>
+                <value>
+                    <fullName>Portals-Email Content &amp; Settings</fullName>
+                    <default>false</default>
+                    <label>Portals-Email Content &amp; Settings</label>
+                </value>
+                <value>
+                    <fullName>Portals-Header &amp; Footer</fullName>
+                    <default>false</default>
+                    <label>Portals-Header &amp; Footer</label>
+                </value>
+                <value>
+                    <fullName>Portals-Themes &amp; Colors</fullName>
+                    <default>false</default>
+                    <label>Portals-Themes &amp; Colors</label>
+                </value>
+                <value>
+                    <fullName>Portals-Visibility</fullName>
+                    <default>false</default>
+                    <label>Portals-Visibility</label>
+                </value>
+                <value>
+                    <fullName>Portals-Website Content</fullName>
+                    <default>false</default>
+                    <label>Portals-Website Content</label>
+                </value>
+                <value>
+                    <fullName>Portals-Website Settings</fullName>
+                    <default>false</default>
+                    <label>Portals-Website Settings</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Assignment</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Assignment</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-CVB Receipt Confirmed</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-CVB Receipt Confirmed</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Estimated Costs Grid</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Estimated Costs Grid</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Forwarding</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Forwarding</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-General</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-General</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Mark In Progress</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Mark In Progress</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Meetings Room / Event Space Grid</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Meetings Room / Event Space Grid</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Package Pricing</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Package Pricing</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Proposal Defaults</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Proposal Defaults</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Routing / Escalation Rules</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Routing / Escalation Rules</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Sleeping Room Grid</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Sleeping Room Grid</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Turn Down / Withdraw</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Turn Down / Withdraw</label>
+                </value>
+                <value>
+                    <fullName>​​Questions-Contact Profile</fullName>
+                    <default>false</default>
+                    <label>​​Questions-Contact Profile</label>
+                </value>
+                <value>
+                    <fullName>​​Questions-​Presentation</fullName>
+                    <default>false</default>
+                    <label>​​Questions-​Presentation</label>
+                </value>
+                <value>
+                    <fullName>Questions-Question Logic</fullName>
+                    <default>false</default>
+                    <label>Questions-Question Logic</label>
+                </value>
+                <value>
+                    <fullName>​​Questions-Question Setup</fullName>
+                    <default>false</default>
+                    <label>​​Questions-Question Setup</label>
+                </value>
+                <value>
+                    <fullName>Questions-Question Setup and Presentation</fullName>
+                    <default>false</default>
+                    <label>Questions-Question Setup and Presentation</label>
+                </value>
+                <value>
+                    <fullName>​​Questions-Question Type</fullName>
+                    <default>false</default>
+                    <label>​​Questions-Question Type</label>
+                </value>
+                <value>
+                    <fullName>​​Questions-​Randomization</fullName>
+                    <default>false</default>
+                    <label>​​Questions-​Randomization</label>
+                </value>
+                <value>
+                    <fullName>Registration-Advanced Rules</fullName>
+                    <default>false</default>
+                    <label>Registration-Advanced Rules</label>
+                </value>
+                <value>
+                    <fullName>Registration-Cancellation</fullName>
+                    <default>false</default>
+                    <label>Registration-Cancellation</label>
+                </value>
+                <value>
+                    <fullName>Registration-Feedback Survey</fullName>
+                    <default>false</default>
+                    <label>Registration-Feedback Survey</label>
+                </value>
+                <value>
+                    <fullName>Registration-Group</fullName>
+                    <default>false</default>
+                    <label>Registration-Group</label>
+                </value>
+                <value>
+                    <fullName>Registration-Guests</fullName>
+                    <default>false</default>
+                    <label>Registration-Guests</label>
+                </value>
+                <value>
+                    <fullName>Registration-Modification</fullName>
+                    <default>false</default>
+                    <label>Registration-Modification</label>
+                </value>
+                <value>
+                    <fullName>Registration-My Registration</fullName>
+                    <default>false</default>
+                    <label>Registration-My Registration</label>
+                </value>
+                <value>
+                    <fullName>Registration-Partial &amp; Abandoned</fullName>
+                    <default>false</default>
+                    <label>Registration-Partial &amp; Abandoned</label>
+                </value>
+                <value>
+                    <fullName>Registration-Registering for an event</fullName>
+                    <default>false</default>
+                    <label>Registration-Registering for an event</label>
+                </value>
+                <value>
+                    <fullName>Registration-Registration Approval</fullName>
+                    <default>false</default>
+                    <label>Registration-Registration Approval</label>
+                </value>
+                <value>
+                    <fullName>Registration-Registration Pages</fullName>
+                    <default>false</default>
+                    <label>Registration-Registration Pages</label>
+                </value>
+                <value>
+                    <fullName>Registration-Registration Page Setup</fullName>
+                    <default>false</default>
+                    <label>Registration-Registration Page Setup</label>
+                </value>
+                <value>
+                    <fullName>Registration-Registration Settings</fullName>
+                    <default>false</default>
+                    <label>Registration-Registration Settings</label>
+                </value>
+                <value>
+                    <fullName>Registration-Regret Survey</fullName>
+                    <default>false</default>
+                    <label>Registration-Regret Survey</label>
+                </value>
+                <value>
+                    <fullName>Registration-Vouchers</fullName>
+                    <default>false</default>
+                    <label>Registration-Vouchers</label>
+                </value>
+                <value>
+                    <fullName>Registration-Waitlist</fullName>
+                    <default>false</default>
+                    <label>Registration-Waitlist</label>
+                </value>
+                <value>
+                    <fullName>Reports</fullName>
+                    <default>false</default>
+                    <label>Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Admin Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Admin Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Contact Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Contact Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-CRF</fullName>
+                    <default>false</default>
+                    <label>Reports-CRF</label>
+                </value>
+                <value>
+                    <fullName>Reports-Cross Event Custom</fullName>
+                    <default>false</default>
+                    <label>Reports-Cross Event Custom</label>
+                </value>
+                <value>
+                    <fullName>Reports-Cross Event Standard</fullName>
+                    <default>false</default>
+                    <label>Reports-Cross Event Standard</label>
+                </value>
+                <value>
+                    <fullName>Reports-Cross RFP Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Cross RFP Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Cross Survey Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Cross Survey Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Custom Event Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Custom Event Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Document Templates</fullName>
+                    <default>false</default>
+                    <label>Reports-Document Templates</label>
+                </value>
+                <value>
+                    <fullName>​​Reports-​Email and Click-Tracking</fullName>
+                    <default>false</default>
+                    <label>​​Reports-​Email and Click-Tracking</label>
+                </value>
+                <value>
+                    <fullName>Reports-Emarketing Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Emarketing Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Finance Reporting</fullName>
+                    <default>false</default>
+                    <label>Reports-Finance Reporting</label>
+                </value>
+                <value>
+                    <fullName>Reports-HB Client</fullName>
+                    <default>false</default>
+                    <label>Reports-HB Client</label>
+                </value>
+                <value>
+                    <fullName>Reports-Hotel Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Hotel Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Individual Event Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Individual Event Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Individual RFP Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Individual RFP Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Individual Survey Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Individual Survey Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Meetings Management Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Meetings Management Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Parked Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-Parked Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Presentations</fullName>
+                    <default>false</default>
+                    <label>Reports-Presentations</label>
+                </value>
+                <value>
+                    <fullName>​​Reports-Respondent Status and Audit Reports</fullName>
+                    <default>false</default>
+                    <label>​​Reports-Respondent Status and Audit Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-RFP / Bid Printouts</fullName>
+                    <default>false</default>
+                    <label>Reports-RFP / Bid Printouts</label>
+                </value>
+                <value>
+                    <fullName>Reports-SpeedRFP Reports</fullName>
+                    <default>false</default>
+                    <label>Reports-SpeedRFP Reports</label>
+                </value>
+                <value>
+                    <fullName>​​Reports-Standard Answer Reports</fullName>
+                    <default>false</default>
+                    <label>​​Reports-Standard Answer Reports</label>
+                </value>
+                <value>
+                    <fullName>Reports-Text Analysis</fullName>
+                    <default>false</default>
+                    <label>Reports-Text Analysis</label>
+                </value>
+                <value>
+                    <fullName>Reports-View Bids / Compare / Availability</fullName>
+                    <default>false</default>
+                    <label>Reports-View Bids / Compare / Availability</label>
+                </value>
+                <value>
+                    <fullName>RFIs-General</fullName>
+                    <default>false</default>
+                    <label>RFIs-General</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Awarding</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Awarding</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Custom Questions</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Custom Questions</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Manage RFPs</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Manage RFPs</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Map Suppliers</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Map Suppliers</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Meeting Agenda Import</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Meeting Agenda Import</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Proposal Preferences</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Proposal Preferences</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-RFP Wizard / Details</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-RFP Wizard / Details</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Send/Resend RFP</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Send/Resend RFP</label>
+                </value>
+                <value>
+                    <fullName>RFP Showcase</fullName>
+                    <default>false</default>
+                    <label>RFP Showcase</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Advertising</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Advertising</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Destination Guide</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Destination Guide</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Filters</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Filters</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Home Page</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Home Page</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Profile</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Profile</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Promotions Hub</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Promotions Hub</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Results</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Results</label>
+                </value>
+                <value>
+                    <fullName>Search-EMI Search</fullName>
+                    <default>false</default>
+                    <label>Search-EMI Search</label>
+                </value>
+                <value>
+                    <fullName>Search-SpeedRFP Search</fullName>
+                    <default>false</default>
+                    <label>Search-SpeedRFP Search</label>
+                </value>
+                <value>
+                    <fullName>Social Media-Facebook App</fullName>
+                    <default>false</default>
+                    <label>Social Media-Facebook App</label>
+                </value>
+                <value>
+                    <fullName>Social Media-Facebook Events</fullName>
+                    <default>false</default>
+                    <label>Social Media-Facebook Events</label>
+                </value>
+                <value>
+                    <fullName>Social Media-RSS Feeds</fullName>
+                    <default>false</default>
+                    <label>Social Media-RSS Feeds</label>
+                </value>
+                <value>
+                    <fullName>Social Media-Share/Follow Bar</fullName>
+                    <default>false</default>
+                    <label>Social Media-Share/Follow Bar</label>
+                </value>
+                <value>
+                    <fullName>​Social Media-Social Media Settings</fullName>
+                    <default>false</default>
+                    <label>​Social Media-Social Media Settings</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-Account Level Galleries</fullName>
+                    <default>false</default>
+                    <label>SocialWall-Account Level Galleries</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-Custom Posts</fullName>
+                    <default>false</default>
+                    <label>SocialWall-Custom Posts</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-General</fullName>
+                    <default>false</default>
+                    <label>SocialWall-General</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-LiveDisplay</fullName>
+                    <default>false</default>
+                    <label>SocialWall-LiveDisplay</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-Smart/Curated Galleries</fullName>
+                    <default>false</default>
+                    <label>SocialWall-Smart/Curated Galleries</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-Social Posts</fullName>
+                    <default>false</default>
+                    <label>SocialWall-Social Posts</label>
+                </value>
+                <value>
+                    <fullName>SocialWall-Web Widgets</fullName>
+                    <default>false</default>
+                    <label>SocialWall-Web Widgets</label>
+                </value>
+                <value>
+                    <fullName>Speaker Portal-Speaker Portal</fullName>
+                    <default>false</default>
+                    <label>Speaker Portal-Speaker Portal</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Add / Remove Venue from Network</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Add / Remove Venue from Network</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Chain / Brand / Affiliate Change</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Chain / Brand / Affiliate Change</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Chain / Brand / Affiliation Change</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Chain / Brand / Affiliation Change</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Contacts</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Contacts</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Dashboard</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Dashboard</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-General</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-General</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Meeting Rooms</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Meeting Rooms</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Metro Area Change</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Metro Area Change</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Promotions</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Promotions</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Service Specific Feature</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Service Specific Feature</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Specific Feature - CVB Profiles</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Specific Feature - CVB Profiles</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Specific Feature - Destination Profiles</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Specific Feature - Destination Profiles</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Specific Feature - Restaurant Profiles</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Specific Feature - Restaurant Profiles</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Specific Feature - SEV Profiles</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Specific Feature - SEV Profiles</label>
+                </value>
+                <value>
+                    <fullName>Supplier Management-Star Ratings</fullName>
+                    <default>false</default>
+                    <label>Supplier Management-Star Ratings</label>
+                </value>
+                <value>
+                    <fullName>​Survey Pages-​ID Confirmation</fullName>
+                    <default>false</default>
+                    <label>​Survey Pages-​ID Confirmation</label>
+                </value>
+                <value>
+                    <fullName>​Survey Pages-My Response</fullName>
+                    <default>false</default>
+                    <label>​Survey Pages-My Response</label>
+                </value>
+                <value>
+                    <fullName>​Survey Pages-Thank You</fullName>
+                    <default>false</default>
+                    <label>​Survey Pages-Thank You</label>
+                </value>
+                <value>
+                    <fullName>​Survey Pages-​Welcome</fullName>
+                    <default>false</default>
+                    <label>​Survey Pages-​Welcome</label>
+                </value>
+                <value>
+                    <fullName>Survey Settings-Chapters</fullName>
+                    <default>false</default>
+                    <label>Survey Settings-Chapters</label>
+                </value>
+                <value>
+                    <fullName>​​Survey Settings-Details/General Settings</fullName>
+                    <default>false</default>
+                    <label>​​Survey Settings-Details/General Settings</label>
+                </value>
+                <value>
+                    <fullName>​Survey Settings-Event Integration</fullName>
+                    <default>false</default>
+                    <label>​Survey Settings-Event Integration</label>
+                </value>
+                <value>
+                    <fullName>​Survey Settings-Header &amp; Footer</fullName>
+                    <default>false</default>
+                    <label>​Survey Settings-Header &amp; Footer</label>
+                </value>
+                <value>
+                    <fullName>Survey Settings-Known vs. Anonymous</fullName>
+                    <default>false</default>
+                    <label>Survey Settings-Known vs. Anonymous</label>
+                </value>
+                <value>
+                    <fullName>Survey Settings-​Quotas</fullName>
+                    <default>false</default>
+                    <label>Survey Settings-​Quotas</label>
+                </value>
+                <value>
+                    <fullName>​Survey Settings-Security Settings</fullName>
+                    <default>false</default>
+                    <label>​Survey Settings-Security Settings</label>
+                </value>
+                <value>
+                    <fullName>Survey Settings-Ticketing/Transaction ID</fullName>
+                    <default>false</default>
+                    <label>Survey Settings-Ticketing/Transaction ID</label>
+                </value>
+                <value>
+                    <fullName>Survey Settings-Weblinks/Web Widgets</fullName>
+                    <default>false</default>
+                    <label>Survey Settings-Weblinks/Web Widgets</label>
+                </value>
+                <value>
+                    <fullName>Survey Setup-Export Values</fullName>
+                    <default>false</default>
+                    <label>Survey Setup-Export Values</label>
+                </value>
+                <value>
+                    <fullName>​Survey Setup-Languages/Text Customization</fullName>
+                    <default>false</default>
+                    <label>​Survey Setup-Languages/Text Customization</label>
+                </value>
+                <value>
+                    <fullName>​​Survey Setup-Printable Survey</fullName>
+                    <default>false</default>
+                    <label>​​Survey Setup-Printable Survey</label>
+                </value>
+                <value>
+                    <fullName>Survey Setup-Responding to Survey</fullName>
+                    <default>false</default>
+                    <label>Survey Setup-Responding to Survey</label>
+                </value>
+                <value>
+                    <fullName>Survey Setup-Scoring</fullName>
+                    <default>false</default>
+                    <label>Survey Setup-Scoring</label>
+                </value>
+                <value>
+                    <fullName>Survey Setup-Survey Creation Wizard</fullName>
+                    <default>false</default>
+                    <label>Survey Setup-Survey Creation Wizard</label>
+                </value>
+                <value>
+                    <fullName>Tech-Custom Data Import</fullName>
+                    <default>false</default>
+                    <label>Tech-Custom Data Import</label>
+                </value>
+                <value>
+                    <fullName>Tech-Data Modification</fullName>
+                    <default>false</default>
+                    <label>Tech-Data Modification</label>
+                </value>
+                <value>
+                    <fullName>Tech-Hardware (scanners, printers, etc.)</fullName>
+                    <default>false</default>
+                    <label>Tech-Hardware (scanners, printers, etc.)</label>
+                </value>
+                <value>
+                    <fullName>Tech-Software (performance)</fullName>
+                    <default>false</default>
+                    <label>Tech-Software (performance)</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Artist Management</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Artist Management</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Clients</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Clients</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Customers</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Customers</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Finance</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Finance</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Help &amp; Tutorials</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Help &amp; Tutorials</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Marketing</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Marketing</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Sales</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Sales</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Users &amp; Permissions</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Users &amp; Permissions</label>
+                </value>
+                <value>
+                    <fullName>TM Admin-Venue Management</fullName>
+                    <default>false</default>
+                    <label>TM Admin-Venue Management</label>
+                </value>
+                <value>
+                    <fullName>Travel-Air Actuals</fullName>
+                    <default>false</default>
+                    <label>Travel-Air Actuals</label>
+                </value>
+                <value>
+                    <fullName>Travel-Air Requests</fullName>
+                    <default>false</default>
+                    <label>Travel-Air Requests</label>
+                </value>
+                <value>
+                    <fullName>Travel-Car Requests</fullName>
+                    <default>false</default>
+                    <label>Travel-Car Requests</label>
+                </value>
+                <value>
+                    <fullName>Travel-Group Air</fullName>
+                    <default>false</default>
+                    <label>Travel-Group Air</label>
+                </value>
+                <value>
+                    <fullName>Travel-Hotel Requests</fullName>
+                    <default>false</default>
+                    <label>Travel-Hotel Requests</label>
+                </value>
+                <value>
+                    <fullName>Travel-Hotel Roommates</fullName>
+                    <default>false</default>
+                    <label>Travel-Hotel Roommates</label>
+                </value>
+                <value>
+                    <fullName>Travel-Hotel Setup</fullName>
+                    <default>false</default>
+                    <label>Travel-Hotel Setup</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Analytics</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Analytics</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Customer Data</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Customer Data</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Discounts &amp; Coupons</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Discounts &amp; Coupons</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Donations</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Donations</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Email &amp; Promotions</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Email &amp; Promotions</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Group Parties</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Group Parties</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Loyalty Rewards</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Loyalty Rewards</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Manage Events</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Manage Events</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Manage Website</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Manage Website</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Merchandise</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Merchandise</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Promoters</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Promoters</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Reports</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Reports</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Teams</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Teams</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Ticket Holders &amp; Guest list</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Ticket Holders &amp; Guest list</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Venue Admin General</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Venue Admin General</label>
+                </value>
+                <value>
+                    <fullName>Venue Admin-Venue Settings</fullName>
+                    <default>false</default>
+                    <label>Venue Admin-Venue Settings</label>
+                </value>
+                <value>
+                    <fullName>Website-Content Designer (Express)</fullName>
+                    <default>false</default>
+                    <label>Website-Content Designer (Express)</label>
+                </value>
+                <value>
+                    <fullName>Website-Header &amp; Footer</fullName>
+                    <default>false</default>
+                    <label>Website-Header &amp; Footer</label>
+                </value>
+                <value>
+                    <fullName>Website</fullName>
+                    <default>false</default>
+                    <label>Website</label>
+                </value>
+                <value>
+                    <fullName>Administration-User Creation</fullName>
+                    <default>false</default>
+                    <label>Administration-User Creation</label>
+                </value>
+                <value>
+                    <fullName>Administration-User Roles</fullName>
+                    <default>false</default>
+                    <label>Administration-User Roles</label>
+                </value>
+                <value>
+                    <fullName>Administration-User Groups</fullName>
+                    <default>false</default>
+                    <label>Administration-User Groups</label>
+                </value>
+                <value>
+                    <fullName>Portals-RFP Portal</fullName>
+                    <default>false</default>
+                    <label>Portals-RFP Portal</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Budget</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Budget</label>
+                </value>
+                <value>
+                    <fullName>RFP Creation/Management-Manage Suppliers and Responses</fullName>
+                    <default>false</default>
+                    <label>RFP Creation/Management-Manage Suppliers and Responses</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Add Venue to Network</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Add Venue to Network</label>
+                </value>
+                <value>
+                    <fullName>Search and DG-Remove Venue from Network</fullName>
+                    <default>false</default>
+                    <label>Search and DG-Remove Venue from Network</label>
+                </value>
+                <value>
+                    <fullName>CVII-Historical Data Import</fullName>
+                    <default>false</default>
+                    <label>CVII-Historical Data Import</label>
+                </value>
+                <value>
+                    <fullName>Integrations-EMI/SpeedRFP</fullName>
+                    <default>false</default>
+                    <label>Integrations-EMI/SpeedRFP</label>
+                </value>
+                <value>
+                    <fullName>Proposal Management-Submit Proposal</fullName>
+                    <default>false</default>
+                    <label>Proposal Management-Submit Proposal</label>
+                </value>
+                <value>
+                    <fullName>Integrations-Webhooks</fullName>
+                    <default>false</default>
+                    <label>Integrations-Webhooks</label>
+                </value>
+                <value>
+                    <fullName>Website-Layout &amp; Navigation</fullName>
+                    <default>false</default>
+                    <label>Website-Layout &amp; Navigation</label>
+                </value>
+                <value>
+                    <fullName>Website-Theme Designer (Express)</fullName>
+                    <default>false</default>
+                    <label>Website-Theme Designer (Express)</label>
+                </value>
+                <value>
+                    <fullName>Website-Themes, Colors &amp; CSS</fullName>
+                    <default>false</default>
+                    <label>Website-Themes, Colors &amp; CSS</label>
+                </value>
+                <value>
+                    <fullName>Website-Website Content</fullName>
+                    <default>false</default>
+                    <label>Website-Website Content</label>
+                </value>
+                <value>
+                    <fullName>Website-Website Data Tags</fullName>
+                    <default>false</default>
+                    <label>Website-Website Data Tags</label>
+                </value>
+                <value>
+                    <fullName>Website-Website Settings</fullName>
+                    <default>false</default>
+                    <label>Website-Website Settings</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-Badge Printing</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-Badge Printing</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-Internet Connectivity</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-Internet Connectivity</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-iPads</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-iPads</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-Router</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-Router</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-Shipping</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-Shipping</label>
+                </value>
+                <value>
+                    <fullName>Event in a Box-Surf Stick</fullName>
+                    <default>false</default>
+                    <label>Event in a Box-Surf Stick</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Administration-Custom Fields</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Administration-General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Administration-Libraries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Cross Tab-Budget</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Cross Tab-Localization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Cross Tab-Meeting Estimator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Cross Tab-Overview Page</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Crosstab - Text Customization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>CVII</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>CVII-User / Permission Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Emails-Email Notifications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Emails-HTML</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Emails-Send Message</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Cancelled Space</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Contracted Rates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Negotiated Rates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-NSO Contacts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Organization Profile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Planner Promotions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Preferred / Supplier Categories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-Rate History</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Enterprise-RFP Sharing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>General-New Feature</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>General-Task List</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Integrations-API</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Integrations-Passkey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-SSO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Lead Retrieval</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Meetings Management-Meeting Request Forms</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Meetings Management-Notifications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Mobile-Mobile Planner Side</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <valueName>Reports-CRF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Reports-Cross RFP Reports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Reports-Document Templates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Reports-HB Client</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Reports-Individual RFP Reports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Reports-Parked Reports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Reports-RFP / Bid Printouts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Reports-View Bids / Compare / Availability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>RFIs-General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Awarding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Custom Questions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Map Suppliers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Meeting Agenda Import</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Proposal Preferences</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-RFP Wizard / Details</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Send/Resend RFP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>RFP Showcase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Search and DG-Destination Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <valueName>Search and DG-Filters</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <valueName>Search and DG-Profile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Search and DG-Promotions Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Administration-User Creation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Administration-User Roles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Administration-User Groups</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>Portals-RFP Portal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Budget</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <valueName>RFP Creation/Management-Manage Suppliers and Responses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Search and DG-Add Venue to Network</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Planners</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Search and DG-Remove Venue from Network</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-Leonardo / VFM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Search and DG-Advertising</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <valueName>Search and DG-Home Page</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <valueName>Search and DG-Results</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Social Media-Share/Follow Bar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Add / Remove Venue from Network</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Metro Area Change</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Search &amp; DG</controllingFieldValue>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Star Ratings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Administration-Email Settings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Administration-RFP Labels</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Cross Tab-Web Widgets &amp; Links</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-Hyatt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-Marriott EPIC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-Marriott Siebel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-MeetingBroker</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-Opera</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Assignment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-CVB Receipt Confirmed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Estimated Costs Grid</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Forwarding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Mark In Progress</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Package Pricing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Proposal Defaults</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Routing / Escalation Rules</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Sleeping Room Grid</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Turn Down / Withdraw</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Social Media-Facebook App</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Chain / Brand / Affiliate Change</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Chain / Brand / Affiliation Change</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Contacts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Dashboard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-General</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Meeting Rooms</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Promotions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Service Specific Feature</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Specific Feature - CVB Profiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Specific Feature - Destination Profiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Specific Feature - Restaurant Profiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Supplier Management-Specific Feature - SEV Profiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Integrations-EMI/SpeedRFP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CSN - Suppliers</controllingFieldValue>
+                <valueName>Proposal Management-Submit Proposal</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProductArea__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>It is unique field contains product+area ,and autopopulated</description>
+        <externalId>false</externalId>
+        <label>ProductArea</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CSN - Planners</fullName>
+                    <default>false</default>
+                    <label>CSN - Planners</label>
+                </value>
+                <value>
+                    <fullName>CSN - Search &amp; DG</fullName>
+                    <default>false</default>
+                    <label>CSN - Search &amp; DG</label>
+                </value>
+                <value>
+                    <fullName>CSN - Suppliers</fullName>
+                    <default>false</default>
+                    <label>CSN - Suppliers</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UserId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Manage_Assignments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object used to manage the assignment of the Enhancement request as per the product &amp; Area.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Manage Assignment</label>
+    <nameField>
+        <displayFormat>A-{0000}</displayFormat>
+        <label>Manage Assignment #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Manage Assignments</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

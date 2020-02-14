@@ -47,6 +47,13 @@ Note: All modifications made on the page will be lost if Return button is clicke
 <apex:column headerValue="Subject">
 <apex:inputField value="{!a.Subject}"/>
 </apex:column>
+<apex:column headerValue="Date Closed">
+<apex:inputField value="{!a.Date_Closed__c}"/>
+</apex:column>
+<apex:column headerValue="Minutes on Case(Old)">
+<apex:inputField value="{!a.Min_on_Case_Old__c}"/>
+</apex:column>
+
 </apex:pageBlockTable>
 </apex:pageBlock>
 </apex:form>

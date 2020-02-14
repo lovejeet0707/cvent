@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Submitted</fullName>
+        <default>false</default>
+        <label>Submitted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Conceptualization</fullName>
+        <default>false</default>
+        <label>Conceptualization</label>
+    </standardValue>
+    <standardValue>
+        <fullName>In Development</fullName>
+        <default>false</default>
+        <label>In Development</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Deployed</fullName>
+        <default>false</default>
+        <label>Deployed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Done</fullName>
+        <default>false</default>
+        <label>Done</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inprogress</fullName>
+        <default>false</default>
+        <label>Inprogress</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Conceptualize</fullName>
+        <default>false</default>
+        <label>Conceptualize</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Ready for Review</fullName>
+        <default>false</default>
+        <label>Ready for Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Conceptually Approved</fullName>
+        <default>false</default>
+        <label>Conceptually Approved</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Revision</fullName>
+        <default>false</default>
+        <label>Pending Revision</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Execution Approved</fullName>
+        <default>false</default>
+        <label>Execution Approved</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Declined</fullName>
+        <default>false</default>
+        <label>Declined</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Implemented</fullName>
+        <default>false</default>
+        <label>Implemented</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed</fullName>
+        <default>false</default>
+        <label>Failed</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>System Integrator</fullName>
+        <default>false</default>
+        <label>System Integrator</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Affinity Partner</fullName>
+        <default>false</default>
+        <label>Affinity Partner</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Technology Partner</fullName>
+        <default>false</default>
+        <label>Technology Partner</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Advertiser</fullName>
+        <default>false</default>
+        <label>Advertiser</label>
+        <reverseRole>Vendor</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>VAR/Reseller</fullName>
+        <default>false</default>
+        <label>VAR/Reseller</label>
+        <reverseRole>Vendor</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Distributor</fullName>
+        <default>false</default>
+        <label>Distributor</label>
+        <reverseRole>Vendor</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Developer</fullName>
+        <default>false</default>
+        <label>Developer</label>
+        <reverseRole>Vendor</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Broker</fullName>
+        <default>false</default>
+        <label>Broker</label>
+        <reverseRole>Agent</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Lender</fullName>
+        <default>false</default>
+        <label>Lender</label>
+        <reverseRole>Broker</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Supplier</fullName>
+        <default>false</default>
+        <label>Supplier</label>
+        <reverseRole>Retailer</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Institution</fullName>
+        <default>false</default>
+        <label>Institution</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Contractor</fullName>
+        <default>false</default>
+        <label>Contractor</label>
+        <reverseRole>Sub Contractor</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Dealer</fullName>
+        <default>false</default>
+        <label>Dealer</label>
+        <reverseRole>Supplier</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Offline Referral</fullName>
+        <default>false</default>
+        <label>Offline Referral</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Online Referral</fullName>
+        <default>false</default>
+        <label>Online Referral</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+</StandardValueSet>

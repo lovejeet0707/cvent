@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Account Request</fullName>
+        <default>false</default>
+        <label>Account Request</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Open</fullName>
+        <default>false</default>
+        <label>Account Open</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Create</fullName>
+        <default>false</default>
+        <label>Event Create</label>
+    </customValue>
+    <customValue>
+        <fullName>Event Launch</fullName>
+        <default>false</default>
+        <label>Event Launch</label>
+    </customValue>
+    <customValue>
+        <fullName>Dormant</fullName>
+        <default>false</default>
+        <label>Dormant</label>
+    </customValue>
+    <customValue>
+        <fullName>Dormant - Lost</fullName>
+        <default>false</default>
+        <label>Dormant - Lost</label>
+    </customValue>
+    <masterLabel>PayGo Statuses</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>DateTimeFrom__c</fullName>
+        <externalId>false</externalId>
+        <label>DateTimeFrom</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DateTimeTo__c</fullName>
+        <externalId>false</externalId>
+        <label>DateTimeTo</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <label>UpdateOppsTem Dates</label>
+    <visibility>Public</visibility>
+</CustomObject>

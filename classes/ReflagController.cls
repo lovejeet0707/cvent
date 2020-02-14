@@ -39,8 +39,8 @@ global class ReflagController {
         System.debug('*************Id'+reReflagObj.RecordTypeId);
         rebrandReflagObj = [SELECT Reflagged_on_Date__c,Reflag_Processed_Date__c,New_Supplier_Account__c,New_Supplier_Account__r.Name
                                 ,Old_Supp_Ac__c,Old_Supp_Ac__r.Name,Old_Supp_Ac__r.OwnerId,Old_Supp_Ac__r.CVII_ID__c,New_Supplier_Account__r.Purchased_License__c,
-                                Old_Supp_Ac__r.Management_Company__c,Old_Supp_Ac__r.Brand__c,Old_Supp_Ac__r.Chain_Affiliation__c,Old_Supp_Ac__r.EM_Purchased_License_For__c,
-                                Old_Supp_Ac__r.SRFP_Purchased_License_For__c,
+                                Old_Supp_Ac__r.Management_Company__c,Old_Supp_Ac__r.Brand__c,Old_Supp_Ac__r.Chain_Affiliation__c,/*Old_Supp_Ac__r.EM_Purchased_License_For__c,*/    //Commented By Mohsin on 30th Sept 2019 - FP Activity
+                                /*Old_Supp_Ac__r.SRFP_Purchased_License_For__c,*/   //Commented By Mohsin on 30th Sept 2019 - FP Activity
                                 Old_Supp_Ac__r.SRFP_White_Label__c,
                                 Old_Supp_Ac__r.EMA_Purchased_License_For__c,
                                 Old_Supp_Ac__r.EMA_Year__c,
@@ -148,8 +148,8 @@ global class ReflagController {
             old_New_AccObj.CVII_ID__c = rebrandReflagObj.Old_Supp_Ac__r.CVII_ID__c;
             old_New_AccObj.Purchased_License__c= rebrandReflagObj.New_Supplier_Account__r.Purchased_License__c==null?rebrandReflagObj.Old_Supp_Ac__r.Purchased_License__c:rebrandReflagObj.New_Supplier_Account__r.Purchased_License__c;
             old_New_AccObj.Account_Status__c='Active';
-            old_New_AccObj.EM_Purchased_License_For__c=rebrandReflagObj.Old_Supp_Ac__r.EM_Purchased_License_For__c;
-            old_New_AccObj.SRFP_Purchased_License_For__c=rebrandReflagObj.Old_Supp_Ac__r.SRFP_Purchased_License_For__c;
+            //old_New_AccObj.EM_Purchased_License_For__c=rebrandReflagObj.Old_Supp_Ac__r.EM_Purchased_License_For__c;   //Commented By Mohsin on 30th Sept 2019 - FP Activity
+            //old_New_AccObj.SRFP_Purchased_License_For__c=rebrandReflagObj.Old_Supp_Ac__r.SRFP_Purchased_License_For__c; //Commented By Mohsin on 30th Sept 2019 - FP Activity
             old_New_AccObj.SRFP_White_Label__c=rebrandReflagObj.Old_Supp_Ac__r.SRFP_White_Label__c;
             old_New_AccObj.EMA_Purchased_License_For__c=rebrandReflagObj.Old_Supp_Ac__r.EMA_Purchased_License_For__c;
             old_New_AccObj.EMA_Year__c=rebrandReflagObj.Old_Supp_Ac__r.EMA_Year__c;
@@ -175,8 +175,8 @@ global class ReflagController {
             old_New_AccObj.Name = 'REFLAGGED - '+ rebrandReflagObj.Old_Supp_Ac__r.Name ;
             old_New_AccObj.Purchased_License__c=null;
             old_New_AccObj.Account_Status__c='Inactive Customer - Reflag';
-            old_New_AccObj.EM_Purchased_License_For__c=null;
-            old_New_AccObj.SRFP_Purchased_License_For__c=null;
+            //old_New_AccObj.EM_Purchased_License_For__c=null;  //Commented By Mohsin on 30th Sept 2019 - FP Activity
+            //old_New_AccObj.SRFP_Purchased_License_For__c=null;    //Commented By Mohsin on 30th Sept 2019 - FP Activity
             old_New_AccObj.SRFP_White_Label__c=null;
             old_New_AccObj.EMA_Purchased_License_For__c=null;
             old_New_AccObj.EMA_Year__c=null;

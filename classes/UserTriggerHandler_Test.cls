@@ -42,7 +42,9 @@ Public Class UserTriggerHandler_Test{
     User userRec;
     System.runAs ( thisUser ) {
         Account acc = new Account(Name='Test Account');
-        acc.BillingCountry = 'IN';
+        acc.BillingCountry = 'US';
+        acc.BillingCountryCode = 'US';
+        acc.BillingStateCode = 'TX';
         insert acc;
         Contact con = new Contact(LastName='Test',Product_Desired__c='Event',AccountId=acc.Id);
         insert con;
@@ -60,7 +62,9 @@ Public Class UserTriggerHandler_Test{
      public static testmethod void profileChange()
      {  User instUsr = new User();
           Account acc = new Account(Name='Test Account');
-        acc.BillingCountry = 'IN';
+        acc.BillingCountry = 'US';
+        acc.BillingCountryCode = 'US';
+        acc.BillingStateCode = 'TX';
         insert acc;
         
         Contact c = new Contact();
@@ -92,7 +96,9 @@ Public Class UserTriggerHandler_Test{
         
         
         Account acc1 = new Account(Name='Test Account');
-       acc1.BillingCountry = 'IN';
+       acc1.BillingCountry = 'US';
+       acc1.BillingCountryCode= 'US';
+       acc1.BillingStateCode = 'TX';
        insert acc1;
 
        Contact c1 = new Contact();

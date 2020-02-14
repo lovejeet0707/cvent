@@ -1,0 +1,1155 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Actual_Deployment_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Deployment date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Ready_for_UAT_date_from_CRM__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Ready for UAT date from CRM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Release_Tag_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Release Tag date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_UAT_Sign_off_received__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual UAT Sign-off received</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Alternatives__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What other possible solutions were considered during the idea development?</inlineHelpText>
+        <label>Alternatives</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Business_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Reason</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CMR_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Change_Management_Request__r.Request_Status__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CMR Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CRM_Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CRM Release</label>
+        <referenceTo>ResourceProject__c</referenceTo>
+        <relationshipLabel>CMR Requirement Gatherings</relationshipLabel>
+        <relationshipName>CMR_Requirement_Gatherings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CRM_Requirement_Cutoff_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>CRM Requirement Cutoff Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CRM_SPOC_for_the_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CRM SPOC for the Request</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CMR_Requirement_Gatherings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Change_Management_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Change Management Request</label>
+        <referenceTo>Governance_Request__c</referenceTo>
+        <relationshipLabel>CMR Requirement Gatherings</relationshipLabel>
+        <relationshipName>CMR_Requirement_Gatherings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Does_that_impact__c</fullName>
+        <externalId>false</externalId>
+        <label>Does that impact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Athena Mktg DW</fullName>
+                    <default>false</default>
+                    <label>Athena Mktg DW</label>
+                </value>
+                <value>
+                    <fullName>Client Service Data Mart</fullName>
+                    <default>false</default>
+                    <label>Client Service Data Mart</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Exception_approved_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Exception approved By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ed Benack</fullName>
+                    <default>false</default>
+                    <label>Ed Benack</label>
+                </value>
+                <value>
+                    <fullName>Vineet Puri</fullName>
+                    <default>false</default>
+                    <label>Vineet Puri</label>
+                </value>
+                <value>
+                    <fullName>Kevin Maurer</fullName>
+                    <default>false</default>
+                    <label>Kevin Maurer</label>
+                </value>
+                <value>
+                    <fullName>Kirk Ziehm</fullName>
+                    <default>false</default>
+                    <label>Kirk Ziehm</label>
+                </value>
+                <value>
+                    <fullName>Scott Castleman</fullName>
+                    <default>false</default>
+                    <label>Scott Castleman</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Exception_approved_by_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Exception approved by email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exception_comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Exception comment</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Expected_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Feasibility_Done_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Feasibility Done date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Feasibility_Done_to_be_done_by_TTI__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Feasibility Done(to be filled by TTI)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Field_Location_on_the_Layout__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>State specific location of the field (under/over an existing field or layout)</inlineHelpText>
+        <label>Field Location on the Layout</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_CRM_release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Ideal CRM release</label>
+        <referenceTo>ResourceProject__c</referenceTo>
+        <relationshipLabel>CMR Requirement Gatherings (Actual Release)</relationshipLabel>
+        <relationshipName>CMR_Requirement_Gatherings1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_CRM_release_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Ideal CRM release date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_Deployment_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.Deployment_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ideal Deployment date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_Ready_for_UAT_date_from_CRM__c</fullName>
+        <externalId>false</externalId>
+        <label>Ideal Ready for UAT date from CRM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Ideal_UAT_Signoff_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.UAT_Sign_Off_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ideal UAT Signoff date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Names_of_UAT_testers__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Email addresses of the users conducting “User Acceptance Testing” 
+List of 3 examples to refer to with their url link</inlineHelpText>
+        <label>Names of UAT testers</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>New_Actual_Release_Tag_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Ideal_CRM_release__r.Deployment_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Release Tag Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_CRM_Requirement_Cutoff_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.Requirements_Cut_Off_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CRM Requirement Cutoff Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Fields_to_be_Created__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Field name required, field type (lookup field, date field, text, picklist etc.)</inlineHelpText>
+        <label>New Fields to be Created</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>New_Ideal_CRM_release__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ideal CRM release</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Ideal_CRM_release_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.Deployment_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ideal CRM release date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Ideal_Ready_for_UAT_date_from_CRM__c</fullName>
+        <externalId>false</externalId>
+        <formula>CRM_Release__r.UAT_Start_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ideal Ready for UAT date from CRM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Object_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Examples - New Events, New CrowdCompass. Put N/A if not applicable</inlineHelpText>
+        <label>Object Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Object_on_which_change_is_requested__c</fullName>
+        <externalId>false</externalId>
+        <label>Object on which change is requested</label>
+        <length>256</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Owner_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner's Manager Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CMR_Requirement_Gatherings3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Profile_Who_should_have_access__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide the profile name or a user name (field required or optional)</inlineHelpText>
+        <label>Profile Who should have access</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_Solution__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed Solution</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Red_flag_raised__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Red flag raised</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Redflag_comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Redflag comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Release_deferred__c</fullName>
+        <externalId>false</externalId>
+        <label>Release deferred</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Release_tag_date_changed__c</fullName>
+        <externalId>false</externalId>
+        <label>Release tag date changed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Release_tag_date_changed_reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Release tag date changed reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Request_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Request Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Execution Approved</fullName>
+                    <default>false</default>
+                    <label>Execution Approved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Requested_By_Manager_s_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested By Manager's Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requested_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requested By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CMR_Requirement_Gatherings2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Change</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Requester_Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Requester Department</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client Services</fullName>
+                    <default>false</default>
+                    <label>Client Services</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>PMO</fullName>
+                    <default>false</default>
+                    <label>PMO</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Sales Operations</fullName>
+                    <default>false</default>
+                    <label>Sales Operations</label>
+                </value>
+                <value>
+                    <fullName>Technology</fullName>
+                    <default>false</default>
+                    <label>Technology</label>
+                </value>
+                <value>
+                    <fullName>Products</fullName>
+                    <default>false</default>
+                    <label>Products</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Requirement_Gathering_Form__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Link the TTI Requirement Gathering Form</inlineHelpText>
+        <label>Requirement Gathering Form</label>
+        <referenceTo>CMR_Requirement_Gathering__c</referenceTo>
+        <relationshipLabel>CMR Requirement Gatherings</relationshipLabel>
+        <relationshipName>CMR_Requirement_Gatherings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requirement_discussion_meeting__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirement discussion meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requirement_freeze_by_requester_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirement freeze( by requester) Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requirement_freeze_by_requester__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Requirement freeze( by requester)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Requirement_sent_to_CRM_team__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirement sent to CRM team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Support_Ops_SPOC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Support Ops SPOC</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CMR_Requirement_Gatherings1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TTI_Requirement_Cutoff_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>TTI Requirement Cutoff Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>UAT_communication_sent_to_the_requester__c</fullName>
+        <externalId>false</externalId>
+        <label>UAT communication sent to the requester</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>UAT_done_on_time__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Actual_UAT_Sign_off_received__c - Ideal_UAT_Signoff_date__c) &gt; 0</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UAT not done on time</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Validation_if_required__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>State validation and criteria</inlineHelpText>
+        <label>Validation if required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>What_kind_of_impact__c</fullName>
+        <externalId>false</externalId>
+        <label>What kind of impact:</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Does_that_impact__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>User Level</fullName>
+                    <default>false</default>
+                    <label>User Level</label>
+                </value>
+                <value>
+                    <fullName>Object Level</fullName>
+                    <default>false</default>
+                    <label>Object Level</label>
+                </value>
+                <value>
+                    <fullName>Field Level</fullName>
+                    <default>false</default>
+                    <label>Field Level</label>
+                </value>
+                <value>
+                    <fullName>Data Level</fullName>
+                    <default>false</default>
+                    <label>Data Level</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Athena Mktg DW</controllingFieldValue>
+                <controllingFieldValue>Client Service Data Mart</controllingFieldValue>
+                <valueName>User Level</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Athena Mktg DW</controllingFieldValue>
+                <controllingFieldValue>Client Service Data Mart</controllingFieldValue>
+                <valueName>Object Level</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Athena Mktg DW</controllingFieldValue>
+                <controllingFieldValue>Client Service Data Mart</controllingFieldValue>
+                <valueName>Field Level</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Athena Mktg DW</controllingFieldValue>
+                <controllingFieldValue>Client Service Data Mart</controllingFieldValue>
+                <valueName>Data Level</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Workflow_action_Email_trigger__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide the to &amp; from email address, Subject and body of the email</inlineHelpText>
+        <label>Workflow action: Email trigger</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Workflow_action_Field_update__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of field/s to be updated based on workflow criteria (new value of the field)</inlineHelpText>
+        <label>Workflow action: Field update</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Workflow_action_Other__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Any additional workflow (example – creation of a follow up task, case etc.)</inlineHelpText>
+        <label>Workflow action: Other</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Workflow_overview__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of actions required based on criteria - send email, updating field, creating tasks</inlineHelpText>
+        <label>Workflow - overview</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>CMR Requirement Gathering</label>
+    <nameField>
+        <displayFormat>{0000}</displayFormat>
+        <label>CMR Requirement Gathering Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>CMR Requirement Gatherings</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>CMR_Requirement_Gathering</fullName>
+        <active>true</active>
+        <label>CMR Requirement Gathering</label>
+        <picklistValues>
+            <picklist>Does_that_impact__c</picklist>
+            <values>
+                <fullName>Athena Mktg DW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Service Data Mart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Exception_approved_by__c</picklist>
+            <values>
+                <fullName>Ed Benack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kevin Maurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kirk Ziehm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scott Castleman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vineet Puri</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Request_Status__c</picklist>
+            <values>
+                <fullName>Execution Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requester_Department__c</picklist>
+            <values>
+                <fullName>Client Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Operations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>What_kind_of_impact__c</picklist>
+            <values>
+                <fullName>Data Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Object Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User Level</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>Exception_Comments_added_by_Approver</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  Exception_approved_by_email__c &lt;&gt;   $User.Email  ,
+ISCHANGED(Exception_comment__c))</errorConditionFormula>
+        <errorDisplayField>Exception_comment__c</errorDisplayField>
+        <errorMessage>Exception Comments needs to be added by the Exception Approver.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Execution_Approved_Section_to_be_filled</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT(CMR_Status__c = '3C-Execution Approved'), 
+OR(ISCHANGED(Requirement_sent_to_CRM_team__c),
+ISCHANGED(CRM_SPOC_for_the_Request__c),
+ISCHANGED(Support_Ops_SPOC__c),
+ISCHANGED(Actual_Release_Tag_date__c),
+ISCHANGED(Release_tag_date_changed__c),
+ISCHANGED(Release_tag_date_changed_reason__c),
+ISCHANGED(Actual_Ready_for_UAT_date_from_CRM__c),
+ISCHANGED(UAT_communication_sent_to_the_requester__c),
+ISCHANGED(Actual_UAT_Sign_off_received__c)
+))</errorConditionFormula>
+        <errorMessage>You are not allowed to make the updates before the status is "Execution Approved"</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Execution_Approved_form_to_be_filled</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISCHANGED(Feasibility_Done_date__c),
+ RecordTypeId ='0121h0000000Apx',
+NOT(ISBLANK(Requirement_discussion_meeting__c)),
+ $User.Id &lt;&gt;  Requirement_Gathering_Form__r.CreatedById )</errorConditionFormula>
+        <errorMessage>The Feasibility done date will be updated by the user who gathered the requirement.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Red_flag_comments_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Red_flag_raised__c , 
+ISBLANK( Redflag_comments__c ))</errorConditionFormula>
+        <errorMessage>Red Flag Comments is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Release_Deffered_Reason_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( UAT_done_on_time__c, 
+ISBLANK( Release_deferred__c ))</errorConditionFormula>
+        <errorMessage>UAT Timelines not met, please fill the appropriate release deferred reason.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Release_Tag_Changed_Reason</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( NOT(ISBLANK(Release_tag_date_changed__c)) ,
+ISBLANK(Release_tag_date_changed_reason__c)
+)</errorConditionFormula>
+        <errorMessage>Please fill the Release tag date changed reason.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Requirement_Freeze_checkbox_update</fullName>
+        <active>true</active>
+        <description>Requirement Freeze by requester checkbox can be changed by Creator, Anuj Abrol, Sushil and David</description>
+        <errorConditionFormula>AND(ISCHANGED( Requirement_freeze_by_requester__c ),
+ $User.Id &lt;&gt; "00500000007RwJC",
+$User.Id &lt;&gt; "00500000006y5WD",
+$User.Id &lt;&gt; "00500000007C9CM",
+$User.Id &lt;&gt; CreatedById
+)</errorConditionFormula>
+        <errorDisplayField>Requirement_freeze_by_requester__c</errorDisplayField>
+        <errorMessage>You are not authorized to update the checkbox.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Requirement_discussion_meeting_update</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ ISCHANGED(Requirement_discussion_meeting__c),
+ $User.Id &lt;&gt; "00500000007RwJC",
+ $User.Id &lt;&gt; "00500000007C9CM",
+ $User.Id &lt;&gt;"00500000006y5WD"
+)</errorConditionFormula>
+        <errorDisplayField>Requirement_discussion_meeting__c</errorDisplayField>
+        <errorMessage>You are not authorized to update the Requirement Discussion Meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Requirement_freeze_by_requester_update</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(ISCHANGED(Requirement_freeze_by_requester__c),
+Requirement_freeze_by_requester__c,
+ $User.Id &lt;&gt; CreatedById )</errorConditionFormula>
+        <errorMessage>You are not authorized to update the Requirement Freeze checkbox.</errorMessage>
+    </validationRules>
+</CustomObject>

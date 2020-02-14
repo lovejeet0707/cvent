@@ -1,6 +1,6 @@
 /* ===============================
 AUTHOR     :     Mohsin Siddiqui
-Test class - 
+Test class - BatchUpdateTestClass
 Ticket : Batch Process to update related Contact and Lead records - TICCM-826
 ============================= 
 */

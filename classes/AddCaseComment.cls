@@ -35,12 +35,6 @@ global with sharing class AddCaseComment {
         pageRef = new PageReference('/apex/CaseDetail?id='+ccId);
         return pageRef;
     }
-    
-    // Method to display case comments added by Harshit Johar for TICCM-1402
-    public List<CaseComment> getCaseComments() {
-        return ([SELECT CommentBody,CreatedById,CreatedBy.Name,CreatedDate,Id,IsDeleted,IsPublished,LastModifiedById,LastModifiedDate,ParentId,SystemModstamp FROM CaseComment WHERE IsPublished=true and ParentId=:ccId ORDER BY CreatedDate DESC]);
-    }
-    
     public PageReference SubmitComments(){
       PageReference pageRef;      
       errMessage = '';

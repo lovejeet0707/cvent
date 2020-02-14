@@ -10,7 +10,7 @@ public class PreChatFormController
         List<Contact> associatedContact;
         List<User> currentLoggedInUser = [select id,Account_ID__c,Contact_ID__c from User where Id =:userId LIMIT 1];
         System.debug('currentLoggedInUser[0].Account_ID__c>>>'+currentLoggedInUser[0].Account_ID__c);
-       	if(!currentLoggedInUser.isEmpty())
+         if(!currentLoggedInUser.isEmpty())
         {
             associatedAccount = [select Id,Cvent_Account_ID__c from Account where Id =:currentLoggedInUser[0].Account_ID__c]; 
             associatedContact = [select Id,Phone from Contact where Id =:currentLoggedInUser[0].Contact_ID__c];

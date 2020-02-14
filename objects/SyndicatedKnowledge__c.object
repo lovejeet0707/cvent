@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Common_Article_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the most common Article Type used in your public knowledgebase.  Found in Setup |
+ App Setup | Knowledge | Article Types.  Be sure to use the "Object Name," which does not include any spaces</inlineHelpText>
+        <label>Common Article Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_Knowledgebase_Base_URL__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>URL for the homepage of your public knowledgebase.  Be sure to include the "http://" or "https://"
+You can find this in Setup | App Setup | Develop | Sites.  
+It should be something like "http://publickb.force.com/" - don't include "articles"</inlineHelpText>
+        <label>Public Knowledgebase Base URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Settings used in the Syndicated Knowledge application</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <label>Syndicated Knowledge</label>
+    <visibility>Public</visibility>
+</CustomObject>

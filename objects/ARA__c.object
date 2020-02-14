@@ -1,0 +1,4987 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>ARARemediationQualityNotes__c</fullName>
+        <description>ARA Remediation Quality Notes</description>
+        <externalId>false</externalId>
+        <label>ARA Remediation Quality Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ARA_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  OR(
+    ISPICKVAL(Status__c,"Closed-Resolved"),
+    ISPICKVAL(Status__c,"Closed-Lost"),
+    ISPICKVAL(Status__c,"Settlement"),
+    ISPICKVAL(Status__c,"Closed Won"),
+    ISPICKVAL(Status__c,"Unqualified")
+  ),
+  ARA_Closed_DateTime__c - CreatedDate,
+  NOW() - CreatedDate
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ARA Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ARA_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary ARA Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adoption/Low Usage</fullName>
+                    <default>false</default>
+                    <label>Adoption/Low Usage</label>
+                </value>
+                <value>
+                    <fullName>Customer Business Process</fullName>
+                    <default>false</default>
+                    <label>Customer Business Process</label>
+                </value>
+                <value>
+                    <fullName>Customer Support</fullName>
+                    <default>false</default>
+                    <label>Customer Support</label>
+                </value>
+                <value>
+                    <fullName>Customer Turnover</fullName>
+                    <default>false</default>
+                    <label>Customer Turnover</label>
+                </value>
+                <value>
+                    <fullName>Economics/Pricing</fullName>
+                    <default>false</default>
+                    <label>Economics/Pricing</label>
+                </value>
+                <value>
+                    <fullName>Onboarding/Training</fullName>
+                    <default>false</default>
+                    <label>Onboarding/Training</label>
+                </value>
+                <value>
+                    <fullName>Oversold</fullName>
+                    <default>false</default>
+                    <label>Oversold</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                    <label>Professional Services</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ARA_Closed_DateTime__c</fullName>
+        <externalId>false</externalId>
+        <label>ARA Resolved DateTime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ARA_Debrief_COmpleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ARA Debrief Completed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ARA_Emergency_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This text will be seen at the account level and should be used for any ARA notes you want all of CS/Sales to be aware of.</inlineHelpText>
+        <label>ARA Emergency Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ARA_Remediation_Quality__c</fullName>
+        <description>Satisfaction ratings for the ARA/Escalations Group</description>
+        <externalId>false</externalId>
+        <label>ARA Remediation Quality</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5 - Very Satisfied</fullName>
+                    <default>false</default>
+                    <label>5 - Very Satisfied</label>
+                </value>
+                <value>
+                    <fullName>4 - Somewhat Satisfied</fullName>
+                    <default>false</default>
+                    <label>4 - Somewhat Satisfied</label>
+                </value>
+                <value>
+                    <fullName>3 - Neither Satisfied nor Dissatisfied</fullName>
+                    <default>false</default>
+                    <label>3 - Neither Satisfied nor Dissatisfied</label>
+                </value>
+                <value>
+                    <fullName>2 - Somewhat Dissatisfied</fullName>
+                    <default>false</default>
+                    <label>2 - Somewhat Dissatisfied</label>
+                </value>
+                <value>
+                    <fullName>1 - Very Dissatisfied</fullName>
+                    <default>false</default>
+                    <label>1 - Very Dissatisfied</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ARA_Resolution_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>ARA Resolution Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ARA_Won_Lost_DateTime__c</fullName>
+        <externalId>false</externalId>
+        <label>ARA Won/Lost DateTime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Account_ARR_Close__c</fullName>
+        <description>This Update the Share of wallet field "EC Contracted ARR (Client)". This is updated via Workflow.</description>
+        <externalId>false</externalId>
+        <label>Account ARR @ Close</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Account_ARR_Open__c</fullName>
+        <description>This Update the Share of wallet field "EC Contracted ARR (Client)". This is updated via Workflow.</description>
+        <externalId>false</externalId>
+        <label>Account ARR @ Open</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Account_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>/* Old Formula
+
+HYPERLINK("https://cvent.my.salesforce.com/"&amp;Opportunity__r.Owner.Id, Opportunity__r.Owner.FirstName &amp; ' ' &amp; Opportunity__r.Owner.LastName)
+
+*/
+
+
+
+HYPERLINK("https://cvent.my.salesforce.com/"&amp;Account__r.OwnerId, Account__r.Owner.FirstName &amp; ' ' &amp; Account__r.Owner.LastName)</formula>
+        <label>Account Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Owner__c</fullName>
+        <description>This field is used in Cart Cost analysis email template</description>
+        <externalId>false</externalId>
+        <formula>Account__r.Owner.FirstName &amp; ' ' &amp; Account__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>ARAs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Actual_Amount_Up_for_Renewal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Actual_Amount_Up_for_Renewal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Amount Up for Renewal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Additional_At_Risk_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional At-Risk Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Details – Remediation Resources</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Assigned_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ARAs1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CART_Request__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description># 11585978
+#11696878</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field for ARA Manager use only - triggers alert to CS leadership</inlineHelpText>
+        <label>CART Request</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CRC_Support__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Backup</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ARAs_Escalations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CS_Counterpart__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Field for ARA team use only</inlineHelpText>
+        <label>CS Counterpart</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ARAs_Escalations2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CVII_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.CVII_ID__c</formula>
+        <label>CVII ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CVII_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>"https://cvii/Customers/FindCustomer.aspx?CustKeyword="&amp;CVII_ID__c&amp;"&amp;txtContractNum=&amp;txtOrgKeyword=&amp;cboAcctMgrStub=NULL&amp;cboSalespersonStub=NULL&amp;cboCustStatusID=1&amp;rdoSortOn=name"</formula>
+        <label>CVII Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.CloseDate</formula>
+        <label>Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.New_Contract_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Created_by_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.UserRole.Name</formula>
+        <label>Created by Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Account_ARR__c</fullName>
+        <externalId>false</externalId>
+        <formula>/* Account__r.Current_Account_ARR__c */
+
+Account__r.Share_of_Wallet_Client__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Account ARR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_on_Billing__c</fullName>
+        <externalId>false</externalId>
+        <label>Current on Billing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cvent_Account_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Cvent_Account_ID__c</formula>
+        <label>Cvent Account ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DOA__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dead on Arrival – have we received cancellation or AR notice</inlineHelpText>
+        <label>DOA</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_AR_Cancellation_Notice_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Date AR/Cancellation Notice Received:</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Time_of_Call__c</fullName>
+        <externalId>false</externalId>
+        <label>Date/Time of Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Day_Count_to_Renewal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Renewal_Date__c-TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Day Count to Renewal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deferred_Notes__c</fullName>
+        <description>Case #13442387</description>
+        <externalId>false</externalId>
+        <label>Deferred Notes</label>
+        <length>140</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deferred_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Deferred Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AM Management</fullName>
+                    <default>false</default>
+                    <label>AM Management</label>
+                </value>
+                <value>
+                    <fullName>AppSupport Escalation</fullName>
+                    <default>false</default>
+                    <label>AppSupport Escalation</label>
+                </value>
+                <value>
+                    <fullName>Escalation Desk</fullName>
+                    <default>false</default>
+                    <label>Escalation Desk</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>PSG Management</fullName>
+                    <default>false</default>
+                    <label>PSG Management</label>
+                </value>
+                <value>
+                    <fullName>Senior Management</fullName>
+                    <default>false</default>
+                    <label>Senior Management</label>
+                </value>
+                <value>
+                    <fullName>Success Management</fullName>
+                    <default>false</default>
+                    <label>Success Management</label>
+                </value>
+                <value>
+                    <fullName>Other CS Management</fullName>
+                    <default>false</default>
+                    <label>Other CS Management</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description_of_Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Description of Issue</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Escalated_Primary_Category_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalated Primary Category Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Escalation_Category__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Close</fullName>
+                    <default>false</default>
+                    <label>Close</label>
+                </value>
+                <value>
+                    <fullName>Usability</fullName>
+                    <default>false</default>
+                    <label>Usability</label>
+                </value>
+                <value>
+                    <fullName>Missing/Non-Existent Feature</fullName>
+                    <default>false</default>
+                    <label>Missing/Non-Existent Feature</label>
+                </value>
+                <value>
+                    <fullName>Feature Limitations</fullName>
+                    <default>false</default>
+                    <label>Feature Limitations</label>
+                </value>
+                <value>
+                    <fullName>Product Speed</fullName>
+                    <default>false</default>
+                    <label>Product Speed</label>
+                </value>
+                <value>
+                    <fullName>Product Quality (bugs)</fullName>
+                    <default>false</default>
+                    <label>Product Quality (bugs)</label>
+                </value>
+                <value>
+                    <fullName>Product Availability (downtime)</fullName>
+                    <default>false</default>
+                    <label>Product Availability (downtime)</label>
+                </value>
+                <value>
+                    <fullName>CSC Support</fullName>
+                    <default>false</default>
+                    <label>CSC Support</label>
+                </value>
+                <value>
+                    <fullName>Overall Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Overall Support Complaints</label>
+                </value>
+                <value>
+                    <fullName>Customer Care Complaints</fullName>
+                    <default>false</default>
+                    <label>Customer Care Complaints</label>
+                </value>
+                <value>
+                    <fullName>Not A Fit</fullName>
+                    <default>false</default>
+                    <label>Not A Fit</label>
+                </value>
+                <value>
+                    <fullName>Non-CS Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Non-CS Support Complaints</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>CSC Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Overall Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Customer Care Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Non-CS Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Usability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Missing/Non-Existent Feature</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Feature Limitations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Speed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Quality (bugs)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Availability (downtime)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Not A Fit</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+ISPICKVAL(Status__c,"Closed-Resolved"),
+ARA_Closed_DateTime__c - CreatedDate, 
+NOW() - CreatedDate 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Escalation Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Escalation_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adoption/Low Usage</fullName>
+                    <default>false</default>
+                    <label>Adoption/Low Usage</label>
+                </value>
+                <value>
+                    <fullName>Customer Business Process</fullName>
+                    <default>false</default>
+                    <label>Customer Business Process</label>
+                </value>
+                <value>
+                    <fullName>Customer Support</fullName>
+                    <default>false</default>
+                    <label>Customer Support</label>
+                </value>
+                <value>
+                    <fullName>Customer Turnover</fullName>
+                    <default>false</default>
+                    <label>Customer Turnover</label>
+                </value>
+                <value>
+                    <fullName>Economics/Pricing</fullName>
+                    <default>false</default>
+                    <label>Economics/Pricing</label>
+                </value>
+                <value>
+                    <fullName>Onboarding/Training</fullName>
+                    <default>false</default>
+                    <label>Onboarding/Training</label>
+                </value>
+                <value>
+                    <fullName>Oversold</fullName>
+                    <default>false</default>
+                    <label>Oversold</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                    <label>Professional Services</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Escalation_Closed_DateTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Escalation Closed DateTime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Escalation_Name__c</fullName>
+        <displayFormat>ARA-{000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Escalation Name</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Future_ARA_Risk__c</fullName>
+        <externalId>false</externalId>
+        <label>Future ARA Risk</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Go_Green_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Close Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Has_the_call_been_scheduled_with_custome__c</fullName>
+        <externalId>false</externalId>
+        <label>Has the Customer call been scheduled</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Requested_Action__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Scheduled Call</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Scheduled Call</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Service Expectations</fullName>
+                    <default>false</default>
+                    <label>Service Expectations</label>
+                </value>
+                <value>
+                    <fullName>Timelines</fullName>
+                    <default>false</default>
+                    <label>Timelines</label>
+                </value>
+                <value>
+                    <fullName>Contracting Issue/s</fullName>
+                    <default>false</default>
+                    <label>Contracting Issue/s</label>
+                </value>
+                <value>
+                    <fullName>Not a Fit/Workaround Reliant</fullName>
+                    <default>false</default>
+                    <label>Not a Fit/Workaround Reliant</label>
+                </value>
+                <value>
+                    <fullName>Presold Feature</fullName>
+                    <default>false</default>
+                    <label>Presold Feature</label>
+                </value>
+                <value>
+                    <fullName>No TSC/Demo</fullName>
+                    <default>false</default>
+                    <label>No TSC/Demo</label>
+                </value>
+                <value>
+                    <fullName>Client Services Sale</fullName>
+                    <default>false</default>
+                    <label>Client Services Sale</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lessons_Learned__c</fullName>
+        <externalId>false</externalId>
+        <label>Lessons Learned</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Owner.FirstName +" "+ Opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Opportunity__r.StageName)</formula>
+        <label>Opportunity Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.New_Contract_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Associate this ARA to the largest renewal opportunity of those at risk, if renewal is less than 365 days out, otherwise leave blank.</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>ARAs/Escalations</relationshipLabel>
+        <relationshipName>ARAs</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Original_Renewal_Opp_Val__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.New_Contract_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Original Renewal Opp Val</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Original_Renewal_Opp_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Original Renewal Opp Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Other_Category_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary of Issue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Category_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Category Details</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ARA_Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CSC/PC Support</fullName>
+                    <default>false</default>
+                    <label>CSC/PC Support</label>
+                </value>
+                <value>
+                    <fullName>Customer Care Complaints</fullName>
+                    <default>false</default>
+                    <label>Customer Care Complaints</label>
+                </value>
+                <value>
+                    <fullName>Feature Limitations</fullName>
+                    <default>false</default>
+                    <label>Feature Limitations</label>
+                </value>
+                <value>
+                    <fullName>Flex</fullName>
+                    <default>false</default>
+                    <label>Flex</label>
+                </value>
+                <value>
+                    <fullName>Missing/Non-Existent Feature</fullName>
+                    <default>false</default>
+                    <label>Missing/Non-Existent Feature</label>
+                </value>
+                <value>
+                    <fullName>Non-CS Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Non-CS Support Complaints</label>
+                </value>
+                <value>
+                    <fullName>Non-Performance Claim</fullName>
+                    <default>false</default>
+                    <label>Non-Performance Claim</label>
+                </value>
+                <value>
+                    <fullName>Not A Fit</fullName>
+                    <default>false</default>
+                    <label>Not A Fit</label>
+                </value>
+                <value>
+                    <fullName>Overall Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Overall Support Complaints</label>
+                </value>
+                <value>
+                    <fullName>Product Availability (downtime)</fullName>
+                    <default>false</default>
+                    <label>Product Availability (downtime)</label>
+                </value>
+                <value>
+                    <fullName>Product Quality (bugs)</fullName>
+                    <default>false</default>
+                    <label>Product Quality (bugs)</label>
+                </value>
+                <value>
+                    <fullName>Product Speed</fullName>
+                    <default>false</default>
+                    <label>Product Speed</label>
+                </value>
+                <value>
+                    <fullName>Usability</fullName>
+                    <default>false</default>
+                    <label>Usability</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>CSC/PC Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Customer Care Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Non-CS Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Overall Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Feature Limitations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Flex</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Missing/Non-Existent Feature</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Non-Performance Claim</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Not A Fit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Availability (downtime)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Quality (bugs)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Speed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Usability</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>ARAs</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Line_Impacted__c</fullName>
+        <externalId>false</externalId>
+        <label>All Product Lines Impacted</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Abstract</fullName>
+                    <default>false</default>
+                    <label>Abstract</label>
+                </value>
+                <value>
+                    <fullName>Appointments</fullName>
+                    <default>false</default>
+                    <label>Appointments</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>Enterprise</fullName>
+                    <default>false</default>
+                    <label>Enterprise</label>
+                </value>
+                <value>
+                    <fullName>Event Management</fullName>
+                    <default>false</default>
+                    <label>Event Management</label>
+                </value>
+                <value>
+                    <fullName>Inquisium</fullName>
+                    <default>false</default>
+                    <label>Inquisium</label>
+                </value>
+                <value>
+                    <fullName>Onsite Solutions</fullName>
+                    <default>false</default>
+                    <label>Onsite Solutions</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Root_Cause__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Root Cause</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abstract</fullName>
+                    <default>false</default>
+                    <label>Abstract</label>
+                </value>
+                <value>
+                    <fullName>Appointments</fullName>
+                    <default>false</default>
+                    <label>Appointments</label>
+                </value>
+                <value>
+                    <fullName>Universal Appointments</fullName>
+                    <default>false</default>
+                    <label>Universal Appointments</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>Event Management</fullName>
+                    <default>false</default>
+                    <label>Event Management</label>
+                </value>
+                <value>
+                    <fullName>Event In a Box</fullName>
+                    <default>false</default>
+                    <label>Event In a Box</label>
+                </value>
+                <value>
+                    <fullName>Exhibitor Resource Center</fullName>
+                    <default>false</default>
+                    <label>Exhibitor Resource Center</label>
+                </value>
+                <value>
+                    <fullName>Inquisium</fullName>
+                    <default>false</default>
+                    <label>Inquisium</label>
+                </value>
+                <value>
+                    <fullName>Integration Hub</fullName>
+                    <default>false</default>
+                    <label>Integration Hub</label>
+                </value>
+                <value>
+                    <fullName>LeadCapture</fullName>
+                    <default>false</default>
+                    <label>LeadCapture</label>
+                </value>
+                <value>
+                    <fullName>Universal LeadCapture</fullName>
+                    <default>false</default>
+                    <label>Universal LeadCapture</label>
+                </value>
+                <value>
+                    <fullName>OA360</fullName>
+                    <default>false</default>
+                    <label>OA360</label>
+                </value>
+                <value>
+                    <fullName>OA360 - RFID/Advanced Printing</fullName>
+                    <default>false</default>
+                    <label>OA360 - RFID/Advanced Printing</label>
+                </value>
+                <value>
+                    <fullName>OnArrival Premium</fullName>
+                    <default>false</default>
+                    <label>OnArrival Premium</label>
+                </value>
+                <value>
+                    <fullName>Out of the Box Integration</fullName>
+                    <default>false</default>
+                    <label>Out of the Box Integration</label>
+                </value>
+                <value>
+                    <fullName>Passkey</fullName>
+                    <default>false</default>
+                    <label>Passkey</label>
+                </value>
+                <value>
+                    <fullName>Social Tables</fullName>
+                    <default>false</default>
+                    <label>Social Tables</label>
+                </value>
+                <value>
+                    <fullName>Speaker Resource Center</fullName>
+                    <default>false</default>
+                    <label>Speaker Resource Center</label>
+                </value>
+                <value>
+                    <fullName>Platform Interdependencies</fullName>
+                    <default>false</default>
+                    <label>Platform Interdependencies</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Related_AppSupport_Tickets__c</fullName>
+        <externalId>false</externalId>
+        <label>Related AppSupport Tickets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_App_Support_Ticket_SF_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Related App Support Ticket SF Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Related_Enhancement_Request_SF_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Enhancement Request SF Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Related_Enhancement_Requests__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Enhancement Requests</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Related_PSP_SF_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Related PSP SF Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Relevant_Account_History_Previous_Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Relevant Account History/Previous Issue</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Remediation_Effort_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Remediation Effort Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Remediation_Resources_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>Remediation Resources Used</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Additional Escalation</fullName>
+                    <default>false</default>
+                    <label>Additional Escalation</label>
+                </value>
+                <value>
+                    <fullName>Advanced Product/AppSupport/Sales Engineering Support</fullName>
+                    <default>false</default>
+                    <label>Advanced Product/AppSupport/Sales Engineering Support</label>
+                </value>
+                <value>
+                    <fullName>Contract Renegotiation</fullName>
+                    <default>false</default>
+                    <label>Contract Renegotiation</label>
+                </value>
+                <value>
+                    <fullName>Event QB</fullName>
+                    <default>false</default>
+                    <label>Event QB</label>
+                </value>
+                <value>
+                    <fullName>On-Site Training and/or Meeting</fullName>
+                    <default>false</default>
+                    <label>On-Site Training and/or Meeting</label>
+                </value>
+                <value>
+                    <fullName>PSG</fullName>
+                    <default>false</default>
+                    <label>PSG</label>
+                </value>
+                <value>
+                    <fullName>Refund, Credit or Discount</fullName>
+                    <default>false</default>
+                    <label>Refund, Credit or Discount</label>
+                </value>
+                <value>
+                    <fullName>Re-onboarding</fullName>
+                    <default>false</default>
+                    <label>Re-onboarding</label>
+                </value>
+                <value>
+                    <fullName>Sales Demo Team</fullName>
+                    <default>false</default>
+                    <label>Sales Demo Team</label>
+                </value>
+                <value>
+                    <fullName>Service/Support Concession</fullName>
+                    <default>false</default>
+                    <label>Service/Support Concession</label>
+                </value>
+                <value>
+                    <fullName>Support Team Changes (HODI or transfer)</fullName>
+                    <default>false</default>
+                    <label>Support Team Changes (HODI or transfer)</label>
+                </value>
+                <value>
+                    <fullName>Technical Sales Consultant</fullName>
+                    <default>false</default>
+                    <label>Technical Sales Consultant</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Renewal_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Contract_End_Date_Dev__c</formula>
+        <label>Renewal Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Opportunity_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>/* Opportunity__r.New_Contract_Total__c */
+
+Opportunity__r.Net_Amount_Opp__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Opportunity Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email Response</fullName>
+                    <default>false</default>
+                    <label>Email Response</label>
+                </value>
+                <value>
+                    <fullName>Proactive Email</fullName>
+                    <default>false</default>
+                    <label>Proactive Email</label>
+                </value>
+                <value>
+                    <fullName>Scheduled Call</fullName>
+                    <default>false</default>
+                    <label>Scheduled Call</label>
+                </value>
+                <value>
+                    <fullName>Proactive Call</fullName>
+                    <default>false</default>
+                    <label>Proactive Call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Resolution_Outcome__c</fullName>
+        <description>Used for one-off escalation object only</description>
+        <externalId>false</externalId>
+        <label>Resolution Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Cancelled/Opted Out</fullName>
+                    <default>false</default>
+                    <label>Cancelled/Opted Out</label>
+                </value>
+                <value>
+                    <fullName>Collections</fullName>
+                    <default>false</default>
+                    <label>Collections</label>
+                </value>
+                <value>
+                    <fullName>Likely to Renew</fullName>
+                    <default>false</default>
+                    <label>Likely to Renew</label>
+                </value>
+                <value>
+                    <fullName>Renegotiation</fullName>
+                    <default>false</default>
+                    <label>Renegotiation</label>
+                </value>
+                <value>
+                    <fullName>Settlement</fullName>
+                    <default>false</default>
+                    <label>Settlement</label>
+                </value>
+                <value>
+                    <fullName>Unlikely to Renew</fullName>
+                    <default>false</default>
+                    <label>Unlikely to Renew</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Root_Cause_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Root Cause Summary</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Secondary_ARA_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary ARA Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Adoption/Low Usage</fullName>
+                    <default>false</default>
+                    <label>Adoption/Low Usage</label>
+                </value>
+                <value>
+                    <fullName>Customer Business Process</fullName>
+                    <default>false</default>
+                    <label>Customer Business Process</label>
+                </value>
+                <value>
+                    <fullName>Customer Support</fullName>
+                    <default>false</default>
+                    <label>Customer Support</label>
+                </value>
+                <value>
+                    <fullName>Customer Turnover</fullName>
+                    <default>false</default>
+                    <label>Customer Turnover</label>
+                </value>
+                <value>
+                    <fullName>Economics/Pricing</fullName>
+                    <default>false</default>
+                    <label>Economics/Pricing</label>
+                </value>
+                <value>
+                    <fullName>Onboarding/Training</fullName>
+                    <default>false</default>
+                    <label>Onboarding/Training</label>
+                </value>
+                <value>
+                    <fullName>Oversold</fullName>
+                    <default>false</default>
+                    <label>Oversold</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Professional Services</fullName>
+                    <default>false</default>
+                    <label>Professional Services</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Secondary_Category_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Category Details</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Secondary_ARA_Category__c</controllingField>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>CSC/PC Support</fullName>
+                    <default>false</default>
+                    <label>CSC/PC Support</label>
+                </value>
+                <value>
+                    <fullName>Customer Care Complaints</fullName>
+                    <default>false</default>
+                    <label>Customer Care Complaints</label>
+                </value>
+                <value>
+                    <fullName>Feature Limitations</fullName>
+                    <default>false</default>
+                    <label>Feature Limitations</label>
+                </value>
+                <value>
+                    <fullName>Flex</fullName>
+                    <default>false</default>
+                    <label>Flex</label>
+                </value>
+                <value>
+                    <fullName>Missing/Non-Existent Feature</fullName>
+                    <default>false</default>
+                    <label>Missing/Non-Existent Feature</label>
+                </value>
+                <value>
+                    <fullName>Non-CS Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Non-CS Support Complaints</label>
+                </value>
+                <value>
+                    <fullName>Not A Fit</fullName>
+                    <default>false</default>
+                    <label>Not A Fit</label>
+                </value>
+                <value>
+                    <fullName>Overall Support Complaints</fullName>
+                    <default>false</default>
+                    <label>Overall Support Complaints</label>
+                </value>
+                <value>
+                    <fullName>Product Availability (downtime)</fullName>
+                    <default>false</default>
+                    <label>Product Availability (downtime)</label>
+                </value>
+                <value>
+                    <fullName>Product Quality (bugs)</fullName>
+                    <default>false</default>
+                    <label>Product Quality (bugs)</label>
+                </value>
+                <value>
+                    <fullName>Product Speed</fullName>
+                    <default>false</default>
+                    <label>Product Speed</label>
+                </value>
+                <value>
+                    <fullName>Usability</fullName>
+                    <default>false</default>
+                    <label>Usability</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>CSC/PC Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Customer Care Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Non-CS Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Customer Support</controllingFieldValue>
+                <valueName>Overall Support Complaints</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Feature Limitations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Flex</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Missing/Non-Existent Feature</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Not A Fit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Availability (downtime)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Quality (bugs)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Product Speed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product</controllingFieldValue>
+                <valueName>Usability</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Secondary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Secondary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>ARAs1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Seed_Account__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Was this ever a DS holdback, managed by the DS before AM?</inlineHelpText>
+        <label>Seed Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Settlement_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Settlement Amount (USD)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Severity_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Severity Level</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Moderate</fullName>
+                    <default>false</default>
+                    <label>Moderate</label>
+                </value>
+                <value>
+                    <fullName>Critical</fullName>
+                    <default>false</default>
+                    <label>Critical</label>
+                </value>
+                <value>
+                    <fullName>Fire Drill</fullName>
+                    <default>false</default>
+                    <label>Fire Drill</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Share_of_Wallet_Client__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Share_of_Wallet_Client__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Share of Wallet $ (Client)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Deferred</fullName>
+                    <default>false</default>
+                    <label>Deferred</label>
+                </value>
+                <value>
+                    <fullName>Working</fullName>
+                    <default>false</default>
+                    <label>Working</label>
+                </value>
+                <value>
+                    <fullName>Positive Progress</fullName>
+                    <default>false</default>
+                    <label>Positive Progress</label>
+                </value>
+                <value>
+                    <fullName>Negative Progress</fullName>
+                    <default>false</default>
+                    <label>Negative Progress</label>
+                </value>
+                <value>
+                    <fullName>Settlement</fullName>
+                    <default>false</default>
+                    <label>Settlement</label>
+                </value>
+                <value>
+                    <fullName>Escalated (to VP/Executive level)</fullName>
+                    <default>false</default>
+                    <label>Escalated (to VP/Executive level)</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>On Ice</fullName>
+                    <default>false</default>
+                    <label>On Ice</label>
+                </value>
+                <value>
+                    <fullName>Closed Won - Pending</fullName>
+                    <default>false</default>
+                    <label>Closed Won - Pending</label>
+                </value>
+                <value>
+                    <fullName>Closed Lost - Pending</fullName>
+                    <default>false</default>
+                    <label>Closed Lost - Pending</label>
+                </value>
+                <value>
+                    <fullName>Closed Won</fullName>
+                    <default>false</default>
+                    <label>Closed Won</label>
+                </value>
+                <value>
+                    <fullName>Closed-Resolved</fullName>
+                    <default>false</default>
+                    <label>Closed-Resolved</label>
+                </value>
+                <value>
+                    <fullName>Unqualified</fullName>
+                    <default>false</default>
+                    <label>Unqualified</label>
+                </value>
+                <value>
+                    <fullName>Closed-Lost</fullName>
+                    <default>false</default>
+                    <label>Closed-Lost</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Success_Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Success Plan</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TEV_Fiscal_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Last_12_month_spent__c</formula>
+        <label>TEV Last 12 mon</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TSC_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>TSC Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ARAs_Escalations1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Target_Resolution_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Resolution Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Unqualified_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Unqualified Notes</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unqualified_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Unqualified Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Below ACV Threshold</fullName>
+                    <default>false</default>
+                    <label>Below ACV Threshold</label>
+                </value>
+                <value>
+                    <fullName>Opportunity is Dead</fullName>
+                    <default>false</default>
+                    <label>Opportunity is Dead</label>
+                </value>
+                <value>
+                    <fullName>Unwilling Customer</fullName>
+                    <default>false</default>
+                    <label>Unwilling Customer</label>
+                </value>
+                <value>
+                    <fullName>Submitted for Tracking</fullName>
+                    <default>false</default>
+                    <label>Submitted for Tracking</label>
+                </value>
+                <value>
+                    <fullName>Not Actionable</fullName>
+                    <default>false</default>
+                    <label>Not Actionable</label>
+                </value>
+                <value>
+                    <fullName>Signed Elsewhere</fullName>
+                    <default>false</default>
+                    <label>Signed Elsewhere</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Below ACV Threshold</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Opportunity is Dead</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Unwilling Customer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Submitted for Tracking</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Not Actionable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unqualified</controllingFieldValue>
+                <valueName>Signed Elsewhere</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Up_for_Renewal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Up_for_Renewal__c</formula>
+        <label>$ Up for Renewal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Wallet_Size_Client__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Wallet_Size_Client__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Wallet Size $ (Client)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Website__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Website</formula>
+        <label>Website</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Resume_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Resume Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>of_Contract_Years__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Years__c)</formula>
+        <label># of Contract Years</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>ARA/Escalation</label>
+    <nameField>
+        <displayFormat>ARA/E-{000000}</displayFormat>
+        <label>ARA/Escalation Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>ARAs/Escalations</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>New_ARA</fullName>
+        <active>true</active>
+        <description>Account is at risk of non-renewal and the renewal is within the next 365 days. Renewal Opp must already exist.</description>
+        <label>New ARA</label>
+        <picklistValues>
+            <picklist>ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ARA_Remediation_Quality__c</picklist>
+            <values>
+                <fullName>1 - Very Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 - Somewhat Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 - Neither Satisfied nor Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 - Somewhat Satisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 - Very Satisfied</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Current_on_Billing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DOA__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deferred_Team__c</picklist>
+            <values>
+                <fullName>AM Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AppSupport Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other CS Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success Management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalated_Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Future_ARA_Risk__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Has_the_call_been_scheduled_with_custome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Issue__c</picklist>
+            <values>
+                <fullName>Contracting Issue%2Fs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No TSC%2FDemo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a Fit%2FWorkaround Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presold Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timelines</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Performance Claim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Line_Impacted__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Root_Cause__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event In a Box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exhibitor Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integration Hub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LeadCapture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360 - RFID%2FAdvanced Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OnArrival Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of the Box Integration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Interdependencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal LeadCapture</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Effort_Level__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Resources_Used__c</picklist>
+            <values>
+                <fullName>Additional Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Product%2FAppSupport%2FSales Engineering Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Renegotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event QB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-Site Training and%2For Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-onboarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund%2C Credit or Discount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Demo Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%2FSupport Concession</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Team Changes %28HODI or transfer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Sales Consultant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requested_Action__c</picklist>
+            <values>
+                <fullName>Email Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled Call</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Outcome__c</picklist>
+            <values>
+                <fullName>Cancelled%2FOpted Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Likely to Renew</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unlikely to Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seed_Account__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Severity_Level__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire Drill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed Lost - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed Won - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed-Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed-Resolved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated %28to VP%2FExecutive level%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negative Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Ice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Positive Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unqualified_Reason__c</picklist>
+            <values>
+                <fullName>Below ACV Threshold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Actionable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity is Dead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Tracking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unwilling Customer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>One_Off_Escalation</fullName>
+        <active>true</active>
+        <description>Account is either at risk of non-renewal but not within 365 days of renewal date, or ARA manager involvement is needed to prevent a customer from becoming at risk of non-renewal.</description>
+        <label>One-Off Escalation</label>
+        <picklistValues>
+            <picklist>ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ARA_Remediation_Quality__c</picklist>
+            <values>
+                <fullName>1 - Very Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 - Somewhat Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 - Neither Satisfied nor Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 - Somewhat Satisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 - Very Satisfied</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Current_on_Billing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DOA__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deferred_Team__c</picklist>
+            <values>
+                <fullName>AM Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AppSupport Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other CS Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success Management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalated_Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Future_ARA_Risk__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Has_the_call_been_scheduled_with_custome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Issue__c</picklist>
+            <values>
+                <fullName>Contracting Issue%2Fs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No TSC%2FDemo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a Fit%2FWorkaround Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presold Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timelines</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Performance Claim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Line_Impacted__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Root_Cause__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event In a Box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exhibitor Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integration Hub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LeadCapture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360 - RFID%2FAdvanced Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OnArrival Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of the Box Integration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Interdependencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal LeadCapture</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Effort_Level__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Resources_Used__c</picklist>
+            <values>
+                <fullName>Additional Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Product%2FAppSupport%2FSales Engineering Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Renegotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event QB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-Site Training and%2For Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-onboarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund%2C Credit or Discount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Demo Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%2FSupport Concession</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Team Changes %28HODI or transfer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Sales Consultant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requested_Action__c</picklist>
+            <values>
+                <fullName>Email Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled Call</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Outcome__c</picklist>
+            <values>
+                <fullName>Cancelled%2FOpted Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Likely to Renew</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renegotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unlikely to Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seed_Account__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Severity_Level__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire Drill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed-Resolved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Ice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unqualified_Reason__c</picklist>
+            <values>
+                <fullName>Below ACV Threshold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Actionable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity is Dead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Tracking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unwilling Customer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Sales_Escalation</fullName>
+        <active>true</active>
+        <description>Submit for tracking purposes only when sales process is a significant point of concern. Associate to the NBB Opp.</description>
+        <label>Sales Escalation</label>
+        <picklistValues>
+            <picklist>ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ARA_Remediation_Quality__c</picklist>
+            <values>
+                <fullName>1 - Very Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 - Somewhat Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 - Neither Satisfied nor Dissatisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 - Somewhat Satisfied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 - Very Satisfied</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Current_on_Billing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DOA__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deferred_Team__c</picklist>
+            <values>
+                <fullName>AM Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AppSupport Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other CS Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success Management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalated_Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Escalation_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Future_ARA_Risk__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Has_the_call_been_scheduled_with_custome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Issue__c</picklist>
+            <values>
+                <fullName>Client Services Sale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contracting Issue%2Fs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No TSC%2FDemo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a Fit%2FWorkaround Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presold Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timelines</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Line_Impacted__c</picklist>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Solutions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Root_Cause__c</picklist>
+            <values>
+                <fullName>Abstract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event In a Box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exhibitor Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquisium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integration Hub</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LeadCapture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OA360 - RFID%2FAdvanced Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OnArrival Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of the Box Integration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Interdependencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Tables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Resource Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal LeadCapture</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Effort_Level__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Remediation_Resources_Used__c</picklist>
+            <values>
+                <fullName>Additional Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Product%2FAppSupport%2FSales Engineering Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Renegotiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event QB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-Site Training and%2For Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-onboarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund%2C Credit or Discount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Demo Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%2FSupport Concession</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Team Changes %28HODI or transfer%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requested_Action__c</picklist>
+            <values>
+                <fullName>Email Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proactive Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled Call</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resolution_Outcome__c</picklist>
+            <values>
+                <fullName>Cancelled%2FOpted Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Likely to Renew</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unlikely to Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_ARA_Category__c</picklist>
+            <values>
+                <fullName>Adoption%2FLow Usage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Business Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Turnover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics%2FPricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarding%2FTraining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oversold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Secondary_Category_Details__c</picklist>
+            <values>
+                <fullName>CSC%2FPC Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Care Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feature Limitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing%2FNon-Existent Feature</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-CS Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not A Fit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overall Support Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability %28downtime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Quality %28bugs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Speed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Usability</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seed_Account__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Severity_Level__c</picklist>
+            <values>
+                <fullName>Critical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moderate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed-Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed-Resolved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated %28to VP%2FExecutive level%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negative Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Ice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Positive Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unqualified_Reason__c</picklist>
+            <values>
+                <fullName>Below ACV Threshold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Actionable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity is Dead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted for Tracking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unwilling Customer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <validationRules>
+        <fullName>ARA_can_only_be_open</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISNEW(),
+NOT(ISPICKVAL(Status__c,"Open"))
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>ARA can be submitted only in Open status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>App_Support_for_Product_Performance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ OR(ISPICKVAL(ARA_Category__c,"Product Performance"),
+    ISPICKVAL(Secondary_ARA_Category__c,"Product Performance")),
+ ISBLANK( Related_App_Support_Ticket_SF_Link__c ),
+ NOT(ISCHANGED(Status__c))
+)</errorConditionFormula>
+        <errorDisplayField>Related_App_Support_Ticket_SF_Link__c</errorDisplayField>
+        <errorMessage>Please enter Related App Support Ticket SF Link</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AssignedTo_cannot_be_changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")),
+
+ISCHANGED(Assigned_To__c),
+ 
+OR(
+RecordTypeId = "012o00000012ZYw",/*New ARA*/
+RecordTypeId = "012o00000012ZYx"),/*One-Off Escalation*/
+
+AND(
+$User.Username &lt;&gt; "ephelps@cvent.com" , 
+$User.Username &lt;&gt; "kmorrissey@cvent.com",
+$User.Username &lt;&gt; "tstevens@cvent.com",
+$User.Username &lt;&gt; "rmacasieb@cvent.com")
+
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to Assign this case</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CRC_Support_Field</fullName>
+        <active>true</active>
+        <description>No one except Erin Phelps, Kelly Morrissey, Tyler Stevens, Rachael Macaseib, Pearson Weems should be able to modify CRC Support field value</description>
+        <errorConditionFormula>AND(
+
+OR(RecordTypeId='012o00000012ZYw', /*New ARA*/
+RecordTypeId='012o00000012ZYx'), /*One-Off Escalation*/ 
+
+ISCHANGED(CRC_Support__c),
+NOT(
+OR(
+$User.Email = 'ephelps@cvent.com',
+$User.Email = 'kmorrissey@cvent.com',
+$User.Email = 'tstevens@cvent.com',
+$User.Email = 'rmacasieb@cvent.com',
+$User.Email = 'pweems@cvent.com'
+)
+),
+
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")),
+$User.Validation_Bypass__c = False,
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c /*Added to bypass rollup helper updates */ 
+
+)</errorConditionFormula>
+        <errorDisplayField>CRC_Support__c</errorDisplayField>
+        <errorMessage>Contact assigned ARA Manager with request to update 'CRC Support' field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cart_Request_Cannot_be_unchecked</fullName>
+        <active>false</active>
+        <description>#	
+11585978
+Deactivated. #11696878</description>
+        <errorConditionFormula>AND( 
+Not( 
+ISNEW() 
+), 
+ISCHANGED( CART_Request__c ), 
+PRIORVALUE(CART_Request__c) = True 
+
+)</errorConditionFormula>
+        <errorDisplayField>CART_Request__c</errorDisplayField>
+        <errorMessage>This field can not be unchecked</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Category_Details_Req_New_ARA</fullName>
+        <active>true</active>
+        <description>If ARA Category/Secondary ARA Category is 'product' or 'Customer Support' then primary category details/Secondary Category details fields are mandatory to fill. This applicable to New ARA record type only</description>
+        <errorConditionFormula>OR(
+
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+OR(
+ISPICKVAL(ARA_Category__c, "Product"),ISPICKVAL(ARA_Category__c, "Customer Support")),
+ISPICKVAL(Primary_Category_Details__c,""),
+RecordTypeId = '012o00000012ZYw'
+),
+
+
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+OR(
+ISPICKVAL(Secondary_ARA_Category__c, "Product"),ISPICKVAL(Secondary_ARA_Category__c,"Customer Support")),
+ISPICKVAL(Secondary_Category_Details__c,""),
+RecordTypeId = '012o00000012ZYw'
+)
+)</errorConditionFormula>
+        <errorMessage>Please Enter a Value in Primary Category Details/Secondary Category Details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Category_Details_Req_One_Off</fullName>
+        <active>true</active>
+        <description>If ARA Category is 'product' or 'Customer Support' then primary category details field is mandatory to fill. This applicable to One-Off record type only</description>
+        <errorConditionFormula>AND
+(
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+OR(ISPICKVAL(ARA_Category__c, "Product"),ISPICKVAL(ARA_Category__c, "Customer Support")), 
+ISPICKVAL(Primary_Category_Details__c,""), 
+RecordTypeId = '012o00000012ZYx' 
+)</errorConditionFormula>
+        <errorMessage>Please Enter a Value in Primary Category Details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ClosedLost_Status_cannot_be_changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), ISCHANGED(Status__c), 
+$User.Id &lt;&gt; "00500000006scbJ", 
+$User.Id &lt;&gt; "005o0000002Oj5j", 
+RecordTypeId = "012o00000012ZYw", 
+OR(
+TEXT(PRIORVALUE(Status__c)) = "Closed-Lost",
+TEXT(PRIORVALUE(Status__c)) = "Closed Won"
+),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to change the status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Resolved_for_Oneoff_Escalation</fullName>
+        <active>true</active>
+        <description>Resolution Outcome field is mandatory to fill when status is CLOSED RESOLVED</description>
+        <errorConditionFormula>AND(
+
+RecordTypeId = '012o00000012ZYx',
+ISPICKVAL(Status__c,"Closed-Resolved"),
+ISBLANK(TEXT(Resolution_Outcome__c)),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+
+)</errorConditionFormula>
+        <errorDisplayField>Resolution_Outcome__c</errorDisplayField>
+        <errorMessage>Please fill in Resolution Outcome</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Won_Lost_Status_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Status can be changed to something else if currently it is Closed Lost/Closed Won</description>
+        <errorConditionFormula>AND
+(
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), ISCHANGED(Status__c), 
+$User.Id &lt;&gt; "00500000006scbJ", 
+$User.Id &lt;&gt; "005o0000002Oj5j", 
+OR(RecordTypeId='012o00000012ZYw', /*New ARA*/ 
+RecordTypeId='012o00000012ZYx'), /*One-Off Escalation*/ 
+OR(
+TEXT(PRIORVALUE(Status__c)) = "Closed-Lost",
+TEXT(PRIORVALUE(Status__c)) = "Closed Won" 
+)
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Contact Erin Phelps with request to update 'Status' field.'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DateTime_of_Call_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), ISPICKVAL( Has_the_call_been_scheduled_with_custome__c,"Yes"),
+ISBLANK(Date_Time_of_Call__c))</errorConditionFormula>
+        <errorMessage>Date Time of call field is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Date_AR_Cancellation_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISBLANK(Date_AR_Cancellation_Notice_Received__c),
+ISPICKVAL(DOA__c,"Yes"),
+RecordTypeId='012o00000012ZYw' /*New ARA*/ 
+)</errorConditionFormula>
+        <errorDisplayField>Date_AR_Cancellation_Notice_Received__c</errorDisplayField>
+        <errorMessage>Input date you received notice of non-renewal</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DeferredTeamVal</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c ,'Deferred'),
+ISBLANK( text(Deferred_Team__c) ),
+OR(
+ RecordType.DeveloperName = 'New_ARA',
+ RecordType.DeveloperName = 'Sales_Escalation'
+
+),
+
+NOT(CONTAINS( $User.Username,'deployment' ))
+)</errorConditionFormula>
+        <errorDisplayField>Deferred_Team__c</errorDisplayField>
+        <errorMessage>Please enter value</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Deferred_Team_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(
+ISNEW(),
+ISCHANGED(Status__c)
+),
+ISPICKVAL(Status__c, "Deferred"),
+ISBLANK(Deferred_Notes__c),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorDisplayField>Deferred_Notes__c</errorDisplayField>
+        <errorMessage>Complete Deferred Team and Deferred Notes fields prior to saving.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enhancement_for_Product_Limitations</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ OR(ISPICKVAL(ARA_Category__c,"Product Limitations"),
+    ISPICKVAL(Secondary_ARA_Category__c,"Product Limitations")),
+ ISBLANK( Related_Enhancement_Request_SF_Link__c ),
+NOT(ISCHANGED(Status__c))
+)</errorConditionFormula>
+        <errorDisplayField>Related_Enhancement_Request_SF_Link__c</errorDisplayField>
+        <errorMessage>Please enter Related Enhancement Request SF Link</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>More_Info_requested</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), INCLUDES(Remediation_Resources_Used__c,"Other"),
+ISBLANK(Additional_Details__c))</errorConditionFormula>
+        <errorMessage>Please fill Additional Detail Section</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSP_Link_mandate_for_Professional_Servic</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ OR(ISPICKVAL(ARA_Category__c,"Professional Services"),
+    ISPICKVAL(Secondary_ARA_Category__c,"Professional Services")),RecordTypeId &lt;&gt; '012o00000012ZYx', 
+ ISBLANK(Related_PSP_SF_Link__c),
+NOT(ISCHANGED(Status__c))
+)</errorConditionFormula>
+        <errorDisplayField>Related_PSP_SF_Link__c</errorDisplayField>
+        <errorMessage>Please enter Related PSP SF Link</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Product_Performance_Product_Limitation</fullName>
+        <active>true</active>
+        <description>Primary category and Secondary category details are required if ARA Category or 2ndory ARA category are prod performance and prod limitation</description>
+        <errorConditionFormula>OR(
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISPICKVAL(ARA_Category__c,"Product Limitations"),
+ISBLANK(TEXT(Primary_Category_Details__c)),
+NOT(ISCHANGED(Status__c))),
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISPICKVAL(ARA_Category__c,"Product Performance"),
+ISBLANK(TEXT(Primary_Category_Details__c)),
+NOT(ISCHANGED(Status__c))),
+
+
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISPICKVAL(Secondary_ARA_Category__c,"Product Limitations"),
+ISBLANK(TEXT(Secondary_Category_Details__c)),
+NOT(ISCHANGED(Status__c))),
+AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+ISPICKVAL(Secondary_ARA_Category__c,"Product Performance"),
+ISBLANK(TEXT(Secondary_Category_Details__c)),
+NOT(ISCHANGED(Status__c)))
+)</errorConditionFormula>
+        <errorMessage>Please choose relevant Primary Category Details/Secondary Category Details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Product_Root_Cause_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+
+ISCHANGED( Status__c ),
+
+TEXT(PRIORVALUE(Status__c))= "Open",
+
+OR(
+ISPICKVAL(Status__c ,"Working"),
+ISPICKVAL(Status__c ,"Positive Progress"),
+ISPICKVAL(Status__c ,"Negative Progress"),
+ISPICKVAL(Status__c ,"Settlement"),
+ISPICKVAL(Status__c ,"Escalated to VP/Executive level"),
+ISPICKVAL(Status__c ,"Legal"),
+ISPICKVAL(Status__c ,"On Ice"),
+ISPICKVAL(Status__c ,"Closed Won"),
+ISPICKVAL(Status__c ,"Closed-Lost"),
+ISPICKVAL(Status__c ,"Closed-Resolved")
+),
+
+ISBLANK( Product_Root_Cause__c ),
+
+NOT(CONTAINS( $User.Username , "deployment"))
+)</errorConditionFormula>
+        <errorDisplayField>Product_Root_Cause__c</errorDisplayField>
+        <errorMessage>Product Root Cause is mandatory.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RecordType_cannot_be_changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR( 
+AND($User.Id &lt;&gt; '00500000006scbJ', $User.Id &lt;&gt; '00500000007Rp0w', NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+OR( 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012ZYx', RecordTypeId = '012o00000012bHp'), 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012bHp', RecordTypeId = '012o00000012ZYx'), 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012bHp', RecordTypeId = '012o00000012ZYw'), 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012ZYw', RecordTypeId = '012o00000012bHp') 
+) 
+), 
+
+AND( 
+$User.Id &lt;&gt; '005o0000002Oj5j', $User.Id&lt;&gt; "00500000007KEOt",$User.Id &lt;&gt; '00500000006scbJ',$User.Id &lt;&gt; '00500000007Rp0w', $User.Id &lt;&gt; '0051N000005ApnK', NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+OR( 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012ZYw', RecordTypeId = '012o00000012ZYx'), 
+AND( PRIORVALUE(RecordTypeId) ='012o00000012ZYx', RecordTypeId = '012o00000012ZYw') 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Record Type cannot be changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Remediation_fields_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+OR(ISBLANK(ARA_Resolution_Details__c), 
+ISPICKVAL(Remediation_Effort_Level__c,''), 
+ISBLANK(Remediation_Resources_Used__c) 
+), 
+
+ISPICKVAL(Status__c,"Closed-Resolved"), 
+RecordTypeId='012o00000012ZYx' /* One-Off Escalation */ 
+
+)</errorConditionFormula>
+        <errorMessage>Input content for Resolution Details, Remediation Effort Level, and Remediation Resources Used fields before closing case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Date_Time_of_Call</fullName>
+        <active>true</active>
+        <description>When 'Requested Action' field = 'Scheduled Call', and sub-field 'Has the customer call been scheduled' field = Yes, require input for the 'Date/Time of Call' field.</description>
+        <errorConditionFormula>AND(
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")),
+$User.Validation_Bypass__c = False,
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c, /*Added to bypass rollup helper updates */ 
+
+ISPICKVAL(Has_the_call_been_scheduled_with_custome__c,'Yes'),
+ISBLANK(Date_Time_of_Call__c),
+RecordTypeId='012o00000012ZYx' /*One-Off Escalation*/   
+)</errorConditionFormula>
+        <errorDisplayField>Date_Time_of_Call__c</errorDisplayField>
+        <errorMessage>Please enter Date/Time of call</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Notes_w_Rating_ARA_Remediation</fullName>
+        <active>true</active>
+        <description>Require Notes w Rating ARA Remediation - if this field is not blank then notes should be entered to explain rating</description>
+        <errorConditionFormula>if(
+isblank(text( ARA_Remediation_Quality__c)),
+isblank(ARARemediationQualityNotes__c) &lt;&gt; true,
+isblank(ARARemediationQualityNotes__c) &lt;&gt; false)</errorConditionFormula>
+        <errorDisplayField>ARA_Remediation_Quality__c</errorDisplayField>
+        <errorMessage>ARA Remediation Quality Notes must be entered to explain the rating. 
+No Notes should be entered if there is no rating</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Unqualified_Notes</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), ISPICKVAL(Status__c,"Unqualified"), ISCHANGED(Status__c), 
+OR(ISBLANK(Unqualified_Notes__c),ISPICKVAL( Unqualified_Reason__c,"")),
+ OR(RecordTypeId='012o00000012ZYw', /*New ARA*/ 
+RecordTypeId='012o00000012ZYx') /*One-Off Escalation*/ 
+
+)</errorConditionFormula>
+        <errorMessage>Complete 'Unqualified Reason' and 'Unqualified Notes' fields before saving at an Unqualified Status Reason</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_to_change_status_Unqualified</fullName>
+        <active>true</active>
+        <description># 11714664</description>
+        <errorConditionFormula>AND( 
+ISCHANGED(Status__c), 
+TEXT(PRIORVALUE(Status__c)) = "Unqualified", 
+$User.Id &lt;&gt; "00500000006scbJ", /* Erin Phelps */ 
+$User.Id &lt;&gt; "005o0000002Oj5j", 
+OR(RecordTypeId='012o00000012ZYw', /*New ARA*/ 
+RecordTypeId='012o00000012ZYx'), /*One-Off Escalation*/ 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Contact Erin Phelps with the request to update 'Status' field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Settlement_amount_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( RecordType.DeveloperName = 'New_ARA', 
+ISPICKVAL( Status__c ,'Settlement'), 
+ISBLANK( Settlement_Amount__c ), 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorDisplayField>Settlement_Amount__c</errorDisplayField>
+        <errorMessage>Settlement Amount is mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Settlement_amount_mandatory_for_OOE</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( RecordType.DeveloperName = 'One_Off_Escalation', 
+ISPICKVAL( Resolution_Outcome__c ,'Settlement'), 
+ISBLANK( Settlement_Amount__c ), 
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")) 
+)</errorConditionFormula>
+        <errorMessage>Settlement Amount is mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Severity_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ISNEW(),
+ISPICKVAL(Severity_Level__c,''),
+OR(RecordTypeId='012o00000012ZYw', /*New ARA*/
+RecordTypeId='012o00000012ZYx'), /*One-Off Escalation*/
+
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com")), 
+$User.Validation_Bypass__c = False, 
+$Setup.rh2__PS_Settings__c.rh2__Run_Validation_Rule__c /*Added to bypass rollup helper updates */ 
+)</errorConditionFormula>
+        <errorDisplayField>Severity_Level__c</errorDisplayField>
+        <errorMessage>Select value for 'Severity Level' field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TSC_Name_is_mandatory</fullName>
+        <active>true</active>
+        <description>If remediation resources used contains "TSC" then its mandatory to fill TSC Name field</description>
+        <errorConditionFormula>AND(
+
+INCLUDES(Remediation_Resources_Used__c,"Technical Sales Consultant"),
+ISBLANK(TSC_Name__c),
+NOT(CONTAINS($User.Username,"deploymentuser@cvent.com"))
+)</errorConditionFormula>
+        <errorDisplayField>TSC_Name__c</errorDisplayField>
+        <errorMessage>Please choose a TSC Name</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Work_Resume_Date_is_mandatory</fullName>
+        <active>true</active>
+        <description>case# 11571746</description>
+        <errorConditionFormula>AND(
+
+ISPICKVAL(Status__c,"On Ice"),
+ISBLANK( Work_Resume_Date__c )
+)</errorConditionFormula>
+        <errorMessage>Add date to Work Resume Date field</errorMessage>
+    </validationRules>
+</CustomObject>

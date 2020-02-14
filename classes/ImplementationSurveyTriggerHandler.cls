@@ -182,8 +182,8 @@ public class ImplementationSurveyTriggerHandler{
         System.debug('quoteIdVsQuoteMap********'+quoteIdVsQuoteMap);
         
         For(Implementation_Survey__c qouteId : impSurveyRecList)  
-        {   if(quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__r.AccountId != null) // UDITA : /TICCM-1430
-               qouteId.Account__c = quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__r.AccountId;
+        {   
+            qouteId.Account__c = quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__r.AccountId;
             qouteId.Contact__c = quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__r.Contact_Associated__c;
             qouteId.Opportunity__c = quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__c;
             qouteId.MSA_Bundle_Campaigns__c = quoteIdVsQuoteMap.get(qouteId.Quote__c).SBQQ__Opportunity2__r.Bundle_Campaigns__c;

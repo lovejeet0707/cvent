@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>CurrentAssignment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will show which user is currently assigned to the Task.</description>
+        <externalId>false</externalId>
+        <label>CurrentAssignment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>User_Id__c</fullName>
+        <description>This will store the Id of User.</description>
+        <externalId>false</externalId>
+        <label>User Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Name__c</fullName>
+        <description>This will store the name of the user.</description>
+        <externalId>false</externalId>
+        <label>User Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>This is used in the TaskAssignAutomationTrgHelper Class for assigning Task through Round Robin Technique</description>
+    <enableFeeds>false</enableFeeds>
+    <label>TaskRRassignment</label>
+    <visibility>Public</visibility>
+</CustomObject>

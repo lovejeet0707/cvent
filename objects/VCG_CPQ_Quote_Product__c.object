@@ -1,0 +1,1908 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Add_On_To_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Add-On To Asset</label>
+        <referenceTo>Asset__c</referenceTo>
+        <relationshipLabel>Add-On Quote Products</relationshipLabel>
+        <relationshipName>Add_On_Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Add_on_Source_Quote_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Add-on Source Quote Product</label>
+        <referenceTo>VCG_CPQ_Quote_Product__c</referenceTo>
+        <relationshipLabel>Add On Quote Products</relationshipLabel>
+        <relationshipName>Add_On_Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Addendum_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Output_Schedule_Template__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Addendum_ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adjusted_List_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Adj List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Annual_Price_Cap__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Price Cap</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Annual_Recurring_Revenue__c</fullName>
+        <description>aka "Annual Recurring Revenue". For Subscription products, ARR == Sales Price, for Perpetual products, ARR == X% of list (X is data lookup based on Product Type &amp; Product Family). Extended amount, not a per-unit amount.</description>
+        <externalId>false</externalId>
+        <label>ARR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Asset_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <formula>Asset__r.License_Metric_Quantity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Asset Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_Term_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset Term End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Asset_Term_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset Term Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset</label>
+        <referenceTo>Asset__c</referenceTo>
+        <relationshipLabel>Quote Products</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Added_QP_Line__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Set by the CPQ tool if the QP record was auto-added by the tool (as opposed to added by the user). Used to differentiate between QP records for products that can be auto-added or manually added.</description>
+        <externalId>false</externalId>
+        <label>Auto-Added QP Line</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bill_To_Ship_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Ship To</label>
+        <referenceTo>Bill_To_Ship_To__c</referenceTo>
+        <relationshipLabel>Quote Products (Ship To)</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bill_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Bill To</label>
+        <referenceTo>Bill_To_Ship_To__c</referenceTo>
+        <relationshipLabel>Quote Products</relationshipLabel>
+        <relationshipName>BillTo</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Frequency__c</fullName>
+        <externalId>false</externalId>
+        <label>Billing Frequency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                    <label>Quarterly</label>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                    <label>Monthly</label>
+                </value>
+                <value>
+                    <fullName>Once</fullName>
+                    <default>false</default>
+                    <label>Once</label>
+                </value>
+                <value>
+                    <fullName>Annual</fullName>
+                    <default>true</default>
+                    <label>Annual</label>
+                </value>
+                <value>
+                    <fullName>Semi Annually</fullName>
+                    <default>false</default>
+                    <label>Semi Annually</label>
+                </value>
+                <value>
+                    <fullName>On Demand</fullName>
+                    <default>false</default>
+                    <label>On Demand</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bookings_Eligible__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Bookings_Eligible__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Bookings Eligible?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bundle_Name__c</fullName>
+        <description>If populated, indicates that this product is part of a named bundle. CPQ Tool will recombine these products back into the "bundle" representation when displaying back to the user.</description>
+        <externalId>false</externalId>
+        <label>Bundle Name</label>
+        <length>180</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CGM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Commissionable Gross Margin</inlineHelpText>
+        <label>CGM</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CPQ_Output_Table__c</fullName>
+        <externalId>false</externalId>
+        <label>CPQ Output Table</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City_Wide_Commission__c</fullName>
+        <externalId>false</externalId>
+        <label>City Wide Commission %</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Term_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Term End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Term_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Term Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Term__c</fullName>
+        <description>Contract Term in months</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Term in months</inlineHelpText>
+        <label>Contract Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Quote Products</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Custom_Price__c</fullName>
+        <description>For products that have a "product display type" = Custom Price, CPQ will display this field</description>
+        <externalId>false</externalId>
+        <label>Custom Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Custom_Pricing_Qualifier__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Custom Pricing Qualifier</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Decommission_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Decommission Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decommission_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Decommission Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decommission_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Decommission Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Gone out of business</fullName>
+                    <default>false</default>
+                    <label>Gone out of business</label>
+                </value>
+                <value>
+                    <fullName>Move to a different product family</fullName>
+                    <default>false</default>
+                    <label>Move to a different product family</label>
+                </value>
+                <value>
+                    <fullName>Change order after signing</fullName>
+                    <default>false</default>
+                    <label>Change order after signing</label>
+                </value>
+                <value>
+                    <fullName>Opt-out</fullName>
+                    <default>false</default>
+                    <label>Opt-out</label>
+                </value>
+                <value>
+                    <fullName>Reduction in number of licenses</fullName>
+                    <default>false</default>
+                    <label>Reduction in number of licenses</label>
+                </value>
+                <value>
+                    <fullName>Competitive</fullName>
+                    <default>false</default>
+                    <label>Competitive</label>
+                </value>
+                <value>
+                    <fullName>Sent to collections</fullName>
+                    <default>false</default>
+                    <label>Sent to collections</label>
+                </value>
+                <value>
+                    <fullName>Using via another customer</fullName>
+                    <default>false</default>
+                    <label>Using via another customer</label>
+                </value>
+                <value>
+                    <fullName>First year cancel</fullName>
+                    <default>false</default>
+                    <label>First year cancel</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Decommission_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Decommission Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Reduction</fullName>
+                    <default>false</default>
+                    <label>Reduction</label>
+                </value>
+                <value>
+                    <fullName>Cancellation</fullName>
+                    <default>false</default>
+                    <label>Cancellation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Decommission_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Line_Type__c, 'Renewal') &amp;&amp; Asset_Quantity__c &gt; License_Metric_Quantity__c , (Asset_Quantity__c - License_Metric_Quantity__c) * (Previous_Asset_Price__c/Asset_Quantity__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Decommission Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Default_Annual_Price_Cap__c</fullName>
+        <externalId>false</externalId>
+        <label>Default Annual Price Cap</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Merchant_Services_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Default Merchant Services Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Overage_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Default Overage Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Default_Web_Revenue_Commission__c</fullName>
+        <externalId>false</externalId>
+        <label>Default Web Revenue Commission %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Delivery_Schedule__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Schedule</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>30 days</fullName>
+                    <default>false</default>
+                    <label>30 days</label>
+                </value>
+                <value>
+                    <fullName>60 days</fullName>
+                    <default>false</default>
+                    <label>60 days</label>
+                </value>
+                <value>
+                    <fullName>90 days</fullName>
+                    <default>false</default>
+                    <label>90 days</label>
+                </value>
+                <value>
+                    <fullName>12 months</fullName>
+                    <default>false</default>
+                    <label>12 months</label>
+                </value>
+                <value>
+                    <fullName>24 months</fullName>
+                    <default>false</default>
+                    <label>24 months</label>
+                </value>
+                <value>
+                    <fullName>36 months</fullName>
+                    <default>false</default>
+                    <label>36 months</label>
+                </value>
+                <value>
+                    <fullName>within Initial Term</fullName>
+                    <default>false</default>
+                    <label>within Initial Term</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Discount_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Discount_Approval_Groups__c</fullName>
+        <externalId>false</externalId>
+        <label>Discount Approval Groups</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Level 1</fullName>
+                    <default>false</default>
+                    <label>Level 1</label>
+                </value>
+                <value>
+                    <fullName>Level 2</fullName>
+                    <default>false</default>
+                    <label>Level 2</label>
+                </value>
+                <value>
+                    <fullName>Level 3</fullName>
+                    <default>false</default>
+                    <label>Level 3</label>
+                </value>
+                <value>
+                    <fullName>Level 4</fullName>
+                    <default>false</default>
+                    <label>Level 4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Discount_Entered_As__c</fullName>
+        <description>User can enter the discount as either a total dollar amount or a percentage. The other value will be calculated and stored in the record. Calculations should be done using the value the user enters, and the UI should display only the value they enter back to the user.</description>
+        <externalId>false</externalId>
+        <label>Discount Entered As</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                    <label>Amount</label>
+                </value>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                    <label>Percentage</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Discount_Percentage_0_5__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND((((List_Price__c - Sales_Price__c) / List_Price__c) &gt; 0), (((List_Price__c - Sales_Price__c) / List_Price__c) &lt; 0.05)), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discount Percentage: 0 - 5%</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Discount_Percentage_10_20__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND((((List_Price__c - Sales_Price__c) / List_Price__c) &gt;= 0.10), (((List_Price__c - Sales_Price__c) / List_Price__c) &lt;= 0.20)), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discount Percentage: 10 - 20%</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Discount_Percentage_20__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(((List_Price__c - Sales_Price__c) / List_Price__c) &gt; 0.20, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discount Percentage:20%+</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Discount_Percentage_5_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND((((List_Price__c - Sales_Price__c) / List_Price__c) &gt;= 0.05), (((List_Price__c - Sales_Price__c) / List_Price__c) &lt; 0.10)), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discount Percentage: 5 - 10%</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Discount_Percentage__c</fullName>
+        <description>Discretionary Discount entered by the user. In the UI, user can enter a currency amount or a percentage. If they enter a currency amount, the amount gets converted to a percentage before being stored.</description>
+        <externalId>false</externalId>
+        <label>Discount Percentage</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>EBS_Inventory_Item_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.EBS_Inventory_Item_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EBS Inventory Item ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Merchant_Services_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Merchant Services Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Merchant_Services_Volume__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Merchant Services Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Paygo_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Paygo Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Event_Size__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Size</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                    <label>Small</label>
+                </value>
+                <value>
+                    <fullName>Large</fullName>
+                    <default>false</default>
+                    <label>Large</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Extended_Term_Amount__c</fullName>
+        <description>Amount charged for year 2 onward. (Total Contract Value == First Term Revenue + Extended Term Amount; TCV is captured at the Opp level, not at the Quote Product level.) Extended amount, not per-unit amount.</description>
+        <externalId>false</externalId>
+        <label>Extended Term Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>From_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>For Migrations and Upgrades, this is the legacy asset the current product is being migrated/updated from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For Migrations and Upgrades, this is the legacy asset the current product is being migrated/updated from.</inlineHelpText>
+        <label>From Asset</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Quote Products</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>From_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>For Migrations and Upgrades, this is the legacy product the current product is being migrated/updated from.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For Migrations and Upgrades, this is the legacy product the current product is being migrated/updated from.</inlineHelpText>
+        <label>From Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Quote Products</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GenieConnect_Solution_Discount__c</fullName>
+        <externalId>false</externalId>
+        <label>GenieConnect Solution Discount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Go_Back_to_Default_Overage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Go Back to Default Overage</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Group_Business__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Business %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ignore_on_Invoice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ignore on Invoice</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsResultValueOverride__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IsResultValueOverride</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Legacy Source Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>License_Metric_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>License Metric Quantity</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>License_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>License Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Line_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Line Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Extension</fullName>
+                    <default>false</default>
+                    <label>Extension</label>
+                </value>
+                <value>
+                    <fullName>Renewal</fullName>
+                    <default>false</default>
+                    <label>Renewal</label>
+                </value>
+                <value>
+                    <fullName>Decommission</fullName>
+                    <default>false</default>
+                    <label>Decommission</label>
+                </value>
+                <value>
+                    <fullName>Migration</fullName>
+                    <default>false</default>
+                    <label>Migration</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>List_Price__c</fullName>
+        <description>Initial List Price from pricing data (LP01 usually). This is an Extended amount, not per-unit.</description>
+        <externalId>false</externalId>
+        <label>List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Package_Qualifiers__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing Package Qualifiers</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Merchant_Services_Discount_Uplift__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Discount = Positive 
+Uplift = Negative</inlineHelpText>
+        <label>Merchant Services Discount/Uplift</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Merchant_Services_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Merchant Services Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_New_Annual_Recurring_Revenue__c</fullName>
+        <description>aka "Net New Annual Recurring Revenue". For New products and Extensions, NNARR == Sales Price; for Renewal, NNARR == Quote ARR - Asset ARR; For decom, TBD; for Migration, TBD. Extended amount, not per-unit amount.</description>
+        <externalId>false</externalId>
+        <label>NNARR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Recurring_Bookings_Amount_V2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CASE(Recurring_vs_Non_Recurring__c , "Recurring", 0, "Non-Recurring", Term_Amount__c ,0)&lt;0,0,CASE(Recurring_vs_Non_Recurring__c , "Recurring", 0, "Non-Recurring", Term_Amount__c ,0))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Non-Recurring Bookings Amount V2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Recurring_Bookings_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Non-Recurring Bookings Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Recurring_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Non-recurring revenue</inlineHelpText>
+        <label>NRR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Days_Audited_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Days Audited/Month</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_GDS_s__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of GDS's</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Guest_Rooms__c</fullName>
+        <externalId>false</externalId>
+        <label># Guest Rooms</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>&lt;200</fullName>
+                    <default>false</default>
+                    <label>&lt;200</label>
+                </value>
+                <value>
+                    <fullName>201-749</fullName>
+                    <default>false</default>
+                    <label>201-749</label>
+                </value>
+                <value>
+                    <fullName>750+</fullName>
+                    <default>false</default>
+                    <label>750+</label>
+                </value>
+                <value>
+                    <fullName>500-999</fullName>
+                    <default>false</default>
+                    <label>500-999</label>
+                </value>
+                <value>
+                    <fullName>1000+</fullName>
+                    <default>false</default>
+                    <label>1000+</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_of_Months_Audited_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Months Audited/Year</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Months_Tile_Ad__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Months (Tile Ad)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>12</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_of_Sites__c</fullName>
+        <defaultValue>3</defaultValue>
+        <externalId>false</externalId>
+        <label>Number of Sites</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Impact__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Line_Type__c, "Decommission", Annual_Recurring_Revenue__c, "New", Term_Amount__c ,"Renewal",Term_Amount__c-Previous_Asset_Price__c,"Extension",Term_Amount__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Impact</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Output_Footnote__c</fullName>
+        <externalId>false</externalId>
+        <formula>' '</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Output Footnote</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Over_5000__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Over 5000</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Overage_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Overage Fee</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overage_Override__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>checked by CPQ is user enters an overage fee manually</description>
+        <externalId>false</externalId>
+        <label>Overage Override</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Count__c</fullName>
+        <description>The number of override records that apply to this Quote Product record. Makes it easier to know whether there are any other remaining overrides (when clearing overrides).</description>
+        <externalId>false</externalId>
+        <label>Override Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Peer_Add_On_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Peer Add-On Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1 Star</fullName>
+                    <default>false</default>
+                    <label>1 Star</label>
+                </value>
+                <value>
+                    <fullName>2 Star</fullName>
+                    <default>false</default>
+                    <label>2 Star</label>
+                </value>
+                <value>
+                    <fullName>3 Star</fullName>
+                    <default>false</default>
+                    <label>3 Star</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Peer_Add_On__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Peer Add On</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Previous_Asset_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Previous Asset Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Previous_Asset_Qty__c</fullName>
+        <externalId>false</externalId>
+        <label>Previous Asset Qty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Price_Change_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Asset_Quantity__c &gt; 0 &amp;&amp; Asset_Quantity__c &gt;  License_Metric_Quantity__c  &amp;&amp; ISPICKVAL(Line_Type__c,'Renewal'), License_Metric_Quantity__c  * ((  Price_per_Unit__c) - (Previous_Asset_Price__c/Asset_Quantity__c)), 
+IF(Asset_Quantity__c &gt; 0 &amp;&amp; Asset_Quantity__c &lt; License_Metric_Quantity__c &amp;&amp; ISPICKVAL(Line_Type__c,'Renewal'), Asset_Quantity__c * (( Price_per_Unit__c) - (Previous_Asset_Price__c/Asset_Quantity__c)), 
+IF(Asset_Quantity__c &gt; 0 &amp;&amp; Asset_Quantity__c = License_Metric_Quantity__c  &amp;&amp; ISPICKVAL(Line_Type__c,'Renewal'), (Price_per_Unit__c * License_Metric_Quantity__c) - Previous_Asset_Price__c, 0)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Price Change Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Price_per_Unit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Sales_Price__c /  License_Metric_Quantity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Price per Unit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family_Grouping__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Product_Family_Grouping__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Family Grouping</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Group</label>
+        <length>128</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Line__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Product__r.Product_Line__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Line</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Product__r.Product_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Quote Products (Product)</relationshipLabel>
+        <relationshipName>Quote_Products1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PureSend_Volume__c</fullName>
+        <externalId>false</externalId>
+        <label>PureSend Volume</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                    <label>Small</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Large</fullName>
+                    <default>false</default>
+                    <label>Large</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Raw_Bookings_Amount_WFR__c</fullName>
+        <externalId>false</externalId>
+        <label>Raw Bookings Amount (WFR)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Recurring_Bookings_Amount_V2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CASE(Recurring_vs_Non_Recurring__c , "Recurring", IF(ISPICKVAL(Line_Type__c,"Extension"), Term_Amount__c, Term_Amount__c - Previous_Asset_Price__c), "Non-Recurring", 0,0)&lt;0,0,CASE(Recurring_vs_Non_Recurring__c , "Recurring", IF(ISPICKVAL(Line_Type__c,"Extension"), Term_Amount__c, Term_Amount__c - Previous_Asset_Price__c), "Non-Recurring", 0,0))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Recurring Bookings Amount V2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Recurring_Bookings_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Recurring Bookings Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Recurring_vs_Non_Recurring__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Product__r.Is_Non_Recurring__c = true, "Non-Recurring", "Recurring")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Recurring vs Non-Recurring</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reduction_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>/* 
+Line_Type__c (New, Extension, Renewal, Decommission, Migration) 
+Quantity 
+Asset_Quantity__c 
+***Do NOT use Sales_Price__c*** 
+UnitPrice 
+Previous_Asset_Price__c 
+*/ 
+
+IF(ISPICKVAL(Line_Type__c, 'Renewal') &amp;&amp; License_Metric_Quantity__c &gt; 0 &amp;&amp; Asset_Quantity__c &gt; License_Metric_Quantity__c, (Asset_Quantity__c - License_Metric_Quantity__c) * (Previous_Asset_Price__c/Asset_Quantity__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Reduction Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Line_Type__c) = 'Renewal' &amp;&amp; Asset_Quantity__c &gt; 0 &amp;&amp; Asset_Quantity__c &gt; License_Metric_Quantity__c , License_Metric_Quantity__c * (Previous_Asset_Price__c/Asset_Quantity__c), 
+
+IF(TEXT(Line_Type__c) = 'Renewal' &amp;&amp; Asset_Quantity__c &gt; 0 &amp;&amp; OR(Asset_Quantity__c &lt; License_Metric_Quantity__c, Asset_Quantity__c = License_Metric_Quantity__c), Asset_Quantity__c * (Previous_Asset_Price__c/Asset_Quantity__c), 0))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>SaaS_vs_Non_SaaS__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Product__r.Product_Type__c, "Software"), "SaaS", "Non-SaaS")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SaaS vs Non-SaaS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Setup_Fee_Quote_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Setup Fee Quote Product</label>
+        <referenceTo>VCG_CPQ_Quote_Product__c</referenceTo>
+        <relationshipLabel>Quote Products (Quote Product)</relationshipLabel>
+        <relationshipName>Quote_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Term_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Term Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Test_Overage_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Overage Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Test__c</fullName>
+        <externalId>false</externalId>
+        <label>Test</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Contract_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Contract Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Discount_Percent__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Discount Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_StarCite__c</fullName>
+        <externalId>false</externalId>
+        <label>Type (StarCite)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advanced</fullName>
+                    <default>false</default>
+                    <label>Advanced</label>
+                </value>
+                <value>
+                    <fullName>Band</fullName>
+                    <default>false</default>
+                    <label>Band</label>
+                </value>
+                <value>
+                    <fullName>Paygo</fullName>
+                    <default>false</default>
+                    <label>Paygo</label>
+                </value>
+                <value>
+                    <fullName>PrePaid</fullName>
+                    <default>false</default>
+                    <label>PrePaid</label>
+                </value>
+                <value>
+                    <fullName>Configured</fullName>
+                    <default>false</default>
+                    <label>Configured</label>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                    <label>Standard</label>
+                </value>
+                <value>
+                    <fullName>Per Reg</fullName>
+                    <default>false</default>
+                    <label>Per Reg</label>
+                </value>
+                <value>
+                    <fullName>Basic</fullName>
+                    <default>false</default>
+                    <label>Basic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Uplift_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Uplift Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Uplift_Entered_As__c</fullName>
+        <externalId>false</externalId>
+        <label>Uplift Entered As</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                    <label>Amount</label>
+                </value>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                    <label>Percentage</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Uplift_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <label>Uplift Percentage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Upsell_or_Cross_Sale__c</fullName>
+        <externalId>false</externalId>
+        <label>Upsell or Cross-Sale</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Revenue_Commission__c</fullName>
+        <externalId>false</externalId>
+        <label>Web Revenue Commission %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Year_2_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Year 2 Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_2_Term_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Year 2 Term Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Year_3_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Year 3 Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_3_Term_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Year 3 Term Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Zone_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Zone Level</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>Quote Product</label>
+    <nameField>
+        <label>Part Number</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Quote Products</pluralLabel>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

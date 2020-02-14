@@ -1,0 +1,2501 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Active_Listening_Comprehension_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Active Listening/Comprehension - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Active_Listening_Comprehension_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Active Listening/ Comprehension - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active_Listening_Comprehension__c</fullName>
+        <externalId>false</externalId>
+        <label>Active Listening/ Comprehension</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Adheres_to_SF_Logging_Policies_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Adheres to SF Logging Policies - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Adheres_to_SF_Logging_Policies_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Adheres to SF Logging Policies - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adheres_to_SF_Logging_Policies__c</fullName>
+        <externalId>false</externalId>
+        <label>Adheres to SF Logging Policies</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Call_Control_Leading_Call_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Control/ Leading Call - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Call_Control_Leading_Call_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Control/ Leading Call - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_Control_Leading_Call__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Control/ Leading Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>CrowdCompass</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Clarity_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Clarity-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Clarity_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Clarity__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Clarity__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Clarity__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Clarity - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Clarity__c</fullName>
+        <externalId>false</externalId>
+        <label>Clarity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Communication_Grammar_Clarity_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication/Grammar/ Clarity - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Communication_Grammar_Clarity_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication/ Grammar/ Clarity - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Communication_Grammar_Clarity__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication/ Grammar/ Clarity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Confirmed_Resolution_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmed Resolution - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Confirmed_Resolution_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmed Resolution - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirmed_Resolution__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmed Resolution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Denominator__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Clarity__c)="N/A",0,1)*5+ 
+IF(TEXT(Durations_of_Presentation__c)="N/A",0,1)*5+ 
+IF(TEXT(Explanation_of_Information__c)="N/A",0,1)*5+ 
+IF(TEXT(Fluency__c)="N/A",0,1)*5+ 
+IF(TEXT(Followed_Instructions__c)="N/A",0,1)*5+ 
+IF(TEXT(Preparedness__c)="N/A",0,1)*5+ 
+IF(TEXT(Product_Knowledge__c)="N/A",0,1)*5+ 
+IF(TEXT(Sequence_of_Presented_Information__c)="N/A",0,1)*5</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Denominator</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Duration_of_Presentation_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Duration of Presentation-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Durations_of_Presentation_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Durations_of_Presentation__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Durations_of_Presentation__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Durations_of_Presentation__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Durations of Presentation - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Durations_of_Presentation__c</fullName>
+        <externalId>false</externalId>
+        <label>Durations of Presentation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Explanation_Teaching_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Explanation/ Teaching - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Explanation_Teaching_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Explanation/ Teaching - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Explanation_Teaching__c</fullName>
+        <externalId>false</externalId>
+        <label>Explanation/ Teaching</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Explanation_of_Information_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Explanation of Information-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Explanation_of_Information_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Explanation_of_Information__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Explanation_of_Information__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Explanation_of_Information__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Explanation of Information - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Explanation_of_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Explanation of Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Final_Score_Final_Evaluation__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Score - Final Evaluation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Final_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>Sum_of_Score__c/Denominator__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Fluency_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Fluency-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Fluency_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Fluency__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Fluency__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Fluency__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fluency - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fluency__c</fullName>
+        <externalId>false</externalId>
+        <label>Fluency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Followed_Instructions_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Followed Instructions-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Followed_Instructions_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Followed_Instructions__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Followed_Instructions__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Followed_Instructions__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Followed Instructions - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Followed_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <label>Followed Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Friendly_and_Professional_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Friendly and Professional - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Friendly_and_Professional_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Friendly and Professional - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Friendly_and_Professional__c</fullName>
+        <externalId>false</externalId>
+        <label>Friendly and Professional</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hold_Xfer_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Hold &amp; Xfer - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hold_Xfer_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Hold &amp; Xfer - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hold_Xfer__c</fullName>
+        <externalId>false</externalId>
+        <label>Hold &amp; Xfer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Introduction_and_Closing_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Introduction and Closing - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Introduction_and_Closing_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Introduction and Closing - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Introduction_and_Closing__c</fullName>
+        <externalId>false</externalId>
+        <label>Introduction and Closing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Navigation_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Navigation - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Navigation_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Navigation - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Navigation__c</fullName>
+        <externalId>false</externalId>
+        <label>Navigation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Objection_Handling_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Objection Handling - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Objection_Handling_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Objection Handling - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Objection_Handling__c</fullName>
+        <externalId>false</externalId>
+        <label>Objection Handling</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PC_CSC_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>PC/CSC Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Attendee Support</fullName>
+                    <default>false</default>
+                    <label>Attendee Support</label>
+                </value>
+                <value>
+                    <fullName>CrowdCompass</fullName>
+                    <default>false</default>
+                    <label>CrowdCompass</label>
+                </value>
+                <value>
+                    <fullName>Event Build</fullName>
+                    <default>false</default>
+                    <label>Event Build</label>
+                </value>
+                <value>
+                    <fullName>Event Phone</fullName>
+                    <default>false</default>
+                    <label>Event Phone</label>
+                </value>
+                <value>
+                    <fullName>Hospitality Cloud</fullName>
+                    <default>false</default>
+                    <label>Hospitality Cloud</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Groups</fullName>
+                    <default>false</default>
+                    <label>Lanyon Groups</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon PSG Events</fullName>
+                    <default>false</default>
+                    <label>Lanyon PSG Events</label>
+                </value>
+                <value>
+                    <fullName>Lanyon PSG Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon PSG Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon ROL</fullName>
+                    <default>false</default>
+                    <label>Lanyon ROL</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preparedness_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Preparedness-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preparedness_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Preparedness__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Preparedness__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Preparedness__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preparedness - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preparedness__c</fullName>
+        <externalId>false</externalId>
+        <label>Preparedness</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Presentaion_Scoring_Form__c</fullName>
+        <externalId>false</externalId>
+        <label>Presentation Scoring Form</label>
+        <referenceTo>Trainee__c</referenceTo>
+        <relationshipLabel>Presentation &amp; Scoring</relationshipLabel>
+        <relationshipName>Presentation_Scoring_Forms</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Proactively_Went_Above_Beyond_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Proactively Went Above &amp; Beyond- Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Proactively_Went_Above_Beyond_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Proactively Went Above &amp; Beyond - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Proactively_Went_Above_Beyond__c</fullName>
+        <externalId>false</externalId>
+        <label>Proactively Went Above &amp; Beyond</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Probing_Questions_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Probing Questions - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Probing_Questions_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Probing Questions - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Probing_Questions__c</fullName>
+        <externalId>false</externalId>
+        <label>Probing Questions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Knowledge_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Knowledge-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Knowledge_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Product_Knowledge__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Product_Knowledge__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Product_Knowledge__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Knowledge - Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Knowledge__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Knowledge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Process_Knowledge_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Product/ Process Knowledge - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Process_Knowledge_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Product/ Process Knowledge - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Process_Knowledge__c</fullName>
+        <externalId>false</externalId>
+        <label>Product/ Process Knowledge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pros_Cons_Suggest_BP_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Pros &amp; Cons/Suggest BP - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pros_Cons_Suggest_BP_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Pros &amp; Cons/Suggest BP - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pros_Cons_Suggest_BP__c</fullName>
+        <externalId>false</externalId>
+        <label>Pros &amp; Cons/Suggest BP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event Build</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quality_Complete_Resolution_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Quality/Complete Resolution - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quality_Completeness_of_Resolution_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Quality/Completeness of Resolution-Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quality_Completeness_of_Resolution__c</fullName>
+        <externalId>false</externalId>
+        <label>Quality/Completeness of Resolution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Score_Denominator_Final_Evaluation__c</fullName>
+        <externalId>false</externalId>
+        <label>Score Denominator - Final Evaluation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence_of_Presented_Info_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence of Presented Info-Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Sequence_of_Presented_Information_Scor__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Sequence_of_Presented_Information__c, "N/A"), "N/A", 
+IF(ISPICKVAL(Sequence_of_Presented_Information__c, "Does Not Meet Expectations"), "0", 
+IF(ISPICKVAL(Sequence_of_Presented_Information__c, "Partially Met Expectations"), "2.5", "5")) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sequence of Presented Information - Scor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence_of_Presented_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence of Presented Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Does Not Meet Expectations</fullName>
+                    <default>false</default>
+                    <label>Does Not Meet Expectations</label>
+                </value>
+                <value>
+                    <fullName>Partially Met Expectations</fullName>
+                    <default>false</default>
+                    <label>Partially Met Expectations</label>
+                </value>
+                <value>
+                    <fullName>Meets Expectations</fullName>
+                    <default>false</default>
+                    <label>Meets Expectations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Set_Expectations_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Set Expectations - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Set_Expectations_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Set Expectations - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Set_Expectations__c</fullName>
+        <externalId>false</externalId>
+        <label>Set Expectations</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sum_of_Score_Final_Evaluation__c</fullName>
+        <externalId>false</externalId>
+        <label>Sum of Score - Final Evaluation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sum_of_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>VALUE(Clarity_Score__c)+VALUE(Durations_of_Presentation_Score__c)+VALUE(Explanation_of_Information_Score__c)+VALUE(Fluency_Score__c)+ 
+VALUE(Followed_Instructions_Score__c)+VALUE(Preparedness_Score__c)+VALUE(Product_Knowledge_Score__c)+
+VALUE(Sequence_of_Presented_Information_Scor__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sum of Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Support_Community_Advocacy_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Support Community Advocacy - Comment</label>
+        <length>4000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Support_Community_Advocacy_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Support Community Advocacy - Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Support_Community_Advocacy__c</fullName>
+        <externalId>false</externalId>
+        <label>Support Community Advocacy</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>PC_CSC_Team__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>X1_Non_Critical_Dropdown</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Partially Met Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>Did Not Meet Expectations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lanyon Travel</controllingFieldValue>
+                <controllingFieldValue>Attendee Support</controllingFieldValue>
+                <controllingFieldValue>Event Phone</controllingFieldValue>
+                <controllingFieldValue>Hospitality Cloud</controllingFieldValue>
+                <controllingFieldValue>Lanyon Groups</controllingFieldValue>
+                <controllingFieldValue>Lanyon Passkey</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Events</controllingFieldValue>
+                <controllingFieldValue>Lanyon PSG Meetings</controllingFieldValue>
+                <controllingFieldValue>Lanyon ROL</controllingFieldValue>
+                <valueName>N/A</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Presentation &amp; Scoring</label>
+    <nameField>
+        <label>Presentation Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Presentation &amp; Scoring</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <recordTypes>
+        <fullName>Final_Evaluation</fullName>
+        <active>true</active>
+        <label>Final Evaluation</label>
+        <picklistValues>
+            <picklist>Active_Listening_Comprehension__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adheres_to_SF_Logging_Policies__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Call_Control_Leading_Call__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Clarity__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Grammar_Clarity__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Confirmed_Resolution__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Durations_of_Presentation__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Explanation_Teaching__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Explanation_of_Information__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fluency__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Followed_Instructions__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Friendly_and_Professional__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hold_Xfer__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Introduction_and_Closing__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Navigation__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Objection_Handling__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PC_CSC_Team__c</picklist>
+            <values>
+                <fullName>Attendee Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CrowdCompass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Build</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality Cloud</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon PSG Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon PSG Meetings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Passkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon ROL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lanyon Travel</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preparedness__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Proactively_Went_Above_Beyond__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Probing_Questions__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Knowledge__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Process_Knowledge__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pros_Cons_Suggest_BP__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Quality_Completeness_of_Resolution__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sequence_of_Presented_Information__c</picklist>
+            <values>
+                <fullName>Does Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meets Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Set_Expectations__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Support_Community_Advocacy__c</picklist>
+            <values>
+                <fullName>Did Not Meet Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Met Expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partially Met Expectations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

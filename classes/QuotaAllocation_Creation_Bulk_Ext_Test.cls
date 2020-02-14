@@ -41,7 +41,7 @@ Public Class QuotaAllocation_Creation_Bulk_Ext_Test{
     qAllocation.Amount_for_Dec__c       = 6544;
     qAllocation.User__c                 = UserInfo.getUserId();
     qAllocation.Quota_Type__c           = qType.Id;
-    qAllocation.Sales_Team_Members__c   = ' (Sops)';
+    qAllocation.Sales_Team_Members__c   = 'Hemant Rana (Sops)';
     qAllocation.Product_Team__c         = 'Event';
     qAllocation.Role_Name__c            = 'Salesforce Developer T2';
     qAllocation.Is_Apporved_New__c      = true;

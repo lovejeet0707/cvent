@@ -6,6 +6,8 @@ public class doceboUserTrgHandlerTest{
         Account acc1  = new Account();
         acc1.name = 'Test';
         acc1.Product_Mix__c='Event;Inquisium';
+        acc1.BillingCountryCode='US';
+        acc1.BillingStateCode='TX';
         insert acc1;
         
         Contact conTest = new Contact();
@@ -22,7 +24,7 @@ public class doceboUserTrgHandlerTest{
          System.runAs (thisUser) {
     
          user u = new User(
-         ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community User'].Id,
+         ProfileId = [SELECT Id FROM Profile WHERE Name = 'Cvent Customer Community User'].Id,
          LastName = 'last',
          Email = 'puser000@amamama.com',
          Username = 'puser000@amamama.com' + System.currentTimeMillis(),
@@ -44,8 +46,9 @@ public class doceboUserTrgHandlerTest{
          system.debug('-----IsPortalEnabled'+ u.IsPortalEnabled);
          
          docebo_v3__DoceboUser__c docebo = new docebo_v3__DoceboUser__c();
-         docebo.docebo_v3__User__c = u.id;
+         //docebo.docebo_v3__User__c = u.id;
          docebo.docebo_v3__UserId__c=1234567890;
+         docebo.docebo_v3__Contact__c = conTest.id;
          insert docebo;
          
          docebo_v3__Course__c course = new docebo_v3__Course__c();
@@ -56,9 +59,9 @@ public class doceboUserTrgHandlerTest{
          insert course;
          
          docebo_v3__CourseEnrollment__c doceboCourse = new docebo_v3__CourseEnrollment__c();
-         doceboCourse.Account__c = acc1.Id;
+        // doceboCourse.Account__c = acc1.Id;
          doceboCourse.docebo_v3__Status__c ='Completed';
-         doceboCourse.Contact__c = conTest.id;
+        // doceboCourse.Contact__c = conTest.id;
          doceboCourse.docebo_v3__DoceboUser__c = docebo.id;
          doceboCourse.docebo_v3__Course__c = course.id;
          doceboCourse.docebo_v3__EnrolmentId__c= '98745';

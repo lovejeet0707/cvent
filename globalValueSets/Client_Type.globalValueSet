@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>PMPP and PMPD</fullName>
+        <default>false</default>
+        <label>PMPP and PMPD</label>
+    </customValue>
+    <customValue>
+        <fullName>Diamond/EMP/SMP Certified Hotels</fullName>
+        <default>false</default>
+        <label>Diamond/EMP/SMP Certified Hotels</label>
+    </customValue>
+    <customValue>
+        <fullName>CVB</fullName>
+        <default>false</default>
+        <label>CVB</label>
+    </customValue>
+    <customValue>
+        <fullName>Non-Client Certified Hotels</fullName>
+        <default>false</default>
+        <label>Non-Client Certified Hotels</label>
+    </customValue>
+    <customValue>
+        <fullName>Chains/Corporate Contacts</fullName>
+        <default>false</default>
+        <label>Chains/Corporate Contacts</label>
+    </customValue>
+    <customValue>
+        <fullName>Additional Attendee</fullName>
+        <default>false</default>
+        <label>Additional Attendee</label>
+    </customValue>
+    <masterLabel>Client Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

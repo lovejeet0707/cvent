@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Amended_Contract_Info__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+	ISBLANK(opportunity__r.SBQQ__AmendedContract__c),
+	'There is no amended contract...',
+	opportunity__r.SBQQ__AmendedContract__r.ContractNumber +  BR() + 
+	'Created Date: ' + TEXT(opportunity__r.SBQQ__AmendedContract__r.CreatedDate) + BR() +
+	'Is Variable: ' + IF(opportunity__r.SBQQ__AmendedContract__r.Multiple_Years_Commitment__c,'true','false') + 
+	BR()  + 'Current Year: ' +
+	TEXT(opportunity__r.SBQQ__AmendedContract__r.Current_Year__c)
+	+ BR() + 'Term Years: ' +
+	opportunity__r.SBQQ__AmendedContract__r.Parent_Contract_Term_Years__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Amended Contract Info</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Close_Date_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH(opportunity__r.CloseDate), 1, "January", 2, "February", 3, "March", 4, "April", 5, "May", 6, "June", 7, "July", 8, "August", 9, "September", 10, "October", 11, "November", 12, "December", "None") &amp; " " &amp; TEXT(YEAR(opportunity__r.CloseDate))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Close Date Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Implemented__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.Contract_Implemented__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Implemented</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contracts_Management_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Contracts Management Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Create_Child_Contract_Checked__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.SBQQ__Contracted__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Create Child Contract Checked?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Renewal_Creation_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>childContract__r.Renewal_Creation_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expected Renewal Creation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Failed_Auto_Renew_Checked__c</fullName>
+        <externalId>false</externalId>
+        <formula>childContract__r.Failed_Auto_Renew__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Failed Auto Renew Checked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Variable_Options__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.SBQQ__RenewedContract__r.Multiple_Years_Commitment__c = true</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Variable Options</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Link_to_Amended_Contract__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+NOT(ISBLANK(opportunity__r.SBQQ__AmendedContract__c)),
+'https://cvent.my.salesforce.com/' + opportunity__r.SBQQ__AmendedContract__c,
+'There is no amended contract...'
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Link to Amended Contract</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Link_to_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+
+childContract__r.SBQQ__Opportunity__c != null, 
+
+"https://cvent.my.salesforce.com/" + childContract__r.SBQQ__Opportunity__c, 
+
+'There is no previous opportunity....' 
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity (child created from) Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Link_to_Primary_Quote__c</fullName>
+        <externalId>false</externalId>
+        <formula>"https://cvent.my.salesforce.com/" + opportunity__r.SBQQ__PrimaryQuote__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Link to Primary Quote</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_UI_ID__c</fullName>
+        <description>Opportunity ID</description>
+        <externalId>false</externalId>
+        <formula>opportunity__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Opportunity ID</inlineHelpText>
+        <label>Opportunity 15 Digit ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Op_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID( opportunity__r.Id )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.Owner.FirstName + ' ' + opportunity__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(opportunity__r.StageName)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Quote_Info__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.SBQQ__PrimaryQuote__r.Name +  BR() + 
+'Created Date: ' + TEXT(opportunity__r.SBQQ__PrimaryQuote__r.CreatedDate) + BR() +
+'Type: ' + TEXT(opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Type__c) + 
+BR() + 'SBQQ__MasterContract__c: ' +
+IF(
+	NOT(ISBLANK(opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__MasterContract__c)),
+	opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__MasterContract__r.ContractNumber,
+	'null'
+)
++ BR() + 'Current Year: ' +
+TEXT(opportunity__r.SBQQ__PrimaryQuote__r.Current_Year__c)
++ BR() + 'Term Years: ' +
+TEXT(opportunity__r.SBQQ__PrimaryQuote__r.Contract_Term_Years__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Quote Info</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <description>Product related to each Opportunity</description>
+        <externalId>false</externalId>
+        <formula>TEXT(opportunity__r.Product__c)</formula>
+        <inlineHelpText>Product related to each Opporutnity</inlineHelpText>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_was_Transformed__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.SBQQ__PrimaryQuote__r.Cloned_from_Quote__c != null</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote was Transformed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Failure_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Failure Information</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Renewal_Opportunity_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+
+childContract__r.SBQQ__RenewalOpportunity__c != null,
+
+"https://cvent.my.salesforce.com/" + childContract__r.SBQQ__RenewalOpportunity__c,
+
+'There is no renewal opportunity....'
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Opportunity Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Renewal_Quoted_Checked__c</fullName>
+        <externalId>false</externalId>
+        <formula>childContract__r.SBQQ__RenewalQuoted__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewal Quoted Checked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>lgUfrs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>checkbox0__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Resolved</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>checkbox1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Needs Clubbing/Reassignment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>childContract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Child Contract being Renewed</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>CPQ Issue Resolutions</relationshipLabel>
+        <relationshipName>lgUfrs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>contractRecentlyAmended__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+
+	opportunity__r.SBQQ__RenewedContract__r.contractedAmendmentQuote__c != null,
+
+	'Yes - ' + opportunity__r.SBQQ__RenewedContract__r.contractedAmendmentQuote__r.Name,
+
+	IF(
+
+		childContract__r.contractedAmendmentQuote__c != null,
+
+		'Yes - ' + childContract__r.contractedAmendmentQuote__r.Name,
+		
+		'No recent amendment quote found...'
+		
+	)
+	
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Recently Amended?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>formula0__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.SBQQ__RenewedContract__r.EndDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Renewed Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>formula1__c</fullName>
+        <externalId>false</externalId>
+        <formula>"https://cvent.my.salesforce.com/" + opportunity__r.SBQQ__RenewedContract__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Link to Renewed Contract</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>formula2__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>formula3__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity__r.CVII_Contract_Number__c + " - " + opportunity__r.SBQQ__RenewedContract__r.SBQQ__Opportunity__r.CVII_Contract_Number__c + " - " + childContract__r.SBQQ__Opportunity__r.CVII_Contract_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CVII Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>formula4__c</fullName>
+        <externalId>false</externalId>
+        <formula>childContract__c != null</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Has Child Contract (Is Implemented)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>grouping__c</fullName>
+        <externalId>false</externalId>
+        <label>grouping</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>longTextArea0__c</fullName>
+        <externalId>false</externalId>
+        <label>FP&amp;A Notes</label>
+        <length>10000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>longTextArea1__c</fullName>
+        <externalId>false</externalId>
+        <label>CRM/Simplus/PMO Notes</label>
+        <length>10000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>longTextArea2__c</fullName>
+        <externalId>false</externalId>
+        <label>CI Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>longTextArea3__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Quote Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>longTextArea4__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Items / Next Steps</label>
+        <length>32768</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>lgUfrs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>picklist0__c</fullName>
+        <externalId>false</externalId>
+        <label>Team Responsible</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CI</fullName>
+                    <default>false</default>
+                    <label>CI</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>SQ Team</fullName>
+                    <default>false</default>
+                    <label>SQ Team</label>
+                </value>
+                <value>
+                    <fullName>CRM/Simplus/PMO</fullName>
+                    <default>false</default>
+                    <label>CRM/Simplus/PMO</label>
+                </value>
+                <value>
+                    <fullName>AR Help</fullName>
+                    <default>false</default>
+                    <label>AR Help</label>
+                </value>
+                <value>
+                    <fullName>Sales Team</fullName>
+                    <default>false</default>
+                    <label>Sales Team</label>
+                </value>
+                <value>
+                    <fullName>FP&amp;A</fullName>
+                    <default>false</default>
+                    <label>FP&amp;A</label>
+                </value>
+                <value>
+                    <fullName>CM</fullName>
+                    <default>false</default>
+                    <label>CM</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>picklist1__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Nick</fullName>
+                    <default>false</default>
+                    <label>Nick</label>
+                </value>
+                <value>
+                    <fullName>Megan</fullName>
+                    <default>false</default>
+                    <label>Megan</label>
+                </value>
+                <value>
+                    <fullName>Aaron</fullName>
+                    <default>false</default>
+                    <label>Aaron</label>
+                </value>
+                <value>
+                    <fullName>Mukul</fullName>
+                    <default>false</default>
+                    <label>Mukul</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>CRM_Project__c</referenceTo>
+        <relationshipLabel>CPQ Issue Resolutions</relationshipLabel>
+        <relationshipName>CPQ_Issue_Resolutions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>quote__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>quote</label>
+        <referenceTo>SBQQ__Quote__c</referenceTo>
+        <relationshipName>Plastic_Records</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <label>CPQ Issue Resolution</label>
+    <nameField>
+        <displayFormat>PLSTC-{00000}</displayFormat>
+        <label>Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>CPQ Issue Resolutions</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts />
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All_MYD_Issue_Opps</fullName>
+        <columns>NAME</columns>
+        <columns>checkbox0__c</columns>
+        <columns>opportunity__c</columns>
+        <columns>formula0__c</columns>
+        <columns>formula2__c</columns>
+        <columns>checkbox1__c</columns>
+        <columns>picklist1__c</columns>
+        <columns>formula1__c</columns>
+        <columns>longTextArea2__c</columns>
+        <columns>longTextArea1__c</columns>
+        <columns>longTextArea0__c</columns>
+        <columns>longTextArea3__c</columns>
+        <columns>picklist0__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All MYD Issue Opps</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Megan</fullName>
+        <columns>NAME</columns>
+        <columns>opportunity__c</columns>
+        <columns>formula2__c</columns>
+        <columns>picklist1__c</columns>
+        <columns>formula0__c</columns>
+        <columns>checkbox0__c</columns>
+        <columns>longTextArea4__c</columns>
+        <columns>longTextArea2__c</columns>
+        <columns>longTextArea1__c</columns>
+        <columns>longTextArea0__c</columns>
+        <columns>formula1__c</columns>
+        <columns>longTextArea3__c</columns>
+        <columns>picklist0__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>picklist1__c</field>
+            <operation>equals</operation>
+            <value>Megan</value>
+        </filters>
+        <label>Megan</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Nick</fullName>
+        <columns>NAME</columns>
+        <columns>opportunity__c</columns>
+        <columns>checkbox0__c</columns>
+        <columns>picklist1__c</columns>
+        <columns>formula0__c</columns>
+        <columns>longTextArea0__c</columns>
+        <columns>longTextArea1__c</columns>
+        <columns>longTextArea2__c</columns>
+        <columns>longTextArea3__c</columns>
+        <columns>picklist0__c</columns>
+        <columns>longTextArea4__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>picklist1__c</field>
+            <operation>equals</operation>
+            <value>Nick</value>
+        </filters>
+        <label>Nick</label>
+        <language>en_US</language>
+    </listViews>
+    <recordTypes>
+        <fullName>Contract_Amendment_Creation_Issue</fullName>
+        <active>true</active>
+        <description>This record type is used to track occurrences where child contracts fail to amend or generate.</description>
+        <label>Contract Amendment/Creation Issue</label>
+        <picklistValues>
+            <picklist>picklist0__c</picklist>
+            <values>
+                <fullName>AR Help</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM%2FSimplus%2FPMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FP%26A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SQ Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Team</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>picklist1__c</picklist>
+            <values>
+                <fullName>Aaron</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Megan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mukul</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nick</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MYD_Quote_Issue</fullName>
+        <active>true</active>
+        <description>This record type is used to specify issues where MYD quotes have unexpected values.</description>
+        <label>MYD Quote Issue</label>
+        <picklistValues>
+            <picklist>picklist0__c</picklist>
+            <values>
+                <fullName>AR Help</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM%2FSimplus%2FPMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FP%26A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SQ Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Team</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>picklist1__c</picklist>
+            <values>
+                <fullName>Aaron</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Megan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mukul</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nick</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Renewal_Failure</fullName>
+        <active>true</active>
+        <description>This record type is used to track occurrences where child contracts fail to renew.</description>
+        <label>Renewal Failure</label>
+        <picklistValues>
+            <picklist>picklist0__c</picklist>
+            <values>
+                <fullName>AR Help</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM%2FSimplus%2FPMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FP%26A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SQ Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Team</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>picklist1__c</picklist>
+            <values>
+                <fullName>Aaron</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Megan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mukul</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nick</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

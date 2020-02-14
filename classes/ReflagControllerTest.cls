@@ -83,7 +83,7 @@ private class ReflagControllerTest{
             instOfOppSec.Years__c= '1';
             instOfOppSec.LeadSource = 'ACD-PS';
             instOfOppSec.Contact_Associated__c = instOfCon.Id;
-            instOfOppSec.Contact_Role__c = 'Influencer';
+            instOfOppSec.Contact_Role__c = 'Primary User';
             instOfOppSec.MSA_Code__c = instOfMulPropBund.MSA_Code__c;
             instOfOppSec.ContractReceived__c = system.today();
             //instOfOppSec.Deal_Year__c = '1';
@@ -99,7 +99,6 @@ private class ReflagControllerTest{
             //instOfOppSec.Clubbed_Tract_Billing_Account__c = 'abcd1234';
             instOfOppSec.License_Type__c = '1/2 Diamond';
             instOfOppSec.ContractEndDate__c = system.today();
-            instOfOppSec.Logo_Classification__c = 'Expansion Logo';
             insert instOfOppSec;
             
             Rebrand_Reflag__c reflagObj = new Rebrand_Reflag__c();

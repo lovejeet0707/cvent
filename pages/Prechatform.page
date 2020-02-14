@@ -1,292 +1,292 @@
-<apex:page showHeader="false" id="newcventlogo" controller="PreChatFormController"> 
-    <apex:composition template="CventCommunityHeader"></apex:composition>
-    <style type="text/css">
-        .boldify { font-weight: bolder; }
-        .apexp .bPageBlock p {width:150px;float:left}
-        
-        .apexp {
-        width: 460px; 
-        }
-        
-        input {
-        border: 1px solid #CCCCCC;
-        border-radius: 5px 5px 5px 5px;
-        padding: 5px;
-        width: 256px;
-        }
-        select {
-        margin:0px 0 0;
-        padding:10px 0;
-        width:252px;
-        }
-        
-        select {
-        height: 32px;
-        }
-        
-        textarea {
-        padding: 5px;
-        }
-        
-        .pbBody {
-        margin-top: 0;  
-        }
-        body .bPageBlock {
-        border-top-width:1px;
-        border-color: #eeeeee;
-        margin: 10px 20px 20px;
-        padding:10px 0;
-        width: 445px; 
-        font-size:12px !important;
-        background:#f8f8f8 !important;
-        border-radius: 4px 4px 4px 4px !important;
-        }
-        select {
-        padding: 2px 1px 2px 4px;  
-        border: 1px solid #CCCCCC;
-        border-radius: 5px 5px 5px 5px;
-        
-        }
-        img {
-        border: 0 none;
-        margin: 10px 0 0 20px;
-        }
-        div.label {
-        color: #2485b3;
-        float: left;
-        font-size: 12px !important;
-        font-weight: bold;
-        padding: 9px 0 0;
-        width: 135px;
-        }
-        
-        div.input-box {
-        float:left;
-        }
-        
-        .field-box {
-        margin-bottom: 20px;
-        }
-        
-        p.intro {
-        clear:both;
-        color:#666666;
-        font-size:12px !important;
-        font-style:italic;
-        line-height:130%;
-        margin-top:0;
-        width:410px !important;
-        }
-        form {
-        clear: both;
-        padding: 10px 0 0 !important;}
-        
-        input.desc { height:200px !important; width:400px !important;}
-        
-        
-        .clearfix:before, 
-        .clearfix:after { 
-        content:"\0020"; 
-        display:block; 
-        height:0; 
-        visibility:hidden; } 
-        
-        .clearfix:after { clear:both; }
-        
-        .clearfix { zoom:1; clear:both; }
-        
-        #tooltip {
-        position: absolute;
-        z-index: 3000;
-        border: 1px solid #FFA603;
-        background-color: #FEFDB9;
-        padding: 5px;
-        opacity: 0.85;
-        width:200px;
-        }
-        #tooltip h3, #tooltip div { 
-        font-family: Arial,Helvetica,sans-serif;
-        color: black;
-        margin: 0; 
-        font-size: 75%;
-        font-weight:normal;
-        }
-        
-        
-        span.spnCustomTool{   display:inline-block; width:16px; height:16px; position:relative;}
-        .spnCustomTool .tooltip { display:none; position:absolute; width:200px; height:auto; background:#fefdb9; border:1px solid #fda401; padding:10px; top:30px; right:0px; }
-        .spnCustomTool:hover .tooltip { display:block !important;}
-        
-        img#newcventlogo:theImage {
-        margin: 20px auto;
-        display: block;
-        }
-        
-        .apexp {
-        margin: 0 auto;
-        }
-        
-        div.label {
-        color: #333;
-        font-family: BrandonTextWeb-Regular, arial, sans-serif;
-        }
-        
-        font {
-        font-family: BrandonTextWeb-Bold, arial, sans-serif;
-        font-size: 13px;
-        }
-        
-        input#prechat_submit{
-        color: #fff;
-        padding: 10px 0px;
-        font-weight: bold;
-        text-transform: capitalize;
-        font-family: BrandonTextWeb-Regular, arial, sans-serif;
-        background-color: #0183eb;
-        font-size: 15px;
-        margin: 10px 20px 0px;
-        width: 135px;
-        pointer: cursor;
-        float: right;
-        
-        }
-        .support-header{
-        background:#ECEFF8;
-        }
-        
-        .support-header .container {
-        background: #ECEFF8;
-        padding: 34px 0px 34px 10px
-        }
-        
-        .support-header h2 {
-        font-size: 36px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        font-style: normal;
-        text-rendering: optimizeLegibility;
-        color: #0183EB !important;
-        }
-        h1, h2, h3, h4, h5, h6 {
-        font-family: BrandonTextWeb-Regular, Arial, sans-serif;
-        }
-        .button {
-        margin-top: 15px;
-        background-color: #0183EB;
-        border-color: transparent;
-        color: #fff;
-        transition: 0.2s;
-        display: inline-block;
-        padding: 6px 12px;
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 1.428571429;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        cursor: pointer;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -o-user-select: none;
-        user-select: none;
-        font-family: BrandonTextWeb-regular, Arial, sans-serif;
-        } 
-        
-        input#prechat_submit {
-        color: rgb(255, 255, 255);
-        padding: 6px 12px;
-        font-weight: bold;
-        text-transform: none;
-        font-family: brandontextweb-regular;
-        background-color: #0183eb;
-        font-size: 14px;
-        margin: 15px 20px 0px;
-        width: 115px;
-        pointer: cursor;
-        float: left;
-        }
-        
-        
-        #communitysupport {
-        background: #fff !important;
-        }
-        
-        div.label {
-        text-align: left;
-        }
-        
-        .support-header{
-        margin-top: 55px;}
-        
-        @media (max-width:767px){
-        .support-header{
-        margin-top: 0px;}
-        }
-        
-        .form-group {
-        margin-top: 15px;
-        }
-        
-        .hl-footer-styles img {
-        margin: 0 !important;
-        }
-        
-        .navbar-brand>img {
-        margin: 0 !important;
-        }
-        
-        .btn-outline {
-        background-color: #fff !important;
-        border: 1.5px solid #0183EB !important;
-        color: #0183EB !important;
-        transition: 0.2s !important;
-        font-weight: bold !important;
-        font-family: BrandonTextWeb-regular !important;
-        padding: 6px 12px !important;
-        background: transparent !important;
-        }
-        
-        .btn-outline:hover {
-        color: #fff !important;
-        background-color: #0183EB !important;
-        border: 1.5px solid #0183EB !important;
-        font-family: BrandonTextWeb-regular !important;
-        }
-        
-        
-    </style>
-    <!-- <html> 
+<apex:page showHeader="false" id="newcventlogo" > 
+<apex:composition template="CventCommunityHeader"></apex:composition>
+ <style type="text/css">
+    .boldify { font-weight: bolder; }
+    .apexp .bPageBlock p {width:150px;float:left}
+
+.apexp {
+    width: 460px; 
+}
+
+input {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+    width: 256px;
+}
+select {
+    margin:0px 0 0;
+    padding:10px 0;
+    width:252px;
+}
+
+select {
+height: 32px;
+}
+
+textarea {
+padding: 5px;
+}
+
+.pbBody {
+    margin-top: 0;  
+}
+body .bPageBlock {
+    border-top-width:1px;
+    border-color: #eeeeee;
+    margin: 10px 20px 20px;
+    padding:10px 0;
+    width: 445px; 
+    font-size:12px !important;
+    background:#f8f8f8 !important;
+    border-radius: 4px 4px 4px 4px !important;
+}
+select {
+    padding: 2px 1px 2px 4px;  
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+
+}
+img {
+    border: 0 none;
+    margin: 10px 0 0 20px;
+}
+div.label {
+    color: #2485b3;
+    float: left;
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 9px 0 0;
+    width: 135px;
+}
+
+div.input-box {
+    float:left;
+    }
+    
+.field-box {
+    margin-bottom: 20px;
+}
+
+p.intro {
+    clear:both;
+    color:#666666;
+    font-size:12px !important;
+    font-style:italic;
+    line-height:130%;
+    margin-top:0;
+    width:410px !important;
+}
+form {
+clear: both;
+    padding: 10px 0 0 !important;}
+    
+    input.desc { height:200px !important; width:400px !important;}
+    
+    
+.clearfix:before, 
+.clearfix:after { 
+    content:"\0020"; 
+    display:block; 
+    height:0; 
+    visibility:hidden; } 
+
+.clearfix:after { clear:both; }
+
+.clearfix { zoom:1; clear:both; }
+
+#tooltip {
+    position: absolute;
+    z-index: 3000;
+    border: 1px solid #FFA603;
+    background-color: #FEFDB9;
+    padding: 5px;
+    opacity: 0.85;
+    width:200px;
+}
+#tooltip h3, #tooltip div { 
+font-family: Arial,Helvetica,sans-serif;
+color: black;
+margin: 0; 
+font-size: 75%;
+font-weight:normal;
+}
+
+
+span.spnCustomTool{   display:inline-block; width:16px; height:16px; position:relative;}
+.spnCustomTool .tooltip { display:none; position:absolute; width:200px; height:auto; background:#fefdb9; border:1px solid #fda401; padding:10px; top:30px; right:0px; }
+.spnCustomTool:hover .tooltip { display:block !important;}
+
+img#newcventlogo:theImage {
+    margin: 20px auto;
+    display: block;
+}
+
+.apexp {
+    margin: 0 auto;
+}
+
+div.label {
+    color: #333;
+    font-family: BrandonTextWeb-Regular, arial, sans-serif;
+}
+
+font {
+    font-family: BrandonTextWeb-Bold, arial, sans-serif;
+    font-size: 13px;
+}
+
+input#prechat_submit{
+    color: #fff;
+    padding: 10px 0px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: BrandonTextWeb-Regular, arial, sans-serif;
+    background-color: #0183eb;
+    font-size: 15px;
+    margin: 10px 20px 0px;
+    width: 135px;
+    pointer: cursor;
+    float: right;
+
+}
+ .support-header{
+   background:#ECEFF8;
+   }
+   
+   .support-header .container {
+   background: #ECEFF8;
+   padding: 34px 0px 34px 10px
+   }
+   
+   .support-header h2 {
+   font-size: 36px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   font-style: normal;
+   text-rendering: optimizeLegibility;
+   color: #0183EB !important;
+   }
+    h1, h2, h3, h4, h5, h6 {
+   font-family: BrandonTextWeb-Regular, Arial, sans-serif;
+   }
+   .button {
+    margin-top: 15px;
+    background-color: #0183EB;
+    border-color: transparent;
+    color: #fff;
+    transition: 0.2s;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-family: BrandonTextWeb-regular, Arial, sans-serif;
+   } 
+   
+   input#prechat_submit {
+    color: rgb(255, 255, 255);
+    padding: 6px 12px;
+    font-weight: bold;
+    text-transform: none;
+    font-family: brandontextweb-regular;
+    background-color: #0183eb;
+    font-size: 14px;
+    margin: 15px 20px 0px;
+    width: 115px;
+    pointer: cursor;
+    float: left;
+   }
+   
+   
+   #communitysupport {
+   background: #fff !important;
+   }
+   
+   div.label {
+   text-align: left;
+   }
+   
+   .support-header{
+   margin-top: 55px;}
+   
+   @media (max-width:767px){
+   .support-header{
+   margin-top: 0px;}
+   }
+   
+   .form-group {
+   margin-top: 15px;
+   }
+   
+   .hl-footer-styles img {
+   margin: 0 !important;
+   }
+   
+   .navbar-brand>img {
+   margin: 0 !important;
+   }
+   
+   .btn-outline {
+    background-color: #fff !important;
+    border: 1.5px solid #0183EB !important;
+    color: #0183EB !important;
+    transition: 0.2s !important;
+    font-weight: bold !important;
+    font-family: BrandonTextWeb-regular !important;
+    padding: 6px 12px !important;
+    background: transparent !important;
+    }
+    
+    .btn-outline:hover {
+    color: #fff !important;
+    background-color: #0183EB !important;
+    border: 1.5px solid #0183EB !important;
+    font-family: BrandonTextWeb-regular !important;
+}
+   
+   
+</style>
+<!-- <html> 
 <img src="/resource/1384853615000/newcventlogo"> </img>
 </html> -->
-    <apex:image id="theImage" value="{!$Resource.CventLogoNew}"/> 
-    
-    <script type="text/javascript">
-    (function() { 
-        function handlePageLoad() {
-            var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
-            console.log(endpointMatcher);
-            document.getElementById('Form').setAttribute('action',
-                                                         decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
-        } if (window.addEventListener) {
-            window.addEventListener('load', handlePageLoad, false);
-        } else { window.attachEvent('onload', handlePageLoad, false);
-               }})();
+<apex:image id="theImage" value="{!$Resource.CventLogoNew}"/> 
+
+<script type="text/javascript">
+     (function() { 
+     function handlePageLoad() {
+       var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+       console.log(endpointMatcher);
+       document.getElementById('Form').setAttribute('action',
+       decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+     } if (window.addEventListener) {
+              window.addEventListener('load', handlePageLoad, false);
+   } else { window.attachEvent('onload', handlePageLoad, false);
+              }})();
     window.resizeTo(490,680); 
-    </script>
-    <script type='text/javascript' src='https://c.la2-c2-ia2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
-    <script type='text/javascript'>
-        liveagent.init('https://d.la2-c2-ia2.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
-    </script>
-    
-    
-    
+</script>
+<script type='text/javascript' src='https://c.la2-c2-ia2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la2-c2-ia2.salesforceliveagent.com/chat', '572000000008OUb', '00D00000000hXfW');
+</script>
+
+
+
     <script type="text/javascript">
-    
+   
     function setRecordType()
     {
         if(document.getElementById('productType').value == '573000000008OV0')
@@ -298,214 +298,140 @@
             document.getElementById('productType123').value = 'Supplier Network';
         }
     }
-    
-    function updateExistingCheckBox()
-    {
-        var checkBoxValue = document.getElementById('existingcheckbox').checked;
-        var values = document.getElementById('valuesMap').value;
-        
-        if(checkBoxValue == true)
-        {
-            document.getElementById('valuesMap').value = '';
-        }
-        else
-        {
-            document.getElementById('valuesMap').value = 'Origin,caseOrigin;Subject,Subject;Priority,priority;Status,status;Description,Description;RecordTypeId,recordTypeId;ContactId,relatedContactId;'
-        } 
-    }
-    
-    function checkTheNameValues()
-    {
-        var originalName = '{!$User.FirstName}'+' '+'{!$User.LastName}';
-        var modifiedName = document.getElementById('nameField').value;
-        if(originalName != modifiedName)
-        {
-            document.getElementById('valuesMap').value = '';
-            document.getElementById('editedInformation').value = 'YES';
-        }
-    }
-    
-    function checkTheEmailValues()
-    {
-        var originalEmail = '{!$User.Email}';
-        var modifiedEmail = document.getElementById('emailField').value;
-        if(originalEmail != modifiedEmail)
-        {
-            document.getElementById('valuesMap').value = '';
-            document.getElementById('editedInformation').value = 'YES';
-        }
-    }
-    
     </script>                            
+
+<body id="help" class="inner">
+ <main>
+  <section id="communitysupport">
+   <div>
     
-    <body id="help" class="inner">
-        <main>
-            <section id="communitysupport">
-                <div>
-                    
-                    
-                    <div class="support-header">
-                        <div class="container">
-                            
-                            
-                            <h2 >Contact Support</h2>
-                            
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="container"> 
-                        <div class="form-group"> 
-                            <h3>Start a Chat for Live Assistance</h3><br/><br/>
-                            <p style="font-size: 1.125em;">Got a quick question? Start a conversation with a live representative online. Enter your information below and a representative will be with you shortly.<br /> <br /> <b> Available 9:00pm Sunday - 9:00pm Friday ET.</b></p>
-                            <p> <b> Note:</b> You will see "connecting" until connected with the next available agent.</p>
-                        </div>
-                        <div class="row">
-                            <!--<div class="col-md-8 col-md-offset-2" style="margin-left: 0px; background: #ccc; padding: 20px; margin: 0 auto; text-align: center; margin: 20px; margin-bottom: 40px;" id="showoffline">
-<h3><strong>No agents available</strong></h3>
-<p>Please try again during supported hours.</p>
-</div>-->
-                            <div class="col-md-12" style="margin-left: -39px;" id="showform">
-                                <!--<apex:pageBlock > -->
-                                <form method="post" id="Form" style="background: white;margin-left: 37px;"> 
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Name : </font></div>
-                                        <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Name"  id="nameField" value='{!$User.FirstName} {!$User.LastName}' onchange="checkTheNameValues();" style="width: 403px;"/></div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Email Address : </font></div>
-                                        <div class="input-box"> <input type="text" required='True' name="liveagent.prechat:Email" id="emailField" value='{!$User.Email}'  onchange="checkTheEmailValues();" style="width: 403px;"/></div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Phone Number : </font></div>
-                                        <div class="input-box"> <input type="text" required='True' name="liveagent.prechat:Phone" id="phoneNumber" value='{!ContactPhoneNumber}' style="width: 403px;"/></div>
-                                    </div>
-                                    <!--
+   
+     <div class="support-header">
+            <div class="container">
+            
+            
+            <h2 >Contact Support</h2>
+            
+            
+    </div>
+    </div>
+    
+   <div class="container"> 
+  <div class="form-group"> 
+         <h3>Start a Chat for Live Assistance</h3><br/><br/>
+         <p style="font-size: 1.125em;">Got a quick question? Start a conversation with a live representative online. Enter your information below and a representative will be with you shortly.<br /> <br /> <b> Available 9:00pm Sunday - 9:00pm Friday ET.</b></p>
+         <p> <b> Note:</b> You will see "connecting" until connected with the next available agent.</p>
+ </div>
+ <div class="row">
+ <!--<div class="col-md-8 col-md-offset-2" style="margin-left: 0px; background: #ccc; padding: 20px; margin: 0 auto; text-align: center; margin: 20px; margin-bottom: 40px;" id="showoffline">
+ <h3><strong>No agents available</strong></h3>
+ <p>Please try again during supported hours.</p>
+ </div>-->
+ <div class="col-md-12" style="margin-left: -39px;" id="showform">
+<!--<apex:pageBlock > -->
+<form method="post" id="Form" style="background: white;margin-left: 37px;"> 
+
 <div class="field-box clearfix">
-<div class="label"><font face="Verdana"> &nbsp;&nbsp;Account Number : </font></div>
-<div class="input-box"><input type="text"  name="liveagent.prechat:Account Number" style="width: 403px;"/></div>
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Name : </font></div>
+    <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Name" id="prechat_field" style="width: 403px;"/></div>
 </div>
--->
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label" style="white-space:inherit !important;"><font face="Verdana"> &nbsp;&nbsp;Is this related to an existing support case? </font></div>
-                                        <div class="input-box"><input type="Checkbox"  name="liveagent.prechat:existingCase" onchange="updateExistingCheckBox();" id="existingcheckbox" style="width: 20px; height:20px;margin:5px 0 0;"/></div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Product Type : </font></div>
-                                        <div class="input-box">
-                                            <select name="liveagent.prechat.buttons" required='True' id="productType" onchange="setRecordType();">
-                                                <option></option> 
-                                                <option value="573000000008OV0">Event Management (9 pm Sunday - 9 pm Friday ET)</option> 
-                                                <!--  <option value="573000000008OV5">Surveys</option> -->
-                                                <!--<option value="573000000008OVA">Supplier Network (9 am - 9 pm ET, Monday-Friday)</option>-->
-                                                <option value="573000000008OVA">Supplier Network (9 pm Sunday - 9 pm Friday ET)</option>
-                                                <!--  <option value="573o0000000L5WS">eMarketing</option> -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Concise Description: </font></div>
-                                        <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Subject" id="prechat_field" style="width: 403px;" placeholder="Describe your issue in two or three words."/></div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Additional Details: </font></div>
-                                        <div class="input-box"><textarea rows="4" cols="42" type="text" required='True' style="width: 403px;" name="liveagent.prechat:Description" id="prechat_field" placeholder="Provide the name and number of your event, venue or RFP, and explain how we can help you."/></div>
-                                    </div>
-                                    
-                                    <div class="field-box clearfix">
-                                        <!--
-<div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0"></span>Priority : </font></div>
-<div class="input-box"> 
-<select name="liveagent.prechat:Priority" required='False' style="width: 403px;">
-<option value='Select One' selected='selected'>Select One:</option> 
-<option value='High'>High</option> 
-<option value='Medium'>Medium</option>
-<option value='Low'>Low</option>                
-</select><span class="spnCustomTool"> 
-<img src="https://cvent.my.salesforce.com/img/alohaSkin/help_orange.png" class="helpButton_cust" width="16" height="16" /><span class="tooltip">High: Cvent is down or data security is at risk.<br/>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Email Address : </font></div>
+    <div class="input-box"> <input type="text" required='True' name="liveagent.prechat:Email" style="width: 403px;"/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Phone Number : </font></div>
+    <div class="input-box"> <input type="text" required='True' name="liveagent.prechat:Phone" style="width: 403px;"/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> &nbsp;&nbsp;Account Number : </font></div>
+    <div class="input-box"><input type="text"  name="liveagent.prechat:Account Number" style="width: 403px;"/></div>
+</div>
+
+ <div class="field-box clearfix">
+                <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Product Type : </font></div>
+                <div class="input-box">
+                    <select name="liveagent.prechat.buttons" required='True' id="productType" onchange="setRecordType();">
+                        <option></option> 
+                        <option value="573000000008OV0">Event Management (9 pm Sunday - 9 pm Friday ET)</option> 
+                        <!--  <option value="573000000008OV5">Surveys</option> -->
+                        <!--<option value="573000000008OVA">Supplier Network (9 am - 9 pm ET, Monday-Friday)</option>-->
+                        <option value="573000000008OVA">Supplier Network (9 pm Sunday - 9 pm Friday ET)</option>
+                        <!--  <option value="573o0000000L5WS">eMarketing</option> -->
+                    </select>
+                </div>
+            </div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Concise Description: </font></div>
+    <div class="input-box"><input type="text" required='True' name="liveagent.prechat:Subject" id="prechat_field" style="width: 403px;" placeholder="Describe your issue in two or three words."/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0">*</span>Additional Details: </font></div>
+    <div class="input-box"><textarea rows="4" cols="42" type="text" required='True' style="width: 403px;" name="liveagent.prechat:Description" id="prechat_field" placeholder="Provide the name and number of your event, survey, venue or RFP, and explain how we can help you."/></div>
+</div>
+
+<div class="field-box clearfix">
+    <div class="label"><font face="Verdana"> <span style="color:red; margin:-4px 0 0 0"></span>Priority : </font></div>
+    <div class="input-box"> 
+            <select name="liveagent.prechat:Priority" required='False' style="width: 403px;">
+                <option value='Select One' selected='selected'>Select One:</option> 
+                <option value='High'>High</option> 
+                <option value='Medium'>Medium</option>
+                <option value='Low'>Low</option>                
+            </select><span class="spnCustomTool"> 
+            <img src="https://cvent.my.salesforce.com/img/alohaSkin/help_orange.png" class="helpButton_cust" width="16" height="16" /><span class="tooltip">High: Cvent is down or data security is at risk.<br/>
 Medium: The system is slow, but you can still get things done.<br/>
 Low: Anything that can be answered within the Support Community. This includes questions about setting up and troubleshooting common errors.
 </span></span>
+          </div>
+          
+             <br clear="all"/>
+      <input type="hidden" value="Contact,Contact.Email" name="liveagent.prechat.query:Email"/> 
+      <input type="hidden" value="Email__c" name="liveagent.prechat.save:Email"/>
+      <input type="hidden" value="Account,Account.Cvent_Account_ID__c" name="liveagent.prechat.query:Account Number"/> 
+      <input type="hidden" value="Cvent_Account_ID__c" name="liveagent.prechat.save:Account Number"/> 
+     
+      <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
+      <input type="hidden" name="liveagent.prechat.save:Email" value="Visitor_s_Email__c" />
+      <input type="hidden" name="liveagent.prechat.save:Account Number" value="Visitor_s_Account_ID__c" />
+      <input type="hidden" name="liveagent.prechat.save:Subject" value="Subject__c" />
+      <input type="hidden" name="liveagent.prechat.save:Priority" value="Severity__c" />
+      <input type="hidden" name="liveagent.prechat.save:Description" value="Description__c" />
+      <input type="hidden" name="liveagent.prechat.save:Phone" value="Phone_Number__c" />
 </div>
--->
-                                        <input type="hidden" name="liveagent.prechat:Account Number" id="accountNumber" value="{!CventAccountId}" />
-                                        <input type="hidden" name="liveagent.prechat:Product Type" value="00N2G00000CgnZI" id="productType123" />
-                                        
-                                        <!-- Map the detail inputs to the Contact fields -->
-                                        <input type="hidden" name="liveagent.prechat:caseOrigin" value="Chat" />
-                                        <input type="hidden" name="liveagent.prechat:priority" value="Medium" />
-                                        <input type="hidden" name="liveagent.prechat:recordTypeId" value="0120000000099RV" id="recordTypeHiddenElement" />
-                                        <input type="hidden" name="liveagent.prechat:status" value="Work In Progress" />
-                                        <input type="hidden" name="liveagent.prechat:Edited Information" id="editedInformation" value="NO" />
-                                        <input type="hidden" name="liveagent.prechat:relatedContactId" id="ContactId" value="{!CventContactId}" />
-                                        
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.map:Case" id="valuesMap" value="Origin,caseOrigin;Subject,Subject;Priority,priority;Status,status;Description,Description;RecordTypeId,recordTypeId;ContactId,relatedContactId;" />
-                                        
-                                        <!-- Try to find the Case by CaseNumber (exact match) -->
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Case" value="CaseNumber,true;" />
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Case" value="CaseNumber,true;" />
-                                        
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Origin,true;Subject,true;Priority,true;Status,true;Description,true;RecordTypeId,true;ContactId,true" />
-                                        
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="Case" />
-                                        <input type="hidden" name="liveagent.prechat.save:Case" value="Case" /> 
-                                        
-                                        <!-- Show the Contact when it is found or created -->
-                                        <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
-                                        
-                                        
-                                        <br clear="all"/>
-                                        <input type="hidden" value="Contact,Contact.Email" name="liveagent.prechat.query:Email"/> 
-                                        <input type="hidden" value="Email__c" name="liveagent.prechat.save:Email"/>
-                                        <input type="hidden" value="Account,Account.Cvent_Account_ID__c" name="liveagent.prechat.query:Account Number"/> 
-                                        <input type="hidden" value="Cvent_Account_ID__c" name="liveagent.prechat.save:Account Number"/> 
-                                        
-                                        <input type="hidden" name="liveagent.prechat.save:Name" value="Visitor_s_Name__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Email" value="Visitor_s_Email__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Account Number" value="Visitor_s_Account_ID__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Product Type" value="Product_Type__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Subject" value="Subject__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Priority" value="Severity__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Description" value="Description__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Phone" value="Phone_Number__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:Edited Information" value="Edited_Information__c" />
-                                        <input type="hidden" name="liveagent.prechat.save:existingCase" value="Existing_Case__c" />
-                                    </div>
-                                    
-                                    <!-- Updated code: now for transcript
-liveagent.addCustomDetail("First Name", "");
-liveagent.addCustomDetail("Last Name", "");
-liveagent.addCustomDetail("Phone Number", "");
-liveagent.addCustomDetail("Case Subject", "");
-liveagent.addCustomDetail("Case Status", "New", false);
-liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false,true).saveToTranscript("contactId").showOnCreate().linkToEntity("Case", "ContactId");
--->
-                                    
-                                    <!--  <input class="button button-blue" id="prechat_submit" type="submit" value="Initiate Chat" onclick="liveagent.startChat('573000000008OVF')" /> -->
-                                    <input class="button button-blue" id="prechat_submit" type="submit" value="Initiate Chat"/>
-                                    
-                                    <button type="button" class="button btn-outline" onclick="location.href='https://support.cvent.com/apex/ContactSupport';">See Other Support Options</button><br/><br/>
-                                    
-                                    
-                                </form>
-                                <div>
-                                    
-                                </div>
-                                
-                                <!--</apex:pageBlock>-->
-                            </div> 
-                        </div> 
-                    </div> 
-                </div>
-            </section>
-        </main>
-    </body>
-    <apex:composition template="CventCommunityFooter"></apex:composition>  
+
+       <!-- Updated code: now for transcript
+        liveagent.addCustomDetail("First Name", "");
+        liveagent.addCustomDetail("Last Name", "");
+        liveagent.addCustomDetail("Phone Number", "");
+        liveagent.addCustomDetail("Case Subject", "");
+        liveagent.addCustomDetail("Case Status", "New", false);
+        liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false,true).saveToTranscript("contactId").showOnCreate().linkToEntity("Case", "ContactId");
+        -->
+      
+       <!--  <input class="button button-blue" id="prechat_submit" type="submit" value="Initiate Chat" onclick="liveagent.startChat('573000000008OVF')" /> -->
+       <input class="button button-blue" id="prechat_submit" type="submit" value="Initiate Chat"/>
+         
+         <button type="button" class="button btn-outline" onclick="location.href='https://support.cvent.com/apex/ContactSupport';">See Other Support Options</button><br/><br/>
+         
+         
+         </form>
+         <div>
+            
+         </div>
+
+<!--</apex:pageBlock>-->
+</div> 
+</div> 
+</div> 
+</div>
+</section>
+</main>
+</body>
+<apex:composition template="CventCommunityFooter"></apex:composition>  
 </apex:page>

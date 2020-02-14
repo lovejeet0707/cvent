@@ -55,7 +55,7 @@ trigger salesSupportCases on Case (before insert,before update) {
                 
                 else if(c.Product_Type__c=='Social Tables' && c.Request_Type__c=='Customer Care'){
                     c.ownerid = '00G2G000004YKS9';// assign the case to CS Case Queue CC - Social Tables    
-
+					c.RecordTypeId = '0122G000001YZVTQA4';
                 }    
                 
                 else if(c.Product_Type__c=='CSN - Supplier' && c.Request_Type__c=='Customer Care'){
@@ -65,6 +65,10 @@ trigger salesSupportCases on Case (before insert,before update) {
                 else if(c.Product_Type__c=='eMarketing' && c.Request_Type__c=='Customer Care'){
                     c.ownerid = '00G00000006w2R4';                                // assign the case to Client Services Case Queue - eMarketing
                     //c.RecordTypeId = '0120000000099RX';
+                }
+                else if(c.Product_Type__c=='QuickMobile' && c.Request_Type__c=='Customer Care'){
+                    c.ownerid = '00G1N000002e8Cj';                                // assign the case to Client Services Customer Care Queue QM
+                    c.RecordTypeId = '0121N000001hVVG';
                 }
                 
                 // onarrival product type too
@@ -193,7 +197,11 @@ trigger salesSupportCases on Case (before insert,before update) {
                     else if(c.Product_Type__c=='Travel' && c.Request_Type__c=='Customer Care'){
                         c.ownerid = '00G1N000002ziG2';                                 // assign the case to Client Services Case Queue - Travel
                         //c.RecordTypeId = '0120000000099RR';   
-                    }     
+                    }
+                    else if(c.Product_Type__c=='QuickMobile' && c.Request_Type__c=='Customer Care'){
+                        c.ownerid = '00G1N000002e8Cj';                                // assign the case to Client Services Customer Care Queue QM
+                        c.RecordTypeId = '0121N000001hVVG';
+                    }
                     
                     if(c.Request_Type__c=='Strategic Support'){
                         c.ownerid = '00Go0000001cE20';

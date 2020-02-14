@@ -417,7 +417,7 @@ private class TaskTrgHelperClsTest {
             instOfTsk.Status = 'Completed';
             instOfTsk.Mood__c='1 - Irate';
             instOfTsk.Task_Type__c='Attended';
-            instOfTsk.CSN_PI__c = '1';
+            //instOfTsk.CSN_PI__c = '1';
             //instOfTsk.of_Offsite_Events__c='11+';
             taskListInsert.add(instOfTsk);            
             insert taskListInsert;
@@ -468,7 +468,7 @@ private class TaskTrgHelperClsTest {
             instOfTsk.Status = 'Completed';
             instOfTsk.Mood__c='1 - Irate';
             instOfTsk.Task_Type__c='Attended';
-            instOfTsk.CSN_PI__c = '1';
+            //instOfTsk.CSN_PI__c = '1';
             instOfTsk.of_Offsite_Events__c='11+';
             taskListInsert.add(instOfTsk);            
             insert taskListInsert;
@@ -955,7 +955,7 @@ private class TaskTrgHelperClsTest {
         instOfTsk1.Status = 'Completed';
         instOfTsk1 .Client_Proficiency_Level__c ='Basic';
         instOfTsk1 .Subject = 'Attended 11';
-        instOfTsk1 .CSN_PI__c='1';
+        //instOfTsk1 .CSN_PI__c='1';
         instOfTsk1 .of_Offsite_Events__c ='1';
         instOfTsk1 .ActivityDate = system.Today();
         instOfTsk1 .Priority = 'Normal';

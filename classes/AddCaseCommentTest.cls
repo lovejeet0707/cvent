@@ -48,7 +48,7 @@ public class AddCaseCommentTest {
     oController.CommentBody = 'Test Comment';
     oController.SubmitComment();
     oController.SubmitComments();
-    List<CaseComment> testList = oController.getCaseComments();
+    
     AddCaseComment.updaeComment('test Case Comment',oCase.id);
     //oController.Cancel();
   }

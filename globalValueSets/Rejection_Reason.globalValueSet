@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Competitor</fullName>
+        <default>false</default>
+        <label>Competitor</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer/Never a fit</fullName>
+        <default>false</default>
+        <label>Consumer/Never a fit</label>
+    </customValue>
+    <customValue>
+        <fullName>Do not call</fullName>
+        <default>false</default>
+        <label>Do not call</label>
+    </customValue>
+    <customValue>
+        <fullName>Duplicate</fullName>
+        <default>false</default>
+        <label>Duplicate</label>
+    </customValue>
+    <customValue>
+        <fullName>Duplicate self-serve set-up</fullName>
+        <default>false</default>
+        <label>Duplicate self-serve set-up</label>
+    </customValue>
+    <customValue>
+        <fullName>Embargoed Country</fullName>
+        <default>false</default>
+        <label>Embargoed Country</label>
+    </customValue>
+    <customValue>
+        <fullName>Employee</fullName>
+        <default>false</default>
+        <label>Employee</label>
+    </customValue>
+    <customValue>
+        <fullName>Failed to reach contact</fullName>
+        <default>false</default>
+        <label>Failed to reach contact</label>
+    </customValue>
+    <customValue>
+        <fullName>Junk</fullName>
+        <default>false</default>
+        <label>Junk</label>
+    </customValue>
+    <customValue>
+        <fullName>Not a product fit</fullName>
+        <default>false</default>
+        <label>Not a product fit</label>
+    </customValue>
+    <customValue>
+        <fullName>Not sales ready for X months</fullName>
+        <default>false</default>
+        <label>Not sales ready for X months</label>
+    </customValue>
+    <customValue>
+        <fullName>Sent to the wrong rep</fullName>
+        <default>false</default>
+        <label>Sent to the wrong rep</label>
+    </customValue>
+    <customValue>
+        <fullName>Using/Lost to competitor</fullName>
+        <default>false</default>
+        <label>Using/Lost to competitor</label>
+    </customValue>
+    <customValue>
+        <fullName>Wrong person in company</fullName>
+        <default>false</default>
+        <label>Wrong person in company</label>
+    </customValue>
+    <masterLabel>Rejection Reason</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

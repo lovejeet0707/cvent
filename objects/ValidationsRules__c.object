@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BypassRules__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Bypass Rules</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>OPP Validations to by pass :
+-Please enter Parent Contract Number
+-Please Enter A Value in Deal Booked In.
+-Please enter Sold from location
+-Value missing
+-Please enter Previous Contract Number 
+-Please Enter A Value in CSN Deal Type
+-Please update Upsell Category field
+-Please enter Contract number
+-Please enter Bill Cycle
+-Please enter Opportunity End Date
+-Please Enter A Value in CSN Deal Type
+-Please update Supplier Listed on MSA/Bulk Purchase? Field
+-Cannot create/edit opportunity after 20th of the Month with the following stages (Price Quote/Proposal,Prospecting,Qualified,Presentation). Please choose an appropriate Closed Date from Future Months
+-You can't change the Opportunity once contract is implemented, please contact contracts@cvent.com
+-Please update Case Received Date
+-Please select "Renewal" as the record type
+-Please fill in the survey and update the Survey response number</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Validation Rules</label>
+    <visibility>Protected</visibility>
+</CustomObject>

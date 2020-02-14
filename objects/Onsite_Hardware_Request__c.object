@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <fields>
+        <fullName>Actual_Packlist_Freeze_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL( Status__c , "Finalized") , Today (), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Packlist Freeze Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Address_Line_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Advance_Warehouse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the PM.
+If the this request will be delivered to an advance warehouse (rather than the event venue), please check this.</inlineHelpText>
+        <label>Advance Warehouse</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Attn__c</fullName>
+        <externalId>false</externalId>
+        <label>Attn</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>C_O__c</fullName>
+        <externalId>false</externalId>
+        <label>C/O</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Onsite_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Onsite Contact Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Onsite_Contact_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Onsite Contact Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cvent_Onsite_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Cvent Onsite Contact Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cvent_Onsite_Contact_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Cvent Onsite Contact Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Date_Calculated_Shipment_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (ISNULL(Date_Drop_Off__c), 
+IF( International_Event__c = True, Event_Name__r.Event_Start_Date__c -21 , Event_Name__r.Event_Start_Date__c - 7),
+IF( International_Event__c = True, DATEVALUE(Date_Drop_Off__c) - 21 , DATEVALUE(Date_Drop_Off__c) - 7))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated. 
+It is 7 days before the Drop Off Date for domestic events. 21 days before for all else.</inlineHelpText>
+        <label>Date - Calculated Shipment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Current_Request_Freeze_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Date_Current_Shipment_Date__c - 14</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated. Two weeks before the Current Shipment Date</inlineHelpText>
+        <label>Date - Current Request Freeze Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Current_Shipment_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (NOT(ISBLANK( Date_Estimated_Shipment_Date__c )),  Date_Estimated_Shipment_Date__c ,  Date_Calculated_Shipment_Date__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Auto-calculated. 
+Uses the Estimated Shipment Date, if entered by the Logistics Team. If not, defaults to the auto-calculated Calculated Shipment Date.</inlineHelpText>
+        <label>Date - Current Shipment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Drop_Off__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the PM.
+The day and time of when the items should be dropped off to the event, ready to be unpacked by the onsite team.</inlineHelpText>
+        <label>Date - Drop Off</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Estimated_Shipment_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the Logistics Team. 
+Their current estimate on when the shipment should be sent (i.e. leave the warehouse)</inlineHelpText>
+        <label>Date - Estimated Shipment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Pick_Up__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the PM.
+The day and time of when the items can be picked up from the event, to be returned back to the warehouse.</inlineHelpText>
+        <label>Date - Pick Up</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Event_Name__r.Event_End_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Inherited from the Event Data record.</inlineHelpText>
+        <label>Event End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Event_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Event Name</label>
+        <referenceTo>Event_Data__c</referenceTo>
+        <relationshipLabel>Onsite Hardware Requests</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Requests</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Event_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Event_Name__r.Event_Start_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Inherited from the Event Data record.</inlineHelpText>
+        <label>Event Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>International_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Auto-calculated. 
+Checked, if the delivery country is not the US.</inlineHelpText>
+        <label>International Event</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pickup_Address_Line_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Address Line 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Pickup_Address_Line_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Address Line 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Pickup_Attn__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Attn</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_C_O__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup C/O</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_City__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_Client_Onsite_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Client Onsite Contact Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_Client_Onsite_Contact_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Client Onsite Contact Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Pickup_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Country</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pickup_Cvent_Onsite_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Cvent Onsite Contact Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_Cvent_Onsite_Contact_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Cvent Onsite Contact Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Pickup_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup State</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Australia - NSW - New South Wales</fullName>
+                    <default>false</default>
+                    <label>Australia - NSW - New South Wales</label>
+                </value>
+                <value>
+                    <fullName>Australia - NT - Northern Territory</fullName>
+                    <default>false</default>
+                    <label>Australia - NT - Northern Territory</label>
+                </value>
+                <value>
+                    <fullName>Australia - QLD - Queensland</fullName>
+                    <default>false</default>
+                    <label>Australia - QLD - Queensland</label>
+                </value>
+                <value>
+                    <fullName>Australia - SA - South Australia</fullName>
+                    <default>false</default>
+                    <label>Australia - SA - South Australia</label>
+                </value>
+                <value>
+                    <fullName>Australia - TAS - Tasmania</fullName>
+                    <default>false</default>
+                    <label>Australia - TAS - Tasmania</label>
+                </value>
+                <value>
+                    <fullName>Australia - VIC - Victoria</fullName>
+                    <default>false</default>
+                    <label>Australia - VIC - Victoria</label>
+                </value>
+                <value>
+                    <fullName>Australia - WA - Western Australia</fullName>
+                    <default>false</default>
+                    <label>Australia - WA - Western Australia</label>
+                </value>
+                <value>
+                    <fullName>Belgium - Antwerp / North</fullName>
+                    <default>false</default>
+                    <label>Belgium - Antwerp / North</label>
+                </value>
+                <value>
+                    <fullName>Belgium - Bruges / West</fullName>
+                    <default>false</default>
+                    <label>Belgium - Bruges / West</label>
+                </value>
+                <value>
+                    <fullName>Belgium - Brussels / Central</fullName>
+                    <default>false</default>
+                    <label>Belgium - Brussels / Central</label>
+                </value>
+                <value>
+                    <fullName>Belgium - Liege / East</fullName>
+                    <default>false</default>
+                    <label>Belgium - Liege / East</label>
+                </value>
+                <value>
+                    <fullName>Brazil - Brasilia / Northwest</fullName>
+                    <default>false</default>
+                    <label>Brazil - Brasilia / Northwest</label>
+                </value>
+                <value>
+                    <fullName>Brazil - Rio De Janeiro / Northeast</fullName>
+                    <default>false</default>
+                    <label>Brazil - Rio De Janeiro / Northeast</label>
+                </value>
+                <value>
+                    <fullName>Brazil - Sao Paulo / South</fullName>
+                    <default>false</default>
+                    <label>Brazil - Sao Paulo / South</label>
+                </value>
+                <value>
+                    <fullName>Canada - Alberta</fullName>
+                    <default>false</default>
+                    <label>Canada - Alberta</label>
+                </value>
+                <value>
+                    <fullName>Canada - British Columbia</fullName>
+                    <default>false</default>
+                    <label>Canada - British Columbia</label>
+                </value>
+                <value>
+                    <fullName>Canada - Manitoba</fullName>
+                    <default>false</default>
+                    <label>Canada - Manitoba</label>
+                </value>
+                <value>
+                    <fullName>Canada - Newfoundland and Labrador</fullName>
+                    <default>false</default>
+                    <label>Canada - Newfoundland and Labrador</label>
+                </value>
+                <value>
+                    <fullName>Canada - Northwest Territories</fullName>
+                    <default>false</default>
+                    <label>Canada - Northwest Territories</label>
+                </value>
+                <value>
+                    <fullName>Canada - Nova Scotia</fullName>
+                    <default>false</default>
+                    <label>Canada - Nova Scotia</label>
+                </value>
+                <value>
+                    <fullName>Canada - Nunavut</fullName>
+                    <default>false</default>
+                    <label>Canada - Nunavut</label>
+                </value>
+                <value>
+                    <fullName>Canada - Ontario</fullName>
+                    <default>false</default>
+                    <label>Canada - Ontario</label>
+                </value>
+                <value>
+                    <fullName>Canada - Prince Edward Island</fullName>
+                    <default>false</default>
+                    <label>Canada - Prince Edward Island</label>
+                </value>
+                <value>
+                    <fullName>Canada - Quebec</fullName>
+                    <default>false</default>
+                    <label>Canada - Quebec</label>
+                </value>
+                <value>
+                    <fullName>Canada - Saskatchewan</fullName>
+                    <default>false</default>
+                    <label>Canada - Saskatchewan</label>
+                </value>
+                <value>
+                    <fullName>Canada - Yukon</fullName>
+                    <default>false</default>
+                    <label>Canada - Yukon</label>
+                </value>
+                <value>
+                    <fullName>China - Beijing / North</fullName>
+                    <default>false</default>
+                    <label>China - Beijing / North</label>
+                </value>
+                <value>
+                    <fullName>China - Chengdu / West</fullName>
+                    <default>false</default>
+                    <label>China - Chengdu / West</label>
+                </value>
+                <value>
+                    <fullName>China - Guangzhou / South</fullName>
+                    <default>false</default>
+                    <label>China - Guangzhou / South</label>
+                </value>
+                <value>
+                    <fullName>China - Shanghai / East</fullName>
+                    <default>false</default>
+                    <label>China - Shanghai / East</label>
+                </value>
+                <value>
+                    <fullName>England - Birmingham / Central</fullName>
+                    <default>false</default>
+                    <label>England - Birmingham / Central</label>
+                </value>
+                <value>
+                    <fullName>England - Greater London</fullName>
+                    <default>false</default>
+                    <label>England - Greater London</label>
+                </value>
+                <value>
+                    <fullName>England - Manchester / North</fullName>
+                    <default>false</default>
+                    <label>England - Manchester / North</label>
+                </value>
+                <value>
+                    <fullName>England - Oxford / South</fullName>
+                    <default>false</default>
+                    <label>England - Oxford / South</label>
+                </value>
+                <value>
+                    <fullName>France - Greater Paris</fullName>
+                    <default>false</default>
+                    <label>France - Greater Paris</label>
+                </value>
+                <value>
+                    <fullName>France - Northeast</fullName>
+                    <default>false</default>
+                    <label>France - Northeast</label>
+                </value>
+                <value>
+                    <fullName>France - Northwest</fullName>
+                    <default>false</default>
+                    <label>France - Northwest</label>
+                </value>
+                <value>
+                    <fullName>France - Southeast</fullName>
+                    <default>false</default>
+                    <label>France - Southeast</label>
+                </value>
+                <value>
+                    <fullName>France - Southwest</fullName>
+                    <default>false</default>
+                    <label>France - Southwest</label>
+                </value>
+                <value>
+                    <fullName>Germany - Berlin / East</fullName>
+                    <default>false</default>
+                    <label>Germany - Berlin / East</label>
+                </value>
+                <value>
+                    <fullName>Germany - Frankfurt / West</fullName>
+                    <default>false</default>
+                    <label>Germany - Frankfurt / West</label>
+                </value>
+                <value>
+                    <fullName>Germany - Hamburg / North</fullName>
+                    <default>false</default>
+                    <label>Germany - Hamburg / North</label>
+                </value>
+                <value>
+                    <fullName>Germany - Munich / South</fullName>
+                    <default>false</default>
+                    <label>Germany - Munich / South</label>
+                </value>
+                <value>
+                    <fullName>India - Bengaluru / South</fullName>
+                    <default>false</default>
+                    <label>India - Bengaluru / South</label>
+                </value>
+                <value>
+                    <fullName>India - KolKata / East</fullName>
+                    <default>false</default>
+                    <label>India - KolKata / East</label>
+                </value>
+                <value>
+                    <fullName>India - Mumbai / West</fullName>
+                    <default>false</default>
+                    <label>India - Mumbai / West</label>
+                </value>
+                <value>
+                    <fullName>India - New Delhi / North</fullName>
+                    <default>false</default>
+                    <label>India - New Delhi / North</label>
+                </value>
+                <value>
+                    <fullName>Italy - Florence / Rome / Central</fullName>
+                    <default>false</default>
+                    <label>Italy - Florence / Rome / Central</label>
+                </value>
+                <value>
+                    <fullName>Italy - Milan / Northwest</fullName>
+                    <default>false</default>
+                    <label>Italy - Milan / Northwest</label>
+                </value>
+                <value>
+                    <fullName>Italy - Naples / South</fullName>
+                    <default>false</default>
+                    <label>Italy - Naples / South</label>
+                </value>
+                <value>
+                    <fullName>Italy - Sicily / Sardinia</fullName>
+                    <default>false</default>
+                    <label>Italy - Sicily / Sardinia</label>
+                </value>
+                <value>
+                    <fullName>Italy - Venice / Northeast</fullName>
+                    <default>false</default>
+                    <label>Italy - Venice / Northeast</label>
+                </value>
+                <value>
+                    <fullName>Japan - Osaka / South</fullName>
+                    <default>false</default>
+                    <label>Japan - Osaka / South</label>
+                </value>
+                <value>
+                    <fullName>Japan - Sapporo / North</fullName>
+                    <default>false</default>
+                    <label>Japan - Sapporo / North</label>
+                </value>
+                <value>
+                    <fullName>Japan - Tokyo / Central</fullName>
+                    <default>false</default>
+                    <label>Japan - Tokyo / Central</label>
+                </value>
+                <value>
+                    <fullName>Myanmar / Burma</fullName>
+                    <default>false</default>
+                    <label>Myanmar / Burma</label>
+                </value>
+                <value>
+                    <fullName>Scotland - Aberdeen / North</fullName>
+                    <default>false</default>
+                    <label>Scotland - Aberdeen / North</label>
+                </value>
+                <value>
+                    <fullName>Scotland - Edinburgh / Southeast</fullName>
+                    <default>false</default>
+                    <label>Scotland - Edinburgh / Southeast</label>
+                </value>
+                <value>
+                    <fullName>Scotland - Glasgow / Southwest</fullName>
+                    <default>false</default>
+                    <label>Scotland - Glasgow / Southwest</label>
+                </value>
+                <value>
+                    <fullName>South Africa - Cape Town / South</fullName>
+                    <default>false</default>
+                    <label>South Africa - Cape Town / South</label>
+                </value>
+                <value>
+                    <fullName>South Africa - Johannesburg / North</fullName>
+                    <default>false</default>
+                    <label>South Africa - Johannesburg / North</label>
+                </value>
+                <value>
+                    <fullName>Spain - Balearic Islands</fullName>
+                    <default>false</default>
+                    <label>Spain - Balearic Islands</label>
+                </value>
+                <value>
+                    <fullName>Spain - Barcelona / East</fullName>
+                    <default>false</default>
+                    <label>Spain - Barcelona / East</label>
+                </value>
+                <value>
+                    <fullName>Spain - Bilbao / West</fullName>
+                    <default>false</default>
+                    <label>Spain - Bilbao / West</label>
+                </value>
+                <value>
+                    <fullName>Spain - Canary Islands</fullName>
+                    <default>false</default>
+                    <label>Spain - Canary Islands</label>
+                </value>
+                <value>
+                    <fullName>Spain - Madrid / Central</fullName>
+                    <default>false</default>
+                    <label>Spain - Madrid / Central</label>
+                </value>
+                <value>
+                    <fullName>Spain - Seville / South</fullName>
+                    <default>false</default>
+                    <label>Spain - Seville / South</label>
+                </value>
+                <value>
+                    <fullName>Switzerland - Geneva / West</fullName>
+                    <default>false</default>
+                    <label>Switzerland - Geneva / West</label>
+                </value>
+                <value>
+                    <fullName>Switzerland - Zurich / East</fullName>
+                    <default>false</default>
+                    <label>Switzerland - Zurich / East</label>
+                </value>
+                <value>
+                    <fullName>Turkey - Antalya / South</fullName>
+                    <default>false</default>
+                    <label>Turkey - Antalya / South</label>
+                </value>
+                <value>
+                    <fullName>Turkey - Istanbul / North</fullName>
+                    <default>false</default>
+                    <label>Turkey - Istanbul / North</label>
+                </value>
+                <value>
+                    <fullName>UAE - Abu Dhabi</fullName>
+                    <default>false</default>
+                    <label>UAE - Abu Dhabi</label>
+                </value>
+                <value>
+                    <fullName>UAE - Al Ain</fullName>
+                    <default>false</default>
+                    <label>UAE - Al Ain</label>
+                </value>
+                <value>
+                    <fullName>UAE - Dubai</fullName>
+                    <default>false</default>
+                    <label>UAE - Dubai</label>
+                </value>
+                <value>
+                    <fullName>UAE - Sharjah</fullName>
+                    <default>false</default>
+                    <label>UAE - Sharjah</label>
+                </value>
+                <value>
+                    <fullName>USA - Alabama</fullName>
+                    <default>false</default>
+                    <label>USA - Alabama</label>
+                </value>
+                <value>
+                    <fullName>USA - Alaska</fullName>
+                    <default>false</default>
+                    <label>USA - Alaska</label>
+                </value>
+                <value>
+                    <fullName>USA - Arizona</fullName>
+                    <default>false</default>
+                    <label>USA - Arizona</label>
+                </value>
+                <value>
+                    <fullName>USA - Arkansas</fullName>
+                    <default>false</default>
+                    <label>USA - Arkansas</label>
+                </value>
+                <value>
+                    <fullName>USA - California</fullName>
+                    <default>false</default>
+                    <label>USA - California</label>
+                </value>
+                <value>
+                    <fullName>USA - Canada - New Brunswick</fullName>
+                    <default>false</default>
+                    <label>USA - Canada - New Brunswick</label>
+                </value>
+                <value>
+                    <fullName>USA - Colorado</fullName>
+                    <default>false</default>
+                    <label>USA - Colorado</label>
+                </value>
+                <value>
+                    <fullName>USA - Connecticut</fullName>
+                    <default>false</default>
+                    <label>USA - Connecticut</label>
+                </value>
+                <value>
+                    <fullName>USA - Delaware</fullName>
+                    <default>false</default>
+                    <label>USA - Delaware</label>
+                </value>
+                <value>
+                    <fullName>USA - Florida</fullName>
+                    <default>false</default>
+                    <label>USA - Florida</label>
+                </value>
+                <value>
+                    <fullName>USA - Georgia</fullName>
+                    <default>false</default>
+                    <label>USA - Georgia</label>
+                </value>
+                <value>
+                    <fullName>USA - Hawaii</fullName>
+                    <default>false</default>
+                    <label>USA - Hawaii</label>
+                </value>
+                <value>
+                    <fullName>USA - Idaho</fullName>
+                    <default>false</default>
+                    <label>USA - Idaho</label>
+                </value>
+                <value>
+                    <fullName>USA - Illinois</fullName>
+                    <default>false</default>
+                    <label>USA - Illinois</label>
+                </value>
+                <value>
+                    <fullName>USA - Indiana</fullName>
+                    <default>false</default>
+                    <label>USA - Indiana</label>
+                </value>
+                <value>
+                    <fullName>USA - Iowa</fullName>
+                    <default>false</default>
+                    <label>USA - Iowa</label>
+                </value>
+                <value>
+                    <fullName>USA - Kansas</fullName>
+                    <default>false</default>
+                    <label>USA - Kansas</label>
+                </value>
+                <value>
+                    <fullName>USA - Kentucky</fullName>
+                    <default>false</default>
+                    <label>USA - Kentucky</label>
+                </value>
+                <value>
+                    <fullName>USA - Louisiana</fullName>
+                    <default>false</default>
+                    <label>USA - Louisiana</label>
+                </value>
+                <value>
+                    <fullName>USA - Maine</fullName>
+                    <default>false</default>
+                    <label>USA - Maine</label>
+                </value>
+                <value>
+                    <fullName>USA - Maryland</fullName>
+                    <default>false</default>
+                    <label>USA - Maryland</label>
+                </value>
+                <value>
+                    <fullName>USA - Massachusetts</fullName>
+                    <default>false</default>
+                    <label>USA - Massachusetts</label>
+                </value>
+                <value>
+                    <fullName>USA - Michigan</fullName>
+                    <default>false</default>
+                    <label>USA - Michigan</label>
+                </value>
+                <value>
+                    <fullName>USA - Minnesota</fullName>
+                    <default>false</default>
+                    <label>USA - Minnesota</label>
+                </value>
+                <value>
+                    <fullName>USA - Mississippi</fullName>
+                    <default>false</default>
+                    <label>USA - Mississippi</label>
+                </value>
+                <value>
+                    <fullName>USA - Missouri</fullName>
+                    <default>false</default>
+                    <label>USA - Missouri</label>
+                </value>
+                <value>
+                    <fullName>USA - Montana</fullName>
+                    <default>false</default>
+                    <label>USA - Montana</label>
+                </value>
+                <value>
+                    <fullName>USA - Nebraska</fullName>
+                    <default>false</default>
+                    <label>USA - Nebraska</label>
+                </value>
+                <value>
+                    <fullName>USA - Nevada</fullName>
+                    <default>false</default>
+                    <label>USA - Nevada</label>
+                </value>
+                <value>
+                    <fullName>USA - New Hampshire</fullName>
+                    <default>false</default>
+                    <label>USA - New Hampshire</label>
+                </value>
+                <value>
+                    <fullName>USA - New Jersey</fullName>
+                    <default>false</default>
+                    <label>USA - New Jersey</label>
+                </value>
+                <value>
+                    <fullName>USA - New Mexico</fullName>
+                    <default>false</default>
+                    <label>USA - New Mexico</label>
+                </value>
+                <value>
+                    <fullName>USA - New York</fullName>
+                    <default>false</default>
+                    <label>USA - New York</label>
+                </value>
+                <value>
+                    <fullName>USA - North Carolina</fullName>
+                    <default>false</default>
+                    <label>USA - North Carolina</label>
+                </value>
+                <value>
+                    <fullName>USA - North Dakota</fullName>
+                    <default>false</default>
+                    <label>USA - North Dakota</label>
+                </value>
+                <value>
+                    <fullName>USA - Ohio</fullName>
+                    <default>false</default>
+                    <label>USA - Ohio</label>
+                </value>
+                <value>
+                    <fullName>USA - Oklahoma</fullName>
+                    <default>false</default>
+                    <label>USA - Oklahoma</label>
+                </value>
+                <value>
+                    <fullName>USA - Oregon</fullName>
+                    <default>false</default>
+                    <label>USA - Oregon</label>
+                </value>
+                <value>
+                    <fullName>USA - Pennsylvania</fullName>
+                    <default>false</default>
+                    <label>USA - Pennsylvania</label>
+                </value>
+                <value>
+                    <fullName>USA - South Carolina</fullName>
+                    <default>false</default>
+                    <label>USA - South Carolina</label>
+                </value>
+                <value>
+                    <fullName>USA - South Dakota</fullName>
+                    <default>false</default>
+                    <label>USA - South Dakota</label>
+                </value>
+                <value>
+                    <fullName>USA - Tennessee</fullName>
+                    <default>false</default>
+                    <label>USA - Tennessee</label>
+                </value>
+                <value>
+                    <fullName>USA - Texas</fullName>
+                    <default>false</default>
+                    <label>USA - Texas</label>
+                </value>
+                <value>
+                    <fullName>USA - Utah</fullName>
+                    <default>false</default>
+                    <label>USA - Utah</label>
+                </value>
+                <value>
+                    <fullName>USA - Vermont</fullName>
+                    <default>false</default>
+                    <label>USA - Vermont</label>
+                </value>
+                <value>
+                    <fullName>USA - Virginia</fullName>
+                    <default>false</default>
+                    <label>USA - Virginia</label>
+                </value>
+                <value>
+                    <fullName>USA - Washington</fullName>
+                    <default>false</default>
+                    <label>USA - Washington</label>
+                </value>
+                <value>
+                    <fullName>USA - West Virginia</fullName>
+                    <default>false</default>
+                    <label>USA - West Virginia</label>
+                </value>
+                <value>
+                    <fullName>USA - Wisconsin</fullName>
+                    <default>false</default>
+                    <label>USA - Wisconsin</label>
+                </value>
+                <value>
+                    <fullName>USA - Wyoming</fullName>
+                    <default>false</default>
+                    <label>USA - Wyoming</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pickup_Venue_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Venue Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pickup_Zip_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Pickup Zip Code</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Manager</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Onsite Hardware Requests</relationshipLabel>
+        <relationshipName>Onsite_Hardware_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shipment_Handled_by_the_Client__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered by the PM.
+If the client will be arranging the delivery of this request, please check this.</inlineHelpText>
+        <label>Shipment Handled by the Client</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>State_Province_Country_Sub_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Requested</fullName>
+                    <default>true</default>
+                    <label>Requested</label>
+                </value>
+                <value>
+                    <fullName>Finalized</fullName>
+                    <default>false</default>
+                    <label>Finalized</label>
+                </value>
+                <value>
+                    <fullName>Being Packed</fullName>
+                    <default>false</default>
+                    <label>Being Packed</label>
+                </value>
+                <value>
+                    <fullName>Shipped</fullName>
+                    <default>false</default>
+                    <label>Shipped</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Venue_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Venue Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Onsite Hardware Request</label>
+    <nameField>
+        <displayFormat>OHR - {0}</displayFormat>
+        <label>Onsite Hardware Request Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Onsite Hardware Requests</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Event_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_Current_Shipment_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Name__c</columns>
+        <columns>Date_Current_Shipment_Date__c</columns>
+        <columns>Date_Estimated_Shipment_Date__c</columns>
+        <columns>City__c</columns>
+        <columns>State__c</columns>
+        <columns>Country__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Logistics_All</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Name__c</columns>
+        <columns>Date_Current_Shipment_Date__c</columns>
+        <columns>City__c</columns>
+        <columns>State__c</columns>
+        <columns>Country__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Date_Current_Request_Freeze_Date__c</field>
+            <operation>equals</operation>
+            <value>NEXT_N_MONTHS:4</value>
+        </filters>
+        <label>Logistics - Packlist to be Created</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Logistics_Packlist_to_be_Reviewed</fullName>
+        <columns>NAME</columns>
+        <columns>Event_Name__c</columns>
+        <columns>Date_Current_Shipment_Date__c</columns>
+        <columns>Date_Estimated_Shipment_Date__c</columns>
+        <columns>City__c</columns>
+        <columns>State__c</columns>
+        <columns>Country__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>Logistics - Packlist to be Reviewed</label>
+        <language>en_US</language>
+    </listViews>
+    <webLinks>
+        <fullName>Add_Items</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Add Items</masterLabel>
+        <openType>noSidebar</openType>
+        <page>CAM_OnsiteHardwareRequestForm</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

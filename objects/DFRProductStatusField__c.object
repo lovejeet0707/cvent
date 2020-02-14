@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Contact_Status_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Status Field</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Status_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Status Field</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <description>Fields to monitor for changes on the Lead/Contact records related to different products.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>DFR Product Status Field</label>
+    <visibility>Public</visibility>
+</CustomObject>

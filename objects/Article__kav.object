@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Additional_Product_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Product Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>StarCite Attendee Mgmt (Registration)</fullName>
+                    <default>false</default>
+                    <label>StarCite Attendee Mgmt (Registration)</label>
+                </value>
+                <value>
+                    <fullName>StarCite Business Intelligence Reporting</fullName>
+                    <default>false</default>
+                    <label>StarCite Business Intelligence Reporting</label>
+                </value>
+                <value>
+                    <fullName>StarCite MarketView</fullName>
+                    <default>false</default>
+                    <label>StarCite MarketView</label>
+                </value>
+                <value>
+                    <fullName>StarCite Mobile NSO</fullName>
+                    <default>false</default>
+                    <label>StarCite Mobile NSO</label>
+                </value>
+                <value>
+                    <fullName>StarCite MPoint/Private Label</fullName>
+                    <default>false</default>
+                    <label>StarCite MPoint/Private Label</label>
+                </value>
+                <value>
+                    <fullName>StarCite Small Mtg Solution</fullName>
+                    <default>false</default>
+                    <label>StarCite Small Mtg Solution</label>
+                </value>
+                <value>
+                    <fullName>StarCite Spend Mgmt (Planning)</fullName>
+                    <default>false</default>
+                    <label>StarCite Spend Mgmt (Planning)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Agency__c</fullName>
+        <externalId>false</externalId>
+        <label>Agency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>California State Parks</fullName>
+                    <default>false</default>
+                    <label>California State Parks</label>
+                </value>
+                <value>
+                    <fullName>Colorado State Parks</fullName>
+                    <default>false</default>
+                    <label>Colorado State Parks</label>
+                </value>
+                <value>
+                    <fullName>Connecticut State Parks</fullName>
+                    <default>false</default>
+                    <label>Connecticut State Parks</label>
+                </value>
+                <value>
+                    <fullName>Delaware State Parks</fullName>
+                    <default>false</default>
+                    <label>Delaware State Parks</label>
+                </value>
+                <value>
+                    <fullName>East Bay Regional Parks</fullName>
+                    <default>false</default>
+                    <label>East Bay Regional Parks</label>
+                </value>
+                <value>
+                    <fullName>Encore/ELS</fullName>
+                    <default>false</default>
+                    <label>Encore/ELS</label>
+                </value>
+                <value>
+                    <fullName>Florida State Parks</fullName>
+                    <default>false</default>
+                    <label>Florida State Parks</label>
+                </value>
+                <value>
+                    <fullName>Forest Service Campgrounds</fullName>
+                    <default>false</default>
+                    <label>Forest Service Campgrounds</label>
+                </value>
+                <value>
+                    <fullName>Georgia State Parks</fullName>
+                    <default>false</default>
+                    <label>Georgia State Parks</label>
+                </value>
+                <value>
+                    <fullName>Hearst Castle</fullName>
+                    <default>false</default>
+                    <label>Hearst Castle</label>
+                </value>
+                <value>
+                    <fullName>Idaho Department of Parks and Recreation</fullName>
+                    <default>false</default>
+                    <label>Idaho Department of Parks and Recreation</label>
+                </value>
+                <value>
+                    <fullName>Illinois State Parks</fullName>
+                    <default>false</default>
+                    <label>Illinois State Parks</label>
+                </value>
+                <value>
+                    <fullName>Indiana Department of Natural Resources</fullName>
+                    <default>false</default>
+                    <label>Indiana Department of Natural Resources</label>
+                </value>
+                <value>
+                    <fullName>Iowa State Parks</fullName>
+                    <default>false</default>
+                    <label>Iowa State Parks</label>
+                </value>
+                <value>
+                    <fullName>Kansas Department of Wildlife, Parks and Tourism</fullName>
+                    <default>false</default>
+                    <label>Kansas Department of Wildlife, Parks and Tourism</label>
+                </value>
+                <value>
+                    <fullName>Kentucky State Parks</fullName>
+                    <default>false</default>
+                    <label>Kentucky State Parks</label>
+                </value>
+                <value>
+                    <fullName>KOA Parks</fullName>
+                    <default>false</default>
+                    <label>KOA Parks</label>
+                </value>
+                <value>
+                    <fullName>Larimer County</fullName>
+                    <default>false</default>
+                    <label>Larimer County</label>
+                </value>
+                <value>
+                    <fullName>Louisiana State Parks</fullName>
+                    <default>false</default>
+                    <label>Louisiana State Parks</label>
+                </value>
+                <value>
+                    <fullName>Lower Colorado River Authority Parks</fullName>
+                    <default>false</default>
+                    <label>Lower Colorado River Authority Parks</label>
+                </value>
+                <value>
+                    <fullName>Maryland Department of Natural Resources</fullName>
+                    <default>false</default>
+                    <label>Maryland Department of Natural Resources</label>
+                </value>
+                <value>
+                    <fullName>Massachusetts State Parks</fullName>
+                    <default>false</default>
+                    <label>Massachusetts State Parks</label>
+                </value>
+                <value>
+                    <fullName>Mississippi State Parks</fullName>
+                    <default>false</default>
+                    <label>Mississippi State Parks</label>
+                </value>
+                <value>
+                    <fullName>Montana State Parks</fullName>
+                    <default>false</default>
+                    <label>Montana State Parks</label>
+                </value>
+                <value>
+                    <fullName>Monterey County Parks</fullName>
+                    <default>false</default>
+                    <label>Monterey County Parks</label>
+                </value>
+                <value>
+                    <fullName>Morgan RV Resorts</fullName>
+                    <default>false</default>
+                    <label>Morgan RV Resorts</label>
+                </value>
+                <value>
+                    <fullName>National Park Service</fullName>
+                    <default>false</default>
+                    <label>National Park Service</label>
+                </value>
+                <value>
+                    <fullName>Nebraska Game and Parks Commission</fullName>
+                    <default>false</default>
+                    <label>Nebraska Game and Parks Commission</label>
+                </value>
+                <value>
+                    <fullName>New Hampshire Division of Parks and Recreation</fullName>
+                    <default>false</default>
+                    <label>New Hampshire Division of Parks and Recreation</label>
+                </value>
+                <value>
+                    <fullName>New Jersey Division of Parks and Forestry</fullName>
+                    <default>false</default>
+                    <label>New Jersey Division of Parks and Forestry</label>
+                </value>
+                <value>
+                    <fullName>New Mexico State Parks</fullName>
+                    <default>false</default>
+                    <label>New Mexico State Parks</label>
+                </value>
+                <value>
+                    <fullName>New York State Parks</fullName>
+                    <default>false</default>
+                    <label>New York State Parks</label>
+                </value>
+                <value>
+                    <fullName>North Carolina State Parks</fullName>
+                    <default>false</default>
+                    <label>North Carolina State Parks</label>
+                </value>
+                <value>
+                    <fullName>Oconee County Parks (South Carolina)</fullName>
+                    <default>false</default>
+                    <label>Oconee County Parks (South Carolina)</label>
+                </value>
+                <value>
+                    <fullName>OC Parks</fullName>
+                    <default>false</default>
+                    <label>OC Parks</label>
+                </value>
+                <value>
+                    <fullName>Ohio State Parks</fullName>
+                    <default>false</default>
+                    <label>Ohio State Parks</label>
+                </value>
+                <value>
+                    <fullName>Oregon State Parks</fullName>
+                    <default>false</default>
+                    <label>Oregon State Parks</label>
+                </value>
+                <value>
+                    <fullName>Pennsylvania State Parks</fullName>
+                    <default>false</default>
+                    <label>Pennsylvania State Parks</label>
+                </value>
+                <value>
+                    <fullName>Rhode Island State Parks</fullName>
+                    <default>false</default>
+                    <label>Rhode Island State Parks</label>
+                </value>
+                <value>
+                    <fullName>Santa Catalina Island Resort Services</fullName>
+                    <default>false</default>
+                    <label>Santa Catalina Island Resort Services</label>
+                </value>
+                <value>
+                    <fullName>Snohomish County Parks &amp; Recreation</fullName>
+                    <default>false</default>
+                    <label>Snohomish County Parks &amp; Recreation</label>
+                </value>
+                <value>
+                    <fullName>South Carolina State Parks</fullName>
+                    <default>false</default>
+                    <label>South Carolina State Parks</label>
+                </value>
+                <value>
+                    <fullName>Thousand Trails</fullName>
+                    <default>false</default>
+                    <label>Thousand Trails</label>
+                </value>
+                <value>
+                    <fullName>Utah State Parks</fullName>
+                    <default>false</default>
+                    <label>Utah State Parks</label>
+                </value>
+                <value>
+                    <fullName>Virginia State Parks</fullName>
+                    <default>false</default>
+                    <label>Virginia State Parks</label>
+                </value>
+                <value>
+                    <fullName>Wisconsin State Parks</fullName>
+                    <default>false</default>
+                    <label>Wisconsin State Parks</label>
+                </value>
+                <value>
+                    <fullName>California Wildlife</fullName>
+                    <default>false</default>
+                    <label>California Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Idaho Wildlife</fullName>
+                    <default>false</default>
+                    <label>Idaho Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Iowa Wildlife</fullName>
+                    <default>false</default>
+                    <label>Iowa Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Kansas Wildlife</fullName>
+                    <default>false</default>
+                    <label>Kansas Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Louisiana Wildlife</fullName>
+                    <default>false</default>
+                    <label>Louisiana Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Minnesota Wildlife</fullName>
+                    <default>false</default>
+                    <label>Minnesota Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Missouri Wildlife</fullName>
+                    <default>false</default>
+                    <label>Missouri Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Ohio Wildlife</fullName>
+                    <default>false</default>
+                    <label>Ohio Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Tennessee Wildlife</fullName>
+                    <default>false</default>
+                    <label>Tennessee Wildlife</label>
+                </value>
+                <value>
+                    <fullName>Wisconsin Wildlife</fullName>
+                    <default>false</default>
+                    <label>Wisconsin Wildlife</label>
+                </value>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                    <label>All</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Attachment2__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment3__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Chat_Answer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this during Chat sessions to send users to ACTIVE KB resources associated with this Article. Clicking the "+" icon next to the article in the Console populates the Chat Answer within the actual chat window. *Please add the "http://" prefix for links.*</inlineHelpText>
+        <label>Chat Answer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Issue</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Keywords__c</fullName>
+        <externalId>false</externalId>
+        <label>Keywords</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LegacyId2__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Id 2</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ArticleId__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source ArticleId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_Article_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source Article No</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Source_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Legacy Source ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Original_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Original_Created_Date_x__c</formula>
+        <label>Original Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Original_Created_Date_x__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <description>This field will store the original article creation date.</description>
+        <externalId>false</externalId>
+        <label>Original Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PageVersionDate__c</fullName>
+        <description>Legacy field for Page Version Date from the old knowledge base.</description>
+        <externalId>false</externalId>
+        <label>PageVersionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family_for_Approval_Routing_Only__c</fullName>
+        <description>Used for approval routing workflow only. Does not categorize article in the Knowledge base.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for approval routing workflow only. Does not categorize article in the Knowledge base.</inlineHelpText>
+        <label>Product Family for Approval Routing Only</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACM</fullName>
+                    <default>false</default>
+                    <label>ACM</label>
+                </value>
+                <value>
+                    <fullName>ACR</fullName>
+                    <default>false</default>
+                    <label>ACR</label>
+                </value>
+                <value>
+                    <fullName>ACTIVE Net</fullName>
+                    <default>false</default>
+                    <label>ACTIVE Net</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Camps</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Camps</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Endurance</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Endurance</label>
+                </value>
+                <value>
+                    <fullName>ActiveWorks-Swim</fullName>
+                    <default>false</default>
+                    <label>ActiveWorks-Swim</label>
+                </value>
+                <value>
+                    <fullName>Blue Bear</fullName>
+                    <default>false</default>
+                    <label>Blue Bear</label>
+                </value>
+                <value>
+                    <fullName>Class</fullName>
+                    <default>false</default>
+                    <label>Class</label>
+                </value>
+                <value>
+                    <fullName>Clubspaces</fullName>
+                    <default>false</default>
+                    <label>Clubspaces</label>
+                </value>
+                <value>
+                    <fullName>Connection Power</fullName>
+                    <default>false</default>
+                    <label>Connection Power</label>
+                </value>
+                <value>
+                    <fullName>eteamz</fullName>
+                    <default>false</default>
+                    <label>eteamz</label>
+                </value>
+                <value>
+                    <fullName>Fairway</fullName>
+                    <default>false</default>
+                    <label>Fairway</label>
+                </value>
+                <value>
+                    <fullName>FellowshipOne</fullName>
+                    <default>false</default>
+                    <label>FellowshipOne</label>
+                </value>
+                <value>
+                    <fullName>Gen</fullName>
+                    <default>false</default>
+                    <label>Gen</label>
+                </value>
+                <value>
+                    <fullName>Jencess</fullName>
+                    <default>false</default>
+                    <label>Jencess</label>
+                </value>
+                <value>
+                    <fullName>LeagueOne</fullName>
+                    <default>false</default>
+                    <label>LeagueOne</label>
+                </value>
+                <value>
+                    <fullName>LeagueOne - Tournament Builder</fullName>
+                    <default>false</default>
+                    <label>LeagueOne - Tournament Builder</label>
+                </value>
+                <value>
+                    <fullName>LibOnline</fullName>
+                    <default>false</default>
+                    <label>LibOnline</label>
+                </value>
+                <value>
+                    <fullName>OpenBook</fullName>
+                    <default>false</default>
+                    <label>OpenBook</label>
+                </value>
+                <value>
+                    <fullName>Open Course</fullName>
+                    <default>false</default>
+                    <label>Open Course</label>
+                </value>
+                <value>
+                    <fullName>Payment Manager</fullName>
+                    <default>false</default>
+                    <label>Payment Manager</label>
+                </value>
+                <value>
+                    <fullName>Payment Server</fullName>
+                    <default>false</default>
+                    <label>Payment Server</label>
+                </value>
+                <value>
+                    <fullName>RegCenter</fullName>
+                    <default>false</default>
+                    <label>RegCenter</label>
+                </value>
+                <value>
+                    <fullName>RegOnline</fullName>
+                    <default>false</default>
+                    <label>RegOnline</label>
+                </value>
+                <value>
+                    <fullName>RTP</fullName>
+                    <default>false</default>
+                    <label>RTP</label>
+                </value>
+                <value>
+                    <fullName>Safari</fullName>
+                    <default>false</default>
+                    <label>Safari</label>
+                </value>
+                <value>
+                    <fullName>ServiceU</fullName>
+                    <default>false</default>
+                    <label>ServiceU</label>
+                </value>
+                <value>
+                    <fullName>StarCite</fullName>
+                    <default>false</default>
+                    <label>StarCite</label>
+                </value>
+                <value>
+                    <fullName>StarCite Supplier</fullName>
+                    <default>false</default>
+                    <label>StarCite Supplier</label>
+                </value>
+                <value>
+                    <fullName>Thriva</fullName>
+                    <default>false</default>
+                    <label>Thriva</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Version__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable provide product version number. Not required.</inlineHelpText>
+        <label>Product Version</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>General Information</fullName>
+                    <default>false</default>
+                    <label>General Information</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Group</fullName>
+                    <default>false</default>
+                    <label>Lanyon Group</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Attendee Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Attendee Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Business Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Business Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-New Registration</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-New Registration</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Simple Meetings</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Simple Meetings</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Meetings-Spend Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Meetings-Spend Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Mobile</fullName>
+                    <default>false</default>
+                    <label>Lanyon Mobile</label>
+                </value>
+                <value>
+                    <fullName>Lanyon MPoint</fullName>
+                    <default>false</default>
+                    <label>Lanyon MPoint</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Venues</fullName>
+                    <default>false</default>
+                    <label>Lanyon Venues</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Passkey</fullName>
+                    <default>false</default>
+                    <label>Lanyon Passkey</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Channel Publisher</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Channel Publisher</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-GDS Access</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-GDS Access</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-HODPublisher</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-HODPublisher</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Market Leads</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Market Leads</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-Marketplace Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-Marketplace Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Transient-RFP Management</fullName>
+                    <default>false</default>
+                    <label>Lanyon Transient-RFP Management</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Engagements &amp; Projects</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Engagements &amp; Projects</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Hotel Directory</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Hotel Directory</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Market Leads</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Market Leads</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Marketplace Intelligence</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Marketplace Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Reverse Auction</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Reverse Auction</label>
+                </value>
+                <value>
+                    <fullName>Lanyon Travel-Transient Sourcing</fullName>
+                    <default>false</default>
+                    <label>Lanyon Travel-Transient Sourcing</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Rate Audit</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Rate Audit</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Rate Availability</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Rate Availability</label>
+                </value>
+                <value>
+                    <fullName>Rate Integrity-Reverse Audit</fullName>
+                    <default>false</default>
+                    <label>Rate Integrity-Reverse Audit</label>
+                </value>
+                <value>
+                    <fullName>RegOnline by Lanyon</fullName>
+                    <default>false</default>
+                    <label>RegOnline by Lanyon</label>
+                </value>
+                <value>
+                    <fullName>RegOnline Classic by Lanyon</fullName>
+                    <default>false</default>
+                    <label>RegOnline Classic by Lanyon</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question__c</fullName>
+        <externalId>false</externalId>
+        <label>Question</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Related</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Review_Date__c</fullName>
+        <defaultValue>NOW () + 366</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Suggested review date</inlineHelpText>
+        <label>Review Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Solution_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <type>Html</type>
+        <visibleLines>35</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Topic__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Copy Summary information into Topic field</inlineHelpText>
+        <label>Topic</label>
+        <length>1000</length>
+        <trackHistory>true</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <page>cs_ArticlesView</page>
+            <template>Page</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <page>cs_ArticlesView</page>
+            <template>Page</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Lanyon Article type</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <label>Articles (Lanyon)</label>
+    <pluralLabel>Articles(Lanyon)</pluralLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

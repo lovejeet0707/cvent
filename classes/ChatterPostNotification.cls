@@ -85,7 +85,7 @@ public class ChatterPostNotification
         }
         
         Map<Id,List<Id>> mapOfAccountIdVsUserIds = new Map<Id,List<Id>>();
-        for(AccountTeamMember atm: [select id,UserId,AccountId,TeamMemberRole FROM AccountTeamMember where AccountId IN :accounts AND (TeamMemberRole = 'Strategic Account Consultant' OR TeamMemberRole = 'CS - Event')])
+        for(AccountTeamMember atm: [select id,UserId,AccountId,TeamMemberRole FROM AccountTeamMember where AccountId IN :accounts AND (TeamMemberRole = 'Client Success Manager' OR TeamMemberRole = 'CS - Event')])
         {
             if(mapOfAccountIdVsUserIds.containsKey(atm.AccountId))
             {

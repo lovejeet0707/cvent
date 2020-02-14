@@ -37,8 +37,6 @@ global without sharing class CventMyd_AutoRenewContractSchedulable implements Sc
         public Integer statusChecksPerQuote;
 
         public Time timeToStartRenewalJob; 
-        
-        public List<Id> excludeContractIds;
 
     }
 
