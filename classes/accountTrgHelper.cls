@@ -283,10 +283,11 @@ public class accountTrgHelper{
                 accObj.addError(errorEBSMessage);
             else if(String.IsNotBlank(accObj.Creation_Source_System_External_ID__c))
                 accObj.addError(errorROLMessage);
-                
-         if(accObj.ST_Migrated_ID__c != null && MethodIsActive == True){
+
+        //Removed field for JIRA Ticket # TICCM-1294    -- Modified by Nishant Goswami   
+         /* if(accObj.ST_Migrated_ID__c != null && MethodIsActive == True){
             accObj.addError('ST Migrated Account Cannot be Deleted');
-         }  
+         }   */
         }
         //............ENDS HERE.............................
          
@@ -501,7 +502,7 @@ public class accountTrgHelper{
                 //for(Account instOfAcc : lstOfAcc )
                     if(setAccstatusId.contains(Accts.id)){
                         if(AccountValidationByPass__c.getInstance(UserInfo.getUserId()).Name==null &&  profileName!='System Administrator' && !mapIdId.containsKey(String.valueOf(UserInfo.getUserId()))){
-                            Accts.addError('Error: You cannot Delete/Merge a Client Account, Please create FCS case for assistance');
+                            Accts.addError('Error: You cannot Delete/Merge a Client Account , Please contact Contract\'/s Team/Paras Bhateja for assistance.');
                         }
                     }
                 //}s

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Country_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ISO__c</fullName>
+        <externalId>false</externalId>
+        <label>ISO</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <label>ISOSetting</label>
+    <visibility>Public</visibility>
+    <listViews>
+        <fullName>All_Fields</fullName>
+        <columns>NAME</columns>
+        <columns>ISO__c</columns>
+        <columns>Country_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Fields</label>
+        <language>en_US</language>
+    </listViews>
+</CustomObject>
